@@ -1,0 +1,11 @@
+﻿{
+	"Name": "MilkVillagers",
+	"Author": "Trunip190",
+	"Version": "0.1.1",
+	"Description": "Adds new objects",
+	"UniqueID": "Trunip190.JA.MilkVillagers",
+	"UpdateKeys": ["Nexus:5948"],
+	"ContentPackFor": {
+		"UniqueID": "spacechase0.JsonAssets",
+	},
+}

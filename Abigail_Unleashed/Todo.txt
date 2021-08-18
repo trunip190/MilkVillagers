@@ -1,0 +1,10 @@
+﻿todo
+	add cum icons
+	change character sprite/portrait during the milking
+	cooking recipes
+
+done
+	option to make milk stack - done
+	Add toggle option for both genders. - done
+	remove child milking - done
+	milk male villagers - done
