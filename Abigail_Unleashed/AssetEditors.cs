@@ -201,10 +201,10 @@ namespace MilkVillagers
             }
 
             // Guys
-            if (asset.AssetNameEquals("Characters/Dialogue/Alex"))
+            if (asset.AssetNameEquals("Characters/Dialogue/Alex"))  
             {
                 data = (asset.AsDictionary<string, string>()).Data;
-                data["milk_start"] = $" [{TempRefs.MilkAlex}]";
+                data["milk_start"] = $"You think I'm hot? Well, I think you're really hot too, and if you want to take this further I'm sure we can find somewhere 'quiet' for a bit#$b#*He pulls you aside and unzips his pants as you drop to your knees. His dick is already rising, and he guides you with his hand on the back of your head.*#$b#*He cums rather quickly, and sags backwards as you fill your bottle with his semen, buttong up his pants and giving you a half dazed smile* [{TempRefs.MilkAlex}]";
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Clint"))
             {

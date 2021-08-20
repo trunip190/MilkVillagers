@@ -52,7 +52,7 @@ namespace MilkVillagers
             helper.Events.GameLoop.DayStarted += new EventHandler<DayStartedEventArgs>(GameLoop_DayStarted);
             helper.Events.GameLoop.GameLaunched += new EventHandler<GameLaunchedEventArgs>(OnGameLaunched);
             helper.Events.GameLoop.SaveLoaded += new EventHandler<SaveLoadedEventArgs>(GameLoop_SaveLoaded);
-                        
+
             //helper.Events.Player.Warped += (new EventHandler<WarpedEventArgs>(Player_Warped));
         }
 
@@ -136,7 +136,7 @@ namespace MilkVillagers
                 optionDesc: "Enable Abiail's dialogue changes?",
                 optionGet: () => this.Config.ExtraDialogue,
                 optionSet: value => this.Config.ExtraDialogue = value
-            );            
+            );
             #endregion
 
             Helper.Content.AssetEditors.Add(_itemEditor);
@@ -181,6 +181,7 @@ namespace MilkVillagers
                 string[] strArray = keyValuePair.Value.Split('/');
                 switch (strArray[0])
                 {
+                    #region girls
                     case "Abigail's Milk":
                         TempRefs.MilkAbig = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkAbig}", Defcon);
@@ -258,10 +259,139 @@ namespace MilkVillagers
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSand}", Defcon);
                         ++num2;
                         continue;
+                    #endregion
+
+                    #region guys
+                    case "Alex's Cum":
+                        TempRefs.MilkAlex = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkAlex}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Clint's Cum":
+                        TempRefs.MilkClint = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkClint }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Demetrius's Cum":
+                        TempRefs.MilkDemetrius = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkDemetrius }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Elliott's Cum":
+                        TempRefs.MilkElliott = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkElliott }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "George's Cum":
+                        TempRefs.MilkGeorge = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGeorge}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Gil's Cum":
+                        TempRefs.MilkGil = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGil }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Gunther's Cum":
+                        TempRefs.MilkGunther = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGunther }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Gus's Cum":
+                        TempRefs.MilkGus = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGus }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Harvey's Cum":
+                        TempRefs.MilkHarv = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkHarv}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Kent's Cum":
+                        TempRefs.MilkKent = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkKent}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Lewis's Cum":
+                        TempRefs.MilkLewis = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkLewis }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Linus's Cum":
+                        TempRefs.MilkLinus = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkLinus }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Marlon's Cum":
+                        TempRefs.MilkMarlon = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMarlon}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Morris's Cum":
+                        TempRefs.MilkMorris = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMorris}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Mr. Qi's Cum":
+                        TempRefs.MilkQi = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkQi}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Pierre's Cum":
+                        TempRefs.MilkPierre = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkPierre}", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Sam's Cum":
+                        TempRefs.MilkSam = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSam }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Sebastian's Cum":
+                        TempRefs.MilkSeb = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSeb }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Shane's Cum":
+                        TempRefs.MilkShane = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkShane }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Willy's Cum":
+                        TempRefs.MilkWilly = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkWilly }", Defcon);
+                        ++num2;
+                        continue;
+
+                    case "Wizard's Cum":
+                        TempRefs.MilkWiz = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkWiz }", Defcon);
+                        ++num2;
+                        continue;
+                    #endregion
 
                     case "Milk":
                         TempRefs.MilkGeneric = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added as default. {TempRefs.MilkGeneric}", LogLevel.Trace);
+                        Monitor.Log($"{strArray[0]} added as default. {TempRefs.MilkGeneric}", Defcon);
                         continue;
 
                     case "Special Milk":
@@ -271,18 +401,18 @@ namespace MilkVillagers
 
                     case "Protein Shake":
                         TempRefs.ProteinShake = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.ProteinShake}", LogLevel.Trace);
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.ProteinShake}", Defcon);
                         continue;
 
                     case "Milkshake":
                         TempRefs.MilkShake = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkShake}", LogLevel.Trace);
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkShake}", Defcon);
                         continue;
 
                     default:
                         if (strArray[0].ToLower().Contains("milk"))
                         {
-                            Monitor.Log($"{strArray[0]} wasn't added.", LogLevel.Alert);
+                            Monitor.Log($"{strArray[0]} wasn't added.", Defcon);
                         }
                         continue;
                 }
