@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Xml.Serialization;
-using MilkVillagers;
 using GenericModConfigMenu;
 using Microsoft.Xna.Framework.Graphics;
 using Netcode;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
-using StardewValley.Buildings;
-using StardewValley.Locations;
-using StardewValley.Objects;
 
 namespace MilkVillagers
 {
@@ -20,10 +15,12 @@ namespace MilkVillagers
         private int[] target;
         private bool running;
         private bool runOnce;
+        private RecipeEditor _recipeEditor;
         private DialogueEditor _dialogueEditor;
         private ItemEditor _itemEditor;
         private QuestEditor _questEditor;
-        private ModConfig _config;
+        private ModConfig Config;
+        //private ModConfig Config;
 
         private int[] FarmerPos
         {
@@ -37,23 +34,10 @@ namespace MilkVillagers
             }
         }
 
-        //public virtual void Entry(IModHelper helper)
-        //{
-        //    this._config = (ModConfig)helper.ReadConfig<ModConfig>();
-        //    this._dialogueEditor = new DialogueEditor();
-        //    this._itemEditor = new ItemEditor();
-        //    this._questEditor = new QuestEditor();
-        //    TempRefs.Helper = helper;
-        //    helper.Events.Input.ButtonPressed += new EventHandler<ButtonPressedEventArgs>(this.OnButtonPressed);
-        //    helper.Events.GameLoop.DayStarted += new EventHandler<DayStartedEventArgs>(this.GameLoop_DayStarted);
-        //    helper.Events.GameLoop.GameLaunched += new EventHandler<GameLaunchedEventArgs>(this.OnGameLaunched);
-        //    helper.Events.GameLoop.SaveLoaded += new EventHandler<SaveLoadedEventArgs>(this.GameLoop_SaveLoaded);
-        //    helper.Events.Player.Warped += (new EventHandler<WarpedEventArgs>(this.Player_Warped));
-        //}
-
         public override void Entry(IModHelper helper)
         {
-            _config = helper.ReadConfig<ModConfig>();
+            Config = helper.ReadConfig<ModConfig>();
+            _recipeEditor = new RecipeEditor();
             _dialogueEditor = new DialogueEditor();
             _itemEditor = new ItemEditor();
             _questEditor = new QuestEditor();
@@ -69,9 +53,12 @@ namespace MilkVillagers
             helper.Events.GameLoop.DayStarted += new EventHandler<DayStartedEventArgs>(GameLoop_DayStarted);
             helper.Events.GameLoop.GameLaunched += new EventHandler<GameLaunchedEventArgs>(OnGameLaunched);
             helper.Events.GameLoop.SaveLoaded += new EventHandler<SaveLoadedEventArgs>(GameLoop_SaveLoaded);
+
+            //TODO can probably remove this
             helper.Events.Player.Warped += (new EventHandler<WarpedEventArgs>(Player_Warped));
         }
 
+        //TODO can probably remove this
         private void Player_Warped(object sender, WarpedEventArgs e)
         {
             _ = Game1.player.passedOut ? 1 : 0;
@@ -84,52 +71,93 @@ namespace MilkVillagers
                 return;
 
             GetItemCodes();
+            CorrectRecipes();
+
+            //Temporarily add in recipes on savegame load.
+            //TODO move this to an event.
+            //TODO stop this wiping recipes.
+            if (false)
+            {
+                SerializableDictionary<string, int> newRecipe = new SerializableDictionary<string, int>
+                {
+                    { "'Protein' Shake", 1 },
+                    { "Milkshake", 1 }
+                };
+                Game1.player.cookingRecipes.Add(newRecipe);
+            }
+
             runOnce = true;
         }
 
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
+            #region Generic Mod Config
+            // get Generic Mod Config Menu API (if it's installed)
+            var api = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            if (api is null)
+                return;
+
+            // register mod configuration
+            api.RegisterModConfig(
+                mod: this.ModManifest,
+                revertToDefault: () => this.Config = new ModConfig(),
+                saveToFile: () => this.Helper.WriteConfig(this.Config)
+            );
+
+            // let players configure your mod in-game (instead of just from the title screen)
+            api.SetDefaultIngameOptinValue(this.ModManifest, true);
+
+            // add some config options
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "Milk Females",
+                optionDesc: "Lets you milk female characters if they like you enough",
+                optionGet: () => this.Config.MilkFemale,
+                optionSet: value => this.Config.MilkFemale = value
+            );
+
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "Milk Males",
+                optionDesc: "Lets you milk male characters if they like you enough",
+                optionGet: () => this.Config.MilkMale,
+                optionSet: value => this.Config.MilkMale = value
+            );
+
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "Simple milk/cum",
+                optionDesc: "Simplify the milk and cum items?",
+                optionGet: () => this.Config.StackMilk,
+                optionSet: value => this.Config.StackMilk = value
+            );
+
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "ExtraDialogue",
+                optionDesc: "Enable Abiail's dialogue changes?",
+                optionGet: () => this.Config.ExtraDialogue,
+                optionSet: value => this.Config.ExtraDialogue = value
+            );            
+            #endregion
 
             Helper.Content.AssetEditors.Add(_itemEditor);
             Helper.Content.AssetEditors.Add(_dialogueEditor);
             Helper.Content.AssetEditors.Add(_questEditor);
+            Helper.Content.AssetEditors.Add(_recipeEditor);
             Helper.Content.AssetEditors.Add(new MyModMail());
-            TempRefs.QuestID1 = _config.QuestID1;
-            TempRefs.QuestID2 = _config.QuestID2;
-            TempRefs.QuestID3 = _config.QuestID3;
-
-            //// get Generic Mod Config Menu API (if it's installed)
-            //var api = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
-            //if (api is null)
-            //    return;
-
-            //// register mod configuration
-            //api.RegisterModConfig(
-            //    mod: this.ModManifest,
-            //    revertToDefault: () => this.Config = new ModConfig(),
-            //    saveToFile: () => this.Helper.WriteConfig(this.Config)
-            //);
-
-            //// let players configure your mod in-game (instead of just from the title screen)
-            //api.SetDefaultIngameOptinValue(this.ModManifest, true);
-
-            //// add some config options
-            //api.RegisterSimpleOption(
-            //    mod: this.ModManifest,
-            //    optionName: "Example checkbox",
-            //    optionDesc: "An optional description shown as a tooltip to the player.",
-            //    optionGet: () => this.Config.ExampleCheckbox,
-            //    optionSet: value => this.Config.ExampleCheckbox = value
-            //);
+            TempRefs.QuestID1 = Config.QuestID1;
+            TempRefs.QuestID2 = Config.QuestID2;
+            TempRefs.QuestID3 = Config.QuestID3;
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
         {
-            if (TempRefs.milkedtoday == null && _config.Verbose)
+            if (TempRefs.milkedtoday == null && Config.Verbose)
                 Monitor.Log("TempRefs not set", LogLevel.Error);
             else
             {
-                if (_config.Verbose)
+                if (Config.Verbose)
                     Monitor.Log($"TempRegs is set. Cleared {TempRefs.milkedtoday.Count}", LogLevel.Trace);
 
                 TempRefs.milkedtoday.Clear();
@@ -144,97 +172,124 @@ namespace MilkVillagers
         private void GetItemCodes()
         {
             LogLevel Defcon = LogLevel.Trace;
+            TempRefs.Monitor.Log($"Correcting item codes", LogLevel.Trace);
+            //Defcon = LogLevel.Alert;
             int num1 = 13;
             int num2 = 0;
+
+
             foreach (KeyValuePair<int, string> keyValuePair in _itemEditor.Report())
             {
                 string[] strArray = keyValuePair.Value.Split('/');
                 switch (strArray[0])
                 {
-                    case "MilkAbigail":
+                    case "Abigail's Milk":
                         TempRefs.MilkAbig = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkAbig}", Defcon);
                         ++num2;
                         continue;
 
-                    case "MilkCaroline":
+                    case "Caroline's Milk":
                         TempRefs.MilkCaro = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkCaro}", Defcon);
                         ++num2;
                         continue;
 
-                    case "MilkEmily":
+                    case "Emily's Milk":
                         TempRefs.MilkEmil = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkEmil}", Defcon);
                         ++num2;
                         continue;
 
-                    case "MilkEvelyn":
+                    case "Evelyn's Milk":
                         TempRefs.MilkEvel = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkEvel}", Defcon);
                         ++num2;
                         continue;
 
-                    case "MilkHaley":
+                    case "Haley's Milk":
                         TempRefs.MilkHale = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkHale}", Defcon);
                         ++num2;
                         continue;
 
-                    case "MilkJodi":
+                    case "Jodi's Milk":
                         TempRefs.MilkJodi = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkJodi}", Defcon);
                         ++num2;
                         continue;
 
-                    case "MilkLeah":
+                    case "Leah's Milk":
                         TempRefs.MilkLeah = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkLeah}", Defcon);
                         ++num2;
                         continue;
-                    case "MilkMarnie":
+
+                    case "Marnie's Milk":
                         TempRefs.MilkMarn = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMarn}", Defcon);
                         ++num2;
                         continue;
-                    case "MilkMaru":
+
+                    case "Maru's Milk":
                         TempRefs.MilkMaru = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMaru}", Defcon);
                         ++num2;
                         continue;
-                    case "MilkPam":
+
+                    case "Pam's Milk":
                         TempRefs.MilkPam = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkPam}", Defcon);
                         ++num2;
                         continue;
-                    case "MilkPenny":
+
+                    case "Penny's Milk":
                         TempRefs.MilkPenn = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkPenn}", Defcon);
                         ++num2;
                         continue;
-                    case "MilkRobin":
+
+                    case "Robin's Milk":
                         TempRefs.MilkRobi = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkRobi}", Defcon);
                         ++num2;
                         continue;
-                    case "MilkSandra":
+
+                    case "Sandra's Milk":
                         TempRefs.MilkSand = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSand}", Defcon);
                         ++num2;
                         continue;
+
                     case "Milk":
                         TempRefs.MilkGeneric = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSand}", Defcon);
+                        Monitor.Log($"{strArray[0]} added as default. {TempRefs.MilkGeneric}", LogLevel.Trace);
                         continue;
+
+                    case "Special Milk":
+                        TempRefs.MilkSpecial = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSpecial}", Defcon);
+                        continue;
+
+                    case "Protein Shake":
+                        TempRefs.ProteinShake = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.ProteinShake}", LogLevel.Trace);
+                        continue;
+
+                    case "Milkshake":
+                        TempRefs.MilkShake = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkShake}", LogLevel.Trace);
+                        continue;
+
                     default:
                         if (strArray[0].ToLower().Contains("milk"))
                         {
-                            Monitor.Log($"{strArray[0]} wasn't added.", Defcon);
+                            Monitor.Log($"{strArray[0]} wasn't added.", LogLevel.Alert);
                         }
                         continue;
                 }
             }
-            if (_config.StackMilk)
+            if (Config.StackMilk)
             {
                 TempRefs.MilkAbig = TempRefs.MilkGeneric;
                 TempRefs.MilkEmil = TempRefs.MilkGeneric;
@@ -253,6 +308,41 @@ namespace MilkVillagers
 
             TempRefs.loaded = true;
             Monitor.Log($"Loaded {num2}/{num1} items", Defcon);
+
+            Game1.player.Items[0].getCategoryName();
+
+            #region fix item strings
+            IDictionary<int, string> _objectData = _itemEditor._objectData;
+
+            //milk items
+            _objectData[TempRefs.MilkAbig] = $"Abigail's Milk/300/15/Basic {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkEmil] = $"Emily's Milk/300/15/Basic {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkHale] = $"Haley's Milk/300/15/Basic {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkLeah] = $"Leah's Milk/300/15/Basic {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkMaru] = $"Maru's Milk/300/15/Basic {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkPenn] = $"Penny's Milk/300/15/Basic {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkCaro] = $"Caroline's Milk/300/15/Basic {TempRefs.MilkType}/Caroline's Milk/A jug of Caroline's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkJodi] = $"Jodi's Milk/300/15/Basic {TempRefs.MilkType}/Jodi's Milk/A jug of Jodi's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkMarn] = $"Marnie's Milk/140/15/Basic {TempRefs.MilkType}/Marnie's Milk/A jug of Marnie's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkRobi] = $"Robin's Milk/300/15/Basic {TempRefs.MilkType}/Robin's Milk/A jug of Robin's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkPam] = $"Pam's Milk/90/15/Basic {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Basic {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Basic {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Basic {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+            //cum items
+            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Basic {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+            //recipes
+            _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Basic -6/'Protein' shake/Shake made with extra protein/Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Basic -6/'Special' Milkshake/Extra milky milkshake./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            #endregion
+        }
+
+        private void CorrectRecipes()
+        {
+            _recipeEditor.data["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/default/'Protein' shake";
+            _recipeEditor.data["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/default/Milkshake";
         }
 
         private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -272,11 +362,11 @@ namespace MilkVillagers
 
             //if (button == SButton.P)
             //{
-            //    if (!this._config.PailGiven)
+            //    if (!this.Config.PailGiven)
             //    {
             //        //Game1.player.addItemToInventory((Item)new SpellMilk());
             //        //Game1.player.addItemToInventory((Item)new SpellTeleport());
-            //        this._config.PailGiven = true;
+            //        this.Config.PailGiven = true;
             //    }
             //    else
             //        Game1.warpFarmer("SeedShop", 4, 9, false);
@@ -292,7 +382,7 @@ namespace MilkVillagers
                 NPC target = ModFunctions.FindTarget(this.target, this.FarmerPos);
                 if (target != null)
                 {
-                    if (_config.Verbose)
+                    if (Config.Verbose)
                         Game1.addHUDMessage(new HUDMessage($"Trying to milk {target.name}"));
 
                     ActionOnNPC(target);
@@ -300,7 +390,7 @@ namespace MilkVillagers
                 }
                 else
                 {
-                    if (_config.Verbose)
+                    if (Config.Verbose)
                         Game1.addHUDMessage(new HUDMessage("no-one found."));
 
                 }
@@ -312,7 +402,7 @@ namespace MilkVillagers
 
         private void ActionOnNPC(NPC npc)
         {
-            if (_config.NeedTool && Game1.player.CurrentTool.GetType().ToString() != typeof(StardewValley.Tools.MilkPail).ToString())
+            if (Config.NeedTool && Game1.player.CurrentTool.GetType().ToString() != typeof(StardewValley.Tools.MilkPail).ToString())
             {
                 Game1.addHUDMessage(new HUDMessage("You need to be holding a pail to milk people."));
                 return;
@@ -329,13 +419,13 @@ namespace MilkVillagers
             }
 
             //gender check 0 is male, 1 is female
-            if (npc.gender == 0 & !_config.MilkMale)
+            if (npc.gender == 0 & !Config.MilkMale)
             {
                 Game1.addHUDMessage(new HUDMessage("You have male character milking turned off."));
                 Monitor.Log($"gender is {npc.Gender}", LogLevel.Warn);
                 return;
             }
-            if (npc.gender == 1 & !_config.MilkFemale)
+            if (npc.gender == 1 & !Config.MilkFemale)
             {
 
                 Game1.addHUDMessage(new HUDMessage("You have female character milking turned off."));
@@ -346,7 +436,7 @@ namespace MilkVillagers
             //milked today
             if (TempRefs.milkedtoday.Contains(npc))
             {
-                if (_config.Verbose)
+                if (Config.Verbose)
                     Game1.addHUDMessage(new HUDMessage($"{npc.name} has already been milked today."));
 
                 return;
@@ -358,9 +448,12 @@ namespace MilkVillagers
             {
                 Game1.drawDialogue(npc, dialogues);
             }
-            else if (npc.gender == 1)
+            else
             {
-                Game1.drawDialogue(npc, $"You want to milk me? Are you crazy...? Although, that DOES sound kinda hot. {TempRefs.MilkGeneric}");
+                if (npc.gender == 1)
+                    Game1.drawDialogue(npc, $"You want to milk me? Are you crazy...? Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. [{TempRefs.MilkGeneric}]");
+                else
+                    Game1.drawDialogue(npc, $"You want my \"milk\"? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! [{TempRefs.MilkSpecial}]");
             }
 
             Game1.player.changeFriendship(30, npc);
@@ -391,6 +484,27 @@ namespace MilkVillagers
 
     }
 
+    public class RecipeEditor : IAssetEditor
+    {
+        public IDictionary<string, string> data;
+
+        public bool CanEdit<T>(IAssetInfo asset)
+        {
+            return asset.AssetNameEquals("Data/CookingRecipes");
+        }
+
+        public void Edit<T>(IAssetData asset)
+        {
+            TempRefs.Monitor.Log("Loading recipes", LogLevel.Trace);
+            if (asset.AssetNameEquals("Data/CookingRecipes"))
+            {
+                data = asset.AsDictionary<string, string>().Data;
+                data["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/default/'Protein' shake";
+                data["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/default/Milkshake";
+            }
+        }
+    }
+
     public class DialogueEditor : IAssetEditor
     {
         public IDictionary<string, string> data;
@@ -411,6 +525,33 @@ namespace MilkVillagers
 
         public void Edit<T>(IAssetData asset)
         {
+            #region Log item codes
+            if (false)
+            {
+                TempRefs.Monitor.Log($"MilkAbig: {TempRefs.MilkAbig  }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkEmil: {TempRefs.MilkEmil }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkHale: {TempRefs.MilkHale }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkLeah: {TempRefs.MilkLeah }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkMaru: {TempRefs.MilkMaru }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkPenn: {TempRefs.MilkPenn }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkCaro: {TempRefs.MilkCaro }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkJodi: {TempRefs.MilkJodi }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkMarn: {TempRefs.MilkMarn }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkRobi: {TempRefs.MilkRobi }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkPam: {TempRefs.MilkPam }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkSand: {TempRefs.MilkSand }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkEvel: {TempRefs.MilkEvel }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkGeneric: {TempRefs.MilkGeneric }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkSpecial: {TempRefs.MilkSpecial }", LogLevel.Trace);
+
+                TempRefs.Monitor.Log($"ProteinShake: {TempRefs.ProteinShake }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"MilkShake: {TempRefs.MilkShake    }", LogLevel.Trace);
+
+                TempRefs.Monitor.Log($"MilkType: {TempRefs.MilkType }", LogLevel.Trace);
+                TempRefs.Monitor.Log($"CumType: {TempRefs.CumType }", LogLevel.Trace);
+            }
+            #endregion
+
             TempRefs.Monitor.Log("Loading messages", LogLevel.Trace);
             if (asset.AssetNameEquals("Characters/Dialogue/Abigail"))
             {
@@ -466,7 +607,7 @@ namespace MilkVillagers
                 data["camgirl_spread"] = "Do you have something I could suck on?#$b#Or something big that can fill me up?#$b#You could always be a guest star on my show.#$b#I'd let you cum on my tits, or in my pussy.";
                 data["camgirl_borrow"] = "Sorry, but if you're going to be looking at me naked then you'd better be making me feel good first.";
                 data["camgirl_followup"] = "$p 300128/300129#Remember those photos I showed you a while ago? I can model some in person if you want.#$p 300130#Did you have a good time with my camsite photos? $h";
-                data["milk_start"] = "My breasts are so sore, I NEED someone to milk them.#$q 300004 milk_no#Will you help milk Abigail?#$r 300003 15 milk_yes#Milk her#$r 300004 -15 milk_no#Make her milk herself";
+                data["milk_start"] = "My breasts are so sore, I NEED someone to milk them.#$q 300006 milk_no#Will you help milk Abigail?#$r 300003 15 milk_yes#Milk her#$r 300003 -15 milk_no#Make her milk herself";
                 data["milk_yes"] = "Please be gentle, they are really sore today.#$b#*You sit down as she lies across your lap, letting her breast hang down. She gives you a bottle and you start kneeding her breasts as gently as you can*#$b#*Milk collects in the bottle as you expertly milk her, moving on to the second breast when the first runs dry*#$b#Thank you. It's so much more erotic when you do it." + $"#$b#Just think of this as taking care of one of your 'cows'. Here, you can keep this. [{TempRefs.MilkAbig}]";
                 data["milk_no"] = "But...I'm so sore. I'm going to have to try and suck the milk out myself now! $s#$b#Fine, then you have to watch me...as I lick my nipples, suck on them, feel the milk washing down my throat...#$b#*Abigail lifts her breast to her mouth and slowly circles the tip of her nipple. Milk starts leaking, and she carefully scoops it up with her tongue*#$b#*She starts sucking in ernest, and milk dribbles down her chin while she starts moaning softly. You move towards her and she puts a hand out to stop you*#$b#No! You made me do this, so you have to watch. *she switches to her other breast and takes big gulps while a river runs down her front and starts pooling on the floor*#$b#*She finally finishes, looks you in the eye, then turns around and leaves*";
                 data["sex_choices"] = "Okay, what are you waiting for?#$q 300123 Shop_no#$e#You can do whatever you want to me.#$r 300121 0 Shop_finger#Grope her under skirt until she cums#$r 300121 15 Shop_suck#Get under her skirt and lick her#$r 300121 30 Shop_fuck#Fuck her right now#$r 300123 -30 Shop_no#Stop asking me.";
@@ -510,32 +651,32 @@ namespace MilkVillagers
             if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
             {
                 data = (asset.AsDictionary<string, string>()).Data;
-                data["milk_start"] = $"You milked them [{TempRefs.MilkJodi}]";
+                data["milk_start"] = $"I've been so lonely since Kent first went off to war. Now that Vincent is growing up so fast, I didn't think anyone would ever pay attention to me again.#$b#You make me feel so WANTED, even if it is only for my milk. I feel like I have a role to play again.#$b#*Your hands gently caress her breasts, and her nipples quickly get hard. Milk dribbles from them, and you angle them over a jar so that you can aim the stream better* [{TempRefs.MilkJodi}]";
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
             {
                 data = (asset.AsDictionary<string, string>()).Data;
-                data["milk_start"] = $"You milked them [{TempRefs.MilkMarn}]";
+                data["milk_start"] = $"I'm glad that Lewis isn't the only one to appreciate my big tits! He spends every moment he can in my cleavage, but he never thought to suck on them!#$b#*Marnie's milk quickly fills the jar, and she sighs contentedly as she rearranges her clothing*#$b#Make sure Lewis...I mean the Mayor...doesn't catch you! He might get jealous! [{TempRefs.MilkMarn}]";
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
             {
                 data = (asset.AsDictionary<string, string>()).Data;
-                data["milk_start"] = $"You milked them [{TempRefs.MilkRobi}]";
+                data["milk_start"] = $"Demetrius is always so...clinical...when he talks about my breasts. I wish he was as romantic as you!#$b#Of course you can collect my milk! Just...don't be surprised if I leave a damp spot on the chair when you're done!#$b#*As you massage her breast with your hand, filling up the jar, you make sure to play with her other nipple.*#$b#*Robin snakes a hand down her jeans and starts playing with herself, moaning and whimpering as her milk fills the jar. You finish milking her, but wait for her until she clenches her legs tightly and throws her head back.*#$b#That was wonderful...Come back, any time. [{TempRefs.MilkRobi}]";
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
             {
                 data = (asset.AsDictionary<string, string>()).Data;
-                data["milk_start"] = $"You milked them [{TempRefs.MilkPam}]";
+                data["milk_start"] = $"Really? I...didn't know people were into that kind of thing. I guess it wouldn't hurt, but don't expect me too go 'moo'!#$b#*You give her nipple a quick flick with your tongue, and then suck on it to taste her milk. It's sourer then normal milk, but you dutifully kneed her breasts to fill a jar.* [{TempRefs.MilkPam}]";
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
             {
                 data = (asset.AsDictionary<string, string>()).Data;
-                data["milk_start"] = $"You milked them [{TempRefs.MilkSand}]";
+                data["milk_start"] = $"I knew you were too tempted to pass up this opportunity. I'd love to have you worship my breasts.#$b#*She quickly sheds her top, baring her beautiful breasts to the air.*#$b#*Her nipples are perky for their size, and you give them a quick suck to get the milk flowing. You collect a lot of her sweet milk in a jar.[{TempRefs.MilkSand}]";
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
             {
                 data = (asset.AsDictionary<string, string>()).Data;
-                data["milk_start"] = $"You milked them [{TempRefs.MilkEvel}]";
+                data["milk_start"] = $"*Evelyn sits down on a nearby chair and unbottons her blouse. She deftly unhooks her bra, and you tenderly hold her mature breasts in your hands.*#$b#*You aren't able to coax much milk out, but she sighs contentedly.*#$b#This brings back memories of when I was MUCH younger...and prettier. [{TempRefs.MilkEvel}]";
             }
             return;
         }
@@ -568,24 +709,34 @@ namespace MilkVillagers
         public void Edit<T>(IAssetData asset)
         {
             TempRefs.Monitor.Log("Adding in items", LogLevel.Trace);
-            if ((asset).AssetNameEquals("Data/ObjectInformation"))
-                _objectData = (asset.AsDictionary<int, string>()).Data;
+            if (asset.AssetNameEquals("Data/ObjectInformation"))
+                _objectData = asset.AsDictionary<int, string>().Data;
             if (!TempRefs.loaded)
                 return;
 
-            _objectData[TempRefs.MilkAbig] = "MilkAbigail/300/15/Basic -6/Abigail's Milk/A jug of Abigail's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkEmil] = "MilkEmily/300/15/Basic -6/Emily's Milk/A jug of Emily's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkHale] = "MilkHaley/300/15/Basic -6/Haley's Milk/A jug of Haley's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkLeah] = "MilkLeah/300/15/Basic -6/Leah's Milk/A jug of Leah's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMaru] = "MilkMaru/300/15/Basic -6/Maru's Milk/A jug of Maru's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPenn] = "MilkPenny/300/15/Basic -6/Penny's Milk/A jug of Penny's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkCaro] = "MilkCaroline/300/15/Basic -6/Caroline's Milk/A jug of Caroline's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkJodi] = "MilkJodi/300/15/Basic -6/Jodi's Milk/A jug of Jodi's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMarn] = "MilkMarnie/140/15/Basic -6/Marnie's Milk/A jug of Marnie's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkRobi] = "MilkRobin/300/15/Basic -6/Robin's Milk/A jug of Robin's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPam] = "MilkPam/90/15/Basic -6/Pam's Milk/A jug of Pam's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSand] = "MilkSandy/350/15/Basic -6/Sandy's Milk/A jug of Sandy's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkEvel] = "MilkEvelyn/50/15/Basic -6/Evelyn's Milk/A jug of Evelyn's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+            //milk items
+            _objectData[TempRefs.MilkAbig] = $"Abigail's Milk/300/15/Basic {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkEmil] = $"Emily's Milk/300/15/Basic {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkHale] = $"Haley's Milk/300/15/Basic {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkLeah] = $"Leah's Milk/300/15/Basic {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkMaru] = $"Maru's Milk/300/15/Basic {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkPenn] = $"Penny's Milk/300/15/Basic {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkCaro] = $"Caroline's Milk/300/15/Basic {TempRefs.MilkType}/Caroline's Milk/A jug of Caroline's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkJodi] = $"Jodi's Milk/300/15/Basic {TempRefs.MilkType}/Jodi's Milk/A jug of Jodi's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkMarn] = $"Marnie's Milk/140/15/Basic {TempRefs.MilkType}/Marnie's Milk/A jug of Marnie's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkRobi] = $"Robin's Milk/300/15/Basic {TempRefs.MilkType}/Robin's Milk/A jug of Robin's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkPam] = $"Pam's Milk/90/15/Basic {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Basic {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Basic {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Basic {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+            //cum items
+            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Basic {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+            //recipes
+            _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Basic -6/'Protein' shake/Shake made with extra protein/Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Basic -6/'Special' Milkshake/Extra milky milkshake./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
         }
     }
 

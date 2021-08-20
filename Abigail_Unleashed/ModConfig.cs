@@ -17,11 +17,23 @@ namespace MilkVillagers
         public bool Verbose = false;
         public bool NeedTool = false;
         public bool StackMilk = false;
+        public bool ExtraDialogue = false;
     }
 
     public static class TempRefs
     {
+        public static IModHelper Helper;
         public static IMonitor Monitor;
+        public static bool loaded = false;
+        public static List<NPC> milkedtoday = new List<NPC>();
+
+        // Quest ID storage
+        public static int QuestID1 = 300001;
+        public static int QuestID2 = 300002;
+        public static int QuestID3 = 300003;
+        public static int QuestID4 = 300004;
+
+        // Milk item code storage
         public static int MilkAbig = 1201;
         public static int MilkEmil = 1202;
         public static int MilkHale = 1203;
@@ -36,12 +48,17 @@ namespace MilkVillagers
         public static int MilkSand = 1212;
         public static int MilkEvel = 1213;
         public static int MilkGeneric = 1214;
-        public static bool loaded = false;
-        public static List<NPC> milkedtoday = new List<NPC>();
-        public static int QuestID1 = 300001;
-        public static int QuestID2 = 300002;
-        public static int QuestID3 = 300003;
-        public static int QuestID4 = 300004;
-        public static IModHelper Helper;
+
+        // Cum item code storage.
+        public static int MilkSpecial = 1215;
+
+        // Recipe item code storage
+        public static int ProteinShake = 1216;
+        public static int MilkShake = 1217;
+
+        // Item types 
+        public static int MilkType = -34;
+        public static int CumType = -35;
+
     }
 }

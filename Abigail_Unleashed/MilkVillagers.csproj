@@ -60,86 +60,104 @@
     <None Include="[JA]MilkVillagers\manifest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkAbigail\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Abigail%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="[JA]MilkVillagers\Objects\MilkHaley\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Haley%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkSandra\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Milkshake\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkRobin\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Sandra%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkPenny\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Robin%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkPam\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Penny%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkMaru\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Pam%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkMarnie\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Maru%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkLeah\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Marnie%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkJodi\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Leah%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkEvelyn\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Jodi%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkEmily\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Evelyn%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="[JA]MilkVillagers\Objects\MilkCaroline\object.json">
+    <None Include="[JA]MilkVillagers\Objects\Emily%27s Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="[JA]MilkVillagers\Objects\Caroline%27s Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="[JA]MilkVillagers\Objects\Protein Shake\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="[JA]MilkVillagers\Objects\Special Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="[JA]MilkVillagers\Objects\Milkshake\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="[JA]MilkVillagers\Objects\Protein Shake\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="[JA]MilkVillagers\Objects\Special Milk\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Todo.txt" />
-    <Content Include="[JA]MilkVillagers\Objects\MilkAbigail\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Abigail%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkHaley\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Haley%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkSandra\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Sandra%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkRobin\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Robin%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkPenny\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Penny%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkPam\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Pam%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkMaru\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Maru%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkMarnie\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Marnie%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkLeah\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Leah%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkJodi\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Jodi%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkEvelyn\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Evelyn%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkEmily\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Emily%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="[JA]MilkVillagers\Objects\MilkCaroline\object.png">
+    <Content Include="[JA]MilkVillagers\Objects\Caroline%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

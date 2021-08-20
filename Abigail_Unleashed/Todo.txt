@@ -1,7 +1,21 @@
-﻿todo
+﻿TODO
 	add cum icons
 	change character sprite/portrait during the milking
+	milk/cum art specific
+	cheese recipe
+	Sofia etc.
+	specific dialogue for male npc's
+	make dialogue changes optional.
+
+In Progress
 	cooking recipes
+	
+
+Bugs
+	wrong item given:
+		sofia gives evelyn milk
+		abigail gives evelyn milk
+	not accepting milk for recipes.
 
 done
 	option to make milk stack - done
