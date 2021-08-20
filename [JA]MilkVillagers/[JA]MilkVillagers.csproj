@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <None Remove="Objects\Abigail's Milk\object.png" />
+    <None Remove="Objects\Alex's Cum\object.png" />
     <None Remove="Objects\Caroline's Milk\object.png" />
     <None Remove="Objects\Emily's Milk\object.png" />
     <None Remove="Objects\Evelyn's Milk\object.png" />
@@ -15,7 +16,7 @@
     <None Remove="Objects\Leah's Milk\object.png" />
     <None Remove="Objects\Marnie's Milk\object.png" />
     <None Remove="Objects\Maru's Milk\object.png" />
-    <None Remove="Objects\Milkshake\object.png" />
+    <None Remove="Objects\Special Milkshake\object.png" />
     <None Remove="Objects\Pam's Milk\object.png" />
     <None Remove="Objects\Penny's Milk\object.png" />
     <None Remove="Objects\Protein Shake\object.png" />
@@ -26,6 +27,9 @@
 
   <ItemGroup>
     <Content Include="Objects\Abigail's Milk\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Alex's Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Caroline's Milk\object.png">
@@ -52,7 +56,7 @@
     <Content Include="Objects\Maru's Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\Milkshake\object.png">
+    <Content Include="Objects\Special Milkshake\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Pam's Milk\object.png">
@@ -76,7 +80,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Objects\Abigail%27s Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Alex%27s Cum\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Caroline%27s Milk\object.json">
@@ -103,7 +117,7 @@
     <None Update="Objects\Maru%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Objects\Milkshake\object.json">
+    <None Update="Objects\Special Milkshake\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Pam%27s Milk\object.json">
@@ -124,6 +138,29 @@
     <None Update="Objects\Special Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Objects\Clint%27s Cum\" />
+    <Folder Include="Objects\Demetrius%27s Cum\" />
+    <Folder Include="Objects\Elliott%27s Cum\" />
+    <Folder Include="Objects\George%27s Cum\" />
+    <Folder Include="Objects\Gil%27s Cum\" />
+    <Folder Include="Objects\Gunther%27s Cum\" />
+    <Folder Include="Objects\Gus%27s Cum\" />
+    <Folder Include="Objects\Harvey%27s Cum\" />
+    <Folder Include="Objects\Kent%27s Cum\" />
+    <Folder Include="Objects\Lewis%27s Cum\" />
+    <Folder Include="Objects\Linus%27s Cum\" />
+    <Folder Include="Objects\Marlon%27s Cum\" />
+    <Folder Include="Objects\Morris%27s Cum\" />
+    <Folder Include="Objects\Wizard%27s Cum\" />
+    <Folder Include="Objects\Willy%27s Cum\" />
+    <Folder Include="Objects\Shane%27s Cum\" />
+    <Folder Include="Objects\Sebastian%27s Cum\" />
+    <Folder Include="Objects\Sam%27s Cum\" />
+    <Folder Include="Objects\Pierre%27s Cum\" />
+    <Folder Include="Objects\Qi%27s Cum\" />
   </ItemGroup>
 
 </Project>

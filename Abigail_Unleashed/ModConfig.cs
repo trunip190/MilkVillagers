@@ -51,6 +51,27 @@ namespace MilkVillagers
 
         // Cum item code storage.
         public static int MilkSpecial = 1215;
+        public static int MilkAlex = 1216;
+        public static int MilkClint = 1217;
+        public static int MilkDemetrius = 1218;
+        public static int MilkElliott = 1219;
+        public static int MilkGeorge = 1220;
+        public static int MilkGil = 1221;
+        public static int MilkGunther = 1222;
+        public static int MilkGus = 1223;
+        public static int MilkHarv = 1224;
+        public static int MilkKent = 1225;
+        public static int MilkLewis = 1226;
+        public static int MilkLinus = 1227;
+        public static int MilkMarlon = 1228;
+        public static int MilkMorris = 1229;
+        public static int MilkQi = 1230;
+        public static int MilkPierre = 1231;
+        public static int MilkSam = 1232;
+        public static int MilkSeb = 1233;
+        public static int MilkShane = 1234;
+        public static int MilkWilly = 1235;
+        public static int MilkWiz = 1236;
 
         // Recipe item code storage
         public static int ProteinShake = 1216;

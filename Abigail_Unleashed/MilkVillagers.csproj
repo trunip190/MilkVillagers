@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetEditors.cs" />
     <Compile Include="IGenericModConfigMenuApi.cs" />
     <Compile Include="ModEntry.cs" />
     <Compile Include="ModConfig.cs" />
@@ -57,109 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="manifest.json" />
-    <None Include="[JA]MilkVillagers\manifest.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Abigail%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
-    <None Include="[JA]MilkVillagers\Objects\Haley%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Milkshake\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Sandra%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Robin%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Penny%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Pam%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Maru%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Marnie%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Leah%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Jodi%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Evelyn%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Emily%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Caroline%27s Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Protein Shake\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="[JA]MilkVillagers\Objects\Special Milk\object.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="[JA]MilkVillagers\Objects\Milkshake\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Protein Shake\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Special Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Todo.txt" />
-    <Content Include="[JA]MilkVillagers\Objects\Abigail%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Haley%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Sandra%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Robin%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Penny%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Pam%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Maru%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Marnie%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Leah%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Jodi%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Evelyn%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Emily%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="[JA]MilkVillagers\Objects\Caroline%27s Milk\object.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
