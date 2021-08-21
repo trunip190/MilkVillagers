@@ -31,7 +31,43 @@ namespace MilkVillagers
 
         public bool CanEdit<T>(IAssetInfo asset)
         {
-            return asset.AssetNameEquals("Characters/Dialogue/Abigail") || asset.AssetNameEquals("Characters/Dialogue/Caroline") || (asset.AssetNameEquals("Characters/Dialogue/Abigail") || asset.AssetNameEquals("Characters/Dialogue/Emily")) || (asset.AssetNameEquals("Characters/Dialogue/Haley") || asset.AssetNameEquals("Characters/Dialogue/Leah") || (asset.AssetNameEquals("Characters/Dialogue/Maru") || asset.AssetNameEquals("Characters/Dialogue/Penny"))) || (asset.AssetNameEquals("Characters/Dialogue/Caroline") || asset.AssetNameEquals("Characters/Dialogue/Jodi") || (asset.AssetNameEquals("Characters/Dialogue/Marnie") || asset.AssetNameEquals("Characters/Dialogue/Robin")) || (asset.AssetNameEquals("Characters/Dialogue/Pam") || asset.AssetNameEquals("Characters/Dialogue/Sandy"))) || asset.AssetNameEquals("Characters/Dialogue/Evelyn");
+            bool result =
+                   asset.AssetNameEquals("Characters/Dialogue/Abigail")
+                || asset.AssetNameEquals("Characters/Dialogue/Alex")
+                || asset.AssetNameEquals("Characters/Dialogue/Caroline")
+                || asset.AssetNameEquals("Characters/Dialogue/Clint")
+                || asset.AssetNameEquals("Characters/Dialogue/Demetrius")
+                || asset.AssetNameEquals("Characters/Dialogue/Dwarf")
+                || asset.AssetNameEquals("Characters/Dialogue/Elliott")
+                || asset.AssetNameEquals("Characters/Dialogue/Emily")
+                || asset.AssetNameEquals("Characters/Dialogue/Evelyn")
+                || asset.AssetNameEquals("Characters/Dialogue/George")
+                || asset.AssetNameEquals("Characters/Dialogue/Gil")
+                || asset.AssetNameEquals("Characters/Dialogue/Gus")
+                || asset.AssetNameEquals("Characters/Dialogue/Haley")
+                || asset.AssetNameEquals("Characters/Dialogue/Harvey")
+                || asset.AssetNameEquals("Characters/Dialogue/Jodi")
+                || asset.AssetNameEquals("Characters/Dialogue/Kent")
+                || asset.AssetNameEquals("Characters/Dialogue/Krobus")
+                || asset.AssetNameEquals("Characters/Dialogue/Leah")
+                || asset.AssetNameEquals("Characters/Dialogue/Lewis")
+                || asset.AssetNameEquals("Characters/Dialogue/Linus")
+                || asset.AssetNameEquals("Characters/Dialogue/Marnie")
+                || asset.AssetNameEquals("Characters/Dialogue/Maru")
+                || asset.AssetNameEquals("Characters/Dialogue/Mister Qi")
+                || asset.AssetNameEquals("Characters/Dialogue/Pam")
+                || asset.AssetNameEquals("Characters/Dialogue/Penny")
+                || asset.AssetNameEquals("Characters/Dialogue/Pierre")
+                || asset.AssetNameEquals("Characters/Dialogue/rainy")
+                || asset.AssetNameEquals("Characters/Dialogue/Robin")
+                || asset.AssetNameEquals("Characters/Dialogue/Sam")
+                || asset.AssetNameEquals("Characters/Dialogue/Sandy")
+                || asset.AssetNameEquals("Characters/Dialogue/Sebastian")
+                || asset.AssetNameEquals("Characters/Dialogue/Shane")
+                || asset.AssetNameEquals("Characters/Dialogue/Willy")
+                || asset.AssetNameEquals("Characters/Dialogue/Wizard");
+
+            return result;
         }
 
         public bool Replace(IAssetData asset, string keyString, string oldString, string newString)
@@ -45,7 +81,7 @@ namespace MilkVillagers
 
         public void Edit<T>(IAssetData asset)
         {
-            TempRefs.Monitor.Log("Loading messages", LogLevel.Trace);
+            TempRefs.Monitor.Log($"Loading messages: {asset.AssetName}", LogLevel.Trace);
             data = asset.AsDictionary<string, string>().Data;
 
             #region Girls
@@ -122,10 +158,12 @@ namespace MilkVillagers
                 {
                     data["milk_start"] = data["milk_start"].Replace("[{TempRefs.MilkAbig}]", $"[{TempRefs.MilkAbig}]");
                 }
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
             {
                 data["milk_start"] = $"Oh! Did you know that human breast milk is a super food?#$b#It's way better for you than cows milk...Not that your milk isn't great! [{TempRefs.MilkEmil}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
             {
@@ -137,72 +175,83 @@ namespace MilkVillagers
                 {
                     data["milk_start"] = data["milk_start"].Replace("[{TempRefs.MilkHale}]", $"[{TempRefs.MilkHale}]");
                 }
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
             {
 
                 data["milk_start"] = $"I love the way your hands feel on me.#$b#I could get used to this... [{TempRefs.MilkLeah}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
             {
 
                 data["milk_start"] = $"I'm sure i could come up with a machine to help with this...#$b#I'm not sure it would be better than your touch though. [{TempRefs.MilkMaru}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
             {
 
                 data["milk_start"] = $"I'm always self conscious about the size of my breasts.#$b#But you make me feel like a woman every time. [{TempRefs.MilkPenn}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
             {
 
                 data["milk_start"] = $"My breasts are so sore, I NEED someone to milk them.#$b#Aw, thanks honey. You're much firmer than Pierre. Sometimes he's so afraid of hurting me that he can't make me feel very good.#$b#Here's something for your trouble. [{TempRefs.MilkCaro}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
             {
 
                 data["milk_start"] = $"I've been so lonely since Kent first went off to war. Now that Vincent is growing up so fast, I didn't think anyone would ever pay attention to me again.#$b#You make me feel so WANTED, even if it is only for my milk. I feel like I have a role to play again.#$b#*Your hands gently caress her breasts, and her nipples quickly get hard. Milk dribbles from them, and you angle them over a jar so that you can aim the stream better* [{TempRefs.MilkJodi}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
             {
 
                 data["milk_start"] = $"I'm glad that Lewis isn't the only one to appreciate my big tits! He spends every moment he can in my cleavage, but he never thought to suck on them!#$b#*Marnie's milk quickly fills the jar, and she sighs contentedly as she rearranges her clothing*#$b#Make sure Lewis...I mean the Mayor...doesn't catch you! He might get jealous! [{TempRefs.MilkMarn}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
             {
 
                 data["milk_start"] = $"Demetrius is always so...clinical...when he talks about my breasts. I wish he was as romantic as you!#$b#Of course you can collect my milk! Just...don't be surprised if I leave a damp spot on the chair when you're done!#$b#*As you massage her breast with your hand, filling up the jar, you make sure to play with her other nipple.*#$b#*Robin snakes a hand down her jeans and starts playing with herself, moaning and whimpering as her milk fills the jar. You finish milking her, but wait for her until she clenches her legs tightly and throws her head back.*#$b#That was wonderful...Come back, any time. [{TempRefs.MilkRobi}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
             {
 
                 data["milk_start"] = $"Really? I...didn't know people were into that kind of thing. I guess it wouldn't hurt, but don't expect me too go 'moo'!#$b#*You give her nipple a quick flick with your tongue, and then suck on it to taste her milk. It's sourer then normal milk, but you dutifully kneed her breasts to fill a jar.* [{TempRefs.MilkPam}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
             {
 
                 data["milk_start"] = $"I knew you were too tempted to pass up this opportunity. I'd love to have you worship my breasts.#$b#*She quickly sheds her top, baring her beautiful breasts to the air.*#$b#*Her nipples are perky for their size, and you give them a quick suck to get the milk flowing. You collect a lot of her sweet milk in a jar.[{TempRefs.MilkSand}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
             {
 
                 data["milk_start"] = $"*Evelyn sits down on a nearby chair and unbottons her blouse. She deftly unhooks her bra, and you tenderly hold her mature breasts in your hands.*#$b#*You aren't able to coax much milk out, but she sighs contentedly.*#$b#This brings back memories of when I was MUCH younger...and prettier. [{TempRefs.MilkEvel}]";
+                return;
             }
             #endregion
 
             #region Guys
             if (asset.AssetNameEquals("Characters/Dialogue/Alex")) //Ver 1.0
             {
-
                 data["milk_start"] = $"You think I'm hot? Well, I think you're really hot too, and if you want to take this further I'm sure we can find somewhere 'quiet' for a bit#$b#*He pulls you aside and unzips his pants as you drop to your knees. His dick is already rising, and he guides you with his hand on the back of your head.*#$b#*He cums rather quickly, and sags backwards as you fill your bottle with his semen, buttong up his pants and giving you a half dazed smile* [{TempRefs.MilkAlex}]";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Clint")) // ver 1.0
             {
-
                 data["milk_start"] = $"Wow, this must be my lucky day, @! I might be a little hot and sweaty down there. I've been busy all day and haven't had a chance to wash" +
                     $"#$b#*You pull his pants and underwear down and are lost in his thick, musky smell. It makes you a little light headed, but when his prick bumps against your forehead you get to business*" +
                     $"#$b#Yeah, just like that, @. It feels really good when you, er, use your tongue like that. Oh! And you're sucking so hard I don't think I can last much longer!" +
                     $"#$b#*Clint cums down your throat";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Demetrius")) // ver 1.0
             {
@@ -211,6 +260,7 @@ namespace MilkVillagers
                     $"*Demetrius seems to be unused to this much attention, and is quickly on the verge of cumming. You back off for a bit, and tell him that you want to make sure you get a 'proper sample'#$b#" +
                     $"But I was almost there... *You pick up the pace again, and in no time he is on the edge.*#$b#" +
                     $"*Demetrius wasn't lying and you struggle to keep up with his flow, your mouth filling up and his semen spilling down your face. You bottle it up and look up at him, covered in his cum*";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Elliott")) // ver 1.0
             {
@@ -220,77 +270,120 @@ namespace MilkVillagers
                     $"#$b#*You pretend to be inexperienced at first, but once Elliott is into it you pick up the pace, and suck as much of his dick into your mouth as you can handle*" +
                     $"#$b#*As your eyes start to water, you try and swallow to massage his penis, and it's enough to send him over the edge*" +
                     $"#$b#@, that is incredible!";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/George")) // ver 1.0
             {
 
-                data["milk_start"] = $"I can't get out of this chair, and it's been so long since Evelyn did this for me. I wouldn't mind getting that Haley over here some time - she's such a tease.#$b#That's right, bend down and enjoy the taste. Bet you didn't expect to see such a large dick on a man in a wheelchair, huh? [{TempRefs.MilkGeorge}]";
+                data["milk_start"] = $"I can't get out of this chair, and it's been so long since Evelyn did this for me. I wouldn't mind getting that Haley over here some time - she's such a tease." +
+                    $"#$b#That's right, bend down and enjoy the taste. Bet you didn't expect to see such a large dick on a man in a wheelchair, huh?";
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Gil")) // ver 1.0
             {
 
                 data["milk_start"] = $"Huh? What's going on? *Snore* Why are my pants off?#$b#Guess I must be dreaming again...having a beautiful face looking up at me from between my knees.#$b#*You quickly get to work, licking his balls while his penis hardens. It doesn't get fully erect at first, but after several minutes of soft sucking, and flicking his tip, he starts moaning and getting ready to cum*#$b#*Gil shoots his load into your mouth, and you quickly spit it into a bottle, wiping off any that dribbled down your chin* [{TempRefs.MilkGil}]";
+                return;
             }
-            if (asset.AssetNameEquals("Characters/Dialogue/Harvey"))
+            if (asset.AssetNameEquals("Characters/Dialogue/Harvey")) // ver 1.0
             {
-                data["milk_start"] = $" [{TempRefs.MilkHarv}]";
+                data["milk_start"] = $"It's very important to have a healthy sexual life, but have you have you been making sure to keep track of your sexual partners?" +
+                    $"#$b#Perfect, then can I recommend you pay special attention to the underside of my glans? It's very sensitive." +
+                    $"#$b#Yes...right there. Make sure you like just inside the tip every so often, but don't press too hard. Here we go, my orgasm is imminent." +
+                    "#$b#*You grab a flask and hold it over the tip of his penis as he starts to ejaculate, collecting most in it, and giving his dick a quick suck to get the last little bit*";
+                return;
             }
-            if (asset.AssetNameEquals("Characters/Dialogue/Sam"))
+            if (asset.AssetNameEquals("Characters/Dialogue/Sam")) // ver 1.0
             {
-                data["milk_start"] = $" [{TempRefs.MilkSam}]";
+                data["milk_start"] = $"Sure, that sounds great! I love it when you wrap your sexy lips around my shaft" +
+                    $"#$b#*You pull his pants down below his cute, white butt and give it a squeeze, then fondle his balls to get the blood flowing*" +
+                    $"#$b#*This really gets him going and he's standing to attention in no time, with a slight deodorant smell tinging the air and masking his natural smell*" +
+                    $"#$b#*You hold on tight to his behind as your head bobs back and forth, coating his cock with your saliva, and wringing the occasional gasp and moan from him*" +
+                    $"#$b#*His hands rest lightly on your head, giving you encouragement, and you pick up the pace until his legs start to shake and he holds your head against his crotch hair*" +
+                    $"#$b#*He explodes in your mouth and you pull back just in time to avoid having to swallow his precious load, getting the bottle in the way of a white shower to the face*"; 
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Sebastian"))
             {
-                data["milk_start"] = $" [{TempRefs.MilkSeb}]";
+                data["milk_start"] = $"Have you ever thought about doing this with anyone else? Like, at the same time? I'm sure Abigail or Sam would be down if you ever want to?" +
+                    $"#$b#Not that I'm saying this isn't great. You're definitely really skilled...like that." +
+                    $"#$b#" +
+                    $"#$b#" +
+                    $"#$b#"; 
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Shane"))
             {
-                data["milk_start"] = $" [{TempRefs.MilkShane}]";
+                data["milk_start"] = $"" +
+                    $"#$b#" +
+                    $"#$b#" +
+                    $"#$b#"; 
+                return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Pierre"))
             {
-                data["milk_start"] = $" [{TempRefs.MilkPierre}]";
+                data["milk_start"] = $"" +
+                    $"#$b#" +
+                    $"#$b#" +
+                    $"#$b#"; 
+                return;
             }
-            if (asset.AssetNameEquals("Characters/Dialogue/Gunther"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkGunther}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Gus"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkGus}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Kent"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkKent}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Lewis"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkLewis}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Linus"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkLinus}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Marlon"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkMarlon}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Morris"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkMorris}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Mr. Qi"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkQi}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Willy"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkWilly}]";
-            }
-            if (asset.AssetNameEquals("Characters/Dialogue/Wizard"))
-            {
-                data["milk_start"] = $" [{TempRefs.MilkWiz}]";
-            }
+            //if (asset.AssetNameEquals("Characters/Dialogue/Gunther"))
+            //{
+            //    data["milk_start"] = $"" +
+            //        $"#$b#" +
+            //        $"#$b#" +
+            //        $"#$b#";
+            //    return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Gus"))
+            //{
+            //    data["milk_start"] = $"" +
+            //        $"#$b#" +
+            //        $"#$b#" +
+            //        $"#$b#"; 
+            //    return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Kent"))
+            //{
+            //    data["milk_start"] = $"" +
+            //        $"#$b#" +
+            //        $"#$b#" +
+            //        $"#$b#"; 
+            //    return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Lewis"))
+            //{
+            //    data["milk_start"] = $"" +
+            //        $"#$b#" +
+            //        $"#$b#" +
+            //        $"#$b#";
+            //    return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Linus"))
+            //{
+            //    data["milk_start"] = $" [{TempRefs.MilkLinus}]"; return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Marlon"))
+            //{
+            //    data["milk_start"] = $" [{TempRefs.MilkMarlon}]"; return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Morris"))
+            //{
+            //    data["milk_start"] = $" [{TempRefs.MilkMorris}]"; return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Mister Qi"))
+            //{
+            //    data["milk_start"] = $" [{TempRefs.MilkQi}]"; return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Willy"))
+            //{
+            //    data["milk_start"] = $" [{TempRefs.MilkWilly}]"; return;
+            //}
+            //if (asset.AssetNameEquals("Characters/Dialogue/Wizard"))
+            //{
+            //    data["milk_start"] = $" [{TempRefs.MilkWiz}]"; return;
+            //}
             #endregion
 
             return;
