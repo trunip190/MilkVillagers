@@ -13,7 +13,6 @@ namespace MilkVillagers
         public int QuestID4 = 300004;
         public bool MilkMale = true;
         public bool MilkFemale = true;
-        public bool PailGiven;
         public bool Verbose = false;
         public bool NeedTool = false;
         public bool StackMilk = false;

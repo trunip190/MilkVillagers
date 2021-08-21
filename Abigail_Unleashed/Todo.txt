@@ -6,6 +6,7 @@
 	Sofia etc.
 	specific dialogue for male npc's
 	make dialogue changes optional.
+	add in CP override
 
 In Progress
 	cooking recipes

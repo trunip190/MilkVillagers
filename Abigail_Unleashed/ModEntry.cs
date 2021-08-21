@@ -37,7 +37,7 @@ namespace MilkVillagers
         {
             Config = helper.ReadConfig<ModConfig>();
             _recipeEditor = new RecipeEditor();
-            _dialogueEditor = new DialogueEditor();
+            _dialogueEditor = new DialogueEditor { ExtraContent = Config.ExtraDialogue };
             _itemEditor = new ItemEditor();
             _questEditor = new QuestEditor();
 
@@ -71,17 +71,10 @@ namespace MilkVillagers
             GetItemCodes();
             CorrectRecipes();
 
-            //Temporarily add in recipes on savegame load.
-            //TODO move this to an event.
-            //TODO stop this wiping recipes.
-            if (false)
+            //TODO add in cooking recipe if not found.
+            if (!Game1.player.cookingRecipes.ContainsKey("Milkshake"))
             {
-                SerializableDictionary<string, int> newRecipe = new SerializableDictionary<string, int>
-                {
-                    { "'Protein' Shake", 1 },
-                    { "Milkshake", 1 }
-                };
-                Game1.player.cookingRecipes.Add(newRecipe);
+                
             }
 
             runOnce = true;
@@ -172,7 +165,7 @@ namespace MilkVillagers
             LogLevel Defcon = LogLevel.Trace;
             TempRefs.Monitor.Log($"Correcting item codes", LogLevel.Trace);
             //Defcon = LogLevel.Alert;
-            int num1 = 13;
+            int num1 = 0;
             int num2 = 0;
 
 
@@ -389,6 +382,7 @@ namespace MilkVillagers
                         continue;
                     #endregion
 
+                    #region Extra Items
                     case "Milk":
                         TempRefs.MilkGeneric = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added as default. {TempRefs.MilkGeneric}", Defcon);
@@ -404,38 +398,25 @@ namespace MilkVillagers
                         Monitor.Log($"{strArray[0]} added. {TempRefs.ProteinShake}", Defcon);
                         continue;
 
-                    case "Milkshake":
+                    case "Special Milkshake":
                         TempRefs.MilkShake = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkShake}", Defcon);
                         continue;
 
+                    #endregion
+
                     default:
                         if (strArray[0].ToLower().Contains("milk"))
                         {
+                            num1++;
                             Monitor.Log($"{strArray[0]} wasn't added.", Defcon);
                         }
                         continue;
                 }
             }
-            if (Config.StackMilk)
-            {
-                TempRefs.MilkAbig = TempRefs.MilkGeneric;
-                TempRefs.MilkEmil = TempRefs.MilkGeneric;
-                TempRefs.MilkHale = TempRefs.MilkGeneric;
-                TempRefs.MilkLeah = TempRefs.MilkGeneric;
-                TempRefs.MilkMaru = TempRefs.MilkGeneric;
-                TempRefs.MilkPenn = TempRefs.MilkGeneric;
-                TempRefs.MilkCaro = TempRefs.MilkGeneric;
-                TempRefs.MilkJodi = TempRefs.MilkGeneric;
-                TempRefs.MilkMarn = TempRefs.MilkGeneric;
-                TempRefs.MilkRobi = TempRefs.MilkGeneric;
-                TempRefs.MilkPam = TempRefs.MilkGeneric;
-                TempRefs.MilkSand = TempRefs.MilkGeneric;
-                TempRefs.MilkEvel = TempRefs.MilkGeneric;
-            }
 
             TempRefs.loaded = true;
-            Monitor.Log($"Loaded {num2}/{num1} items", Defcon);
+            Monitor.Log($"Loaded {num2}/{num1 + num2} items", Defcon);
 
             Game1.player.Items[0].getCategoryName();
 
@@ -571,10 +552,59 @@ namespace MilkVillagers
             }
             #endregion
 
+            #region set item to give
+            string ItemCode;
+            if (Config.StackMilk)
+            {
+                ItemCode = npc.gender == 0 ? $"[{TempRefs.MilkSpecial}]" : $"[{TempRefs.MilkGeneric}]";
+            }
+            else
+            {
+                switch (npc.Name) //Give items to player
+                {
+                    case "Abigail": ItemCode = $"[{TempRefs.MilkAbig}]"; break;
+                    case "Caroline": ItemCode = $"[{TempRefs.MilkCaro}]"; break;
+                    case "Emily": ItemCode = $"[{TempRefs.MilkEmil}]"; break;
+                    case "Evelyn": ItemCode = $"[{TempRefs.MilkEvel}]"; break;
+                    case "Haley": ItemCode = $"[{TempRefs.MilkHale}]"; break;
+                    case "Jodi": ItemCode = $"[{TempRefs.MilkJodi}]"; break;
+                    case "Leah": ItemCode = $"[{TempRefs.MilkLeah}]"; break;
+                    case "Marnie": ItemCode = $"[{TempRefs.MilkMarn}]"; break;
+                    case "Maru": ItemCode = $"[{TempRefs.MilkMaru}]"; break;
+                    case "Pam": ItemCode = $"[{TempRefs.MilkPam}]"; break;
+                    case "Penny": ItemCode = $"[{TempRefs.MilkPenn}]"; break;
+                    case "Sandy": ItemCode = $"[{TempRefs.MilkSand}]"; break;
+                    case "Alex": ItemCode = $"[{TempRefs.MilkAlex}]"; break;
+                    case "Clint": ItemCode = $"[{TempRefs.MilkClint}]"; break;
+                    case "Demetrius": ItemCode = $"[{TempRefs.MilkDemetrius}]"; break;
+                    case "Elliott": ItemCode = $"[{TempRefs.MilkElliott}]"; break;
+                    case "George": ItemCode = $"[{TempRefs.MilkGeorge}]"; break;
+                    case "Gus": ItemCode = $"[{TempRefs.MilkGus}]"; break;
+                    case "Harvey": ItemCode = $"[{TempRefs.MilkHarv}]"; break;
+                    case "Kent": ItemCode = $"[{TempRefs.MilkKent}]"; break;
+                    case "Lewis": ItemCode = $"[{TempRefs.MilkLewis}]"; break;
+                    case "Linus": ItemCode = $"[{TempRefs.MilkLinus}]"; break;
+                    case "Pierre": ItemCode = $"[{TempRefs.MilkPierre}]"; break;
+                    case "Robin": ItemCode = $"[{TempRefs.MilkRobi}]"; break;
+                    case "Sam": ItemCode = $"[{TempRefs.MilkSam}]"; break;
+                    case "Sebastian": ItemCode = $"[{TempRefs.MilkSeb}]"; break;
+                    case "Shane": ItemCode = $"[{TempRefs.MilkShane}]"; break;
+                    case "Willy": ItemCode = $"[{TempRefs.MilkWilly}]"; break;
+                    case "Wizard": ItemCode = $"[{TempRefs.MilkWiz}]"; break;
+                    //case "Krobus": ItemCode = $"[{TempRefs.MilkKrobu}]"; break;
+                    //case "Dwarf": ItemCode = $"[{TempRefs.MilkDwarf}]"; break;
+
+                    default: //NPC's I don't know.
+                        ItemCode = npc.gender == 0 ? $"[{TempRefs.MilkSpecial}]" : $"[{TempRefs.MilkGeneric}]";
+                        break;
+                }
+            }    
+            #endregion
+
             npc.facePlayer(Game1.player);
             if (npc.Dialogue.TryGetValue("milk_start", out string dialogues)) //Does npc have milking dialogue?
             {
-                Game1.drawDialogue(npc, dialogues);
+                Game1.drawDialogue(npc, $"{dialogues} {ItemCode}");
             }
             else
             {
