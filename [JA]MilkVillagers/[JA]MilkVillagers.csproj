@@ -9,13 +9,31 @@
     <None Remove="Objects\Abigail's Milk\object.png" />
     <None Remove="Objects\Alex's Cum\object.png" />
     <None Remove="Objects\Caroline's Milk\object.png" />
+    <None Remove="Objects\Clint's Cum\object.png" />
+    <None Remove="Objects\Demetrius's Cum\object.png" />
+    <None Remove="Objects\Elliott's Cum\object.png" />
     <None Remove="Objects\Emily's Milk\object.png" />
     <None Remove="Objects\Evelyn's Milk\object.png" />
+    <None Remove="Objects\George's Cum\object.png" />
+    <None Remove="Objects\Gil's Cum\object.png" />
+    <None Remove="Objects\Gunther's Cum\object.png" />
+    <None Remove="Objects\Gus's Cum\object.png" />
     <None Remove="Objects\Haley's Milk\object.png" />
+    <None Remove="Objects\Harvey's Cum\object.png" />
     <None Remove="Objects\Jodi's Milk\object.png" />
+    <None Remove="Objects\Kent's Cum\object.png" />
     <None Remove="Objects\Leah's Milk\object.png" />
+    <None Remove="Objects\Lewis's Cum\object.png" />
+    <None Remove="Objects\Linus's Cum\object.png" />
+    <None Remove="Objects\Marlon's Cum\object.png" />
     <None Remove="Objects\Marnie's Milk\object.png" />
     <None Remove="Objects\Maru's Milk\object.png" />
+    <None Remove="Objects\Morris's Cum\object.png" />
+    <None Remove="Objects\Pierre's Cum\object.png" />
+    <None Remove="Objects\Qi's Cum\object.png" />
+    <None Remove="Objects\Sam's Cum\object.png" />
+    <None Remove="Objects\Sebastian's Cum\object.png" />
+    <None Remove="Objects\Shane's Cum\object.png" />
     <None Remove="Objects\Special Milkshake\object.png" />
     <None Remove="Objects\Pam's Milk\object.png" />
     <None Remove="Objects\Penny's Milk\object.png" />
@@ -23,6 +41,8 @@
     <None Remove="Objects\Robin's Milk\object.png" />
     <None Remove="Objects\Sandra's Milk\object.png" />
     <None Remove="Objects\Special Milk\object.png" />
+    <None Remove="Objects\Willy's Cum\object.png" />
+    <None Remove="Objects\Wizard's Cum\object.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,25 +55,79 @@
     <Content Include="Objects\Caroline's Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Objects\Clint's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Demetrius's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Elliott's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Objects\Emily's Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Evelyn's Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Objects\George's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Gil's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Gunther's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Gus's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Objects\Haley's Milk\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Harvey's Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Jodi's Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Objects\Kent's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Objects\Leah's Milk\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Lewis's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Linus's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Marlon's Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Marnie's Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Maru's Milk\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Morris's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Pierre's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Qi's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sam's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Sebastian's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Shane's Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Special Milkshake\object.png">
@@ -77,6 +151,12 @@
     <Content Include="Objects\Special Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Objects\Willy's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Wizard's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -96,25 +176,79 @@
     <None Update="Objects\Caroline%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Objects\Clint%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Demetrius%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Elliott%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Objects\Emily%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Evelyn%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Objects\George%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Gil%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Gunther%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Gus%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Objects\Haley%27s Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Harvey%27s Cum\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Jodi%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Objects\Kent%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Objects\Leah%27s Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Lewis%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Linus%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Marlon%27s Cum\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Marnie%27s Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Maru%27s Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Morris%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Pierre%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Qi%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Sam%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Sebastian%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Shane%27s Cum\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Special Milkshake\object.json">
@@ -138,29 +272,12 @@
     <None Update="Objects\Special Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Objects\Clint%27s Cum\" />
-    <Folder Include="Objects\Demetrius%27s Cum\" />
-    <Folder Include="Objects\Elliott%27s Cum\" />
-    <Folder Include="Objects\George%27s Cum\" />
-    <Folder Include="Objects\Gil%27s Cum\" />
-    <Folder Include="Objects\Gunther%27s Cum\" />
-    <Folder Include="Objects\Gus%27s Cum\" />
-    <Folder Include="Objects\Harvey%27s Cum\" />
-    <Folder Include="Objects\Kent%27s Cum\" />
-    <Folder Include="Objects\Lewis%27s Cum\" />
-    <Folder Include="Objects\Linus%27s Cum\" />
-    <Folder Include="Objects\Marlon%27s Cum\" />
-    <Folder Include="Objects\Morris%27s Cum\" />
-    <Folder Include="Objects\Wizard%27s Cum\" />
-    <Folder Include="Objects\Willy%27s Cum\" />
-    <Folder Include="Objects\Shane%27s Cum\" />
-    <Folder Include="Objects\Sebastian%27s Cum\" />
-    <Folder Include="Objects\Sam%27s Cum\" />
-    <Folder Include="Objects\Pierre%27s Cum\" />
-    <Folder Include="Objects\Qi%27s Cum\" />
+    <None Update="Objects\Willy%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Wizard%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

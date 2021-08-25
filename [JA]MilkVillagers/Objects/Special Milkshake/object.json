@@ -5,7 +5,17 @@
     "Edibility": 17, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
     "Price": 250, //How much your item sells for.
     "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
-    "Recipe": null, //Set to null.
+    "Recipe":
+    {
+        "ResultCount": 1,
+        "Ingredients": [
+        {
+            "Object": "Haley's Milk",//-34, // Human Milk Category
+            "Count": 1,
+        },],
+        "IsDefault": false,
+        "CanPurchase": false,
+    },
     "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
     {
         "Love": ["Abigail, Caroline, Haley"], //Example of a single NPC

@@ -17,6 +17,7 @@ namespace MilkVillagers
         public bool NeedTool = false;
         public bool StackMilk = false;
         public bool ExtraDialogue = false;
+        public bool thirdParty = true; 
     }
 
     public static class TempRefs
@@ -25,6 +26,7 @@ namespace MilkVillagers
         public static IMonitor Monitor;
         public static bool loaded = false;
         public static List<NPC> milkedtoday = new List<NPC>();
+        public static bool thirdParty = true;
 
         // Quest ID storage
         public static int QuestID1 = 300001;
@@ -46,6 +48,7 @@ namespace MilkVillagers
         public static int MilkPam = 1211;
         public static int MilkSand = 1212;
         public static int MilkEvel = 1213;
+        public static int MilkDwarf = 1239;
         public static int MilkGeneric = 1214;
 
         // Cum item code storage.
@@ -71,6 +74,8 @@ namespace MilkVillagers
         public static int MilkShane = 1234;
         public static int MilkWilly = 1235;
         public static int MilkWiz = 1236;
+        public static int MilkWMarlon = 1237;
+        public static int MilkKrobus = 1238;
 
         // Recipe item code storage
         public static int ProteinShake = 1216;
@@ -80,5 +85,58 @@ namespace MilkVillagers
         public static int MilkType = -34;
         public static int CumType = -35;
 
+        public static void ReportCodes()
+        {
+            // Milk item code storage
+            Monitor.Log($"MilkAbig is {MilkAbig}", LogLevel.Trace);
+            Monitor.Log($"MilkEmil is {MilkEmil}", LogLevel.Trace);
+            Monitor.Log($"MilkHale is {MilkHale}", LogLevel.Trace);
+            Monitor.Log($"MilkLeah is {MilkLeah}", LogLevel.Trace);
+            Monitor.Log($"MilkMaru is {MilkMaru}", LogLevel.Trace);
+            Monitor.Log($"MilkPenn is {MilkPenn}", LogLevel.Trace);
+            Monitor.Log($"MilkCaro is {MilkCaro}", LogLevel.Trace);
+            Monitor.Log($"MilkJodi is {MilkJodi}", LogLevel.Trace);
+            Monitor.Log($"MilkMarn is {MilkMarn}", LogLevel.Trace);
+            Monitor.Log($"MilkRobi is {MilkRobi}", LogLevel.Trace);
+            Monitor.Log($"MilkPam is {MilkPam}", LogLevel.Trace);
+            Monitor.Log($"MilkSand is {MilkSand}", LogLevel.Trace);
+            Monitor.Log($"MilkEvel is {MilkEvel}", LogLevel.Trace);
+            Monitor.Log($"MilkDwarf is {MilkDwarf}", LogLevel.Trace);
+            Monitor.Log($"MilkGeneric is {MilkGeneric}", LogLevel.Trace);
+
+            // Cum item code storage.
+            Monitor.Log($"MilkSpecial is {MilkSpecial}", LogLevel.Trace);
+            Monitor.Log($"MilkAlex is {MilkAlex}", LogLevel.Trace);
+            Monitor.Log($"MilkClint is {MilkClint}", LogLevel.Trace);
+            Monitor.Log($"MilkDemetrius is {MilkDemetrius}", LogLevel.Trace);
+            Monitor.Log($"MilkElliott is {MilkElliott}", LogLevel.Trace);
+            Monitor.Log($"MilkGeorge is {MilkGeorge}", LogLevel.Trace);
+            Monitor.Log($"MilkGil is {MilkGil}", LogLevel.Trace);
+            Monitor.Log($"MilkGunther is {MilkGunther}", LogLevel.Trace);
+            Monitor.Log($"MilkGus is {MilkGus}", LogLevel.Trace);
+            Monitor.Log($"MilkHarv is {MilkHarv}", LogLevel.Trace);
+            Monitor.Log($"MilkKent is {MilkKent}", LogLevel.Trace);
+            Monitor.Log($"MilkLewis is {MilkLewis}", LogLevel.Trace);
+            Monitor.Log($"MilkLinus is {MilkLinus}", LogLevel.Trace);
+            Monitor.Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
+            Monitor.Log($"MilkMorris is {MilkMorris}", LogLevel.Trace);
+            Monitor.Log($"MilkQi is {MilkQi}", LogLevel.Trace);
+            Monitor.Log($"MilkPierre is {MilkPierre}", LogLevel.Trace);
+            Monitor.Log($"MilkSam is {MilkSam}", LogLevel.Trace);
+            Monitor.Log($"MilkSeb is {MilkSeb}", LogLevel.Trace);
+            Monitor.Log($"MilkShane is {MilkShane}", LogLevel.Trace);
+            Monitor.Log($"MilkWilly is {MilkWilly}", LogLevel.Trace);
+            Monitor.Log($"MilkWiz is {MilkWiz}", LogLevel.Trace);
+            Monitor.Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
+            Monitor.Log($"MilkKrobus is {MilkKrobus}", LogLevel.Trace);
+
+            // Recipe item code storage
+            Monitor.Log($"ProteinShake is {ProteinShake}", LogLevel.Trace);
+            Monitor.Log($"MilkShake is {MilkShake}", LogLevel.Trace);
+
+            // Item types
+            Monitor.Log($"MilkType is {MilkType}", LogLevel.Trace);
+            Monitor.Log($"CumType is {CumType}", LogLevel.Trace);
+        }
     }
 }

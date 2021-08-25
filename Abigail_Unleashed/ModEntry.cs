@@ -74,7 +74,7 @@ namespace MilkVillagers
             //TODO add in cooking recipe if not found.
             if (!Game1.player.cookingRecipes.ContainsKey("Milkshake"))
             {
-                
+
             }
 
             runOnce = true;
@@ -126,9 +126,17 @@ namespace MilkVillagers
             api.RegisterSimpleOption(
                 mod: this.ModManifest,
                 optionName: "ExtraDialogue",
-                optionDesc: "Enable Abiail's dialogue changes?",
+                optionDesc: "Enable Abigail's dialogue changes?",
                 optionGet: () => this.Config.ExtraDialogue,
                 optionSet: value => this.Config.ExtraDialogue = value
+            );
+
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "3rd Party Dialogue",
+                optionDesc: "Enable 3rd party dialogue?",
+                optionGet: () => this.Config.thirdParty,
+                optionSet: value => this.Config.thirdParty = value
             );
             #endregion
 
@@ -140,6 +148,7 @@ namespace MilkVillagers
             TempRefs.QuestID1 = Config.QuestID1;
             TempRefs.QuestID2 = Config.QuestID2;
             TempRefs.QuestID3 = Config.QuestID3;
+            TempRefs.thirdParty = Config.thirdParty;
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
@@ -152,6 +161,12 @@ namespace MilkVillagers
                     Monitor.Log($"TempRegs is set. Cleared {TempRefs.milkedtoday.Count}", LogLevel.Trace);
 
                 TempRefs.milkedtoday.Clear();
+            }
+
+            Dictionary<ISalable, int[]> stock = Utility.getSaloonStock();
+            foreach (KeyValuePair<ISalable, int[]> kp in stock)
+            {
+                Monitor.Log($"{kp.Key.DisplayName}: price ${kp.Value[0]}, Quantity: {kp.Value[1]}", LogLevel.Trace);
             }
 
             //Game1.player.mailbox.Add("MilkButton1");
@@ -339,7 +354,7 @@ namespace MilkVillagers
                         ++num2;
                         continue;
 
-                    case "Mr. Qi's Cum":
+                    case "Qi's Cum":
                         TempRefs.MilkQi = keyValuePair.Key;
                         Monitor.Log($"{strArray[0]} added. {TempRefs.MilkQi}", Defcon);
                         ++num2;
@@ -406,11 +421,12 @@ namespace MilkVillagers
                     #endregion
 
                     default:
-                        if (strArray[0].ToLower().Contains("milk"))
+                        if (strArray[0].ToLower().Contains("milk") || strArray[0].ToLower().Contains("cum"))
                         {
                             num1++;
-                            Monitor.Log($"{strArray[0]} wasn't added.", Defcon);
+                            Monitor.Log($"{strArray[0]} wasn't added.", LogLevel.Info);
                         }
+
                         continue;
                 }
             }
@@ -421,12 +437,13 @@ namespace MilkVillagers
             Game1.player.Items[0].getCategoryName();
 
             #region fix item strings
+            //TODO might be able to delete this section
             IDictionary<int, string> _objectData = _itemEditor._objectData;
 
             //milk items
             _objectData[TempRefs.MilkAbig] = $"Abigail's Milk/300/15/Basic {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkEmil] = $"Emily's Milk/300/15/Basic {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkHale] = $"Haley's Milk/300/15/Basic {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkHale] = $"Haley's Milk/300/15/Basic {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkLeah] = $"Leah's Milk/300/15/Basic {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkMaru] = $"Maru's Milk/300/15/Basic {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkPenn] = $"Penny's Milk/300/15/Basic {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
@@ -437,15 +454,42 @@ namespace MilkVillagers
             _objectData[TempRefs.MilkPam] = $"Pam's Milk/90/15/Basic {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Basic {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Basic {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkDwarf] = $"Dwarf's Milk/300/15/Basic {TempRefs.CumType}/Dwarf's Milk/A jug of Dwarf's milk ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Basic {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
             //cum items
             _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Basic {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkAlex] = $"Alex's Cum/300/15/Basic {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkClint] = $"Clint's Cum/300/15/Basic {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkDemetrius] = $"Demetrius's Cum/300/15/Basic {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkElliott] = $"Elliott's Cum/300/15/Basic {TempRefs.CumType}/Elliott's Cum/A bottle of Elliott's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGeorge] = $"George's Cum/300/15/Basic {TempRefs.CumType}/George's Cum /A bottle of George's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGil] = $"Gil's Cum/300/15/Basic {TempRefs.CumType}/Gil's Cum/A bottle of Gil's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGunther] = $"Gunther's Cum/300/15/Basic {TempRefs.CumType}/Gunther's Cum/A bottle of Gunther's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGus] = $"Gus's Cum/300/15/Basic {TempRefs.CumType}/Gus's Cum/A bottle of Gus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkHarv] = $"Harvey's Cum/300/15/Basic {TempRefs.CumType}/Harvey's Cum /A bottle of Harvey's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkKent] = $"Kent's Cum/300/15/Basic {TempRefs.CumType}/Kent's Cum /A bottle of Kent's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkLewis] = $"Lewis's Cum/300/15/Basic {TempRefs.CumType}/Lewis's Cum/A bottle of Lewis's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkLinus] = $"Linus's Cum/300/15/Basic {TempRefs.CumType}/Linus's Cum/A bottle of Linus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkMarlon] = $"Marlon's Cum/300/15/Basic {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkMorris] = $"Morris's Cum/300/15/Basic {TempRefs.CumType}/Morris's Cum /A bottle of Morris's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkQi] = $"Mr. Qi's Cum/300/15/Basic {TempRefs.CumType}/Mr. Qi's Cum /A bottle of Mr. Qi's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkPierre] = $"Pierre's Cum/300/15/Basic {TempRefs.CumType}/Pierre's Cum /A bottle of Pierre's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkSam] = $"Sam's Cum/300/15/Basic {TempRefs.CumType}/Sam's Cum/A bottle of Sam's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkSeb] = $"Sebastian's Cum/300/15/Basic {TempRefs.CumType}/Sebastian's Cum/A bottle of Sebastian's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkShane] = $"Shane's Cum/300/15/Basic {TempRefs.CumType}/Shane's Cum/A bottle of Shane's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkWilly] = $"Willy's Cum/300/15/Basic {TempRefs.CumType}/Willy's Cum/A bottle of Willy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkWiz] = $"Wizard's Cum/300/15/Basic {TempRefs.CumType}/Wizard's Cum /A bottle of Wizard's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkMarlon] = $"Marlon's Cum/300/15/Basic {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkKrobus] = $"Krobus's Cum/300/15/Basic {TempRefs.CumType}/Krobus's Cum /A bottle of Krobus's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
 
             //recipes
-            _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Basic -6/'Protein' shake/Shake made with extra protein/Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Basic -6/'Special' Milkshake/Extra milky milkshake./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Cooking -7/'Protein' shake/Shake made with extra protein/drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/'Special' Milkshake/Extra milky milkshake./drink/0 0 0 0 0 0 0 0 0 0 0/0";
             #endregion
+
+
         }
 
         private void CorrectRecipes()
@@ -460,6 +504,7 @@ namespace MilkVillagers
             {
                 return;
             }
+
 
             running = false;
 
@@ -480,6 +525,12 @@ namespace MilkVillagers
             //    else
             //        Game1.warpFarmer("SeedShop", 4, 9, false);
             //}
+            if (button == SButton.P)
+            {
+                //TempRefs.ReportCodes();
+                Monitor.Log(_itemEditor._objectData[TempRefs.MilkShake], LogLevel.Trace);
+                Monitor.Log(_itemEditor._objectData[TempRefs.ProteinShake], LogLevel.Trace);
+            }
             if (button == SButton.O)
             {
                 //if (Game1.player.CurrentTool == null)
@@ -553,7 +604,7 @@ namespace MilkVillagers
             #endregion
 
             #region set item to give
-            string ItemCode;
+            string ItemCode = $"[{TempRefs.MilkGeneric}]";
             if (Config.StackMilk)
             {
                 ItemCode = npc.gender == 0 ? $"[{TempRefs.MilkSpecial}]" : $"[{TempRefs.MilkGeneric}]";
@@ -591,14 +642,16 @@ namespace MilkVillagers
                     case "Shane": ItemCode = $"[{TempRefs.MilkShane}]"; break;
                     case "Willy": ItemCode = $"[{TempRefs.MilkWilly}]"; break;
                     case "Wizard": ItemCode = $"[{TempRefs.MilkWiz}]"; break;
-                    //case "Krobus": ItemCode = $"[{TempRefs.MilkKrobu}]"; break;
-                    //case "Dwarf": ItemCode = $"[{TempRefs.MilkDwarf}]"; break;
+                    case "Marlon": ItemCode = $"[{TempRefs.MilkWMarlon}]"; break;
+                    case "Krobus": ItemCode = $"[{TempRefs.MilkKrobus}]"; break;
+                    case "Dwarf": ItemCode = $"[{TempRefs.MilkDwarf}]"; break;
 
                     default: //NPC's I don't know.
                         ItemCode = npc.gender == 0 ? $"[{TempRefs.MilkSpecial}]" : $"[{TempRefs.MilkGeneric}]";
+                        Monitor.Log($"Couldn't find {npc.name} in the list of items", LogLevel.Alert);
                         break;
                 }
-            }    
+            }
             #endregion
 
             npc.facePlayer(Game1.player);
@@ -609,11 +662,12 @@ namespace MilkVillagers
             else
             {
                 if (npc.gender == 1)
-                    Game1.drawDialogue(npc, $"You want to milk me? Are you crazy...? Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. [{TempRefs.MilkGeneric}]");
+                    Game1.drawDialogue(npc, $"You want to milk me? Are you crazy...? Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {ItemCode}");
                 else
-                    Game1.drawDialogue(npc, $"You want my \"milk\"? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! [{TempRefs.MilkSpecial}]");
+                    Game1.drawDialogue(npc, $"You want my \"milk\"? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {ItemCode}");
             }
 
+            Monitor.Log($"ItemCode is {ItemCode}", LogLevel.Trace);
             Game1.player.changeFriendship(30, npc);
             TempRefs.milkedtoday.Add(npc);
             //_ = npc.checkAction(Game1.player, Game1.currentLocation);
@@ -642,248 +696,6 @@ namespace MilkVillagers
 
     }
 
-    public class ToolsLoader : IAssetEditor
-    {
-        private readonly Texture2D _toolsSpriteSheet;
-        private readonly Texture2D _menuTilesSpriteSheet;
-        private readonly Texture2D _customLetterBG;
-
-        public ToolsLoader(
-          Texture2D toolsSpriteSheet,
-          Texture2D menuTilesSpriteSheet,
-          Texture2D customLetterBG)
-        {
-            this._toolsSpriteSheet = toolsSpriteSheet;
-            this._menuTilesSpriteSheet = menuTilesSpriteSheet;
-            this._customLetterBG = customLetterBG;
-        }
-
-        public bool CanEdit<T>(IAssetInfo asset)
-        {
-            return asset.AssetNameEquals("TileSheets\\tools") || asset.AssetNameEquals("Maps\\MenuTiles");
-        }
-
-        public void Edit<T>(IAssetData asset)
-        {
-        }
-
-    }
-
-    [XmlInclude(typeof(SpellMilk))]
-    [XmlInclude(typeof(SpellTeleport))]
-    [Serializable]
-    public class SpellTouch : StardewValley.Tools.MilkPail
-    {
-        public static int AttachmentMenuTile = 90;
-        public int Range = 1;
-
-        public override bool beginUsing(GameLocation location, int x, int y, Farmer who)
-        {
-            Game1.addHUDMessage(new HUDMessage(who.displayName + " started casting " + this.Name));
-
-            return base.beginUsing(location, x, y, who);
-        }
-
-        private List<int[]> ValidCells(Farmer who)
-        {
-            int[] numArray = new int[2]
-            {
-        who.getTileX(),
-        who.getTileY()
-            };
-            List<int[]> numArrayList = new List<int[]>();
-            switch (who.FacingDirection)
-            {
-                case 0:
-                    for (int index = 1; index <= this.Range; ++index)
-                        numArrayList.Add(new int[2]
-                        {
-              numArray[0],
-              numArray[1] - index
-                        });
-                    break;
-                case 1:
-                    for (int index = 1; index <= this.Range; ++index)
-                        numArrayList.Add(new int[2]
-                        {
-              numArray[0] + index,
-              numArray[1]
-                        });
-                    break;
-                case 2:
-                    for (int index = 1; index <= this.Range; ++index)
-                        numArrayList.Add(new int[2]
-                        {
-              numArray[0],
-              numArray[1] + index
-                        });
-                    break;
-                case 3:
-                    for (int index = 1; index <= this.Range; ++index)
-                        numArrayList.Add(new int[2]
-                        {
-              numArray[0] - index,
-              numArray[1]
-                        });
-                    break;
-            }
-            return numArrayList;
-        }
-
-        protected NPC CurrentTarget(GameLocation location, Farmer who)
-        {
-            foreach (int[] validCell in this.ValidCells(who))
-            {
-                using (List<NPC>.Enumerator enumerator = location.characters.GetEnumerator())
-                {
-                    while (enumerator.MoveNext())
-                    {
-                        NPC current = enumerator.Current;
-                        if (validCell[0] == current.getTileX() && validCell[1] == current.getTileY())
-                            return current;
-                    }
-                }
-            }
-            return (NPC)null;
-        }
-
-        protected override string loadDisplayName()
-        {
-            return this.Name ?? "";
-        }
-
-        protected override string loadDescription()
-        {
-            return string.Format("{0} Range {1}", (object)this.description, (object)this.Range);
-        }
-
-        public override Item getOne()
-        {
-            return (Item)new SpellTouch();
-        }
-    }
-
-    public class SpellMilk : SpellTouch
-    {
-        public SpellMilk()
-        {
-            Name = "Milk";
-            description = "Lets you milk villagers.";
-            Range = 1;
-            initialParentTileIndex.Value = 2;
-            indexOfMenuItemView.Value = 2;
-            Stackable = false;
-            CurrentParentTileIndex = initialParentTileIndex;
-            numAttachmentSlots.Value = 1;
-            attachments.SetCount(numAttachmentSlots);
-            Category = -99;
-        }
-
-        public override bool beginUsing(GameLocation location, int x, int y, Farmer who)
-        {
-            this.Update((int)who.facingDirection, 0, who);
-            who.EndUsingTool();
-            return true;
-        }
-
-        public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
-        {
-            NPC npc = CurrentTarget(location, who);
-            if (npc == null)
-                return;
-            if (Game1.player.getFriendshipHeartLevelForNPC(npc.name) < 8)
-                npc.addExtraDialogues("Hey there @. Wotcha doing with that pail?");
-            if (TempRefs.milkedtoday.Contains(npc))
-                return;
-            npc.facePlayer(Game1.player);
-
-            if (npc.Dialogue.TryGetValue("milk_start", out string dialogues))
-            {
-                Game1.addHUDMessage(new HUDMessage(string.Format("Starting milking process with {0}", npc.name)));
-
-                npc.addExtraDialogues(dialogues);
-                npc.checkAction(Game1.player, Game1.currentLocation);
-                TempRefs.milkedtoday.Add(npc);
-            }
-            else
-            {
-                if ((int)(NetFieldBase<int, NetInt>)npc.gender != 1)
-                    return;
-                npc.addExtraDialogues("You want to milk me? Are you crazy...? Although, that DOES sound kinda hot. [174]");
-                npc.checkAction(Game1.player, Game1.currentLocation);
-                TempRefs.milkedtoday.Add(npc);
-            }
-        }
-    }
-
-    public class SpellTeleport : SpellSelf
-    {
-        public SpellTeleport()
-        {
-            this.Name = "Teleport Random";
-            this.description = "Teleports you to a random location";
-            this.Range = 12;
-            this.initialParentTileIndex.Value = 0;
-            this.indexOfMenuItemView.Value = 2;
-            this.Stackable = false;
-            this.CurrentParentTileIndex = (int)(NetFieldBase<int, NetInt>)this.initialParentTileIndex;
-            this.numAttachmentSlots.Value = 1;
-            this.attachments.SetCount((int)(NetFieldBase<int, NetInt>)this.numAttachmentSlots);
-            this.Category = -99;
-        }
-
-        public override void DoFunction(GameLocation location, int x, int y, int power, Farmer who)
-        {
-            base.DoFunction(location, x, y, power, who);
-            bool nonWarpFade = Game1.nonWarpFade;
-            int[] numArray = this.NewTarget(location, who, this.Range);
-            Game1.nonWarpFade = true;
-            Game1.warpFarmer((string)(NetFieldBase<string, NetString>)location.name, numArray[0], numArray[1], false);
-            Game1.nonWarpFade = nonWarpFade;
-        }
-
-        private int[] NewTarget(GameLocation location, Farmer who, int range)
-        {
-            int[] numArray1 = new int[2]
-            {
-        who.getTileX(),
-        who.getTileY()
-            };
-            int[] numArray2 = new int[2];
-            Random random = new Random();
-            int num = 0;
-            while (num < 5)
-            {
-                numArray2[0] = numArray1[0] + random.Next(-range, range);
-                numArray2[1] = numArray1[1] + random.Next(-range, range);
-                if (location.isTileOnMap(numArray2[0], numArray2[1]))
-                    return numArray2;
-            }
-            return numArray1;
-        }
-    }
-
-    public class SpellSelf : Tool
-    {
-        public static int AttachmentMenuTile = 91;
-        public string SpellName = nameof(SpellName);
-        public int Range;
-
-        protected override string loadDisplayName()
-        {
-            return this.SpellName ?? "";
-        }
-
-        protected override string loadDescription()
-        {
-            return string.Format("{0} Range {1}", (object)this.description, (object)this.Range);
-        }
-
-        public override Item getOne()
-        {
-            return (Item)new SpellSelf();
-        }
-    }
 
 
 }
