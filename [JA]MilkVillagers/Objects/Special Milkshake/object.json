@@ -13,8 +13,8 @@
             "Object": "Haley's Milk",//-34, // Human Milk Category
             "Count": 1,
         },],
-        "IsDefault": false,
-        "CanPurchase": false,
+        "IsDefault": true,
+        "CanPurchase": true,
     },
     "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
     {

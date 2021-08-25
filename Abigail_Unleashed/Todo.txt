@@ -22,6 +22,15 @@
 		milkshake
 		protein shake
 	add in girl's panties and boy's boxers.
+	check if quest in questlog, then if not in questlog
+		make each quest point to a "wait x days" quest, and when it is added change the next quest field to the next one in the series using _questEditor.
+		get quest complete to see which quest is next, then change it to the next one
+	fix questid4 - string wrong somewhere.
+	write quests for other npc's.
+		Maru wants to to test some cum
+		George wants to taste some of Haley's and Amily's milk
+		Sebastian wants some of Abigail's milk, but she wants some of his cum.
+	Need to add some events
 
 In Progress
 	cooking recipes

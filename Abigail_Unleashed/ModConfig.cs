@@ -7,17 +7,19 @@ namespace MilkVillagers
     internal class ModConfig
     {
         public int CoolDownAmount = 3;
-        public int QuestID1 = 300001;
-        public int QuestID2 = 300002;
-        public int QuestID3 = 300003;
-        public int QuestID4 = 300004;
+        //public int QuestID1 = 594801; // Abigail's Eggplant
+        //public int QuestID2 = 594802; // Abigail's Carrot
+        //public int QuestID3 = 594803; // Abigail's Radishes
+        //public int QuestID4 = 594804; // Abigail's 'Helping hand'
+        //public int QuestID5 = 594805; // Wait for Abigail.
         public bool MilkMale = true;
         public bool MilkFemale = true;
         public bool Verbose = false;
         public bool NeedTool = false;
         public bool StackMilk = false;
         public bool ExtraDialogue = false;
-        public bool thirdParty = true; 
+        public bool thirdParty = true;
+        public bool debug = true;
     }
 
     public static class TempRefs
@@ -29,10 +31,11 @@ namespace MilkVillagers
         public static bool thirdParty = true;
 
         // Quest ID storage
-        public static int QuestID1 = 300001;
-        public static int QuestID2 = 300002;
-        public static int QuestID3 = 300003;
-        public static int QuestID4 = 300004;
+        public static int QuestID1 = 594801; // Abigail's Eggplant
+        public static int QuestID2 = 594802; // Abigail's Carrot
+        public static int QuestID3 = 594803; // Abigail's Radishes
+        public static int QuestID4 = 594804; // Abigail's 'Helping hand'
+        public static int QuestIDWait = 594805; // Wait for Abigail.
 
         // Milk item code storage
         public static int MilkAbig = 1201;

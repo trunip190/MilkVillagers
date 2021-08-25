@@ -17,9 +17,11 @@ namespace MilkVillagers
             TempRefs.Monitor.Log("Loading recipes", LogLevel.Trace);
             if (asset.AssetNameEquals("Data/CookingRecipes"))
             {
+                int id = TempRefs.MilkType;
+                id = true ? TempRefs.MilkHale : TempRefs.MilkType;
                 data = asset.AsDictionary<string, string>().Data;
-                //data["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/f Gus 8/'Protein' shake";
-                data["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/f Emily 8/Milkshake";
+                data["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/f Gus 8/'Protein' shake";
+                data["Milkshake"] = $"{id} 1/10 10/{TempRefs.MilkShake}/f Emily 8/Milkshake";
             }
         }
     }
@@ -466,7 +468,7 @@ namespace MilkVillagers
                     $"#$b#%*Using his thumb and forefinger, because his hand is too big, he begins to pleasure himself. His hand speeds up*" +
                     $"#$b#J..j...joja..." +
                     $"#$b#%*He finishes onto the floor and hands you a squeegee and a pan to clean it up yourself*" +
-                    $"#$b#Have a good day. Cleanup in aisle 2, %rival. Er...@.$a"; 
+                    $"#$b#Have a good day. Cleanup in aisle 2, %rival. Er...@.$a";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Mister Qi"))// Iliress dialogue
@@ -575,19 +577,6 @@ namespace MilkVillagers
         }
     }
 
-    internal enum QuestTypes
-    {
-        Basic,
-        Building,
-        Crafting,
-        ItemDelivery,
-        ItemHarvest,
-        Location,
-        LostItem,
-        Monster,
-        Social,
-    }
-
     public class QuestEditor : IAssetEditor
     {
         public IDictionary<int, string> data;
@@ -601,40 +590,17 @@ namespace MilkVillagers
         {
             if (!asset.AssetNameEquals("Data/Quests"))
                 return;
+
             data = asset.AsDictionary<int, string>().Data;
-            data[TempRefs.QuestID1] = QuestString(QuestTypes.ItemDelivery, "Abigail's Eggplant", "Abigail needs an eggplant for her cam show. Make sure it's a good one", "Bring Abigail an eggplant.", "Abigail 272", string.Format("{0}", (object)TempRefs.QuestID2), "350", "-1", "true", "Wow, it's so big!. I'll be thinking of you tonight, @. Be sure to watch my show.");
-            data[TempRefs.QuestID2] = QuestString(QuestTypes.ItemDelivery, "Abigail's carrot", "Abigail needs a cave carrot to scratch an itch. Bring her one to 'fill' a need", "Abigail 78", string.Format("{0}", (object)TempRefs.QuestID3), "410", "-1", "true", "I hope you washed it! Those caves are wonderful, but it needs to be SUPER clean before I can use it.");
-            data[TempRefs.QuestID3] = QuestString(QuestTypes.ItemDelivery, "Abigail's radishes", "Abigail wants some radishes for a new idea she had", "Bring Abigail Radishes", "Abigail 264", string.Format("{0}", (object)TempRefs.QuestID4), "240", "-1", "true", "I'm gonna have so much fun with these! How many do you think I can fit?");
-            data[TempRefs.QuestID4] = QuestString(QuestTypes.ItemDelivery, "Abigail's helping hand", "Abigail wants you to help her with her show tonight. Go visit her at her house after 7pm", "Go to Abigail's house tonight", "Abigail", "-1", "0", "", "true", "");
-        }
+            //data[ID] = $"Type/Name/Description/Hint/Condition/Next Quest/Gold/Reward Description/Cancellable/Completion Text";
+            data[TempRefs.QuestID1] = $"ItemDelivery/Abigail's Eggplant/Abigail needs an eggplant for her cam show. Make sure it's a good one/Bring Abigail an eggplant./Abigail 272/h{TempRefs.QuestIDWait}/350/-1/false/Wow, it's so big!. I'll be thinking of you tonight, @. Be sure to watch my show.";
+            data[TempRefs.QuestID2] = $"ItemDelivery/Abigail's Carrot/Abigail needs a cave carrot to scratch an itch. Bring her one to 'fill' a need/Bring Abigail a cave carrot/Abigail 78/h{TempRefs.QuestIDWait}/410/-1/false/I hope you washed it! Those caves are wonderful, but the cave carrot needs to be SUPER clean before its going anywhere near my ass.";
+            data[TempRefs.QuestID3] = $"ItemDelivery/Abigail's Radishes/Abigail wants some radishes for a new idea she had/Bring Abigail Radishes/Abigail 264/h{TempRefs.QuestIDWait}/240/-1/false/I'm gonna have so much fun with these! How many do you think I can fit?";
+            data[TempRefs.QuestID4] = $"Location/Abigail's 'helping hand'/Abigail wants you to help her with her show tonight. Go visit her at her house, and bring her an amethyst./Go to Abigail's house with an Amethyst/SeedShop/{TempRefs.QuestIDWait}/500/-1/false/I'm so glad you could come over and give me a helping 'hand'. My viewers are going to appreciate it as well...";
+            data[TempRefs.QuestIDWait] = $"Basic/Wait for Abigail/Give Abigail some time to do her show and contact you for the next request/Wait for Abigail/594800/-1/500/-1/false";
+            
+            
 
-        private string QuestString(
-          QuestTypes Type,
-          string Title,
-          string Details,
-          string Hint,
-          string Solution,
-          string NextQuest,
-          string GoldReward,
-          string RewardDescription,
-          string Cancelable)
-        {
-            return string.Format("\"{0}\"/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}", (object)Type, (object)Title, (object)Details, (object)Hint, (object)Solution, (object)NextQuest, (object)GoldReward, (object)RewardDescription, (object)Cancelable);
-        }
-
-        private string QuestString(
-          QuestTypes Type,
-          string Title,
-          string Details,
-          string Hint,
-          string Solution,
-          string NextQuest,
-          string GoldReward,
-          string RewardDescription,
-          string Cancelable,
-          string ReactionText)
-        {
-            return string.Format("\"{0}\"/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}", (object)Type, (object)Title, (object)Details, (object)Hint, (object)Solution, (object)NextQuest, (object)GoldReward, (object)RewardDescription, (object)Cancelable, (object)ReactionText);
         }
     }
 

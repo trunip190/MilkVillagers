@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 using GenericModConfigMenu;
-using Microsoft.Xna.Framework.Graphics;
-using Netcode;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
@@ -20,6 +17,8 @@ namespace MilkVillagers
         private ItemEditor _itemEditor;
         private QuestEditor _questEditor;
         private ModConfig Config;
+        private bool QuestRunning = false;
+        public bool CheckOnce = false; //just to check questlog
 
         private int[] FarmerPos
         {
@@ -27,8 +26,8 @@ namespace MilkVillagers
             {
                 return new int[2]
                 {
-          Game1.player.getTileX(),
-          Game1.player.getTileY()
+                    Game1.player.getTileX(),
+                    Game1.player.getTileY()
                 };
             }
         }
@@ -52,8 +51,40 @@ namespace MilkVillagers
             helper.Events.GameLoop.DayStarted += new EventHandler<DayStartedEventArgs>(GameLoop_DayStarted);
             helper.Events.GameLoop.GameLaunched += new EventHandler<GameLaunchedEventArgs>(OnGameLaunched);
             helper.Events.GameLoop.SaveLoaded += new EventHandler<SaveLoadedEventArgs>(GameLoop_SaveLoaded);
+            helper.Events.GameLoop.TimeChanged += GameLoop_TimeChanged;
 
             //helper.Events.Player.Warped += (new EventHandler<WarpedEventArgs>(Player_Warped));
+        }
+
+        private void GameLoop_TimeChanged(object sender, TimeChangedEventArgs e)
+        {
+            if (!Game1.player.mailReceived.Contains("AbiEggplant"))
+                return;
+
+            #region Quest 1
+            if (!QuestRunning && HasQuest(TempRefs.QuestID1))
+            {
+                QuestRunning = true;
+                Monitor.Log("Adding quest 1", LogLevel.Alert);
+            }
+            if (QuestRunning && !HasQuest(TempRefs.QuestID1))
+            {
+                QuestRunning = false;
+                Monitor.Log("Quest has finished", LogLevel.Alert);
+            }
+            #endregion
+        }
+
+        private bool HasQuest(int id)
+        {
+            foreach (var q in Game1.player.questLog)
+            {
+                if (q.id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         //TODO can probably remove this
@@ -69,15 +100,22 @@ namespace MilkVillagers
                 return;
 
             GetItemCodes();
+
+            // Recipes.
             CorrectRecipes();
-
-            //TODO add in cooking recipe if not found.
-            if (!Game1.player.cookingRecipes.ContainsKey("Milkshake"))
-            {
-
-            }
+            AddAllRecipes();
 
             runOnce = true;
+        }
+
+        private static void AddAllRecipes()
+        {
+            //TODO move this to be a quest reward or something.
+            if (!Game1.player.cookingRecipes.ContainsKey("Milkshake"))
+                Game1.player.cookingRecipes.Add("Milkshake", 0);
+
+            if (!Game1.player.cookingRecipes.ContainsKey("'Protein' Shake"))
+                Game1.player.cookingRecipes.Add("'Protein' Shake", 0);
         }
 
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
@@ -138,6 +176,14 @@ namespace MilkVillagers
                 optionGet: () => this.Config.thirdParty,
                 optionSet: value => this.Config.thirdParty = value
             );
+
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "Debug mode",
+                optionDesc: "Enable debug mode content",
+                optionGet: () => this.Config.debug,
+                optionSet: value => this.Config.debug = value
+            );
             #endregion
 
             Helper.Content.AssetEditors.Add(_itemEditor);
@@ -145,9 +191,13 @@ namespace MilkVillagers
             Helper.Content.AssetEditors.Add(_questEditor);
             Helper.Content.AssetEditors.Add(_recipeEditor);
             Helper.Content.AssetEditors.Add(new MyModMail());
-            TempRefs.QuestID1 = Config.QuestID1;
-            TempRefs.QuestID2 = Config.QuestID2;
-            TempRefs.QuestID3 = Config.QuestID3;
+
+            //TODO this can probably be removed
+            //TempRefs.QuestID1 = Config.QuestID1;
+            //TempRefs.QuestID2 = Config.QuestID2;
+            //TempRefs.QuestID3 = Config.QuestID3;
+            //TempRefs.QuestID4 = Config.QuestID4;
+
             TempRefs.thirdParty = Config.thirdParty;
         }
 
@@ -169,10 +219,41 @@ namespace MilkVillagers
                 Monitor.Log($"{kp.Key.DisplayName}: price ${kp.Value[0]}, Quantity: {kp.Value[1]}", LogLevel.Trace);
             }
 
-            //Game1.player.mailbox.Add("MilkButton1");
-            //Game1.player.mailbox.Add("MilkingAbi");
-            //Game1.addHUDMessage(new HUDMessage(string.Format("Adding quest {0}", (object)TempRefs.QuestID1)));
-            //Game1.player.addQuest(TempRefs.QuestID1);
+            //TODO set up preconditions for these.
+            if (Config.debug)
+            {
+                if (!Game1.player.mailReceived.Contains("MilkButton1"))
+                    Game1.player.mailbox.Add("MilkButton1");
+
+                if (!Game1.player.mailReceived.Contains("MilkingAbi"))
+                    Game1.player.mailbox.Add("MilkingAbi");
+
+                if (Game1.player.getFriendshipHeartLevelForNPC("Abigail") > 7 && !Game1.player.mailReceived.Contains("AbiEggplant"))
+                {
+                    Game1.player.mailbox.Add("AbiEggplant");
+
+                    //_questEditor.data[TempRefs.QuestID1] = _questEditor.data[TempRefs.QuestID1].Replace($"{TempRefs.QuestID2}", $"{TempRefs.QuestIDWait}");
+                    _questEditor.data[TempRefs.QuestIDWait] = _questEditor.data[TempRefs.QuestIDWait].Replace("594800", $"{TempRefs.QuestID2}");
+                }
+
+                //OutputQuests();
+
+                //foreach (StardewValley.Quests.Quest q in Game1.player.questLog)
+                //{
+                //    if (q.id == TempRefs.QuestID1 && Game1.player.questLog[TempRefs.QuestID1].completed && !Game1.player.mailReceived.Contains("AbiCarrot"))
+                //        Game1.player.mailbox.Add("AbiCarrot");
+                //    else
+                //        Monitor.Log($"{q.GetName()}: {q.id}", LogLevel.Alert);
+                //}
+            }
+        }
+
+        private void OutputQuests()
+        {
+            foreach (var d in _questEditor.data)
+            {
+                Monitor.Log($"{d.Key}: {d.Value}", LogLevel.Trace);
+            }
         }
 
         private void GetItemCodes()
@@ -527,9 +608,7 @@ namespace MilkVillagers
             //}
             if (button == SButton.P)
             {
-                //TempRefs.ReportCodes();
-                Monitor.Log(_itemEditor._objectData[TempRefs.MilkShake], LogLevel.Trace);
-                Monitor.Log(_itemEditor._objectData[TempRefs.ProteinShake], LogLevel.Trace);
+                Game1.warpFarmer("SeedShop", 4, 9, false);
             }
             if (button == SButton.O)
             {
