@@ -17,8 +17,7 @@ namespace MilkVillagers
         private ItemEditor _itemEditor;
         private QuestEditor _questEditor;
         private ModConfig Config;
-        private bool QuestRunning = false;
-        public bool CheckOnce = false; //just to check questlog
+        public int CurrentQuest = 0; //currently loaded quest id.
 
         private int[] FarmerPos
         {
@@ -58,40 +57,71 @@ namespace MilkVillagers
 
         private void GameLoop_TimeChanged(object sender, TimeChangedEventArgs e)
         {
-            if (!Game1.player.mailReceived.Contains("AbiEggplant"))
-                return;
+            if (!Game1.player.mailReceived.Contains("AbiEggplant")) // need to add in last quest as well so that it stops checking after all quests are done.
+                return; //Quick escape so that if 
 
-            #region Quest 1
-            if (!QuestRunning && HasQuest(TempRefs.QuestID1))
+            #region Quest checks
+            if (CurrentQuest == 0)
             {
-                QuestRunning = true;
-                Monitor.Log("Adding quest 1", LogLevel.Alert);
+                if (HasQuest(TempRefs.QuestID1))
+                
+                    CurrentQuest = TempRefs.QuestID1;                
+                else if (HasQuest(TempRefs.QuestID2))                
+                    CurrentQuest = TempRefs.QuestID2;                
+                else if (HasQuest(TempRefs.QuestID3))                
+                    CurrentQuest = TempRefs.QuestID3;                
+                else if (HasQuest(TempRefs.QuestID4))                
+                    CurrentQuest = TempRefs.QuestID4;
+                else if (HasQuest(TempRefs.QuestID5))
+                    CurrentQuest = TempRefs.QuestID5;
+                else if (HasQuest(TempRefs.QuestID6))
+                    CurrentQuest = TempRefs.QuestID6;
+                else if (HasQuest(TempRefs.QuestID7))
+                    CurrentQuest = TempRefs.QuestID7;
+                else if (HasQuest(TempRefs.QuestID8))
+                    CurrentQuest = TempRefs.QuestID8;
+
+                if (CurrentQuest != 0)
+                {
+                    Monitor.Log($"Watching quest ID {CurrentQuest}", LogLevel.Alert);
+                    _ = RemoveQuest(TempRefs.QuestIDWait);
+                }
             }
-            if (QuestRunning && !HasQuest(TempRefs.QuestID1))
+            if (CurrentQuest != 0 && !HasQuest(CurrentQuest))
             {
-                QuestRunning = false;
-                Monitor.Log("Quest has finished", LogLevel.Alert);
+                Monitor.Log($"Quest ID {CurrentQuest} has finished", LogLevel.Alert);
+
+                // load next mail item after a certain amount of time? maybe just next day.
+                string NextMail = "";
+                if (!Game1.player.mailReceived.Contains("AbiEggplantT")) // Quest 1 complete
+                    NextMail = "AbiEggplantT";
+                else if (!Game1.player.mailReceived.Contains("AbiCarrotsT"))  // Quest 2 complete
+                    NextMail = "AbiCarrotsT";
+                else if (!Game1.player.mailReceived.Contains("AbiRadishesT"))  // Quest 3 complete             
+                    NextMail = "AbiRadishesT";
+                else if (!Game1.player.mailReceived.Contains("AbiSurpriseT"))  // Quest 4 complete            
+                    NextMail = "AbiSurpriseT";
+                else if (!Game1.player.mailReceived.Contains("MaruSampleT"))  // Quest 5 complete
+                    NextMail = "MaruSampleT";
+                else if (!Game1.player.mailReceived.Contains("GeorgeMilkT"))  // Quest 6 complete
+                    NextMail = "GeorgeMilkT";
+                else
+                {
+                    // No mail item associated with the quest completion.
+                }
+
+                //if (!Game1.player.mailReceived.Contains("AbiEggplant")) { } // Quest 5?
+
+                if (NextMail != "")
+                {
+                    Monitor.Log($"adding mail {NextMail} to mailbox", LogLevel.Alert);
+                    Game1.player.mailForTomorrow.Add(NextMail);
+                }
+
+                CurrentQuest = 0;
             }
             #endregion
         }
-
-        private bool HasQuest(int id)
-        {
-            foreach (var q in Game1.player.questLog)
-            {
-                if (q.id == id)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        //TODO can probably remove this
-        //private void Player_Warped(object sender, WarpedEventArgs e)
-        //{
-        //    _ = Game1.player.passedOut ? 1 : 0;
-        //}
 
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
@@ -106,16 +136,6 @@ namespace MilkVillagers
             AddAllRecipes();
 
             runOnce = true;
-        }
-
-        private static void AddAllRecipes()
-        {
-            //TODO move this to be a quest reward or something.
-            if (!Game1.player.cookingRecipes.ContainsKey("Milkshake"))
-                Game1.player.cookingRecipes.Add("Milkshake", 0);
-
-            if (!Game1.player.cookingRecipes.ContainsKey("'Protein' Shake"))
-                Game1.player.cookingRecipes.Add("'Protein' Shake", 0);
         }
 
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
@@ -184,6 +204,14 @@ namespace MilkVillagers
                 optionGet: () => this.Config.debug,
                 optionSet: value => this.Config.debug = value
             );
+
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "Quests",
+                optionDesc: "Enable quest content",
+                optionGet: () => this.Config.Quests,
+                optionSet: value => this.Config.Quests= value
+            );
             #endregion
 
             Helper.Content.AssetEditors.Add(_itemEditor);
@@ -191,12 +219,6 @@ namespace MilkVillagers
             Helper.Content.AssetEditors.Add(_questEditor);
             Helper.Content.AssetEditors.Add(_recipeEditor);
             Helper.Content.AssetEditors.Add(new MyModMail());
-
-            //TODO this can probably be removed
-            //TempRefs.QuestID1 = Config.QuestID1;
-            //TempRefs.QuestID2 = Config.QuestID2;
-            //TempRefs.QuestID3 = Config.QuestID3;
-            //TempRefs.QuestID4 = Config.QuestID4;
 
             TempRefs.thirdParty = Config.thirdParty;
         }
@@ -213,11 +235,12 @@ namespace MilkVillagers
                 TempRefs.milkedtoday.Clear();
             }
 
-            Dictionary<ISalable, int[]> stock = Utility.getSaloonStock();
-            foreach (KeyValuePair<ISalable, int[]> kp in stock)
-            {
-                Monitor.Log($"{kp.Key.DisplayName}: price ${kp.Value[0]}, Quantity: {kp.Value[1]}", LogLevel.Trace);
-            }
+            //Add recipe to stock.
+            //Dictionary<ISalable, int[]> stock = Utility.getSaloonStock();
+            //foreach (KeyValuePair<ISalable, int[]> kp in stock)
+            //{
+            //    Monitor.Log($"{kp.Key.DisplayName}: price ${kp.Value[0]}, Quantity: {kp.Value[1]}", LogLevel.Trace);
+            //}
 
             //TODO set up preconditions for these.
             if (Config.debug)
@@ -246,6 +269,54 @@ namespace MilkVillagers
                 //        Monitor.Log($"{q.GetName()}: {q.id}", LogLevel.Alert);
                 //}
             }
+
+            // Send new mail checks
+            if (Game1.player.mailbox.Contains("AbiEggplantT") && !Game1.player.mailbox.Contains("AbiCarrots"))
+                Game1.player.mailForTomorrow.Add("AbiCarrots");
+            if (Game1.player.mailbox.Contains("AbiCarrotsT") && !Game1.player.mailbox.Contains("AbiRadishes"))
+                Game1.player.mailForTomorrow.Add("AbiRadishes");
+            if (Game1.player.mailbox.Contains("AbiRadishesT") && !Game1.player.mailbox.Contains("AbiSurprise"))
+                Game1.player.mailForTomorrow.Add("AbiSurpriseT");
+            if (Game1.player.mailbox.Contains("AbiSurpriseT") && !Game1.player.mailbox.Contains("MaruSample"))
+                Game1.player.mailForTomorrow.Add("MaruSample");
+            if (Game1.player.mailbox.Contains("MaruSampleT") && !Game1.player.mailbox.Contains("GeorgeMilk"))
+                Game1.player.mailForTomorrow.Add("GeorgeMilk");
+
+        }
+
+        private bool RemoveQuest(int id)
+        {
+            foreach (var q in Game1.player.questLog)
+            {
+                if (q.id == id)
+                {
+                    Game1.player.questLog.Remove(q);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool HasQuest(int id)
+        {
+            foreach (var q in Game1.player.questLog)
+            {
+                if (q.id == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static void AddAllRecipes()
+        {
+            //TODO move this to be a quest reward or something.
+            if (!Game1.player.cookingRecipes.ContainsKey("Milkshake"))
+                Game1.player.cookingRecipes.Add("Milkshake", 0);
+
+            if (!Game1.player.cookingRecipes.ContainsKey("'Protein' Shake"))
+                Game1.player.cookingRecipes.Add("'Protein' Shake", 0);
         }
 
         private void OutputQuests()
@@ -501,6 +572,14 @@ namespace MilkVillagers
 
                     #endregion
 
+                    #region Other mods
+                    case "Sophia's Milk":
+                        TempRefs.MilkSophia = keyValuePair.Key;
+                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSophia}", Defcon);
+                        ++num2;
+                        continue;
+                    #endregion
+
                     default:
                         if (strArray[0].ToLower().Contains("milk") || strArray[0].ToLower().Contains("cum"))
                         {
@@ -724,6 +803,14 @@ namespace MilkVillagers
                     case "Marlon": ItemCode = $"[{TempRefs.MilkWMarlon}]"; break;
                     case "Krobus": ItemCode = $"[{TempRefs.MilkKrobus}]"; break;
                     case "Dwarf": ItemCode = $"[{TempRefs.MilkDwarf}]"; break;
+
+                    case "Sophia": ItemCode = $"[{TempRefs.MilkSophia}]"; break;
+                    case "Olivia": ItemCode = $"[{TempRefs.MilkOlivia}]"; break;
+                    case "Susan": ItemCode = $"[{TempRefs.MilkSusan}]"; break;
+                    case "Claire": ItemCode = $"[{TempRefs.MilkClaire}]"; break;
+                    case "Andy": ItemCode = $"[{TempRefs.MilkAndy}]"; break;
+                    case "Victor": ItemCode = $"[{TempRefs.MilkVictor}]"; break;
+                    case "Martin": ItemCode = $"[{TempRefs.MilkMartin}]"; break;
 
                     default: //NPC's I don't know.
                         ItemCode = npc.gender == 0 ? $"[{TempRefs.MilkSpecial}]" : $"[{TempRefs.MilkGeneric}]";

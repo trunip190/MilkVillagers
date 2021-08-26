@@ -20,6 +20,7 @@ namespace MilkVillagers
         public bool ExtraDialogue = false;
         public bool thirdParty = true;
         public bool debug = true;
+        public bool Quests = true;
     }
 
     public static class TempRefs
@@ -35,7 +36,12 @@ namespace MilkVillagers
         public static int QuestID2 = 594802; // Abigail's Carrot
         public static int QuestID3 = 594803; // Abigail's Radishes
         public static int QuestID4 = 594804; // Abigail's 'Helping hand'
-        public static int QuestIDWait = 594805; // Wait for Abigail.
+        public static int QuestID5 = 594805; // Scientific sample
+        public static int QuestID6 = 594806; // Rejuvenating Milk
+        public static int QuestID7 = 594807; // Curious tastes pt 1
+        public static int QuestID8 = 594808; // Curious tastes pt 2
+
+        public static int QuestIDWait = -1; //594800; // Wait for Abigail.
 
         // Milk item code storage
         public static int MilkAbig = 1201;
@@ -51,38 +57,47 @@ namespace MilkVillagers
         public static int MilkPam = 1211;
         public static int MilkSand = 1212;
         public static int MilkEvel = 1213;
-        public static int MilkDwarf = 1239;
-        public static int MilkGeneric = 1214;
+        public static int MilkDwarf = 1214;
+        public static int MilkGeneric = 1215;
 
         // Cum item code storage.
-        public static int MilkSpecial = 1215;
-        public static int MilkAlex = 1216;
-        public static int MilkClint = 1217;
-        public static int MilkDemetrius = 1218;
-        public static int MilkElliott = 1219;
-        public static int MilkGeorge = 1220;
-        public static int MilkGil = 1221;
-        public static int MilkGunther = 1222;
-        public static int MilkGus = 1223;
-        public static int MilkHarv = 1224;
-        public static int MilkKent = 1225;
-        public static int MilkLewis = 1226;
-        public static int MilkLinus = 1227;
-        public static int MilkMarlon = 1228;
-        public static int MilkMorris = 1229;
-        public static int MilkQi = 1230;
-        public static int MilkPierre = 1231;
-        public static int MilkSam = 1232;
-        public static int MilkSeb = 1233;
-        public static int MilkShane = 1234;
-        public static int MilkWilly = 1235;
-        public static int MilkWiz = 1236;
-        public static int MilkWMarlon = 1237;
-        public static int MilkKrobus = 1238;
+        public static int MilkSpecial = 1216;
+        public static int MilkAlex = 1217;
+        public static int MilkClint = 1218;
+        public static int MilkDemetrius = 1219;
+        public static int MilkElliott = 1220;
+        public static int MilkGeorge = 1221;
+        public static int MilkGil = 1222;
+        public static int MilkGunther = 1223;
+        public static int MilkGus = 1224;
+        public static int MilkHarv = 1225;
+        public static int MilkKent = 1226;
+        public static int MilkLewis = 1227;
+        public static int MilkLinus = 1228;
+        public static int MilkMarlon = 1229;
+        public static int MilkMorris = 1230;
+        public static int MilkQi = 1231;
+        public static int MilkPierre = 1232;
+        public static int MilkSam = 1233;
+        public static int MilkSeb = 1234;
+        public static int MilkShane = 1235;
+        public static int MilkWilly = 1236;
+        public static int MilkWiz = 1237;
+        public static int MilkWMarlon = 1238;
+        public static int MilkKrobus = 1239;
 
         // Recipe item code storage
-        public static int ProteinShake = 1216;
-        public static int MilkShake = 1217;
+        public static int ProteinShake = 1240;
+        public static int MilkShake = 1241;
+
+        // Other mods
+        public static int MilkSophia = 1242;
+        public static int MilkOlivia = 1243;
+        public static int MilkSusan     = 1244;
+        public static int MilkClaire    = 1245;
+        public static int MilkAndy      = 1246;
+        public static int MilkVictor = 1247;
+        public static int MilkMartin = 1248;
 
         // Item types 
         public static int MilkType = -34;
@@ -132,6 +147,15 @@ namespace MilkVillagers
             Monitor.Log($"MilkWiz is {MilkWiz}", LogLevel.Trace);
             Monitor.Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
             Monitor.Log($"MilkKrobus is {MilkKrobus}", LogLevel.Trace);
+
+            // Other Mods
+            Monitor.Log($"MilkSophia is {MilkSophia}", LogLevel.Trace);
+            Monitor.Log($"MilkOlivia is {MilkOlivia}", LogLevel.Trace);
+            Monitor.Log($"MilkSusan is {MilkSusan}", LogLevel.Trace);
+            Monitor.Log($"MilkClaire is {MilkClaire}", LogLevel.Trace);
+            Monitor.Log($"MilkAndy is {MilkAndy}", LogLevel.Trace);
+            Monitor.Log($"MilkVictor is {MilkVictor}", LogLevel.Trace);
+            Monitor.Log($"MilkMartin is {MilkMartin}", LogLevel.Trace);
 
             // Recipe item code storage
             Monitor.Log($"ProteinShake is {ProteinShake}", LogLevel.Trace);

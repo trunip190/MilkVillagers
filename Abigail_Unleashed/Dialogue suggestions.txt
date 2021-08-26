@@ -154,3 +154,68 @@ $"#$b#Sorry, @. I'm kind of sensitive and over eager. Since I don't get much act
 
 Please note that it's nexus mods censoring cum not me
 ======================================================================
+PART THREE
+ 
+Sam: // Yep. I like this.
+data["milk_start"] = $"I've been horny as hell all day, this is JUST what I need. Besides, who could resist you anyway?$h" +
+$"#$b#%*Sam, all too eager, unzips his jeans and pulls out his dick, which is already full mast. He looks at you with a mixture of excitement and desire*" +
+$"#$b#%*You bend down to your knees and place your hands firmly on his thighs, and insert his throbbing cock into your mouth. Sam has a sharp intake of breath as you begin to move, adding more and more suction as you go along*" +
+$"#$b#%*You run your hands around him, gripping his ass as you pull yourself into the depth of his groin, shoving his manhood into the cavern of your throat. A single word escapes his lips*" +
+$"#$b#Fffffffffffuuuuuuuuuck$l" +
+$"#$b#%Sam's nails dig into your shoulders as he convulses, climaxing. Hot sticky cum fills your mouth, spewing out and running down your chin. You deposit the stuff into a jar. Sam wipes your face with his sleeve.*" +
+$"#$b#There's always more where that came from, @. You know where to find me.";
+
+Sebastian: // Couple of edits but all minor stuff
+data["milk_start"] = $"I could never say no to something like that from someone as attractive as you. I'm already in the palm of your hand figuratively, might as well make it literally, too." +
+$"#$b#%When you reach down to Sebastian's groin, you find that his erection is already straining against his jeans, struggling to break free. You carefully pull down the zipper and his wood bursts out, free in the open air." +
+$"#$b#%*Gently but firmly, you massage it, feeling it pulse under your touch. You crouch down and begin to trace your tongue around the shaft, swirling up to the tipe before fully inserting his cock into your warm mouth." +
+$"#$b#%*As you move your head, you feel Sebastian's hands gingerly snake through your hair. His breathing becomes rapid and shaky.*" +
+$"#$b#@...whatever you do...don't stop..." +
+$"#$b#%You increase your tempo, faster and faster until suddenly Sebastian's hands grasp your hair in an intense moment of passion. He half-grunts, half-gasps as he fills you with his warm ejaculate." +
+$"#$b#%*You think about pulling away, but he holds you there, just for a few seconds, as if savoring the moment. Then he releases you and his cum spills out of your mouth, and you collect it into your jar.*" +
+$"#$b#You really are something else, @. You have no idea how glad I am to have you.$l";
+ 
+Shane: // redemption BJ. ^-^
+data["milk_start"] = $"You know I'll never get over the idea that someone like you could be attracted to a guy like me. You're too good for me, you know.$h" +
+$"#$b#%*Despite this, Shane unbuckles his belt and lowers his shorts. He looks at you, almost disbelieving, as if he had found himself in some impossible dream.” +
+$"#$b#%*You maintain soft, tender, eye contact as your hand finds itself grasping his cock." +
+$"#$b#%*Then, slowly, you kneel before him, your gaze not leaving his eyes. You watch as his eyelids flutter shut when you place your mouth around him*" +
+$"#$b#%*As you start using your tongue, your hands run down the front of his thighs; then upwards, under his shirt and onto his chest. Shane's hands find yours and he holds them there, against his torso*" +
+$"#$b#%*You pick up your pace, and his grip tightens around your fingers, pinning your palms to him. He seems to want to hold you to him, grounding himself in this reality with you*" +
+$"#$b#%Then, his eyes snap open, wide and alert. He trembles and you feel his cock pulsate in your mouth as it releases his ecstasy in waves. It's a lot, so you have to swallow some in order to make room." +
+$"#$b#Holy fuck...@..." +
+$"#$b#%*It tastes watery and somehow spicy on your tongue, and the remnants make their way into your jar.*" +
+$"#$b#How did I get so lucky to find myself with you?$l";
+ 
+Willy: // I like this one too
+data["milk_start"] = $"The sea may be a beautiful mistress, but she does not do much when it comes to physical gratification. I'd appreciate you helping an old sailor out.$h" +
+$"#$b#%Willy guides your hand as it snakes its way down his waistband and into his crotch hair. Though you cannot see through his pants, you feel his fleshy, erect cock; warm in your hands*" +
+$"#$b#%*You use your other hand to pull his pants down and give yourself some wiggle room. You work his member back and forth, then you bend down and swirl your tongue around his tip*" +
+$"#$b#%*You inhale a salty scent, like a warm sea breeze. You slurp his dick into your mouth, and a guttural grunt escapes Willy. His grunts transform into sharp gasps as your tempo increases."
+$"#$b#Prepare yerself, now." +
+$"#$b#%Appreciative of his warning, you release your suction and grab the bottle just in time to catch a decent amount cum inside it. You cap the bottle and wipe your mouth.*" +
+$"#$b#Aye, it feels good to have a proper release. Come back soon, I could use it again.$l";
+ 
+Wizard (1st experience): //I did a couple of changes, and may do some more, because it sparked a lot of ideas.
+data["milk_start"] = $"I am not used to the pleasures of the mortal world. It is a luxury I rarely partake in, as it keeps me distracted from communicating with the Elements. But...if you insist...I guess I could indulge myself." +
+$"#$b#%The Wizard parts and lifts his robes, where his phallus hangs, flaccid. You gingerly reach forward and caress it, and it twitches under your touch. Then, in rising waves, it raises and extends.” +
+$"#$b#%*You massage it, increasing your firmness each stroke. When you bend down to suck his dick, something unexpected happens.” +
+$"#$b#%*You instantly find yourself connected to the Wizard's mind and consciousness, as if you had just plugged into his brain." +
+$"#$b#%*You feel each sensation that he is experiencing at that moment. You can see yourself performing the movements, but instead of feeling it from your perspective, you are watching through his mind. You feel every flick of your tongue. Through his heavy breathing you hear the Wizard speak, as if from a distance...*" +
+$"#$b#@...what in the...?" +
+$"#$b#%Suddenly a massive tsunami of pleasure crashes into him, and through him, you. Next thing you know you are kneeling on the floor, shocked and stunned, with his cum on your face and yours in your pants." +
+$"#$b#%*With a shaking hand you reach up to wipe off his climax, only to find it's not the usual white stuff. It's a prismatic liquid, so thin and light that you aren't sure if it's not a trick of the light.*" +
+$"#$b#....Honestly, @, I did not predict this. But I am more than willing to try again later. To further....study this phenomenon." +
+$"#$b#%*”He mutters a spell, and a bottle appears in your hand*”;
+[Received Prismatic cum]
+ 
+Wizard (repeated event):
+data["milk_start"] = $"I am but a scholar in search of knowledge. Please, let us begin our 'study session' of this symbiosis." +
+$"#$b#%The Wizard moves to arrange his robes, but you get there first, diving into the cloth and searching hungrily for his cock. It only had time to get halfway erect before you had syphoned it into your mouth*" +
+$"#$b#%*Then, the experience begins. You are melded into his mind, his body. Once again, you can perceive every minute motion your body makes.” +
+$"#$b#%*You feel your tongue making swirling motions around the base of the shaft, corkscrewing to the tip." +
+$"#$b#%*You feel yourself suck the end, delicately, but intensely. You and he both sense the amount of pleasure rising, building, surging through your beings. It begins to peak.*" +
+$"#$b#Here..it comes…$h" +
+$"#$b#%Just as intense as the last time, you are plunged into a world of extreme pleasure. You are left breathless. You did not bother with a bottle before the climax, as the time it would take to bring it out was time wasted." +
+$"#$b#%*You scrape the flowy, silky, colorful ejaculate into the container now. It takes time as you are still trembling. One of these days though, you will remember to bring a spare change of pants for yourself.*" +
+$"#$b#I'm pleased to share this with you. It's an...odd connection. It does, however, require further examination. I know I will see you soon again, @.$l";
