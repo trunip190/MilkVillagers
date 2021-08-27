@@ -5,21 +5,30 @@ namespace MilkVillagers
 {
     public class RecipeEditor : IAssetEditor
     {
-        public IDictionary<string, string> data;
+        public IDictionary<string, string> CookingData;
+        public IDictionary<string, string> CraftingData;
 
         public bool CanEdit<T>(IAssetInfo asset)
         {
-            return asset.AssetNameEquals("Data/CookingRecipes");
+            return asset.AssetNameEquals("Data/CookingRecipes") || asset.AssetNameEquals("Data/CraftingRecipes");
         }
 
         public void Edit<T>(IAssetData asset)
         {
-            TempRefs.Monitor.Log("Loading recipes", LogLevel.Trace);
+            ModFunctions.LogVerbose("Loading recipes", LogLevel.Trace);
             if (asset.AssetNameEquals("Data/CookingRecipes"))
             {
-                data = asset.AsDictionary<string, string>().Data;
-                data["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/f Gus 8/'Protein' shake";
-                data["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/f Emily 8/Milkshake";
+                CookingData = asset.AsDictionary<string, string>().Data;
+                CookingData["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/null/'Protein' shake";
+                CookingData["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/null/Milkshake";
+            }
+            if (asset.AssetNameEquals("Data/CraftingRecipes"))
+            {
+                CraftingData = asset.AsDictionary<string, string>().Data;
+
+                //This is breaking so hard...
+                //CraftingData["Special Milk"] = $"{TempRefs.CumType} 1/Field/{TempRefs.MilkSpecial}/false/Special Milk";
+                //CraftingData["Woman's Milk"] = $"{TempRefs.MilkType} 1/Field/{TempRefs.MilkGeneric}/false/Woman's Milk";
             }
         }
     }
@@ -32,40 +41,47 @@ namespace MilkVillagers
         public bool CanEdit<T>(IAssetInfo asset)
         {
             bool result =
-                   asset.AssetNameEquals("Characters/Dialogue/Abigail")
-                || asset.AssetNameEquals("Characters/Dialogue/Alex")
-                || asset.AssetNameEquals("Characters/Dialogue/Caroline")
-                || asset.AssetNameEquals("Characters/Dialogue/Clint")
-                || asset.AssetNameEquals("Characters/Dialogue/Demetrius")
-                || asset.AssetNameEquals("Characters/Dialogue/Dwarf")
-                || asset.AssetNameEquals("Characters/Dialogue/Elliott")
-                || asset.AssetNameEquals("Characters/Dialogue/Emily")
-                || asset.AssetNameEquals("Characters/Dialogue/Evelyn")
-                || asset.AssetNameEquals("Characters/Dialogue/George")
-                || asset.AssetNameEquals("Characters/Dialogue/Gil")
-                || asset.AssetNameEquals("Characters/Dialogue/Gus")
-                || asset.AssetNameEquals("Characters/Dialogue/Haley")
-                || asset.AssetNameEquals("Characters/Dialogue/Harvey")
-                || asset.AssetNameEquals("Characters/Dialogue/Jodi")
-                || asset.AssetNameEquals("Characters/Dialogue/Kent")
-                || asset.AssetNameEquals("Characters/Dialogue/Krobus")
-                || asset.AssetNameEquals("Characters/Dialogue/Leah")
-                || asset.AssetNameEquals("Characters/Dialogue/Lewis")
-                || asset.AssetNameEquals("Characters/Dialogue/Linus")
-                || asset.AssetNameEquals("Characters/Dialogue/Marnie")
-                || asset.AssetNameEquals("Characters/Dialogue/Maru")
-                || asset.AssetNameEquals("Characters/Dialogue/Mister Qi")
-                || asset.AssetNameEquals("Characters/Dialogue/Pam")
-                || asset.AssetNameEquals("Characters/Dialogue/Penny")
-                || asset.AssetNameEquals("Characters/Dialogue/Pierre")
-                || asset.AssetNameEquals("Characters/Dialogue/rainy")
-                || asset.AssetNameEquals("Characters/Dialogue/Robin")
-                || asset.AssetNameEquals("Characters/Dialogue/Sam")
-                || asset.AssetNameEquals("Characters/Dialogue/Sandy")
-                || asset.AssetNameEquals("Characters/Dialogue/Sebastian")
-                || asset.AssetNameEquals("Characters/Dialogue/Shane")
-                || asset.AssetNameEquals("Characters/Dialogue/Willy")
-                || asset.AssetNameEquals("Characters/Dialogue/Wizard");
+                    asset.AssetNameEquals("Characters/Dialogue/Abigail") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Emily") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Haley") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Leah") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Maru") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Penny") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Caroline") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Jodi") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Marnie") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Robin") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Pam") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Sandy") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Evelyn") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Alex") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Clint") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Demetrius") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Elliott") ||
+                    asset.AssetNameEquals("Characters/Dialogue/George") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Gil") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Harvey") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Sam") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Sebastian") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Shane") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Pierre") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Gunther") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Gus") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Kent") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Lewis") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Linus") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Marlon") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Morris") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Mister Qi") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Willy") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Wizard") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Sophia") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Olivia") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Susan") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Claire") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Victor") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Andy") ||
+                    asset.AssetNameEquals("Characters/Dialogue/Martin");
 
             return result;
         }
@@ -81,8 +97,9 @@ namespace MilkVillagers
 
         public void Edit<T>(IAssetData asset)
         {
-            TempRefs.Monitor.Log($"Loading messages: {asset.AssetName}", LogLevel.Trace);
+            ModFunctions.LogVerbose($"Loading messages: {asset.AssetName}", LogLevel.Trace);
             data = asset.AsDictionary<string, string>().Data;
+
 
             #region Girls
             if (asset.AssetNameEquals("Characters/Dialogue/Abigail")) // ver 1.0
@@ -150,85 +167,143 @@ namespace MilkVillagers
                 }
                 if (!data.ContainsKey("milk_start"))
                 {
-                    data["milk_start"] = "Please be gentle, they are really sore today.#$b#*You sit down as she lies across your lap, letting her breast hang down. She gives you a bottle and you start kneeding her breasts as gently as you can*#$b#*Milk collects in the bottle as you expertly milk her, moving on to the second breast when the first runs dry*#$b#Thank you. It's so much more erotic when you do it." + $"#$b#Just think of this as taking care of one of your 'cows'. Here, you can keep this.";
+                    data["milk_start"] = "Please be gentle, they are really sore today." +
+                    $"#$b#%*You sit down as she lies across your lap, letting her breast hang down. She gives you a bottle and you start kneeding her breasts as gently as you can*" +
+                    $"#$b#%*Milk collects in the bottle as you expertly milk her, moving on to the second breast when the first runs dry*" +
+                    $"#$b#Thank you. It's so much more erotic when you do it." +
+                    $"#$b#Just think of this as taking care of one of your 'cows'. Here, you can keep this.";
                     //data["milk_start"] = "My breasts are so sore, I NEED someone to milk them.#$q 300006 milk_no#Will you help milk Abigail?#$r 300003 15 milk_yes#Milk her#$r 300003 -15 milk_no#Make her milk herself";
                     //data["milk_yes"] = "Please be gentle, they are really sore today.#$b#*You sit down as she lies across your lap, letting her breast hang down. She gives you a bottle and you start kneeding her breasts as gently as you can*#$b#*Milk collects in the bottle as you expertly milk her, moving on to the second breast when the first runs dry*#$b#Thank you. It's so much more erotic when you do it." + $"#$b#Just think of this as taking care of one of your 'cows'. Here, you can keep this. [{TempRefs.MilkAbig}]";
                     //data["milk_no"] = "But...I'm so sore. I'm going to have to try and suck the milk out myself now! $s#$b#Fine, then you have to watch me...as I lick my nipples, suck on them, feel the milk washing down my throat...#$b#*Abigail lifts her breast to her mouth and slowly circles the tip of her nipple. Milk starts leaking, and she carefully scoops it up with her tongue*#$b#*She starts sucking in ernest, and milk dribbles down her chin while she starts moaning softly. You move towards her and she puts a hand out to stop you*#$b#No! You made me do this, so you have to watch. *she switches to her other breast and takes big gulps while a river runs down her front and starts pooling on the floor*#$b#*She finally finishes, looks you in the eye, then turns around and leaves*";
                 }
                 return;
             }
+
+            if (data.ContainsKey("milk_start")) // skip if there is already Content Patcher dialogue loaded.
+                return;
+
             if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
             {
                 data["milk_start"] = $"Oh! Did you know that human breast milk is a super food?#$b#It's way better for you than cows milk..." +
-                    $"Not that your milk isn't great!";
+                $"#$b#Not that your milk isn't great! Well, your cows milk. I'm sure your milk is just wonderful.$h" +
+                $"#$b#%*She quickly bares her breasts and sigh as the cool air hits them. Her nipples are already hardening, and you reach out gently and pinch them*" +
+                $"#$b#Oh, @! You always make me so wet when you touch me. Maybe I can 'milk' you some other time?$l" +
+                $"#$b#$*You hold her breast in one hand, and suck on her nipple to get the milk flowing. She moans loudly as the first bit of sweet liquid enters your mouth*" +
+                $"#$b#%*As you start milking her breast she reaches down and slips a hand inside her panties, and a heady smell wafts out*" +
+                $"#$b#Don't mind me, I just get so horny when you're around. I'm sure I'm going to have more than one kind of liquid staining my clothes soon.$h" +
+                $"#$b#%*You switch breasts, and her hand movements increase in speed. The sounds of her masturbating, mixed with the sound of her milk collecting in the bottle, get you very aroused*" +
+                $"#$b#I'm cumming!!!";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
             {
-                if (!data.ContainsKey("milk_start"))
-                {
-                    data["milk_start"] = $"Everyone always said my boobs were great. I guess I shouldn't be surprised that you love them too.";
-                }
+                data["milk_start"] = $"Everyone always said my boobs were great. I guess I shouldn't be surprised that you love them too." +
+                $"#$b#I just LOVE it when guys play with my tits. They're just so sensitive, and my nipples feel heavenly when people lick or suck on them.$h" +
+                $"#$b#%You need no further encouragement, and immediately dive into her cleavage, coating them in your saliva as you try and get her nipples into your mouth*" +
+                $"#$b#Oh @, you don't need to go crazy. We have plenty of time for this." +
+                $"#$b#%*You slow down and suck teasingly on one of her nipplers, eliciting a wonderful moan from Haley. You reluctantly withdraw, and get back to the task at hand, pulling a bottle from your bag*" +
+                $"#$b#%*You start playing with her nipple with one hand, whilst using the other to set up a steady milking rhythm. Milk is soon collecting in the bottle, and Haley is making blissful sounds*" +
+                $"#$b#%*You switch breasts, and Haley is once again lost in her own world as you empty her breasts into your bottle. You soon finish up, and leave a drained Haley to cover up her milk-stained top*";
+
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
             {
-
-                data["milk_start"] = $"I love the way your hands feel on me.#$b#I could get used to this...";
+                data["milk_start"] = $"I love the way your hands feel on me, @. You might be better with your hands than me, though I'd love to have a contest some day." +
+                    $"#$b#%*Your hands wonder over her breasts, circling slowly closer to her nipple and then dancing away. Leah gasps as you flick her nipple, and pulls away so she can remove her garments*" +
+                    $"#$b#%*You retrieve a bottle from your bag, and Leah gets into a comfortable position while you kneel beside her and start firmly squeezing her breast. Milk is soon flowing into the bottle*" +
+                    $"#$b#If you are as confident milking your cows it's no wonder that they are so happy, and produce such wonderful milk.$l" +
+                    $"#$b#%*You smirk a little at the thought of Leah dressed as a cow, with a cowbell around her neck, and tug a little harder on her nipples. You could have sworn she went 'moo'*" +
+                    $"#$b#Wow. That was a wonderful experience. Please come see me again - we can get up to all sorts of mischief in my cabin. $h";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
             {
-
-                data["milk_start"] = $"I'm sure i could come up with a machine to help with this...#$b#I'm not sure it would be better than your touch though.";
+                data["milk_start"] = $"I'm sure I could come up with a machine to help with this...I'd have to do some tests to see how the level of arousal affects milk quality..." +
+                    $"#$b#%*You quickly unbutton her top to distract her, and give her nipples a quick nibble. Maru yelps and gives you a displeased look*" +
+                    $"#$b#@! Treat me properly or you can go find someone else." +
+                    $"#$b#%*You apologise and kiss her breasts better to get her in the mood. You start gently massaging her dark skin, and it's not long before she has a content look on her face*" +
+                    $"#$b#%*I guess you aren't that bad after all, @. It looks like I'm starting to lactate - you should get a bottle ready so we can record how much fluid I'm producing." +
+                    $"#$b#%*Maru gives you pointers, and her reserved, scientific manner quickly turns into sexual encouragement. You're not sure when she started touching herself, but her panties are definitely soaked*" +
+                    $"#$b#%*Eventually the stream of milk dries up, and you show Maru how much milk is in the bottle*" +
+                    $"#$b#I'm not sure anything I make could be better than your touch.";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
             {
-
-                data["milk_start"] = $"I'm always self conscious about the size of my breasts.#$b#But you make me feel like a woman every time.";
+                data["milk_start"] = $"I'm always self conscious about the size of my breasts. George may leer at me, but I think that's just because I'm young and female." +
+                    $"#$b#But with you I feel like you see me as a woman. A hot, sexy woman. I want you to see all of me, and touch all of me, without these stupid clothes in the way." +
+                    $"#$b#%*Penny tears open her blouse, and brazenly bares her chest. You tell her how beautiful she is, and she blushes. Soon, her nipples are turning a dark shade as well*" +
+                    $"#$b#%*You start groping her chest, cupping them and squeezing them as much as you can. Penny is surprisingly sensitive, and she shyly turns her head away as you play with her*" +
+                    $"#$b#No-one has ever made me feel such things. I feel just like the women in the romance novels I read, melting under your forbidden touch." +
+                    $"#$b#%*You start pulling on her nipples, causing milk to jet out. You try and aim it into a bottle, but Penny is writhing around in pleasure and a lot of it ends up on your face and the floor*" +
+                    $"#$b#%*As you finish up, Penny smiles at you breathlessly, clearly extremely turned on*" +
+                    $"#$b#You awaken such carnal feelings in me, @. I'm sure I look like a wanton harlot right now...and I definitely feel like one.";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
             {
-
-                data["milk_start"] = $"My breasts are so sore, I NEED someone to milk them.#$b#Aw, thanks honey. You're much firmer than Pierre. Sometimes he's so afraid of hurting me that he can't make me feel very good.#$b#Here's something for your trouble.";
+                data["milk_start"] = $"My breasts are so sore, I NEED someone to milk them. Pierre is so obsessed with his 'business' that he doesn't pay attention to me any more." +
+                    $"#$b#%*Caroline sits down on a nearby seat, and you can see that milk is already leaking through her top. She smiles embarrassedly, and pulls her vest to the side*" +
+                    $"#$b#Don't be shy, @. It's perfectly natural to feel aroused in this situation, and it's not like I'm going to jump you or anything...This time at least." +
+                    $"#$b#%*You bring the bottle to her chest, and start coaxing a steady stream of milk out of her overflowing tits*" +
+                    $"#$b#%*You end up with a generous amount coating your hands, and Caroline spends some time using her mouth to suck all of the milk off of your fingers*" +
+                    $"#$b#Aw, thanks honey, I feel much better now. I wouldn't want to waste anything, and all of my juices taste SO good. Maybe I can taste yours next time?";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
             {
-
-                data["milk_start"] = $"I've been so lonely since Kent first went off to war. Now that Vincent is growing up so fast, I didn't think anyone would ever pay attention to me again.#$b#You make me feel so WANTED, even if it is only for my milk. I feel like I have a role to play again.#$b#*Your hands gently caress her breasts, and her nipples quickly get hard. Milk dribbles from them, and you angle them over a jar so that you can aim the stream better*";
+                data["milk_start"] = $"I've been so lonely since Kent first went off to war, and now that Vincent is growing up so fast I didn't think anyone would ever pay attention to me again.$s" +
+                    $"#$b#Then you come along and make me feel so WANTED. I feel like I have a role to play again that is more than just cooking and cleaning. Like I'm a person again - desirable.$h" +
+                    $"#$b#%*Your hands gently caress her breasts, and her nipples quickly get hard. Jodi leans into your body and starts rubbing her thighs against your leg*" +
+                    $"#$b#%*Jodi is soon moaning alon to your ministrations, and the stream of milk starts filling the bottle. Your leg starts getting wet from her juices, and it's not long before Jodi cums hard*" +
+                    $"#$b#@! Hold me tight as I cum! I want to feel your body pressed against mine.$l" +
+                    $"#$b#%*You use your free arm to pull her in tight, the milking paused as her body is wracked with pleasure. She finally stops shaking, and rests limply in your arms. You place the bottle on the ground and kiss her deeply*" +
+                    $"Thank you for that, @. I know who to come to if I feel lonely again. Or just horny.";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
             {
-
-                data["milk_start"] = $"I'm glad that Lewis isn't the only one to appreciate my big tits! He spends every moment he can in my cleavage, but he never thought to suck on them!#$b#*Marnie's milk quickly fills the jar, and she sighs contentedly as she rearranges her clothing*#$b#Make sure Lewis...I mean the Mayor...doesn't catch you! He might get jealous!";
+                data["milk_start"] = $"I'm glad that Lewis isn't the only one to appreciate my big tits! He spends every moment he can in my cleavage, but he never thought to suck on them!" +
+                    $"#$b#*Marnie's milk quickly fills the jar, and she sighs contentedly as she rearranges her clothing*" +
+                    $"#$b#Make sure Lewis...I mean the Mayor...doesn't catch you! He might get jealous!";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
             {
-
-                data["milk_start"] = $"Demetrius is always so...clinical...when he talks about my breasts. I wish he was as romantic as you!#$b#Of course you can collect my milk! Just...don't be surprised if I leave a damp spot on the chair when you're done!#$b#*As you massage her breast with your hand, filling up the jar, you make sure to play with her other nipple.*#$b#*Robin snakes a hand down her jeans and starts playing with herself, moaning and whimpering as her milk fills the jar. You finish milking her, but wait for her until she clenches her legs tightly and throws her head back.*#$b#That was wonderful...Come back, any time.";
+                data["milk_start"] = $"Demetrius is always so...clinical...when he talks about my breasts. I wish he was as romantic as you!" +
+                    $"#$b#Of course you can collect my milk! Just...don't be surprised if I leave a damp spot on the chair when you're done!" +
+                    $"#$b#*As you massage her breast with your hand, filling up the jar, you make sure to play with her other nipple.*" +
+                    $"#$b#*Robin snakes a hand down her jeans and starts playing with herself, moaning and whimpering as her milk fills the jar. You finish milking her, but wait for her until she clenches her legs tightly and throws her head back.*" +
+                    $"#$b#That was wonderful...Come back, any time.";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
             {
-
-                data["milk_start"] = $"Really? I...didn't know people were into that kind of thing. I guess it wouldn't hurt, but don't expect me too go 'moo'!#$b#*You give her nipple a quick flick with your tongue, and then suck on it to taste her milk. It's sourer then normal milk, but you dutifully kneed her breasts to fill a jar.*";
+                data["milk_start"] = $"Really? I...didn't know people were into that kind of thing. I guess it wouldn't hurt, but don't expect me too go 'moo'!$n" +
+                    $"#$b#%*Pam looks around before opening her shirt, and pulling her breasts out. They sag without a bra to support them, but your magic hands soon have her nipples perking up*" +
+                    $"#$b#*You give her nipple a quick flick with your tongue, and then suck on it to taste her milk. It's sourer then normal milk*" +
+                    $"#$b#%*Milk starts to flow from her nipples into your bottle, and Pam looks down with interest as the liquid settles. She bites her lip, and you can see that your hands are having an effect on her whether she liks to admit it or not*" +
+                    $"#$b#I never would have imagined you could find anything in these old tits of mine. You are full of surprises, @.$h";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
             {
-
-                data["milk_start"] = $"I knew you were too tempted to pass up this opportunity. I'd love to have you worship my breasts.#$b#*She quickly sheds her top, baring her beautiful breasts to the air.*#$b#*Her nipples are perky for their size, and you give them a quick suck to get the milk flowing. You collect a lot of her sweet milk in a jar.";
+                data["milk_start"] = $"I knew you were too tempted to pass up this opportunity. There's a reason I'm called the flower of the desert, and I'd love to have you worship my breasts." +
+                    $"#$b#%*She quickly sheds her top, baring her beautiful breasts to the hot desert air. Her skin glistens with moisture, and you can't help but lick a droplet of sweat that has caught on her nipple*" +
+                    $"#$b#%*Her nipples are perky for their size, and you give them both a quick suck to get the milk flowing, earning you a slight gasp from Sandy." +
+                    $"#$b#That's exactly why I've been trying to get you to visit me, @. I knew you would be more than enough to satisfy me, so milk away.$h" +
+                    $"#$b#%*You start gently milking Sandy until she urges you to be more aggressive. You start tugging firmly on her nipples, causing her to stagger slightly as the pleasure rocks through her body*" +
+                    $"#$b#*The bottle quickly fills up, and Sandy is breathing hard by the time you are done*" +
+                    $"#$b#That was amazing, @. I'm going to go...relive myself. My pussy is gushing more than the Oasis, and I can't think straight when I'm this horny.$l";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
             {
-
-                data["milk_start"] = $"*Evelyn sits down on a nearby chair and unbottons her blouse. She deftly unhooks her bra, and you tenderly hold her mature breasts in your hands.*#$b#*You aren't able to coax much milk out, but she sighs contentedly.*#$b#This brings back memories of when I was MUCH younger...and prettier.";
+                data["milk_start"] = $"*Evelyn sits down on a nearby chair and unbottons her blouse. She deftly unhooks her bra, and you tenderly hold her mature breasts in your hands.*" +
+                    $"#$b#Oh, @, dear. I fear I may not be able to provide you with much, but I'm grateful that you would try it with me. You are such a darling child.$l" +
+                    $"%*You aren't able to coax much milk out, but Evelyn sighs contentedly, grateful for the tender way you are treating her*" +
+                    $"#$b#This brings back memories of when I was MUCH younger...and prettier.$h";
                 return;
             }
             #endregion
@@ -396,7 +471,8 @@ namespace MilkVillagers
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Shane")) // ver 1.0
             {
-                if (TempRefs.thirdParty) {
+                if (TempRefs.thirdParty)
+                {
                     data["milk_start"] = $"You know I'll never get over the idea that someone like you could be attracted to a guy like me. You're too good for me, you know.$h" +
                         $"#$b#%*Despite this, Shane unbuckles his belt and lowers his shorts. He looks at you, almost disbelieving, as if he had found himself in some impossible dream." +
                         $"#$b#%*You maintain soft, tender, eye contact as your hand finds itself grasping his cock." +
@@ -509,7 +585,7 @@ namespace MilkVillagers
                     $"#$b#That's it, @. You show the same dedication to acts of love as you do to protecting us. If this is a battle, I fear I am losing to you.$h" +
                     $"#$b#%*You take this encouragement and renew you attack, licking under his glans, fondling his balls with your hand, and giving everything to it*" +
                     $"#$b#%*He tenses up and you suck firmly, tipping him over the edge, earning his hot cum as a reward*" +
-                    $"#$b#That was amazing, @. You have mastered this, and me, as well."; 
+                    $"#$b#That was amazing, @. You have mastered this, and me, as well.";
                 return;
             }
             if (asset.AssetNameEquals("Characters/Dialogue/Morris"))// Iliress dialogue
@@ -544,7 +620,7 @@ namespace MilkVillagers
                     $"#$b#Prepare yerself, now." +
                     $"#$b#%Appreciative of his warning, you release your suction and grab the bottle just in time to catch a decent amount cum inside it. You cap the bottle and wipe your mouth.*" +
                     $"#$b#Aye, it feels good to have a proper release. Come back soon, I could use it again.$l";
-                }
+            }
             if (asset.AssetNameEquals("Characters/Dialogue/Wizard"))
             {
                 data["milk_start"] = $"I am not used to the pleasures of the mortal world. It is a luxury I rarely partake in, as it keeps me distracted from communicating with the Elements. But...if you insist...I guess I could indulge myself." +
@@ -566,8 +642,8 @@ namespace MilkVillagers
                 data["milk_start"] = $"Oh, hey there @. I have the perfect cosplay outfit for that, but I've been too embarrassed to wear it out of the house...It's...a sexy maid outfit, but it doesn't cover...my..." +
                     $"#$b#My breasts very well. Oh god, I can't believe I told you. Please, if you promise not to laugh I'll change into it and you can milk me like a slutty maid.$s" +
                     $"#$b#%*She returns quickly, and the costume is everything she described. A sexy french maid, replete with short, frilly skirt that barely covers her ass, and her breasts are almost completely exposed*" +
-                    $"#$b#%*She curties, and you command her to twirl for you. Her skirt flies up, and you are greeted with the typical anime panty shot." +
-                    $"#$b#%*Wasting no time, you command her to stand still as you start to roughly milk her, eliciting feeble protests and a couple of requests to be gentler. You stop and ask her if she is ok**" +
+                    $"#$b#%*She curtsies, and you command her to twirl for you. Her skirt flies up, and you are greeted with the typical anime panty shot." +
+                    $"#$b#%*Wasting no time, you command her to stand still as you start to roughly milk her, eliciting feeble protests and a couple of requests to be gentler. You stop and ask her if she is ok" +
                     $"#$b#@, please don't stop. I've wanted to do this for a long time, and acting is part of cosplay.$l" +
                     $"#$b#%*You renew your milking, and her moans become louder. You notice her rubbing her thighs together, and as you finish milking her she shudders and climaxes*" +
                     $"#$b#Thank you, @. That was a fantasy finally come true. Please...come back again and enjoy my 'services'";
@@ -642,19 +718,9 @@ namespace MilkVillagers
     {
         public IDictionary<int, string> _objectData;
 
-        public bool Contains(int ID)
-        {
-            return this._objectData.ContainsKey(ID);
-        }
-
         public IDictionary<int, string> Report()
         {
             return this._objectData;
-        }
-
-        public void AddEntry(int ID, string itemString)
-        {
-            this._objectData[ID] = itemString;
         }
 
         public bool CanEdit<T>(IAssetInfo asset)
@@ -664,7 +730,8 @@ namespace MilkVillagers
 
         public void Edit<T>(IAssetData asset)
         {
-            TempRefs.Monitor.Log("Adding in items", LogLevel.Trace);
+            ModFunctions.LogVerbose("Adding in items");
+
             if (asset.AssetNameEquals("Data/ObjectInformation"))
                 _objectData = asset.AsDictionary<int, string>().Data;
             if (!TempRefs.loaded)
@@ -685,10 +752,8 @@ namespace MilkVillagers
             _objectData[TempRefs.MilkPam] = $"Pam's Milk/90/15/Basic {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Basic {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Basic {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Basic {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
             //cum items
-            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Basic {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkAlex] = $"Alex's Cum/300/15/Basic {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkClint] = $"Clint's Cum/300/15/Basic {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkDemetrius] = $"Demetrius's Cum/300/15/Basic {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
@@ -714,13 +779,15 @@ namespace MilkVillagers
             //recipes
             _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Cooking -7/'Protein' shake/Shake made with extra protein/Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/'Special' Milkshake/Extra milky milkshake./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Cooking {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Cooking {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
             // Other mod items
             _objectData[TempRefs.MilkSophia] = $"Sophia's Milk/50/15/Basic {TempRefs.MilkType}/Sophia's Milk/A jug of Sophia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkOlivia] = $"Olivia's Milk/50/15/Basic {TempRefs.MilkType}/Olivia's Milk/A jug of Olivia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSusan ] = $"Susan's Milk/50/15/Basic {TempRefs.MilkType}/Susan's Milk/A jug of Susan 's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkSusan] = $"Susan's Milk/50/15/Basic {TempRefs.MilkType}/Susan's Milk/A jug of Susan 's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkClaire] = $"Claire's Milk/50/15/Basic {TempRefs.MilkType}/Claire's Milk/A jug of Claire's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkAndy  ] = $"Andy's Cum/50/15/Basic {TempRefs.CumType}/Andy's Cum/A bottle of Andy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkAndy] = $"Andy's Cum/50/15/Basic {TempRefs.CumType}/Andy's Cum/A bottle of Andy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkVictor] = $"Victor's Cum/50/15/Basic {TempRefs.CumType}/Victor's Cum/A bottle of Victor's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkMartin] = $"Martin's Cum/50/15/Basic {TempRefs.CumType}/Martin's Cum/A bottle of Martin's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
@@ -731,12 +798,83 @@ namespace MilkVillagers
     {
         public bool CanEdit<T>(IAssetInfo asset)
         {
-            throw new System.NotImplementedException();
+            bool result =
+                    asset.AssetNameEquals("Events/Abigail") ||
+                    asset.AssetNameEquals("Events/Emily") ||
+                    asset.AssetNameEquals("Events/Haley") ||
+                    asset.AssetNameEquals("Events/Leah") ||
+                    asset.AssetNameEquals("Events/Maru") ||
+                    asset.AssetNameEquals("Events/Penny") ||
+                    asset.AssetNameEquals("Events/Caroline") ||
+                    asset.AssetNameEquals("Events/Jodi") ||
+                    asset.AssetNameEquals("Events/Marnie") ||
+                    asset.AssetNameEquals("Events/Robin") ||
+                    asset.AssetNameEquals("Events/Pam") ||
+                    asset.AssetNameEquals("Events/Sandy") ||
+                    asset.AssetNameEquals("Events/Evelyn") ||
+                    asset.AssetNameEquals("Events/Alex") ||
+                    asset.AssetNameEquals("Events/Clint") ||
+                    asset.AssetNameEquals("Events/Demetrius") ||
+                    asset.AssetNameEquals("Events/Elliott") ||
+                    asset.AssetNameEquals("Events/George") ||
+                    asset.AssetNameEquals("Events/Gil") ||
+                    asset.AssetNameEquals("Events/Harvey") ||
+                    asset.AssetNameEquals("Events/Sam") ||
+                    asset.AssetNameEquals("Events/Sebastian") ||
+                    asset.AssetNameEquals("Events/Shane") ||
+                    asset.AssetNameEquals("Events/Pierre") ||
+                    asset.AssetNameEquals("Events/Gunther") ||
+                    asset.AssetNameEquals("Events/Gus") ||
+                    asset.AssetNameEquals("Events/Kent") ||
+                    asset.AssetNameEquals("Events/Lewis") ||
+                    asset.AssetNameEquals("Events/Linus") ||
+                    asset.AssetNameEquals("Events/Marlon") ||
+                    asset.AssetNameEquals("Events/Morris") ||
+                    asset.AssetNameEquals("Events/Mister Qi") ||
+                    asset.AssetNameEquals("Events/Willy") ||
+                    asset.AssetNameEquals("Events/Wizard") ||
+                    asset.AssetNameEquals("Events/Sophia") ||
+                    asset.AssetNameEquals("Events/Olivia") ||
+                    asset.AssetNameEquals("Events/Susan") ||
+                    asset.AssetNameEquals("Events/Claire") ||
+                    asset.AssetNameEquals("Events/Victor") ||
+                    asset.AssetNameEquals("Events/Andy") ||
+                    asset.AssetNameEquals("Events/Martin"); // ||
+
+                    //asset.AssetName.Contains("ObjectContextTags") ||
+                    //asset.AssetName.Contains("ObjectInformation") ||
+                    //asset.AssetName.Contains("Objects");
+
+
+
+
+            return result;
         }
 
         public void Edit<T>(IAssetData asset)
         {
-            throw new System.NotImplementedException();
+            //if (asset.AssetName.Contains("ObjectContextTags") ||
+            //    asset.AssetName.Contains("Objects"))
+            //{
+            //    TempRefs.Monitor.Log($"Dumping\t{asset.AssetName}");
+            //    IDictionary<string, string> data = asset.AsDictionary<string, string>().Data;
+
+            //    foreach (var d in data)
+            //    {
+            //        TempRefs.Monitor.Log($"\t{d.Key}: {d.Value}");
+            //    }
+            //}
+            //else if (asset.AssetName.Contains("ObjectInformation"))
+            //{
+            //    TempRefs.Monitor.Log($"Dumping\t{asset.AssetName}");
+
+            //    IDictionary<int, string> data = asset.AsDictionary<int, string>().Data;
+
+            //    foreach (var d in data)
+            //    {
+            //        TempRefs.Monitor.Log($"\t{d.Key}: {d.Value}");
+            //    }
+            //}
         }
     }
 

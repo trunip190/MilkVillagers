@@ -12,10 +12,14 @@ namespace MilkVillagers
         private int[] target;
         private bool running;
         private bool runOnce;
+
+        // Asset Editors.
         private RecipeEditor _recipeEditor;
         private DialogueEditor _dialogueEditor;
         private ItemEditor _itemEditor;
         private QuestEditor _questEditor;
+        private EventEditor _eventEditor;
+
         private ModConfig Config;
         public int CurrentQuest = 0; //currently loaded quest id.
 
@@ -38,94 +42,44 @@ namespace MilkVillagers
             _dialogueEditor = new DialogueEditor { ExtraContent = Config.ExtraDialogue };
             _itemEditor = new ItemEditor();
             _questEditor = new QuestEditor();
+            _eventEditor = new EventEditor();
+            
 
             if (helper == null)
             {
-                Monitor.Log("helper is null.", 0);
+                ModFunctions.LogVerbose("helper is null.");
             }
             TempRefs.Helper = helper;
             TempRefs.Monitor = Monitor;
 
-            helper.Events.Input.ButtonPressed += new EventHandler<ButtonPressedEventArgs>(OnButtonPressed);
-            helper.Events.GameLoop.DayStarted += new EventHandler<DayStartedEventArgs>(GameLoop_DayStarted);
-            helper.Events.GameLoop.GameLaunched += new EventHandler<GameLaunchedEventArgs>(OnGameLaunched);
-            helper.Events.GameLoop.SaveLoaded += new EventHandler<SaveLoadedEventArgs>(GameLoop_SaveLoaded);
+            helper.Events.Input.ButtonPressed += OnButtonPressed;
+            helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
+            helper.Events.GameLoop.GameLaunched += OnGameLaunched;
+            helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
             helper.Events.GameLoop.TimeChanged += GameLoop_TimeChanged;
+            helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
 
             //helper.Events.Player.Warped += (new EventHandler<WarpedEventArgs>(Player_Warped));
+        }
+
+        #region Game OnEvent Triggers
+        private void GameLoop_DayEnding(object sender, DayEndingEventArgs e)
+        {
+            QuestChecks();
         }
 
         private void GameLoop_TimeChanged(object sender, TimeChangedEventArgs e)
         {
             if (!Game1.player.mailReceived.Contains("AbiEggplant")) // need to add in last quest as well so that it stops checking after all quests are done.
-                return; //Quick escape so that if 
+                return;
 
-            #region Quest checks
-            if (CurrentQuest == 0)
-            {
-                if (HasQuest(TempRefs.QuestID1))
-                
-                    CurrentQuest = TempRefs.QuestID1;                
-                else if (HasQuest(TempRefs.QuestID2))                
-                    CurrentQuest = TempRefs.QuestID2;                
-                else if (HasQuest(TempRefs.QuestID3))                
-                    CurrentQuest = TempRefs.QuestID3;                
-                else if (HasQuest(TempRefs.QuestID4))                
-                    CurrentQuest = TempRefs.QuestID4;
-                else if (HasQuest(TempRefs.QuestID5))
-                    CurrentQuest = TempRefs.QuestID5;
-                else if (HasQuest(TempRefs.QuestID6))
-                    CurrentQuest = TempRefs.QuestID6;
-                else if (HasQuest(TempRefs.QuestID7))
-                    CurrentQuest = TempRefs.QuestID7;
-                else if (HasQuest(TempRefs.QuestID8))
-                    CurrentQuest = TempRefs.QuestID8;
-
-                if (CurrentQuest != 0)
-                {
-                    Monitor.Log($"Watching quest ID {CurrentQuest}", LogLevel.Alert);
-                    _ = RemoveQuest(TempRefs.QuestIDWait);
-                }
-            }
-            if (CurrentQuest != 0 && !HasQuest(CurrentQuest))
-            {
-                Monitor.Log($"Quest ID {CurrentQuest} has finished", LogLevel.Alert);
-
-                // load next mail item after a certain amount of time? maybe just next day.
-                string NextMail = "";
-                if (!Game1.player.mailReceived.Contains("AbiEggplantT")) // Quest 1 complete
-                    NextMail = "AbiEggplantT";
-                else if (!Game1.player.mailReceived.Contains("AbiCarrotsT"))  // Quest 2 complete
-                    NextMail = "AbiCarrotsT";
-                else if (!Game1.player.mailReceived.Contains("AbiRadishesT"))  // Quest 3 complete             
-                    NextMail = "AbiRadishesT";
-                else if (!Game1.player.mailReceived.Contains("AbiSurpriseT"))  // Quest 4 complete            
-                    NextMail = "AbiSurpriseT";
-                else if (!Game1.player.mailReceived.Contains("MaruSampleT"))  // Quest 5 complete
-                    NextMail = "MaruSampleT";
-                else if (!Game1.player.mailReceived.Contains("GeorgeMilkT"))  // Quest 6 complete
-                    NextMail = "GeorgeMilkT";
-                else
-                {
-                    // No mail item associated with the quest completion.
-                }
-
-                //if (!Game1.player.mailReceived.Contains("AbiEggplant")) { } // Quest 5?
-
-                if (NextMail != "")
-                {
-                    Monitor.Log($"adding mail {NextMail} to mailbox", LogLevel.Alert);
-                    Game1.player.mailForTomorrow.Add(NextMail);
-                }
-
-                CurrentQuest = 0;
-            }
-            #endregion
+            QuestChecks();
         }
 
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
-            Monitor.Log("Loaded savegame.", LogLevel.Trace);
+            ModFunctions.LogVerbose("Loaded savegame.");
+
             if (runOnce)
                 return;
 
@@ -193,16 +147,24 @@ namespace MilkVillagers
                 mod: this.ModManifest,
                 optionName: "3rd Party Dialogue",
                 optionDesc: "Enable 3rd party dialogue?",
-                optionGet: () => this.Config.thirdParty,
-                optionSet: value => this.Config.thirdParty = value
+                optionGet: () => this.Config.ThirdParty,
+                optionSet: value => this.Config.ThirdParty = value
             );
 
             api.RegisterSimpleOption(
                 mod: this.ModManifest,
                 optionName: "Debug mode",
                 optionDesc: "Enable debug mode content",
-                optionGet: () => this.Config.debug,
-                optionSet: value => this.Config.debug = value
+                optionGet: () => this.Config.Debug,
+                optionSet: value => this.Config.Debug = value
+            );
+
+            api.RegisterSimpleOption(
+                mod: this.ModManifest,
+                optionName: "Verbose Dialogue",
+                optionDesc: "Enable verbose dialogue for tracking errors",
+                optionGet: () => this.Config.Verbose,
+                optionSet: value => this.Config.Verbose = value
             );
 
             api.RegisterSimpleOption(
@@ -210,7 +172,7 @@ namespace MilkVillagers
                 optionName: "Quests",
                 optionDesc: "Enable quest content",
                 optionGet: () => this.Config.Quests,
-                optionSet: value => this.Config.Quests= value
+                optionSet: value => this.Config.Quests = value
             );
             #endregion
 
@@ -218,20 +180,20 @@ namespace MilkVillagers
             Helper.Content.AssetEditors.Add(_dialogueEditor);
             Helper.Content.AssetEditors.Add(_questEditor);
             Helper.Content.AssetEditors.Add(_recipeEditor);
+            Helper.Content.AssetEditors.Add(_eventEditor);
             Helper.Content.AssetEditors.Add(new MyModMail());
 
-            TempRefs.thirdParty = Config.thirdParty;
+            TempRefs.thirdParty = Config.ThirdParty;
+            TempRefs.Verbose = Config.Verbose;
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
         {
-            if (TempRefs.milkedtoday == null && Config.Verbose)
-                Monitor.Log("TempRefs not set", LogLevel.Error);
+            if (TempRefs.milkedtoday == null)
+                ModFunctions.LogVerbose("TempRefs not set");
             else
             {
-                if (Config.Verbose)
-                    Monitor.Log($"TempRegs is set. Cleared {TempRefs.milkedtoday.Count}", LogLevel.Trace);
-
+                ModFunctions.LogVerbose($"TempRefs is set. Cleared {TempRefs.milkedtoday.Count}");
                 TempRefs.milkedtoday.Clear();
             }
 
@@ -239,48 +201,116 @@ namespace MilkVillagers
             //Dictionary<ISalable, int[]> stock = Utility.getSaloonStock();
             //foreach (KeyValuePair<ISalable, int[]> kp in stock)
             //{
-            //    Monitor.Log($"{kp.Key.DisplayName}: price ${kp.Value[0]}, Quantity: {kp.Value[1]}", LogLevel.Trace);
+            //    LogVerbose($"{kp.Key.DisplayName}: price ${kp.Value[0]}, Quantity: {kp.Value[1]}", LogLevel.Trace);
             //}
 
             //TODO set up preconditions for these.
-            if (Config.debug)
+            if (Config.Debug)
             {
-                if (!Game1.player.mailReceived.Contains("MilkButton1"))
-                    Game1.player.mailbox.Add("MilkButton1");
 
                 if (!Game1.player.mailReceived.Contains("MilkingAbi"))
                     Game1.player.mailbox.Add("MilkingAbi");
 
+                if (Config.Verbose)
+                    OutputQuests();
+
+            }
+
+            // Tutorial
+            if (!Game1.player.mailReceived.Contains("MilkButton1"))
+                Game1.player.mailbox.Add("MilkButton1");
+            if (!Game1.player.mailReceived.Contains("MilkButton2"))
+                Game1.player.mailbox.Add("MilkButton2");
+
+            if (Config.Quests)
+            {
                 if (Game1.player.getFriendshipHeartLevelForNPC("Abigail") > 7 && !Game1.player.mailReceived.Contains("AbiEggplant"))
                 {
-                    Game1.player.mailbox.Add("AbiEggplant");
+                    Game1.player.mailForTomorrow.Add("AbiEggplant");
 
                     //_questEditor.data[TempRefs.QuestID1] = _questEditor.data[TempRefs.QuestID1].Replace($"{TempRefs.QuestID2}", $"{TempRefs.QuestIDWait}");
                     _questEditor.data[TempRefs.QuestIDWait] = _questEditor.data[TempRefs.QuestIDWait].Replace("594800", $"{TempRefs.QuestID2}");
                 }
 
-                //OutputQuests();
-
-                //foreach (StardewValley.Quests.Quest q in Game1.player.questLog)
-                //{
-                //    if (q.id == TempRefs.QuestID1 && Game1.player.questLog[TempRefs.QuestID1].completed && !Game1.player.mailReceived.Contains("AbiCarrot"))
-                //        Game1.player.mailbox.Add("AbiCarrot");
-                //    else
-                //        Monitor.Log($"{q.GetName()}: {q.id}", LogLevel.Alert);
-                //}
+                // Send new mail checks
+                if (Game1.player.mailbox.Contains("AbiEggplantT") && !Game1.player.mailbox.Contains("AbiCarrots"))
+                    Game1.player.mailForTomorrow.Add("AbiCarrots");
+                if (Game1.player.mailbox.Contains("AbiCarrotsT") && !Game1.player.mailbox.Contains("AbiRadishes"))
+                    Game1.player.mailForTomorrow.Add("AbiRadishes");
+                if (Game1.player.mailbox.Contains("AbiRadishesT") && !Game1.player.mailbox.Contains("AbiSurprise"))
+                    Game1.player.mailForTomorrow.Add("AbiSurpriseT");
+                if (Game1.player.mailbox.Contains("AbiSurpriseT") && !Game1.player.mailbox.Contains("MaruSample"))
+                    Game1.player.mailForTomorrow.Add("MaruSample");
+                if (Game1.player.mailbox.Contains("MaruSampleT") && !Game1.player.mailbox.Contains("GeorgeMilk"))
+                    Game1.player.mailForTomorrow.Add("GeorgeMilk");
             }
+        }
+        #endregion
 
-            // Send new mail checks
-            if (Game1.player.mailbox.Contains("AbiEggplantT") && !Game1.player.mailbox.Contains("AbiCarrots"))
-                Game1.player.mailForTomorrow.Add("AbiCarrots");
-            if (Game1.player.mailbox.Contains("AbiCarrotsT") && !Game1.player.mailbox.Contains("AbiRadishes"))
-                Game1.player.mailForTomorrow.Add("AbiRadishes");
-            if (Game1.player.mailbox.Contains("AbiRadishesT") && !Game1.player.mailbox.Contains("AbiSurprise"))
-                Game1.player.mailForTomorrow.Add("AbiSurpriseT");
-            if (Game1.player.mailbox.Contains("AbiSurpriseT") && !Game1.player.mailbox.Contains("MaruSample"))
-                Game1.player.mailForTomorrow.Add("MaruSample");
-            if (Game1.player.mailbox.Contains("MaruSampleT") && !Game1.player.mailbox.Contains("GeorgeMilk"))
-                Game1.player.mailForTomorrow.Add("GeorgeMilk");
+        #region Quest methods
+        private void QuestChecks()
+        {
+            if (CurrentQuest == 0)
+            {
+                if (HasQuest(TempRefs.QuestID1))
+
+                    CurrentQuest = TempRefs.QuestID1;
+                else if (HasQuest(TempRefs.QuestID2))
+                    CurrentQuest = TempRefs.QuestID2;
+                else if (HasQuest(TempRefs.QuestID3))
+                    CurrentQuest = TempRefs.QuestID3;
+                else if (HasQuest(TempRefs.QuestID4))
+                    CurrentQuest = TempRefs.QuestID4;
+                else if (HasQuest(TempRefs.QuestID5))
+                    CurrentQuest = TempRefs.QuestID5;
+                else if (HasQuest(TempRefs.QuestID6))
+                    CurrentQuest = TempRefs.QuestID6;
+                else if (HasQuest(TempRefs.QuestID7))
+                    CurrentQuest = TempRefs.QuestID7;
+                else if (HasQuest(TempRefs.QuestID8))
+                    CurrentQuest = TempRefs.QuestID8;
+
+                if (CurrentQuest != 0)
+                {
+                    ModFunctions.LogVerbose($"Watching quest ID {CurrentQuest}", LogLevel.Alert);
+
+                    _ = RemoveQuest(TempRefs.QuestIDWait);
+                }
+            }
+            if (CurrentQuest != 0 && !HasQuest(CurrentQuest))
+            {
+                ModFunctions.LogVerbose($"Quest ID {CurrentQuest} has finished");
+
+                // load next mail item after a certain amount of time? maybe just next day.
+                string NextMail = "";
+                if (!Game1.player.mailReceived.Contains("AbiEggplantT")) // Quest 1 complete
+                    NextMail = "AbiEggplantT";
+                else if (!Game1.player.mailReceived.Contains("AbiCarrotsT"))  // Quest 2 complete
+                    NextMail = "AbiCarrotsT";
+                else if (!Game1.player.mailReceived.Contains("AbiRadishesT"))  // Quest 3 complete             
+                    NextMail = "AbiRadishesT";
+                else if (!Game1.player.mailReceived.Contains("AbiSurpriseT"))  // Quest 4 complete            
+                    NextMail = "AbiSurpriseT";
+                else if (!Game1.player.mailReceived.Contains("MaruSampleT"))  // Quest 5 complete
+                    NextMail = "MaruSampleT";
+                else if (!Game1.player.mailReceived.Contains("GeorgeMilkT"))  // Quest 6 complete
+                    NextMail = "GeorgeMilkT";
+                else
+                {
+                    // No mail item associated with the quest completion.
+                }
+
+                //if (!Game1.player.mailReceived.Contains("AbiEggplant")) { } // Quest 5?
+
+                if (NextMail != "")
+                {
+                    ModFunctions.LogVerbose($"adding mail {NextMail} to mailbox", LogLevel.Alert);
+
+                    Game1.player.mailForTomorrow.Add(NextMail);
+                }
+
+                CurrentQuest = 0;
+            }
 
         }
 
@@ -309,29 +339,44 @@ namespace MilkVillagers
             return false;
         }
 
+        private void OutputQuests()
+        {
+            if (Config.Verbose)
+            {
+                foreach (var d in _questEditor.data)
+                {
+                    ModFunctions.LogVerbose($"{d.Key}: {d.Value}");
+                }
+            }
+        }
+        #endregion
+
+
         private static void AddAllRecipes()
         {
             //TODO move this to be a quest reward or something.
+            ModFunctions.LogVerbose($"Adding in both recipes", LogLevel.Alert);
+
             if (!Game1.player.cookingRecipes.ContainsKey("Milkshake"))
                 Game1.player.cookingRecipes.Add("Milkshake", 0);
 
             if (!Game1.player.cookingRecipes.ContainsKey("'Protein' Shake"))
                 Game1.player.cookingRecipes.Add("'Protein' Shake", 0);
-        }
 
-        private void OutputQuests()
-        {
-            foreach (var d in _questEditor.data)
-            {
-                Monitor.Log($"{d.Key}: {d.Value}", LogLevel.Trace);
-            }
+            if (!Game1.player.craftingRecipes.ContainsKey("Generic Milk"))
+                Game1.player.craftingRecipes.Add("Generic Milk", 0);
+
+            if (!Game1.player.craftingRecipes.ContainsKey("Generic Cum"))
+                Game1.player.craftingRecipes.Add("Generic Cum", 0);
+
         }
 
         private void GetItemCodes()
         {
             LogLevel Defcon = LogLevel.Trace;
-            TempRefs.Monitor.Log($"Correcting item codes", LogLevel.Trace);
-            //Defcon = LogLevel.Alert;
+
+            ModFunctions.LogVerbose($"Correcting item codes");
+
             int num1 = 0;
             int num2 = 0;
 
@@ -339,235 +384,203 @@ namespace MilkVillagers
             foreach (KeyValuePair<int, string> keyValuePair in _itemEditor.Report())
             {
                 string[] strArray = keyValuePair.Value.Split('/');
+                int ID = 0;
+
                 switch (strArray[0])
                 {
                     #region girls
                     case "Abigail's Milk":
                         TempRefs.MilkAbig = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkAbig}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Caroline's Milk":
                         TempRefs.MilkCaro = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkCaro}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Emily's Milk":
                         TempRefs.MilkEmil = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkEmil}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Evelyn's Milk":
                         TempRefs.MilkEvel = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkEvel}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Haley's Milk":
                         TempRefs.MilkHale = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkHale}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Jodi's Milk":
                         TempRefs.MilkJodi = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkJodi}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Leah's Milk":
                         TempRefs.MilkLeah = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkLeah}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Marnie's Milk":
                         TempRefs.MilkMarn = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMarn}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Maru's Milk":
                         TempRefs.MilkMaru = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMaru}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Pam's Milk":
                         TempRefs.MilkPam = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkPam}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Penny's Milk":
                         TempRefs.MilkPenn = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkPenn}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Robin's Milk":
                         TempRefs.MilkRobi = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkRobi}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Sandra's Milk":
                         TempRefs.MilkSand = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSand}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
                     #endregion
 
                     #region guys
                     case "Alex's Cum":
                         TempRefs.MilkAlex = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkAlex}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Clint's Cum":
                         TempRefs.MilkClint = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkClint }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Demetrius's Cum":
                         TempRefs.MilkDemetrius = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkDemetrius }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Elliott's Cum":
                         TempRefs.MilkElliott = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkElliott }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "George's Cum":
                         TempRefs.MilkGeorge = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGeorge}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Gil's Cum":
                         TempRefs.MilkGil = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGil }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Gunther's Cum":
                         TempRefs.MilkGunther = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGunther }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Gus's Cum":
                         TempRefs.MilkGus = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkGus }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Harvey's Cum":
                         TempRefs.MilkHarv = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkHarv}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Kent's Cum":
                         TempRefs.MilkKent = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkKent}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Lewis's Cum":
                         TempRefs.MilkLewis = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkLewis }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Linus's Cum":
                         TempRefs.MilkLinus = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkLinus }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Marlon's Cum":
                         TempRefs.MilkMarlon = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMarlon}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Morris's Cum":
                         TempRefs.MilkMorris = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkMorris}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Qi's Cum":
                         TempRefs.MilkQi = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkQi}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Pierre's Cum":
                         TempRefs.MilkPierre = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkPierre}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Sam's Cum":
                         TempRefs.MilkSam = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSam }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Sebastian's Cum":
                         TempRefs.MilkSeb = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSeb }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Shane's Cum":
                         TempRefs.MilkShane = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkShane }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Willy's Cum":
                         TempRefs.MilkWilly = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkWilly }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Wizard's Cum":
                         TempRefs.MilkWiz = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkWiz }", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
                     #endregion
 
                     #region Extra Items
-                    case "Milk":
+                    case "Woman's Milk":
                         TempRefs.MilkGeneric = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added as default. {TempRefs.MilkGeneric}", Defcon);
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Special Milk":
                         TempRefs.MilkSpecial = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSpecial}", Defcon);
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Protein Shake":
                         TempRefs.ProteinShake = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.ProteinShake}", Defcon);
+                        ID = keyValuePair.Key;
                         continue;
 
                     case "Special Milkshake":
                         TempRefs.MilkShake = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkShake}", Defcon);
+                        ID = keyValuePair.Key;
                         continue;
 
                     #endregion
@@ -575,8 +588,7 @@ namespace MilkVillagers
                     #region Other mods
                     case "Sophia's Milk":
                         TempRefs.MilkSophia = keyValuePair.Key;
-                        Monitor.Log($"{strArray[0]} added. {TempRefs.MilkSophia}", Defcon);
-                        ++num2;
+                        ID = keyValuePair.Key;
                         continue;
                     #endregion
 
@@ -584,15 +596,21 @@ namespace MilkVillagers
                         if (strArray[0].ToLower().Contains("milk") || strArray[0].ToLower().Contains("cum"))
                         {
                             num1++;
-                            Monitor.Log($"{strArray[0]} wasn't added.", LogLevel.Info);
+                            ModFunctions.LogVerbose($"{strArray[0]} wasn't added.", LogLevel.Info);
                         }
 
                         continue;
                 }
+
+                if (ID != 0)
+                {
+                    ModFunctions.LogVerbose($"{strArray[0]} added. {TempRefs.MilkSophia}", Defcon);
+                    ++num2;
+                }
             }
 
             TempRefs.loaded = true;
-            Monitor.Log($"Loaded {num2}/{num1 + num2} items", Defcon);
+            ModFunctions.LogVerbose($"Loaded {num2}/{num1 + num2} items", Defcon);
 
             Game1.player.Items[0].getCategoryName();
 
@@ -615,10 +633,8 @@ namespace MilkVillagers
             _objectData[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Basic {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Basic {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkDwarf] = $"Dwarf's Milk/300/15/Basic {TempRefs.CumType}/Dwarf's Milk/A jug of Dwarf's milk ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Basic {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-
+            
             //cum items
-            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Basic {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkAlex] = $"Alex's Cum/300/15/Basic {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkClint] = $"Clint's Cum/300/15/Basic {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkDemetrius] = $"Demetrius's Cum/300/15/Basic {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
@@ -647,6 +663,8 @@ namespace MilkVillagers
             //recipes
             _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Cooking -7/'Protein' shake/Shake made with extra protein/drink/0 0 0 0 0 0 0 0 0 0 0/0";
             _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/'Special' Milkshake/Extra milky milkshake./drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Crafting {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Crafting {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
             #endregion
 
 
@@ -654,8 +672,12 @@ namespace MilkVillagers
 
         private void CorrectRecipes()
         {
-            _recipeEditor.data["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/default/'Protein' shake";
-            _recipeEditor.data["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/default/Milkshake";
+            _recipeEditor.CookingData["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/default/'Protein' shake";
+            _recipeEditor.CookingData["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/default/Milkshake";
+
+            //_recipeEditor.data["Woman's Milk"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkGeneric}/null/Woman's Milk";
+            //_recipeEditor.data["Generic Cum"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.MilkSpecial}/null/Special Milk";
+
         }
 
         private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
@@ -685,7 +707,7 @@ namespace MilkVillagers
             //    else
             //        Game1.warpFarmer("SeedShop", 4, 9, false);
             //}
-            if (button == SButton.P)
+            if (Config.Debug && button == SButton.P)
             {
                 Game1.warpFarmer("SeedShop", 4, 9, false);
             }
@@ -709,7 +731,7 @@ namespace MilkVillagers
                 else
                 {
                     if (Config.Verbose)
-                        Game1.addHUDMessage(new HUDMessage("no-one found."));
+                        Game1.addHUDMessage(new HUDMessage("Couldn't find anyone to milk."));
 
                 }
                 //}
@@ -720,16 +742,22 @@ namespace MilkVillagers
 
         private void ActionOnNPC(NPC npc)
         {
-            if (Config.NeedTool && Game1.player.CurrentTool.GetType().ToString() != typeof(StardewValley.Tools.MilkPail).ToString())
-            {
-                Game1.addHUDMessage(new HUDMessage("You need to be holding a pail to milk people."));
-                return;
-            }
+            // Removed option for requiring a milk pail
+            //if (Config.NeedTool && Game1.player.CurrentTool.GetType().ToString() != typeof(StardewValley.Tools.MilkPail).ToString())
+            //{
+            //    Game1.addHUDMessage(new HUDMessage("You need to be holding a pail to milk people."));
+            //    return;
+            //}
 
             #region validity checks
 
             //Age and friendship
-            if (npc.age > 1 || Game1.player.getFriendshipHeartLevelForNPC(npc.name) < 8)
+            // Child check
+            if (npc.age == 2)
+            {
+                return;
+            }
+            if (Game1.player.getFriendshipHeartLevelForNPC(npc.name) < 8)
             {
                 Game1.drawDialogue(npc, "Hey there @. Wotcha doing with that pail?#I don't like you enough for that!");
                 Monitor.Log($"{npc.name} is {npc.age} and at heart level {Game1.player.getFriendshipHeartLevelForNPC(npc.name)}", LogLevel.Debug);
@@ -740,14 +768,14 @@ namespace MilkVillagers
             if (npc.gender == 0 & !Config.MilkMale)
             {
                 Game1.addHUDMessage(new HUDMessage("You have male character milking turned off."));
-                Monitor.Log($"gender is {npc.Gender}", LogLevel.Warn);
+                ModFunctions.LogVerbose($"gender is {npc.Gender}", LogLevel.Warn);
                 return;
             }
             if (npc.gender == 1 & !Config.MilkFemale)
             {
 
                 Game1.addHUDMessage(new HUDMessage("You have female character milking turned off."));
-                Monitor.Log($"gender is {npc.Gender}", LogLevel.Warn);
+                ModFunctions.LogVerbose($"gender is {npc.Gender}", LogLevel.Warn);
                 return;
             }
 
@@ -814,7 +842,7 @@ namespace MilkVillagers
 
                     default: //NPC's I don't know.
                         ItemCode = npc.gender == 0 ? $"[{TempRefs.MilkSpecial}]" : $"[{TempRefs.MilkGeneric}]";
-                        Monitor.Log($"Couldn't find {npc.name} in the list of items", LogLevel.Alert);
+                        ModFunctions.LogVerbose($"Couldn't find {npc.name} in the list of items", LogLevel.Debug);
                         break;
                 }
             }
@@ -828,12 +856,12 @@ namespace MilkVillagers
             else
             {
                 if (npc.gender == 1)
-                    Game1.drawDialogue(npc, $"You want to milk me? Are you crazy...? Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {ItemCode}");
+                    Game1.drawDialogue(npc, $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {ItemCode}");
                 else
-                    Game1.drawDialogue(npc, $"You want my \"milk\"? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {ItemCode}");
+                    Game1.drawDialogue(npc, $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {ItemCode}");
             }
 
-            Monitor.Log($"ItemCode is {ItemCode}", LogLevel.Trace);
+            ModFunctions.LogVerbose($"ItemCode is {ItemCode}");
             Game1.player.changeFriendship(30, npc);
             TempRefs.milkedtoday.Add(npc);
             //_ = npc.checkAction(Game1.player, Game1.currentLocation);

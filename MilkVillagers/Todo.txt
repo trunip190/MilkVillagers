@@ -2,30 +2,23 @@
 	change character sprite/portrait during the milking
 	cheese recipe
 	Other mods
-		Sofia
-		Victor
-		Olivia
-		Claire
-		
-		Andy
-		Susan
+		Claire		
 		Martin
-		etc.
+		
+		Ridgeside
+
 	Special items
 		Krobus
 		Dwarf
 		Wizard
 		Mister Qi
+
+		fix woman's milk recipe.
+			human milk works.
+
 	add skill buffs to items
 	sort out dialogue length so it doesn't overrun to the next page
-	fix item data
-		milkshake
-		protein shake
 	add in girl's panties and boy's boxers.
-	check if quest in questlog, then if not in questlog
-		make each quest point to a "wait x days" quest, and when it is added change the next quest field to the next one in the series using _questEditor.
-		get quest complete to see which quest is next, then change it to the next one
-	fix questid4 - string wrong somewhere.
 	write quests for other npc's.
 		Maru wants to to test some cum
 		George wants to taste some of Haley's and Amily's milk
@@ -41,40 +34,45 @@
 
 In Progress
 	cooking recipes
+	fix item data
+		milkshake
+		protein shake
 
-	parse Iliress's dialogue
 	add npc portrait moods to dialogue.
 
-	specific dialogue for male npc's
-		Gunther
-		Gus
-		Kent
-		Lewis
-		Linus
-		Marlon
-		Morris
-		Qi
-		Willy
-		Wizard
-
 	milk/cum art specific
-		f milk
+		milk							- done
 		cum
 
 Bugs
-	done	wrong item given:
-	done	sofia gives evelyn milk
-	done	abigail gives evelyn milk
-	done	not accepting milk for recipes.
+	wrong item given:					- done
+	sofia gives evelyn milk				- done
+	abigail gives evelyn milk			- done
+	not accepting milk for recipes.		- done
 
 
 
-done
-	option to make milk stack - done
+Completed
+	option to make milk stack			- done
 	Add toggle option for both genders. - done
-	remove child milking - done
-	milk male villagers - done
-	make dialogue changes optional. - done
-	remove item codes from dialogue. - done
-	add cum icons - done
-	add in CP override - done
+	remove child milking				- done
+	milk male villagers					- done
+	make dialogue changes optional.		- done
+	remove item codes from dialogue.	- done
+	add cum icons						- done
+	add in CP override					- done
+	parse Iliress's dialogue			- done
+	fix questid4 string					- done	
+	Method for quest completion			- done
+
+	specific dialogue for male npc's
+		Gunther							- done
+		Gus								- done
+		Kent							- done
+		Lewis							- done
+		Linus							- done
+		Marlon							- done
+		Morris							- done
+		Qi								- done
+		Willy							- done
+		Wizard							- done

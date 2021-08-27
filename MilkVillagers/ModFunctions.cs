@@ -1,10 +1,18 @@
-﻿using StardewValley;
+﻿using StardewModdingAPI;
+using StardewValley;
 using System.Collections.Generic;
 
 namespace MilkVillagers
 {
     public static class ModFunctions
     {
+
+        public static void LogVerbose(string message, LogLevel Level = LogLevel.Trace)
+        {
+            if (TempRefs.Verbose)
+                TempRefs.Monitor.Log(message, Level);
+        }
+
         public static bool LookingAtNPC(int[] target, int[] NPC)
         {
             return target[0] == NPC[0] && target[1] == NPC[1];
