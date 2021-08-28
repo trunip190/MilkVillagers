@@ -27,6 +27,7 @@ namespace MilkVillagers
         public static IModHelper Helper;
         public static IMonitor Monitor;
         public static List<NPC> milkedtoday = new List<NPC>();
+        public static List<NPC> SexToday = new List<NPC>();
 
         // Config options
         public static bool loaded = false;
@@ -93,6 +94,7 @@ namespace MilkVillagers
         // Recipe item code storage
         public static int ProteinShake = 1240;
         public static int MilkShake = 1241;
+        public static int SuperJuice = 1249;
 
         // Other mods
         public static int MilkSophia = 1242;
@@ -105,8 +107,8 @@ namespace MilkVillagers
         #endregion
 
         // Item types 
-        public static int MilkType = -34;
-        public static int CumType = -35;
+        public static readonly int MilkType = -34;
+        public static readonly int CumType = -35;
 
         public static void ReportCodes()
         {

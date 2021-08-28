@@ -2,10 +2,13 @@
 	change character sprite/portrait during the milking
 	cheese recipe
 	Other mods
-		Claire		
-		Martin
+		SVE
+			Claire		
+			Martin
 		
 		Ridgeside
+
+	Fix price and health benefits for each milk item. maybe ranked instead? (base, silver, gold, iridium)
 
 	Special items
 		Krobus

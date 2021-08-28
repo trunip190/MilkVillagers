@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GenericModConfigMenu;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -12,6 +11,10 @@ namespace MilkVillagers
         private int[] target;
         private bool running;
         private bool runOnce;
+        private NPC currentTarget;
+
+        // Time freeze stuff
+        private float Countdown = 0;
 
         // Asset Editors.
         private RecipeEditor _recipeEditor;
@@ -43,7 +46,6 @@ namespace MilkVillagers
             _itemEditor = new ItemEditor();
             _questEditor = new QuestEditor();
             _eventEditor = new EventEditor();
-            
 
             if (helper == null)
             {
@@ -58,9 +60,11 @@ namespace MilkVillagers
             helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
             helper.Events.GameLoop.TimeChanged += GameLoop_TimeChanged;
             helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
+            helper.Events.GameLoop.OneSecondUpdateTicked += GameLoop_OneSecondUpdateTicked;
 
             //helper.Events.Player.Warped += (new EventHandler<WarpedEventArgs>(Player_Warped));
         }
+
 
         #region Game OnEvent Triggers
         private void GameLoop_DayEnding(object sender, DayEndingEventArgs e)
@@ -74,6 +78,16 @@ namespace MilkVillagers
                 return;
 
             QuestChecks();
+        }
+
+        private void GameLoop_OneSecondUpdateTicked(object sender, OneSecondUpdateTickedEventArgs e)
+        {
+            if (Countdown > 0)
+            {
+                Monitor.Log($"{Countdown} - {Game1.gameTimeInterval}", LogLevel.Alert);
+                Countdown -= Game1.gameTimeInterval;
+                Game1.gameTimeInterval = 0;
+            }
         }
 
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
@@ -195,6 +209,7 @@ namespace MilkVillagers
             {
                 ModFunctions.LogVerbose($"TempRefs is set. Cleared {TempRefs.milkedtoday.Count}");
                 TempRefs.milkedtoday.Clear();
+                TempRefs.SexToday.Clear();
             }
 
             //Add recipe to stock.
@@ -363,11 +378,15 @@ namespace MilkVillagers
             if (!Game1.player.cookingRecipes.ContainsKey("'Protein' Shake"))
                 Game1.player.cookingRecipes.Add("'Protein' Shake", 0);
 
+            if (!Game1.player.cookingRecipes.ContainsKey("Special Juice"))
+                Game1.player.cookingRecipes.Add("Special Juice", 0);
+
             if (!Game1.player.craftingRecipes.ContainsKey("Generic Milk"))
                 Game1.player.craftingRecipes.Add("Generic Milk", 0);
 
             if (!Game1.player.craftingRecipes.ContainsKey("Generic Cum"))
                 Game1.player.craftingRecipes.Add("Generic Cum", 0);
+
 
         }
 
@@ -449,7 +468,7 @@ namespace MilkVillagers
                         ID = keyValuePair.Key;
                         continue;
 
-                    case "Sandra's Milk":
+                    case "Sandy's Milk":
                         TempRefs.MilkSand = keyValuePair.Key;
                         ID = keyValuePair.Key;
                         continue;
@@ -583,6 +602,11 @@ namespace MilkVillagers
                         ID = keyValuePair.Key;
                         continue;
 
+                    case "Super Juice":
+                        TempRefs.SuperJuice = keyValuePair.Key;
+                        ID = keyValuePair.Key;
+                        continue;
+
                     #endregion
 
                     #region Other mods
@@ -612,68 +636,19 @@ namespace MilkVillagers
             TempRefs.loaded = true;
             ModFunctions.LogVerbose($"Loaded {num2}/{num1 + num2} items", Defcon);
 
-            Game1.player.Items[0].getCategoryName();
-
-            #region fix item strings
-            //TODO might be able to delete this section
-            IDictionary<int, string> _objectData = _itemEditor._objectData;
-
-            //milk items
-            _objectData[TempRefs.MilkAbig] = $"Abigail's Milk/300/15/Basic {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkEmil] = $"Emily's Milk/300/15/Basic {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkHale] = $"Haley's Milk/300/15/Basic {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkLeah] = $"Leah's Milk/300/15/Basic {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMaru] = $"Maru's Milk/300/15/Basic {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPenn] = $"Penny's Milk/300/15/Basic {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkCaro] = $"Caroline's Milk/300/15/Basic {TempRefs.MilkType}/Caroline's Milk/A jug of Caroline's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkJodi] = $"Jodi's Milk/300/15/Basic {TempRefs.MilkType}/Jodi's Milk/A jug of Jodi's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMarn] = $"Marnie's Milk/140/15/Basic {TempRefs.MilkType}/Marnie's Milk/A jug of Marnie's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkRobi] = $"Robin's Milk/300/15/Basic {TempRefs.MilkType}/Robin's Milk/A jug of Robin's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPam] = $"Pam's Milk/90/15/Basic {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Basic {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Basic {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkDwarf] = $"Dwarf's Milk/300/15/Basic {TempRefs.CumType}/Dwarf's Milk/A jug of Dwarf's milk ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            
-            //cum items
-            _objectData[TempRefs.MilkAlex] = $"Alex's Cum/300/15/Basic {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkClint] = $"Clint's Cum/300/15/Basic {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkDemetrius] = $"Demetrius's Cum/300/15/Basic {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkElliott] = $"Elliott's Cum/300/15/Basic {TempRefs.CumType}/Elliott's Cum/A bottle of Elliott's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGeorge] = $"George's Cum/300/15/Basic {TempRefs.CumType}/George's Cum /A bottle of George's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGil] = $"Gil's Cum/300/15/Basic {TempRefs.CumType}/Gil's Cum/A bottle of Gil's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGunther] = $"Gunther's Cum/300/15/Basic {TempRefs.CumType}/Gunther's Cum/A bottle of Gunther's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGus] = $"Gus's Cum/300/15/Basic {TempRefs.CumType}/Gus's Cum/A bottle of Gus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkHarv] = $"Harvey's Cum/300/15/Basic {TempRefs.CumType}/Harvey's Cum /A bottle of Harvey's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkKent] = $"Kent's Cum/300/15/Basic {TempRefs.CumType}/Kent's Cum /A bottle of Kent's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkLewis] = $"Lewis's Cum/300/15/Basic {TempRefs.CumType}/Lewis's Cum/A bottle of Lewis's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkLinus] = $"Linus's Cum/300/15/Basic {TempRefs.CumType}/Linus's Cum/A bottle of Linus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMarlon] = $"Marlon's Cum/300/15/Basic {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMorris] = $"Morris's Cum/300/15/Basic {TempRefs.CumType}/Morris's Cum /A bottle of Morris's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkQi] = $"Mr. Qi's Cum/300/15/Basic {TempRefs.CumType}/Mr. Qi's Cum /A bottle of Mr. Qi's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPierre] = $"Pierre's Cum/300/15/Basic {TempRefs.CumType}/Pierre's Cum /A bottle of Pierre's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSam] = $"Sam's Cum/300/15/Basic {TempRefs.CumType}/Sam's Cum/A bottle of Sam's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSeb] = $"Sebastian's Cum/300/15/Basic {TempRefs.CumType}/Sebastian's Cum/A bottle of Sebastian's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkShane] = $"Shane's Cum/300/15/Basic {TempRefs.CumType}/Shane's Cum/A bottle of Shane's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkWilly] = $"Willy's Cum/300/15/Basic {TempRefs.CumType}/Willy's Cum/A bottle of Willy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkWiz] = $"Wizard's Cum/300/15/Basic {TempRefs.CumType}/Wizard's Cum /A bottle of Wizard's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMarlon] = $"Marlon's Cum/300/15/Basic {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkKrobus] = $"Krobus's Cum/300/15/Basic {TempRefs.CumType}/Krobus's Cum /A bottle of Krobus's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-
-
-            //recipes
-            _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Cooking -7/'Protein' shake/Shake made with extra protein/drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/'Special' Milkshake/Extra milky milkshake./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Crafting {TempRefs.CumType}/'Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Crafting {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            #endregion
-
+            // Re-fix items for some reason.
+            _itemEditor.SetItems();
 
         }
 
         private void CorrectRecipes()
         {
-            _recipeEditor.CookingData["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/default/'Protein' shake";
-            _recipeEditor.CookingData["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/default/Milkshake";
+            _recipeEditor.SetCooking();
+            _recipeEditor.SetCrafting();
+
+            //_recipeEditor.CookingData["'Protein' Shake"] = $"{TempRefs.CumType} 3/10 10/{TempRefs.ProteinShake}/default/'Protein' shake";
+            //_recipeEditor.CookingData["Milkshake"] = $"{TempRefs.MilkType} 3/10 10/{TempRefs.MilkShake}/default/Milkshake";
+            //_recipeEditor.CookingData["Super Juice"] = $"{TempRefs.MilkType} 2 {TempRefs.CumType} 2/10 10/{TempRefs.MilkShake}/default/Super Juice";
 
             //_recipeEditor.data["Woman's Milk"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkGeneric}/null/Woman's Milk";
             //_recipeEditor.data["Generic Cum"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.MilkSpecial}/null/Special Milk";
@@ -696,51 +671,74 @@ namespace MilkVillagers
             target = GetNewPos(Game1.player.FacingDirection, this.FarmerPos[0], this.FarmerPos[1]);
             SButton button = e.Button;
 
-            //if (button == SButton.P)
-            //{
-            //    if (!this.Config.PailGiven)
-            //    {
-            //        //Game1.player.addItemToInventory((Item)new SpellMilk());
-            //        //Game1.player.addItemToInventory((Item)new SpellTeleport());
-            //        this.Config.PailGiven = true;
-            //    }
-            //    else
-            //        Game1.warpFarmer("SeedShop", 4, 9, false);
-            //}
             if (Config.Debug && button == SButton.P)
             {
-                Game1.warpFarmer("SeedShop", 4, 9, false);
+                if (button == SButton.LeftShift)
+                    Game1.warpFarmer("SeedShop", 4, 9, false);
+                else
+                    Monitor.Log($"Current item: {Game1.player.CurrentItem.getCategoryName()}/{Game1.player.CurrentItem.category}", LogLevel.Alert);
             }
             if (button == SButton.O)
             {
-                //if (Game1.player.CurrentTool == null)
-                //    return;
-
-                //if (Game1.player.CurrentTool.GetType().ToString() == typeof(SpellMilk).ToString())
-                //{
-
                 NPC target = ModFunctions.FindTarget(this.target, this.FarmerPos);
                 if (target != null)
                 {
-                    if (Config.Verbose)
-                        Game1.addHUDMessage(new HUDMessage($"Trying to milk {target.name}"));
-
-                    ActionOnNPC(target);
+                    if (Config.Debug)
+                    {
+                        //TODO Filter choices by gender?
+                        List<Response> choices = target.gender == 0
+                            ? new List<Response>()
+                             {
+                                 new Response("BJ", "Give them a blowjob"),
+                                 new Response("sex", "Ask them for sex"),
+                                 new Response("abort", "Do nothing")
+                             }
+                            : new List<Response>()
+                             {
+                                new Response("milk_start", "Milk them"),
+                                 new Response("sex", "Ask them for sex"),
+                                 new Response("abort", "Do nothing")
+                             };
+                        Game1.currentLocation.createQuestionDialogue($"What do you want to do with {target.name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                    }
+                    else
+                    {
+                        ActionOnNPC(target);
+                    }
+                    currentTarget = target;
                     running = false;
                 }
-                else
+                else if (Game1.player.hasItemInInventory(TempRefs.MilkQi, 1))
                 {
-                    if (Config.Verbose)
-                        Game1.addHUDMessage(new HUDMessage("Couldn't find anyone to milk."));
+                    List<Response> options = new List<Response>()
+                    {
+                        new Response ("time_freeze", "Yes"),
+                        new Response("abort", "No")
 
+                    };
+
+                    Game1.currentLocation.createQuestionDialogue($"Do you want to try and freeze time?", options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                 }
-                //}
-                //else
-                //    Game1.addHUDMessage(new HUDMessage("Wrong tool equipped."));
             }
         }
 
-        private void ActionOnNPC(NPC npc)
+        public void DialoguesSet(Farmer who, string action)
+        {
+            if (action == "abort")
+                return;
+            else if (action == "time_freeze")
+            {
+                Game1.player.removeItemFromInventory(TempRefs.MilkQi);
+                Countdown = 576000; // 1 minute.
+            }
+            else
+                ActionOnNPC(currentTarget, action);
+
+            if (Config.Verbose)
+                Game1.addHUDMessage(new HUDMessage($"Chose {action}  with {currentTarget.name}"));
+        }
+
+        private void ActionOnNPC(NPC npc, string action = "milk_start")
         {
             // Removed option for requiring a milk pail
             //if (Config.NeedTool && Game1.player.CurrentTool.GetType().ToString() != typeof(StardewValley.Tools.MilkPail).ToString())
@@ -749,22 +747,32 @@ namespace MilkVillagers
             //    return;
             //}
 
+            bool success = false;
+            int heartMin = 0;
+            int HeartCurrent = Game1.player.getFriendshipHeartLevelForNPC(npc.name);
+
+            switch (action)
+            {
+                case "milk_start":
+                    heartMin = 8;
+                    break;
+            }
+
             #region validity checks
-
-            //Age and friendship
-            // Child check
-            if (npc.age == 2)
+            if (npc.age == 2) // 2 is a child - immediate yeet
             {
-                return;
-            }
-            if (Game1.player.getFriendshipHeartLevelForNPC(npc.name) < 8)
-            {
-                Game1.drawDialogue(npc, "Hey there @. Wotcha doing with that pail?#I don't like you enough for that!");
-                Monitor.Log($"{npc.name} is {npc.age} and at heart level {Game1.player.getFriendshipHeartLevelForNPC(npc.name)}", LogLevel.Debug);
+                Monitor.Log($"{npc.name} is {npc.age}", LogLevel.Debug);
                 return;
             }
 
-            //gender check 0 is male, 1 is female
+            if (HeartCurrent < heartMin && npc.name != "Mister Qi") // Check if the NPC likes you enough.
+            {
+                Game1.drawDialogue(npc, $"That's flattering, but I just don't like you enough for that. ({HeartCurrent}/{heartMin}");
+                ModFunctions.LogVerbose($"{npc.name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Alert);
+                return;
+            }
+
+            // Check if gender is enabled in Config; 0 is male, 1 is female
             if (npc.gender == 0 & !Config.MilkMale)
             {
                 Game1.addHUDMessage(new HUDMessage("You have male character milking turned off."));
@@ -780,17 +788,25 @@ namespace MilkVillagers
             }
 
             //milked today
-            if (TempRefs.milkedtoday.Contains(npc))
+            //TODO rewrite this to base it off of the choice.
+            if (action == "milk_start" && TempRefs.milkedtoday.Contains(npc))
             {
                 if (Config.Verbose)
                     Game1.addHUDMessage(new HUDMessage($"{npc.name} has already been milked today."));
-
+                return;
+            }
+            if ((action == "sex" || action == "BJ") && TempRefs.SexToday.Contains(npc))
+            {
+                if (Config.Verbose)
+                    Game1.addHUDMessage(new HUDMessage($"{npc.name} has already had sex with you today."));
                 return;
             }
             #endregion
 
             #region set item to give
             string ItemCode = $"[{TempRefs.MilkGeneric}]";
+
+            // Don't remove this - It's a good way of speeding up for people.
             if (Config.StackMilk)
             {
                 ItemCode = npc.gender == 0 ? $"[{TempRefs.MilkSpecial}]" : $"[{TempRefs.MilkGeneric}]";
@@ -799,6 +815,7 @@ namespace MilkVillagers
             {
                 switch (npc.Name) //Give items to player
                 {
+                    // Milk
                     case "Abigail": ItemCode = $"[{TempRefs.MilkAbig}]"; break;
                     case "Caroline": ItemCode = $"[{TempRefs.MilkCaro}]"; break;
                     case "Emily": ItemCode = $"[{TempRefs.MilkEmil}]"; break;
@@ -811,6 +828,14 @@ namespace MilkVillagers
                     case "Pam": ItemCode = $"[{TempRefs.MilkPam}]"; break;
                     case "Penny": ItemCode = $"[{TempRefs.MilkPenn}]"; break;
                     case "Sandy": ItemCode = $"[{TempRefs.MilkSand}]"; break;
+                    case "Dwarf": ItemCode = $"[{TempRefs.MilkDwarf}]"; break;
+
+                    case "Sophia": ItemCode = $"[{TempRefs.MilkSophia}]"; break;
+                    case "Olivia": ItemCode = $"[{TempRefs.MilkOlivia}]"; break;
+                    case "Susan": ItemCode = $"[{TempRefs.MilkSusan}]"; break;
+                    case "Claire": ItemCode = $"[{TempRefs.MilkClaire}]"; break;
+
+                    // Cum
                     case "Alex": ItemCode = $"[{TempRefs.MilkAlex}]"; break;
                     case "Clint": ItemCode = $"[{TempRefs.MilkClint}]"; break;
                     case "Demetrius": ItemCode = $"[{TempRefs.MilkDemetrius}]"; break;
@@ -827,15 +852,13 @@ namespace MilkVillagers
                     case "Sebastian": ItemCode = $"[{TempRefs.MilkSeb}]"; break;
                     case "Shane": ItemCode = $"[{TempRefs.MilkShane}]"; break;
                     case "Willy": ItemCode = $"[{TempRefs.MilkWilly}]"; break;
+
+                    //Magical
+                    case "Mister Qi": ItemCode = $"[{TempRefs.MilkQi}]"; break;
                     case "Wizard": ItemCode = $"[{TempRefs.MilkWiz}]"; break;
                     case "Marlon": ItemCode = $"[{TempRefs.MilkWMarlon}]"; break;
                     case "Krobus": ItemCode = $"[{TempRefs.MilkKrobus}]"; break;
-                    case "Dwarf": ItemCode = $"[{TempRefs.MilkDwarf}]"; break;
 
-                    case "Sophia": ItemCode = $"[{TempRefs.MilkSophia}]"; break;
-                    case "Olivia": ItemCode = $"[{TempRefs.MilkOlivia}]"; break;
-                    case "Susan": ItemCode = $"[{TempRefs.MilkSusan}]"; break;
-                    case "Claire": ItemCode = $"[{TempRefs.MilkClaire}]"; break;
                     case "Andy": ItemCode = $"[{TempRefs.MilkAndy}]"; break;
                     case "Victor": ItemCode = $"[{TempRefs.MilkVictor}]"; break;
                     case "Martin": ItemCode = $"[{TempRefs.MilkMartin}]"; break;
@@ -849,22 +872,79 @@ namespace MilkVillagers
             #endregion
 
             npc.facePlayer(Game1.player);
-            if (npc.Dialogue.TryGetValue("milk_start", out string dialogues)) //Does npc have milking dialogue?
+            if (npc.Dialogue.TryGetValue(action, out string dialogues)) //Does npc have milking dialogue?
             {
-                Game1.drawDialogue(npc, $"{dialogues} {ItemCode}");
+                string chosenString = GetRandomString(dialogues.Split(new string[] { "#split#" }, System.StringSplitOptions.None));
+                Game1.drawDialogue(npc, $"{chosenString} {ItemCode}");
+                success = true;
             }
             else
             {
-                if (npc.gender == 1)
-                    Game1.drawDialogue(npc, $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {ItemCode}");
-                else
-                    Game1.drawDialogue(npc, $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {ItemCode}");
+                switch (action)
+                {
+                    case "Milk_start":
+                        if (npc.gender == 1)
+                            Game1.drawDialogue(npc, $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {ItemCode}");
+                        else
+                            Game1.drawDialogue(npc, $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {ItemCode}");
+                        success = true;
+                        break;
+
+                    case "fellatio":
+                        Game1.drawDialogue(npc, $"You want to go down on me? I don't think I've ever had a guy offer to do that without an ulterior motive before.$h" +
+                            $"#$b#%*{npc.name} quickly strips out of her lower garments, and opens her legs wide for you. You're greeted with a heady smell, and notice that her lips are starting to swell*" +
+                            $"#$b#%*You lean in and start licking between {npc.name}'s lips, tasting her sweet nectar as she buries her hands in your hair*" +
+                            $"#$b#%*As her moans get louder you use your tongue to flick her clit, and she clenches her legs tightly around your head*" +
+                            $"#$b#%*You gently suck on the nub, and then plunge your tongue as deeply into her as you can, shaking your tongue from side to side to stimulate {npc.name} even more*" +
+                            $"#$b#@, I'm cumming!");
+                        success = true;
+                        break;
+
+                    case "BJ":
+                        Game1.drawDialogue(npc, $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {ItemCode}");
+                        success = true;
+                        break;
+
+                    default:
+                        Game1.drawDialogue(npc, $"I don't have any dialogue written for that. Sorry.");
+                        break;
+                }
             }
 
             ModFunctions.LogVerbose($"ItemCode is {ItemCode}");
-            Game1.player.changeFriendship(30, npc);
-            TempRefs.milkedtoday.Add(npc);
+            if (success)
+            {
+                switch (action)
+                {
+                    case "milk_start":
+                        Game1.player.changeFriendship(30, npc);
+                        TempRefs.milkedtoday.Add(npc);
+                        break;
+
+                    case "sex":
+                        Game1.player.changeFriendship(45, npc);
+                        TempRefs.SexToday.Add(npc);
+                        break;
+
+                    case "BJ":
+                        Game1.player.changeFriendship(30, npc);
+                        TempRefs.SexToday.Add(npc);
+                        break;
+
+
+                }
+            }
             //_ = npc.checkAction(Game1.player, Game1.currentLocation);
+        }
+
+        private string GetRandomString(string[] dialogues)
+        {
+            int i = dialogues.Length;
+            if (i < 1)
+                return "";
+
+            System.Random r = new System.Random();
+            return dialogues[r.Next(i)];
         }
 
         private static int[] GetNewPos(int direction, int x, int y)

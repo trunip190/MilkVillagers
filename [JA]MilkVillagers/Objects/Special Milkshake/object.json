@@ -1,58 +1,57 @@
 {
-    "Name": "Special Milkshake", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "My milkshake brings all the...", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 17, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 250, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
-    "Recipe":
-    {
-        "ResultCount": 1,
-        "Ingredients": [
-          {
-            "Object": -34, // "Haley's Milk",//Human Milk Category
-            "Count": 1
-          },],
-        "IsDefault": true,
-        "CanPurchase": true
-    },
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": ["Abigail, Caroline, Haley"], //Example of a single NPC
-        "Like": ["Robin, Jodi, Emily"],
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Sam, Sebastien"], //Example of multiple NPC
-        "Hate": ["Lewis, George"]
-    },
+  "Name": "Special Milkshake", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "My milkshake brings all the...", //Description of the product.
+  "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 17, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "EdibleIsDrink": true,
+  "Price": 250, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": -34, // "Haley's Milk",//Human Milk Category
+        "Count": 3
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": true
+  },
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Abigail, Caroline, Haley" ], //Example of a single NPC
+    "Like": [ "Robin, Jodi, Emily" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Sam, Sebastien" ], //Example of multiple NPC
+    "Hate": [ "Lewis, George" ]
+  },
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "", //Spansih
+    "ko": "", //Korean
+    "de": "", //German
+    "fr": "", //French
+    "hu": "", //Hungarian
+    "it": "", //Italian
+    "ja": "", //Japanese
+    "pt": "", //Portuguese
+    "ru": "", //Russian
+    "tr": "", //Turkish
+    "zh": "" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "", //Spansih
+    "ko": "", //Korean
+    "de": "", //German
+    "fr": "", //French
+    "hu": "", //Hungarian
+    "it": "", //Italian
+    "ja": "", //Japanese
+    "pt": "", //Portuguese
+    "ru": "", //Russian
+    "tr": "", //Turkish
+    "zh": "" //Chinese (Simplified)
+  }
 }
