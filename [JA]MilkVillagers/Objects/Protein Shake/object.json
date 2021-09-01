@@ -6,18 +6,7 @@
   "EdibleIsDrink": true,
   "Price": 250, //How much your item sells for.
   "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
-  "Recipe": {
-    "ResultCount": 1,
-    "Ingredients": [
-      {
-        "Object": -35, // Cum Category
-        "Count": 3
-      }
-
-    ],
-    "IsDefault": true,
-    "CanPurchase": true
-  },
+  "Recipe": null,
   "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "Abigail, Caroline, Haley" ], //Example of a single NPC

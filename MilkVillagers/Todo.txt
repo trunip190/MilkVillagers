@@ -18,6 +18,8 @@
 
 		fix woman's milk recipe.
 			human milk works.
+		itemc collection toggle - will nerf scenes but oh well.
+		if male/female disabled, don't add recipe.
 
 	add skill buffs to items
 	sort out dialogue length so it doesn't overrun to the next page
@@ -30,6 +32,8 @@
 	Daily quests
 	add in tv channel for Abigail's camshow
 	My path is showing when running the mod!?!?
+
+	Multiplayer.
 
 	First quest
 		Abigail has started lactating (repressed magic heritage) and her milk is need to create an elixir that lets other lactate.

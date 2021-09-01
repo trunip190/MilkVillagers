@@ -10,15 +10,18 @@ namespace MilkVillagers
         public bool MilkMale = true;
         public bool MilkFemale = true;
         public bool StackMilk = false;
+        public bool CollectItems = true;
 
         // Content
-        public bool ExtraDialogue = false;
+        public bool ExtraDialogue = true;
         public bool ThirdParty = true;
         public bool Quests = true;
 
         // Debugging
-        public bool Debug = true;
+        public bool Debug = false;
         public bool Verbose = false;
+
+        public SButton MilkButton = SButton.O;
     }
 
     public static class TempRefs
@@ -33,6 +36,8 @@ namespace MilkVillagers
         public static bool loaded = false;
         public static bool thirdParty = true;
         public static bool Verbose = false;
+        public static bool MilkMale = true;
+        public static bool MilkFemale = true;
 
         #region Quest ID storage
         public static int QuestID1 = 594801; // Abigail's Eggplant
@@ -49,47 +54,47 @@ namespace MilkVillagers
 
         #region Items
         // Milk item code storage
-        public static int MilkAbig = 1201;
-        public static int MilkEmil = 1202;
-        public static int MilkHale = 1203;
-        public static int MilkLeah = 1204;
-        public static int MilkMaru = 1205;
-        public static int MilkPenn = 1206;
-        public static int MilkCaro = 1207;
-        public static int MilkJodi = 1208;
-        public static int MilkMarn = 1209;
-        public static int MilkRobi = 1210;
-        public static int MilkPam = 1211;
-        public static int MilkSand = 1212;
-        public static int MilkEvel = 1213;
-        public static int MilkDwarf = 1214;
-        public static int MilkGeneric = 1215;
+        public static int MilkAbig =    803;
+        public static int MilkEmil =    803;
+        public static int MilkHale =    803;
+        public static int MilkLeah =    803;
+        public static int MilkMaru =    803;
+        public static int MilkPenn =    803;
+        public static int MilkCaro =    803;
+        public static int MilkJodi =    803;
+        public static int MilkMarn =    803;
+        public static int MilkRobi =    803;
+        public static int MilkPam =     803;
+        public static int MilkSand =    803;
+        public static int MilkEvel =    803;
+        public static int MilkDwarf =   803;
+        public static int MilkGeneric = 803;
 
         // Cum item code storage.
-        public static int MilkSpecial = 1216;
-        public static int MilkAlex = 1217;
-        public static int MilkClint = 1218;
-        public static int MilkDemetrius = 1219;
-        public static int MilkElliott = 1220;
-        public static int MilkGeorge = 1221;
-        public static int MilkGil = 1222;
-        public static int MilkGunther = 1223;
-        public static int MilkGus = 1224;
-        public static int MilkHarv = 1225;
-        public static int MilkKent = 1226;
-        public static int MilkLewis = 1227;
-        public static int MilkLinus = 1228;
-        public static int MilkMarlon = 1229;
-        public static int MilkMorris = 1230;
-        public static int MilkQi = 1231;
-        public static int MilkPierre = 1232;
-        public static int MilkSam = 1233;
-        public static int MilkSeb = 1234;
-        public static int MilkShane = 1235;
-        public static int MilkWilly = 1236;
-        public static int MilkWiz = 1237;
-        public static int MilkWMarlon = 1238;
-        public static int MilkKrobus = 1239;
+        public static int MilkSpecial =     803;
+        public static int MilkAlex =        803;
+        public static int MilkClint =       803;
+        public static int MilkDemetrius =   803;
+        public static int MilkElliott =     803;
+        public static int MilkGeorge =      803;
+        public static int MilkGil =         803;
+        public static int MilkGunther =     803;
+        public static int MilkGus =         803;
+        public static int MilkHarv =        803;
+        public static int MilkKent =        803;
+        public static int MilkLewis =       803;
+        public static int MilkLinus =       803;
+        public static int MilkMarlon =      803;
+        public static int MilkMorris =      803;
+        public static int MilkQi =          803;
+        public static int MilkPierre =      803;
+        public static int MilkSam =         803;
+        public static int MilkSeb =         803;
+        public static int MilkShane =       803;
+        public static int MilkWilly =       803;
+        public static int MilkWiz =         803;
+        //public static int MilkWMarlon =     803;
+        public static int MilkKrobus =      803;
 
         // Recipe item code storage
         public static int ProteinShake = 1240;
@@ -97,18 +102,19 @@ namespace MilkVillagers
         public static int SuperJuice = 1249;
 
         // Other mods
-        public static int MilkSophia = 1242;
-        public static int MilkOlivia = 1243;
-        public static int MilkSusan = 1244;
-        public static int MilkClaire = 1245;
-        public static int MilkAndy = 1246;
-        public static int MilkVictor = 1247;
-        public static int MilkMartin = 1248;
+        public static int MilkSophia = 803;
+        public static int MilkOlivia = 803;
+        public static int MilkSusan = 803;
+        public static int MilkClaire = 803;
+        public static int MilkAndy = 803;
+        public static int MilkVictor = 803;
+        public static int MilkMartin = 803;
         #endregion
 
         // Item types 
         public static readonly int MilkType = -34;
         public static readonly int CumType = -35;
+        public static readonly int SpecialType = -36;
 
         public static void ReportCodes()
         {

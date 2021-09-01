@@ -13,6 +13,7 @@
     <None Remove="Objects\Demetrius's Cum\object.png" />
     <None Remove="Objects\Elliott's Cum\object.png" />
     <None Remove="Objects\Emily's Milk\object.png" />
+    <None Remove="Objects\Dwarf's Milk\object.png" />
     <None Remove="Objects\Evelyn's Milk\object.png" />
     <None Remove="Objects\George's Cum\object.png" />
     <None Remove="Objects\Gil's Cum\object.png" />
@@ -49,6 +50,9 @@
 
   <ItemGroup>
     <Content Include="Objects\Andy's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Dwarf%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Super Juice\object.png">
@@ -194,6 +198,9 @@
 
   <ItemGroup>
     <None Update="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Dwarf's Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Super Juice\object.json">

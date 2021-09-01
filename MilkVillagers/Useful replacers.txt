@@ -1,0 +1,46 @@
+﻿character 			description																										Example
+# 					Separates two commands in a dialogue string.
+{ 					TODO. Stands for "breakSpecialCharacter".
+^ 					Gender switch character. The text before it is shown for male farmers, the text after it for female farmers.	Oh, good morning Mr. @!^Oh, good morning Ms. @!
+% 					Turns the dialogue box into a generic text box.																	"%Abigail is lost in her music."
+
+numbered 	alias 	description
+$0 			$k 		Use their neutral portrait.
+$1 			$h 		Use their happy portrait.
+$2 			$s 		Use their sad portrait.
+$3 			$u 		Use their unique portrait. This is different for each NPC: grumpy (Abigail), holding football (Alex), angry (Caroline), sick (Governor), etc.
+$4 			$l 		Use their love portrait.
+$5 			$a 		Use their angry portrait.
+$<id> 				A custom portrait beyond the standard six. 
+
+@ 					Farmer's name.
+Example:			Hi there @!
+%adj 				Random adjective. (Defined in StringsFromCSFiles.xnb)
+%noun 				Random noun. (Defined in StringsFromCSFiles.xnb)
+%place 				Random place name. (Defined in StringsFromCSFiles.xnb)
+%spouse 			The name of Farmer's spouse.
+%name 				A randomly-generated name.
+%firstnameletter 	The first half of the farmer's name (rounded down), like Nat if the farmer's name is Natalie.
+%time 				Current time.
+%band 				The name of Sam and Sebastian's band.
+%book 				The title of Elliott's book.
+%rival 				A random first name of the Farmer's gender from StringsFromCSFiles.xnb (keys Utility.cs.5499 through Utility.cs.5560). Will not match the Farmer's name.
+%pet 				The name of Farmer's pet.
+%farm 				Farm name.
+%favorite 			The Farmer's favorite thing.
+%kid1 				The name of Farmer's first child.
+%kid2 				The name of Farmer's second child. 
+
+
+command 													description
+$q <response IDs> <fallback>#<text> 						Show a dialogue box containing the given question text. If <response IDs> (a list delimited by /) contains an answer already given, the question is skipped (along with the rest of this dialogue line), and instead the dialogue entry identified by <fallback> will be appended to whatever precedes this $q command. The <fallback> dialogue typically uses a $p command to adjust the text based on the player's answer to this question. NOTE: dialogue questions must use unique IDs, similar to events. See the event data page for more information.
+$r <response ID> <friendship> <reaction>#<answer text> 		Define a response option to a $q question dialogue. <answer text> is the text shown. <response ID> is used to group responses for future reference (multiple answers can share an answer ID). <friendship> defines the change in friendship value, positive or negative, if this response is selected. <reaction> names the dialogue entry from the NPC's Content\Characters\Dialogue\*.xnb file that will be the NPC's reaction if this response is selected by the player.
+$p <response ID>#<match text>|<no-match text> 				Stands for "dialoguePrerequisite". Shows different text depending on whether the player gave a particular answer to a previously-asked question. If <response ID> matches an answer the player gave, <match text> is shown; otherwise, <no-match text> is shown. These texts, separated by |, can each contain multiple commands separated by #. This does not need to be the first command in the dialogue string.
+$b															Indicates pauses in dialogue, where the player will need to click for the next part to load in a new dialogue box.
+$e															Ends the current dialogue, closing the dialogue box and resuming player control. The dialogue following $e will require a new interaction with the NPC.
+$c <probability>#<text1>#<text2> 							Show <text1> with a <probability> between 0 and 1; otherwise, show <text2>. E.g. $c 0.9 for a 90% chance of <text1> and a 10% chance of <text2>. NOTE: Replacer commands (see below) do not work in <text1>. This does not need to be the first command in a dialogue string. It is unaffected by daily luck.
+$d <state id>#<text1>|<text2> 								Show one of two dialogue strings based on a predefined condition: bus (whether the bus is repaired), joja (whether the Joja Mart is still in business), cc or communitycenter (whether the Community Center is accessible), or kent (whether Kent has returned to the valley). The dialogue string must start with $d, everything up to the first | symbol is shown if the condition matches, and everything after that is shown if the condition doesn't match.
+$1 <letter ID>#<1st-time text> #$e# <nth-time text> 		Creates a line of dialogue which the character will only see once (at most). <1st-time text> is shown only if <letter ID> has not been marked as sent yet (and this marks it as sent); otherwise, <nth-time text> is shown. <letter ID> should not correspond to an actual piece of mail (because it will not be sent), but it can be referenced by events or other dialogue lines.
+%fork 														Sets the the specialEventVariable1 variable, which can be checked by a later fork event command. Mainly useful in reaction dialogue for $q questions during events.
+[# # #] 													Gives the player a random item, from the pool of item IDs within the brackets.
+%revealtaste<npc name><object ID> 							Reveals the named character's gift taste for an object in their social menu profile. For example, %revealtasteLewis258 will update Lewis's profile to show that he likes blueberries. This only works if it's in the first message in a dialogue box (i.e. before any #$b# break, though #$e# breaks are fine).

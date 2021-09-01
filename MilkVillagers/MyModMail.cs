@@ -44,6 +44,10 @@ namespace MilkVillagers
             // Quest 6
             data["GeorgeMilk"] = $"Morning, whippersnapper.^^My bones have been acting up lately, and 'Dr Harvey' said that I should be drinking healthy milk. The best milk is breast milk, but Evelyn is a little old for that, so I was thinking you could 'convince' either Emily or Haley to part with some of theirs and make me a milkshake? I doubt they'd let me get it straight from the source.   ^-George.%item quest {TempRefs.QuestID6} %%[#]George's Milk";
             data["GeorgeMilkT"] = $"Morning, whippersnapper.^^Evelyn said I should write you and thank you for the effort you went to, but I think you're just as much of a pervert as I am, so you got your reward by milking a couple of gorgeous women.^Anyway, thank you. I feel amazing and it's all own to you.   ^-George.";
+        
+            // Harvey final event
+            data["HarveyCheckup"] = $"Greetings Farmer @.^^I was going through my records and I need to run some tests on you. It appears you are suffering from elevated levels and I want to make sure you are perfectly healthy. Pleae come see me during clinic hours. (But when Maru is not around).   ^-Your love doctor.";
+            data["HarveyCheckupT"] = "Medical report^^Subject: @^Condition: Extremely arousing^Diagnoses:Too hot to handle^Prognosis:Will continue to cause erections and wet pussies wherever they go^Course of action prescribed: Continue visiting your local doctor for 'tests'.   ^-Your love doctor.";
         }
     }
 

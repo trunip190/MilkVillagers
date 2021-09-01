@@ -1,4 +1,5 @@
-﻿using StardewModdingAPI;
+﻿using System.Linq;
+using StardewModdingAPI;
 using System.Collections.Generic;
 
 namespace MilkVillagers
@@ -29,26 +30,87 @@ namespace MilkVillagers
             }
         }
 
-        public bool SetCrafting()
-        {
-            if (CraftingData == null)
-                return false;
-
-            //This is breaking so hard...
-            CraftingData["Special Milk"] = $"{TempRefs.CumType} 1/Field/{TempRefs.MilkSpecial}/false/Special Milk";
-            CraftingData["Woman's Milk"] = $"{TempRefs.MilkType} 1/Field/{TempRefs.MilkGeneric}/false/Woman's Milk";
-            return true;
-        }
-
-        public bool SetCooking()
+        public bool SetCooking(bool Male = true, bool Female = true)
         {
             if (CookingData == null)
                 return false;
 
-            CookingData["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/null/'Protein' shake";
-            CookingData["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/null/Milkshake";
-            CookingData["Super Juice"] = $"{TempRefs.MilkType} 2 {TempRefs.CumType} 2/10 10/{TempRefs.MilkShake}/default/Super Juice";
+            if (Male)
+                CookingData["'Protein' Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}/null/'Protein' shake";
+
+            if (Female)
+                CookingData["Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}/null/Milkshake";
+
+            if (Male && Female)
+                CookingData["Super Juice"] = $"{TempRefs.MilkType} 2 {TempRefs.CumType} 2/10 10/{TempRefs.SuperJuice}/default/Super Juice";
             return true;
+        }
+
+        public bool SetCrafting(bool Male = true, bool Female = true)
+        {
+            if (CraftingData == null)
+                return false;
+
+            if (Male)
+                CraftingData["Special Milk"] = $"{TempRefs.CumType} 1/Field/{TempRefs.MilkSpecial}/false/Special Milk";
+
+            if (Female)
+                CraftingData["Woman's Milk"] = $"{TempRefs.MilkType} 1/Field/{TempRefs.MilkGeneric}/false/Woman's Milk";
+            return true;
+        }
+
+        public void RemoveInvalid(bool Male, bool Female)
+        {
+            if (!Male)
+            {
+                CookingData.Remove("'Protein' Shake");
+                CookingData.Remove("Super Juice");
+                CraftingData.Remove("Special Milk");
+            }
+
+            if (!Female)
+            {
+                CookingData.Remove("Milkshake");
+                CookingData.Remove("Super Juice");
+                CraftingData.Remove("Woman's Milk");
+            }
+
+            SetCooking(Male, Female);
+            SetCrafting(Male, Female);
+        }
+
+        public bool CheckAll()
+        {
+            bool result = true;
+
+            if (!CraftingData.Keys.Contains("Special Milk"))
+            {
+                ModFunctions.LogVerbose("Missing Special Milk Recipe");
+                result = false;
+            }
+            if (!CraftingData.Keys.Contains("Woman's Milk"))
+            {
+                ModFunctions.LogVerbose("Missing Woman's Milk Recipe");
+                result = false;
+            }
+
+            if (!CookingData.Keys.Contains("'Protein' Shake"))
+            {
+                ModFunctions.LogVerbose("Missing 'Protein' Shake Recipe");
+                result = false;
+            }
+            if (!CookingData.Keys.Contains("Milkshake"))
+            {
+                ModFunctions.LogVerbose("Missing Milkshake Recipe");
+                result = false;
+            }
+            if (!CookingData.Keys.Contains("Super Juice"))
+            {
+                ModFunctions.LogVerbose("Missing Super Juice Recipe");
+                result = false;
+            }
+
+            return result;
         }
     }
 
@@ -116,19 +178,12 @@ namespace MilkVillagers
 
         public void Edit<T>(IAssetData asset)
         {
-            ModFunctions.LogVerbose($"Loading messages: {asset.AssetName}", LogLevel.Trace);
             data = asset.AsDictionary<string, string>().Data;
 
-            SetDialogue(asset);
-        }
-
-        private void SetDialogue(IAssetData asset)
-        {
-            if (data == null)
-                return;
-
-            if (ExtraContent)
+            //TODO add way to update this on the fly.
+            if (ExtraContent && asset.AssetNameEquals("Characters/Dialogue/Abigail"))
             {
+                ModFunctions.LogVerbose($"Loading in Abigail's extra dialogue", LogLevel.Trace);
                 data["Introduction"] = "Oh, that's right... I heard someone new was moving onto that old farm.#$e#I used to love exploring those old fields. I could hide in the weeds, strip naked and masturbate as much as I wanted. $9#Now I guess I'll have to do all of my camgirl streams in my room.";
                 data["spring_mon2"] = "Did you know that Monday night is my streaming night?";
                 data["spring_mon4"] = "Did I tell you that Monday night is my streaming night?#Have you checked out my site, 'Purple Showers'?";
@@ -188,11 +243,12 @@ namespace MilkVillagers
                 data["panties_keep"] = "#$p 300131#What do you mean you're keeping them? Anyone could see up my skirt! /addObject 10 17 {{spacechase0.JsonAssets/ObjectId]=PantiesAbigail}}|I might taste awesome, but you have some making up to do next time. I might blindfold you and tease YOU instead.";
                 data["sex_no"] = "Not right now. Someone might see us";
             }
-            
+
             if (!data.ContainsKey("milk_start")) // skip if there is already Content Patcher dialogue loaded.
             {
                 if (asset.AssetNameEquals("Characters/Dialogue/Abigail")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Abigail", LogLevel.Trace);
                     data["milk_start"] = "Please be gentle, they are really sore today." +
                     $"#$b#%*You sit down as she lies across your lap, letting her breast hang down. She gives you a bottle and you start kneeding her breasts as gently as you can*" +
                     $"#$b#%*Milk collects in the bottle as you expertly milk her, moving on to the second breast when the first runs dry*" +
@@ -205,6 +261,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Emily", LogLevel.Trace);
                     data["milk_start"] = $"Oh! Did you know that human breast milk is a super food?#$b#It's way better for you than cows milk..." +
                     $"#$b#Not that your milk isn't great! Well, your cows milk. I'm sure your milk is just wonderful.$h" +
                     $"#$b#%*She quickly bares her breasts and sigh as the cool air hits them. Her nipples are already hardening, and you reach out gently and pinch them*" +
@@ -214,10 +271,11 @@ namespace MilkVillagers
                     $"#$b#Don't mind me, I just get so horny when you're around. I'm sure I'm going to have more than one kind of liquid staining my clothes soon.$h" +
                     $"#$b#%*You switch breasts, and her hand movements increase in speed. The sounds of her masturbating, mixed with the sound of her milk collecting in the bottle, get you very aroused*" +
                     $"#$b#I'm cumming!!!";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Haley", LogLevel.Trace);
                     data["milk_start"] = $"Everyone always said my boobs were great. I guess I shouldn't be surprised that you love them too." +
                     $"#$b#I just LOVE it when guys play with my tits. They're just so sensitive, and my nipples feel heavenly when people lick or suck on them.$h" +
                     $"#$b#%You need no further encouragement, and immediately dive into her cleavage, coating them in your saliva as you try and get her nipples into your mouth*" +
@@ -226,20 +284,22 @@ namespace MilkVillagers
                     $"#$b#%*You start playing with her nipple with one hand, whilst using the other to set up a steady milking rhythm. Milk is soon collecting in the bottle, and Haley is making blissful sounds*" +
                     $"#$b#%*You switch breasts, and Haley is once again lost in her own world as you empty her breasts into your bottle. You soon finish up, and leave a drained Haley to cover up her milk-stained top*";
 
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Leah", LogLevel.Trace);
                     data["milk_start"] = $"I love the way your hands feel on me, @. You might be better with your hands than me, though I'd love to have a contest some day." +
                         $"#$b#%*Your hands wonder over her breasts, circling slowly closer to her nipple and then dancing away. Leah gasps as you flick her nipple, and pulls away so she can remove her garments*" +
                         $"#$b#%*You retrieve a bottle from your bag, and Leah gets into a comfortable position while you kneel beside her and start firmly squeezing her breast. Milk is soon flowing into the bottle*" +
                         $"#$b#If you are as confident milking your cows it's no wonder that they are so happy, and produce such wonderful milk.$l" +
                         $"#$b#%*You smirk a little at the thought of Leah dressed as a cow, with a cowbell around her neck, and tug a little harder on her nipples. You could have sworn she went 'moo'*" +
                         $"#$b#Wow. That was a wonderful experience. Please come see me again - we can get up to all sorts of mischief in my cabin. $h";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Maru", LogLevel.Trace);
                     data["milk_start"] = $"I'm sure I could come up with a machine to help with this...I'd have to do some tests to see how the level of arousal affects milk quality..." +
                         $"#$b#%*You quickly unbutton her top to distract her, and give her nipples a quick nibble. Maru yelps and gives you a displeased look*" +
                         $"#$b#@! Treat me properly or you can go find someone else." +
@@ -248,10 +308,11 @@ namespace MilkVillagers
                         $"#$b#%*Maru gives you pointers, and her reserved, scientific manner quickly turns into sexual encouragement. You're not sure when she started touching herself, but her panties are definitely soaked*" +
                         $"#$b#%*Eventually the stream of milk dries up, and you show Maru how much milk is in the bottle*" +
                         $"#$b#I'm not sure anything I make could be better than your touch.";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Penny", LogLevel.Trace);
                     data["milk_start"] = $"I'm always self conscious about the size of my breasts. George may leer at me, but I think that's just because I'm young and female." +
                         $"#$b#But with you I feel like you see me as a woman. A hot, sexy woman. I want you to see all of me, and touch all of me, without these stupid clothes in the way." +
                         $"#$b#%*Penny tears open her blouse, and brazenly bares her chest. You tell her how beautiful she is, and she blushes. Soon, her nipples are turning a dark shade as well*" +
@@ -260,20 +321,22 @@ namespace MilkVillagers
                         $"#$b#%*You start pulling on her nipples, causing milk to jet out. You try and aim it into a bottle, but Penny is writhing around in pleasure and a lot of it ends up on your face and the floor*" +
                         $"#$b#%*As you finish up, Penny smiles at you breathlessly, clearly extremely turned on*" +
                         $"#$b#You awaken such carnal feelings in me, @. I'm sure I look like a wanton harlot right now...and I definitely feel like one.";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Caroline", LogLevel.Trace);
                     data["milk_start"] = $"My breasts are so sore, I NEED someone to milk them. Pierre is so obsessed with his 'business' that he doesn't pay attention to me any more." +
                         $"#$b#%*Caroline sits down on a nearby seat, and you can see that milk is already leaking through her top. She smiles embarrassedly, and pulls her vest to the side*" +
                         $"#$b#Don't be shy, @. It's perfectly natural to feel aroused in this situation, and it's not like I'm going to jump you or anything...This time at least." +
                         $"#$b#%*You bring the bottle to her chest, and start coaxing a steady stream of milk out of her overflowing tits*" +
                         $"#$b#%*You end up with a generous amount coating your hands, and Caroline spends some time using her mouth to suck all of the milk off of your fingers*" +
                         $"#$b#Aw, thanks honey, I feel much better now. I wouldn't want to waste anything, and all of my juices taste SO good. Maybe I can taste yours next time?";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Jodi", LogLevel.Trace);
                     data["milk_start"] = $"I've been so lonely since Kent first went off to war, and now that Vincent is growing up so fast I didn't think anyone would ever pay attention to me again.$s" +
                         $"#$b#Then you come along and make me feel so WANTED. I feel like I have a role to play again that is more than just cooking and cleaning. Like I'm a person again - desirable.$h" +
                         $"#$b#%*Your hands gently caress her breasts, and her nipples quickly get hard. Jodi leans into your body and starts rubbing her thighs against your leg*" +
@@ -281,35 +344,39 @@ namespace MilkVillagers
                         $"#$b#@! Hold me tight as I cum! I want to feel your body pressed against mine.$l" +
                         $"#$b#%*You use your free arm to pull her in tight, the milking paused as her body is wracked with pleasure. She finally stops shaking, and rests limply in your arms. You place the bottle on the ground and kiss her deeply*" +
                         $"Thank you for that, @. I know who to come to if I feel lonely again. Or just horny.";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Marnie", LogLevel.Trace);
                     data["milk_start"] = $"I'm glad that Lewis isn't the only one to appreciate my big tits! He spends every moment he can in my cleavage, but he never thought to suck on them!" +
                         $"#$b#*Marnie's milk quickly fills the jar, and she sighs contentedly as she rearranges her clothing*" +
                         $"#$b#Make sure Lewis...I mean the Mayor...doesn't catch you! He might get jealous!";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Robin", LogLevel.Trace);
                     data["milk_start"] = $"Demetrius is always so...clinical...when he talks about my breasts. I wish he was as romantic as you!" +
                         $"#$b#Of course you can collect my milk! Just...don't be surprised if I leave a damp spot on the chair when you're done!" +
                         $"#$b#*As you massage her breast with your hand, filling up the jar, you make sure to play with her other nipple.*" +
                         $"#$b#*Robin snakes a hand down her jeans and starts playing with herself, moaning and whimpering as her milk fills the jar. You finish milking her, but wait for her until she clenches her legs tightly and throws her head back.*" +
                         $"#$b#That was wonderful...Come back, any time.";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Pam", LogLevel.Trace);
                     data["milk_start"] = $"Really? I...didn't know people were into that kind of thing. I guess it wouldn't hurt, but don't expect me too go 'moo'!$n" +
                         $"#$b#%*Pam looks around before opening her shirt, and pulling her breasts out. They sag without a bra to support them, but your magic hands soon have her nipples perking up*" +
                         $"#$b#*You give her nipple a quick flick with your tongue, and then suck on it to taste her milk. It's sourer then normal milk*" +
                         $"#$b#%*Milk starts to flow from her nipples into your bottle, and Pam looks down with interest as the liquid settles. She bites her lip, and you can see that your hands are having an effect on her whether she liks to admit it or not*" +
                         $"#$b#I never would have imagined you could find anything in these old tits of mine. You are full of surprises, @.$h";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Sandy", LogLevel.Trace);
                     data["milk_start"] = $"I knew you were too tempted to pass up this opportunity. There's a reason I'm called the flower of the desert, and I'd love to have you worship my breasts." +
                         $"#$b#%*She quickly sheds her top, baring her beautiful breasts to the hot desert air. Her skin glistens with moisture, and you can't help but lick a droplet of sweat that has caught on her nipple*" +
                         $"#$b#%*Her nipples are perky for their size, and you give them both a quick suck to get the milk flowing, earning you a slight gasp from Sandy." +
@@ -317,19 +384,21 @@ namespace MilkVillagers
                         $"#$b#%*You start gently milking Sandy until she urges you to be more aggressive. You start tugging firmly on her nipples, causing her to stagger slightly as the pleasure rocks through her body*" +
                         $"#$b#*The bottle quickly fills up, and Sandy is breathing hard by the time you are done*" +
                         $"#$b#That was amazing, @. I'm going to go...relive myself. My pussy is gushing more than the Oasis, and I can't think straight when I'm this horny.$l";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Evelyn", LogLevel.Trace);
                     data["milk_start"] = $"*Evelyn sits down on a nearby chair and unbottons her blouse. She deftly unhooks her bra, and you tenderly hold her mature breasts in your hands.*" +
                         $"#$b#Oh, @, dear. I fear I may not be able to provide you with much, but I'm grateful that you would try it with me. You are such a darling child.$l" +
                         $"%*You aren't able to coax much milk out, but Evelyn sighs contentedly, grateful for the tender way you are treating her*" +
                         $"#$b#This brings back memories of when I was MUCH younger...and prettier.$h";
-                    return;
+
                 }
 
                 if (asset.AssetNameEquals("Characters/Dialogue/Sophia"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Sophia", LogLevel.Trace);
                     data["milk_start"] = $"Oh, hey there @. I have the perfect cosplay outfit for that, but I've been too embarrassed to wear it out of the house...It's...a sexy maid outfit, but it doesn't cover...my..." +
                         $"#$b#My breasts very well. Oh god, I can't believe I told you. Please, if you promise not to laugh I'll change into it and you can milk me like a slutty maid.$s" +
                         $"#$b#%*She returns quickly, and the costume is everything she described. A sexy french maid, replete with short, frilly skirt that barely covers her ass, and her breasts are almost completely exposed*" +
@@ -338,10 +407,11 @@ namespace MilkVillagers
                         $"#$b#@, please don't stop. I've wanted to do this for a long time, and acting is part of cosplay.$l" +
                         $"#$b#%*You renew your milking, and her moans become louder. You notice her rubbing her thighs together, and as you finish milking her she shudders and climaxes*" +
                         $"#$b#Thank you, @. That was a fantasy finally come true. Please...come back again and enjoy my 'services'";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Olivia"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Olivia", LogLevel.Trace);
                     data["milk_start"] = $"OH! @, I'm not surprised that you find me attractive, but I am a lady, not someone who would bare their breasts for anyone...$s" +
                         $"#$b#However, you are right. You aren't just anyone to me, and it's been so long since I've felt the passion of anothers touch on my body. I'm flattered.$h" +
                         $"#$b#%*She seductively slips her dress off of her shoulders, revealing her pale, white breasts to your gaze. You tenderly graze them with your finger tips, then, more boldy, brush her nipples*" +
@@ -350,10 +420,11 @@ namespace MilkVillagers
                         $"#$b#Oh, @. You bring out the animal side of me. I never thought I would have these feelings again. I'm melting under your touch.$l" +
                         $"#$b#%*As the milk starts to dry up, you lean in and start suckling directly from her teat. You reach down with your free hand and stroke her panties, quickly bringing her over the edge*" +
                         $"#$b#Thank you, @, for remind me that I am still a woman, and a hot one at that.$l";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Susan"))
                 {
+                    ModFunctions.LogVerbose($"Adding milk_start for Susan", LogLevel.Trace);
                     data["milk_start"] = $"@, in case you didn't notice I'm an agricultural farmer. I don't keep cows, so cannot provide you with any milk." +
                         $"#$b#Oh. I..I misunderstood you. You are welcome to try, but unless you have some kind of magic touch, I don't see how this will turn into more than groping." +
                         $"#$b#%*Determined to prove her wrong, you start rubbing her chest through her overalls. You quickly feel her nipples stiffen, standing proud and become visible even through the coarse fabric*" +
@@ -361,19 +432,20 @@ namespace MilkVillagers
                         $"#$b#@!? I don't know how this is happening, but quickly, make sure you collect it all.$h" +
                         $"#$b#%*She settles into a comfortable position, and you start gently pulling on her nipples, causing thick streams of milk to jet into the bottle. Susan looks on incredulously as the bottle fills*" +
                         $"#$b#I never would have imagined that this was possible, but please come by again. My breasts will be ready for you any time.";
-                    return;
+
                 }
                 //if (asset.AssetNameEquals("Characters/Dialogue/Claire"))
                 //{
                 //    data["milk_start"] = $"";
-                //    return;
+                //    
                 //}
             }
-           
+
             if (!data.ContainsKey("BJ"))
             {
                 if (asset.AssetNameEquals("Characters/Dialogue/Alex")) //Ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Alex", LogLevel.Trace);
                     data["BJ"] = $"Ha! I knew you couldn't resist my dick. Sure you can have my cum. But I'm gonna need help, if you know what I mean.$h" +
                         $"#$b#%*Alex unzips his pants you you massage his cock. It swells under your touch. You bend down and begin to take in his member*" +
                         $"#$b#%*Slowly, moving back and forth until his tip is forcing its way further down your throat. You repress your gag reflex*" +
@@ -390,15 +462,17 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Clint")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Clint", LogLevel.Trace);
                     data["BJ"] = $"Wow, this must be my lucky day, @! I might be a little hot and sweaty down there. I've been busy all day and haven't had a chance to wash" +
                         $"#$b#*You pull his pants and underwear down and are lost in his thick, musky smell.* " +
                         $"#$b#*It makes you a little light headed, but when his prick bumps against your forehead you get to business*" +
                         $"#$b#Yeah, just like that, @. It feels really good when you, er, use your tongue like that. Oh! And you're sucking so hard I don't think I can last much longer!" +
                         $"#$b#*Clint cums down your throat";
-                    return;
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Demetrius")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Demetrius", LogLevel.Trace);
                     data["BJ"] = "Hmm...I guess I could help you out. For scientific research purposes, of course. Just don't let this get back to Robin." +
                         $"#$b#%*Demetrius looks over his shoulder a few times before pulling down the zipper of his pants. You reach in, and removed a semi-erect cock." +
                         $"#$b#You place it in your mouth and it begins to expand to its full size as you move along, until his tip has reached your throat and then some." +
@@ -415,6 +489,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Elliott")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Elliott", LogLevel.Trace);
                     data["BJ"] = "I've been writing all day. This will be a perfect release, my love! I do however, have some carpal tunnel. Could you...?" +
                         $"#$b#%*You pull down Elliot's waistband and lather his cock in thick saliva, and begin working his shaft, starting with a loose grip at the base and firmer at the tip*" +
                         $"#$b#%*He moans with pleasure and smiles down at you before tilting his head back and closing his eyes. You quicken your hand movements, and flick the tip with your tongue*" +
@@ -431,15 +506,18 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/George")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for George", LogLevel.Trace);
                     data["BJ"] = $"I can't get out of this chair, and it's been so long since Evelyn did this for me. I wouldn't mind getting that Haley over here some time - she's such a tease." +
                         $"#$b#That's right, bend down and enjoy the taste. Bet you didn't expect to see such a large dick on a man in a wheelchair, huh?";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Gil")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Gil", LogLevel.Trace);
                     data["BJ"] = $"Huh? What's going on? *Snore* Why are my pants off?#$b#Guess I must be dreaming again...having a beautiful face looking up at me from between my knees.#$b#*You quickly get to work, licking his balls while his penis hardens. It doesn't get fully erect at first, but after several minutes of soft sucking, and flicking his tip, he starts moaning and getting ready to cum*#$b#*Gil shoots his load into your mouth, and you quickly spit it into a bottle, wiping off any that dribbled down your chin*";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Harvey")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Harvey", LogLevel.Trace);
                     data["BJ"] = "Well, a good orgasm IS good for your health. You know, it decrease blood pressure, helps with stress and sleep, and lowers your risk for health disease?" +
                         $"#$b#In fact, there was a study done by Philip Haake that analyzed the effects of the male orgasm on limphocyte subset circulation and cytokine production..." +
                         $"#$b#%*Before Harvey can continue, you unzip his pants and immediately place your mouth on his cock. He stops mid sentence in both surprise and pleasure." +
@@ -457,6 +535,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Sam")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Sam", LogLevel.Trace);
                     data["BJ"] = $"I've been horny as hell all day, this is JUST what I need. Besides, who could resist you anyway?$h" +
                         $"#$b#%*Sam, all too eager, unzips his jeans and pulls out his dick, which is already full mast. He looks at you with a mixture of excitement and desire*" +
                         $"#$b#%*You bend down to your knees and place your hands firmly on his thighs, and insert his throbbing cock into your mouth. Sam has a sharp intake of breath as you begin to move, adding more and more suction as you go along*" +
@@ -474,6 +553,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Sebastian")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Sebastian", LogLevel.Trace);
                     data["BJ"] = $"I could never say no to something like that from someone as attractive as you. I'm already in the palm of your hand figuratively, might as well make it literally, too." +
                         $"#$b#%When you reach down to Sebastian's groin, you find that his erection is already straining against his jeans, struggling to break free. You carefully pull down the zipper and his wood bursts out, free in the open air." +
                         $"#$b#%*Gently but firmly, you massage it, feeling it pulse under your touch. You crouch down and begin to trace your tongue around the shaft, swirling up to the tipe before fully inserting his cock into your warm mouth." +
@@ -491,6 +571,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Shane")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Shane", LogLevel.Trace);
                     data["BJ"] = $"You know I'll never get over the idea that someone like you could be attracted to a guy like me. You're too good for me, you know.$h" +
                         $"#$b#%*Despite this, Shane unbuckles his belt and lowers his shorts. He looks at you, almost disbelieving, as if he had found himself in some impossible dream." +
                         $"#$b#%*You maintain soft, tender, eye contact as your hand finds itself grasping his cock." +
@@ -511,6 +592,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Pierre")) // ver 1.0
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Pierre", LogLevel.Trace);
                     data["BJ"] = "Honestly, when you come into the store to buy seeds from me, I sometimes stare at you, imagining you on your knees, giving me all the pleasure in the world. It's nice to see I was right." +
                         $"#$b#I knew you were secretly into me. Don't worry, Caroline doesn't have to know. We don't do much together these days anyway. Well, not with each other.$s" +
                         $"#$b#%*Pierre fidgets the the button and zipper of his pants before pulling out his dick. It's not that impressive, but nothing to laugh at. It looks slightly sad. " +
@@ -529,6 +611,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Gunther"))
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Gunther", LogLevel.Trace);
                     data["BJ"] = $"If you are looking for books on that subject, I keep them in a private collection." +
                         $"#$b#Oh, a practical demonstration? I would be glad to be of assistance. This library is equipped with the finest tools for furthering your knowldge." +
                         $"#$b#%*He leads you between the shelves into a secluded area, and checks there is no-one following before dropping his pants and underwear*" +
@@ -540,6 +623,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Gus")) // Iliress dialogue
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Gus", LogLevel.Trace);
                     data["BJ"] = "Honestly, @, this is unexpected. I didn't know you thought of me like that. You are an attractive person, so if you're up for it, I am too.$h" +
                         $"#$b#%*Gus undoes his belt and lowers his pants. You reach down and grasp his cock, and begin to move your hand steadily back and forth, but you struggle to get a rhythm going." +
                         $"#$b#%*Gus grabs some truffle oil he keeps nearby for cooking and pours some on your hands as they grip his cock, making your job much easier. As your hand movements quicken, so does his breathing*" +
@@ -549,6 +633,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Kent")) // Iliress dialogue
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Kent", LogLevel.Trace);
                     data["BJ"] = "Jodi and I...we haven't been connecting on that level lately. I'll admit, I've been seeing you around town and have fantasized about you approaching me like this." +
                          $"#$b#Didn't expect it to actually happen, though. Do you mind keeping this quiet from my wife? I don't think she'd be so understanding. Life is short, but I don't want to hurt her." +
                          $"#$b#%*Kent unbuckles his belt and removes his dick, already fully erect. He looks at you, a mixture of trepidation and eagerness in his eyes. You take the initiative and gently grasp it*" +
@@ -560,6 +645,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Lewis"))
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Lewis", LogLevel.Trace);
                     data["BJ"] = $"Ah, @. This isn't one of the funny games you kids play, is it?$a" +
                         $"#$b#I've seen you walking around town, causing all kinds of problems and flaunting that cute little ass in everyone's faces." +
                         $"#$b#On your knees then, like the cockslut you are - I'm sure this isn't the first time you've done this, and you look so good down there." +
@@ -571,6 +657,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Linus"))// Iliress dialogue
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Linus", LogLevel.Trace);
                     data["BJ"] = "Pleasure is but a natural part of life. We are but humans, after all. Society puts too large of a stigma on such a thing." +
                         $"#$b#%*Linus casually lifts his outfit revealing an unsurprising lack of undergarments. He smiles kindly and gestures to his organ." +
                         $"#$b#%*For someone who lives in the mountains he smells surprisingly little, with a nice, manly mush. You shrug, lick your hand, and start to work his member." +
@@ -581,6 +668,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Marlon"))
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Marlon", LogLevel.Trace);
                     data["BJ"] = $"Ah, @. This life often ends unexpectedly, so we learn to take the pleasures where we can. I am grateful for this." +
                         $"#$b#%*Marlon quickly undoes his belt and drops his pants. He has lean but muscular legs, and every part of him is toned*" +
                         $"#$b#%*You lean in eagerly, and take his pleasntly firm cock into your mouth. He gives you gently affirming sounds, and you start pleasuring him intently*" +
@@ -591,6 +679,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Morris"))// Iliress dialogue
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Morris", LogLevel.Trace);
                     data["BJ"] = "Okay, fine, but wear this JojaCorp uniform. It's the only way I can get off, and after my last store they won't let me do this with an employee...$s" +
                         $"#$b#%*You put on the blue outfit and Morris takes out his chode of a cock. He looks at you, but doesn't let you actually touch him." +
                         $"#$b#%*Using his thumb and forefinger, because his hand is too big, he begins to pleasure himself. His hand speeds up*" +
@@ -600,7 +689,9 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Mister Qi"))// Iliress dialogue
                 {
-                    data["BJ"] = "I knew you'd come to me for that one day. Your curiosity is very predictable. Be warned, @, this will not be like your experience you've had with others in town." +
+                    ModFunctions.LogVerbose($"Adding BJ for Mister Qi", LogLevel.Trace);
+                    data["BJ"] = $"$1 5948Q1#" + // First time switch
+                        $"I knew you'd come to me for that one day. Your curiosity is very predictable. Be warned, @, this will not be like your experience you've had with others in town." +
                         $"#$b#%*Mr. Qi lifts up his shirt and begins to lower his waistband. But where any genitalia would be is instead a blinding light." +
                         $"#$b#%*Once your eyes adjust you see what may as well be a portal to some otherwordly beyond. You reach your hand towards it, checking his face to see if this is safe, and he nods." +
                         $"#$b#%*When your hand touches the vortex, visions and sensations you've never imagined and could never fully describe crash into your mind. You can see time, you can smell space." +
@@ -608,11 +699,14 @@ namespace MilkVillagers
                         $"#$b#That will do." +
                         $"#$b#%*As soon as it had started it was gone. You are left with spots in your vision and after images of some immense epiphany that is slowly fading from your mind." +
                         $"#$b#%*In your hand is a bottle containing what is possibly a rip in space-time itself. You do not recall ever taking out the container*" +
-                        $"#$b#See you around, my dear @.";
-                    return;
+                        $"#$b#See you around, my dear @." +
+                        $"#$e#" + // Later versions.
+                        $"second time with Qi";
+
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Willy"))
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Willy", LogLevel.Trace);
                     data["BJ"] = $"The sea may be a beautiful mistress, but she does not do much when it comes to physical gratification. I'd appreciate you helping an old sailor out.$h" +
                         $"#$b#%Willy guides your hand as it snakes its way down his waistband and into his crotch hair. Though you cannot see through his pants, you feel his fleshy, erect cock; warm in your hands*" +
                         $"#$b#%*You use your other hand to pull his pants down and give yourself some wiggle room. You work his member back and forth, then you bend down and swirl your tongue around his tip*" +
@@ -623,7 +717,9 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Wizard"))
                 {
-                    data["BJ"] = $"I am not used to the pleasures of the mortal world. It is a luxury I rarely partake in, as it keeps me distracted from communicating with the Elements. But...if you insist...I guess I could indulge myself." +
+                    ModFunctions.LogVerbose($"Adding BJ for Wizard", LogLevel.Trace);
+                    data["BJ"] = //$"$1 5948W1#" + // First time switch.
+                        $"I am not used to the pleasures of the mortal world. It is a luxury I rarely partake in, as it keeps me distracted from communicating with the Elements. But...if you insist...I guess I could indulge myself." +
                         $"#$b#%The Wizard parts and lifts his robes, where his phallus hangs, flaccid. You gingerly reach forward and caress it, and it twitches under your touch. Then, in rising waves, it raises and extends." +
                         $"#$b#%*You massage it, increasing your firmness each stroke. When you bend down to suck his dick, something unexpected happens." +
                         $"#$b#%*You instantly find yourself connected to the Wizard's mind and consciousness, as if you had just plugged into his brain." +
@@ -632,12 +728,24 @@ namespace MilkVillagers
                         $"#$b#%Suddenly a massive tsunami of pleasure crashes into him, and through him, you. Next thing you know you are kneeling on the floor, shocked and stunned, with his cum on your face and yours in your pants." +
                         $"#$b#%*With a shaking hand you reach up to wipe off his climax, only to find it's not the usual white stuff. It's a prismatic liquid, so thin and light that you aren't sure if it's not a trick of the light.*" +
                         $"#$b#....Honestly, @, I did not predict this. But I am more than willing to try again later. To further....study this phenomenon." +
-                        $"#$b#%*”He mutters a spell, and a bottle appears in your hand*";
+                        $"#$b#%*He mutters a spell, and a bottle appears in your hand*" +
+                        //$"#$e#" + // Every other time.
+                        $"#split#" +
+                        $"I am but a scholar in search of knowledge. Please, let us begin our 'study session' of this symbiosis." +
+                        $"#$b#%The Wizard moves to arrange his robes, but you get there first, diving into the cloth and searching hungrily for his cock. It only had time to get halfway erect before you had syphoned it into your mouth*" +
+                        $"#$b#%*Then, the experience begins. You are melded into his mind, his body. Once again, you can perceive every minute motion your body makes." +
+                        $"#$b#%*You feel your tongue making swirling motions around the base of the shaft, corkscrewing to the tip." +
+                        $"#$b#%*You feel yourself suck the end, delicately, but intensely. You and he both sense the amount of pleasure rising, building, surging through your beings. It begins to peak.*" +
+                        $"#$b#Here..it comes…$h" +
+                        $"#$b#%Just as intense as the last time, you are plunged into a world of extreme pleasure. You are left breathless. You did not bother with a bottle before the climax, as the time it would take to bring it out was time wasted." +
+                        $"#$b#%*You scrape the flowy, silky, colorful ejaculate into the container now. It takes time as you are still trembling. One of these days though, you will remember to bring a spare change of pants for yourself.*" +
+                        $"#$b#I'm pleased to share this with you. It's an...odd connection. It does, however, require further examination. I know I will see you soon again, @.$l";
                 }
 
 
                 if (asset.AssetNameEquals("Characters/Dialogue/Victor"))
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Victor", LogLevel.Trace);
                     data["milk_start"] = $"That sounds wonderful, @. I think you are very attractive, and I often find myself fantasising about you...Here, let me help you." +
                         $"#$b#%*He unzips his pants, and frees his rather large cock, surprising you. A moment passes, and you come back to your senses, reaching out with a hand and starting to stroke his length*" +
                         $"#$b#%*You give the tip a tender kiss, and then lean underneath and lick the length of it, ending by engulfing the entire head with your mouth. Victor groans from this teasing stimulation, and you take that as a sign to continue*" +
@@ -651,6 +759,7 @@ namespace MilkVillagers
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Andy"))
                 {
+                    ModFunctions.LogVerbose($"Adding BJ for Andy", LogLevel.Trace);
                     data["milk_start"] = $"Damn right I'd love a blowjob! I know everyone looks down on me, but I have needs the same as everyone else.$s" +
                         $"#$b#He undoes his overalls and flops them down. He fumbles with the buttons, but you reach over and take his hands in yours momentarily before undoing the clasps*" +
                         $"#$b#Thank you @, I'm a little flustered. It's not every day someone like yourself does this for someone like me. I really appreciate this.$h" +
@@ -663,8 +772,183 @@ namespace MilkVillagers
                 //if (asset.AssetNameEquals("Characters/Dialogue/Martin"))
                 //{
                 //    data["milk_start"] = $"";
-                //    return;
+                //    
                 //}
+            }
+
+            if (!data.ContainsKey("eat_out"))
+            {
+                if (asset.AssetNameEquals("Characters/Dialogue/Abigail")) // ver 1.0
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Abigail", LogLevel.Trace);
+                    data["eat_out"] = $"You know I’m always down for an adventure...wanna adventure down on me?" +
+                                        $"#$b#%You sweep in to kiss her tenderly, only to be met with ferocity and passion.She grabs your shirt and pulls you in, grabbing your hand and ushering it down the front of her pants. " +
+                                        $"#$b#%Your fingers meet soft, warm wetness.Gently, you stroke her clit with your middle finger." +
+                                        $"#$b#%She pulls you backwards until she’s leaning on a wall.You crouch down and tear off her pants and underwear, and, using the wall as leverage, she wraps her legs around your head." +
+                                        $"#$b#%Pressed between her thighs, you submerge yourself into her pussy.Unsurprisingly, her hair there is purple too. " +
+                                        $"#$b#%Your hands holding her hips against the wall, you lick up her juices between her folds, before arriving at her most sensitive area.There, you trace your tongue in a variety of motions. " +
+                                        $"#$b#%At one, you hear her gasp and she pulls on your hair as if it’s her tether to earth." +
+                                        $"#$b#Right there!Right there! Like that!" +
+                                        $"#$b#%You repeat the motion, in the exact same tempo, and she writhes and bucks under your touch.The more you continue, the more vice - like her thighs become." +
+                                        $"#$b#%Suddenly she all but screams as she clenches around you.A literal wave of warm liquid hits your face, soaking you as Abby moans and stares wide-eyed at nothing in particular." +
+                                        $"#$b#%You lower her to the ground and she retrieves her pants as you wipe your face." +
+                                        $"#$b#Where...the FUCK...did you learn that??";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Emily", LogLevel.Trace);
+                    data["eat_out"] = $"I’d love to feel our energies intertwine. Come, let’s explore them." +
+                                        $"#$b#%In the blink of an eye Emily is sitting on a nearby table, smiling and lifting her dress.When you step towards her, she opens her legs and her smile turns coy." +
+                                        $"#$b#%You crouch to your knees and duck into the blue hair of her privates. As you explore her soft folds, she places a hand on your head and affectionately strokes your hair." +
+                                        $"#$b#%The affection turns into passion when you find her clit and make a variety of motions. Her nails comb your scalp." +
+                                        $"#$b#%When you start a quick looping motion, her hand stops suddenly at the back of your hand and she grasps a fistful of your hair." +
+                                        $"#$b#Yes, that’s it. Keep going!" +
+                                        $"#$b#%You loop around her clit, making a circle with your tongue but only adding pressure when you feel her grip tighten.You keep that motion, over and over. " +
+                                        $"#$b#%Emily squirms and begins to moan, louder and louder until she yelps and releases her pleasure.It washes over your face and down your neck.She smiles contently, her eyes closed." +
+                                        $"#$b#%Then, after a moment, scoots off the table and smooths down her dress." +
+                                        $"#$b#Wow! I really feel like my Sacral Chakra is aligned.I sense a good balance within me.";
+
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Haley", LogLevel.Trace);
+                    data["eat_out"] = $"Oh, (name), that sounds just about perfect right now. Come on then." +
+                                        $"#$b#%You crouch down to lift Haley’s skirt, but she pushes you back and instructs you to lie down. You do as you’re told and lie on your back." +
+                                        $"#$b#%Haley grins and climbs on top of you, then lifts her skirt and shuffles until she’s almost sitting on your face. Her skirt falls and you’re in a blue tinted shadow." +
+                                        $"#$b#%She shifts and you find yourself with a mouthful of her pussy, her thighs embracing your cheeks. You start to navigate your way in the dark and realize you found " +
+                                        $"it when Haley moans aloud into the open air." +
+                                        $"#$b#%You reach up and grab her ass, pulling her more onto you, and you more into her.She grinds and rocks on your face, leaning into every motion of your tongue.Her moans become " +
+                                        $"louder and higher. " +
+                                        $"#$b#%Just when you think she’s close, she shifts again." +
+                                        $"#$b#%You don’t think you’d get out of this without something from me, do you ?" +
+                                        $"#$b#%She has turned around, her ass now facing you.You’re still unable to see through her skirt, but you feel her tug at your pants.You’re about to resume your work when open air " +
+                                        $"meets your groin, followed swiftly by the warmth of Haley’s own tongue." +
+                                        $"#$b#%It’s now a race to see who can make the other cum first.You plunge your face back into her womanhood, determined to win. It’s difficult to concentrate, " +
+                                        $"because Haley’s skill with her tongue matches and might even surpass your own." +
+                                        $"#$b#%Wading through the fog she has created in your mind, you manage to resume the rhythm from before.She squeals and you feel her voice resonate through your privates.You let " +
+                                        $"a groan of your own escape your lips. " +
+                                        $"#$b#%Suddenly, her thighs clamp around your face, her hips dig into your neck, and she lets out an intense moan.She doesn't relent, and no sooner has your face been covered in " +
+                                        $"her cum has she gone right back to work on you." +
+                                        $"#$b#%And then her face is covered as well. She rolls off of your body, lying on her back beside you, panting heavily." +
+                                        $"#$b#Okay, I’ll admit it, you’re good. I thought I was in over my head for a second. *Giggle * No pun intended.";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Leah", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Maru", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Penny", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Caroline", LogLevel.Trace);
+                    data["eat_out"] = $"Pierre refuses to go down on me. I could really use some attention down there, it’s been too long." +
+                                        $"#$b#%Caroline guides you to a counter and hops up on it. You help her remove her pants, and gingerly pull down her underwear." +
+                                        $"#$b#%Her panties are nothing special, showing that she hasn’t been expecting much action recently. She eagerly spreads her legs for you, revealing a soft pink pussy in a sea of green." +
+                                        $"#$b#%You lean in and lick her womanhood gently, and begin exploring her warm, inviting nether regions with your tongue.You leave no crevice, no corner left alone." +
+                                        $"#$b#%As you continue, she gets wetter and wetter until you don’t know where your saliva ends and her secretions begin. " +
+                                        $"Then you find your way to her clit, gently teasing it with the tip of your tongue. " +
+                                        $"#$b#%She lets out a low moan that resonates through your being." +
+                                        $"#$b#Mmmm…(name)...don’t stop" +
+                                        $"#$b#%Caroline throws her head back and closes her eyes in ecstasy when you tweak the rhythm and intensity. You found her medium, and refuse to change your pattern." +
+                                        $"#$b#%She begins breathing harder and harder until she’s gasping for breath.In your peripheral vision you see her hands grasp the counter so hard her knuckles go white." +
+                                        $"#$b#%She pulsates and quivers and lets out a choking gasp as warm fluid coats you and trails down your chin." +
+                                        $"#$b#%She stays still for a few moments, recalibrating, and then hops down from the counter on shaky legs.*" +
+                                        $"#$b#Th - th - thanks...I - I r - really n - needed that.Just need to c -catch my b-breath here.";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Jodi", LogLevel.Trace);
+                    data["eat_out"] = $"Oh, it’s been too long since someone has pleasured me. Kent’s been dealing with his own problems lately, not much time for my needs. You wouldn’t mind?"+
+                    $"To answer her question, you wordlessly guide her to the counter and hoist her up on top of it.You slide off both her jeans and panties, and discard them on the floor.Teasingly, you run your tongue up her thighs; circling but not yet touching her pussy.She twitches with anticipation every time you come near." +
+                    $"Eventually:"+
+                    $"Oh, fuck it."+
+                    $"Jodi grabs the back of your head and pushes your head right in. You’re surprised yet aroused by her sudden assertiveness. Apparently it HAS been too long.You place your hands on her outer thighs and begin to swirl your tongue around the opening, dipping in every now and then, before making your way upwards to the clit, adding pressure the way there.As soon as you taste the round nub, Jodi gasps and leans backwards, bucking her hips. You begin to give it upward flicks of your tongue, and you feel her tense with each flick.Then you start a rapid but light up and down motion, and her ankles find their way around your neck and lock behind you." +
+                    $"You feel each muscle in her legs clench..."+
+                    $"Oh my goodness!!!"+
+                    $"Shaking, Jodi releases her ravishment into your mouth.It spills down your chin and onto the floor.She doesn’t stop quivering, and takes a moment before easing herself onto the ground. Then she stumbles over and grabs her pants and underwear with shaking hands."+
+                    $"I’m so sorry for being so vulgar earlier, I don’t usually curse.I just really, really needed that.Now if you excuse me, I—um—have to go mop this up…";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Marnie", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Robin", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Pam", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Sandy", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Evelyn", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+
+                if (asset.AssetNameEquals("Characters/Dialogue/Sophia"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Sophia", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Olivia"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Olivia", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Susan"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Susan", LogLevel.Trace);
+                    data["eat_out"] = $"";
+
+                }
+                if (asset.AssetNameEquals("Characters/Dialogue/Claire"))
+                {
+                    ModFunctions.LogVerbose($"Adding eat_out for Claire", LogLevel.Trace);
+                    data["eat_out"] = $"I don’t really think I’ve let anyone do that to me before...I mean sure if you want to? You don’t want anything in return?" +
+                                        "#$b#%You assure Claire that no, right now it’s all about her and her needs.Reluctantly, she inches her bottoms down, but seems hesitant to fully take them off. " +
+                                        "#$b#%You gently lay her down on the ground and put her ankles over your shoulders.When your tongue gives an introductory swipe of her privates, she lets out a repressed squeak and covers her mouth with her hands as if to stifle her own pleasurous sounds.Almost challenged by this, you begin to tongue her clit in short flicks. Her breath rate increases, inhaling and exhaling through her nose as her eyes begin to cross and her eyelids start to flicker. You can tell she is struggling to maintain composure." +
+                                        "#$b#Mmph...erngh…" +
+                                        "#$b#%Noises manage to escape her hands despite her best efforts. You proceed with the tongue flicking, occasionally adding a swirl." +
+                                        "#$b#%You sneak a finger into her and stroke her insides while your tongue handles her outsides. Claire bites her hand and shuts her eyes forcefully." +
+                                        "#$b#%She writhes under you and locks her ankles behind your neck.With a high pitched squeal, she seizes and cums right in your face. " +
+                                        "#$b#%She looks at you almost apologetically, and to show her it’s nothing to be ashamed of; you lap up every last drop of her pleasure." +
+                                        "#$b#%Her breathing steadies and you retreat your head. She pulls up her pants and massages the bite marks on her hand." +
+                                        "#$b#I...didn’t know that would feel so good.Can you do it again sometime ?";
+
+                }
             }
         }
     }
@@ -690,11 +974,11 @@ namespace MilkVillagers
 
     public class ItemEditor : IAssetEditor
     {
-        public IDictionary<int, string> _objectData;
+        public IDictionary<int, string> Data;
 
         public IDictionary<int, string> Report()
         {
-            return this._objectData;
+            return Data;
         }
 
         public bool CanEdit<T>(IAssetInfo asset)
@@ -707,7 +991,7 @@ namespace MilkVillagers
             ModFunctions.LogVerbose("Adding in items");
 
             if (asset.AssetNameEquals("Data/ObjectInformation"))
-                _objectData = asset.AsDictionary<int, string>().Data;
+                Data = asset.AsDictionary<int, string>().Data;
             if (!TempRefs.loaded)
                 return;
 
@@ -715,68 +999,224 @@ namespace MilkVillagers
 
         }
 
-        public void SetItems()
+        public void RemoveInvalid(bool Male, bool Female)
         {
-            if (_objectData == null)
+            if (!Female)
+            {
+                //milk items
+                Data.Remove(TempRefs.MilkAbig);
+                Data.Remove(TempRefs.MilkEmil);
+                Data.Remove(TempRefs.MilkHale);
+                Data.Remove(TempRefs.MilkLeah);
+                Data.Remove(TempRefs.MilkMaru);
+                Data.Remove(TempRefs.MilkPenn);
+                Data.Remove(TempRefs.MilkCaro);
+                Data.Remove(TempRefs.MilkJodi);
+                Data.Remove(TempRefs.MilkMarn);
+                Data.Remove(TempRefs.MilkRobi);
+                Data.Remove(TempRefs.MilkPam);
+                Data.Remove(TempRefs.MilkSand);
+                Data.Remove(TempRefs.MilkEvel);
+                // Other mods
+                Data.Remove(TempRefs.MilkSophia);
+                Data.Remove(TempRefs.MilkOlivia);
+                Data.Remove(TempRefs.MilkSusan);
+                Data.Remove(TempRefs.MilkClaire);
+
+                // Recipes
+                Data.Remove(TempRefs.MilkGeneric);
+                Data.Remove(TempRefs.MilkShake);
+
+            }
+
+            if (!Male)
+            {
+                //cum items
+                Data.Remove(TempRefs.MilkAlex);
+                Data.Remove(TempRefs.MilkClint);
+                Data.Remove(TempRefs.MilkDemetrius);
+                Data.Remove(TempRefs.MilkElliott);
+                Data.Remove(TempRefs.MilkGeorge);
+                Data.Remove(TempRefs.MilkGil);
+                Data.Remove(TempRefs.MilkGunther);
+                Data.Remove(TempRefs.MilkGus);
+                Data.Remove(TempRefs.MilkHarv);
+                Data.Remove(TempRefs.MilkKent);
+                Data.Remove(TempRefs.MilkLewis);
+                Data.Remove(TempRefs.MilkLinus);
+                Data.Remove(TempRefs.MilkMarlon);
+                Data.Remove(TempRefs.MilkMorris);
+                Data.Remove(TempRefs.MilkPierre);
+                Data.Remove(TempRefs.MilkSam);
+                Data.Remove(TempRefs.MilkSeb);
+                Data.Remove(TempRefs.MilkShane);
+                Data.Remove(TempRefs.MilkWilly);
+                // Other mods
+                Data.Remove(TempRefs.MilkAndy);
+                Data.Remove(TempRefs.MilkVictor);
+                Data.Remove(TempRefs.MilkMartin);
+
+                // Special materials
+                Data.Remove(TempRefs.MilkWiz);
+                Data.Remove(TempRefs.MilkQi);
+
+                // Recipes.
+                Data.Remove(TempRefs.MilkSpecial);
+                Data.Remove(TempRefs.ProteinShake);
+
+            }
+
+            if (!(Male || Female))
+                Data.Remove(TempRefs.SuperJuice);
+
+            SetItems(Male, Female);
+        }
+
+        public void SetItems(bool Male = true, bool Female = true)
+        {
+            if (Data == null)
                 return;
 
-            //milk items
-            _objectData[TempRefs.MilkAbig] = $"Abigail's Milk/300/15/Drink {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkEmil] = $"Emily's Milk/300/15/Drink {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkHale] = $"Haley's Milk/300/15/Drink {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkLeah] = $"Leah's Milk/300/15/Drink {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMaru] = $"Maru's Milk/300/15/Drink {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPenn] = $"Penny's Milk/300/15/Drink {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkCaro] = $"Caroline's Milk/300/15/Drink {TempRefs.MilkType}/Caroline's Milk/A jug of Caroline's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkJodi] = $"Jodi's Milk/300/15/Drink {TempRefs.MilkType}/Jodi's Milk/A jug of Jodi's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMarn] = $"Marnie's Milk/140/15/Drink {TempRefs.MilkType}/Marnie's Milk/A jug of Marnie's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkRobi] = $"Robin's Milk/300/15/Drink {TempRefs.MilkType}/Robin's Milk/A jug of Robin's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPam] = $"Pam's Milk/90/15/Drink {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Drink {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Drink {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            if (Female)
+            {
+                //milk items
+                Data[TempRefs.MilkAbig] = $"Abigail's Milk/300/15/Drink {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkEmil] = $"Emily's Milk/300/15/Drink {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkHale] = $"Haley's Milk/300/15/Drink {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkLeah] = $"Leah's Milk/300/15/Drink {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkMaru] = $"Maru's Milk/300/15/Drink {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkPenn] = $"Penny's Milk/300/15/Drink {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkCaro] = $"Caroline's Milk/300/15/Drink {TempRefs.MilkType}/Caroline's Milk/A jug of Caroline's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkJodi] = $"Jodi's Milk/300/15/Drink {TempRefs.MilkType}/Jodi's Milk/A jug of Jodi's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkMarn] = $"Marnie's Milk/140/15/Drink {TempRefs.MilkType}/Marnie's Milk/A jug of Marnie's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkRobi] = $"Robin's Milk/300/15/Drink {TempRefs.MilkType}/Robin's Milk/A jug of Robin's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkPam] = $"Pam's Milk/90/15/Drink {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkSand] = $"Sandy's Milk/350/15/Drink {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkEvel] = $"Evelyn's Milk/50/15/Drink {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                // Other mods
+                Data[TempRefs.MilkSophia] = $"Sophia's Milk/50/15/Drink {TempRefs.MilkType}/Sophia's Milk/A jug of Sophia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkOlivia] = $"Olivia's Milk/50/15/Drink {TempRefs.MilkType}/Olivia's Milk/A jug of Olivia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkSusan] = $"Susan's Milk/50/15/Drink {TempRefs.MilkType}/Susan's Milk/A jug of Susan 's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkClaire] = $"Claire's Milk/50/15/Drink {TempRefs.MilkType}/Claire's Milk/A jug of Claire's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+                //recipe
+                Data[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Cooking {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/Special' Milkshake/Extra milky milkshake./drink/0 0 0 0 0 0 0 25 0 1 0/343";
+
+            }
+
+            if (Male)
+            {
+                //cum items
+                Data[TempRefs.MilkAlex] = $"Alex's Cum/300/15/Drink {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkClint] = $"Clint's Cum/300/15/Drink {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkDemetrius] = $"Demetrius's Cum/300/15/Drink {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkElliott] = $"Elliott's Cum/300/15/Drink {TempRefs.CumType}/Elliott's Cum/A bottle of Elliott's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkGeorge] = $"George's Cum/300/15/Drink {TempRefs.CumType}/George's Cum /A bottle of George's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkGil] = $"Gil's Cum/300/15/Drink {TempRefs.CumType}/Gil's Cum/A bottle of Gil's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkGunther] = $"Gunther's Cum/300/15/Drink {TempRefs.CumType}/Gunther's Cum/A bottle of Gunther's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkGus] = $"Gus's Cum/300/15/Drink {TempRefs.CumType}/Gus's Cum/A bottle of Gus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkHarv] = $"Harvey's Cum/300/15/Drink {TempRefs.CumType}/Harvey's Cum /A bottle of Harvey's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkKent] = $"Kent's Cum/300/15/Drink {TempRefs.CumType}/Kent's Cum /A bottle of Kent's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkLewis] = $"Lewis's Cum/300/15/Drink {TempRefs.CumType}/Lewis's Cum/A bottle of Lewis's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkLinus] = $"Linus's Cum/300/15/Drink {TempRefs.CumType}/Linus's Cum/A bottle of Linus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkMarlon] = $"Marlon's Cum/300/15/Drink {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkMorris] = $"Morris's Cum/300/15/Drink {TempRefs.CumType}/Morris's Cum /A bottle of Morris's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkPierre] = $"Pierre's Cum/300/15/Drink {TempRefs.CumType}/Pierre's Cum /A bottle of Pierre's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkSam] = $"Sam's Cum/300/15/Drink {TempRefs.CumType}/Sam's Cum/A bottle of Sam's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkSeb] = $"Sebastian's Cum/300/15/Drink {TempRefs.CumType}/Sebastian's Cum/A bottle of Sebastian's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkShane] = $"Shane's Cum/300/15/Drink {TempRefs.CumType}/Shane's Cum/A bottle of Shane's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkWilly] = $"Willy's Cum/300/15/Drink {TempRefs.CumType}/Willy's Cum/A bottle of Willy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+                // Other mods
+                Data[TempRefs.MilkAndy] = $"Andy's Cum/50/15/Drink {TempRefs.CumType}/Andy's Cum/A bottle of Andy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkVictor] = $"Victor's Cum/50/15/Drink {TempRefs.CumType}/Victor's Cum/A bottle of Victor's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkMartin] = $"Martin's Cum/50/15/Drink {TempRefs.CumType}/Martin's Cum/A bottle of Martin's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+                // Special materials
+                Data[TempRefs.MilkWiz] = $"Wizard's Cum/300/15/Drink {TempRefs.SpecialType}/Wizard's Cum /A bottle of Wizard's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkQi] = $"Mr. Qi's Cum/300/15/Drink {TempRefs.SpecialType}/Mr. Qi's Cum /A bottle of Mr. Qi's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+
+                //recipe
+                Data[TempRefs.MilkSpecial] = $"Special milk/50/15/Cooking {TempRefs.CumType}/Special' Milk/A bottle of 'special' milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.ProteinShake] = $"Protein shake/50/15/Cooking -7/Protein' shake/Shake made with extra protein/drink/0 0 0 0 0 0 0 25 0 0 2/343";
+
+            }
+
+            if (Male && Female)
+                Data[TempRefs.SuperJuice] = $"Super Juice/150/125/Cooking -7/Super Juice/The perfect fusion of male and female juices./Drink/0 0 0 0 2 0 0 25 0 3 2/700";
+
+        }
+
+        public bool CheckAll()
+        {
+            bool result = true;
+
+            #region Items
+            // Milk item code storage
+            if (TempRefs.MilkAbig == 803) { result = false; ModFunctions.LogVerbose($"MilkAbig is not set", LogLevel.Trace); }
+            if (TempRefs.MilkEmil == 803) { result = false; ModFunctions.LogVerbose($"MilkEmil is not set", LogLevel.Trace); }
+            if (TempRefs.MilkHale == 803) { result = false; ModFunctions.LogVerbose($"MilkHale is not set", LogLevel.Trace); }
+            if (TempRefs.MilkLeah == 803) { result = false; ModFunctions.LogVerbose($"MilkLeah is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMaru == 803) { result = false; ModFunctions.LogVerbose($"MilkMaru is not set", LogLevel.Trace); }
+            if (TempRefs.MilkPenn == 803) { result = false; ModFunctions.LogVerbose($"MilkPenn is not set", LogLevel.Trace); }
+            if (TempRefs.MilkCaro == 803) { result = false; ModFunctions.LogVerbose($"MilkCaro is not set", LogLevel.Trace); }
+            if (TempRefs.MilkJodi == 803) { result = false; ModFunctions.LogVerbose($"MilkJodi is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMarn == 803) { result = false; ModFunctions.LogVerbose($"MilkMarn is not set", LogLevel.Trace); }
+            if (TempRefs.MilkRobi == 803) { result = false; ModFunctions.LogVerbose($"MilkRobi is not set", LogLevel.Trace); }
+            if (TempRefs.MilkPam == 803) { result = false; ModFunctions.LogVerbose($"MilkPam is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSand == 803) { result = false; ModFunctions.LogVerbose($"MilkSand is not set", LogLevel.Trace); }
+            if (TempRefs.MilkEvel == 803) { result = false; ModFunctions.LogVerbose($"MilkEvel is not set", LogLevel.Trace); }
+            if (TempRefs.MilkDwarf == 803) { result = false; ModFunctions.LogVerbose($"MilkDwarf is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGeneric == 803) { result = false; ModFunctions.LogVerbose($"MilkGeneric is not set", LogLevel.Trace); }
+
+            // Cum item code storage.
+            if (TempRefs.MilkSpecial == 803) { result = false; ModFunctions.LogVerbose($"MilkSpecial is not set", LogLevel.Trace); }
+            if (TempRefs.MilkAlex == 803) { result = false; ModFunctions.LogVerbose($"MilkAlex is not set", LogLevel.Trace); }
+            if (TempRefs.MilkClint == 803) { result = false; ModFunctions.LogVerbose($"MilkClint is not set", LogLevel.Trace); }
+            if (TempRefs.MilkDemetrius == 803) { result = false; ModFunctions.LogVerbose($"MilkDemetrius is not set", LogLevel.Trace); }
+            if (TempRefs.MilkElliott == 803) { result = false; ModFunctions.LogVerbose($"MilkElliott is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGeorge == 803) { result = false; ModFunctions.LogVerbose($"MilkGeorge is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGil == 803) { result = false; ModFunctions.LogVerbose($"MilkGil is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGunther == 803) { result = false; ModFunctions.LogVerbose($"MilkGunther is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGus == 803) { result = false; ModFunctions.LogVerbose($"MilkGus is not set", LogLevel.Trace); }
+            if (TempRefs.MilkHarv == 803) { result = false; ModFunctions.LogVerbose($"MilkHarv is not set", LogLevel.Trace); }
+            if (TempRefs.MilkKent == 803) { result = false; ModFunctions.LogVerbose($"MilkKent is not set", LogLevel.Trace); }
+            if (TempRefs.MilkLewis == 803) { result = false; ModFunctions.LogVerbose($"MilkLewis is not set", LogLevel.Trace); }
+            if (TempRefs.MilkLinus == 803) { result = false; ModFunctions.LogVerbose($"MilkLinus is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMarlon == 803) { result = false; ModFunctions.LogVerbose($"MilkMarlon is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMorris == 803) { result = false; ModFunctions.LogVerbose($"MilkMorris is not set", LogLevel.Trace); }
+            if (TempRefs.MilkQi == 803) { result = false; ModFunctions.LogVerbose($"MilkQi is not set", LogLevel.Trace); }
+            if (TempRefs.MilkPierre == 803) { result = false; ModFunctions.LogVerbose($"MilkPierre is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSam == 803) { result = false; ModFunctions.LogVerbose($"MilkSam is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSeb == 803) { result = false; ModFunctions.LogVerbose($"MilkSeb is not set", LogLevel.Trace); }
+            if (TempRefs.MilkShane == 803) { result = false; ModFunctions.LogVerbose($"MilkShane is not set", LogLevel.Trace); }
+            if (TempRefs.MilkWilly == 803) { result = false; ModFunctions.LogVerbose($"MilkWilly is not set", LogLevel.Trace); }
+            if (TempRefs.MilkWiz == 803) { result = false; ModFunctions.LogVerbose($"MilkWiz is not set", LogLevel.Trace); }
+            //if (TempRefs.MilkWMarlon == 803) { result = false; ModFunctions.LogVerbose($"MilkWMarlon is not set", LogLevel.Trace); }
+            if (TempRefs.MilkKrobus == 803) { result = false; ModFunctions.LogVerbose($"MilkKrobus is not set", LogLevel.Trace); }
+
+            // Recipe item code storage
+            if (TempRefs.ProteinShake == 1240) { result = false; ModFunctions.LogVerbose($"ProteinShake is not set", LogLevel.Trace); }
+            if (TempRefs.MilkShake == 1241) { result = false; ModFunctions.LogVerbose($"MilkShake is not set", LogLevel.Trace); }
+            if (TempRefs.SuperJuice == 1249) { result = false; ModFunctions.LogVerbose($"SuperJuice is not set", LogLevel.Trace); }
+
             // Other mods
-            _objectData[TempRefs.MilkSophia] = $"Sophia's Milk/50/15/Drink {TempRefs.MilkType}/Sophia's Milk/A jug of Sophia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkOlivia] = $"Olivia's Milk/50/15/Drink {TempRefs.MilkType}/Olivia's Milk/A jug of Olivia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSusan] = $"Susan's Milk/50/15/Drink {TempRefs.MilkType}/Susan's Milk/A jug of Susan 's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkClaire] = $"Claire's Milk/50/15/Drink {TempRefs.MilkType}/Claire's Milk/A jug of Claire's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            if (TempRefs.MilkSophia == 803) { result = false; ModFunctions.LogVerbose($"MilkSophia is not set", LogLevel.Trace); }
+            if (TempRefs.MilkOlivia == 803) { result = false; ModFunctions.LogVerbose($"MilkOlivia is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSusan == 803) { result = false; ModFunctions.LogVerbose($"MilkSusan is not set", LogLevel.Trace); }
+            if (TempRefs.MilkClaire == 803) { result = false; ModFunctions.LogVerbose($"MilkClaire is not set", LogLevel.Trace); }
+            if (TempRefs.MilkAndy == 803) { result = false; ModFunctions.LogVerbose($"MilkAndy is not set", LogLevel.Trace); }
+            if (TempRefs.MilkVictor == 803) { result = false; ModFunctions.LogVerbose($"MilkVictor is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMartin == 803) { result = false; ModFunctions.LogVerbose($"MilkMartin is not set", LogLevel.Trace); }
+            #endregion
 
-            //cum items
-            _objectData[TempRefs.MilkAlex] = $"Alex's Cum/300/15/Drink {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkClint] = $"Clint's Cum/300/15/Drink {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkDemetrius] = $"Demetrius's Cum/300/15/Drink {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkElliott] = $"Elliott's Cum/300/15/Drink {TempRefs.CumType}/Elliott's Cum/A bottle of Elliott's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGeorge] = $"George's Cum/300/15/Drink {TempRefs.CumType}/George's Cum /A bottle of George's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGil] = $"Gil's Cum/300/15/Drink {TempRefs.CumType}/Gil's Cum/A bottle of Gil's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGunther] = $"Gunther's Cum/300/15/Drink {TempRefs.CumType}/Gunther's Cum/A bottle of Gunther's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkGus] = $"Gus's Cum/300/15/Drink {TempRefs.CumType}/Gus's Cum/A bottle of Gus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkHarv] = $"Harvey's Cum/300/15/Drink {TempRefs.CumType}/Harvey's Cum /A bottle of Harvey's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkKent] = $"Kent's Cum/300/15/Drink {TempRefs.CumType}/Kent's Cum /A bottle of Kent's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkLewis] = $"Lewis's Cum/300/15/Drink {TempRefs.CumType}/Lewis's Cum/A bottle of Lewis's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkLinus] = $"Linus's Cum/300/15/Drink {TempRefs.CumType}/Linus's Cum/A bottle of Linus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMarlon] = $"Marlon's Cum/300/15/Drink {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMorris] = $"Morris's Cum/300/15/Drink {TempRefs.CumType}/Morris's Cum /A bottle of Morris's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkQi] = $"Mr. Qi's Cum/300/15/Drink {TempRefs.CumType}/Mr. Qi's Cum /A bottle of Mr. Qi's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkPierre] = $"Pierre's Cum/300/15/Drink {TempRefs.CumType}/Pierre's Cum /A bottle of Pierre's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSam] = $"Sam's Cum/300/15/Drink {TempRefs.CumType}/Sam's Cum/A bottle of Sam's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSeb] = $"Sebastian's Cum/300/15/Drink {TempRefs.CumType}/Sebastian's Cum/A bottle of Sebastian's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkShane] = $"Shane's Cum/300/15/Drink {TempRefs.CumType}/Shane's Cum/A bottle of Shane's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkWilly] = $"Willy's Cum/300/15/Drink {TempRefs.CumType}/Willy's Cum/A bottle of Willy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkWiz] = $"Wizard's Cum/300/15/Drink {TempRefs.CumType}/Wizard's Cum /A bottle of Wizard's Cum ./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            // Other mods
-            _objectData[TempRefs.MilkAndy] = $"Andy's Cum/50/15/Drink {TempRefs.CumType}/Andy's Cum/A bottle of Andy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkVictor] = $"Victor's Cum/50/15/Drink {TempRefs.CumType}/Victor's Cum/A bottle of Victor's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkMartin] = $"Martin's Cum/50/15/Drink {TempRefs.CumType}/Martin's Cum/A bottle of Martin's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+            // Item types
+            if (TempRefs.MilkType == -34) { result = false; ModFunctions.LogVerbose($"MilkType hasn't changed", LogLevel.Trace); }
+            if (TempRefs.CumType == -35) { result = false; ModFunctions.LogVerbose($"CumType hasn't changed", LogLevel.Trace); }
+            if (TempRefs.SpecialType == -36) { result = false; ModFunctions.LogVerbose($"SpecialType hasn't changed", LogLevel.Trace); }
 
-            //recipes
-            _objectData[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Cooking {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-            _objectData[TempRefs.MilkSpecial] = $"Special milk/50/15/Cooking {TempRefs.CumType}/Special' Milk/A bottle of 'special' milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-
-            _objectData[TempRefs.ProteinShake] = $"Protein shake/50/15/Cooking -7/Protein' shake/Shake made with extra protein/Drink/0 0 0 0 0 0 0 25 0 0 2/343";
-            _objectData[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/Special' Milkshake/Extra milky milkshake./Drink/0 0 0 0 1 0 0 25 0 2 0/343";
-            _objectData[TempRefs.SuperJuice] = $"Super Juice/150/125/Cooking -7/Super Juice/The perfect fusion of male and female juices./Drink/0 0 0 0 2 0 0 25 0 3 2/700";
-
-
-
+            return result;
         }
     }
 
@@ -786,12 +1226,161 @@ namespace MilkVillagers
 
         public bool CanEdit<T>(IAssetInfo asset)
         {
-            return false;
+            bool result = asset.AssetNameEquals("Data/Events/Hospital") || asset.AssetNameEquals("Data/Events/Seedshop");
+
+            return result;
         }
 
         public void Edit<T>(IAssetData asset)
         {
+            data = asset.AsDictionary<string, string>().Data;
+            if (asset.AssetNameEquals("Data/Events/Hospital"))
+            {
+                #region Harvey Event
+                //data["594802/p Harvey"] =
+                data["594802/d Tue, Thu/f Harvey 2500/p Harvey/n HarveyCheckup/p Harvey/t 900 1500"] =
+                                    "Hospital_Ambient" +
+                                    "/4 7" +
+                                    "/farmer 5 8 0 Harvey 4 5 0" +
+                                    "/skippable" +
+                                    "/move farmer 0 -3 1" +
 
+                                    // Farmer and Player face each other
+                                    "/beginSimultaneousCommand" +
+                                    "/faceDirection farmer 3" +
+                                    "/faceDirection Harvey 1" +
+                                    "/endSimultaneousCommand" +
+
+                                    // Introduction
+                                    "/speak Harvey \"Ah, @. Thank you for coming to see me. Your last physical went well, but I think we need to put you through some more rigorous testing.\"" +
+                                    "/emote farmer 16" +
+                                    "/speak Harvey \"Oh, there’s nothing to worry about. You look like you’ve been taking care of yourself, eating well and exercising.\"" +
+                                    "/speak Harvey \"In fact, if you don’t mind me saying so you look very fit...and attractive.\"" +
+                                    "/message \"Harvey loosens his tie and glances at you nervously*\"" +
+                                    "/speak Harvey \"Do you...find me attractive too?\"" +
+                                    "/emote farmer 32" +
+                                    "/speak Harvey \"Wonderful. Anyway, We’ll begin the tests. Please remove your clothes.\"" +
+                                    "/emote farmer 16" +
+                                    "/faceDirection farmer 0" +
+                                    "/fade" +
+                                    "/speak Harvey \"Ah yes, we’ll start with some flexibility testing.\"" +
+
+                                    // Move Harvey behind player
+
+                                    // Next dialogue chunk
+                                    "/speak Harvey \"Please try touching your toes.\"" +
+                                    "/message \"As you bend over Harvey touches your back, slowly trailing his hand down towards your ass*\"" +
+                                    "/speak Harvey \"Very good, and your skin is remarkably soft. Please hold that position as long as you can.\"" +
+                                    "/message \"His hand drifts lower, stroking your ass and cupping your pussy. You start to feel moisture gathering on your lips, and your breathing gets heavier\"" +
+                                    "/emote farmer 16" +
+                                    "/speak Harvey \"Don’t push yourself, but please hold that pose a little longer. I need to see how much you can *take*.\"" +
+                                    "/message \"Harvey strokes between your pussy lips, and gently inserts a finger into your pussy. You gasp a little at the cold invader, and he removes his finger*\"" +
+                                    "/speak Harvey \"I see you are sensitive. Would you consider this reaction normal for you, or is this position increasing your sensitivity?\"" +
+                                    "/move farmer 0 0 2" +
+                                    "/emote farmer 32" +
+                                    "/speak Harvey \"Well I guess we need some further tests. Please stand next to the bed and lean over it. I’m going to be doing some internal testing for sensation and stretching.\"" +          // cut off for length
+
+                                    // Move to bed                                  
+
+                                    "/message \"Harvey undoes his belt and lowers his pants, and slips on a condom with practised ease.\"" +
+                                    "/message \"He presses his cock against your entrance and teases you with the head by rubbing it up and down your labia, coating it in your juices.\"" +
+                                    "/message \"You start moaning, and he takes this as his cue, smoothly plunging deep inside you. You gasp, and he pauses to let you adjust.\"" +
+                                    "/speak Harvey \"Are you feeling any discomfort or pain, @?\"" +
+                                    "/emote farmer 32" +
+                                    "/speak Harvey \"I’ll continue with the test then.\"" +
+                                    "/message \"Harvey starts thrusting into you again, the sounds of your intercourse filling the echoey examination room.\"" +
+                                    "/message \"You settle into a rhythm of Harvey grunting and you moaning, and it’s not long before you are getting close to the edge.\"" +
+                                    "/message \"You start cumming, leaning on the bed for support, as your orgasm racks your body, causing you to clench down on the cock deep inside your pussy.\"" +
+                                    "/message \"Apparently Harvey is not too far behind you, as you feel him start to hammer away at you faster in order to try and finish.\"" +
+                                    "/message \"In a few moments he pushes as deeply into you as he can, and you feel the condom start to inflate as his cum fills it inside you.\"" +
+                                    "/speak Harvey \"@...your body is...fantastic. You are in...such good shape.\"" +
+                                    "/message \"Harvey leans against your body, clearly exhausted from this session. You move a little to the side and he lies on the bed beside you, his cock slipping out of your pussy.\"" +
+                                    "/message \"After a few minutes of half lying on the bed you both get up, and Harvey hands you some surgical wipes to clean yourself with while he disposes of the condom.\"" +
+                                    "/speak Harvey \"Well, @. I’d say that you are in perfect health. Please feel free to return any time you want another check up.\"" +
+                                    "/mail HarveyCheckupT" +
+                                    "/end";
+                #endregion
+            }
+
+            if (asset.AssetNameEquals("Data/Events/Seedshop"))
+            {
+                #region Abigail reward event
+                data[$"594801 /f Abigail 2500" + // event id
+                        $"/d Mon Wed Fri" +         //not Mon, Wed or Fri 
+                        $"/f Abigail 2500" +        //affection level
+                        $"/n AbiSurprise" +         //need her invitation mail first
+                        $"/t 1900 2400:"] =         //between 7pm and midnight
+
+                        $"echos" +
+                        $"/13 8" +
+                        $"/farmer 13 10 0 Abigail 14 6 1" +
+                        $"/skippable" +
+                        $"/move farmer 0 -4 0" +
+                        $"/faceDirection farmer 1" +
+                        $"/message \"Abigail is on her computer setting up her stream. Unusually, she is wearing a skirt and a loose top, and you can see that she's not wearing a bra.\"" +
+                        $"/pause 300" +
+                        $"/speak Abigail \"Oh, hey there @. I'm just getting the stream all set up for tonight. Are you ready to have your world rocked?\"" +
+                        $"/emote farmer 16" +
+                        $"/pause 300" +
+                        $"/speak Abigail \"Great, everything is all ready, I just need to make sure that you are good to go and then we can start the stream. Everyone is going to love this so much.\"" +
+                        $"/emote farmer 16" +
+                        $"/message \"Abigails swivels around on her chair, and looks you up and down. She reaches forward and adjusts your hair a little, brushes some dirt off of you, and generally gets you ready for an audience.\"" +
+                        $"/faceDirection Abigail 3" +
+                        $"/pause 300" +
+                        $"/speak Abigail \"Of course, I'm gonna rip all of that off you as soon as I can, but that's part of the fun. My fans think I'm a wild girl, and I want to keep it that way.\"" +
+                        $"/emote Abigail 16" +
+                        $"/speak Abigail \"Ok, time to start the stream!\"" +
+                        $"/fade" +
+                        $"/pause 500" +
+                        $"/faceDirection Abigail 1" +
+                        $"/speak Abigail \"Ok everyone. You asked for it, so we have a special guest tonight to 'help' me out, and help me cum. This here is the wonderful gal who grows those veggies so darn big on her farm.\"" +
+                        $"/speak Abigail \"Of course, everything that I've put inside myself for you has been in her hands, and tonight I want to see if i can get at least one of her hands inside me as well.\"" +
+                        $"/emote farmer 32" +
+                        $"/speak Abigail \"Anyway, time to get started. I'm already dripping and this pussy is going to start tightening up again if I wait too long.\"" +
+                        $"/speak Abigail \"Everyone get a good long look at @ because this may be the only time you get to see me strip her on camera.\"" +
+                        $"/message \"Abigail turns around and flashes the webcam, giving her viewers a view up her skirt as she crawls towards you on the floor.\"" +
+                        $"/message \"She quickly loses her skirt, revealing a bare ass underneath, and wiggles it as she grabs a hold of your pants. She wastes no time in stripping you, making sure her viewers get the best view of the two of you.\"" +
+                        $"/emote Abigail 16" +
+                        $"/speak Abigail \"Well, what did I tell you? @ is smoking hot, and my pussy juices are dripping onto the floor right now. She makes me so hot that I can barely control myself.\"" +
+                        $"/emote farmer 16" +
+                        $"/message \"Abigail lies on her back, and pulls your hips over her head so the camera can see her licking your pussy. She uses her tongue to lick up your valley, and then starts stroking your clit with her finger.\"" +
+                        $"/message \"You moan a little as she users her other hand to spread your lips for the camera, and then inserts her first finger inside you, causing your fluid to squelch out and drip onto her face.\"" +
+                        $"/message \"Abigail looks straight into the camera, opens her mouth, and pushes two fingers inside you to get more of your fluid to drip out.\"" +
+                        $"/speak Abigail \"Only tasty things come from @'s farm, and she is no exception. Now that she's warmed up, I think it's time I switched places and got serious.\"" +
+                        $"/message \"Abigail and you spend the next 45mins trying out each of her sex toys, in order to 'warm her up for the main event'. By this time both of you are panting away, and you'd already cum twice.\"" +
+                        $"/speak Abigail \"Ok, here we go. @, start off with three fingers, and lots of lube. I'm already soaking wet, but every little helps. That's it, keep pushing your fingers into my wet snatch, and try and get that fourth finger in there.\"" +
+                        $"/pause 300" +
+                        $"/playSound fishSlap" +
+                        $"/pause 300" +
+                        $"/playSound fishSlap" +
+                        $"/speak Abigail \"Here it goes, viewers! @, I'm ready for you! Keep pushing and get that beautiful hand inside me...\"" +
+                        $"/pause 300" +
+                        $"/speak Abigail \"Ooooh yes! The stretch is sooo good! I'm cumming!\"" +
+                        $"/message \"Abigail starts shaking on top of you, and you wriggle your fingers inside her to make her cum explosively. After a few minutes, she recovers, and you gently remove your hand from her loose pussy.\"" +
+                        $"/speak Abigail \"Well viewers, I think I'm well and truly done for tonight. Look at this giant, gaping hole where my pussy was an hour ago! I hope you also came a ton and had a great time. Anyway, I'm signing off now =- come back for my next show!\"" +
+                        $"/mail AbiSurpriseT" +
+                        $"/end";
+                #endregion
+            }
+        }
+
+        public bool CheckAll()
+        {
+            bool result = true;
+
+            //if (!data.ContainsKey("594801 /f Abigail 2500"))
+            if (data.Keys.Count(o => o.Contains("594801")) < 0)
+            {
+                ModFunctions.LogVerbose("Missing Abigail event 594801");
+                result = false;
+            }
+            //if (!data.ContainsKey("594802/d Tue, Thu/f Harvey 2500/p Harvey/n HarveyCheckup/p Harvey/t 900 1500"))
+            if (data.Keys.Count(o => o.Contains("594802")) < 0)
+            {
+                ModFunctions.LogVerbose("Missing Harvey event 594802");
+                result = false;
+            }
+            return result;
         }
     }
 
@@ -811,17 +1400,65 @@ namespace MilkVillagers
 
             data = asset.AsDictionary<int, string>().Data;
             //data[ID] = $"Type/Name/Description/Hint/Condition/Next Quest/Gold/Reward Description/Cancellable/Completion Text";
-            data[TempRefs.QuestID1] = $"ItemDelivery/Abigail's Eggplant/Abigail needs an eggplant for her cam show. Make sure it's a good one/Bring Abigail an eggplant./Abigail 272/h{TempRefs.QuestIDWait}/350/-1/false/Wow, it's so big!. I'll be thinking of you tonight, @. Be sure to watch my show.";
-            data[TempRefs.QuestID2] = $"ItemDelivery/Abigail's Carrot/Abigail needs a cave carrot to scratch an itch. Bring her one to 'fill' a need/Bring Abigail a cave carrot/Abigail 78/h{TempRefs.QuestIDWait}/410/-1/false/I hope you washed it! Those caves are wonderful, but the cave carrot needs to be SUPER clean before its going anywhere near my ass.";
-            data[TempRefs.QuestID3] = $"ItemDelivery/Abigail's Radishes/Abigail wants some radishes for a new idea she had/Bring Abigail Radishes/Abigail 264/h{TempRefs.QuestIDWait}/240/-1/false/I'm gonna have so much fun with these! How many do you think I can fit?";
-            data[TempRefs.QuestID4] = $"Location/Abigail's 'helping hand'/Abigail wants you to help her with her show tonight. Go visit her at her house, and bring her an amethyst./Go to Abigail's house with an Amethyst/SeedShop/h{TempRefs.QuestIDWait}/500/-1/false/I'm so glad you could come over and give me a helping 'hand'. My viewers are going to appreciate it as well...";
+            data[TempRefs.QuestID1] = $"ItemDelivery/Abigail's Eggplant/Abigail needs an eggplant for her cam show. Make sure it's a good one/Bring Abigail an eggplant./Abigail 272/-1/350/-1/false/Wow, it's so big!. I'll be thinking of you tonight, @. Be sure to watch my show.";
+            data[TempRefs.QuestID2] = $"ItemDelivery/Abigail's Carrot/Abigail needs a cave carrot to scratch an itch. Bring her one to 'fill' a need/Bring Abigail a cave carrot/Abigail 78/-1/410/-1/false/I hope you washed it! Those caves are wonderful, but the cave carrot needs to be SUPER clean before its going anywhere near my ass.";
+            data[TempRefs.QuestID3] = $"ItemDelivery/Abigail's Radishes/Abigail wants some radishes for a new idea she had/Bring Abigail Radishes/Abigail 264/-1/240/-1/false/I'm gonna have so much fun with these! How many do you think I can fit?";
+            data[TempRefs.QuestID4] = $"Location/Abigail's 'helping hand'/Abigail wants you to help her with her show tonight. Go visit her at her house, and bring her an amethyst./Go to Abigail's house with an Amethyst/SeedShop/-1/500/-1/false/I'm so glad you could come over and give me a helping 'hand'. My viewers are going to appreciate it as well...";
 
-            data[TempRefs.QuestID5] = $"ItemDelivery/Scientific sample/Maru wants to to test some cum/Bring Maru a sample of cum from a villager/Maru {TempRefs.CumType}/h{TempRefs.QuestIDWait}/750/-1/FALSE/Wow, I didn't expect you to bring it so quickly! It definitely looks right, and...it has that wonderful heady smell. I might post some request in the future, if you're interested.";
-            data[TempRefs.QuestID6] = $"ItemDelivery/Rejuvenating Milk/George wants to taste some of Haley's and Emily's milk/Bring George some Special Milkshake/George {TempRefs.MilkShake}/h{TempRefs.QuestIDWait}/750/-1/FALSE/This is exactly what I need. I've been lusting after those two for so long, but Penny keeps getting in the way and blocking me any time I get a good eyeful.";
-            data[TempRefs.QuestID7] = $"ItemDelivery/Curious tastes pt 1/Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly/Bring Sebastian some of Abigail's Milk/Sebastian {TempRefs.MilkAbig}/h{TempRefs.QuestIDWait}/750/-1/FALSE/Wow, She was ok with it? Did you tell her who it was for? Oh...I guess that's only fair. I knew she was kind of into me, but this could be amazing!";
-            data[TempRefs.QuestID8] = $"ItemDelivery/Curious tastes pt 2/Sebastian can have some of Abigail's milk, but only if she gets to taste his cum/Being Abigail some of Sebastian's Cum/Abigail {TempRefs.MilkSeb}/h{TempRefs.QuestIDWait}/750/-1/FALSE/Did you suck it out of him, while looking into his eyes? Touching yourself as you brought him closer to orgasm? Did he cum all over your face, or were you tempted to swallow it instead? Anyway, thanks for that, cumlut @.";
+            data[TempRefs.QuestID5] = $"ItemDelivery/Scientific sample/Maru wants to to test some cum/Bring Maru a sample of cum from a villager/Maru {TempRefs.CumType}/-1/750/-1/FALSE/Wow, I didn't expect you to bring it so quickly! It definitely looks right, and...it has that wonderful heady smell. I might post some request in the future, if you're interested.";
+            data[TempRefs.QuestID6] = $"ItemDelivery/Rejuvenating Milk/George wants to taste some of Haley's and Emily's milk/Bring George some Special Milkshake/George {TempRefs.MilkShake}/-1/750/-1/FALSE/This is exactly what I need. I've been lusting after those two for so long, but Penny keeps getting in the way and blocking me any time I get a good eyeful.";
+            data[TempRefs.QuestID7] = $"ItemDelivery/Curious tastes pt 1/Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly/Bring Sebastian some of Abigail's Milk/Sebastian {TempRefs.MilkAbig}/-1/750/-1/FALSE/Wow, She was ok with it? Did you tell her who it was for? Oh...I guess that's only fair. I knew she was kind of into me, but this could be amazing!";
+            data[TempRefs.QuestID8] = $"ItemDelivery/Curious tastes pt 2/Sebastian can have some of Abigail's milk, but only if she gets to taste his cum/Being Abigail some of Sebastian's Cum/Abigail {TempRefs.MilkSeb}/-1/750/-1/FALSE/Did you suck it out of him, while looking into his eyes? Touching yourself as you brought him closer to orgasm? Did he cum all over your face, or were you tempted to swallow it instead? Anyway, thanks for that, cumlut @.";
 
-            data[TempRefs.QuestIDWait] = $"Basic/Wait for Abigail/Give Abigail some time to do her show and contact you for the next request/Wait for Abigail/{TempRefs.QuestIDWait}/-1/500/-1/false";
+            data[TempRefs.QuestIDWait] = $"Basic/Wait for Abigail/Give Abigail some time to do her show and contact you for the next request/Wait for Abigail/-1/-1/500/-1/false";
+
+        }
+
+        public bool CheckAll()
+        {
+            bool result = true;
+
+            if (!data.Keys.Contains(TempRefs.QuestID1))
+            {
+                ModFunctions.LogVerbose("Missing Quest 1");
+                result = false;
+            }
+            if (!data.Keys.Contains(TempRefs.QuestID2))
+            {
+                ModFunctions.LogVerbose("Missing Quest 2");
+                result = false;
+            }
+            if (!data.Keys.Contains(TempRefs.QuestID3))
+            {
+                ModFunctions.LogVerbose("Missing Quest 3");
+                result = false;
+            }
+            if (!data.Keys.Contains(TempRefs.QuestID4))
+            {
+                ModFunctions.LogVerbose("Missing Quest 4");
+                result = false;
+            }
+            if (!data.Keys.Contains(TempRefs.QuestID5))
+            {
+                ModFunctions.LogVerbose("Missing Quest 5");
+                result = false;
+            }
+            if (!data.Keys.Contains(TempRefs.QuestID6))
+            {
+                ModFunctions.LogVerbose("Missing Quest 6");
+                result = false;
+            }
+            if (!data.Keys.Contains(TempRefs.QuestID7))
+            {
+                ModFunctions.LogVerbose("Missing Quest 7");
+                result = false;
+            }
+            if (!data.Keys.Contains(TempRefs.QuestID8))
+            {
+                ModFunctions.LogVerbose("Missing Quest 8");
+                result = false;
+            }
+            return result;
 
         }
     }
