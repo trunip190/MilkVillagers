@@ -776,94 +776,108 @@ namespace MilkVillagers
                 //}
             }
 
-            if (!data.ContainsKey("eat_out"))
+            bool Deploy = false;
+            if (!data.ContainsKey("eat_out") && Deploy)
             {
                 if (asset.AssetNameEquals("Characters/Dialogue/Abigail")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Abigail", LogLevel.Trace);
                     data["eat_out"] = $"You know I’m always down for an adventure...wanna adventure down on me?" +
-                                        $"#$b#%You sweep in to kiss her tenderly, only to be met with ferocity and passion.She grabs your shirt and pulls you in, grabbing your hand and ushering it down the front of her pants. " +
-                                        $"#$b#%Your fingers meet soft, warm wetness.Gently, you stroke her clit with your middle finger." +
-                                        $"#$b#%She pulls you backwards until she’s leaning on a wall.You crouch down and tear off her pants and underwear, and, using the wall as leverage, she wraps her legs around your head." +
-                                        $"#$b#%Pressed between her thighs, you submerge yourself into her pussy.Unsurprisingly, her hair there is purple too. " +
-                                        $"#$b#%Your hands holding her hips against the wall, you lick up her juices between her folds, before arriving at her most sensitive area.There, you trace your tongue in a variety of motions. " +
-                                        $"#$b#%At one, you hear her gasp and she pulls on your hair as if it’s her tether to earth." +
-                                        $"#$b#Right there!Right there! Like that!" +
-                                        $"#$b#%You repeat the motion, in the exact same tempo, and she writhes and bucks under your touch.The more you continue, the more vice - like her thighs become." +
-                                        $"#$b#%Suddenly she all but screams as she clenches around you.A literal wave of warm liquid hits your face, soaking you as Abby moans and stares wide-eyed at nothing in particular." +
-                                        $"#$b#%You lower her to the ground and she retrieves her pants as you wipe your face." +
-                                        $"#$b#Where...the FUCK...did you learn that??";
-
+                                        $"#$b#%You sweep in to kiss her tenderly, only to be met with ferocity and passion. She grabs your shirt and pulls you in, grabbing your hand and ushering it down the front of her pants. " +
+                                        $"#$b#%Your fingers meet her soft, warm wetness. Gently, you stroke her clit with your middle finger, coating it in her juices." +
+                                        $"#$b#%She leans backwards against a wall, pulling you with her. You crouch down and tear off her pants and underwear; using the wall as leverage, she wraps her legs around your head." +
+                                        $"#$b#%Pressed between her thighs, you submerge yourself into her pussy. Despite the low light you can see that her hair there is purple too." +
+                                        $"#$b#%Holding her hips agains the wall with your hands, you lick up her juices from between her folds, before arriving at her most sensitive area." +
+                                        $"#$b#%There, you trace your tongue in a variety of motions. You hear her gasp and she pulls on your hair as if it’s her tether to earth." +
+                                        $"#$b#Right there!Right there! Like that!$l" +
+                                        $"#$b#%You repeat the motion, in the exact same tempo, and she writhes and bucks under your touch. The more you continue, the more vice-like her thighs become." +
+                                        $"#$b#@!" +
+                                        $"#$b#%Suddenly she all but screams as she clenches around you. A literal wave of warm liquid hits your face, soaking you as Abby moans and stares wide-eyed at nothing in particular." +
+                                        $"#$b#%You lower her to the ground, and she slowly retrieves her pants as you wipe your face." +
+                                        $"#$b#Where...the FUCK...did you learn that?";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Emily", LogLevel.Trace);
                     data["eat_out"] = $"I’d love to feel our energies intertwine. Come, let’s explore them." +
-                                        $"#$b#%In the blink of an eye Emily is sitting on a nearby table, smiling and lifting her dress.When you step towards her, she opens her legs and her smile turns coy." +
-                                        $"#$b#%You crouch to your knees and duck into the blue hair of her privates. As you explore her soft folds, she places a hand on your head and affectionately strokes your hair." +
+                                        $"#$b#%In the blink of an eye Emily is sitting on a nearby table, smiling and lifting her dress. When you step towards her, she opens her legs and her smile turns coy." +
+                                        $"#$b#%You crouch and duck into the blue hair of her privates. As you explore her soft folds she places a hand on your head, and affectionately strokes your hair." +
                                         $"#$b#%The affection turns into passion when you find her clit and make a variety of motions. Her nails comb your scalp." +
-                                        $"#$b#%When you start a quick looping motion, her hand stops suddenly at the back of your hand and she grasps a fistful of your hair." +
+                                        $"#$b#%When you start a quick looping motion, her hand stops suddenly at the back of your head and she grasps a fistful of your hair." +
                                         $"#$b#Yes, that’s it. Keep going!" +
-                                        $"#$b#%You loop around her clit, making a circle with your tongue but only adding pressure when you feel her grip tighten.You keep that motion, over and over. " +
-                                        $"#$b#%Emily squirms and begins to moan, louder and louder until she yelps and releases her pleasure.It washes over your face and down your neck.She smiles contently, her eyes closed." +
-                                        $"#$b#%Then, after a moment, scoots off the table and smooths down her dress." +
-                                        $"#$b#Wow! I really feel like my Sacral Chakra is aligned.I sense a good balance within me.";
-
-
+                                        $"#$b#%You loop around her clit, making a circle with your tongue but only adding pressure when you feel her grip tighten. You keep doing that motion, over and over, driving her closer to the edge." +
+                                        $"#$b#%Emily squirms and begins to moan, louder and louder until she yelps and releases her pleasure. It washes over your face and down your chin." +
+                                        $"#$b#%She smiles contently, her eyes closed. Then, after a moment, scoots off the table and smooths down her dress." +
+                                        $"#$b#Wow! I really feel like my Sacral Chakra is aligned. I sense a good balance within me, and it's all down to you.";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Haley", LogLevel.Trace);
                     data["eat_out"] = $"Oh, @, that sounds just about perfect right now. Come on then." +
                                         $"#$b#%You crouch down to lift Haley’s skirt, but she pushes you back and instructs you to lie down. You do as you’re told and lie on your back." +
-                                        $"#$b#%Haley grins and climbs on top of you, then lifts her skirt and shuffles until she’s almost sitting on your face. Her skirt falls and you’re in a blue tinted shadow." +
-                                        $"#$b#%She shifts and you find yourself with a mouthful of her pussy, her thighs embracing your cheeks. You start to navigate your way in the dark and realize you found " +
-                                        $"it when Haley moans aloud into the open air." +
-                                        $"#$b#%You reach up and grab her ass, pulling her more onto you, and you more into her.She grinds and rocks on your face, leaning into every motion of your tongue.Her moans become " +
-                                        $"louder and higher. " +
-                                        $"#$b#%Just when you think she’s close, she shifts again." +
-                                        $"#$b#%You don’t think you’d get out of this without something from me, do you ?" +
-                                        $"#$b#%She has turned around, her ass now facing you.You’re still unable to see through her skirt, but you feel her tug at your pants.You’re about to resume your work when open air " +
-                                        $"meets your groin, followed swiftly by the warmth of Haley’s own tongue." +
-                                        $"#$b#%It’s now a race to see who can make the other cum first.You plunge your face back into her womanhood, determined to win. It’s difficult to concentrate, " +
-                                        $"because Haley’s skill with her tongue matches and might even surpass your own." +
-                                        $"#$b#%Wading through the fog she has created in your mind, you manage to resume the rhythm from before.She squeals and you feel her voice resonate through your privates.You let " +
-                                        $"a groan of your own escape your lips. " +
-                                        $"#$b#%Suddenly, her thighs clamp around your face, her hips dig into your neck, and she lets out an intense moan.She doesn't relent, and no sooner has your face been covered in " +
-                                        $"her cum has she gone right back to work on you." +
-                                        $"#$b#%And then her face is covered as well. She rolls off of your body, lying on her back beside you, panting heavily." +
+                                        $"#$b#%Haley grins and climbs on your chest, then lifts her skirt and shuffles until she’s almost sitting on your chin. Her skirt falls and you’re in a blue tinted shadow." +
+                                        $"#$b#%She shifts and you find yourself with a mouthful of her pussy, her thighs embracing your cheeks." +
+                                        $"#$b#%You start to navigate your way in the dark and realize you found it when Haley moans aloud into the open air." +
+                                        $"#$b#%You reach up and grab her ass, pulling her more onto you, and you more into her. She grinds and rocks on your face, leaning into every motion of your tongue." +
+                                        $"#$b#%Her moans become louder and higher. Just when you think she’s close, she shifts again." +
+                                        $"#$b#You don’t think you’d get out of this without something from me, do you ?" +
+                                        $"#$b#%She has turned around, her ass now facing you. You’re still unable to see through her skirt, but you feel her tug at your pants." +
+                                        $"#$b#%You’re about to resume your work when open air meets your groin, followed swiftly by the warmth of Haley’s own tongue." +
+                                        $"#$b#%It’s now a race to see who can make the other cum first. You plunge your face back into her womanhood, determined to win." +
+                                        $"#$b#%It’s difficult to concentrate, because Haley’s skill with her tongue matches and might even surpass your own." +
+                                        $"#$b#%Wading through the fog she has created in your mind, you manage to resume the rhythm from before. She squeals and you feel her voice resonate through your genitals." +
+                                        $"#$b#%You let a groan of your own escape your lips. Suddenly, her thighs clamp around your face, her hips dig into your neck, and she lets out an intense moan." +
+                                        $"#$b#%She doesn't relent, and no sooner has your face been covered in her cum has she gone right back to work on you." +
+                                        $"#$b#%Her face is soon covered as well. She rolls off of your body, lying on her back beside you, panting heavily." +
                                         $"#$b#Okay, I’ll admit it, you’re good. I thought I was in over my head for a second. *Giggle * No pun intended.";
-
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Leah", LogLevel.Trace);
-                    data["eat_out"] = $"You know when I was dating Kel, they’d never go down on me. You’re such a breath of fresh air, @." +
-                                        $"#$b#%Leah cocks her head at you, giving you a seductive look as she unclips her suspenders from her jeans. She lowers them to her ankles, and steps out of them while walking towards you. " +
-                                        $"#$b#%Her lips meet yours, smoothly and tenderly. You hold her to you and she puts a palm on your chest and gently ushers you to lie down on the ground." +
-                                        $"#$b#%As she crawls up your body your hands run across her smooth, soft thighs.She settles on your face, adjusting to line up her warm, wet pussy with your mouth. " +
-                                        $"#$b#%While your tongue explores her privates, your hand explores her thighs and waist before settling on her ass.You give it a squeeze, and it’s firm and taut. " +
-                                        $"#$b#%Leah begins to rock back and forth, grinding on your face and coating it in her warm succulent juices. You have to hold her still to be able to properly maintain contact with her clit. " +
-                                        $"#$b#%Once you find her rhythm, she squirms above you even more. Your hands clamp down on her thighs and you firmly secure her to you." +
+                    data["eat_out"] = $"You know, when I was dating Kel they’d never go down on me. You’re such a breath of fresh air, @." +
+                                        $"#$b#%Leah cocks her head at you, giving you a seductive look as she unclips her suspenders from her jeans. She lowers them to her ankles, and steps out of them while walking towards you." +
+                                        $"#$b#%Her lips meet yours, smoothly and tenderly. You hold her to you and she puts a palm on your chest, gently guiding you to lie down on the ground." +
+                                        $"#$b#%As she crawls up your body your hands run across her smooth, soft thighs. She settles on your face, adjusting to line up her warm, wet pussy with your mouth." +
+                                        $"#$b#%Your hand explores her thighs and waist, while your tongue explores her privates, before settling on her ass. You give it a squeeze, finding it firm and taut." +
+                                        $"#$b#%Leah begins to rock back and forth, grinding on your face and coating it in her warm succulent juices." +
+                                        $"#$b#%You have to hold her still to be able to properly maintain contact with her clit, but once you find her rhythm she squirms above you even more." +
+                                        $"#$b#%Your hands squeeze her thighs and firmly secure her to you." +
                                         $"#$b#Fuck fuck fuck fuuggllerrggpharlgarnngh" +
-                                        $"#$b#%Her words get mingled and garbled as she completely loses control.She stops writhing around and freezes, every tendon and tissue in her body tensing and seizing." +
-                                        $"#$b#%Her hands grasp the hair above your forehead and she continues to scream sounds to the open air, none of them actually forming words despite her best efforts." +
+                                        $"#$b#%Her words get mingled and garbled as she completely loses control. She stops writhing around and freezes, every tendon and tissue in her body tensing and seizing." +
+                                        $"#$b#%Her hands grasp the hair above your forehead and she continues to scream sounds to the open air, none of them actually forming coherant words despite her best efforts." +
                                         $"#$b#%Her cum bursts out of her, coating your face and soaking your hair. In contrast to her previous writhing, she is now perfectly still, staring up at the sky." +
-                                        $"#$b#%The only movement is her heaving breasts and she tries to regain a sense of consciousness. Then she leans off to the side and flops on the ground, completely drained." +
-                                        $"#$b#Oh Yoba, I missed...how good that feels. If you could just..toss me my pants.I’m gonna...need some time...to recover here.";
-
+                                        $"#$b#%The only movement is in her heaving breasts while she tries to regain a sense of composure. Then she leans off to the side and flops on the ground, completely drained." +
+                                        $"#$b#Oh Yoba, I missed...how good that feels. If you could just..toss me my pants. I’m gonna...need some time...to recover here.";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Maru", LogLevel.Trace);
-                    data["eat_out"] = $"";
-
+                    data["eat_out"] = $"I mean, I’ve invented something that can do this for me. It isn’t as good as the real thing, however. No emotional connection, you know?" +
+                                        $"#$b#%Maru unbuckles her overalls and shimmies out of them, pushing her panties down, too. For good measure, she also takes off her top and bra, standing before you, fully nude and confident." +
+                                        $"#$b#%You stride towards her, and she rushes to meet your embrace. You feel every curve of her against your body." +
+                                        $"#$b#%Your lips touch hers and your hands run down her back, across her ass, then around again to her front. You cup and tease her breasts, and she whimpers under your contact." +
+                                        $"#$b#%She lies down on the floor and pulls you with her. Her hands usher your head towards her pussy, and her legs straddle your torso. You begin to lick and tease her, and she writhes underneath you." +
+                                        $"#$b#%When you find her sweet spot, her hips buck. You wrap your arms around and under her thighs and continue, pausing occassionally to lap up her wetness." +
+                                        $"#$b#No...focus on the first thing...no pauses...don’t stop..." +
+                                        $"#$b#%You do as you’re told, and turn all your attention into licking her clit. Maru’s hands lay flat on the ground, pressing down as her pelvis jerks upward." +
+                                        $"#$b#%You have to hold her down to continue your precise pattern. She releases a cry of pleasure and you find your face coated in her cum." +
+                                        $"#$b#%You pull back and Maru grabs a cloth from the pocket of her overalls on the floor and uses a shaky hand to wipe her climax off your face. She smiles tenderly at you." +
+                                        $"#$b#You’re a lot better than the machine. However, I would love to study your motions. Just to maybe get more ideas for an upgrade...come by again later, okay?";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Penny", LogLevel.Trace);
-                    data["eat_out"] = $"";
-
+                    data["eat_out"] = $"Oh, @, I don’t know...are you sure? I’m a little self-conscious about that area, but if you really want to, then okay." +
+                                        $"#$b#%You hold Penny’s hands and gently guide her to a chair. You hike up her skirt and remove her panties in a slow, steady motion. You don’t want to be too forceful and rush this." +
+                                        $"#$b#%You spread her legs with your hands and check Penny’s face to wordlessly ask permission. She nervously exhales and nods to you, giving you the go ahead. With her consent, you lean forwards." +
+                                        $"#$b#%Her ginger pubic hair is wild, contrasting her usual primness. You dive right into the briar patch and lick her labia, swirling around the entrance to her vagina." +
+                                        $"#$b#%Penny releases a sigh of contentment, and gently strokes the back of your head. You dip your tongue inside her and swirl it around." +
+                                        $"#$b#%Her sighs turn to gasps; then when you head north, to give her clit attention, her gasps turn into moans." +
+                                        $"#$b#Oh, @, how are you doing this to me?" +
+                                        $"#$b#%The more you work her center, the louder her moans become. You never would have thought such a quiet, reserved girl could make such loud, untamed sounds." +
+                                        $"#$b#%Her cries reverberate throughout the area, bouncing off the walls. The hand that was once gently stroking your hair is now tangled in it and grabbing it like a lifeline." +
+                                        $"#$b#%She all but screams to the sky as a wave of clear fluid glazes your face. You lap up the fluid that remains coateing her, and then pull out and face her while wiping your mouth." +
+                                        $"#$b#I..I..wow. You made me experience parts of my sexuality I didn’t even know were there. I’m going to have to read up on this...";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
                 {
@@ -881,92 +895,110 @@ namespace MilkVillagers
                                         $"#$b#%She pulsates and quivers and lets out a choking gasp as warm fluid coats you and trails down your chin." +
                                         $"#$b#%She stays still for a few moments, recalibrating, and then hops down from the counter on shaky legs.*" +
                                         $"#$b#Th - th - thanks...I - I r - really n - needed that.Just need to c -catch my b-breath here.";
-
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Jodi", LogLevel.Trace);
                     data["eat_out"] = $"Oh, it’s been too long since someone has pleasured me. Kent’s been dealing with his own problems lately, not much time for my needs. You wouldn’t mind?" +
-                                        $"To answer her question, you wordlessly guide her to the counter and hoist her up on top of it.You slide off both her jeans and panties, and discard them on the floor." +
-                                        $"Teasingly, you run your tongue up her thighs; circling but not yet touching her pussy.She twitches with anticipation every time you come near." +
-                                        $"Eventually:" +
-                                        $"Oh, fuck it." +
-                                        $"Jodi grabs the back of your head and pushes your head right in. You’re surprised yet aroused by her sudden assertiveness. Apparently it HAS been too long." +
-                                        $"You place your hands on her outer thighs and begin to swirl your tongue around the opening, dipping in every now and then, before making your way upwards to the clit, adding pressure the way there." +
-                                        $"As soon as you taste the round nub, Jodi gasps and leans backwards, bucking her hips. You begin to give it upward flicks of your tongue, and you feel her tense with each flick." +
-                                        $"Then you start a rapid but light up and down motion, and her ankles find their way around your neck and lock behind you." +
-                                        $"You feel each muscle in her legs clench..." +
-                                        $"Oh my goodness!!!" +
-                                        $"Shaking, Jodi releases her ravishment into your mouth.It spills down your chin and onto the floor.She doesn’t stop quivering, and takes a moment before easing herself onto the ground. " +
-                                        $"Then she stumbles over and grabs her pants and underwear with shaking hands." +
-                                        $"I’m so sorry for being so vulgar earlier, I don’t usually curse.I just really, really needed that.Now if you excuse me, I—um—have to go mop this up…";
+                                        $"#$b#%To answer her question, you wordlessly guide her to the counter and hoist her up on top of it. You slide off both her jeans and panties, and discard them on the floor." +
+                                        $"#$b#%Teasingly, you run your tongue up her thighs, circling but not yet touching her pussy. She twitches with anticipation every time you come near. Eventually..." +
+                                        $"#$b#Oh, fuck it." +
+                                        $"#$b#%Jodi grabs the back of your head and pushes your head right in. You’re surprised yet aroused by her sudden assertiveness. Apparently it HAS been too long." +
+                                        $"#$b#%You place your hands on the outside of her thighs and begin to swirl your tongue around the opening, dipping in every now and then, before making your way upwards to her clit, adding pressure all the way there." +
+                                        $"#$b#%As soon as you taste the round nub, Jodi gasps and leans backwards, bucking her hips. You begin to give it upward flicks of your tongue, and you feel her tense with each flick." +
+                                        $"#$b#%Then you start a rapid but light up and down motion, and her kness find their way around your neck and lock behind you." +
+                                        $"#$b#%You feel each muscle in her legs clench..." +
+                                        $"#$b#Oh my goodness!!!" +
+                                        $"#$b#%Shaking, Jodi releases her pleasure into your mouth. It spills down your chin and onto the floor. She doesn’t stop quivering, and takes a moment before easing herself onto the ground." +
+                                        $"#$b#%Then she stumbles over and grabs her pants and underwear with shaking hands." +
+                                        $"#$b#I’m so sorry for being so vulgar earlier; I don’t usually curse. I just really, really needed that. Now if you excuse me, I—um—have to go mop this up…";
 
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Marnie", LogLevel.Trace);
-                    data["eat_out"] = $"I never thought someone as young as you would be attracted to someone my age. Lewis does his best, but I don’t think his mind is exactly with us when we’re together. " +
-                                        $"I’d like to see what you have to offer." +
-                                        $"#$b#%Marnie walks over to a nearby chair, hoists up her dress, and sits down.She spreads her thick thighs and presents her pussy." +
-                                        $"She looks at you with a mix of caution and anticipation in her eyes. You stride forward and crouch down in front of her then dive right in. " +
-                                        $"She lets out a soft gasp and lets go of the hem of her dress so it falls over and covers your head. You continue your work now shrouded in darkness." +
-                                        $"Spreading her thighs with your hands, you explore every flap and fold.Your tongue flicks her clit.Marnie’s gasps become sharper. " +
-                                        $"You slip a finger in and curl it upwards and find a swelled bumpy patch about an inch inwards. When you tickle it, she lets out a cry of pleasure. " +
-                                        $"Her thighs compress around you and you’re almost trapped, borderline smothered. " +
-                                        $"You continue to simultaneously work her clit and the patch inside her and the force from her thighs becomes stronger and stronger." +
+                    data["eat_out"] = $"I never thought someone as young as you would be attracted to someone my age. Lewis does his best, but I don’t think his mind is exactly with us when we’re together." +
+                                        $"#$b#I’d like to see what you have to offer." +
+                                        $"#$b#%Marnie walks over to a nearby chair, hoists up her dress, and sits down. She spreads her thick thighs and presents her pussy." +
+                                        $"#$b#%She looks at you with a mix of caution and anticipation in her eyes. You stride forward and crouch down in front of her then dive right in." +
+                                        $"#$b#%She lets out a soft gasp and lets go of the hem of her dress so it falls over and covers your head. You continue your work now shrouded in darkness." +
+                                        $"#$b#%Spreading her thighs with your hands, you explore every flap and fold. Your tongue flicks her clit, and Marnie’s gasps become sharper." +
+                                        $"#$b#%You slip a finger in and curl it upwards and find a swelled bumpy patch about an inch inwards." +
+                                        $"#$b#%When you tickle it, she lets out a cry of pleasure. Her thighs compress around you and you’re almost trapped; borderline smothered." +
+                                        $"#$b#%You continue to simultaneously work her clit and the patch inside her and the force from her thighs becomes stronger and stronger." +
                                         $"#$b#@, I’m...I’m..!" +
-                                        $"#$b#%Just when you think you’ll pass out from lack of oxygen, a stream of her cum blasts you in the face. " +
-                                        $"You pull out from underneath her dress and fall backwards on the floor; soaked, breathing hard, and gasping for air." +
-                                        $"After the spots in your eyes clear up, you glance at Marnie.She’s looking at you with concern.You give her a smile to let her know you’re okay." +
-                                        $"#$b#Sorry, I didn’t know it was possible for oral sex to feel that good.I guess Lewis didn’t set the bar very high…";
-
+                                        $"#$b#%Just when you think you’ll pass out from lack of oxygen, a stream of her cum blasts you in the face." +
+                                        $"#$b#%You pull out from underneath her dress and fall backwards on the floor; soaked, breathing hard, and gasping for air." +
+                                        $"#$b#%After the spots in your eyes clear up, you glance at Marnie. She’s looking at you with concern. You give her a smile to let her know you’re okay." +
+                                        $"#$b#Sorry, I didn’t know it was possible for oral sex to feel that good. I guess Lewis didn’t set the bar very high…";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Robin", LogLevel.Trace);
-                    data["eat_out"] = $"";
-
+                    data["eat_out"] = $"Demetrius gets too wrapped up in the technicalities of it all; he never really just enjoys the moment. I'm game if you are?" +
+                                        $"#$b#%Robin hops up on a counter and beckons you. You stride over and unbutton her jeans, and rip them and her panties right off, tossing them aside." +
+                                        $"#$b#%Robin grabs your head by the hair and guides you down. You find yourself right in the middle of her delicious pussy, and she’s already soaking." +
+                                        $"#$b#%Your tongue explores her, getting a taste of every nook and cranny, every fold. Robin sighs with pleasure. You find your way to her clit, and begin to tease it, flicking it with your tongue." +
+                                        $"#$b#%She moans and flops backwards on the counter, going from sitting to lying down, legs akimbo. Her hands move to her chest and she massages her own breasts while you work." +
+                                        $"#$b#%You slightly alter your rhythm, adding just a hint more pressure, and her moans become louder, almost evolving into screams." +
+                                        $"#$b#Yes...yes...YES!!" +
+                                        $"#$b#%Robin shouts her continuous affirmations while you maintain that exact motion and pattern. Her hands are pounding, slapping the counter, her legs squeezing you tightly as she climaxes under your attention." +
+                                        $"#$b#%A stream of her fluids hit your face like a hose, making you start. Robin remains lying down, panting and smiling softly. After a moment she props herself up on her elbows and grins at you. " +
+                                        $"#$b#Damn, you sure are a treat. Mind fetching my pants for me?";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Pam", LogLevel.Trace);
-                    data["eat_out"] = $"";
-
+                    data["eat_out"] = $"You really want to do that to me? I don’t get a lot of offers like that. Sure kid, go to town." +
+                                        $"#$b#%Pam hobbles over to a chair and pulls down her sweatpants. She lifts up her gut and spreads her legs for you. As you get close to her crotch, an odor hits your nose." +
+                                        $"#$b#%It’s a mixture of sweat, musk, and...is that booze? You have no clue how her pussy manages to smell like alcohol but dammit, your momma didn’t raise no quitter so you hold your breath and dive in." +
+                                        $"#$b#%It somehow tastes even more rank than it smells. It feels like months of working with manure at the farm have managed to strengthen your nose and stomach for this moment." +
+                                        $"#$b#%With her belly almost resting atop your head, you search for her clit through her unkempt nether hair. Once you find it, you lick it lightly and slowly. Pam responds by groaning with pleasure." +
+                                        $"#$b#Holy shit, @. That’s the ticket." +
+                                        $"#$b#%Happy that you managed to find her rhythm preference on the first try, you continue in that fashion. Pam groans louder and louder." +
+                                        $"#$b#%Suddenly streams of clear liquid ebb their way out of her and coat you. It’s over. You retreat from her depths and sit on the ground." +
+                                        $"#$b#Damn, that was a treat. You gotta do that again sometime, ya hear?";
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Sandy", LogLevel.Trace);
                     data["eat_out"] = $"";
-
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Evelyn", LogLevel.Trace);
                     data["eat_out"] = $"";
-
                 }
 
                 if (asset.AssetNameEquals("Characters/Dialogue/Sophia"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Sophia", LogLevel.Trace);
                     data["eat_out"] = $"";
-
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Olivia"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Olivia", LogLevel.Trace);
                     data["eat_out"] = $"You want to eat me out? Be my guest, sweetie. Show me what you got." +
-                                        $"#$b#% Olivia gulps down the rest of her wine and sets the glass down. She looks at you with a sense of challenge in her eyes. She may be a widow, but she’s no spinster.Instead of lifting up her red dress, she unzips the back and lets the whole thing drop to the floor.Underneath she has expensive black lace lingerie.She puts one hand on her hip and beckons you with the other.You charge towards her, your lips clashing with hers. You lift her up and place her on a counter. As you move to kiss her neck, she reaches behind her back and unhooks her bra.Your lips move to her breasts and you give her nips a little suction. She suppresses a whimper. Then you continue your journey south and remove her dark panties with your teeth, revealing a smooth, clean shaven pussy.Olivia wraps her legs around your neck and pulls you in. In less than a second, you find yourself in her warm, silky smooth folds. You lick her clit in every which way, every pattern, every frequency you can think of; but Olivia seems to remain pleasantly content at most.It is only when you start alternating between two particular sets of motions does she show a change in her demeanor. Her eyes widen, she inhales a very sharp gasp, and her legs tighten around you." +
-                                        $"#$b#%For the love of all things holy and unholy don’t you dare stop doing that." +
-                                        $"#$b#%ou continue, careful not to change a single thing.You dare not mess up the rhythm and lose her satisfaction.One trip up, one lost beat, and you’re afraid all the pleasure you’ve built up in her will become undone and revoked. You concentrate so hard you barely notice that her breathing has become erratic and her legs have clenched even more tightly around you.It isn’t until her juices are hitting you in the face that you know you’ve done your job right.Olivia gracefully eases herself down on the floor and goes to retrieve her clothing. She remarks over her shoulder: " +
-                                        $"#$b#%Hmmm..not bad, sweetie.But you should definitely stop by again sometime. For practice, I mean.";
+                                        $"#$b#%*Olivia gulps down the rest of her wine and sets the glass down. She looks at you with a sense of challenge in her eyes. She may be a widow, but she’s no spinster." +
+                                        $"#$b#%Instead of lifting up her red dress, she unzips the back and lets the whole thing drop to the floor, revealing expensive black lace lingerie underneath." +
+                                        $"#$b#%She puts one hand on her hip and beckons you with the other. You charge towards her, your lips clashing with hers; you lift her up and plant her on a counter." +
+                                        $"#$b#%As you move to kiss her neck, she reaches behind her back and unhooks her bra. Your lips move to her breasts and you give her nips a little suck." +
+                                        $"#$b#%She suppresses a whimper, then you continue your journey south and remove her dark panties with your teeth, revealing a smooth, clean shaven pussy." +
+                                        $"#$b#%Olivia wraps her legs around your neck and pulls you in; in less than a second, you find yourself in her warm, silky smooth folds." +
+                                        $"#$b#%You lick her clit every which way, every pattern, every frequency you can think of, but Olivia seems to remain pleasantly content at most." +
+                                        $"#$b#%It is only when you start alternating between two particular sets of motions that she shows a change in her demeanor. Her eyes widen, she inhales a very sharp gasp, and her legs tighten around you." +
+                                        $"#$b#For the love of all things holy and unholy don’t you dare stop doing that." +
+                                        $"#$b#%You continue, careful not to change a single thing. You dare not mess up the rhythm and lose her satisfaction." +
+                                        $"#$b#%One trip up, one lost beat, and you’re afraid all the pleasure you’ve built up in her will become undone and revoked." +
+                                        $"#$b#%You concentrate so hard you barely notice that her breathing has become erratic, and her legs have clenched even more tightly around you." +
+                                        $"#$b#%It isn’t until her juices are hitting you in the face that you know you’ve done your job right. Olivia gracefully eases herself down on the floor and goes to retrieve her clothing." +
+                                        $"#$b#Hmmm..not bad, sweetie. But you should definitely stop by again sometime. For practice, I mean.";
 
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Susan"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Susan", LogLevel.Trace);
                     data["eat_out"] = $"";
-
                 }
                 if (asset.AssetNameEquals("Characters/Dialogue/Claire"))
                 {

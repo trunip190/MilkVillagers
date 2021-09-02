@@ -1,7 +1,7 @@
 ﻿{
 	"Name": "MilkVillagers",
 	"Author": "Trunip190",
-	"Version": "1.0.7",
+	"Version": "1.0.8",
 	"Description": "Adds new objects",
 	"UniqueID": "Trunip190.JA.MilkVillagers",
 	"UpdateKeys": ["Nexus:5948"],

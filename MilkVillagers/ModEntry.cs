@@ -64,101 +64,100 @@ namespace MilkVillagers
             #region Generic Mod Config
             // get Generic Mod Config Menu API (if it's installed)
             var api = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
-            if (api is null)
-                return;
-
-
-            // register mod configuration
-            api.RegisterModConfig(
-                mod: this.ModManifest,
-                revertToDefault: () => this.Config = new ModConfig(),
-                saveToFile: () => this.Helper.WriteConfig(this.Config)
-            );
-
-            // let players configure your mod in-game (instead of just from the title screen)
-            api.SetDefaultIngameOptinValue(this.ModManifest, true);
-            api.SubscribeToChange(this.ModManifest, UpdateConfig);
-
-            // add some config options
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Milking Button",
-                optionDesc: "Set button for milking",
-                optionGet: () => this.Config.MilkButton,
-                optionSet: (SButton var) => this.Config.MilkButton = var
+            if (api != null)
+            {
+                // register mod configuration
+                api.RegisterModConfig(
+                    mod: this.ModManifest,
+                    revertToDefault: () => this.Config = new ModConfig(),
+                    saveToFile: () => this.Helper.WriteConfig(this.Config)
                 );
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Milk Females",
-                optionDesc: "Lets you milk female characters if they like you enough",
-                optionGet: () => this.Config.MilkFemale,
-                optionSet: value => this.Config.MilkFemale = value
-            );
+                // let players configure your mod in-game (instead of just from the title screen)
+                api.SetDefaultIngameOptinValue(this.ModManifest, true);
+                api.SubscribeToChange(this.ModManifest, UpdateConfig);
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Milk Males",
-                optionDesc: "Lets you milk male characters if they like you enough",
-                optionGet: () => this.Config.MilkMale,
-                optionSet: value => this.Config.MilkMale = value
-            );
+                // add some config options
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Milking Button",
+                    optionDesc: "Set button for milking",
+                    optionGet: () => this.Config.MilkButton,
+                    optionSet: (SButton var) => this.Config.MilkButton = var
+                    );
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Collect Items?",
-                optionDesc: "Collect items, or just sex?",
-                optionGet: () => this.Config.CollectItems,
-                optionSet: value => this.Config.CollectItems = value
-            );
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Milk Females",
+                    optionDesc: "Lets you milk female characters if they like you enough",
+                    optionGet: () => this.Config.MilkFemale,
+                    optionSet: value => this.Config.MilkFemale = value
+                );
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Simple milk/cum",
-                optionDesc: "Replace individual items with generic ones.",
-                optionGet: () => this.Config.StackMilk,
-                optionSet: value => this.Config.StackMilk = value
-            );
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Milk Males",
+                    optionDesc: "Lets you milk male characters if they like you enough",
+                    optionGet: () => this.Config.MilkMale,
+                    optionSet: value => this.Config.MilkMale = value
+                );
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "ExtraDialogue",
-                optionDesc: "Enable Abigail's everyday dialogue changes?",
-                optionGet: () => this.Config.ExtraDialogue,
-                optionSet: value => this.Config.ExtraDialogue = value
-            );
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Collect Items?",
+                    optionDesc: "Collect items, or just sex?",
+                    optionGet: () => this.Config.CollectItems,
+                    optionSet: value => this.Config.CollectItems = value
+                );
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Quests",
-                optionDesc: "Enable quest content",
-                optionGet: () => this.Config.Quests,
-                optionSet: value => this.Config.Quests = value
-            );
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Simple milk/cum",
+                    optionDesc: "Replace individual items with generic ones.",
+                    optionGet: () => this.Config.StackMilk,
+                    optionSet: value => this.Config.StackMilk = value
+                );
 
-            //api.RegisterSimpleOption(
-            //    mod: this.ModManifest,
-            //    optionName: "Iliress' Dialogue",
-            //    optionDesc: "Enable/disable 3rd party dialogue?",
-            //    optionGet: () => this.Config.ThirdParty,
-            //    optionSet: value => this.Config.ThirdParty = value
-            //);
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "ExtraDialogue",
+                    optionDesc: "Enable Abigail's everyday dialogue changes?",
+                    optionGet: () => this.Config.ExtraDialogue,
+                    optionSet: value => this.Config.ExtraDialogue = value
+                );
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Debug mode",
-                optionDesc: "Enable debug mode content",
-                optionGet: () => this.Config.Debug,
-                optionSet: value => this.Config.Debug = value
-            );
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Quests",
+                    optionDesc: "Enable quest content",
+                    optionGet: () => this.Config.Quests,
+                    optionSet: value => this.Config.Quests = value
+                );
 
-            api.RegisterSimpleOption(
-                mod: this.ModManifest,
-                optionName: "Verbose Dialogue",
-                optionDesc: "Enable verbose dialogue for tracking errors",
-                optionGet: () => this.Config.Verbose,
-                optionSet: value => this.Config.Verbose = value
-            );
+                //api.RegisterSimpleOption(
+                //    mod: this.ModManifest,
+                //    optionName: "Iliress' Dialogue",
+                //    optionDesc: "Enable/disable 3rd party dialogue?",
+                //    optionGet: () => this.Config.ThirdParty,
+                //    optionSet: value => this.Config.ThirdParty = value
+                //);
+
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Debug mode",
+                    optionDesc: "Enable debug mode content",
+                    optionGet: () => this.Config.Debug,
+                    optionSet: value => this.Config.Debug = value
+                );
+
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Verbose Dialogue",
+                    optionDesc: "Enable verbose dialogue for tracking errors",
+                    optionGet: () => this.Config.Verbose,
+                    optionSet: value => this.Config.Verbose = value
+                );
+            }
             #endregion
 
             Helper.Content.AssetEditors.Add(_itemEditor);
@@ -763,42 +762,43 @@ namespace MilkVillagers
                 {
                     //if (Config.Debug)
                     //{
-                        //TODO Filter choices by gender?
-                        List<Response> choices;
-                        if (target.gender == 0)
+                    //TODO Filter choices by gender?
+                    List<Response> choices;
+                    if (target.gender == 0)
+                    {
+                        choices = new List<Response>();
+                        if (Config.MilkMale)
+                            choices.Add(new Response("milk_fast", "Fast BJ"));
+
+                        choices.Add(new Response("BJ", "Give them a blowjob"));
+                    }
+                    else
+                    {
+                        choices = new List<Response>();
+                        if (Config.MilkFemale)
                         {
-                            choices = new List<Response>();
-                            if (Config.MilkMale)
-                                choices.Add(new Response("milk_fast", "Fast BJ"));
-
-                            choices.Add(new Response("BJ", "Give them a blowjob"));
+                            choices.Add(new Response("milk_start", "Milk them"));
+                            choices.Add(new Response("milk_fast", "Fast Milk"));
                         }
-                        else
-                        {
-                            choices = new List<Response>();
-                            if (Config.MilkFemale)
-                            {
-                                choices.Add(new Response("milk_start", "Milk them"));
-                                choices.Add(new Response("milk_fast", "Fast Milk"));
-                            }
-                            choices.Add(new Response("eat_out", "Give Cunnilingus")); //TODO Not written yet.
-                        }
+                        //choices.Add(new Response("eat_out", "Give Cunnilingus")); //TODO Not written yet.
+                    }
 
-                        //choices.Add(new Response("cunni", "Ask them to eat you out")); //TODO not written yet.
-                        //choices.Add(new Response("sex", "Ask them for sex")); //TODO not written yet.
-                        choices.Add(new Response("abort", "Do nothing"));
+                    //choices.Add(new Response("cunni", "Ask them to eat you out")); //TODO not written yet.
+                    //choices.Add(new Response("sex", "Ask them for sex")); //TODO not written yet.
+                    choices.Add(new Response("abort", "Do nothing"));
 
-                        Game1.currentLocation.createQuestionDialogue($"What do you want to do with {target.name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                    currentTarget = target;
+                    running = false;
+
+                    Game1.currentLocation.createQuestionDialogue($"What do you want to do with {target.name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                     //}
                     //else
                     //{
-                        //if (target.gender == 1)
-                        //    ActionOnNPC(target, who);
-                        //else
-                        //    ActionOnNPC(target, who, "BJ");
+                    //if (target.gender == 1)
+                    //    ActionOnNPC(target, who);
+                    //else
+                    //    ActionOnNPC(target, who, "BJ");
                     //}
-                    currentTarget = target;
-                    running = false;
                 }
                 else if (Config.Debug && who.hasItemInInventory(TempRefs.MilkQi, 1))
                 {
@@ -818,7 +818,10 @@ namespace MilkVillagers
 
         public void DialoguesSet(Farmer who, string action)
         {
-            if (action == "abort")
+            if (Config.Verbose)
+                Game1.addHUDMessage(new HUDMessage($"Chose {action}  with {currentTarget.name}"));
+
+            if (action == null || action == "abort")
                 return;
             else if (action == "time_freeze")
             {
@@ -828,8 +831,6 @@ namespace MilkVillagers
             else
                 ActionOnNPC(currentTarget, who, action);
 
-            if (Config.Verbose)
-                Game1.addHUDMessage(new HUDMessage($"Chose {action}  with {currentTarget.name}"));
         }
 
         private void ActionOnNPC(NPC npc, Farmer who, string action = "milk_start")
