@@ -1,8 +1,10 @@
   <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>MilkVillagers</AssemblyName>
+    <RootNamespace>MilkVillagers</RootNamespace>
+    <Version>1.0.0</Version>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>_JA_MilkVillagers</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -197,7 +199,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.3.0" />
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>

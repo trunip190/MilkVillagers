@@ -45,7 +45,7 @@ namespace MilkVillagers.Asset_Editors
 
             if (asset.AssetNameEquals("Data/Events/Seedshop"))
             {
-                #region Abigail reward event 594801
+                #region Abigail reward event 594801 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventAbi}");
                 data[$"{TempRefs.EventAbi}" +                    // event id
                         $"/d Mon Wed Fri" +         //not Mon, Wed or Fri 
@@ -109,7 +109,7 @@ namespace MilkVillagers.Asset_Editors
 
             if (asset.AssetNameEquals("Data/Events/Hospital"))
             {
-                #region Harvey Event 594802
+                #region Harvey Event 594802 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventHarvey}");
                 data[$"{TempRefs.EventHarvey}" +
                                     "/d Tue Thu" +
@@ -184,7 +184,7 @@ namespace MilkVillagers.Asset_Editors
                                     "/end";
                 #endregion
 
-                #region Maru/Harvey Event 594803
+                #region Maru/Harvey Event 594803 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HarMar}");
                 data[$"{TempRefs.Event3HarMar}" +
                                     "/d Mon Wed Fri Sat Sun" +
@@ -313,7 +313,7 @@ namespace MilkVillagers.Asset_Editors
 
             if (asset.AssetNameEquals("Data/Events/LeahHouse"))
             {
-                #region Leah painting quest 594804
+                #region Leah painting quest 594804 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventLeah}");
                 data[$"{TempRefs.EventLeah}" +                    // event id
                         $"/n LeahNudePainting" +    //need her invitation mail first
@@ -419,7 +419,7 @@ namespace MilkVillagers.Asset_Editors
                         $"/message \"Leah cleans her brush and rests it on the stand, then walks over to you, pausing every couple of steps as she strips out of her clothing. She has smudge marks on her face from where she has wiped away her sweat, and her ponytail has come loose, but she looks as stunning as ever." +
                         $"#Leah presses her naked form against yours, and starts rubbing herself against you. She hooks one leg around yours, and slowly slides down your thigh, leaving a wet trail. She lets out a little moan.\"" +
                         $"/speak Leah \"Oh @, can you feel just how wet you make me?\"" +
-                        $"/message \"Leahs hands stroke reach around your waist, grabbing a your butt and squeezing as she brings her mouth to your sex and inhales. She takes your lips her mouth, and starts sucking softly, licking up the inside and then circling the entrance to your secret place" +
+                        $"/message \"Leahs hands stroke reach around your waist, grabbing your butt and squeezing as she brings her mouth to your sex and inhales. She takes your lips her mouth, and starts sucking softly, licking up the inside and then circling the entrance to your secret place" +
                         $"#You rest your hands on her head for support as she goes to town on you, showing the same dedication and skill to your form as she did to her painting, bringing colour to your body as it flushes, and causing your lips to swell with lust. She pauses for a moment, and asks you to lie down on her rug, then dives back between your legs." +
                         $"#The light from the fireplace casts shadows on the wall, your form mingling with Leah's as she coaxes your closer to orgasm. She starts licking and sucking your clit as her fingers pump in and out of your leaking pussy, her other hand furious between her own legs.\"" +
                         $"/speak Leah \"@...@...I'm getting close. Cum for me, please?\"" +
@@ -434,11 +434,85 @@ namespace MilkVillagers.Asset_Editors
                         $"/end";
                 #endregion
 
+                #region Leah/player exhibitionism
+                if (false) //not finished
+                {
+                    ModFunctions.LogVerbose($"Loading event Leah Exhibitionism {TempRefs.EventLeahExhibit} - need to write");
+                    data[$"{TempRefs.EventLeahExhibit}" +
+
+                            // Conditions
+                            "D <name>" +                // player is dating the given NPC name.
+                            "J 	" +                     // player has finished the Joja Warehouse.
+                            "L" +                       // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                            "M <number>" +              // player has at least this much money.
+                            "O <name>" +                // player is married to that NPC.
+                            "S <secret note ID>" +      // player has seen the Secret Note with the given ID.
+                            "a <x> <y>" +               // player is on that tile position.
+                            "b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
+                            "c <number>" +              // player has at least that many free inventory slots.
+                            "e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
+                            "f <name> <number>" +       // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                            "g <gender> 	" +         // player is the specified gender (male or female).
+                            "h <pet> 	" +             // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                            "i <item ID> 	" +         // player has specified item in their inventory.
+                            "j <number> 	" +         // player has played more than <number> days.
+                            "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
+                            "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
+                            "m <number> 	" +         // player has earned at least this much money (regardless of how much they " + //ly have).
+                            "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
+                            "o <name> 	" +             // player is not married to that NPC.
+                            "p <name>" +                // Specified NPC is in the player's location.
+                            "q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                            "s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                            "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                            "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
+                            "x <letter ID>"] =          // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+
+                            //Leah needs a model for a live art piece, entitled 'freedom in/through bondage' (maybe misunderstanding?)
+
+                            //farmer walks in
+                            "/emote Leah 32" +
+                            "/textAboveHead Leah \"hum hum\"" +
+                            "/speak Leah \"I'll just be a minute, @.\"" +
+                            //move farmer walks up to Leah
+                            "/pause 700" +
+                            "/speak Leah \"Thanks for waiting for me, @. I was just reading a letter from an old friend in Zuzu city about an upcoming exhibition.\"" +
+                            "/speak Leah \"It seems that they want some of the previous artists to enter pieces around a common theme, and this one is...\"" +
+                            "/emote Leah 8" +
+                            "/message \"Leah starts reading the letter again with a puzzled look on her face\"" +
+                            "/speak Leah \"The letter must have gotten wet, and the ink has a big raindrop right there!\"" +
+                            "/speak Leah \"I'm not sure if it says 'Freedom in Bondage' or something else. Oh well, its the kind of contrasting title that these events usually have, and if I get it wrong then I'll just say it's 'artistic expressionism'\"" +
+                            "/emote farmer 8" +
+                            "/pause 700" +
+                            "/speak Leah \"Anyway, I'm glad you came by. Do you feel like brainstorming with me? I'd really appreciate the company.$l\"" +
+                            "/emote Leah 60" +
+                            "/question null \"Do you want to help Leah brainstorm?#Try to come up with some helpful suggestions#Keep Leah company#Come back later when Leah has some ideas\"" +
+                            //Result 1
+                            //     Leah has had an idea, but needs farmer to help out
+                            //     
+                            //     
+                            //Leah ends up asking farmer if they would be willing to be the model for the event.
+                            //It would involve Leah dressing the farmer up in a hood to preserve her identity, but otherwise being mostly nude.
+                            //The freedom side would be the anonymity, along with the model having freedom from societies restrictions
+                            //
+                            //After the event Leah confesses to the farmer that the whole thing turned her on a lot, and asks the farmer if they enjoyed it too.
+                            //    Yes, and i'm really turned on too
+                            //    I'm not sure, but I liked spending time with you
+                            //    Not really my thing.
+                            //     
+                            //First two lead into Leah blindfolding the farmer again and eating her out
+                            //Third option leads to Leah just offering to make it up to the farmer...and eating her out.
+                            //
+                            //
+
+                            "";
+                }
+                #endregion
             }
 
             if (asset.AssetNameEquals("Data/Events/ArchaeologyHouse"))
             {
-                #region Penny Library event 594805
+                #region Penny Library event 594805 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventPenny} (need to make mail and quest)");
                 data[$"{TempRefs.EventPenny}" +                    // event id
                         $"/n PennyLibrary" +        // need her invitation mail first. This is a temporary way of adding the quest
@@ -516,127 +590,180 @@ namespace MilkVillagers.Asset_Editors
                         $"/end";
                 #endregion
 
+                #region Gunther event
+                /* Encourage Gunther to spend some time outside of the Library/Museum
+                 * He's not against being outside he just has his priorities set on fixing/cleaning it up, so the farmer tries to show them that other things are more important.
+                 * Gunther is surprisingly charming and flirtateous, and wants to go up to the mountains.
+                 * 
+                 * Good afternoon, Mr/Mrs @. I trust your day is going well?
+                 * emote farmer happy
+                 * TextAboveHead farmer *nods*
+                 * \"Today has been relatively quiet, though rebuilding, restocking and reindexing the works here is a monumental task. Sometimes I forget just how much has been accomplished and just see the mountain ahead of me
+                 * question null \"#Perhaps you need some perspective?#This stuff isn't that important.#I am so grateful for all you have done.\""+
+                 * \"Well, I guess it is easy to get lost in a task when it is all around you all the time. I live here, work here, and think about the exhibits and books a lot.\""+
+                 * \"Sometimes I feel like I am 'The librarian' or 'The museum curator', rather than 'Gunther'. When people like yourself come in and talk to me about other things, it really helps me feel more 'human'.\""+
+                 * pause 500
+                 * \"Would you...like to go somewhere? I done most of the work I had set aside for myself today, and I trust the inhabitants of the valley will forgive me for closing up for the rest of the day.\""+
+                 * emote farmer happy
+                 * fade to black
+                 * Load mountain map
+                 * farmer and Gunther walk together
+                 * emotes
+                 * player looks at Gunther as he? looks around
+                 * \"Mr/Mrs @, it is so beautiful up here. Not in the same way that you are beautiful, but nature is truly remarkable.
+                 * 
+                 * maybe introduce Penny or someone watching the couple from a distance
+                 * 
+                 * //I want the farmer to make Gunther lose his cool, calm and collected persona.
+                 * emote farmer smirk/idea
+                 * move farmer behind Gunther.
+                 * TextAboveHead farmer ...
+                 * message \"Your quietly creep close to Gunther, and reacha round his? waist from behind, sliding your hands between his legs\""+
+                 * jump Gunther amount
+                 * TextAboveHead Gunther \"Oh!\""+
+                 * \"I...think that is a little innapropriate, Mr/Mrs @.\""+
+                 * emote farmer questionmark
+                 * \"I didn't mean that I don't appreciate the sentiment, just that I was...not expecting it.\""+
+                 * \"Er...was it a joke?\""+
+                 * \emote farmer no
+                 * pause 700
+                 * question null \"#I'm helping you find 'perspective'.#I want you to feel like a human again#I wanted to see if I could find any 'rocks' down there.\""+
+                 * \"I don't know what to say. I...Thank you.\""+
+                 * 
+                 * //segue into scene
+                 * fade to black
+                 * message \"You firmly guide Gunther to sit down on a nearby rock, and slide down his pants. His dick flops into view, quickly growing in size.\""+
+                 * \"It's a little...chilly up here. It may be a little hard for him to gain his full size...\""+
+                 * message \"You ignore his comments, and take his prick into your mouth in one go. The warm, wet sensation causes Gunther to gasp, and you feel him jerk as you start sucking on him.\""+
+                 * message \"You start off slow, swirling your tongue around the head, sucking it every so often to encourage it to swell up. It's not long before you start bobbing your head back and forth, locking eyes with Gunther.\""+
+                 * \"Oh Yoba, this is heavenly!\""+
+                 * message \"You start to get into the rhythm, and 
+                 */
+                #endregion
             }
 
             if (asset.AssetNameEquals("Data/Events/Saloon"))
             {
-                #region Haley Saloon event 594806
-                ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HaleyAlex} - need to check");
-                data[$"{TempRefs.Event3HaleyAlex}" +
-                        $"/n 5948HaleySaloon" +
-                        $"/f Haley 2000" +
-                        $"/f Alex 2000" +
-                        $"/t 1800 2400" +
-                        $""] =
+                #region Haley Saloon event 594806 complete?
+                if (false) // not complete?
+                {
+                    ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HaleyAlex} - need to check");
+                    data[$"{TempRefs.Event3HaleyAlex}" +
+                            $"/n 5948HaleySaloon" +
+                            $"/f Haley 2000" +
+                            $"/f Alex 2000" +
+                            $"/t 1800 2400" +
+                            $""] =
 
-                        // Setup the scene
-                        $"playful" +
-                        $"/14 20" +
-                        $"/farmer 14 23 0 Haley 40 18 1 Gus 14 18 2 Alex 42 18 3" +
-                        $"/skippable" +
+                            // Setup the scene
+                            $"playful" +
+                            $"/14 20" +
+                            $"/farmer 14 23 0 Haley 40 18 1 Gus 14 18 2 Alex 42 18 3" +
+                            $"/skippable" +
 
-                        // Start the scene
-                        $"/Speak Gus \"Ah, @. It's going to be a busy night tonight.\"" +
-                        $"/move farmer 0 -3 0" +
-                        $"/emote farmer 8" +
-                        $"/pause 1000" +
-                        $"/speak Gus \"Haley won some photography contest, and she asked me if she could hold a celebration party here. I'm letting her use the other room for her friends. Did she send you a letter inviting you?\"" +
-                        $"/emote farmer 20" +
-                        $"/pause 800" +
-                        $"/speak Gus \"She's over by the couches. Let me know what you want to drink, and I'll bring it over when it's ready.\"" +
-                        $"/pause 300" +
-                        $"/move farmer 0 1 2" +
+                            // Start the scene
+                            $"/Speak Gus \"Ah, @. It's going to be a busy night tonight.\"" +
+                            $"/move farmer 0 -3 0" +
+                            $"/emote farmer 8" +
+                            $"/pause 1000" +
+                            $"/speak Gus \"Haley won some photography contest, and she asked me if she could hold a celebration party here. I'm letting her use the other room for her friends. Did she send you a letter inviting you?\"" +
+                            $"/emote farmer 20" +
+                            $"/pause 800" +
+                            $"/speak Gus \"She's over by the couches. Let me know what you want to drink, and I'll bring it over when it's ready.\"" +
+                            $"/pause 300" +
+                            $"/move farmer 0 1 2" +
 
-                        // Fade to next scene
-                        $"/beginSimultaneousCommand" +
-                        $"/move farmer 10 0 1" +
-                        $"/fade" +
-                        $"/endSimultaneousCommand" +
-                        $"/viewport -300 -300" +
-                        $"/warp farmer 31 19 1" +
+                            // Fade to next scene
+                            $"/beginSimultaneousCommand" +
+                            $"/move farmer 10 0 1" +
+                            $"/fade" +
+                            $"/endSimultaneousCommand" +
+                            $"/viewport -300 -300" +
+                            $"/warp farmer 31 19 1" +
 
-                        // Begin part 2 - talking about the photos
-                        $"/pause 800" +
-                        $"/fade" +
-                        $"/viewport 38 19" +
-                        $"/speak Haley \"...and then they sent sent me a copy of the journal a week early with a letter and the cheque!\"" +
-                        $"/move farmer 8 0 1 true" +
-                        $"/speak Haley \"Oh hey there @. I'm glad you got my invitation - I was worried that you wouldn't get it in time. Without that photography session on Marnie's farm I wouldn't even have entered this competition.\"" +
-                        $"/emote farmer 60" +
-                        $"/speak Alex \"Haley was just saying that they loved her photos in the farmyard, and they're going to post it on their website as well.\"" +
-                        $"/emote farmer 16" +
-                        $"/speak Haley \"Of course, I didn't send them ALL of the photos. They had a limit of two per photographer, and I wasn't about to show them the photos we took afterwards, cleaning up.\"" +
-                        $"/jump Alex 8" +
-                        $"/speak Alex \"You didn't tell me about THAT, Haley! Do you...still have those photos? I'm just asking because, well..." +
-                        $"#$b#You're both super hot.\"" +
-                        $"/emote Alex 60" +
-                        $"/pause 300" +
+                            // Begin part 2 - talking about the photos
+                            $"/pause 800" +
+                            $"/fade" +
+                            $"/viewport 38 19" +
+                            $"/speak Haley \"...and then they sent sent me a copy of the journal a week early with a letter and the cheque!\"" +
+                            $"/move farmer 8 0 1 true" +
+                            $"/speak Haley \"Oh hey there @. I'm glad you got my invitation - I was worried that you wouldn't get it in time. Without that photography session on Marnie's farm I wouldn't even have entered this competition.\"" +
+                            $"/emote farmer 60" +
+                            $"/speak Alex \"Haley was just saying that they loved her photos in the farmyard, and they're going to post it on their website as well.\"" +
+                            $"/emote farmer 16" +
+                            $"/speak Haley \"Of course, I didn't send them ALL of the photos. They had a limit of two per photographer, and I wasn't about to show them the photos we took afterwards, cleaning up.\"" +
+                            $"/jump Alex 8" +
+                            $"/speak Alex \"You didn't tell me about THAT, Haley! Do you...still have those photos? I'm just asking because, well..." +
+                            $"#$b#You're both super hot.\"" +
+                            $"/emote Alex 60" +
+                            $"/pause 300" +
 
-                        // Haley and farmer look at each other
-                        $"/beginSimultaneousCommand" +
-                        $"/faceDirection Haley 3" +
-                        $"/faceDirection farmer 1" +
-                        $"/endSimultaneousCommand" +
+                            // Haley and farmer look at each other
+                            $"/beginSimultaneousCommand" +
+                            $"/faceDirection Haley 3" +
+                            $"/faceDirection farmer 1" +
+                            $"/endSimultaneousCommand" +
 
-                        $"/pause 300" +
+                            $"/pause 300" +
 
-                        $"/speak Haley \"Well, @. What do you think? Should we give Alex a little show?\"" +
-                        $"/question null \"Fool around with Haley?#Of course\"" +
+                            $"/speak Haley \"Well, @. What do you think? Should we give Alex a little show?\"" +
+                            $"/question null \"Fool around with Haley?#Of course\"" +
 
-                        // Fade to black
-                        $"/fade" +
-                        $"/viewport -300 -300" +
+                            // Fade to black
+                            $"/fade" +
+                            $"/viewport -300 -300" +
 
-                        // Warm up act
-                        $"/message \"Haley checks to make sure the door to the lounge is closed, then winks at Alex and rubs up against you. You can feel her nipples poking into your arm as she leans into your neck and breathes into your ear.\"" +
-                        $"/speak Haley \"You know, I wonder which one of us is wetter right now, me or you?\"" +
-                        $"/message \"Haley's hand slips inside your clothing, and starts rubbing your slit through your panties. Your juices quickly soak through, and your legs go weak as Haley nibbles on your ear." +
-                        $"#$b#She pauses for a moment, letting you get your breath back, and in one swift moment bends down and pulls your pants to the ground. She quickly removes her skirt, and throws it playfully at Alex.\"" +
-                        $"/speak Haley \"What do you think, Alex? @ has clearly soaked right through her panties, and mine are pretty much the same. I can see you're also pitching a tent, so how about we get rid of these pointless clothes and start enojoying ourselves?\"" +
+                            // Warm up act
+                            $"/message \"Haley checks to make sure the door to the lounge is closed, then winks at Alex and rubs up against you. You can feel her nipples poking into your arm as she leans into your neck and breathes into your ear.\"" +
+                            $"/speak Haley \"You know, I wonder which one of us is wetter right now, me or you?\"" +
+                            $"/message \"Haley's hand slips inside your clothing, and starts rubbing your slit through your panties. Your juices quickly soak through, and your legs go weak as Haley nibbles on your ear." +
+                            $"#$b#She pauses for a moment, letting you get your breath back, and in one swift moment bends down and pulls your pants to the ground. She quickly removes her skirt, and throws it playfully at Alex.\"" +
+                            $"/speak Haley \"What do you think, Alex? @ has clearly soaked right through her panties, and mine are pretty much the same. I can see you're also pitching a tent, so how about we get rid of these pointless clothes and start enojoying ourselves?\"" +
 
-                        // Alex joins in
-                        $"/speak Alex \"You're such a tease, Haley. I know you're just caught up in her craziness, @, but the two of you have me harder than a rock.\"" +
-                        $"/message \"Alex slowly strips down to his under and walks over to you, while Haley locks the door. He pulls you in for a deep kiss, and you feel his manhood pressing against your belly.\"" +
-                        $"/speak Haley \"I may have said that this was a party, but...it's just the three of us. I've been wanting to do this for a long time and I really just needed an excuse. Alex, I NEED you inside me.\"" +
-                        $"/message \"Alex looks at you questioningly, and you nod to let him know that it's ok. Haley has already removed her panties and sat down on the couch, and spreads her legs for him." +
-                        $"#$b#With a hungry look on both of their faces, Alex removes his underwear, freeing his prick which points skyhigh. Haley spreads her lips for Alex and he slides inside her, resting for a moment when he bottoms out inside her.\"" +
+                            // Alex joins in
+                            $"/speak Alex \"You're such a tease, Haley. I know you're just caught up in her craziness, @, but the two of you have me harder than a rock.\"" +
+                            $"/message \"Alex slowly strips down to his under and walks over to you, while Haley locks the door. He pulls you in for a deep kiss, and you feel his manhood pressing against your belly.\"" +
+                            $"/speak Haley \"I may have said that this was a party, but...it's just the three of us. I've been wanting to do this for a long time and I really just needed an excuse. Alex, I NEED you inside me.\"" +
+                            $"/message \"Alex looks at you questioningly, and you nod to let him know that it's ok. Haley has already removed her panties and sat down on the couch, and spreads her legs for him." +
+                            $"#$b#With a hungry look on both of their faces, Alex removes his underwear, freeing his prick which points skyhigh. Haley spreads her lips for Alex and he slides inside her, resting for a moment when he bottoms out inside her.\"" +
 
-                        $"/speak Haley \"Ooh, I feel so full, Alex. Pound me hard, ok?\"" +
-                        $"/message \"Alex starts jackhammering away at Haley's dripping wet pussy, and you sit down on the couch next to them and watch for a while, fingering yourself. Haley's is struggling to stifle her moans so you lean over and kiss you, your fingers buried to the hilt inside you, and Alex balls deep in Haley.\"" +
+                            $"/speak Haley \"Ooh, I feel so full, Alex. Pound me hard, ok?\"" +
+                            $"/message \"Alex starts jackhammering away at Haley's dripping wet pussy, and you sit down on the couch next to them and watch for a while, fingering yourself. Haley's is struggling to stifle her moans so you lean over and kiss you, your fingers buried to the hilt inside you, and Alex balls deep in Haley.\"" +
 
-                        $"/speak Haley \"Alex, I think @ is going to feel left out soon. Let switch it up so I can eat her out.\"" +
-                        $"/message \"\" you lay down on one end of the couch while Alex and Haley shuffle around, ending with Haley's face buried in your cunt, and Alex's dick still embedded in hers\"" +
+                            $"/speak Haley \"Alex, I think @ is going to feel left out soon. Let switch it up so I can eat her out.\"" +
+                            $"/message \"\" you lay down on one end of the couch while Alex and Haley shuffle around, ending with Haley's face buried in your cunt, and Alex's dick still embedded in hers\"" +
 
-                        // Play sex sounds
-                        "/pause 300" +
-                        "/playSound fishSlap" +
-                        "/pause 300" +
-                        "/playSound fishSlap" +
-                        "/pause 300" +
-                        "/playSound fishSlap" +
+                            // Play sex sounds
+                            "/pause 300" +
+                            "/playSound fishSlap" +
+                            "/pause 300" +
+                            "/playSound fishSlap" +
+                            "/pause 300" +
+                            "/playSound fishSlap" +
 
-                        // finish them!
-                        "/message \"Haley's tongue is magical, and she licks and nibbles every part of your special area like a pro. Alternating between burying her tongue inside you, wiggling it to stimulate the sides of your hole, and flicking and sucking on your clit, she brings you right to the edge of orgasm.\"" +
-                        "/speak Alex \"I'm going to cum!$a\"" +
-                        "/speak Haley \"Me too! Make sure you cover me and @!\"" +
-                        "/message \"Alex quickly pulls out and sprays a jet of cum over Haleys back, and onto your chest, coating you in his seed. Haley sucks hard on your clit, causing a waterfall of pleasure to wash over you, and sinks three fingers inside her gaping hole as she cums with you." +
-                        "#$b#All of you lay on the couch, exhausted. Alex's cock slowly softens as you shake in bliss, and Haley just rests her face between your legs.\"" +
+                            // finish them!
+                            "/message \"Haley's tongue is magical, and she licks and nibbles every part of your special area like a pro. Alternating between burying her tongue inside you, wiggling it to stimulate the sides of your hole, and flicking and sucking on your clit, she brings you right to the edge of orgasm.\"" +
+                            "/speak Alex \"I'm going to cum!$a\"" +
+                            "/speak Haley \"Me too! Make sure you cover me and @!\"" +
+                            "/message \"Alex quickly pulls out and sprays a jet of cum over Haleys back, and onto your chest, coating you in his seed. Haley sucks hard on your clit, causing a waterfall of pleasure to wash over you, and sinks three fingers inside her gaping hole as she cums with you." +
+                            "#$b#All of you lay on the couch, exhausted. Alex's cock slowly softens as you shake in bliss, and Haley just rests her face between your legs.\"" +
 
-                        "/pause 500" +
-                        "/speak Haley \"Wow...that was awesome. We TOTALLY have to do that again sometime. Maybe next time I can bring some toys and we can fill you front and back, @?\"" +
-                        "/pause 500" +
-                        "/message \"The three of you use some napkins to try and clean up a bit, then spend the rest of the evening drinking and joking about the future.\"" +
+                            "/pause 500" +
+                            "/speak Haley \"Wow...that was awesome. We TOTALLY have to do that again sometime. Maybe next time I can bring some toys and we can fill you front and back, @?\"" +
+                            "/pause 500" +
+                            "/message \"The three of you use some napkins to try and clean up a bit, then spend the rest of the evening drinking and joking about the future.\"" +
 
 
-                        // End
-                        $"/end dialogue Haley \"Wow, that was exhausting!\"";
+                            // End
+                            $"/end dialogue Haley \"Wow, that was exhausting!\"";
+                }
                 #endregion
 
             }
 
             if (asset.AssetNameEquals("Data/Events/Sunroom"))
             {
-                #region Caroline sunroom event 594807
+                #region Caroline sunroom event 594807 not started
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventCaroline} - need to write");
                 data[$"{TempRefs.EventCaroline}" +
                         // Conditions
@@ -685,7 +812,7 @@ namespace MilkVillagers.Asset_Editors
 
             if (asset.AssetNameEquals("Data/Events/ScienceHouse"))
             {
-                #region Maru sex machine event 594808
+                #region Maru sex machine event 594808 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventMaru} - need to write event and letter", LogLevel.Alert);
                 data[$"{TempRefs.EventMaru}" +
 
@@ -963,37 +1090,37 @@ namespace MilkVillagers.Asset_Editors
 
             if (asset.AssetNameEquals("Data/Events/HaleyHouse"))
             {
-                #region Emily clothing model/groping event 594809
+                #region Emily clothing model/groping event 594809 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventEmily} - need to write");
                 data[$"{TempRefs.EventEmily}" +
 
                         // Conditions
-                        "D <name>" +                // player is dating the given NPC name.
-                        "J 	" +                     // player has finished the Joja Warehouse.
+                        "D <name>" +                // farmer is dating the given NPC name.
+                        "J 	" +                     // farmer has finished the Joja Warehouse.
                         "L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
-                        "M <number>" +              // player has at least this much money.
-                        "O <name>" +                // player is married to that NPC.
-                        "S <secret note ID>" +      // player has seen the Secret Note with the given ID.
-                        "a <x> <y>" +               // player is on that tile position.
-                        "b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
-                        "c <number>" +              // player has at least that many free inventory slots.
-                        "e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
-                        "f <name> <number>" +       // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
-                        "g <gender> 	" +         // player is the specified gender (male or female).
-                        "h <pet> 	" +             // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
-                        "i <item ID> 	" +         // player has specified item in their inventory.
-                        "j <number> 	" +         // player has played more than <number> days.
-                        "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
-                        "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
-                        "m <number> 	" +         // player has earned at least this much money (regardless of how much they really have).
-                        "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
-                        "o <name> 	" +             // player is not married to that NPC.
-                        "p <name>" + 	            // Specified NPC is in the player's location.
-                        "q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
-                        "s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                        "M <number>" +              // farmer has at least this much money.
+                        "O <name>" +                // farmer is married to that NPC.
+                        "S <secret note ID>" +      // farmer has seen the Secret Note with the given ID.
+                        "a <x> <y>" +               // farmer is on that tile position.
+                        "b <number>" +              // farmer has reached the bottom floor of the Mines at least that many times.
+                        "c <number>" +              // farmer has at least that many free inventory slots.
+                        "e <event ID>" +            // farmer has seen the specified event (may contain multiple event IDs).
+                        "f <name> <number>" +       // farmer has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the farmer must meet all of them.
+                        "g <gender> 	" +         // farmer is the specified gender (male or female).
+                        "h <pet> 	" +             // farmer does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                        "i <item ID> 	" +         // farmer has specified item in their inventory.
+                        "j <number> 	" +         // farmer has played more than <number> days.
+                        "k <event ID> 	" +         // farmer has not seen that event (may contain multiple event IDs).
+                        "l <letter ID> 	" +         // farmer has not received that mail letter or non-mail flag.
+                        "m <number> 	" +         // farmer has earned at least this much money (regardless of how much they really have).
+                        "n <letter ID> 	" +         // farmer has received that mail letter or non-mail flag.
+                        "o <name> 	" +             // farmer is not married to that NPC.
+                        "p <name>" + 	            // Specified NPC is in the farmer's location.
+                        "q <dialogue ID>" +         // farmer has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                        "s <item ID> <number>" +    // farmer has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
                         "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
                         "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
-                        "x <letter ID>"] =          // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+                        "x <letter ID>"] =          // For the farmer: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
 
                         // Setup the scene
                         $"playful" +
@@ -1043,13 +1170,12 @@ namespace MilkVillagers.Asset_Editors
                         "/pause 300" +
                         "/move farmer 2 0 3" +
                         "/faceDirection farmer 0" +
-                        "/speak Emily \"Wow, your ass looks so good in it! Here, it looks like it was hitching up a little. That won't be an issue with the righ underwear, but I understand not wearing lingerie while farming. Here, let me smooth it out for you.\"" +
+                        "/speak Emily \"Wow, your ass looks so good in it! Here, it looks like it was hitching up a little. That won't be an issue with the right underwear, but I understand not wearing lingerie while farming. Here, let me smooth it out for you.\"" +
                         "/message \"Emily walks behind you and starts smoothing down your rump. She seems to get a distracted after a moment, and she gives your ass a couple of squeezes, causing you to yelp.\"" +
                         "/speak Emily \"Oh! I'm so sorry, @. You just look so good in the dress, and I get a little caught up in my head sometimes. I have to admit, I've been working non-stop on this dress for a while, and it's been quite a while since I've taken care of myself.\"" +
                         "/emote Emily 32" +
                         "/emote farmer 32" +
                         "/pause 500" +
-
 
                         "/speak Emily \"Here, let me help you out of the dress, I don't think you can reach the zipper yourself. I have a couple of things to finish off on the dress and then I can ship it off to the client.\"" +
                         "/fade" +
@@ -1059,18 +1185,32 @@ namespace MilkVillagers.Asset_Editors
                         "/message \"You smile at Emily as she straights up and places the dress on her work table, then turn around and pose for her.\"" +
                         "/message \"Emily walks over and wraps her arms around you, pulling you in close. Her body is pressed tightly against yours, and she lean into you, resting her head on your shoulder.\"" +
                         "/speak Emily \"I would love to lose myself with you right now, but you'd be suprised how tiring sitting at a sewing machine can be.\"" +
-                        "/question fork0 \"What would you like to do?#Give her a relaxing massage#Help her work out her sexual frustrations\"" +
+                        "/question fork0 \"What would you like to do?#Give her a relaxing massage#Offer to help her work out her sexual frustrations\"" +
                         $"/fork {TempRefs.EventEmily}Sexytime" +
+                        "/resetVariable" +
 
-                        // Boring choice
-                        "/speak Emily \"Oh, @. That would be wonderful. Here, give me a moment to take off my shirt and pants.\"" +
-                        "/message \"Emily quickly takes off her top and \"" +
+                #region Boring choice
+                        "/speak Emily \"Oh, @. That would be wonderful. Here, give me a moment to take off my shirt and pants. There's some oil in the dresser over there.\"" +
+                        "/message \"Emily quickly disrobes and lies on her bed, face down, quickly settling. Her body doesn't seem to be very relaxed, but you warm up the oil on your hands and start gently running your hands over her back. Her skin is soon glistening, and she is soon gently moaning into her pillow.\"" +
+                        "/speak Emily \"Oh, @. That feels heavenly. Most of my tension is in my shoulders and lower back.\"" +
+                        "/message \"You start rubbing her shoulders a little more intently, creating circles and spirals on her back that quickly fade from view. Her body is soon much more relaxed on the bed, and her moans and sighs of appreciation start getting quieter.\"" +
+                        "/speak Emily \"@, if you keep this up then I'm going to fall asleep. As wonderful as this is we should probably stop so I can finish up the dress. Perhaps you can come back later after I've finished up and I can show you my appreciation?\"" +
 
+
+                        "/addConversationTopic get_eaten 4" +
                         // End the scene
                         "/end";
+                #endregion
 
                 // write the sexy time fork!
-                data[$"{TempRefs.EventEmily}Sexytime"] = "/message \"You do the sexy.\"";
+                data[$"{TempRefs.EventEmily}Sexytime"] =
+                        "/speak Emily \"Oh! I wasn't touching you because I wanted to have sex with you, I just get distracted when I'm tired. It's not that I wouldn't love to, I just don't want to take advantage of you.\"" +
+                        "/question null \"#It's ok, I want this too.\"" +
+                        "/speak Emily \"Let's get a bit more comfortable then. I feel like I'm overdressed for.\"" +
+                        "/message \"Emily removes her pants and top, her tired back clearly slowing her down. When she gets down to her underwear, you help her unclasp her bra, and sit her down on her bed so you can remove her panties.\"" +
+                        "/message \"She leans back on the bed, so you start trailing kisses up her legs, pausing when you reach the top of her thigh. You hook your fingers in her underwear and slowly pull them down, taking the last of her reserve with them.\"" +
+                        "/speak Emily \"Come join me on the bed, @. I could really \"" +
+                        "/end";
                 #endregion
 
             }

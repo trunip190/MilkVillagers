@@ -11,6 +11,12 @@ namespace MilkVillagers
         public bool MilkFemale = true;
         public bool StackMilk = false;
         public bool CollectItems = true;
+        public bool IgnoreVillagerGender = false;
+
+        // Farmer gender overrides.
+        public bool OverrideGenitals = false;
+        public bool HasPenis = false;
+        public bool HasBreasts = false;
 
         // Content
         public bool ExtraDialogue = true;
@@ -20,6 +26,11 @@ namespace MilkVillagers
         // Debugging
         public bool Debug = false;
         public bool Verbose = false;
+
+        // Itemtype Constants
+        public readonly int MilkType = -34;
+        public readonly int CumType = -35;
+        public readonly int SpecialType = -36;
 
         public SButton MilkButton = SButton.O;
     }
@@ -34,6 +45,21 @@ namespace MilkVillagers
         public static List<NPC> milkedtoday = new List<NPC>();
         public static List<NPC> SexToday = new List<NPC>();
         public static bool SelfMilkedToday = false;
+        public static bool SelfCummedToday = false;
+
+        // Extra Dialogue
+
+        public static string FarmerCollectCum = "You free your penis and start using one hand to gently stroke it, and the other to massage your balls. " +
+        "You close your eyes as you start to imagine someone leaning down and engulfing your cock between their lips. " +
+        "#You pick up your pace as their imaginary mouth starts sucking harder, occasionally flicking your tip with their tongue. " +
+        "Your clench your eyes tighter as your cum starts to spurt out, painting the inside of your jar. You seal the lid with a contented sigh. ";
+
+        public static string FarmerCollectionMilk = "You glance around for a mo to see if anyone is watching you, then slip your top over your head. " +
+        "You start massaging you breast, and your nipples are soon standing proud, calling for attention. " +
+        "#As you start kneading in earnest, a trickle quickly emerges from the sides of your nipple, and quickly becomes a stream. " +
+        "The flow increases as you find your rhythm, and the drip-drip of it collecting in your bottle is hypnotising. " +
+        "#After several minutes of switching between breasts you are much emptier, and you pull your top back on. " +
+        "The fabric rubs against your slightly sore nipples.";
 
         // Config options
         public static bool loaded = false;
@@ -41,6 +67,11 @@ namespace MilkVillagers
         public static bool Verbose = false;
         public static bool MilkMale = true;
         public static bool MilkFemale = true;
+        public static bool OverrideGenitals = false;
+        public static bool HasPenis = false;
+        public static bool HasBreasts = false;
+        public static bool IgnoreVillagerGender = false;
+
 
         #region Quest ID storage
         public static int QuestAbi1 = 594801;       // Abigail's Eggplant
@@ -67,6 +98,7 @@ namespace MilkVillagers
         public static int EventCaroline = 594807;   //Caroline
         public static int EventMaru = 594808;       //Maru
         public static int EventEmily = 594809;      //Emily
+        public static int EventLeahExhibit = 594810;//Leah Exhibitionism
         //public static int Event                     //
         //public static int Event                     //
         //public static int Event                     //
@@ -90,9 +122,15 @@ namespace MilkVillagers
         public static int MilkPam = 803;
         public static int MilkSand = 803;
         public static int MilkEvel = 803;
+        /// <summary>
+        /// Generic Breast milk
+        /// </summary>
         public static int MilkGeneric = 803;
 
         // Cum item code storage.
+        /// <summary>
+        /// Generic cum
+        /// </summary>
         public static int MilkSpecial = 803;
         public static int MilkAlex = 803;
         public static int MilkClint = 803;
@@ -141,6 +179,8 @@ namespace MilkVillagers
         public static readonly int MilkType = -34;
         public static readonly int CumType = -35;
         public static readonly int SpecialType = -36;
+
+
 
         public static void ReportCodes()
         {
@@ -204,5 +244,7 @@ namespace MilkVillagers
             ModFunctions.LogVerbose($"MilkType is {MilkType}", LogLevel.Trace);
             ModFunctions.LogVerbose($"CumType is {CumType}", LogLevel.Trace);
         }
+
+
     }
 }

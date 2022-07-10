@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using GenericModConfigMenu;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -8,6 +7,16 @@ using MilkVillagers.Asset_Editors;
 
 namespace MilkVillagers
 {
+    public enum SexPositions : int
+    {
+        milk_start = 8,
+        milk_fast = 8,
+        BJ = 6,
+        eat_out = 6,
+        get_eaten = 7,
+        sex = 10,
+    };
+
     public class ModEntry : Mod
     {
         #region class variables
@@ -20,8 +29,8 @@ namespace MilkVillagers
         private float Countdown = 0;
 
         // Adding item stuff
-        Object AddItem;
-        Farmer CurrentFarmer;
+        StardewValley.Object AddItem;
+        StardewValley.Farmer CurrentFarmer;
 
         // Asset Editors.
         private RecipeEditor _recipeEditor;
@@ -37,7 +46,6 @@ namespace MilkVillagers
 
         #endregion
 
-
         public override void Entry(IModHelper helper)
         {
             Config = helper.ReadConfig<ModConfig>();
@@ -48,12 +56,19 @@ namespace MilkVillagers
             _eventEditor = new EventEditor();
             _mailEditor = new MailEditor();
 
+            TempRefs.Monitor = Monitor;
             if (helper == null)
             {
-                ModFunctions.LogVerbose("helper is null.");
+                ModFunctions.LogVerbose("helper is null.", LogLevel.Error);
             }
-            TempRefs.Helper = helper;
-            TempRefs.Monitor = Monitor;
+            else
+            {
+                TempRefs.Helper = helper;
+            }
+
+            // TODO this is highly experimental.
+            //Game1.player.modData["HasPenis"] = GetPenis(Game1.player).ToString();
+            //Game1.player.modData["HasBreasts"] = GetBreasts(Game1.player).ToString();
 
             Helper.Events.Display.MenuChanged += Display_MenuChanged;
             helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -143,14 +158,36 @@ namespace MilkVillagers
                     optionSet: value => this.Config.Quests = value
                 );
 
-                //api.RegisterSimpleOption(
-                //    mod: this.ModManifest,
-                //    optionName: "Iliress' Dialogue",
-                //    optionDesc: "Enable/disable 3rd party dialogue?",
-                //    optionGet: () => this.Config.ThirdParty,
-                //    optionSet: value => this.Config.ThirdParty = value
-                //);
+                ////////////////////////////////////////////////////////////
+                //////////////////   Overrite Genitals   ///////////////////
+                ////////////////////////////////////////////////////////////
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Override genitals",
+                    optionDesc: "Do you want to override the genitals of the farmer?",
+                    optionGet: () => this.Config.OverrideGenitals,
+                    optionSet: value => this.Config.OverrideGenitals = value
+                );
 
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Farmer has penis",
+                    optionDesc: "Does the farmer have a penis? MUST select override as well",
+                    optionGet: () => this.Config.HasPenis,
+                    optionSet: value => this.Config.HasPenis = value
+                );
+
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Farmer has breasts",
+                    optionDesc: "Does the farmer have breasts? MUST select override as well",
+                    optionGet: () => this.Config.HasBreasts,
+                    optionSet: value => this.Config.HasBreasts = value
+                );
+
+                ////////////////////////////////////////////////////////////
+                /////////////////////   Debug Mode   ///////////////////////
+                ////////////////////////////////////////////////////////////
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Debug mode",
@@ -159,6 +196,9 @@ namespace MilkVillagers
                     optionSet: value => this.Config.Debug = value
                 );
 
+                ////////////////////////////////////////////////////////////
+                ///////////////////   Verbose Output   /////////////////////
+                ////////////////////////////////////////////////////////////
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Verbose Dialogue",
@@ -178,6 +218,10 @@ namespace MilkVillagers
 
             TempRefs.thirdParty = Config.ThirdParty;
             TempRefs.Verbose = Config.Verbose;
+            TempRefs.OverrideGenitals = Config.OverrideGenitals;
+            TempRefs.HasPenis = Config.HasPenis;
+            TempRefs.HasBreasts = Config.HasBreasts;
+            TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
         }
 
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
@@ -393,11 +437,12 @@ namespace MilkVillagers
         {
             foreach (var q in who.questLog)
             {
-                if (q.id == id)
+                if (q.id.Value == id)
                 {
                     who.questLog.Remove(q);
                     return true;
                 }
+                continue;
             }
             return false;
         }
@@ -406,7 +451,7 @@ namespace MilkVillagers
         {
             foreach (var q in who.questLog)
             {
-                if (q.id == id)
+                if (q.id.Value == id)
                 {
                     return true;
                 }
@@ -423,6 +468,20 @@ namespace MilkVillagers
                     ModFunctions.LogVerbose($"{d.Key}: {d.Value}");
                 }
             }
+        }
+        #endregion
+
+        #region Farmer genital calls
+        public bool GetPenis(Farmer who)
+        {
+            if (TempRefs.OverrideGenitals) return TempRefs.HasPenis;
+            return who.IsMale;
+        }
+
+        public bool GetBreasts(Farmer who)
+        {
+            if (TempRefs.OverrideGenitals) return TempRefs.HasBreasts;
+            return !who.IsMale;
         }
         #endregion
 
@@ -632,7 +691,7 @@ namespace MilkVillagers
                 else
                     Game1.warpFarmer("ScienceHouse", 6, 23, false);
 
-                Monitor.Log($"Current item {who.CurrentItem.parentSheetIndex}: {who.CurrentItem.getCategoryName()}/{who.CurrentItem.category}", LogLevel.Alert);
+                Monitor.Log(message: $"Current item {who.CurrentItem.ParentSheetIndex}: {who.CurrentItem.getCategoryName()}/{who.CurrentItem.Category}", LogLevel.Alert);
                 Monitor.Log($"Farmer is at {who.getTileX()}, {who.getTileY()}");
 
                 //who.mailbox.Add("PennyLibrary");
@@ -642,91 +701,114 @@ namespace MilkVillagers
                 NPC target = ModFunctions.FindTarget(who.currentLocation, this.target, FarmerPos(who));
                 if (target != null)
                 {
-                    //if (Config.Debug)
-                    //{
-                    //TODO Filter choices by gender?
-                    List<Response> choices;
-                    if (target.gender == 0)
-                    {
-                        choices = new List<Response>();
-                        if (Config.MilkMale)
-                            choices.Add(new Response("milk_fast", "Fast BJ"));
-
-                        choices.Add(new Response("BJ", "Give them a blowjob"));
-                    }
-                    else
-                    {
-                        choices = new List<Response>();
-                        if (Config.MilkFemale)
-                        {
-                            choices.Add(new Response("milk_start", "Milk them"));
-                            choices.Add(new Response("milk_fast", "Fast Milk"));
-                        }
-                        //choices.Add(new Response("eat_out", "Give Cunnilingus")); //TODO Not written yet.
-                    }
-
-                    //choices.Add(new Response("cunni", "Ask them to eat you out")); //TODO not written yet.
-                    //choices.Add(new Response("sex", "Ask them for sex")); //TODO not written yet.
-                    choices.Add(new Response("abort", "Do nothing"));
+                    List<Response> choices = GenerateSexOptions(target); // Get list of available options for this character
 
                     currentTarget = target;
                     running = false;
 
-                    Game1.currentLocation.createQuestionDialogue($"What do you want to do with {target.name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
-                    //}
-                    //else
-                    //{
-                    //if (target.gender == 1)
-                    //    ActionOnNPC(target, who);
-                    //else
-                    //    ActionOnNPC(target, who, "BJ");
-                    //}
+                    Game1.currentLocation.createQuestionDialogue($"What do you want to do with {target.Name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                 }
-                else if (Config.Debug)
+                else if (true) //Config.Debug)
                 {
                     List<Response> options = new List<Response>();
 
-                    if (who.IsMale && !TempRefs.SelfMilkedToday)
-                    {
-                        options.Add(new Response("self_milk", "Collect your own cum"));
-                    }
-                    else if (!TempRefs.SelfMilkedToday)
-                    {
+                    //TODO switch to adding option based on penis/breasts
+                    //TODO switch to player asserting gender through option.
+                    // TODO change to energy based or time based
 
-                        options.Add(new Response("self_milk", "Milk yourself"));
+                    if (GetPenis(who) && !TempRefs.SelfCummedToday)
+                    {
+                        //options.Add(new Response("self_milk", "Collect your own cum"));
+                        options.Add(new Response("self_cum", "Collect your own cum")); //collect own cum
                     }
+
+                    if (GetBreasts(who) && !TempRefs.SelfMilkedToday)
+                        options.Add(new Response("self_milk", "Milk yourself")); //collect own breastmilk
 
                     if (who.hasItemInInventory(TempRefs.MilkQi, 1))
-                    {
                         options.Add(new Response("time_freeze", "Freeze time"));
+
+                    if (options.Count > 0)
+                    {
+                        options.Add(new Response("abort", "Nothing"));
+
+                        Game1.currentLocation.createQuestionDialogue($"What would you like to do?", options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                     }
-
-                    options.Add(new Response("abort", "Nothing"));
-
-                    Game1.currentLocation.createQuestionDialogue($"What would you like to do?", options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                    else
+                    {
+                        Game1.addHUDMessage(new HUDMessage("You're too tired to do anything else right now", null));
+                    }
                 }
             }
             else
                 ModFunctions.LogVerbose($"Button {e.Button} not registered to a function.");
         }
 
+        private List<Response> GenerateSexOptions(NPC target)
+        {
+            List<Response> choices;
+            choices = new List<Response>();
+
+            if (target.Age == 2) // 2 is a child - immediate yeet
+            {
+                Monitor.Log($"{target.Name} is a child.", LogLevel.Debug);
+            }
+            else
+            {
+                if (TempRefs.IgnoreVillagerGender || target.Gender == 0)
+                {
+                    if (Config.MilkMale)
+                    {
+                        choices.Add(new Response("milk_fast", "Fast BJ"));
+                        choices.Add(new Response("BJ", "Give them a blowjob"));
+                    }
+                }
+
+                if (TempRefs.IgnoreVillagerGender || target.Gender == 1)
+                {
+                    if (Config.MilkFemale)
+                    {
+                        choices.Add(new Response("milk_fast", "Fast Milk"));
+                        choices.Add(new Response("milk_start", "Milk them"));
+                    }
+                    choices.Add(new Response("eat_out", "Give Cunnilingus (partially implemented)")); //TODO Not written yet.
+                }
+            }
+
+            choices.Add(new Response("cunni", "Ask them to eat you out (not implemented)")); //TODO not written yet.
+            choices.Add(new Response("sex", "Ask them for sex (not implemented)")); //TODO not written yet.
+            choices.Add(new Response("abort", "Do nothing"));
+
+            return choices;
+        }
+
         public void DialoguesSet(Farmer who, string action)
         {
             if (Config.Verbose)
-                Game1.addHUDMessage(new HUDMessage($"Chose {action}  with {currentTarget.name}"));
+                Game1.addHUDMessage(new HUDMessage($"Chose {action}  with {currentTarget.Name}"));
 
             if (action == null || action == "abort")
                 return;
-            else if (action == "time_freeze")
+            else if (action == "time_freeze") //pauses in game time progression for 1min IRL
             {
                 who.removeItemFromInventory(TempRefs.MilkQi);
                 Countdown = 576000; // 1 minute.
             }
-            else if (action == "self_milk")
+            else if (action == "self_milk") // farmer collects their own breast milk.
             {
-                string milkText = who.isMale ? $"You jerk off and collect your own cum in a bottle. [{TempRefs.MilkSpecial}]" : $"You knead your breasts and collect the milk in a bottle. [{TempRefs.MilkGeneric}]";
-                Game1.addHUDMessage(new HUDMessage(milkText));
+                Game1.drawObjectDialogue(TempRefs.FarmerCollectionMilk);
+
+                who.addItemToInventory(new Object(TempRefs.MilkGeneric, 1, quality: 2));
+
                 TempRefs.SelfMilkedToday = true;
+            }
+            else if (action == "self_cum") // farmer collects their own cum
+            {
+                Game1.drawObjectDialogue(TempRefs.FarmerCollectCum);
+
+                who.addItemToInventory(new Object(TempRefs.MilkSpecial, 1, quality: 2));
+
+                TempRefs.SelfCummedToday = true;
             }
             else
                 ActionOnNPC(currentTarget, who, action);
@@ -741,7 +823,7 @@ namespace MilkVillagers
         /// <param name="action">the text name of the dialogue to perform</param>
         private void ActionOnNPC(NPC npc, Farmer who, string action = "milk_start")
         {
-            // Removed option for requiring a milk pail
+            // TODO make this an option for requiring quest start.
             //if (Config.NeedTool && Game1.player.CurrentTool.GetType().ToString() != typeof(StardewValley.Tools.MilkPail).ToString())
             //{
             //    Game1.addHUDMessage(new HUDMessage("You need to be holding a pail to milk people."));
@@ -751,49 +833,49 @@ namespace MilkVillagers
 
             bool success = false;
             int heartMin = 0;
-            int HeartCurrent = who.getFriendshipHeartLevelForNPC(npc.name);
+            int HeartCurrent = who.getFriendshipHeartLevelForNPC(npc.Name);
             string chosenString;
             int Quality;
 
-            //TODO move to static class of actions.
+            //TODO move to static class of actions. maybe enum?
             switch (action)
             {
                 case "milk_start":
-                    heartMin = 8;
+                    heartMin = (int)SexPositions.milk_start;
                     break;
 
                 case "milk_fast":
-                    heartMin = 8;
+                    heartMin = (int)SexPositions.milk_fast;
                     break;
 
                 case "BJ":
-                    heartMin = 6;
+                    heartMin = (int)SexPositions.BJ;
                     break;
 
                 case "eat_out":
-                    heartMin = 6;
+                    heartMin = (int)SexPositions.eat_out;
                     break;
 
                 case "get_eaten":
-                    heartMin = 7;
+                    heartMin = (int)SexPositions.get_eaten;
                     break;
 
                 case "sex":
-                    heartMin = 10;
+                    heartMin = (int)SexPositions.sex;
                     break;
             }
 
             #region validity checks
-            if (npc.age == 2) // 2 is a child - immediate yeet
+            if (npc.Age == 2) // 2 is a child - immediate yeet
             {
-                Monitor.Log($"{npc.name} is {npc.age}", LogLevel.Debug);
+                Monitor.Log($"{npc.Name} is {npc.Age}", LogLevel.Debug);
                 return;
             }
 
             if (HeartCurrent < heartMin && npc.CanSocialize)//  npc.name != "Mister Qi") // Check if the NPC likes you enough.
             {
                 Game1.drawDialogue(npc, $"That's flattering, but I don't like you enough for that. ({HeartCurrent}/{heartMin})");
-                ModFunctions.LogVerbose($"{npc.name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Alert);
+                ModFunctions.LogVerbose($"{npc.Name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Alert);
                 return;
             }
 
@@ -803,13 +885,13 @@ namespace MilkVillagers
             if ((action == "milk_start" || action == "milk_fast") && TempRefs.milkedtoday.Contains(npc))
             {
                 if (Config.Verbose)
-                    Game1.addHUDMessage(new HUDMessage($"{npc.name} has already been milked today."));
+                    Game1.addHUDMessage(new HUDMessage($"{npc.Name} has already been milked today."));
                 return;
             }
             if ((action == "sex" || action == "BJ") && TempRefs.SexToday.Contains(npc))
             {
                 if (Config.Verbose)
-                    Game1.addHUDMessage(new HUDMessage($"{npc.name} has already had sex with you today."));
+                    Game1.addHUDMessage(new HUDMessage($"{npc.Name} has already had sex with you today."));
                 return;
             }
             #endregion
@@ -867,45 +949,45 @@ namespace MilkVillagers
                 case "Martin": ItemCode = TempRefs.MilkMartin; Quality = 2; break;
 
                 default: //NPC's I don't know.
-                    ItemCode = npc.gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
+                    ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
                     Quality = 1;
-                    ModFunctions.LogVerbose($"Couldn't find {npc.name} in the list of items", LogLevel.Debug);
+                    ModFunctions.LogVerbose($"Couldn't find {npc.Name} in the list of items", LogLevel.Debug);
                     break;
             }
 
             // Don't remove this - It's a good way of speeding up for people.
             if (Config.StackMilk)
             {
-                ItemCode = npc.gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
+                ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
                 if (npc.Name == "Mister Qi"
-                    || npc.name == "Wizard"
-                    || npc.name == "Krobus"
-                    || npc.name == "Dwarf")
+                    || npc.Name == "Wizard"
+                    || npc.Name == "Krobus"
+                    || npc.Name == "Dwarf")
                 {
                     ItemCode = TempRefs.MilkMagic;
                 }
             }
 
             string SItemCode = $"[{ItemCode}]";
-            AddItem = new Object(ItemCode, 1, quality: Quality);
+            AddItem = new StardewValley.Object(ItemCode, 1, quality: Quality);
             CurrentFarmer = who;
 
             // If no male milking, don't give item.
-            if ((npc.gender == 0 & !Config.MilkMale) || !Config.CollectItems)
+            if ((npc.Gender == 0 & !Config.MilkMale) || !Config.CollectItems)
             {
                 SItemCode = "";
                 AddItem = null;
             }
             #endregion
 
-            ModFunctions.LogVerbose($"Trying to milk {npc.name}. Will give item {ItemCode}: {_itemEditor.Data[ItemCode]}", LogLevel.Trace);
+            ModFunctions.LogVerbose($"Trying to milk {npc.Name}. Will give item {ItemCode}: {_itemEditor.Data[ItemCode]}", LogLevel.Trace);
 
             #region Draw Dialogue
             npc.facePlayer(who);
             if (npc.Dialogue.TryGetValue(action, out string dialogues)) //Does npc have milking dialogue?
             {
                 chosenString = GetRandomString(dialogues.Split(new string[] { "#split#" }, System.StringSplitOptions.None));
-                Game1.drawDialogue(npc, $"{chosenString}");// {SItemCode}");
+                Game1.drawDialogue(npc, $"{chosenString}");
                 success = true;
             }
             else
@@ -921,7 +1003,7 @@ namespace MilkVillagers
                         break;
 
                     case "milk_start":
-                        if (npc.gender == 1)
+                        if (npc.Gender == 1)
                             Game1.drawDialogue(npc, $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {SItemCode}");
                         else
                             Game1.drawDialogue(npc, $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {SItemCode}");
@@ -930,10 +1012,10 @@ namespace MilkVillagers
 
                     case "fellatio":
                         Game1.drawDialogue(npc, $"You want to go down on me? I don't think I've ever had a guy offer to do that without an ulterior motive before.$h" +
-                            $"#$b#%*{npc.name} quickly strips out of her lower garments, and opens her legs wide for you. You're greeted with a heady smell, and notice that her lips are starting to swell*" +
-                            $"#$b#%*You lean in and start licking between {npc.name}'s lips, tasting her sweet nectar as she buries her hands in your hair*" +
+                            $"#$b#%*{npc.Name} quickly strips out of her lower garments, and opens her legs wide for you. You're greeted with a heady smell, and notice that her lips are starting to swell*" +
+                            $"#$b#%*You lean in and start licking between {npc.Name}'s lips, tasting her sweet nectar as she buries her hands in your hair*" +
                             $"#$b#%*As her moans get louder you use your tongue to flick her clit, and she clenches her legs tightly around your head*" +
-                            $"#$b#%*You gently suck on the nub, and then plunge your tongue as deeply into her as you can, shaking your tongue from side to side to stimulate {npc.name} even more*" +
+                            $"#$b#%*You gently suck on the nub, and then plunge your tongue as deeply into her as you can, shaking your tongue from side to side to stimulate {npc.Name} even more*" +
                             $"#$b#@, I'm cumming!");
                         success = true;
                         break;
@@ -946,17 +1028,17 @@ namespace MilkVillagers
                     case "sex":
                         //TODO write four version of this for each gender configuration.
 
-                        if (npc.gender == 0 && who.IsMale) // Male player, male NPC.
+                        if (npc.Gender == 0 && who.IsMale) // Male player, male NPC.
                             chosenString = $"two dudes going at it";
-                        else if (npc.gender == 1 && who.IsMale) // Male player, female NPC.
-                            chosenString = $"{who.name} buries their cock deep inside {npc.name}'s pussy";
-                        else if (npc.gender == 0 && !who.IsMale) // Female player, male NPC.
-                            chosenString = $"{who.name} climbs on top of {npc.name}'s erect cock and plunges it deep inside them until they cum";
+                        else if (npc.Gender == 1 && who.IsMale) // Male player, female NPC.
+                            chosenString = $"{who.Name} buries their cock deep inside {npc.Name}'s pussy";
+                        else if (npc.Gender == 0 && !who.IsMale) // Female player, male NPC.
+                            chosenString = $"{who.Name} climbs on top of {npc.Name}'s erect cock and plunges it deep inside them until they cum";
                         else // neither is male
                             if (HasStrapon(who))
-                            chosenString = $"You put on your strapon and fuck {npc.name} silly.";
+                            chosenString = $"You put on your strapon and fuck {npc.Name} silly.";
                         else
-                            chosenString = $"You and {npc.name} lick, suck and finger each other into oblivion";
+                            chosenString = $"You and {npc.Name} lick, suck and finger each other into oblivion";
 
                         Game1.drawDialogue(npc, chosenString);
 
@@ -965,7 +1047,7 @@ namespace MilkVillagers
 
                     default:
                         Game1.drawDialogue(npc, $"I don't have any dialogue written for that. Sorry.");
-                        Monitor.Log($"{action} for {npc.name} wasn't found");
+                        Monitor.Log($"{action} for {npc.Name} wasn't found");
                         break;
                 }
             }
@@ -1053,7 +1135,5 @@ namespace MilkVillagers
             };
         }
     }
-
-
 
 }

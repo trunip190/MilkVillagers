@@ -160,7 +160,7 @@ namespace MilkVillagers
             NPC npc = CurrentTarget(location, who);
             if (npc == null)
                 return;
-            if (Game1.player.getFriendshipHeartLevelForNPC(npc.name) < 8)
+            if (Game1.player.getFriendshipHeartLevelForNPC(npc.Name) < 8)
                 npc.addExtraDialogues("Hey there @. Wotcha doing with that pail?");
             if (TempRefs.milkedtoday.Contains(npc))
                 return;
@@ -168,7 +168,7 @@ namespace MilkVillagers
 
             if (npc.Dialogue.TryGetValue("milk_start", out string dialogues))
             {
-                Game1.addHUDMessage(new HUDMessage(string.Format("Starting milking process with {0}", npc.name)));
+                Game1.addHUDMessage(new HUDMessage(string.Format("Starting milking process with {0}", npc.Name)));
 
                 npc.addExtraDialogues(dialogues);
                 npc.checkAction(Game1.player, Game1.currentLocation);
@@ -176,7 +176,7 @@ namespace MilkVillagers
             }
             else
             {
-                if ((int)(NetFieldBase<int, NetInt>)npc.gender != 1)
+                if (npc.Gender != 1)
                     return;
                 npc.addExtraDialogues("You want to milk me? Are you crazy...? Although, that DOES sound kinda hot. [174]");
                 npc.checkAction(Game1.player, Game1.currentLocation);
@@ -192,12 +192,12 @@ namespace MilkVillagers
             this.Name = "Teleport Random";
             this.description = "Teleports you to a random location";
             this.Range = 12;
-            this.initialParentTileIndex.Value = 0;
-            this.indexOfMenuItemView.Value = 2;
+            this.InitialParentTileIndex = 0;
+            this.IndexOfMenuItemView = 2;
             this.Stackable = false;
-            this.CurrentParentTileIndex = (int)(NetFieldBase<int, NetInt>)this.initialParentTileIndex;
+            this.CurrentParentTileIndex = this.InitialParentTileIndex;
             this.numAttachmentSlots.Value = 1;
-            this.attachments.SetCount((int)(NetFieldBase<int, NetInt>)this.numAttachmentSlots);
+            this.attachments.SetCount(this.numAttachmentSlots.Value);
             this.Category = -99;
         }
 
@@ -207,7 +207,7 @@ namespace MilkVillagers
             bool nonWarpFade = Game1.nonWarpFade;
             int[] numArray = NewTarget(location, who, Range);
             Game1.nonWarpFade = true;
-            Game1.warpFarmer(location.name, numArray[0], numArray[1], false);
+            Game1.warpFarmer(location.Name, numArray[0], numArray[1], false);
             Game1.nonWarpFade = nonWarpFade;
         }
 

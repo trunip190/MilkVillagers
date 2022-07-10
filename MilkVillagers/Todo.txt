@@ -29,14 +29,14 @@
 	Medium Priority
 		Need to add some events
 			Girls
-					Abigail
-					Penny
-					Haley
-				Emily
-					Leah
-				Maru
+					Abigail-done
+					Penny-done
+					Haley-done
+					Emily-done
+					Leah-done
+					Maru-done
 			Boys
-					Harvey
+					Harvey-done
 				Sam
 				Sebastian
 				Elliott
@@ -44,7 +44,8 @@
 				Alex
 			Townspeople
 			Poly
-				Harvey/Maru
+				Haley/Alex-done
+				Harvey/Maru-done
 		item collection toggle - will nerf scenes but oh well.
 		Dialogue
 			Other mods

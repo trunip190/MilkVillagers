@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using StardewModdingAPI;
 
 namespace MilkVillagers.Asset_Editors
@@ -188,7 +187,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#@! Treat me properly or you can go find someone else." +
                         $"#$b#%*You apologise and kiss her breasts better to get her in the mood. You start gently massaging her dark skin, and it's not long before she has a content look on her face*" +
                         $"#$b#%*I guess you aren't that bad after all, @. It looks like I'm starting to lactate - you should get a bottle ready so we can record how much fluid I'm producing." +
-                        $"#$b#%*Maru gives you pointers, and her reserved, scientific manner quickly turns into sexual encouragement. You're not sure when she started touching herself, but her panties are definitely soaked*" +
+                        $"#$b#%*Maru gives you pointers, her reserved, scientific manner quickly turning into sexual encouragement. You're not sure when she started touching herself, but her panties are definitely soaked*" +
                         $"#$b#%*Eventually the stream of milk dries up, and you show Maru how much milk is in the bottle*" +
                         $"#$b#I'm not sure anything I make could be better than your touch.";
 
@@ -442,7 +441,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*Gently but firmly, you massage it, feeling it pulse under your touch. You crouch down and begin to trace your tongue around the shaft, swirling up to the tipe before fully inserting his cock into your warm mouth." +
                         $"#$b#%*As you move your head, you feel Sebastian's hands gingerly snake through your hair. His breathing becomes rapid and shaky.*" +
                         $"#$b#@...whatever you do...don't stop..." +
-                        $"#$b#%You increase your tempo, faster and faster until suddenly Sebastian's hands grasp your hair in an intense moment of passion. He half-grunts, half-gasps as he fills you with his warm ejaculate." +
+                        $"#$b#%You increase your tempo, faster and faster until suddenly Sebastian's hands grasp your hair in an intense moment of passion. He half-grunts, half-gasps as he fills you with his warm cum." +
                         $"#$b#%*You think about pulling away, but he holds you there, just for a few seconds, as if savoring the moment. Then he releases you and his cum spills out of your mouth, and you collect it into your jar.*" +
                         $"#$b#You really are something else, @. You have no idea how glad I am to have you.$l" +
                         $"#split#" +
@@ -624,7 +623,17 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*You scrape the flowy, silky, colorful ejaculate into the container now. It takes time as you are still trembling. One of these days though, you will remember to bring a spare change of pants for yourself.*" +
                         $"#$b#I'm pleased to share this with you. It's an...odd connection. It does, however, require further examination. I know I will see you soon again, @.$l";
                 }
-
+                if (asset.AssetNameEquals("Characters/Dialogue/Dwarf")) //is probably female, so skipping this dialog.
+                {
+                    ModFunctions.LogVerbose($"Adding BJ for Dwarf", LogLevel.Trace);
+                    data["BJ"] = $"Most Dwarves never get this intimate with each other..." +
+                        $"#$b#However, it has been a very long time since I've felt as close to someone as I do to you. I guess it's only natural to want to share our essence." +
+                        $"#$b#%*You help the dwarf remove their garments, and a warm, earthy smell fills your nostrils as you lean in to their crotch*" +
+                        $"#$b#%*They are already standing fully erect, and your warm, wet mouth surrounds them, using gentle sucking to start eliciting moans of pleasure*" +
+                        $"#$b#You are so very good at this, @. I'm sorry, but I won't be able to last long." +
+                        $"#$b#%*After a few minutes of gentle teasing and sucking, Dwarf tenses up start cumming, filling your mouth completely with their essence.#bIt has a slightly spiced taste*" +
+                        $"#$b#Thank you, @. That was wonderful.$l";
+                }
 
                 if (asset.AssetNameEquals("Characters/Dialogue/Victor"))
                 {

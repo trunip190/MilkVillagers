@@ -1,6 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using StardewValley;
 using StardewModdingAPI;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using SObject = StardewValley.Object;
+using SFarmer = StardewValley.Farmer;
+using Microsoft.Xna.Framework;
+using PyTK;
+using PyTK.Extensions;
+using PyTK.CustomElementHandler;
 
 namespace MilkVillagers.Asset_Editors
 {
@@ -133,7 +141,7 @@ namespace MilkVillagers.Asset_Editors
                 Data[TempRefs.MilkClaire] = $"Claire's Milk/200/20/Drink {TempRefs.MilkType}/Claire's Milk/A jug of Claire's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
                 //recipe
-                Data[TempRefs.MilkGeneric] = $"Woman's Milk/50/15/Cooking {TempRefs.MilkType}/Woman's Milk/A jug of woman's milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                Data[TempRefs.MilkGeneric] = $"Breast Milk/50/15/Cooking {TempRefs.MilkType}/Breast Milk/A jug of breast milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
                 Data[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/Special' Milkshake/Extra milky milkshake./drink/0 0 0 0 0 0 0 25 0 1 0/343";
 
             }
@@ -179,8 +187,8 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
-            if (Male && Female)
-                Data[TempRefs.SuperJuice] = $"Super Juice/150/125/Cooking -7/Super Juice/The perfect fusion of male and female juices./Drink/0 0 0 0 2 0 0 25 0 3 2/700";
+            if (Male && Female) Data[TempRefs.SuperJuice] = $"Super Juice/150/125/Cooking -7/Super Juice/The perfect fusion of male and female juices./Drink/0 0 0 0 2 0 0 25 0 3 2/700";
+
 
         }
 
@@ -255,6 +263,31 @@ namespace MilkVillagers.Asset_Editors
 
             return result;
         }
+    }
+
+
+    public class MilkItems : SObject
+    {
+
+        public override string getCategoryName()
+        {
+            switch (Category) //TODO work out if this can be softcoded.
+            {
+                case -34: // MilkType
+                    return "Woman's Milk";
+
+                case -35: // CumType
+                    return "Man's Milk";
+
+                case -36: //SpecialType
+                    return "Magical Essence";
+
+                default: // Default - not found.
+                    return base.getCategoryName();
+            }
+
+        }
+
     }
 
 }

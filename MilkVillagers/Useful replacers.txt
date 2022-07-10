@@ -82,4 +82,4 @@ EVENTS
 /question null \"Question#answer1\"
 /question fork0 \"Question#Answer1\"
 /fork eventid
-/quickQuestion <question>#<answer1>#<answer2>#<question3>(break)<answer1 script>(break)<answer2 script>(break)<answer3 script>
+/quickQuestion <question>#<answer1>#<answer2>#<answer3>(break)<answer1 script>(break)<answer2 script>(break)<answer3 script>
