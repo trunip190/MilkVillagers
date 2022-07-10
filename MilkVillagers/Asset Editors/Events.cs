@@ -1,0 +1,1128 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using StardewModdingAPI;
+
+namespace MilkVillagers.Asset_Editors
+{
+    public enum emote
+    {
+        question = 8,
+        angry = 12,
+        exclamation = 16,
+        heart = 20,
+        sleep = 24,
+        sad = 28,
+        happy = 32,
+        x = 36,
+        pause = 40,
+        videogame = 52,
+        music = 56,
+        blush = 60,
+    }
+
+    public class EventEditor : IAssetEditor
+    {
+        public IDictionary<string, string> data;
+
+        public bool CanEdit<T>(IAssetInfo asset)
+        {
+            bool result = asset.AssetNameEquals("Data/Events/Seedshop")
+                || asset.AssetNameEquals("Data/Events/Hospital")
+                || asset.AssetNameEquals("Data/Events/LeahHouse")
+                || asset.AssetNameEquals("Data/Events/ArchaeologyHouse")
+                || asset.AssetNameEquals("Data/Events/Saloon")
+                || asset.AssetNameEquals("Data/Events/Sunroom")
+                || asset.AssetNameEquals("Data/Events/ScienceHouse")
+                || asset.AssetNameEquals("Data/Events/HaleyHouse");
+
+
+            return result;
+        }
+
+        public void Edit<T>(IAssetData asset)
+        {
+            data = asset.AsDictionary<string, string>().Data;
+
+            if (asset.AssetNameEquals("Data/Events/Seedshop"))
+            {
+                #region Abigail reward event 594801
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventAbi}");
+                data[$"{TempRefs.EventAbi}" +                    // event id
+                        $"/d Mon Wed Fri" +         //not Mon, Wed or Fri 
+                        $"/f Abigail 2000" +        //affection level
+                        $"/n AbiSurprise" +         //need her invitation mail first
+                        $"/t 1900 2400"] =          //between 7pm and midnight
+                //data[$"598401/f Abigail 2000"] =
+                        $"echos" +
+                        $"/13 8" +
+                        $"/farmer 13 10 0 Abigail 14 6 1" +
+                        $"/skippable" +
+                        $"/move farmer 0 -4 0" +
+                        $"/faceDirection farmer 1" +
+                        $"/message \"Abigail is on her computer setting up her stream. Unusually, she is wearing a skirt and a loose top, and you can see that she's not wearing a bra.\"" +
+                        $"/pause 300" +
+                        $"/speak Abigail \"Oh, hey there @. I'm just getting the stream all set up for tonight. Are you ready to have your world rocked?\"" +
+                        $"/emote farmer 16" +
+                        $"/pause 300" +
+                        $"/speak Abigail \"Great, everything is all ready, I just need to make sure that you are good to go and then we can start the stream. Everyone is going to love this so much.\"" +
+                        $"/emote farmer 16" +
+                        $"/message \"Abigails swivels around on her chair, and looks you up and down. She reaches forward and adjusts your hair a little, brushes some dirt off of you, and generally gets you ready for an audience.\"" +
+                        $"/pause 300" +
+                        $"/faceDirection Abigail 3" +
+                        $"/speak Abigail \"Of course, I'm gonna rip all of that off you as soon as I can, but that's part of the fun. My fans think I'm a wild girl, and I want to keep it that way.$h\"" +
+                        $"/emote Abigail 16" +
+                        $"/speak Abigail \"Ok, time to start the stream!\"" +
+                        $"/fade" +
+                        $"/viewport -300 -300" +
+                        $"/pause 500" +
+                        $"/faceDirection Abigail 1" +
+                        $"/speak Abigail \"Ok everyone. You asked for it, so we have a special guest tonight to 'help' me out, and help me cum. This here is the wonderful gal who grows those veggies so darn big on her farm.\"" +
+                        $"/speak Abigail \"Of course, everything that I've put inside myself for you has been in her hands, and tonight I want to see if i can get at least one of her hands inside me as well.\"" +
+                        $"/emote farmer 32" +
+                        $"/speak Abigail \"Anyway, time to get started. I'm already dripping and this pussy is going to start tightening up again if I wait too long.\"" +
+                        $"/speak Abigail \"Everyone get a good long look at @ because this may be the only time you get to see me strip her on camera.\"" +
+                        $"/message \"Abigail turns around and flashes the webcam, giving her viewers a view up her skirt as she crawls towards you on the floor.\"" +
+                        $"/message \"She quickly loses her skirt, revealing a bare ass underneath, and wiggles it as she grabs ahold of your pants. She wastes no time in stripping you, making sure her viewers get the best view of the two of you.\"" +
+                        $"/emote Abigail 16" +
+                        $"/speak Abigail \"Well, what did I tell you? @ is smoking hot, and my pussy juices are dripping onto the floor right now. She makes me so hot that I can barely control myself.\"" +
+                        $"/emote farmer 16" +
+                        $"/message \"Abigail lies on her back, and pulls your hips above her head so the camera can see her licking your pussy. She uses her tongue to lick up your valley, and then starts stroking your clit with her finger.\"" +
+                        $"/message \"You moan a little as she uses her other hand to spread your lips for the camera, and then inserts her first finger inside you, causing your fluid to squelch out and drip onto her face.\"" +
+                        $"/message \"Abigail looks straight into the camera, opens her mouth, and pushes two fingers inside you to get more of your fluid to drip out.\"" +
+                        $"/speak Abigail \"Only tasty things come from @'s farm, and she is no exception. Now that she's warmed up, I think it's time I switched places and got serious.\"" +
+                        $"/message \"Abigail and you spend the next 45mins trying out each of her sex toys, in order to 'warm her up for the main event'. By this time both of you are panting away, and you've already cum twice.\"" +
+                        $"/speak Abigail \"Ok, here we go. @, start off with three fingers, and lots of lube. I'm already soaking wet, but every little helps. That's it, keep pushing your fingers into my wet snatch, and try and get that fourth finger in there.\"" +
+                        $"/pause 300" +
+                        $"/playSound fishSlap" +
+                        $"/pause 300" +
+                        $"/playSound fishSlap" +
+                        $"/speak Abigail \"Here it goes, viewers! @, I'm ready for you! Keep pushing and get that beautiful hand inside me...\"" +
+                        $"/pause 300" +
+                        $"/speak Abigail \"Ooooh yes! The stretch is sooo good! I'm cumming!\"" +
+                        $"/message \"Abigail starts shaking on top of you, and you wriggle your fingers inside her to make her cum explosively. After a few minutes, she recovers, and you gently remove your hand from her loose pussy.\"" +
+                        $"/speak Abigail \"Well viewers, I think I'm well and truly done for tonight. Look at this giant, gaping hole where my pussy was an hour ago! I hope you also came a ton and had a great time. Anyway, I'm signing off now - come back for my next show!\"" +
+                        $"/mail AbiSurpriseT" +
+                        $"/end";
+                #endregion
+
+            }
+
+            if (asset.AssetNameEquals("Data/Events/Hospital"))
+            {
+                #region Harvey Event 594802
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventHarvey}");
+                data[$"{TempRefs.EventHarvey}" +
+                                    "/d Tue Thu" +
+                                    "/f Harvey 2000" +
+                                    "/p Harvey" +
+                                    "/n HarveyCheckup" +
+                                    "/t 900 1500"] =
+
+                //data["594802/f Harvey 2000"] =
+                                    "Hospital_Ambient" +
+                                    "/4 7" +
+                                    "/farmer 5 8 0 Harvey 4 5 0" +
+                                    "/skippable" +
+                                    "/move farmer 0 -3 1" +
+
+                                    // Farmer and Player face each other
+                                    "/beginSimultaneousCommand" +
+                                    "/faceDirection farmer 3" +
+                                    "/faceDirection Harvey 1" +
+                                    "/endSimultaneousCommand" +
+
+                                    // Introduction
+                                    "/speak Harvey \"Ah, @. Thank you for coming to see me. Your last physical went well, but I think we need to put you through some more rigorous testing.\"" +
+                                    "/emote farmer 16" +
+                                    "/speak Harvey \"Oh, there’s nothing to worry about. You look like you’ve been taking care of yourself, eating well and exercising.\"" +
+                                    "/speak Harvey \"In fact, if you don’t mind me saying so, you look very fit...and attractive.\"" +
+                                    "/message \"Harvey loosens his tie and glances at you nervously\"" +
+                                    "/speak Harvey \"Do you...find me attractive too?\"" +
+                                    "/emote farmer 32" +
+                                    "/speak Harvey \"Wonderful. Anyway, We’ll begin the tests. Please remove your clothes.\"" +
+                                    "/emote farmer 16" +
+                                    "/faceDirection farmer 0" +
+                                    "/fade" +
+                                    "/viewport -300 -300" +
+                                    "/speak Harvey \"Ah yes, we’ll start with some flexibility testing.\"" +
+
+                                    // Move Harvey behind player
+
+                                    // Next dialogue chunk
+                                    "/speak Harvey \"Please try touching your toes.\"" +
+                                    "/message \"As you bend over Harvey touches your back, slowly trailing his hand down towards your ass\"" +
+                                    "/speak Harvey \"Very good, and your skin is remarkably soft. Please hold that position as long as you can.\"" +
+                                    "/message \"His hand drifts lower, stroking your ass and cupping your pussy. You start to feel moisture gathering on your lips, and your breathing gets heavier\"" +
+                                    "/emote farmer 16" +
+                                    "/speak Harvey \"Don’t push yourself, but please hold that pose a little longer. I need to see how much you can take.\"" +
+                                    "/message \"Harvey strokes between your pussy lips, and gently inserts a finger into your pussy. You gasp a little at the cold invader, and he removes his finger\"" +
+                                    "/speak Harvey \"I see you are sensitive. Would you consider this reaction normal for you, or is this position increasing your sensitivity?\"" +
+                                    "/question \"Is this sensitivity normal?#Yes#No#Moan\"" +
+                                    //"/move farmer 0 0 2" +
+                                    //"/emote farmer 32" +
+                                    "/speak Harvey \"Well I guess we need some further tests. Please stand next to the bed and lean over it. I’m going to be doing some internal testing for sensation and stretching.\"" +          // cut off for length
+
+                                    // Move to bed                                  
+                                    "/message \"You stand up and move over to the bed, resting your weight on it and presenting yourself to the horny doctor\"" +
+                                    "/message \"Harvey undoes his belt and lowers his pants, and slips on a condom with practised ease.\"" +
+                                    "/message \"He presses his cock against your entrance and teases you with the head by rubbing it up and down your labia, coating it in your juices.\"" +
+                                    "/message \"You start moaning, and he takes this as his cue, smoothly plunging deep inside you. You gasp, and he pauses to let you adjust.\"" +
+                                    "/speak Harvey \"Are you feeling any discomfort or pain, @?\"" +
+                                    "/question \"Are you comfortable?#Yes#Moan\"" +
+                                    "/emote farmer 32" +
+                                    "/speak Harvey \"I’ll continue with the test then.\"" +
+                                    "/message \"Harvey starts thrusting into you again, the sounds of your intercourse filling the echoey examination room.\"" +
+                                    "/message \"You settle into a rhythm of Harvey grunting and you moaning, and it’s not long before you are getting close to the edge.\"" +
+                                    "/message \"You start cumming, leaning on the bed for support, as your orgasm racks your body, causing you to clench down on the cock deep inside your pussy.\"" +
+                                    "/message \"Apparently Harvey is not too far behind you, as you feel him start to hammer away at you faster in order to try and finish.\"" +
+                                    "/message \"In a few moments he pushes as deeply into you as he can, and you feel the condom start to inflate as his cum fills it inside you.\"" +
+                                    "/speak Harvey \"@...your body is...fantastic. You are in...such good shape.\"" +
+                                    "/message \"Harvey leans against your body, clearly exhausted from this session. You move a little to the side and he lies on the bed beside you, his cock slipping out of your pussy.\"" +
+                                    "/message \"After a few minutes of half lying on the bed you both get up, and Harvey hands you some surgical wipes to clean yourself with while he disposes of the condom.\"" +
+                                    "/speak Harvey \"Well, @. I’d say that you are in perfect health. Please feel free to return any time you want another check up.\"" +
+                                    "/mail HarveyCheckupT" +
+                                    "/end";
+                #endregion
+
+                #region Maru/Harvey Event 594803
+                ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HarMar}");
+                data[$"{TempRefs.Event3HarMar}" +
+                                    "/d Mon Wed Fri Sat Sun" +
+                                    "/f Harvey 2000" +
+                                    "/f Maru 2000" +
+                                    "/p Harvey" +
+                                    "/p Maru" +
+                                    "/n HarveyTrial" +
+                                    "/t 900 1500"] =
+
+                //data["594803/f Harvey 2000/f Maru 2000"] =
+                                    "Hospital_Ambient" +                        // Soundtrack for this scene
+                                    "/4 7" +                                    // Camera position at start
+                                    "/farmer 6 17 0 Harvey 3 7 0 Maru 1 5 2" +   // Initial placing
+                                    "/skippable" +                              // Can farmer skip this event? (good in case someone modifies the map
+                                    "/pause 500" +
+                                    "/speak Harvey \"Nurse Maru, can you please get the topical cream ready for the next patient. It should be in the cupboard beside you.\"" +
+                                    "/speak Maru \"Of course, Dr. Harvey.\"" +
+                                    "/move Maru 3 0 1" +
+                                    "/pause 300" +
+                                    "/faceDirection Maru 0" +
+                                    "/pause 700" +
+                                    "/textAboveHead Harvey \"I love the perks of this job\"" +
+                                    "/pause 700" +
+                                    //"/message \"As Maru bends down to the cupboard, Harvey stops what he's doing and takes a moment to admire Maru's ass\"" +
+                                    "/message \"Maru sees what Harvey is doing, gives her ass a wiggle, and then flips her skirt up to show him her naked behind\"" +
+                                    "/speak Maru \"Like what you see, *doctor* Harvey? I'm sure we can find some time for you to *examine* me afterwards.\"" +
+                                    "/textAboveHead Harvey \"Such a tease\"" +
+                                    "/pause 300" +
+                                    "/speak Maru \"I think I heard someone enter, so that might be them right now. Anyway, let me go and see who is waiting at the front.\"" +
+
+                                    "/beginSimultaneousCommand" +
+                                    "/fade" +
+                                    "/viewport 5 15" +
+                                    "/warp Maru 6 15" +
+                                    "/faceDirection Maru 2" +
+                                    "/endSimultaneousCommand " +
+
+                                    "/speak Maru \"Good morning @. I'm sorry you had to wait, we were just getting everything ready for you in the back. The doctor will be ready for you in a moment.\"" +
+                                    "/emote farmer 16" +
+                                    "/faceDirection Maru 0" +
+                                    "/textAboveHead Maru \"Dr Harvey, the trial patient is here\"" +
+                                    "/pause 3500" +
+                                    "/textAboveHead Maru \"Ok, I'll bring them in\"" +
+                                    "/pause 500" +
+                                    "/faceDirection Maru 2" +
+                                    "/speak Maru \"Ok, you can head in now. I hope you don't mind but Dr Harvey asked me to assist him today so that I can observe and learn.\"" +
+                                    "/emote farmer 16" +
+                                    "/pause 300" +
+
+                                    "/beginSimultaneousCommand" +
+                                    "/fade" +
+                                    "/viewport 15 6" +
+                                    "/warp Maru 14 6" +
+                                    "/warp farmer 16 5" +
+                                    "/warp Harvey 15 6" +
+                                    "/faceDirection farmer 2" +
+                                    "/faceDirection Harvey 0" +
+                                    "/faceDirection Maru 0" +
+                                    "/endSimultaneousCommand" +
+
+                                    "/speak Harvey \"Ah, @. I'm really glad you decided to take part in this trial. We have so much to learn about the human body, and yours is just delightful.\"" +
+                                    "/pause 400" +
+                                    "/faceDirection Harvey 3" +
+                                    "/pause 300" +
+                                    "/speak Harvey \"Nurse Maru, Can you assist the patient and get them situated on the bed, please? Make sure you remove all of their clothing before we begin.\"" +
+
+                                    "/beginSimultaneousCommand" +
+                                    "/fade" +
+                                    "/viewport -300 -300" +
+                                    "/endSimultaneousCommand" +
+
+                                    //"/pause 300" +
+                                    //"/move farmer 15 5 2" +
+
+                                    "/message \"Maru helps you remove your clothing, placing it on the nearby chair. You lie down down on the bed\"" +
+                                    "/speak Maru \"Are you comfortable, @?\"" +
+                                    "/question null \"Are you comfortable?#Yes\"" +
+                                    "/message \"Maru looks down at your naked body and smiles, then reaches out her gloved hands and gently opens your legs.\"" +
+                                    "/message \"She takes a jar of ointment and applies some directly to the outside of your labia, then starts rubbing some more into your breasts, causing your nipples to get hard. She stops far too soon\"" +
+                                    "/speak Maru \"Dr Harvey, the patient is ready for you now. Do you want me to provide stimulation?\"" +
+                                    "/pause 500" +
+                                    "/speak Harvey \"Hmm, not at this time, Nurse Maru. Although you have a very good bedside manner, this is a teaching moment.\"" +
+                                    "/message \"Dr Harvey switches places with Nurse Maru and starts gently massaging your breasts, causing your nipples to stand even more erect. You feel your lower lips start swelling without being touched\"" +
+                                    "/speak Maru \"Doctor Harvey, I can see that she is getting aroused. Her labia majora are swelling up and her clitoral hood seems to be getting more prominent. Should I check for secretions?\"" +
+                                    "/speak Harvey \"Please do, Nurse. Let me know what information you can glean from examing the patients fluids\"" +
+                                    "/message \"Nurse Maru leans over while Dr Harvey is rubbing your chest, and slides a gloved finger up your slit, purposefully rubbing against your clitoris. She brings her finger to her face and gently sniffs the tip\"" +
+                                    "/speak Maru \"Patient's secretions are mildly scented. Should I perform a taste test, doctor?\"" +
+                                    "/speak Harvey \"Of course, Nurse Maru. The ointment that you applied is safe for ingestion, and was designed to be tasteless but may add a slightly oily texture\"" +
+                                    "/message \"Maru looks you straight in the eyes, opens her mouth and starts sensually sucking on her finger. She uses her other hand to start groping her breast, and lets out a low moan as she withdraws her finger from her mouth.\"" +
+                                    "/speak Maru \"Patient's fluid is sweet as expected, doctor.\"" +
+                                    "/pause 400" +
+                                    "/speak Harvey \"I think it is time for you to demonstrate what you have learned so far, Nurse. Please proceed with the next stage of the treatment.\"" +
+                                    "/pause 400" +
+                                    "/message \"Nurse Maru approaches you on the bed and starts rubbing some of the ointment on to her gloved hands. She reaches between your legs and gently seperates your lips with both hands\"" +
+                                    "/message \"She uses the finger and thumb of each hand, sliding up and down, to massage your lips. The ointment seems to be causing you to feel a tingling sensation wherever she touches, and you start panting\"" +
+                                    "/message \"Satisfied with your response, and the amount of liquid you are producing, she slips one of her fingers inside your entrance, using it to gently probe you\"" +
+                                    "/speak Harvey \"Now, remember the aim of this trial, Nurse Maru. We are not directly trying to bring the patient to orgasm, merely to see how the ointment affects their liquid secretions.\"" +
+                                    "/speak Harvey \"@, please try to hold off as long as possible.\"" +
+                                    "/message \"You realise that you are going to be fighting a losing battle. Maru is definitely very adept at this, and during Dr Harvey's speech she had slipped a second finger inside you and is pumping away\"" +
+                                    "/message \"Slightly chastised, she slows down and withdraws her fingers while Dr Harvey jots down a note about your gushing vagina\"" +
+                                    "/message \"While he is distracted, Maru scoops up some of your juices in her off hand, and reaches down under her skirt. She gives you a sneaky smile, and starts rubbing your secretions into her sopping wet cunt\"" +
+                                    "/speak Maru \"Doctor, I think that @ is being a very good patient, and I don't want to scare her off of any future trials. Perhaps this time we can speed up the process a little?\"" +
+                                    "/pause 400" +
+                                    "/speak Harvey \"Ah, good point. Perhaps we should put on a little show for her, as thanks?\"" +
+                                    "/speak Harvey \"I also see that you have been a very naughty nurse while you thought I wasn't looking? It looks like that needs addressing immediately, you naughty nurse\"" +
+                                    "/message \"Dr Harvey undoes his belt and drops his pants, then flips up Nurse Maru's skirt and gives her bare behind a playful smack\"" +
+                                    "/message \"Maru gives out a little yelp, which quickly turns into a loud moan as she feels him enter her dropping hole. She tries to stay proffesional though and, with shaking hands, goes back to fingering you\"" +
+                                    "/pause 300" +
+                                    "/playSound fishSlap" +
+                                    "/pause 300" +
+                                    "/playSound fishSlap" +
+                                    "/pause 300" +
+                                    "/message \"With this erotic display happening right in front of you, you are on the edge in no time. You shout a warning to Maru that you are about to cum, and she she starts rapidly rubbing your clit, bringing you to a powerful orgasm\"" +
+                                    "/message \"Harvey takes this as his cue, and starts firing his hot load deep inside Maru, who starts shaking on top of you as well\"" +
+                                    "/pause 1000" +
+                                    "/speak Harvey \"Well, Nurse Maru, even though we got a little distracted, I think we can call this trial a success. If the pool collecting under @ right now is any indication I think we are on to a winner.\"" +
+                                    "/speak Harvey \"Once you have both taken a moment to recover, can you clean up the patient and debrief them on the experience? Make sure you document absolutely everything.\"" +
+                                    "/pause 300" +
+                                    "/speak Maru \"Thank you for that, @. I hope you'll take part if we have another trial in the future.\"" +
+                                    "/mail HarveyTrialT" +
+                                    "/end";
+                #endregion
+
+            }
+
+            if (asset.AssetNameEquals("Data/Events/LeahHouse"))
+            {
+                #region Leah painting quest 594804
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventLeah}");
+                data[$"{TempRefs.EventLeah}" +                    // event id
+                        $"/n LeahNudePainting" +    //need her invitation mail first
+                        $"/f Leah 2000" +           //Leah at 8 hearts
+                                                    //$"/t 1100 1800" +           //between 11am and 6pm
+                        $""] =
+
+                        // Setup the scene
+                        $"echos" +
+                        $"/6 5" +
+                        $"/farmer 7 9 0 Leah 6 5 0" +
+                        $"/skippable" +
+
+                        // Begin the scene
+                        $"/move farmer 0 -4 0" +
+                        $"/pause 300" +
+
+                        $"/beginSimultaneousCommand" +
+                        $"/faceDirection farmer 3" +
+                        $"/faceDirection Leah 1" +
+                        $"/endSimultaneousCommand" +
+
+                        $"/pause 500" +
+                        $"/textAboveHead Leah \"Oh, there you are\"" +
+                        $"/emote farmer 32" +
+                        $"/pause 1500" +
+                        $"/speak Leah \"Thank you for helping me out with this, @. I don't know why I haven't painted you yet, but today that changes.\"" +
+                        $"/move Leah -1 0 1" +
+                        $"/message \"Leah takes a step back, and thoughtfully looks you up and down.\"" +
+                        $"/speak Leah \"We have pretty good lighting in here, and I try to keep my cottage pretty warm all year round.\"" +
+
+                        //gender branch
+                        "/speak Leah \"I'm sure some people would appreciate a painting with the cold making your nipples stand on end, but I think we can make that happen anyway with the right...stimulation\"" +
+                        //"/speak Leah \"I'd hate to have your friend down below hiding on me because he doesn't like the cold. I'm sure I could coax him out, but it would be hard to stay focussed on painting you if I spend half of the time with him in my mouth.\"" +
+                        //remember how Xtardew used forks to load different events?
+
+                        // Back to the scene
+                        "/move Leah 1 0 2" +
+                        "/message \"Leah steps close to you and places her hands on your chest, lightly caressing you through your work attire.\"" +
+                        "/speak Leah \"I think it's time these clothes started covering up that chair over there instead of your glorious body, don't you?\"" +
+                        "/emote farmer 60" +
+                        "/faceDirection Leah 0" +
+                        "/pause 300" +
+
+                        //fade out
+                        $"/beginSimultaneousCommand" +
+                        $"/fade" +
+                        $"/viewport -300 -300" +
+                        $"/endSimultaneousCommand" +
+
+                        // Begin graphic description
+                        $"/message \"As Leah turns back to her easel, wrestling it in to position, you start undressing. You notice her glancing at you, and she keeps getting distracted while getting her paints and brushes ready.\"" +
+                        $"/speak Leah \"Wow, I wish I could paint this scene, but I've never been very good at capturing motion on canvas. It's like I'm getting my very own striptease...\"" +
+                        $"/message \"You slyly half turn, making sure Leah has a good view of your plump rump, and lock eyes with her over your shoulder.\"" +
+                        $"/speak Leah \"As classic as that pose is, I was thinking we could go for something a little more...erotic, if you're up for it?\"" +
+
+                        // Choice of style of painting
+                        $"/question fork0 \"What pose do you want to strike for Leah?#Something classy#Something erotic\"" +
+                        $"/fork 594804classy" + // Switch to classy painting instead.
+
+                        // Continue on to erotic painting
+                        $"/speak Leah \"Well, I guess I'd better get you ready. I want everyone who sees this painting to either get wet or get hard from looking at it.\"" +
+                        $"/textAboveHead Leah \"Just like I am right now...\"" +
+                        $"/pause 2000" +
+
+                        // Gender split
+                        $"/message \"Leah walks over to you, loosely holding a naked, paintless brush in her hand. She uses it's soft tip to slowly circle your left breast, causing your nipples to start hardening as she promised.\"" +
+
+                        //$"/speak Leah \"I bet you didn't think I'd be using the brush on your body, did you? As much as I want to slowly paint every inch of you, I can't exactly ship you off to the competition, can I?\"" +
+
+                        // Gender split
+                        $"/message \"You shake your head, and she uses your moment of distraction to brush your nipple, sending a jolt straight through your body. She slowly drags the tip of the brush across your chest, and flicks it over your other nipple, causing your knees to buckle slightly.\"" +
+                        $"/speak Leah \"Now, now, @. I'm going to need you to hold a pose. I can't exactly paint you if you're writhing on the floor in bliss. I mean, I could, but then I'd be on the floor with you.\"" +
+
+                        $"/message \"Leah helps you pick an erotic but natural pose, and you do your best 'Venus de Milo' pose as Leah starts sketching your form. Every so often she notices you start to get restless and comes over to provide you with a 'helping hand' in the form of some gentle caresses or stimulating stroking.\"" +
+                        $"/pause 1000" +
+                        $"/speak Leah \"Ok, @. I think I'm almost done for today. I can fill in the rest later, but I think my wonderful muse deserves a treat. Staring at your sexy, naked form all day has caused me to paint a different kind of picture on the floor by my easel.\"" +
+                        $"/message \"Leah cleans her brush and rests it on the stand, then walks over to you, pausing every couple of steps as she strips out of her clothing. She has smudge marks on her face from where she has wiped away her sweat, and her ponytail has come loose, but she looks as stunning as ever." +
+                        $"#Leah presses her naked form against yours, and starts rubbing herself against you. She hooks one leg around yours, and slowly slides down your thigh, leaving a wet trail. She lets out a little moan.\"" +
+                        $"/speak Leah \"Oh @, can you feel just how wet you make me?\"" +
+                        $"/message \"Leahs hands stroke reach around your waist, grabbing a your butt and squeezing as she brings her mouth to your sex and inhales. She takes your lips her mouth, and starts sucking softly, licking up the inside and then circling the entrance to your secret place" +
+                        $"#You rest your hands on her head for support as she goes to town on you, showing the same dedication and skill to your form as she did to her painting, bringing colour to your body as it flushes, and causing your lips to swell with lust. She pauses for a moment, and asks you to lie down on her rug, then dives back between your legs." +
+                        $"#The light from the fireplace casts shadows on the wall, your form mingling with Leah's as she coaxes your closer to orgasm. She starts licking and sucking your clit as her fingers pump in and out of your leaking pussy, her other hand furious between her own legs.\"" +
+                        $"/speak Leah \"@...@...I'm getting close. Cum for me, please?\"" +
+                        $"/message \"Your orgasm washes over you, and you clench you legs together. Leah's body starts shaking as well, and the two of your writhe on the floor, sharing your bliss.\"" +
+
+                        $"/pause 1500" +
+                        $"/speak Leah \"Wow. I know the theme of the competition is 'The Beautiful Body', but I don't think there's any way for me to encompass just how beautiful you are in a painting. We might have to make you an interactive exhibit...$h" +
+                        $"#Anyway, can we just lie here for a while? I want to cuddle with you in front of the fire, and I don't think I'll be able to stand up for a while anyway...\"" +
+                        $"/pause 1500" +
+
+                        // End the scene
+                        $"/end";
+
+                // classy variant
+                data["594804classy" +
+                    ""] = $"/speak Leah \"Well, I guess I'd better get you ready. I want everyone who sees this painting to really understand just how beautiful the human form is.\"" +
+
+                        $"/message \"Leah helps you pick a classic and natural pose, and you do your best 'Venus de Milo' as Leah starts sketching your form. Every so often she notices you start to get restless and comes over to give you a little massage or rub to loosen you up again.\"" +
+                        $"/pause 1000" +
+                        $"/speak Leah \"Ok, @. I think I'm almost done for today. I can fill in the rest later, but I think my wonderful muse deserves a treat. Staring at your sexy, naked form all day has caused me to paint a different kind of picture on the floor by my easel.\"" +
+
+                        $"/message \"Leah cleans her brush and rests it on the stand, then walks over to you, pausing every couple of steps as she strips out of her clothing. She has smudge marks on her face from where she has wiped away her sweat, and her ponytail has come loose, but she looks as stunning as ever." +
+                        $"#Leah presses her naked form against yours, and starts rubbing herself against you. She hooks one leg around yours, and slowly slides down your thigh, leaving a wet trail. She lets out a little moan.\"" +
+                        $"/speak Leah \"Oh @, can you feel just how wet you make me?\"" +
+                        $"/message \"Leahs hands stroke reach around your waist, grabbing a your butt and squeezing as she brings her mouth to your sex and inhales. She takes your lips her mouth, and starts sucking softly, licking up the inside and then circling the entrance to your secret place" +
+                        $"#You rest your hands on her head for support as she goes to town on you, showing the same dedication and skill to your form as she did to her painting, bringing colour to your body as it flushes, and causing your lips to swell with lust. She pauses for a moment, and asks you to lie down on her rug, then dives back between your legs." +
+                        $"#The light from the fireplace casts shadows on the wall, your form mingling with Leah's as she coaxes your closer to orgasm. She starts licking and sucking your clit as her fingers pump in and out of your leaking pussy, her other hand furious between her own legs.\"" +
+                        $"/speak Leah \"@...@...I'm getting close. Cum for me, please?\"" +
+                        $"/message \"Your orgasm washes over you, and you clench you legs together. Leah's body starts shaking as well, and the two of your writhe on the floor, sharing your bliss.\"" +
+
+                        $"/pause 1500" +
+                        $"/speak Leah \"Wow. I know the theme of the competition is 'The Beautiful Body', but I don't think there's any way for me to encompass just how beautiful you are in a painting. We might have to make you an interactive exhibit...$h" +
+                        $"#Anyway, can we just lie here for a while? I want to cuddle with you in front of the fire, and I don't think I'll be able to stand up for a while anyway...\"" +
+                        $"/pause 1500" +
+
+                        // End the scene
+                        $"/end";
+                #endregion
+
+            }
+
+            if (asset.AssetNameEquals("Data/Events/ArchaeologyHouse"))
+            {
+                #region Penny Library event 594805
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventPenny} (need to make mail and quest)");
+                data[$"{TempRefs.EventPenny}" +                    // event id
+                        $"/n PennyLibrary" +        // need her invitation mail first. This is a temporary way of adding the quest
+                        $"/f Penny 2000" +          // Penny at 8 hearts
+                        $"/p Penny" +               // Penny present
+                        $""] =
+
+                        // Setup the scene
+                        $"echos" +
+                        $"/13 9" +
+                        $"/farmer 8 14 1 Penny 17 5 2" +
+                        $"/skippable" +
+
+                        // Begin scene  looking for Penny
+                        $"/move farmer 3 0 1" +
+                        $"/move farmer 0 -2 0" +
+                        $"/move farmer 3 0 1" +
+                        $"/pause 500" +
+                        $"/emote farmer 8" +
+                        $"/faceDirection farmer 1" +
+                        $"/pause 500" +
+                        $"/faceDirection farmer 3" +
+
+                        // Penny makes noise
+                        $"/TextAboveHead Penny \"*moan*\"" +
+                        $"/pause 500" +
+                        $"/emote farmer 16" +
+                        $"/pause 500" +
+
+                        // Move farmer to beside Penny
+                        $"/move farmer 0 -7 1" +
+                        $"/move farmer 2 0 1" +
+                        //$"/faceDirection farmer 1" +
+                        $"/pause 300" +
+                        //make penny do sit down and shake animation.
+                        $"/faceDirection Penny 3" +
+                        $"/pause 300" +
+                        $"/speak Penny \"Oh, @. I didn't hear...I mean see you there.\"" +
+                        $"/message \"Penny quickly pulls her hand out of her skirt and tries to hide a book behind the stool.\"" +
+                        $"/question null \"What do you say to Penny?#I heard you making a noise in the shelving#I heard you grunting and moaning#I just wandered over here.\"" +
+
+                        $"/speak Penny \"Oh...that. I guess you're wondering what I'm doing over here..." +
+                        $"#$b#The last time I was here I found a book in the shelves that I hadn't seen before, and I started to read it. It was a kind of romance novel, but after a couple of chapters it became clear that 'romance' was just a loose metaphor for..." +
+                        $"#$b#For sex. And other things. To be fair, the book did a good job of describing everything in detail, but I hadn't even heard of most of the things that were described\"" +
+                        $"/pause 300" +
+                        $"/emote Penny 60" +
+                        $"/pause 500" +
+                        $"/speak Penny \"Not that my mom ever really explained anything to me. Not while sober, anyway.\"" +
+
+                        $"/beginSimultaneousCommand" +
+                        //$"/emote Penny 28" +
+                        $"/emote farmer 28" +
+                        $"/endSimultaneousCommand" +
+
+                        $"/speak Penny \"Anyway, the chapter was getting pretty graphic, and I...got carried away and *really* into it.\"" +
+
+                        // Question Penny about her feelings
+                        $"/pause 600" +
+                        $"/question null \"What do you want to ask Penny?" +
+                            $"#What kind of things did it make you do?" +                                           // Question 1
+                            $"#Did it turn you on?\"" +                                                             // Question 2
+                        $"/speak Penny \"It didn't really make me do anything. I know it was all me, but I just got sooo wet down there, and before I knew what was happening I was rubbing away, and I moaned, and...you appeared." +
+                        $"#$b#Anyway, I really want to continue reading this book, but I can't exactly do that here in the library. What if Gunther had found me instead!? Or one of the kids!?" +
+                            $"#I want to ask you a favour. Could you check out this book for me? I would die of embarrassment if Gunther knew what it was, or if someone else saw me carrying it. Please, @.\"" +
+                        $"/question fork1 \"Will you check out the book for Penny?#Of course.#No." +
+                        $"/fork  594805refused" +
+                        $"/addQuest 594810" +
+                        $"/speak Penny \"Thank you so much, @. Please bring me the book once you have checked it out. You are the best! $h\"" +
+                        $"/emote farmer 32" +
+                        $"/end";
+
+                // Initially refused
+                data["594805refused"] = $"/speak Penny \"I'm too ashamed to ask anyone else, @! Please, if you change your mind, bring em the book at home.\"" +
+                        $"/addQuest 594810" +
+                        $"/end";
+                #endregion
+
+            }
+
+            if (asset.AssetNameEquals("Data/Events/Saloon"))
+            {
+                #region Haley Saloon event 594806
+                ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HaleyAlex} - need to check");
+                data[$"{TempRefs.Event3HaleyAlex}" +
+                        $"/n 5948HaleySaloon" +
+                        $"/f Haley 2000" +
+                        $"/f Alex 2000" +
+                        $"/t 1800 2400" +
+                        $""] =
+
+                        // Setup the scene
+                        $"playful" +
+                        $"/14 20" +
+                        $"/farmer 14 23 0 Haley 40 18 1 Gus 14 18 2 Alex 42 18 3" +
+                        $"/skippable" +
+
+                        // Start the scene
+                        $"/Speak Gus \"Ah, @. It's going to be a busy night tonight.\"" +
+                        $"/move farmer 0 -3 0" +
+                        $"/emote farmer 8" +
+                        $"/pause 1000" +
+                        $"/speak Gus \"Haley won some photography contest, and she asked me if she could hold a celebration party here. I'm letting her use the other room for her friends. Did she send you a letter inviting you?\"" +
+                        $"/emote farmer 20" +
+                        $"/pause 800" +
+                        $"/speak Gus \"She's over by the couches. Let me know what you want to drink, and I'll bring it over when it's ready.\"" +
+                        $"/pause 300" +
+                        $"/move farmer 0 1 2" +
+
+                        // Fade to next scene
+                        $"/beginSimultaneousCommand" +
+                        $"/move farmer 10 0 1" +
+                        $"/fade" +
+                        $"/endSimultaneousCommand" +
+                        $"/viewport -300 -300" +
+                        $"/warp farmer 31 19 1" +
+
+                        // Begin part 2 - talking about the photos
+                        $"/pause 800" +
+                        $"/fade" +
+                        $"/viewport 38 19" +
+                        $"/speak Haley \"...and then they sent sent me a copy of the journal a week early with a letter and the cheque!\"" +
+                        $"/move farmer 8 0 1 true" +
+                        $"/speak Haley \"Oh hey there @. I'm glad you got my invitation - I was worried that you wouldn't get it in time. Without that photography session on Marnie's farm I wouldn't even have entered this competition.\"" +
+                        $"/emote farmer 60" +
+                        $"/speak Alex \"Haley was just saying that they loved her photos in the farmyard, and they're going to post it on their website as well.\"" +
+                        $"/emote farmer 16" +
+                        $"/speak Haley \"Of course, I didn't send them ALL of the photos. They had a limit of two per photographer, and I wasn't about to show them the photos we took afterwards, cleaning up.\"" +
+                        $"/jump Alex 8" +
+                        $"/speak Alex \"You didn't tell me about THAT, Haley! Do you...still have those photos? I'm just asking because, well..." +
+                        $"#$b#You're both super hot.\"" +
+                        $"/emote Alex 60" +
+                        $"/pause 300" +
+
+                        // Haley and farmer look at each other
+                        $"/beginSimultaneousCommand" +
+                        $"/faceDirection Haley 3" +
+                        $"/faceDirection farmer 1" +
+                        $"/endSimultaneousCommand" +
+
+                        $"/pause 300" +
+
+                        $"/speak Haley \"Well, @. What do you think? Should we give Alex a little show?\"" +
+                        $"/question null \"Fool around with Haley?#Of course\"" +
+
+                        // Fade to black
+                        $"/fade" +
+                        $"/viewport -300 -300" +
+
+                        // Warm up act
+                        $"/message \"Haley checks to make sure the door to the lounge is closed, then winks at Alex and rubs up against you. You can feel her nipples poking into your arm as she leans into your neck and breathes into your ear.\"" +
+                        $"/speak Haley \"You know, I wonder which one of us is wetter right now, me or you?\"" +
+                        $"/message \"Haley's hand slips inside your clothing, and starts rubbing your slit through your panties. Your juices quickly soak through, and your legs go weak as Haley nibbles on your ear." +
+                        $"#$b#She pauses for a moment, letting you get your breath back, and in one swift moment bends down and pulls your pants to the ground. She quickly removes her skirt, and throws it playfully at Alex.\"" +
+                        $"/speak Haley \"What do you think, Alex? @ has clearly soaked right through her panties, and mine are pretty much the same. I can see you're also pitching a tent, so how about we get rid of these pointless clothes and start enojoying ourselves?\"" +
+
+                        // Alex joins in
+                        $"/speak Alex \"You're such a tease, Haley. I know you're just caught up in her craziness, @, but the two of you have me harder than a rock.\"" +
+                        $"/message \"Alex slowly strips down to his under and walks over to you, while Haley locks the door. He pulls you in for a deep kiss, and you feel his manhood pressing against your belly.\"" +
+                        $"/speak Haley \"I may have said that this was a party, but...it's just the three of us. I've been wanting to do this for a long time and I really just needed an excuse. Alex, I NEED you inside me.\"" +
+                        $"/message \"Alex looks at you questioningly, and you nod to let him know that it's ok. Haley has already removed her panties and sat down on the couch, and spreads her legs for him." +
+                        $"#$b#With a hungry look on both of their faces, Alex removes his underwear, freeing his prick which points skyhigh. Haley spreads her lips for Alex and he slides inside her, resting for a moment when he bottoms out inside her.\"" +
+
+                        $"/speak Haley \"Ooh, I feel so full, Alex. Pound me hard, ok?\"" +
+                        $"/message \"Alex starts jackhammering away at Haley's dripping wet pussy, and you sit down on the couch next to them and watch for a while, fingering yourself. Haley's is struggling to stifle her moans so you lean over and kiss you, your fingers buried to the hilt inside you, and Alex balls deep in Haley.\"" +
+
+                        $"/speak Haley \"Alex, I think @ is going to feel left out soon. Let switch it up so I can eat her out.\"" +
+                        $"/message \"\" you lay down on one end of the couch while Alex and Haley shuffle around, ending with Haley's face buried in your cunt, and Alex's dick still embedded in hers\"" +
+
+                        // Play sex sounds
+                        "/pause 300" +
+                        "/playSound fishSlap" +
+                        "/pause 300" +
+                        "/playSound fishSlap" +
+                        "/pause 300" +
+                        "/playSound fishSlap" +
+
+                        // finish them!
+                        "/message \"Haley's tongue is magical, and she licks and nibbles every part of your special area like a pro. Alternating between burying her tongue inside you, wiggling it to stimulate the sides of your hole, and flicking and sucking on your clit, she brings you right to the edge of orgasm.\"" +
+                        "/speak Alex \"I'm going to cum!$a\"" +
+                        "/speak Haley \"Me too! Make sure you cover me and @!\"" +
+                        "/message \"Alex quickly pulls out and sprays a jet of cum over Haleys back, and onto your chest, coating you in his seed. Haley sucks hard on your clit, causing a waterfall of pleasure to wash over you, and sinks three fingers inside her gaping hole as she cums with you." +
+                        "#$b#All of you lay on the couch, exhausted. Alex's cock slowly softens as you shake in bliss, and Haley just rests her face between your legs.\"" +
+
+                        "/pause 500" +
+                        "/speak Haley \"Wow...that was awesome. We TOTALLY have to do that again sometime. Maybe next time I can bring some toys and we can fill you front and back, @?\"" +
+                        "/pause 500" +
+                        "/message \"The three of you use some napkins to try and clean up a bit, then spend the rest of the evening drinking and joking about the future.\"" +
+
+
+                        // End
+                        $"/end dialogue Haley \"Wow, that was exhausting!\"";
+                #endregion
+
+            }
+
+            if (asset.AssetNameEquals("Data/Events/Sunroom"))
+            {
+                #region Caroline sunroom event 594807
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventCaroline} - need to write");
+                data[$"{TempRefs.EventCaroline}" +
+                        // Conditions
+                        "D <name>" +                // player is dating the given NPC name.
+                        "J 	" +                     // player has finished the Joja Warehouse.
+                        "L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                        "M <number>" +              // player has at least this much money.
+                        "O <name>" +                // player is married to that NPC.
+                        "S <secret note ID>" +      // player has seen the Secret Note with the given ID.
+                        "a <x> <y>" +               // player is on that tile position.
+                        "b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
+                        "c <number>" +              // player has at least that many free inventory slots.
+                        "e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
+                        "f <name> <number>" +       // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                        "g <gender> 	" +         // player is the specified gender (male or female).
+                        "h <pet> 	" +             // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                        "i <item ID> 	" +         // player has specified item in their inventory.
+                        "j <number> 	" +         // player has played more than <number> days.
+                        "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
+                        "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
+                        "m <number> 	" +         // player has earned at least this much money (regardless of how much they " + //ly have).
+                        "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
+                        "o <name> 	" +             // player is not married to that NPC.
+                        "p <name>" + 	            // Specified NPC is in the player's location.
+                        "q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                        "s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                        "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                        "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
+                        "x <letter ID>"] =          // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+
+                        // Setup the scene
+                        $"playful" +
+                        $"/14 20" +
+                        $"/farmer 14 23 0 Haley 40 18 1 Gus 14 18 2 Alex 42 18 3" +
+                        $"/skippable" +
+
+                        // Begin the scene
+                        "" +
+
+                        // End the scene
+                        "/end";
+
+                #endregion
+
+            }
+
+            if (asset.AssetNameEquals("Data/Events/ScienceHouse"))
+            {
+                #region Maru sex machine event 594808
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventMaru} - need to write event and letter", LogLevel.Alert);
+                data[$"{TempRefs.EventMaru}" +
+
+                        // Conditions
+                        //"/D Maru" +                    // player is dating the given NPC name.
+                        //"/J" +                         // player has finished the Joja Warehouse.
+                        //"/L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                        //"/M <number>" +                // player has at least this much money.
+                        //"/O <name>" +                  // player is married to that NPC.
+                        //"/S <secret note ID>" +        // player has seen the Secret Note with the given ID.
+                        //"/a <x> <y>" +                 // player is on that tile position.
+                        //"/b <number>" +                // player has reached the bottom floor of the Mines at least that many times.
+                        //"/c <number>" +                // player has at least that many free inventory slots.
+                        //"/e <event ID>" +              // player has seen the specified event (may contain multiple event IDs).
+                        "/f Maru 2000" +                 // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                                                         //"/g female" +                    // player is the specified gender (male or female).
+                                                         //"h <pet>" +                   // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                                                         //"i <item ID>" +               // player has specified item in their inventory.
+                                                         //"j <number>" +                // player has played more than <number> days.
+                                                         //"k <event ID>" +              // player has not seen that event (may contain multiple event IDs).
+                                                         //"l <letter ID>" +             // player has not received that mail letter or non-mail flag.
+                                                         //"m <number>" +                // player has earned at least this much money (regardless of how much they have).
+                        "/n 5948MaruStart" +             // player has received that mail letter or non-mail flag.
+                                                         //"o <name>" +                  // player is not married to that NPC.
+                                                         //"/p Maru" +                      // Specified NPC is in the player's location.
+                                                         //"q <dialogue ID>" +           // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                                                         //"s <item ID> <number>" +      // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                                                         //"t <min time> <max time>" +   // time is between between the specified times. Can range from 600 to 2600.
+                                                         //"/u <day of month>" +            // day of month is one of the specified values (may contain multiple days).
+                                                         //"x <letter ID>"] =            // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+                        ""] =
+
+                        // Setup the scene
+                        $"echos" +                // set music
+                        $"/7 7" +
+                        $"/farmer 11 12 0 Maru 7 6 1 Demetrius 19 12 3" +
+                        $"/skippable" +
+
+                        //Begin the scene
+                        "/move farmer -4 0 3" +
+                        //"/pause 300" +
+                        "/move farmer 0 -1 0" +
+                        $"/emote farmer {(int)emote.question}" +
+                        $"/jump Maru 8" +
+                        "/speak Maru \"I'll just be one moment, @\"" +
+                        "/faceDirection Maru 1" +
+                        $"/emote Maru {(int)emote.videogame}" +
+                        "/faceDirection Maru 3" +
+                        "/pause 500" + //while maru finishes up
+                        "/faceDirection farmer 1" +
+                        "/pause 300" +
+                        "/faceDirection farmer 3" +
+                        "/pause 300" +
+                        "/faceDirection farmer 0" +
+                        "/move Maru 0 3 2" +
+                        "/doAction 7 10" + // open the door
+                        "/speak Maru \"Sorry I kept you, I've been...busy. I must look a real mess.\"" +
+                        $"/emote farmer {(int)emote.sad}" +
+                        "/speak Maru \"I see you got my letter. It's not something I can ask anyone else to help me with, and it's...embarassing. Hey, can you come inside so I can show you what I've been working on?\"" +
+                        $"/emote farmer {(int)emote.happy}" +
+
+                        //Move into the room for 'the secret'
+                        //"/beginSimultaneousCommand" +
+                        "/move Maru 0 -2 0 true" +
+                        "/move farmer 0 -2 0 true" +
+                        //"/endSimultaneousCommand" +
+
+                        "/pause 800" +
+
+                        //"/doAction 7 10" + // can't shut the door
+                        //"/beginSimultaneousCommand" +
+                        "/move Maru -1 0 3" +
+                        "/move farmer 0 -2 0" +
+                        //"/endSimultaneousCommand" +
+
+                        "/faceDirection Maru 1" +
+                        "/faceDirection farmer 3" +
+
+                        //Maru explains the problem
+                        "/message \"Maru walks into the middle of the room, looking fidgety and embarrassed.\"" +
+                        "/speak Maru \"So, I've been working on another invention, and it's going pretty well, but...pretty well isn't good enough.\"" +
+                        "/question null \"#I'm sure anything you're working on is great.\"" +
+                        $"/emote Maru {(int)emote.happy}" +
+                        "/pause 300" +
+                        "/speak Maru \"I think that is a great idea, but please don't judge me, ok?\"" +
+                        $"/emote farmer {(int)emote.question}" +
+                        "/speak Maru \"I've been really struggling with...my desires...lately, and I thought that by working on a machine I'd be able to get everything under control.\"" +
+                        "/speak Maru \"And get off easier as well.\"" +
+                        $"/emote farmer {(int)emote.heart}" +
+                        "/pause 500" +
+                        "/speak Maru \"Even thought it's very good at getting me in the mood at the beginning, it just feels too...clinical.\"" +
+                        "/question fork1 \"What do you want to say to Maru?#Maybe I can try and help you work out what you like#Maybe I can try out the machine and give you some feedback?\"" +
+
+                        // ######## The big split! ########
+                        $"/fork {TempRefs.EventMaru}machine" +
+
+                #region Route A - Inspiration
+                        // ROUTE A - INSPIRATION
+                        $"/emote Maru {(int)emote.question}" +
+                        $"/pause 500" +
+                        "/speak Maru \"I'm willing to give it a try if you are. Maybe between the two of us we can work out what turns me on the most? I have one condition though, that you use the attachments I have for my invention. It's going to be hard enough without trying to reinvent fingers...or a tongue.\"" +
+
+                        "/message \"Maru turns around and starts unbuttoning her overalls, undoing the front flap and stepping out of them. You take a moment to admire her plump ass as she bends over and removes her shorts, with her shirt swiftly following, revealing her bare back.\"" +
+                        "/speak Maru \"I...don't like to wear a bra if I don't have to. They're so uncomfortable, and if I'm not leaving the house I don't see the point.\"" +
+                        "/question null \"Do you...think I look ok?#You look beautiful\"" +
+                        $"/emote Maru {(int)emote.blush}" +
+                        "/speak Maru \"You have this, Maru.$h\"" +
+                        "/speak Maru \"Thank you, @. I'm not very confident about my body, and you always make me feel so safe and wonderful. I know I can trust you." +
+
+                        // OBLIGATORY PARENTAL INTERRUPTION" +
+                        "/move Demetrius -12 0 3" +
+                        //"/pause 300" +
+                        "/move Demetrius 0 -1 0" +
+                        "/speak Demetrius \"Is everything ok in there, honey? I think I heard someone come in earlier.\"" +
+                        $"/emote Maru {(int)emote.exclamation}" +
+                        "/pause 300" +
+                        "/speak Maru \"Yeah, dad. Everything is fine. @ came over to help me with a project, so we may be a while.\"" +
+                        $"/emote Maru {(int)emote.blush}" +
+                        "/speak Demetrius \"Let me know if you need a hand with anything, ok?\"" +
+                        "/speak Maru \"Ok Dad. Are you feeling left out because I have a new helper? I promise that you aren't being replaced...completely\"" +
+                        $"/emote Demetrius {(int)emote.exclamation}" +
+                        "/speak Demetrius \"Ouch. Ok honey. Don't forget to eat and stay hydrated, ok?\"" +
+                        "/move Demetrius 0 1 2" +
+                        //"/pause 300" +
+                        "/move Demetrius 5 0 2 true" +
+
+                        // BACK TO THE SCENE/NEW SCENE
+                        "/speak Maru \"Of course my dad would choose that moment to make an appearance. I think we'd better find somewhere more private to continue this. I guess we'd better head into the lab? I have everything down there and I REALLY don't want my dad to start asking questions through the door again.\"" +
+                        $"/emote farmer {(int)emote.blush}" +
+
+                        //transition to MaruBasement? may need to use fork.
+                        "/fade" +
+                        "/viewport -300 -300" +
+
+                        "/message \"Maru unlocks the door to her lab in the basement\"" +
+                        "/speak Maru \"Hey there, @. Won't you step into my lab? I have *all* sorts of wonderful things to try with you.$h\"" +
+                        "/message \"As she starts climbing down the ladder, she flashes you a nervous, but slightly coy smile\"" +
+                        "/pause " +
+                        "/speak Maru \"I'm sorry about the mess. When I'm in the middle of things I tend to accumulate a lot of stuff. Anyway, I plan on making the area a lot messier before we're done.$h\"" +
+                        "/message \"As you enter the lab, you see that Maru wasn't exagerating. There are various half finished projects strewn around the room, and The workbench is covered in wires and electrical components.\"" +
+                        "/speak Maru \"There is a bottle of lube sitting beside a stool, and Maru walks past it to the workbench. After a couple of minutes she stands, triumphant and naked, having removed several items for you.\"" +
+                        "/speak Maru \"See? I made it all modular so that I can try different things and see what works the best. I plan on upgrading some of them in the future.\"" +
+                        "/message \"Maru stands before you, completely naked and holding a dildo in one hand, and a couple of small objects shaped like neko cat faces. She see you staring at them and clumsily uses her other hand to press a button, making them vibrate.\"" +
+                        "/speak Maru \"They had a sale on these...and I spent too much money on the servos.$s\"" + // Farmer looks puzzled at toys, but maru is very attractive
+
+                        "/message \"Maru quickly makes some space on the workbench, wipes the worst of the oil up with a rag, and then hops up on top and lies down with her knees over the edge. She props herself up on her elbows and looks at you coyly.\"" + // makes space on workbench and lies down on it" +
+
+                        "/speak Maru \"So, I usually start off with the little vibrators between my legs, but I kind of struggle to get going from there. The sensations are nice, but I just end up feeling a little turned on without any hunger or anything." +
+                        "/speak Maru \"I kind of get a little wet pretty quickly, but I end up drying up and then have to stop to apply lube...and it just ends up being pretty unfulfilling, even when I use the big boy there.\"" +
+                        "/message \"You have a pretty good idea where she is going strong, so you ask her to lie down, close her eyes, and focus on the sensations. You start off by gently rubbing her breasts to get some feeling in them, and then turn on the little vibes and trace them around her breasts slowly.\"" +
+                        "/message \"Her nipples responds quickly, and you bring the vibes closer and closer to them, causing Maru to start breathing heavier. You firmly hold them against her nipples, and her breath catches in her throat.\"" +
+                        "/message \"Taking this as a good sign, you keep one hand there with a vibe, and use the other to start tracing patterns on the inside of her thigh. You make a path up the inside of her thigh, rubbing it up the outside of her labia, and then move to the other side and repeat.\"" +
+                        "/speak Maru \"I see what you're doing there, trying to increase my focus on other parts of my body to turn me on first. I'm sure that I can do something so that it circles around my breasts, or up my thighs, but...\"" +
+                        "/message \"You continue your path up her thigh, and this time end up sliding the vibe between her wet lips, pressing it lightly against her opening. She breaks off mid-sentence, clearly caught out, and her mouth lets out a low moan of pleasure.\"" +
+                        "/message \"You slowly start moving it around her lips, touching lightly against her clit (which causes her to arch her back) and then back down to her opening to press slightly inside her. You do this several times, noticing just how wet she is getting, and also how close.\"" +
+                        "/message \"As Maru starts panting, you remove the vibe from her lips and move it back up to her breasts, keeping some stimulation but denying her release.\"" +
+                        "/speak Maru \"What are you doing? I was almost there!$a\"" +
+                        "/message \"You smile down at her, completely helpless before you, and remind her that the goal is not just to get her off, but to give her ideas for the future. Edging can help bring her more enjoyable orgasms, and is something that she might be able to do with the machines.\"" +
+                        "/message \"Maru pouts at you, but can't really do anything right now. After a moment you see she has come back from the edge, and you pick up the dildo that she grabbed earlier, and apply some lube. You rub it between your hands a few times to warm it up, then bring it to her entrance and start gently nudging it with the tip.\"" +
+                        "/message \"It isn't long before her hips are bucking against the dildo, trying to get it inside her, so you oblige by slowly sliding it inside, her juices and the lube helping it to slip deeply inside her. You bring it back out again, clearly slow than Maru wants, but her juices are starting to pool on the workbench anyway, showing just how good it must feel.\"" +
+                        "/speak Maru \"I'm getting really close again, @. That vibrator feels so good.\"" +
+                        "/message \"You hadn't noticed before, but you can see a button on the bottom of the 'vibrator'. You pause for a moment to switch it on, and Maru almost bucks off the bench from the shock. The orgasm that has been building crashes into her as you plunge the vibrator fully inside her, and start pumping away.\"" +
+                        "/speak Maru \"@....I'm cumming!$h\"" +
+                        "/pause 800" +
+                        "/speak Maru \"That was amazing, @. I never would have considered focussing on my breasts first. I guess I was thinking too hard about one part of my body, when I have sensation in all of it. And warming up the lube first stopped it from distracting me.\"" +
+                        "/speak Maru \"I was alittle annoyed that you didn't warn me you were going to keep me on the edge, but...it did feel amazing when I finally came. I'm sure I can rig something up in software to stop me from cumming right away, but I'll probably try and get around it the first few times.\"" +
+                        "/speak Maru \"I guess there's no substitution for a 'helping hand' though. You were amazing. Let me get cleaned up and we can head back upstairs. I'd hate for my dad to see me naked, covered in oil, and my juices dripping down my leg. I'd NEVER be able to live that down.$l\"" +
+
+                        // End the scene
+                        "/end";
+                #endregion
+
+                #region Route B - Machine Sex
+                data[$"{TempRefs.EventMaru}machine"] = "" +
+
+                //Maru encourages farmer to get undressed, and says she will 'take notes'
+                //farmer starts undressing
+
+
+
+
+                // ROUTE A - INSPIRATION
+                $"/emote Maru {(int)emote.question}" +
+                $"/pause 500" +
+                "/speak Maru \"I'm willing to give it a try if you are. Maybe you'll have some insights afterwards, or be able to suggest something for me to try. And of course, I'll get to see your...sexy...body...getting fucked by my invention.\"" +
+                "/speak Maru \"Erm...I hope you don't mind, but this is probably the most erotic thing I've thought about. Making a machine and having it fuck you while I watch? I'm getting hot already.\"" +
+                "/message \"Maru turns around and starts unbuttoning her overalls, undoing the front flap and stepping out of them. You take a moment to admire her plump ass as she bends over and removes her shorts, with her shirt swiftly following, revealing her bare back.\"" +
+                "/speak Maru \"I...don't like to wear a bra if I don't have to. They're so uncomfortable, and if I'm not leaving the house I don't see the point.\"" +
+                "/question null \"Do you...think I look ok?#You look beautiful\"" +
+                $"/emote Maru {(int)emote.blush}" +
+                "/speak Maru \"You have this, Maru.$h\"" +
+                "/speak Maru \"Thank you, @. I'm not very confident about my body, and you always make me feel so safe and wonderful. I know I can trust you." +
+
+                // OBLIGATORY PARENTAL INTERRUPTION" +
+                "/move Demetrius -12 0 3" +
+                //"/pause 300" +
+                "/move Demetrius 0 -1 0" +
+                "/speak Demetrius \"Is everything ok in there, honey? I think I heard someone come in earlier.\"" +
+                $"/emote Maru {(int)emote.exclamation}" +
+                "/pause 300" +
+                "/speak Maru \"Yeah, dad. Everything is fine. @ came over to help me with a project, so we may be a while.\"" +
+                $"/emote Maru {(int)emote.blush}" +
+                "/speak Demetrius \"Let me know if you need a hand with anything, ok?\"" +
+                "/speak Maru \"Ok Dad. Are you feeling left out because I have a new helper? I promise that you aren't being replaced...completely\"" +
+                $"/emote Demetrius {(int)emote.exclamation}" +
+                "/speak Demetrius \"Ouch. Ok honey. Don't forget to eat and stay hydrated, ok?\"" +
+                "/move Demetrius 0 1 2" +
+                //"/pause 300" +
+                "/move Demetrius 5 0 2 true" +
+
+                // BACK TO THE SCENE/NEW SCENE
+                "/speak Maru \"Of course my dad would choose that moment to make an appearance. I think we'd better find somewhere more private to continue this. I guess we'd better head into the lab? I have everything down there and I REALLY don't want my dad to start asking questions through the door again.\"" +
+                $"/emote farmer {(int)emote.blush}" +
+
+                //maru suggests they go into her 'lab'
+                //sexy, seductive maru; 'step into my lab'
+                //transition to MaruBasement?
+                "/fade" +
+                "/viewport -300 -300" +
+
+
+                //makes space on workbench and farmer lies down on it
+                //sorry about the mess -are you comfortable
+                //farmer ok
+
+                "/message \"Maru unlocks the door to her lab in the basement\"" +
+                "/speak Maru \"Hey there, @. Won't you step into my lab? I have *all* sorts of wonderful things to try with you.$h\"" +
+                "/message \"As she starts climbing down the ladder, she flashes you a nervous, but slightly coy smile\"" +
+                "/pause " +
+                //need to strip farmer
+                "/speak Maru \"I'm sorry about the mess. When I'm in the middle of things I tend to accumulate a lot of stuff. Anyway, I plan on making the area a lot messier before we're done.$h\"" +
+                "/message \"As you enter the lab, you see that Maru wasn't exagerating. There are various half finished projects strewn around the room, and the workbench is covered in wires and electrical components.\"" +
+                "/speak Maru \"There is a bottle of lube sitting beside a stool, and Maru walks past it to the workbench.\"" +
+                "/speak Maru \"See? I made it all modular so that I can try different things and see what works the best. I plan on upgrading some of them in the future.\"" +
+
+                "/message \"Maru quickly clears off the workbench, wipes the worst of the oil up with a rag, and cleans it up as best as she can. She helps you up on to the table, then fetches a bundle of wires and servos, as well as some rather cute looking sex toys..\"" +
+                "/speak Maru \"They had a sale on these...and I spent too much money on the servos. Here, let me set everyhing up. In my fantasies I would have bound you to the table, but I don't have anything like that ready...$s\"" + // Farmer looks puzzled at toys, but maru is very attractive
+                "/message \"Maru sets up a rather small looking machine at the end of the workbench that looks suspiciously like a prototype of a robot, except for a piston protuding from the front. A purple dildo is attached the end, along with a spring mechanism to reduce the force, and cute little eyes are painted on it.\"" +
+
+                //FARMER GETS SETTLED IN
+                //maru joke about restraints for farmer
+                //farmer emote concerned / exclamation
+                //maru starts connecting various bits and pieces to the machine, and then 'strapping?' them to the player
+                //maru: it's the only way i could think of keeping them on me. it's just velcro, so don't worry about being trapped
+                //maru: i'd be mortified if i needed my mum or dad to get me out of them one day!
+                //farmer emote laugh
+                //maru switches on machine and farmer 'jumps?'
+                //farmer emote suprised
+                "/speak Maru \"I have 'Henry' all set up, and I usually start off by holding one of the the little vibrators between my legs, and the other on my breasts. I guess I'm rambling a bit, so I should probably just start everything off.\"" +
+                "/message \"You close your eyes and wait for Maru and 'Henry' to begin. You hear a small buzzing sound, and Maru's hand presses one of the small vibrators against your breast, circling your nipple slowly.\"" +
+
+                "/speak Maru \"Your nipple responds quickly, hardening and standing erect, and she brings the vibe closer and closer to it. Your breathing gets heavier, and your breath catches in your throat when Maru brings it to rest right on the tip.\"" +
+                "/speak Maru \"Taking this as a good sign, you keep one hand there with a vibe, and use the other to start tracing patterns on the inside of her thigh. You make a path up the inside of her thigh, rubbing it up the outside of her labia, and then move to the other side and repeat.\"" +
+                "/speak Maru \"Your breasts are perfect, @. I just want to suck on your nipples and make you cry out, but that will have to wait for another time.\"" +
+                "/message \"You flinch a little as Maru places the other vibrator on your mound, and starts inching it downwards towards your sensitive place. It wanders slowly, never in a straight line, and teases you as it gets closer and closer to your nether lips. You can feel your juices running, and Maru slides the vibe up your slit, coating it heavily in your juices, and then pushes it firmly against your opening, causing you to buck off of the table.\"" +
+
+                "/message\"Her hands leaves your breast, and Maru starts moving the vibrator up and down your pussy, making you jump every time it bumps against your clitoris, and moan every time she presses it slightly into your vagina. You feel your orgasm getting closer, and she suddenly removes that hand from you as well, leaving you unable to climax.\"" +
+                "/speak Maru \"I'm sorry honey, but if you cum too soon I won't get much out of this experiment. Also, that was just the warm up to get you ready for Henry.\"" +
+                "/message \"You pout at Maru, but you can't really do anything right now. After a moment of fiddling with her machine, you feel the dildo poking gently at your entrance, and Maru spreads your lips and inserts it slowly inside you as deep as it can go. She backs it off a little, and adjust 'Henry' a little.\"" +
+                "/speak Maru \"Seems like you can take him a little deeper than me right now, but I've adjusted him for that. I think it won't be long before I can take him that deep as well, and I have been thinking about getting a larger attachment as well.$h\"" +
+                "/message \"Maru flicks a switch, and the machine starts sliding in and out of you, building speed slowly. It isn't long before your hips are bucking against the dildo in time with it's thrusts, and you look over to see that Maru has her fingers deep inside her snatch as she watches you get pounded.\"" +
+                "/speak Maru \"I hope it feels good for you, @. Watching your cunt take 'Henry's' dildo and stretch around it is the hottest thing I've seen. I wish I could record this and play it back when he's fucking me too. Here, let me turn on the last function.\"" +
+                "/message \"There's a brief pause, and then the 'dildo' attachment starts vibrating as well with a buzzing noise much louder than it's little siblings earlier. Your eyes rolls back into your head at this extra stimulation, and you hear Maru shout out in pleasure as she squirts her cream all over her hand. Her legs are unsteady, but she leans against the workbench and french kisses you as your orgasm finally washes over you.\"" +
+                "/pause 800" +
+                "/speak Maru \"That was amazing, @. Here, let me turn off 'Henry' and I'll clean you up. I've never cum as hard in my life, and I'm starting to think that the machine is only part of it. Being here with you was wonderful, and I think that's a big part of what I've been missing.$l\"" +
+                "/message \"After Maru helps wipe you clean (with a fresh cloth) she starts asking you questions and taking notes about which bits you enjoyed the most. After a while you both get dressed and head back upstairs.\"" +
+
+                // End the scene
+                "/end";
+
+                #endregion
+                #endregion
+
+            }
+
+            if (asset.AssetNameEquals("Data/Events/HaleyHouse"))
+            {
+                #region Emily clothing model/groping event 594809
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventEmily} - need to write");
+                data[$"{TempRefs.EventEmily}" +
+
+                        // Conditions
+                        "D <name>" +                // player is dating the given NPC name.
+                        "J 	" +                     // player has finished the Joja Warehouse.
+                        "L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                        "M <number>" +              // player has at least this much money.
+                        "O <name>" +                // player is married to that NPC.
+                        "S <secret note ID>" +      // player has seen the Secret Note with the given ID.
+                        "a <x> <y>" +               // player is on that tile position.
+                        "b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
+                        "c <number>" +              // player has at least that many free inventory slots.
+                        "e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
+                        "f <name> <number>" +       // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                        "g <gender> 	" +         // player is the specified gender (male or female).
+                        "h <pet> 	" +             // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                        "i <item ID> 	" +         // player has specified item in their inventory.
+                        "j <number> 	" +         // player has played more than <number> days.
+                        "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
+                        "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
+                        "m <number> 	" +         // player has earned at least this much money (regardless of how much they really have).
+                        "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
+                        "o <name> 	" +             // player is not married to that NPC.
+                        "p <name>" + 	            // Specified NPC is in the player's location.
+                        "q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                        "s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                        "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                        "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
+                        "x <letter ID>"] =          // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+
+                        // Setup the scene
+                        $"playful" +
+                        $"/14 20" +
+                        $"/farmer 16 10 0 Emily 14 5 0" +
+                        $"/skippable" +
+
+                        // Begin the scene
+                        "/emote Emily 56" +
+                        "/textAboveHead Emily \"Hum dee hum\"" +
+                        "/pause 500" +
+                        "/move farmer 0 -2 0" +
+                        "/move farmer -2 0 3" +
+                        "/move farmer 0 -2 0" +
+
+                        // start introduction
+                        "/faceDirection Emily 2" +
+                        "/emote Emily 32" + // Happy
+                        "/textAboveHead Emily \"Almost done\"" +
+                        "/pause 300" +
+                        "/emote farmer 16" +
+                        "/pause 500" +
+                        "/speak Emily \"There we go! It took a lot of work, but I think its ready. I'm really excited to see how it looks on a real person.\"" +
+                        "/question null \"#What is it?\"" +
+                        "/speak Emily \"Well, I got a commission for a ball gown, and they sent me some sketches of what they want it to look like, along with their measurements. I hope you don't mind, but I like to guess peoples measurements, and I think you're actually the same size as the client.\"" +
+                        "/emote farmer 8" +
+                        "/pause 300" +
+                        "/emote Emily 16" +
+                        "/emote farmer 60" +
+                        "/pause 400" +
+                        "/speak Emily \"Oh, I hope you don't think I'm creepy. It's just very difficult to find models outside of Zuzu City, so I often ask Robin, Jodi and Caroline to model dresses for me, depending on what size I need to make it.\"" +
+                        "/speak Emily \"Here, let me just double check your waist and bust to make sure it's going to fit.\"" +
+                        "/message \"Emily doesn't wait for you to respond, and has her tailors tape around your waist before you can protest. She clucks her tongue as she writes it down on a notepad, and then quickly checks your chest size in a very professional manner.\"" +
+                        "/emote farmer 16" +
+                        "/speak Emily \"Oh, don't worry. I don't tell anyone about the measurements I take, and bodies come in all shapes and sizes. Don't let the magazines tell you that everyone needs to be the same size to be beautiful!\"" +
+                        "/emote farmer 32" +
+                        "/pause 300" +
+                        "/message \"Emily checks her notes for the dress against yours, and seems happy.\"" +
+                        "/speak Emily \"Just right. You're an inch or so thinner around the chest, but you have an extra couple of inches on the waist. Don't pout, I actually think you have a better body shape, and you work on the farm so it's to be expected.\"" +
+
+                        // Try on the dress
+                        "/message \"Emily removes the dress from her sewing machine, while you strip out of your outwear, and hands it to you. She helps you step into it, and after a few minutes of wriggling and making sure the seams aren't going to pop, you are ready for her to zip you up.\"" +
+                        "/speak Emily \"Oh wow, it looks so good on you! It really catches the light and accentuates your curves! Can you move around and walk in it fine?\"" +
+                        "/move farmer -2 0 1" +
+                        "/pause 300" +
+                        "/faceDirection farmer 3" +
+                        "/pause 300" +
+                        "/move farmer 2 0 3" +
+                        "/faceDirection farmer 0" +
+                        "/speak Emily \"Wow, your ass looks so good in it! Here, it looks like it was hitching up a little. That won't be an issue with the righ underwear, but I understand not wearing lingerie while farming. Here, let me smooth it out for you.\"" +
+                        "/message \"Emily walks behind you and starts smoothing down your rump. She seems to get a distracted after a moment, and she gives your ass a couple of squeezes, causing you to yelp.\"" +
+                        "/speak Emily \"Oh! I'm so sorry, @. You just look so good in the dress, and I get a little caught up in my head sometimes. I have to admit, I've been working non-stop on this dress for a while, and it's been quite a while since I've taken care of myself.\"" +
+                        "/emote Emily 32" +
+                        "/emote farmer 32" +
+                        "/pause 500" +
+
+
+                        "/speak Emily \"Here, let me help you out of the dress, I don't think you can reach the zipper yourself. I have a couple of things to finish off on the dress and then I can ship it off to the client.\"" +
+                        "/fade" +
+                        "/viewport -300 -300" +
+                        "/message \"Emily walks around behind you and starts unzipping the dress. She helps slide it down around your waist, and kneels down behind you to pick up the dress as your step out of it. After a moment you realise she is still behind you, and feel her hand gently rest against your behind.\"" +
+                        "/speak Emily \"You really do have such an attractive body, @. I promise I didn't ask you to do this just so I could see you in your underwear, but if you ever wanted me to design you something sexier I would love to.\"" +
+                        "/message \"You smile at Emily as she straights up and places the dress on her work table, then turn around and pose for her.\"" +
+                        "/message \"Emily walks over and wraps her arms around you, pulling you in close. Her body is pressed tightly against yours, and she lean into you, resting her head on your shoulder.\"" +
+                        "/speak Emily \"I would love to lose myself with you right now, but you'd be suprised how tiring sitting at a sewing machine can be.\"" +
+                        "/question fork0 \"What would you like to do?#Give her a relaxing massage#Help her work out her sexual frustrations\"" +
+                        $"/fork {TempRefs.EventEmily}Sexytime" +
+
+                        // Boring choice
+                        "/speak Emily \"Oh, @. That would be wonderful. Here, give me a moment to take off my shirt and pants.\"" +
+                        "/message \"Emily quickly takes off her top and \"" +
+
+                        // End the scene
+                        "/end";
+
+                // write the sexy time fork!
+                data[$"{TempRefs.EventEmily}Sexytime"] = "/message \"You do the sexy.\"";
+                #endregion
+
+            }
+
+            #region Blank
+            if (false)
+            {
+                ModFunctions.LogVerbose($"Loading event {"ID"} - need to write");
+                data[$"{"ID"}" +
+
+                        // Conditions
+                        "D <name>" +                // player is dating the given NPC name.
+                        "J 	" +                     // player has finished the Joja Warehouse.
+                        "L" +                       // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                        "M <number>" +              // player has at least this much money.
+                        "O <name>" +                // player is married to that NPC.
+                        "S <secret note ID>" +      // player has seen the Secret Note with the given ID.
+                        "a <x> <y>" +               // player is on that tile position.
+                        "b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
+                        "c <number>" +              // player has at least that many free inventory slots.
+                        "e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
+                        "f <name> <number>" +       // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                        "g <gender> 	" +         // player is the specified gender (male or female).
+                        "h <pet> 	" +             // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                        "i <item ID> 	" +         // player has specified item in their inventory.
+                        "j <number> 	" +         // player has played more than <number> days.
+                        "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
+                        "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
+                        "m <number> 	" +         // player has earned at least this much money (regardless of how much they " + //ly have).
+                        "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
+                        "o <name> 	" +             // player is not married to that NPC.
+                        "p <name>" +                // Specified NPC is in the player's location.
+                        "q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                        "s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                        "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                        "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
+                        "x <letter ID>"] =          // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+
+
+                        "";
+            }
+            #endregion
+        }
+
+        public bool CheckAll()
+        {
+            bool result = true;
+
+            ModFunctions.LogVerbose($"Can't confirm events", LogLevel.Alert);
+
+            return result;
+        }
+    }
+
+}

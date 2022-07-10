@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+  <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -26,6 +26,7 @@
     <None Remove="Objects\Leah's Milk\object.png" />
     <None Remove="Objects\Lewis's Cum\object.png" />
     <None Remove="Objects\Linus's Cum\object.png" />
+    <None Remove="Objects\Magic Essence\object.png" />
     <None Remove="Objects\Marlon's Cum\object.png" />
     <None Remove="Objects\Marnie's Milk\object.png" />
     <None Remove="Objects\Maru's Milk\object.png" />
@@ -53,6 +54,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Dwarf%27s Milk\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Magic Essence\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Super Juice\object.png">
@@ -201,6 +205,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Dwarf's Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Magic Essence\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Super Juice\object.json">

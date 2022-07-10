@@ -4,6 +4,7 @@ using GenericModConfigMenu;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using MilkVillagers.Asset_Editors;
 
 namespace MilkVillagers
 {
@@ -18,15 +19,21 @@ namespace MilkVillagers
         // Time freeze stuff
         private float Countdown = 0;
 
+        // Adding item stuff
+        Object AddItem;
+        Farmer CurrentFarmer;
+
         // Asset Editors.
         private RecipeEditor _recipeEditor;
         private DialogueEditor _dialogueEditor;
         private ItemEditor _itemEditor;
         private QuestEditor _questEditor;
         private EventEditor _eventEditor;
+        private MailEditor _mailEditor;
 
         private ModConfig Config;
         public int CurrentQuest = 0; //currently loaded quest id.
+        List<int> CurrentQuests = new List<int>();
 
         #endregion
 
@@ -39,6 +46,7 @@ namespace MilkVillagers
             _itemEditor = new ItemEditor();
             _questEditor = new QuestEditor();
             _eventEditor = new EventEditor();
+            _mailEditor = new MailEditor();
 
             if (helper == null)
             {
@@ -47,13 +55,14 @@ namespace MilkVillagers
             TempRefs.Helper = helper;
             TempRefs.Monitor = Monitor;
 
-            helper.Events.Input.ButtonPressed += OnButtonPressed;
+            Helper.Events.Display.MenuChanged += Display_MenuChanged;
             helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
             helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
             helper.Events.GameLoop.TimeChanged += GameLoop_TimeChanged;
             helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
             helper.Events.GameLoop.OneSecondUpdateTicked += GameLoop_OneSecondUpdateTicked;
+            helper.Events.Input.ButtonPressed += OnButtonPressed;
 
             //helper.Events.Player.Warped += (new EventHandler<WarpedEventArgs>(Player_Warped));
         }
@@ -164,8 +173,8 @@ namespace MilkVillagers
             Helper.Content.AssetEditors.Add(_dialogueEditor);
             Helper.Content.AssetEditors.Add(_questEditor); //TODO needs fully writing.
             Helper.Content.AssetEditors.Add(_recipeEditor);
-            //Helper.Content.AssetEditors.Add(_eventEditor);
-            Helper.Content.AssetEditors.Add(new MyModMail());
+            if (Config.Debug) Helper.Content.AssetEditors.Add(_eventEditor);
+            Helper.Content.AssetEditors.Add(_mailEditor);
 
             TempRefs.thirdParty = Config.ThirdParty;
             TempRefs.Verbose = Config.Verbose;
@@ -230,7 +239,7 @@ namespace MilkVillagers
             if (!who.mailReceived.Contains("MilkButton2"))
                 who.mailbox.Add("MilkButton2");
 
-            if (Config.Quests)
+            if (Config.Quests) //TODO This section picks the next quest. Need to rewrite/decide how to send next mail/quest.
             {
                 if (who.getFriendshipHeartLevelForNPC("Abigail") > 7 && !who.mailReceived.Contains("AbiEggplant"))
                 {
@@ -251,6 +260,9 @@ namespace MilkVillagers
                     who.mailForTomorrow.Add("MaruSample");
                 if (who.mailReceived.Contains("MaruSampleT") && !who.mailReceived.Contains("GeorgeMilk") && !who.mailbox.Contains("GeorgeMilk"))
                     who.mailForTomorrow.Add("GeorgeMilk");
+                if (who.mailReceived.Contains("GeorgeMilkT") && !who.mailReceived.Contains("LeahNudePainting") && !who.mailbox.Contains("LeahNudePainting"))
+                    who.mailForTomorrow.Add("LeahNudePainting");
+
             }
         }
 
@@ -283,6 +295,25 @@ namespace MilkVillagers
                 QuestChecks(who);
         }
 
+        private void Display_MenuChanged(object sender, MenuChangedEventArgs e)
+        {
+            if (AddItem == null) return;
+
+            string oldMenu = e.OldMenu != null ? e.OldMenu.ToString() : "";
+            string newMenu = e.NewMenu != null ? e.NewMenu.ToString() : "";
+
+            if (oldMenu == "StardewValley.Menus.DialogueBox" && newMenu == "")
+            {
+                Monitor.Log($"adding {AddItem.Name} to {CurrentFarmer.Name}", LogLevel.Alert);
+                CurrentFarmer.addItemToInventory(AddItem);
+                AddItem = null;
+                CurrentFarmer = null;
+            }
+            else
+                Monitor.Log($"was {oldMenu} {newMenu}", LogLevel.Alert);
+
+        }
+
         #endregion
 
         #region Quest methods
@@ -290,66 +321,72 @@ namespace MilkVillagers
         {
             if (CurrentQuest == 0)
             {
-                if (HasQuest(who, TempRefs.QuestID1))
+                //TODO rewrite this so it can check multiple quests at once.
+                if (HasQuest(who, TempRefs.QuestAbi1)) { CurrentQuest = TempRefs.QuestAbi1; CurrentQuests.Add(TempRefs.QuestAbi1); }
+                else if (HasQuest(who, TempRefs.QuestAbi2)) { CurrentQuest = TempRefs.QuestAbi2; CurrentQuests.Add(TempRefs.QuestAbi2); }
+                else if (HasQuest(who, TempRefs.QuestAbi3)) { CurrentQuest = TempRefs.QuestAbi3; CurrentQuests.Add(TempRefs.QuestAbi3); }
+                else if (HasQuest(who, TempRefs.QuestAbi4)) { CurrentQuest = TempRefs.QuestAbi4; CurrentQuests.Add(TempRefs.QuestAbi4); }
+                else if (HasQuest(who, TempRefs.QuestMaru1)) { CurrentQuest = TempRefs.QuestMaru1; CurrentQuests.Add(TempRefs.QuestMaru1); }
+                else if (HasQuest(who, TempRefs.QuestGeorge1)) { CurrentQuest = TempRefs.QuestGeorge1; CurrentQuests.Add(TempRefs.QuestGeorge1); }
+                else if (HasQuest(who, TempRefs.QuestSeb1)) { CurrentQuest = TempRefs.QuestSeb1; CurrentQuests.Add(TempRefs.QuestSeb1); }
+                else if (HasQuest(who, TempRefs.QuestSeb2)) { CurrentQuest = TempRefs.QuestSeb2; CurrentQuests.Add(TempRefs.QuestSeb2); }
+                else if (HasQuest(who, TempRefs.QuestLeah1)) { CurrentQuest = TempRefs.QuestLeah1; CurrentQuests.Add(TempRefs.QuestLeah1); }
 
-                    CurrentQuest = TempRefs.QuestID1;
-                else if (HasQuest(who, TempRefs.QuestID2))
-                    CurrentQuest = TempRefs.QuestID2;
-                else if (HasQuest(who, TempRefs.QuestID3))
-                    CurrentQuest = TempRefs.QuestID3;
-                else if (HasQuest(who, TempRefs.QuestID4))
-                    CurrentQuest = TempRefs.QuestID4;
-                else if (HasQuest(who, TempRefs.QuestID5))
-                    CurrentQuest = TempRefs.QuestID5;
-                else if (HasQuest(who, TempRefs.QuestID6))
-                    CurrentQuest = TempRefs.QuestID6;
-                else if (HasQuest(who, TempRefs.QuestID7))
-                    CurrentQuest = TempRefs.QuestID7;
-                else if (HasQuest(who, TempRefs.QuestID8))
-                    CurrentQuest = TempRefs.QuestID8;
-
-                if (CurrentQuest != 0)
+                #region need to convert over this section
+                if (CurrentQuests.Count > 0) // New version
+                {
+                    foreach (int q in CurrentQuests)
+                    {
+                        ModFunctions.LogVerbose($"Watching quest ID {q}", LogLevel.Alert);
+                    }
+                }
+                if (CurrentQuest != 0) // Old version
                 {
                     ModFunctions.LogVerbose($"Watching quest ID {CurrentQuest}", LogLevel.Alert);
 
                     _ = RemoveQuest(who, TempRefs.QuestIDWait);
                 }
+                #endregion
             }
-            if (CurrentQuest != 0 && !HasQuest(who, CurrentQuest))
+            foreach (int q in CurrentQuests)
             {
-                ModFunctions.LogVerbose($"Quest ID {CurrentQuest} has finished");
-
-                // load next mail item after a certain amount of time? maybe just next day.
-                string NextMail = "";
-                if (!who.mailReceived.Contains("AbiEggplantT")) // Quest 1 complete
-                    NextMail = "AbiEggplantT";
-                else if (!who.mailReceived.Contains("AbiCarrotsT"))  // Quest 2 complete
-                    NextMail = "AbiCarrotsT";
-                else if (!who.mailReceived.Contains("AbiRadishesT"))  // Quest 3 complete             
-                    NextMail = "AbiRadishesT";
-                else if (!who.mailReceived.Contains("AbiSurpriseT"))  // Quest 4 complete            
-                    NextMail = "AbiSurpriseT";
-                else if (!who.mailReceived.Contains("MaruSampleT"))  // Quest 5 complete
-                    NextMail = "MaruSampleT";
-                else if (!who.mailReceived.Contains("GeorgeMilkT"))  // Quest 6 complete
-                    NextMail = "GeorgeMilkT";
-                else
+                //if (CurrentQuest != 0 && !HasQuest(who, CurrentQuest))
+                if (!HasQuest(who, q))
                 {
-                    // No mail item associated with the quest completion.
+                    ModFunctions.LogVerbose($"Quest ID {CurrentQuest} has finished");
+
+                    //TODO move this to a separate method
+                    // Work out what mail completion to send.
+                    string NextMail = "";
+                    if (!who.mailReceived.Contains("AbiEggplantT")) // Quest 1 complete
+                        NextMail = "AbiEggplantT";
+                    else if (!who.mailReceived.Contains("AbiCarrotsT"))  // Quest 2 complete
+                        NextMail = "AbiCarrotsT";
+                    else if (!who.mailReceived.Contains("AbiRadishesT"))  // Quest 3 complete             
+                        NextMail = "AbiRadishesT";
+                    else if (!who.mailReceived.Contains("AbiSurpriseT"))  // Quest 4 complete            
+                        NextMail = "AbiSurpriseT";
+                    else if (!who.mailReceived.Contains("MaruSampleT"))  // Quest 5 complete
+                        NextMail = "MaruSampleT";
+                    else if (!who.mailReceived.Contains("GeorgeMilkT"))  // Quest 6 complete
+                        NextMail = "GeorgeMilkT";
+                    else if (!who.mailReceived.Contains("LeahNudePaintingT"))  // Quest 6 complete
+                        NextMail = "LeahNudePaintingT";
+                    else
+                    {
+                        // No mail item associated with the quest completion.
+                    }
+
+                    if (NextMail != "")
+                    {
+                        ModFunctions.LogVerbose($"adding mail {NextMail} to mailbox", LogLevel.Alert);
+
+                        who.mailForTomorrow.Add(NextMail);
+                    }
+
+                    CurrentQuest = 0;
                 }
-
-                //if (!who.mailReceived.Contains("AbiEggplant")) { } // Quest 5?
-
-                if (NextMail != "")
-                {
-                    ModFunctions.LogVerbose($"adding mail {NextMail} to mailbox", LogLevel.Alert);
-
-                    who.mailForTomorrow.Add(NextMail);
-                }
-
-                CurrentQuest = 0;
             }
-
         }
 
         private bool RemoveQuest(Farmer who, int id)
@@ -381,7 +418,7 @@ namespace MilkVillagers
         {
             if (Config.Verbose)
             {
-                foreach (var d in _questEditor.data)
+                foreach (var d in _questEditor.QuestData)
                 {
                     ModFunctions.LogVerbose($"{d.Key}: {d.Value}");
                 }
@@ -393,14 +430,26 @@ namespace MilkVillagers
         {
             bool result = true;
 
+            ModFunctions.LogVerbose("Checking recipes...");
             if (!_recipeEditor.CheckAll())
                 result = false;
+
+            ModFunctions.LogVerbose("Checking items...");
             if (!_itemEditor.CheckAll())
                 result = false;
+
+            ModFunctions.LogVerbose("Checking quests...");
             if (!_questEditor.CheckAll())
                 result = false;
+            else
+                _questEditor.Report();
+
+            ModFunctions.LogVerbose("Checking events...");
             if (!_eventEditor.CheckAll())
                 result = false;
+
+            ModFunctions.LogVerbose("Checking mail...");
+            _mailEditor.Report();
 
             return result;
         }
@@ -444,266 +493,94 @@ namespace MilkVillagers
             int num2 = 0;
 
 
-            foreach (KeyValuePair<int, string> keyValuePair in _itemEditor.Report())
+            foreach (KeyValuePair<int, string> kvp in _itemEditor.Report())
             {
-                string[] strArray = keyValuePair.Value.Split('/');
+                string[] strArray = kvp.Value.Split('/');
                 int ID = 0;
 
                 switch (strArray[0])
                 {
                     #region girls
-                    case "Abigail's Milk":
-                        TempRefs.MilkAbig = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Caroline's Milk":
-                        TempRefs.MilkCaro = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Emily's Milk":
-                        TempRefs.MilkEmil = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Evelyn's Milk":
-                        TempRefs.MilkEvel = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Haley's Milk":
-                        TempRefs.MilkHale = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Jodi's Milk":
-                        TempRefs.MilkJodi = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Leah's Milk":
-                        TempRefs.MilkLeah = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Marnie's Milk":
-                        TempRefs.MilkMarn = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Maru's Milk":
-                        TempRefs.MilkMaru = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Pam's Milk":
-                        TempRefs.MilkPam = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Penny's Milk":
-                        TempRefs.MilkPenn = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Robin's Milk":
-                        TempRefs.MilkRobi = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Sandy's Milk":
-                        TempRefs.MilkSand = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
+                    case "Abigail's Milk": TempRefs.MilkAbig = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Caroline's Milk": TempRefs.MilkCaro = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Emily's Milk": TempRefs.MilkEmil = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Evelyn's Milk": TempRefs.MilkEvel = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Haley's Milk": TempRefs.MilkHale = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Jodi's Milk": TempRefs.MilkJodi = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Leah's Milk": TempRefs.MilkLeah = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Marnie's Milk": TempRefs.MilkMarn = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Maru's Milk": TempRefs.MilkMaru = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Pam's Milk": TempRefs.MilkPam = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Penny's Milk": TempRefs.MilkPenn = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Robin's Milk": TempRefs.MilkRobi = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Sandy's Milk": TempRefs.MilkSand = kvp.Key; ID = kvp.Key; goto increment;
                     #endregion
 
                     #region guys
-                    case "Alex's Cum":
-                        TempRefs.MilkAlex = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
+                    case "Alex's Cum": TempRefs.MilkAlex = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Clint's Cum": TempRefs.MilkClint = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Demetrius's Cum": TempRefs.MilkDemetrius = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Elliott's Cum": TempRefs.MilkElliott = kvp.Key; ID = kvp.Key; goto increment;
+                    case "George's Cum": TempRefs.MilkGeorge = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Gil's Cum": TempRefs.MilkGil = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Gunther's Cum": TempRefs.MilkGunther = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Gus's Cum": TempRefs.MilkGus = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Harvey's Cum": TempRefs.MilkHarv = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Kent's Cum": TempRefs.MilkKent = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Lewis's Cum": TempRefs.MilkLewis = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Linus's Cum": TempRefs.MilkLinus = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Marlon's Cum": TempRefs.MilkMarlon = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Morris's Cum": TempRefs.MilkMorris = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Pierre's Cum": TempRefs.MilkPierre = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Sam's Cum": TempRefs.MilkSam = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Sebastian's Cum": TempRefs.MilkSeb = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Shane's Cum": TempRefs.MilkShane = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Willy's Cum": TempRefs.MilkWilly = kvp.Key; ID = kvp.Key; goto increment;
+                    #endregion
 
-                    case "Clint's Cum":
-                        TempRefs.MilkClint = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Demetrius's Cum":
-                        TempRefs.MilkDemetrius = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Elliott's Cum":
-                        TempRefs.MilkElliott = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "George's Cum":
-                        TempRefs.MilkGeorge = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Gil's Cum":
-                        TempRefs.MilkGil = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Gunther's Cum":
-                        TempRefs.MilkGunther = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Gus's Cum":
-                        TempRefs.MilkGus = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Harvey's Cum":
-                        TempRefs.MilkHarv = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Kent's Cum":
-                        TempRefs.MilkKent = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Lewis's Cum":
-                        TempRefs.MilkLewis = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Linus's Cum":
-                        TempRefs.MilkLinus = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Marlon's Cum":
-                        TempRefs.MilkMarlon = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Morris's Cum":
-                        TempRefs.MilkMorris = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Qi's Cum":
-                        TempRefs.MilkQi = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Pierre's Cum":
-                        TempRefs.MilkPierre = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Sam's Cum":
-                        TempRefs.MilkSam = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Sebastian's Cum":
-                        TempRefs.MilkSeb = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Shane's Cum":
-                        TempRefs.MilkShane = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Willy's Cum":
-                        TempRefs.MilkWilly = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Wizard's Cum":
-                        TempRefs.MilkWiz = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
+                    #region Magical
+                    case "Dwarf's Milk": TempRefs.MilkDwarf = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Krobus's Cum": TempRefs.MilkKrobus = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Mr. Qi's Essence": TempRefs.MilkQi = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Wizard's Cum": TempRefs.MilkWiz = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Magical Essence": TempRefs.MilkMagic = kvp.Key; ID = kvp.Key; goto increment;
                     #endregion
 
                     #region Extra Items
-                    case "Woman's Milk":
-                        TempRefs.MilkGeneric = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Special Milk":
-                        TempRefs.MilkSpecial = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Protein Shake":
-                        TempRefs.ProteinShake = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Special Milkshake":
-                        TempRefs.MilkShake = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Super Juice":
-                        TempRefs.SuperJuice = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
+                    case "Woman's Milk": TempRefs.MilkGeneric = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Special Milk": TempRefs.MilkSpecial = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Magic Essence": TempRefs.MilkMagic = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Protein Shake": TempRefs.ProteinShake = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Special Milkshake": TempRefs.MilkShake = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Super Juice": TempRefs.SuperJuice = kvp.Key; ID = kvp.Key; goto increment;
                     #endregion
 
                     #region Other mods
-                    case "Sophia's Milk":
-                        TempRefs.MilkSophia = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        continue;
-
-                    case "Andy's Cum":
-                        TempRefs.MilkAndy = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        break;
-
-                    case "Claire's Milk":
-                        TempRefs.MilkClaire = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        break;
-
-                    case "Martin's Cum":
-                        TempRefs.MilkMartin = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        break;
-
-                    case "Susan's Milk":
-                        TempRefs.MilkSusan = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        break;
-
-                    case "Victor's Cum":
-                        TempRefs.MilkVictor = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        break;
-
-                    case "Olivia's Milk":
-                        TempRefs.MilkOlivia = keyValuePair.Key;
-                        ID = keyValuePair.Key;
-                        break;
+                    case "Sophia's Milk": TempRefs.MilkSophia = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Andy's Cum": TempRefs.MilkAndy = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Claire's Milk": TempRefs.MilkClaire = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Martin's Cum": TempRefs.MilkMartin = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Susan's Milk": TempRefs.MilkSusan = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Victor's Cum": TempRefs.MilkVictor = kvp.Key; ID = kvp.Key; goto increment;
+                    case "Olivia's Milk": TempRefs.MilkOlivia = kvp.Key; ID = kvp.Key; goto increment;
                     #endregion
 
                     default:
-                        if (strArray[0].ToLower().Contains("milk") || strArray[0].ToLower().Contains("cum"))
+                        if (strArray[0].ToLower().Contains("milk") || strArray[0].ToLower().Contains("cum") || strArray[0].ToLower().Contains("essence"))
                         {
                             num1++;
                             ModFunctions.LogVerbose($"{strArray[0]} wasn't added.", LogLevel.Info);
                         }
-
-                        continue;
+                        goto increment;
                 }
 
-                if (ID != 0)
+            increment:
                 {
-                    ModFunctions.LogVerbose($"{strArray[0]} added. {ID}", Defcon);
-                    ++num2;
+                    if (ID != 0)
+                    {
+                        ModFunctions.LogVerbose($"{strArray[0]} added. {ID}", Defcon);
+                        ++num2;
+                    }
                 }
             }
 
@@ -734,7 +611,6 @@ namespace MilkVillagers
         {
             if (running)
             {
-                ModFunctions.LogVerbose($"skipped button press: {e.Button}, running:{running}");
                 return;
             }
 
@@ -751,9 +627,15 @@ namespace MilkVillagers
             if (Config.Debug && button == SButton.P)
             {
                 CheckAll();
-                //Game1.warpFarmer("Hospital", 7, 10, false);
-                Monitor.Log($"Current item: {who.CurrentItem.getCategoryName()}/{who.CurrentItem.category}", LogLevel.Alert);
+                if (!who.mailReceived.Contains("5948MaruStart"))
+                    who.mailReceived.Add("5948MaruStart");
+                else
+                    Game1.warpFarmer("ScienceHouse", 6, 23, false);
+
+                Monitor.Log($"Current item {who.CurrentItem.parentSheetIndex}: {who.CurrentItem.getCategoryName()}/{who.CurrentItem.category}", LogLevel.Alert);
                 Monitor.Log($"Farmer is at {who.getTileX()}, {who.getTileY()}");
+
+                //who.mailbox.Add("PennyLibrary");
             }
             else if (button == Config.MilkButton)
             {
@@ -800,16 +682,28 @@ namespace MilkVillagers
                     //    ActionOnNPC(target, who, "BJ");
                     //}
                 }
-                else if (Config.Debug && who.hasItemInInventory(TempRefs.MilkQi, 1))
+                else if (Config.Debug)
                 {
-                    List<Response> options = new List<Response>()
+                    List<Response> options = new List<Response>();
+
+                    if (who.IsMale && !TempRefs.SelfMilkedToday)
                     {
-                        new Response ("time_freeze", "Yes"),
-                        new Response("abort", "No")
+                        options.Add(new Response("self_milk", "Collect your own cum"));
+                    }
+                    else if (!TempRefs.SelfMilkedToday)
+                    {
 
-                    };
+                        options.Add(new Response("self_milk", "Milk yourself"));
+                    }
 
-                    Game1.currentLocation.createQuestionDialogue($"Do you want to try and freeze time?", options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                    if (who.hasItemInInventory(TempRefs.MilkQi, 1))
+                    {
+                        options.Add(new Response("time_freeze", "Freeze time"));
+                    }
+
+                    options.Add(new Response("abort", "Nothing"));
+
+                    Game1.currentLocation.createQuestionDialogue($"What would you like to do?", options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                 }
             }
             else
@@ -828,11 +722,23 @@ namespace MilkVillagers
                 who.removeItemFromInventory(TempRefs.MilkQi);
                 Countdown = 576000; // 1 minute.
             }
+            else if (action == "self_milk")
+            {
+                string milkText = who.isMale ? $"You jerk off and collect your own cum in a bottle. [{TempRefs.MilkSpecial}]" : $"You knead your breasts and collect the milk in a bottle. [{TempRefs.MilkGeneric}]";
+                Game1.addHUDMessage(new HUDMessage(milkText));
+                TempRefs.SelfMilkedToday = true;
+            }
             else
                 ActionOnNPC(currentTarget, who, action);
 
         }
 
+        /// <summary>
+        /// Starts the process of performing a text based user action on the NPC
+        /// </summary>
+        /// <param name="npc">the NPC you are performing the action with</param>
+        /// <param name="who">the farmer performing the action</param>
+        /// <param name="action">the text name of the dialogue to perform</param>
         private void ActionOnNPC(NPC npc, Farmer who, string action = "milk_start")
         {
             // Removed option for requiring a milk pail
@@ -847,11 +753,33 @@ namespace MilkVillagers
             int heartMin = 0;
             int HeartCurrent = who.getFriendshipHeartLevelForNPC(npc.name);
             string chosenString;
+            int Quality;
 
+            //TODO move to static class of actions.
             switch (action)
             {
                 case "milk_start":
                     heartMin = 8;
+                    break;
+
+                case "milk_fast":
+                    heartMin = 8;
+                    break;
+
+                case "BJ":
+                    heartMin = 6;
+                    break;
+
+                case "eat_out":
+                    heartMin = 6;
+                    break;
+
+                case "get_eaten":
+                    heartMin = 7;
+                    break;
+
+                case "sex":
+                    heartMin = 10;
                     break;
             }
 
@@ -864,7 +792,7 @@ namespace MilkVillagers
 
             if (HeartCurrent < heartMin && npc.CanSocialize)//  npc.name != "Mister Qi") // Check if the NPC likes you enough.
             {
-                Game1.drawDialogue(npc, $"That's flattering, but I just don't like you enough for that. ({HeartCurrent}/{heartMin}");
+                Game1.drawDialogue(npc, $"That's flattering, but I don't like you enough for that. ({HeartCurrent}/{heartMin})");
                 ModFunctions.LogVerbose($"{npc.name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Alert);
                 return;
             }
@@ -889,87 +817,95 @@ namespace MilkVillagers
             #region set item to give
             int ItemCode = TempRefs.MilkGeneric;
 
+            switch (npc.Name) //Give items to player
+            {
+                // Milk
+                case "Abigail": ItemCode = TempRefs.MilkAbig; Quality = 3; break;
+                case "Caroline": ItemCode = TempRefs.MilkCaro; Quality = 3; break;
+                case "Emily": ItemCode = TempRefs.MilkEmil; Quality = 3; break;
+                case "Evelyn": ItemCode = TempRefs.MilkEvel; Quality = 0; break;
+                case "Haley": ItemCode = TempRefs.MilkHale; Quality = 3; break;
+                case "Jodi": ItemCode = TempRefs.MilkJodi; Quality = 2; break;
+                case "Leah": ItemCode = TempRefs.MilkLeah; Quality = 3; break;
+                case "Marnie": ItemCode = TempRefs.MilkMarn; Quality = 2; break;
+                case "Maru": ItemCode = TempRefs.MilkMaru; Quality = 3; break;
+                case "Pam": ItemCode = TempRefs.MilkPam; Quality = 0; break;
+                case "Penny": ItemCode = TempRefs.MilkPenn; Quality = 3; break;
+                case "Robin": ItemCode = TempRefs.MilkRobi; Quality = 2; break;
+                case "Sandy": ItemCode = TempRefs.MilkSand; Quality = 3; break;
+
+                case "Sophia": ItemCode = TempRefs.MilkSophia; Quality = 3; break;
+                case "Olivia": ItemCode = TempRefs.MilkOlivia; Quality = 2; break;
+                case "Susan": ItemCode = TempRefs.MilkSusan; Quality = 3; break;
+                case "Claire": ItemCode = TempRefs.MilkClaire; Quality = 2; break;
+
+                // Cum
+                case "Alex": ItemCode = TempRefs.MilkAlex; Quality = 3; break;
+                case "Clint": ItemCode = TempRefs.MilkClint; Quality = 1; break;
+                case "Demetrius": ItemCode = TempRefs.MilkDemetrius; Quality = 3; break;
+                case "Elliott": ItemCode = TempRefs.MilkElliott; Quality = 3; break;
+                case "George": ItemCode = TempRefs.MilkGeorge; Quality = 0; break;
+                case "Gus": ItemCode = TempRefs.MilkGus; Quality = 1; break;
+                case "Harvey": ItemCode = TempRefs.MilkHarv; Quality = 3; break;
+                case "Kent": ItemCode = TempRefs.MilkKent; Quality = 3; break;
+                case "Lewis": ItemCode = TempRefs.MilkLewis; Quality = 0; break;
+                case "Linus": ItemCode = TempRefs.MilkLinus; Quality = 2; break;
+                case "Pierre": ItemCode = TempRefs.MilkPierre; Quality = 1; break;
+                case "Sam": ItemCode = TempRefs.MilkSam; Quality = 3; break;
+                case "Sebastian": ItemCode = TempRefs.MilkSeb; Quality = 3; break;
+                case "Shane": ItemCode = TempRefs.MilkShane; Quality = 2; break;
+                case "Willy": ItemCode = TempRefs.MilkWilly; Quality = 1; break;
+
+                //Magical
+                case "Dwarf": ItemCode = TempRefs.MilkDwarf; Quality = 0; break;
+                case "Krobus": ItemCode = TempRefs.MilkKrobus; Quality = 2; break;
+                case "Mister Qi": ItemCode = TempRefs.MilkQi; Quality = 3; break;
+                case "Wizard": ItemCode = TempRefs.MilkWiz; Quality = 3; break;
+
+                case "Andy": ItemCode = TempRefs.MilkAndy; Quality = 2; break;
+                case "Victor": ItemCode = TempRefs.MilkVictor; Quality = 3; break;
+                case "Martin": ItemCode = TempRefs.MilkMartin; Quality = 2; break;
+
+                default: //NPC's I don't know.
+                    ItemCode = npc.gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
+                    Quality = 1;
+                    ModFunctions.LogVerbose($"Couldn't find {npc.name} in the list of items", LogLevel.Debug);
+                    break;
+            }
+
             // Don't remove this - It's a good way of speeding up for people.
             if (Config.StackMilk)
             {
                 ItemCode = npc.gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
-            }
-            else
-            {
-                switch (npc.Name) //Give items to player
+                if (npc.Name == "Mister Qi"
+                    || npc.name == "Wizard"
+                    || npc.name == "Krobus"
+                    || npc.name == "Dwarf")
                 {
-                    // Milk
-                    case "Abigail": ItemCode = TempRefs.MilkAbig; break;
-                    case "Caroline": ItemCode = TempRefs.MilkCaro; break;
-                    case "Emily": ItemCode = TempRefs.MilkEmil; break;
-                    case "Evelyn": ItemCode = TempRefs.MilkEvel; break;
-                    case "Haley": ItemCode = TempRefs.MilkHale; break;
-                    case "Jodi": ItemCode = TempRefs.MilkJodi; break;
-                    case "Leah": ItemCode = TempRefs.MilkLeah; break;
-                    case "Marnie": ItemCode = TempRefs.MilkMarn; break;
-                    case "Maru": ItemCode = TempRefs.MilkMaru; break;
-                    case "Pam": ItemCode = TempRefs.MilkPam; break;
-                    case "Penny": ItemCode = TempRefs.MilkPenn; break;
-                    case "Sandy": ItemCode = TempRefs.MilkSand; break;
-                    case "Dwarf": ItemCode = TempRefs.MilkDwarf; break;
-
-                    case "Sophia": ItemCode = TempRefs.MilkSophia; break;
-                    case "Olivia": ItemCode = TempRefs.MilkOlivia; break;
-                    case "Susan": ItemCode = TempRefs.MilkSusan; break;
-                    case "Claire": ItemCode = TempRefs.MilkClaire; break;
-
-                    // Cum
-                    case "Alex": ItemCode = TempRefs.MilkAlex; break;
-                    case "Clint": ItemCode = TempRefs.MilkClint; break;
-                    case "Demetrius": ItemCode = TempRefs.MilkDemetrius; break;
-                    case "Elliott": ItemCode = TempRefs.MilkElliott; break;
-                    case "George": ItemCode = TempRefs.MilkGeorge; break;
-                    case "Gus": ItemCode = TempRefs.MilkGus; break;
-                    case "Harvey": ItemCode = TempRefs.MilkHarv; break;
-                    case "Kent": ItemCode = TempRefs.MilkKent; break;
-                    case "Lewis": ItemCode = TempRefs.MilkLewis; break;
-                    case "Linus": ItemCode = TempRefs.MilkLinus; break;
-                    case "Pierre": ItemCode = TempRefs.MilkPierre; break;
-                    case "Robin": ItemCode = TempRefs.MilkRobi; break;
-                    case "Sam": ItemCode = TempRefs.MilkSam; break;
-                    case "Sebastian": ItemCode = TempRefs.MilkSeb; break;
-                    case "Shane": ItemCode = TempRefs.MilkShane; break;
-                    case "Willy": ItemCode = TempRefs.MilkWilly; break;
-
-                    //Magical
-                    case "Mister Qi": ItemCode = TempRefs.MilkQi; break;
-                    case "Wizard": ItemCode = TempRefs.MilkWiz; break;
-                    //case "Marlon": ItemCode = TempRefs.MilkWMarlon; break; //WTF? Who is WMarlon?
-                    case "Krobus": ItemCode = TempRefs.MilkKrobus; break;
-
-                    case "Andy": ItemCode = TempRefs.MilkAndy; break;
-                    case "Victor": ItemCode = TempRefs.MilkVictor; break;
-                    case "Martin": ItemCode = TempRefs.MilkMartin; break;
-
-                    default: //NPC's I don't know.
-                        ItemCode = npc.gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
-                        ModFunctions.LogVerbose($"Couldn't find {npc.name} in the list of items", LogLevel.Debug);
-                        break;
+                    ItemCode = TempRefs.MilkMagic;
                 }
             }
 
             string SItemCode = $"[{ItemCode}]";
+            AddItem = new Object(ItemCode, 1, quality: Quality);
+            CurrentFarmer = who;
 
             // If no male milking, don't give item.
             if ((npc.gender == 0 & !Config.MilkMale) || !Config.CollectItems)
             {
                 SItemCode = "";
+                AddItem = null;
             }
             #endregion
 
             ModFunctions.LogVerbose($"Trying to milk {npc.name}. Will give item {ItemCode}: {_itemEditor.Data[ItemCode]}", LogLevel.Trace);
 
-
+            #region Draw Dialogue
             npc.facePlayer(who);
             if (npc.Dialogue.TryGetValue(action, out string dialogues)) //Does npc have milking dialogue?
             {
                 chosenString = GetRandomString(dialogues.Split(new string[] { "#split#" }, System.StringSplitOptions.None));
-                Game1.drawDialogue(npc, $"{chosenString} {SItemCode}");
+                Game1.drawDialogue(npc, $"{chosenString}");// {SItemCode}");
                 success = true;
             }
             else
@@ -977,7 +913,10 @@ namespace MilkVillagers
                 switch (action)
                 {
                     case "milk_fast":
-                        Game1.drawDialogue(npc, SItemCode);
+                        //Game1.drawDialogue(npc, SItemCode);
+                        CurrentFarmer.addItemToInventory(AddItem);
+                        AddItem = null;
+                        CurrentFarmer = null;
                         success = true;
                         break;
 
@@ -1030,6 +969,7 @@ namespace MilkVillagers
                         break;
                 }
             }
+            #endregion
 
             ModFunctions.LogVerbose($"ItemCode is [{ItemCode}]");
             if (success)
@@ -1055,8 +995,14 @@ namespace MilkVillagers
                         who.changeFriendship(30, npc);
                         TempRefs.SexToday.Add(npc);
                         break;
+                }
 
-
+                if (AddItem != null
+                    && AddItem.Category == TempRefs.SpecialType
+                    && !who.mailReceived.Contains("MagicalItem")
+                    && !who.mailForTomorrow.Contains("MagicalItem"))
+                {
+                    //who.mailForTomorrow.Add("MagicalItem");
                 }
             }
             //_ = npc.checkAction(who, Game1.currentLocation);

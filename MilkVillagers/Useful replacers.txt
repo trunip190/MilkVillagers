@@ -31,6 +31,25 @@ Example:			Hi there @!
 %kid1 				The name of Farmer's first child.
 %kid2 				The name of Farmer's second child. 
 
+Eotes
+row	index	purpose
+1	0–3	animation used to start an emote (I think)
+2	4–7	empty can
+3	8–11	question mark
+4	12–15	angry
+5	16–19	exclamation
+6	20–23	heart
+7	24–27	sleep
+8	28–31	sad
+9	32–35	happy
+10	36–39	x
+11	40–43	pause
+12	44–47	not used
+13	48–51	not used
+14	52–55	videogame
+15	56–59	music note
+16	60–63	blush
+
 
 command 													description
 $q <response IDs> <fallback>#<text> 						Show a dialogue box containing the given question text. If <response IDs> (a list delimited by /) contains an answer already given, the question is skipped (along with the rest of this dialogue line), and instead the dialogue entry identified by <fallback> will be appended to whatever precedes this $q command. The <fallback> dialogue typically uses a $p command to adjust the text based on the player's answer to this question. NOTE: dialogue questions must use unique IDs, similar to events. See the event data page for more information.
@@ -44,3 +63,23 @@ $1 <letter ID>#<1st-time text> #$e# <nth-time text> 		Creates a line of dialogue
 %fork 														Sets the the specialEventVariable1 variable, which can be checked by a later fork event command. Mainly useful in reaction dialogue for $q questions during events.
 [# # #] 													Gives the player a random item, from the pool of item IDs within the brackets.
 %revealtaste<npc name><object ID> 							Reveals the named character's gift taste for an object in their social menu profile. For example, %revealtasteLewis258 will update Lewis's profile to show that he likes blueberries. This only works if it's in the first message in a dialogue box (i.e. before any #$b# break, though #$e# breaks are fine).
+
+
+
+EVENTS
+
+/speak npc \"message\"
+/message \"message\"
+/textAboveHead npc \"message\"
+/move npc x y direction
+/faceDirection npc direction
+/viewport x y
+/fade
+/emote npc index
+/pause
+/beginSimultaneousCommand
+/endSimultaneousCommand
+/question null \"Question#answer1\"
+/question fork0 \"Question#Answer1\"
+/fork eventid
+/quickQuestion <question>#<answer1>#<answer2>#<question3>(break)<answer1 script>(break)<answer2 script>(break)<answer3 script>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>MilkVillagers</AssemblyName>
+    <RootNamespace>MilkVillagers</RootNamespace>
+    <Version>1.0.0</Version>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dialogue suggestions.txt" />
+    <Content Include="Useful replacers.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.0" />
+  </ItemGroup>
+</Project>

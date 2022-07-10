@@ -1,55 +1,68 @@
-﻿TODO
-	change character sprite/portrait during the milking
-	cheese recipe
-	Other mods
-		SVE
-			Claire		
-			Martin
-		
-		Ridgeside
+﻿TODO	
+	Optional
+		Multiplayer.
+		Switch to generic items?
+			Fix price and health benefits for each milk item. maybe ranked instead? (base, silver, gold, iridium)
+		add in girl's panties and boy's boxers.
+		cheese recipe
 
-	Fix price and health benefits for each milk item. maybe ranked instead? (base, silver, gold, iridium)
+	Low Priority
+		Player milk?
+		add in tv channel for Abigail's camshow
+		Quests
+			Daily quests
+			write quests for other npc's.
+				Maru wants to to test some cum
+				George wants to taste some of Haley's and Amily's milk
+				Sebastian wants some of Abigail's milk, but she wants some of his cum.
+				Alex lost his parents and is a little mommy milk obsessed. Evelyn can't give him that, q1 milk, q2 set him up with someone q3
+				First quest
+				Abigail has started lactating (repressed magic heritage) and her milk is needed to create an elixir that lets other lactate.
+			Add subquests for the other women? 
+		Special items
+			Krobus
+			Dwarf
+			Wizard
+			Mister Qi
+		And maybe she gives hints about collecting sperm from the men in order to make the elixir?
 
-	Special items
-		Krobus
-		Dwarf
-		Wizard
-		Mister Qi
+	Medium Priority
+		Need to add some events
+			Girls
+					Abigail
+					Penny
+					Haley
+				Emily
+					Leah
+				Maru
+			Boys
+					Harvey
+				Sam
+				Sebastian
+				Elliott
+				Shane
+				Alex
+			Townspeople
+			Poly
+				Harvey/Maru
+		item collection toggle - will nerf scenes but oh well.
+		Dialogue
+			Other mods
+				SVE		
+				Ridgeside
+			change character sprite/portrait during the milking
+		Work out quest method
+			maybe let the player pick?
+			maybe base it off of how many times they've harvested the npc?
+				wouldn't work for disliked npc's
+			sequential
 
-		fix woman's milk recipe.
-			human milk works.
-		itemc collection toggle - will nerf scenes but oh well.
-		if male/female disabled, don't add recipe.
+	High Priority
+		Rewrite mail pick method
+		Rewrite mail completion method
+		Rewrite quest checking method
+		Fix the NPC gift likes.
 
-	add skill buffs to items
-	sort out dialogue length so it doesn't overrun to the next page
-	add in girl's panties and boy's boxers.
-	write quests for other npc's.
-		Maru wants to to test some cum
-		George wants to taste some of Haley's and Amily's milk
-		Sebastian wants some of Abigail's milk, but she wants some of his cum.
-	Need to add some events
-	Daily quests
-	add in tv channel for Abigail's camshow
-	My path is showing when running the mod!?!?
-
-	Multiplayer.
-
-	First quest
-		Abigail has started lactating (repressed magic heritage) and her milk is need to create an elixir that lets other lactate.
-		Add subquests for the other women? And maybe she gives hints about collecting sperm from the men in order to make the elixir?
-
-In Progress
-	cooking recipes
-	fix item data
-		milkshake
-		protein shake
-
-	add npc portrait moods to dialogue.
-
-	milk/cum art specific
-		milk							- done
-		cum
 
 Bugs
 	wrong item given:					- done

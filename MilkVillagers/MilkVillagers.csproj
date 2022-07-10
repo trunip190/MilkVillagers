@@ -48,12 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssetEditors.cs" />
+    <Compile Include="Asset Editors\Recipes.cs" />
+    <Compile Include="Asset Editors\Dialogue.cs" />
+    <Compile Include="Asset Editors\Events.cs" />
+    <Compile Include="Asset Editors\Items.cs" />
+    <Compile Include="Asset Editors\Quests.cs" />
     <Compile Include="IGenericModConfigMenuApi.cs" />
     <Compile Include="ModEntry.cs" />
     <Compile Include="ModConfig.cs" />
     <Compile Include="ModFunctions.cs" />
-    <Compile Include="MyModMail.cs" />
+    <Compile Include="Asset Editors\Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools.cs" />
   </ItemGroup>
