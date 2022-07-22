@@ -3,16 +3,18 @@
   <PropertyGroup>
     <AssemblyName>MilkVillagers</AssemblyName>
     <RootNamespace>MilkVillagers</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.0.9</Version>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Objects\Abigail's Milk\object.png" />
     <None Remove="Objects\Alex's Cum\object.png" />
+    <None Remove="Objects\Camera\object.png" />
     <None Remove="Objects\Caroline's Milk\object.png" />
     <None Remove="Objects\Clint's Cum\object.png" />
     <None Remove="Objects\Demetrius's Cum\object.png" />
+    <None Remove="Objects\Eldritch Energy\object.png" />
     <None Remove="Objects\Elliott's Cum\object.png" />
     <None Remove="Objects\Emily's Milk\object.png" />
     <None Remove="Objects\Dwarf's Milk\object.png" />
@@ -21,6 +23,7 @@
     <None Remove="Objects\Gil's Cum\object.png" />
     <None Remove="Objects\Gunther's Cum\object.png" />
     <None Remove="Objects\Gus's Cum\object.png" />
+    <None Remove="Objects\Haley's Milk - Copy\object.png" />
     <None Remove="Objects\Haley's Milk\object.png" />
     <None Remove="Objects\Harvey's Cum\object.png" />
     <None Remove="Objects\Jodi's Milk\object.png" />
@@ -34,10 +37,12 @@
     <None Remove="Objects\Maru's Milk\object.png" />
     <None Remove="Objects\Morris's Cum\object.png" />
     <None Remove="Objects\Pam's Milk\object.png" />
+    <None Remove="Objects\Penny's Erotic Book\object.png" />
     <None Remove="Objects\Penny's Milk\object.png" />
     <None Remove="Objects\Pierre's Cum\object.png" />
     <None Remove="Objects\Protein Shake\object.png" />
     <None Remove="Objects\Qi's Cum\object.png" />
+    <None Remove="Objects\Readi Milk\object.png" />
     <None Remove="Objects\Robin's Milk\object.png" />
     <None Remove="Objects\Sam's Cum\object.png" />
     <None Remove="Objects\Sandra's Milk\object.png" />
@@ -55,10 +60,25 @@
     <Content Include="Objects\Andy's Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Objects\Camera\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Objects\Dwarf%27s Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Objects\Eldritch Energy\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Haley%27s Panties\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Objects\Magic Essence\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Penny's Erotic Book\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Readi Milk\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Super Juice\object.png">
@@ -199,17 +219,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.0" />
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
+    <PackageReference Include="Platonymous.PyTK" Version="1.12.40" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="manifest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Objects\Camera\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Objects\Dwarf's Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Objects\Eldritch Energy\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Haley's Panties\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Objects\Magic Essence\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Penny%27s Erotic Book\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Objects\Readi Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Objects\Super Juice\object.json">
@@ -350,6 +386,10 @@
     <None Update="Objects\Wizard's Cum\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BigCraftables\MilkProcessor\" />
   </ItemGroup>
 
 </Project>

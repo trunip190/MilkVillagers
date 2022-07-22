@@ -1,69 +1,130 @@
 ﻿using System.Collections.Generic;
 using StardewModdingAPI;
+using System.IO;
 
 namespace MilkVillagers.Asset_Editors
 {
 
-    public class DialogueEditor : IAssetEditor
+    public static class DialogueEditor // : IAssetEditor
     {
-        public IDictionary<string, string> data;
-        public bool ExtraContent = false;
+        private static IDictionary<string, string> data;
+        public static bool ExtraContent = false;
 
-        public bool CanEdit<T>(IAssetInfo asset)
+        public static bool CanEdit<T>(IAssetInfo asset)
         {
             bool result =
-                    asset.AssetNameEquals("Characters/Dialogue/Abigail") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Emily") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Haley") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Leah") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Maru") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Penny") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Caroline") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Jodi") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Marnie") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Robin") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Pam") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Sandy") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Evelyn") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Alex") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Clint") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Demetrius") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Elliott") ||
-                    asset.AssetNameEquals("Characters/Dialogue/George") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Gil") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Harvey") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Sam") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Sebastian") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Shane") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Pierre") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Gunther") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Gus") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Kent") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Lewis") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Linus") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Marlon") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Morris") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Mister Qi") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Willy") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Wizard") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Sophia") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Olivia") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Susan") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Claire") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Victor") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Andy") ||
-                    asset.AssetNameEquals("Characters/Dialogue/Martin");
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Emily") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Haley") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Leah") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Maru") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Penny") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Caroline") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Jodi") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Marnie") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Robin") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Pam") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Sandy") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Evelyn") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Alex") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Clint") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Demetrius") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Elliott") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/George") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Gil") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Harvey") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Sam") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Sebastian") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Shane") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Pierre") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Gunther") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Gus") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Kent") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Lewis") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Linus") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Marlon") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Morris") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Dwarf") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Mister Qi") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Willy") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Wizard") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Sophia") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Olivia") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Susan") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Claire") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Victor") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Andy") ||
+                    asset.Name.IsEquivalentTo("Characters/Dialogue/Martin");
 
             return result;
         }
 
-        public void Edit<T>(IAssetData asset)
+        public static bool CanEdit(IAssetName AssetName)
+        {
+            bool result =
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Abigail") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Emily") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Haley") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Leah") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Maru") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Penny") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Caroline") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Jodi") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Marnie") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Robin") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Pam") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Sandy") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Evelyn") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Alex") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Clint") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Demetrius") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Elliott") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/George") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Gil") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Harvey") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Sam") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Sebastian") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Shane") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Pierre") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Gunther") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Gus") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Kent") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Lewis") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Linus") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Marlon") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Morris") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Dwarf") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Mister Qi") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Willy") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Wizard") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Sophia") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Olivia") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Susan") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Claire") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Victor") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Andy") ||
+                   AssetName.IsEquivalentTo("Characters/Dialogue/Martin");
+
+            return result;
+        }
+
+        public static void Edit<T>(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+        public static void Edit(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+        private static void EditAsset(IAssetData asset)
         {
             data = asset.AsDictionary<string, string>().Data;
-            bool Deploy = false;
+            bool Deploy = true;
 
             //TODO add way to update this on the fly.
-            if (ExtraContent && asset.AssetNameEquals("Characters/Dialogue/Abigail"))
+            if (ExtraContent && asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail"))
             {
                 ModFunctions.LogVerbose($"Loading in Abigail's extra dialogue", LogLevel.Trace);
                 data["Introduction"] = "Oh, that's right... I heard someone new was moving onto that old farm.#$e#I used to love exploring those old fields. I could hide in the weeds, strip naked and masturbate as much as I wanted. $9#Now I guess I'll have to do all of my camgirl streams in my room.";
@@ -128,7 +189,7 @@ namespace MilkVillagers.Asset_Editors
 
             if (!data.ContainsKey("milk_start")) // skip if there is already Content Patcher dialogue loaded.
             {
-                if (asset.AssetNameEquals("Characters/Dialogue/Abigail")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Abigail", LogLevel.Trace);
                     data["milk_start"] = "Please be gentle, they are really sore today." +
@@ -141,7 +202,7 @@ namespace MilkVillagers.Asset_Editors
                     //data["milk_no"] = "But...I'm so sore. I'm going to have to try and suck the milk out myself now! $s#$b#Fine, then you have to watch me...as I lick my nipples, suck on them, feel the milk washing down my throat...#$b#*Abigail lifts her breast to her mouth and slowly circles the tip of her nipple. Milk starts leaking, and she carefully scoops it up with her tongue*#$b#*She starts sucking in ernest, and milk dribbles down her chin while she starts moaning softly. You move towards her and she puts a hand out to stop you*#$b#No! You made me do this, so you have to watch. *she switches to her other breast and takes big gulps while a river runs down her front and starts pooling on the floor*#$b#*She finally finishes, looks you in the eye, then turns around and leaves*";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Emily"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Emily", LogLevel.Trace);
                     data["milk_start"] = $"Oh! Did you know that human breast milk is a super food?#$b#It's way better for you than cows milk..." +
@@ -155,7 +216,7 @@ namespace MilkVillagers.Asset_Editors
                     $"#$b#I'm cumming!!!";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Haley", LogLevel.Trace);
                     data["milk_start"] = $"Everyone always said my boobs were great. I guess I shouldn't be surprised that you love them too." +
@@ -168,7 +229,7 @@ namespace MilkVillagers.Asset_Editors
 
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Leah"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Leah", LogLevel.Trace);
                     data["milk_start"] = $"I love the way your hands feel on me, @. You might be better with your hands than me, though I'd love to have a contest some day." +
@@ -179,7 +240,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Wow. That was a wonderful experience. Please come see me again - we can get up to all sorts of mischief in my cabin. $h";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Maru"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Maru", LogLevel.Trace);
                     data["milk_start"] = $"I'm sure I could come up with a machine to help with this...I'd have to do some tests to see how the level of arousal affects milk quality..." +
@@ -192,7 +253,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#I'm not sure anything I make could be better than your touch.";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Penny"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Penny", LogLevel.Trace);
                     data["milk_start"] = $"I'm always self conscious about the size of my breasts. George may leer at me, but I think that's just because I'm young and female." +
@@ -205,7 +266,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#You awaken such carnal feelings in me, @. I'm sure I look like a wanton harlot right now...and I definitely feel like one.";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Caroline"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Caroline", LogLevel.Trace);
                     data["milk_start"] = $"My breasts are so sore, I NEED someone to milk them. Pierre is so obsessed with his 'business' that he doesn't pay attention to me any more." +
@@ -216,7 +277,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Aw, thanks honey, I feel much better now. I wouldn't want to waste anything, and all of my juices taste SO good. Maybe I can taste yours next time?";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Jodi"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Jodi", LogLevel.Trace);
                     data["milk_start"] = $"I've been so lonely since Kent first went off to war, and now that Vincent is growing up so fast I didn't think anyone would ever pay attention to me again.$s" +
@@ -228,7 +289,7 @@ namespace MilkVillagers.Asset_Editors
                         $"Thank you for that, @. I know who to come to if I feel lonely again. Or just horny.";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marnie"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Marnie", LogLevel.Trace);
                     data["milk_start"] = $"I'm glad that Lewis isn't the only one to appreciate my big tits! He spends every moment he can in my cleavage, but he never thought to suck on them!" +
@@ -236,7 +297,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Make sure Lewis...I mean the Mayor...doesn't catch you! He might get jealous!";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Robin"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Robin", LogLevel.Trace);
                     data["milk_start"] = $"Demetrius is always so...clinical...when he talks about my breasts. I wish he was as romantic as you!" +
@@ -246,7 +307,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#That was wonderful...Come back, any time.";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pam"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Pam", LogLevel.Trace);
                     data["milk_start"] = $"Really? I...didn't know people were into that kind of thing. I guess it wouldn't hurt, but don't expect me too go 'moo'!$n" +
@@ -256,7 +317,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#I never would have imagined you could find anything in these old tits of mine. You are full of surprises, @.$h";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sandy"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Sandy", LogLevel.Trace);
                     data["milk_start"] = $"I knew you were too tempted to pass up this opportunity. There's a reason I'm called the flower of the desert, and I'd love to have you worship my breasts." +
@@ -268,7 +329,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#That was amazing, @. I'm going to go...relive myself. My pussy is gushing more than the Oasis, and I can't think straight when I'm this horny.$l";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Evelyn"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Evelyn", LogLevel.Trace);
                     data["milk_start"] = $"*Evelyn sits down on a nearby chair and unbottons her blouse. She deftly unhooks her bra, and you tenderly hold her mature breasts in your hands.*" +
@@ -278,7 +339,7 @@ namespace MilkVillagers.Asset_Editors
 
                 }
 
-                if (asset.AssetNameEquals("Characters/Dialogue/Sophia"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sophia"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Sophia", LogLevel.Trace);
                     data["milk_start"] = $"Oh, hey there @. I have the perfect cosplay outfit for that, but I've been too embarrassed to wear it out of the house...It's...a sexy maid outfit, but it doesn't cover...my..." +
@@ -291,7 +352,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Thank you, @. That was a fantasy finally come true. Please...come back again and enjoy my 'services'";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Olivia"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Olivia"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Olivia", LogLevel.Trace);
                     data["milk_start"] = $"OH! @, I'm not surprised that you find me attractive, but I am a lady, not someone who would bare their breasts for anyone...$s" +
@@ -304,7 +365,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Thank you, @, for remind me that I am still a woman, and a hot one at that.$l";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Susan"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Susan"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Susan", LogLevel.Trace);
                     data["milk_start"] = $"@, in case you didn't notice I'm an agricultural farmer. I don't keep cows, so cannot provide you with any milk." +
@@ -316,7 +377,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#I never would have imagined that this was possible, but please come by again. My breasts will be ready for you any time.";
 
                 }
-                //if (asset.AssetNameEquals("Characters/Dialogue/Claire"))
+                //if (asset.Name.IsEquivalentTo("Characters/Dialogue/Claire"))
                 //{
                 //    data["milk_start"] = $"";
                 //    
@@ -325,7 +386,7 @@ namespace MilkVillagers.Asset_Editors
 
             if (!data.ContainsKey("BJ"))
             {
-                if (asset.AssetNameEquals("Characters/Dialogue/Alex")) //Ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Alex")) //Ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Alex", LogLevel.Trace);
                     data["BJ"] = $"Ha! I knew you couldn't resist my dick. Sure you can have my cum. But I'm gonna need help, if you know what I mean.$h" +
@@ -342,7 +403,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*He pulls you aside and unzips his pants as you drop to your knees. His dick is already rising, and he guides you with his hand on the back of your head.*" +
                         $"#$b#%*He cums rather quickly, and sags backwards as you fill your bottle with his semen, buttong up his pants and giving you a half dazed smile*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Clint")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Clint")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Clint", LogLevel.Trace);
                     data["BJ"] = $"Wow, this must be my lucky day, @! I might be a little hot and sweaty down there. I've been busy all day and haven't had a chance to wash" +
@@ -352,7 +413,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#*Clint cums down your throat";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Demetrius")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Demetrius")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Demetrius", LogLevel.Trace);
                     data["BJ"] = "Hmm...I guess I could help you out. For scientific research purposes, of course. Just don't let this get back to Robin." +
@@ -369,7 +430,7 @@ namespace MilkVillagers.Asset_Editors
                         $"But I was almost there... *You pick up the pace again, and in no time he is on the edge.*#$b#" +
                         $"*Demetrius wasn't lying and you struggle to keep up with his flow, your mouth filling up and his semen spilling down your face. You bottle it up and look up at him, covered in his cum*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Elliott")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Elliott")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Elliott", LogLevel.Trace);
                     data["BJ"] = "I've been writing all day. This will be a perfect release, my love! I do however, have some carpal tunnel. Could you...?" +
@@ -386,18 +447,18 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#*As your eyes start to water, you try and swallow to massage his penis, and it's enough to send him over the edge*" +
                         $"#$b#@, that is incredible!";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/George")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/George")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for George", LogLevel.Trace);
                     data["BJ"] = $"I can't get out of this chair, and it's been so long since Evelyn did this for me. I wouldn't mind getting that Haley over here some time - she's such a tease." +
                         $"#$b#That's right, bend down and enjoy the taste. Bet you didn't expect to see such a large dick on a man in a wheelchair, huh?";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Gil")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Gil")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Gil", LogLevel.Trace);
                     data["BJ"] = $"Huh? What's going on? *Snore* Why are my pants off?#$b#Guess I must be dreaming again...having a beautiful face looking up at me from between my knees.#$b#*You quickly get to work, licking his balls while his penis hardens. It doesn't get fully erect at first, but after several minutes of soft sucking, and flicking his tip, he starts moaning and getting ready to cum*#$b#*Gil shoots his load into your mouth, and you quickly spit it into a bottle, wiping off any that dribbled down your chin*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Harvey")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Harvey")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Harvey", LogLevel.Trace);
                     data["BJ"] = "Well, a good orgasm IS good for your health. You know, it decrease blood pressure, helps with stress and sleep, and lowers your risk for health disease?" +
@@ -415,7 +476,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Yes...right there. Make sure you like just inside the tip every so often, but don't press too hard. Here we go, my orgasm is imminent." +
                         "#$b#*You grab a flask and hold it over the tip of his penis as he starts to ejaculate, collecting most in it, and giving his dick a quick suck to get the last little bit*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Sam")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sam")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Sam", LogLevel.Trace);
                     data["BJ"] = $"I've been horny as hell all day, this is JUST what I need. Besides, who could resist you anyway?$h" +
@@ -433,7 +494,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#*His hands rest lightly on your head, giving you encouragement, and you pick up the pace until his legs start to shake and he holds your head against his crotch hair*" +
                         $"#$b#*He explodes in your mouth and you pull back just in time to avoid having to swallow his precious load, getting the bottle in the way of a white shower to the face*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Sebastian")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sebastian")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Sebastian", LogLevel.Trace);
                     data["BJ"] = $"I could never say no to something like that from someone as attractive as you. I'm already in the palm of your hand figuratively, might as well make it literally, too." +
@@ -451,7 +512,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Here it comes! I'm going to cum in your mouth!" +
                         $"#$b#*You try and keep all of it in your mouth, but a lot of it explodes out of the side of your mouth and leaves you scraping the cum up with the bottle*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Shane")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Shane")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Shane", LogLevel.Trace);
                     data["BJ"] = $"You know I'll never get over the idea that someone like you could be attracted to a guy like me. You're too good for me, you know.$h" +
@@ -472,7 +533,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#*He gets lost in a world consisting solely of you, himself and the wonderful things your tongue and lips are doing to him, and you see a slightly dazed smile form on his face*" +
                         $"#$b#That feel amazing @, I can't believe you can give me such pleasure. I'm going to cum soon - get your bottle ready!";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Pierre")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pierre")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Pierre", LogLevel.Trace);
                     data["BJ"] = "Honestly, when you come into the store to buy seeds from me, I sometimes stare at you, imagining you on your knees, giving me all the pleasure in the world. It's nice to see I was right." +
@@ -491,7 +552,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#*It seems that Pierre likes talking dirty, so you lock eyes with him and use your hands to fondle his balls while he gets ready to ejaculate.*" +
                         $"#$b#*At the last minute you pull a bottle out of your bag and start pumping his cock to make sure you get everything out of him.*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Gunther"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Gunther"))
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Gunther", LogLevel.Trace);
                     data["BJ"] = $"If you are looking for books on that subject, I keep them in a private collection." +
@@ -503,7 +564,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*It's not long before the librarian digs his hands into your shoulder and spews his cum down your throat*" +
                         $"#$b#%*Fortunately he cums like a firehose, and you manage to bottle a decent amount*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Gus")) // Iliress dialogue
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Gus")) // Iliress dialogue
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Gus", LogLevel.Trace);
                     data["BJ"] = "Honestly, @, this is unexpected. I didn't know you thought of me like that. You are an attractive person, so if you're up for it, I am too.$h" +
@@ -513,7 +574,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*Before he can complete his word, he starts squirting on your face. You clumsily hold the jar with slippery hands and collect the rest. For some reason, his semen smells citrusy*" +
                         $"#$b#Always feels good to be touched like that.$h";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Kent")) // Iliress dialogue
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Kent")) // Iliress dialogue
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Kent", LogLevel.Trace);
                     data["BJ"] = "Jodi and I...we haven't been connecting on that level lately. I'll admit, I've been seeing you around town and have fantasized about you approaching me like this." +
@@ -525,7 +586,7 @@ namespace MilkVillagers.Asset_Editors
                          $"#$b#%*Kent tenses up and holds your head in place, almost forcing you to take the entirety of his load in your mouth. You deposit the substance in your bottle, capping it*" +
                          $"#$b#Sorry...uh...got carried away at the end there. Hope you didn't mind. Stop by if you want to do this again sometime.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Lewis"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Lewis"))
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Lewis", LogLevel.Trace);
                     data["BJ"] = $"Ah, @. This isn't one of the funny games you kids play, is it?$a" +
@@ -537,7 +598,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#I bet you get off on this kind of thing, @? Being controlled by an older man and used as a recepticle for their semen? Well here is comes.$h" +
                         $"#$b#%*He explodes inside your mouth, and you choke a little until he lets go of your head and you can dribble his load into your jar, coughing all the time*";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Linus"))// Iliress dialogue
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Linus"))// Iliress dialogue
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Linus", LogLevel.Trace);
                     data["BJ"] = "Pleasure is but a natural part of life. We are but humans, after all. Society puts too large of a stigma on such a thing." +
@@ -548,7 +609,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*You do as you are told, and Linus releases himself in the glass container, maintaining a calm, almost serene composure. You cap the bottle*" +
                         $"#$b#It's nice to help one another out. Be one with each other as well as nature. Thank you for having such an open mind.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Marlon"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marlon"))
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Marlon", LogLevel.Trace);
                     data["BJ"] = $"Ah, @. This life often ends unexpectedly, so we learn to take the pleasures where we can. I am grateful for this." +
@@ -559,7 +620,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*He tenses up and you suck firmly, tipping him over the edge, earning his hot cum as a reward*" +
                         $"#$b#That was amazing, @. You have mastered this, and me, as well.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Morris"))// Iliress dialogue
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Morris"))// Iliress dialogue
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Morris", LogLevel.Trace);
                     data["BJ"] = "Okay, fine, but wear this JojaCorp uniform. It's the only way I can get off, and after my last store they won't let me do this with an employee...$s" +
@@ -569,7 +630,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*He finishes onto the floor and hands you a squeegee and a pan to clean it up yourself*" +
                         $"#$b#Have a good day. Cleanup in aisle 2, %rival. Er...@.$a";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Mister Qi"))// Iliress dialogue
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Mister Qi"))// Iliress dialogue
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Mister Qi", LogLevel.Trace);
                     data["BJ"] = $"$1 5948Q1#" + // First time switch
@@ -586,7 +647,7 @@ namespace MilkVillagers.Asset_Editors
                         $"second time with Qi";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Willy"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Willy"))
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Willy", LogLevel.Trace);
                     data["BJ"] = $"The sea may be a beautiful mistress, but she does not do much when it comes to physical gratification. I'd appreciate you helping an old sailor out.$h" +
@@ -597,7 +658,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%Appreciative of his warning, you release your suction and grab the bottle just in time to catch a decent amount cum inside it. You cap the bottle and wipe your mouth.*" +
                         $"#$b#Aye, it feels good to have a proper release. Come back soon, I could use it again.$l";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Wizard"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Wizard"))
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Wizard", LogLevel.Trace);
                     data["BJ"] = //$"$1 5948W1#" + // First time switch.
@@ -623,7 +684,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*You scrape the flowy, silky, colorful ejaculate into the container now. It takes time as you are still trembling. One of these days though, you will remember to bring a spare change of pants for yourself.*" +
                         $"#$b#I'm pleased to share this with you. It's an...odd connection. It does, however, require further examination. I know I will see you soon again, @.$l";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Dwarf")) //is probably female, so skipping this dialog.
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Dwarf")) // This isn't coming up for some reason.
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Dwarf", LogLevel.Trace);
                     data["BJ"] = $"Most Dwarves never get this intimate with each other..." +
@@ -635,7 +696,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#Thank you, @. That was wonderful.$l";
                 }
 
-                if (asset.AssetNameEquals("Characters/Dialogue/Victor"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Victor"))
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Victor", LogLevel.Trace);
                     data["milk_start"] = $"That sounds wonderful, @. I think you are very attractive, and I often find myself fantasising about you...Here, let me help you." +
@@ -649,7 +710,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*As his eyes roll back into his head, you spit his cum into a jar and seal it up. He looks down at you with a dazed smile, a pulls up his pants*" +
                         $"#$b#Thankyou @. That was incredible.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Andy"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Andy"))
                 {
                     ModFunctions.LogVerbose($"Adding BJ for Andy", LogLevel.Trace);
                     data["milk_start"] = $"Damn right I'd love a blowjob! I know everyone looks down on me, but I have needs the same as everyone else.$s" +
@@ -661,7 +722,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#%*You obey his wishes, and start seekig out his weak spots, licking, sucking and stroking him until you feel him about to blow. As he comes, you angle his penis so it sprays straight into the jar, and keep stroking him through his orgasm*" +
                         $"#$b#That...was...amazing, @. I definitely misjudged you when you first came here. You have made me a true friend.";
                 }
-                //if (asset.AssetNameEquals("Characters/Dialogue/Martin"))
+                //if (asset.Name.IsEquivalentTo("Characters/Dialogue/Martin"))
                 //{
                 //    data["milk_start"] = $"";
                 //    
@@ -670,7 +731,7 @@ namespace MilkVillagers.Asset_Editors
 
             if (!data.ContainsKey("eat_out"))
             {
-                if (asset.AssetNameEquals("Characters/Dialogue/Abigail")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Abigail", LogLevel.Trace);
                     data["eat_out"] = $"You know I’m always down for an adventure...wanna adventure down on me?" +
@@ -687,7 +748,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%You lower her to the ground, and she slowly retrieves her pants as you wipe your face." +
                                         $"#$b#Where...the FUCK...did you learn that?";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Emily"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Emily", LogLevel.Trace);
                     data["eat_out"] = $"I’d love to feel our energies intertwine. Come, let’s explore them." +
@@ -701,7 +762,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%She smiles contently, her eyes closed. Then, after a moment, scoots off the table and smooths down her dress." +
                                         $"#$b#Wow! I really feel like my Sacral Chakra is aligned. I sense a good balance within me, and it's all down to you.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Haley", LogLevel.Trace);
                     data["eat_out"] = $"Oh, @, that sounds just about perfect right now. Come on then." +
@@ -722,7 +783,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%Her face is soon covered as well. She rolls off of your body, lying on her back beside you, panting heavily." +
                                         $"#$b#Okay, I’ll admit it, you’re good. I thought I was in over my head for a second. *Giggle * No pun intended.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Leah"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Leah", LogLevel.Trace);
                     data["eat_out"] = $"You know, when I was dating Kel they’d never go down on me. You’re such a breath of fresh air, @." +
@@ -740,7 +801,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%The only movement is in her heaving breasts while she tries to regain a sense of composure. Then she leans off to the side and flops on the ground, completely drained." +
                                         $"#$b#Oh Yoba, I missed...how good that feels. If you could just..toss me my pants. I’m gonna...need some time...to recover here.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Maru"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Maru", LogLevel.Trace);
                     data["eat_out"] = $"I mean, I’ve invented something that can do this for me. It isn’t as good as the real thing, however. No emotional connection, you know?" +
@@ -755,7 +816,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%You pull back and Maru grabs a cloth from the pocket of her overalls on the floor and uses a shaky hand to wipe her climax off your face. She smiles tenderly at you." +
                                         $"#$b#You’re a lot better than the machine. However, I would love to study your motions. Just to maybe get more ideas for an upgrade...come by again later, okay?";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Penny"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Penny", LogLevel.Trace);
                     data["eat_out"] = $"Oh, @, I don’t know...are you sure? I’m a little self-conscious about that area, but if you really want to, then okay." +
@@ -770,7 +831,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%She all but screams to the sky as a wave of clear fluid glazes your face. You lap up the fluid that remains coateing her, and then pull out and face her while wiping your mouth." +
                                         $"#$b#I..I..wow. You made me experience parts of my sexuality I didn’t even know were there. I’m going to have to read up on this...";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Caroline"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Caroline", LogLevel.Trace);
                     data["eat_out"] = $"Pierre refuses to go down on me. I could really use some attention down there, it’s been too long." +
@@ -787,7 +848,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%She stays still for a few moments, recalibrating, and then hops down from the counter on shaky legs.*" +
                                         $"#$b#Th - th - thanks...I - I r - really n - needed that.Just need to c -catch my b-breath here.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Jodi"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Jodi", LogLevel.Trace);
                     data["eat_out"] = $"Oh, it’s been too long since someone has pleasured me. Kent’s been dealing with his own problems lately, not much time for my needs. You wouldn’t mind?" +
@@ -805,7 +866,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#I’m so sorry for being so vulgar earlier; I don’t usually curse. I just really, really needed that. Now if you excuse me, I—um—have to go mop this up…";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marnie"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Marnie", LogLevel.Trace);
                     data["eat_out"] = $"I never thought someone as young as you would be attracted to someone my age. Lewis does his best, but I don’t think his mind is exactly with us when we’re together." +
@@ -823,7 +884,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%After the spots in your eyes clear up, you glance at Marnie. She’s looking at you with concern. You give her a smile to let her know you’re okay." +
                                         $"#$b#Sorry, I didn’t know it was possible for oral sex to feel that good. I guess Lewis didn’t set the bar very high…";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Robin"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Robin", LogLevel.Trace);
                     data["eat_out"] = $"Demetrius gets too wrapped up in the technicalities of it all; he never really just enjoys the moment. I'm game if you are?" +
@@ -837,7 +898,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%A stream of her fluids hit your face like a hose, making you start. Robin remains lying down, panting and smiling softly. After a moment she props herself up on her elbows and grins at you. " +
                                         $"#$b#Damn, you sure are a treat. Mind fetching my pants for me?";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pam"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Pam", LogLevel.Trace);
                     data["eat_out"] = $"You really want to do that to me? I don’t get a lot of offers like that. Sure kid, go to town." +
@@ -850,7 +911,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%Suddenly streams of clear liquid ebb their way out of her and coat you. It’s over. You retreat from her depths and sit on the ground." +
                                         $"#$b#Damn, that was a treat. You gotta do that again sometime, ya hear?";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sandy"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Sandy", LogLevel.Trace);
                     data["eat_out"] = $"The desert may be dry, but I’m sure not. And no, my name is not indicative of anything, either." +
@@ -866,7 +927,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%You feel the muscles in her thighs contract as a warm clear liquid bursts out and covers you. You step back, leaving Sandy lying down, propped up on her elbows. She grins at you." +
                                         $"#$b#There’s some cloth in the drawers there if you want to clean up...better hand me one too. I think I might just spend the rest of the day in the shop naked; I’m too warm for clothes.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Evelyn"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Evelyn", LogLevel.Trace);
                     data["eat_out"] = $"Oh honey, I'm flattered, but I don't think you I work down there like I used to." +
@@ -882,7 +943,7 @@ namespace MilkVillagers.Asset_Editors
                         $"#$b#@, you are simply delightful.";
                 }
 
-                if (asset.AssetNameEquals("Characters/Dialogue/Sophia"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sophia"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Sophia", LogLevel.Trace);
                     data["eat_out"] = "Y-you’d really want to do that? For me? Okay…" +
@@ -900,7 +961,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%When you are done you place a gentle kiss on her forehead, eliciting a squeak of surprise, bringing her back from the world she was lost in" +
                                         $"#$b#@...I don’t know what just happened there. I didn't think it would be so overwhelming, but I kind of want to do it again sometime? Is that okay?";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Olivia"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Olivia"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Olivia", LogLevel.Trace);
                     data["eat_out"] = $"You want to eat me out? Be my guest, sweetie. Show me what you got." +
@@ -920,7 +981,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#Hmmm..not bad, sweetie. But you should definitely stop by again sometime. For practice, I mean.";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Susan"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Susan"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Susan", LogLevel.Trace);
                     data["eat_out"] = $"People tend to think that living in the mountains means I'm some kind of nun, but I love getting off just as the next person. Heck, I don't have to worry about the neighbours hearing me!" +
@@ -938,7 +999,7 @@ namespace MilkVillagers.Asset_Editors
                                         $"#$b#%She responds immediately, and her legs go slack, her body falling backwards onto your legs as her juices spraying into the air." +
                                         $"#$b#Wow. I didn't know you had it in you, @. Just...wow.";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Claire"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Claire"))
                 {
                     ModFunctions.LogVerbose($"Adding eat_out for Claire", LogLevel.Trace);
                     data["eat_out"] = $"I don’t really think I’ve let anyone do that to me before...I mean sure if you want to? You don’t want anything in return?" +
@@ -957,90 +1018,90 @@ namespace MilkVillagers.Asset_Editors
 
             if (!data.ContainsKey("get_eaten") && Deploy)
             {
-                if (asset.AssetNameEquals("Characters/Dialogue/Abigail")) // ver 1.0
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail")) // ver 1.0
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Abigail", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Emily"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Emily"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Emily", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Haley"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Haley", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Leah"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Leah"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Leah", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Maru"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Maru"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Maru", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Penny"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Penny"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Penny", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Caroline"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Caroline"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Caroline", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Jodi"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Jodi"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Jodi", LogLevel.Trace);
                     data["get_eaten"] = $"";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Marnie"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marnie"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Marnie", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Robin"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Robin"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Robin", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Pam"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pam"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Pam", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Sandy"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sandy"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Sandy", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Evelyn"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Evelyn"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Evelyn", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
 
-                if (asset.AssetNameEquals("Characters/Dialogue/Sophia"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sophia"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Sophia", LogLevel.Trace);
                     data["get_eaten"] = "";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Olivia"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Olivia"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Olivia", LogLevel.Trace);
                     data["get_eaten"] = $"";
 
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Susan"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Susan"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Susan", LogLevel.Trace);
                     data["get_eaten"] = $"";
                 }
-                if (asset.AssetNameEquals("Characters/Dialogue/Claire"))
+                if (asset.Name.IsEquivalentTo("Characters/Dialogue/Claire"))
                 {
                     ModFunctions.LogVerbose($"Adding get_eaten for Claire", LogLevel.Trace);
                     data["get_eaten"] = $"";
@@ -1052,6 +1113,24 @@ namespace MilkVillagers.Asset_Editors
             {
 
             }
+
+            //DumpData(asset);
+        }
+
+        private static void DumpData(IAssetData asset)
+        {
+            //string FilePath = $"C:\\Users\\truni\\datadump\\{asset.NameWithoutLocale}.txt";
+            //string DirectoryPath = Path.GetDirectoryName(FilePath);
+            //if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
+
+            //List<string> lines = new List<string>();
+
+            //foreach ( KeyValuePair<string, string> kvp in asset.AsDictionary<string, string>().Data)
+            //{
+            //    lines.Add($"\"{kvp.Key}\":\"{kvp.Value}\",");
+            //}
+
+            //File.WriteAllLinesAsync(FilePath, lines);
         }
     }
 

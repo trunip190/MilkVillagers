@@ -20,33 +20,58 @@ namespace MilkVillagers.Asset_Editors
         blush = 60,
     }
 
-    public class EventEditor : IAssetEditor
+    public static class EventEditor //: IAssetEditor
     {
-        public IDictionary<string, string> data;
+        private static IDictionary<string, string> data;
 
-        public bool CanEdit<T>(IAssetInfo asset)
+        public static bool CanEdit<T>(IAssetInfo asset)
         {
-            bool result = asset.AssetNameEquals("Data/Events/Seedshop")
-                || asset.AssetNameEquals("Data/Events/Hospital")
-                || asset.AssetNameEquals("Data/Events/LeahHouse")
-                || asset.AssetNameEquals("Data/Events/ArchaeologyHouse")
-                || asset.AssetNameEquals("Data/Events/Saloon")
-                || asset.AssetNameEquals("Data/Events/Sunroom")
-                || asset.AssetNameEquals("Data/Events/ScienceHouse")
-                || asset.AssetNameEquals("Data/Events/HaleyHouse");
+            bool result = asset.Name.IsEquivalentTo("Data/Events/Seedshop")
+                || asset.Name.IsEquivalentTo("Data/Events/Hospital")
+                || asset.Name.IsEquivalentTo("Data/Events/LeahHouse")
+                || asset.Name.IsEquivalentTo("Data/Events/ArchaeologyHouse")
+                || asset.Name.IsEquivalentTo("Data/Events/Saloon")
+                || asset.Name.IsEquivalentTo("Data/Events/Sunroom")
+                || asset.Name.IsEquivalentTo("Data/Events/ScienceHouse")
+                || asset.Name.IsEquivalentTo("Data/Events/HaleyHouse");
 
 
             return result;
         }
 
-        public void Edit<T>(IAssetData asset)
+        public static bool CanEdit(IAssetName asset)
+        {
+            bool result = asset.IsEquivalentTo("Data/Events/Seedshop")
+                || asset.IsEquivalentTo("Data/Events/Hospital")
+                || asset.IsEquivalentTo("Data/Events/LeahHouse")
+                || asset.IsEquivalentTo("Data/Events/ArchaeologyHouse")
+                || asset.IsEquivalentTo("Data/Events/Saloon")
+                || asset.IsEquivalentTo("Data/Events/Sunroom")
+                || asset.IsEquivalentTo("Data/Events/ScienceHouse")
+                || asset.IsEquivalentTo("Data/Events/HaleyHouse");
+
+
+            return result;
+        }
+
+        public static void Edit<T>(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+        public static void Edit(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+        private static void EditAsset(IAssetData asset)
         {
             data = asset.AsDictionary<string, string>().Data;
 
-            if (asset.AssetNameEquals("Data/Events/Seedshop"))
+            if (asset.Name.IsEquivalentTo("Data/Events/Seedshop"))
             {
-                #region Abigail reward event 594801 complete?
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventAbi}");
+                #region Abigail reward event 594801 - completed!
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventAbi} - finished.");
                 data[$"{TempRefs.EventAbi}" +                    // event id
                         $"/d Mon Wed Fri" +         //not Mon, Wed or Fri 
                         $"/f Abigail 2000" +        //affection level
@@ -107,9 +132,9 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
-            if (asset.AssetNameEquals("Data/Events/Hospital"))
+            if (asset.Name.IsEquivalentTo("Data/Events/Hospital"))
             {
-                #region Harvey Event 594802 complete?
+                #region Harvey Event 594802 - completed!
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventHarvey}");
                 data[$"{TempRefs.EventHarvey}" +
                                     "/d Tue Thu" +
@@ -184,7 +209,7 @@ namespace MilkVillagers.Asset_Editors
                                     "/end";
                 #endregion
 
-                #region Maru/Harvey Event 594803 complete?
+                #region Maru/Harvey Event 594803 - completed!
                 ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HarMar}");
                 data[$"{TempRefs.Event3HarMar}" +
                                     "/d Mon Wed Fri Sat Sun" +
@@ -311,10 +336,10 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
-            if (asset.AssetNameEquals("Data/Events/LeahHouse"))
+            if (asset.Name.IsEquivalentTo("Data/Events/LeahHouse"))
             {
-                #region Leah painting quest 594804 complete?
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventLeah}");
+                #region Leah painting quest 594804 - completed
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventLeah} - incomplete");
                 data[$"{TempRefs.EventLeah}" +                    // event id
                         $"/n LeahNudePainting" +    //need her invitation mail first
                         $"/f Leah 2000" +           //Leah at 8 hearts
@@ -434,10 +459,10 @@ namespace MilkVillagers.Asset_Editors
                         $"/end";
                 #endregion
 
-                #region Leah/player exhibitionism
+                #region Leah/player exhibitionism - in progress
                 if (false) //not finished
                 {
-                    ModFunctions.LogVerbose($"Loading event Leah Exhibitionism {TempRefs.EventLeahExhibit} - need to write");
+                    ModFunctions.LogVerbose($"Loading event Leah Exhibitionism {TempRefs.EventLeahExhibit} - need to write", LogLevel.Alert);
                     data[$"{TempRefs.EventLeahExhibit}" +
 
                             // Conditions
@@ -510,9 +535,9 @@ namespace MilkVillagers.Asset_Editors
                 #endregion
             }
 
-            if (asset.AssetNameEquals("Data/Events/ArchaeologyHouse"))
+            if (asset.Name.IsEquivalentTo("Data/Events/ArchaeologyHouse"))
             {
-                #region Penny Library event 594805 complete?
+                #region Penny Library event 594805 - in progress. Need to finish endings and link to next quest.
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventPenny} (need to make mail and quest)");
                 data[$"{TempRefs.EventPenny}" +                    // event id
                         $"/n PennyLibrary" +        // need her invitation mail first. This is a temporary way of adding the quest
@@ -552,7 +577,7 @@ namespace MilkVillagers.Asset_Editors
                         $"/pause 300" +
                         $"/speak Penny \"Oh, @. I didn't hear...I mean see you there.\"" +
                         $"/message \"Penny quickly pulls her hand out of her skirt and tries to hide a book behind the stool.\"" +
-                        $"/question null \"What do you say to Penny?#I heard you making a noise in the shelving#I heard you grunting and moaning#I just wandered over here.\"" +
+                        $"/question null \"What do you say to Penny?#I heard you making a noise in the shelving#I heard someone moaning#I just wandered over here.\"" +
 
                         $"/speak Penny \"Oh...that. I guess you're wondering what I'm doing over here..." +
                         $"#$b#The last time I was here I found a book in the shelves that I hadn't seen before, and I started to read it. It was a kind of romance novel, but after a couple of chapters it became clear that 'romance' was just a loose metaphor for..." +
@@ -582,12 +607,32 @@ namespace MilkVillagers.Asset_Editors
                         $"/addQuest 594810" +
                         $"/speak Penny \"Thank you so much, @. Please bring me the book once you have checked it out. You are the best! $h\"" +
                         $"/emote farmer 32" +
+                        // Penny walks away.
+                        // pause
+                        // farmer goes to walk out, but Gunther calls out to them
+                        $"/speak Gunther \"Good day, @. I don't mean to pry, but have you noticed Penny acting a little...stressed?\""+
+                        $"#$b#The last couple of times she's come here she has always been in a rush to get in, and then a rush to leave. I am concerned that something is bothering her." +
+                        $"/question fork2 \"What do you think is bothering Penny#I think she's just very busy#She's been reading erotic books#I'm think she has a crush on you.\"" +
+                        $"/fork  594805snitch" +
+                        $"#$b#" +
                         $"/end";
 
                 // Initially refused
                 data["594805refused"] = $"/speak Penny \"I'm too ashamed to ask anyone else, @! Please, if you change your mind, bring em the book at home.\"" +
                         $"/addQuest 594810" +
                         $"/end";
+
+                data["594805snitch"] = $"/speak Gunther \"Oh. I wasn't aware that we had any books like that in the library.\"" +
+                    $"/speak Gunther \"If Penny has been hiding books like that in the shelves then I will have to make sure the children don't read them.\"" +
+                        
+                    //transition to outside
+                    "/fade" +
+                    "/viewport -300 -300" +
+
+                    $"/speak Penny \"I can't believe you would rat me out like that to Gunther! I don't know how I'm going to be able to look him in the eye now!\""+
+                    $"/speak Penny \"Anyway. Thank you for getting the book for me.\"" +
+                    $"/friendship Penny -50"+
+                    $"/end";
                 #endregion
 
                 #region Gunther event
@@ -642,10 +687,10 @@ namespace MilkVillagers.Asset_Editors
                 #endregion
             }
 
-            if (asset.AssetNameEquals("Data/Events/Saloon"))
+            if (asset.Name.IsEquivalentTo("Data/Events/Saloon"))
             {
                 #region Haley Saloon event 594806 complete?
-                if (false) // not complete?
+                if (true) // not complete?
                 {
                     ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HaleyAlex} - need to check");
                     data[$"{TempRefs.Event3HaleyAlex}" +
@@ -761,7 +806,7 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
-            if (asset.AssetNameEquals("Data/Events/Sunroom"))
+            if (asset.Name.IsEquivalentTo("Data/Events/Sunroom"))
             {
                 #region Caroline sunroom event 594807 not started
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventCaroline} - need to write");
@@ -810,7 +855,7 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
-            if (asset.AssetNameEquals("Data/Events/ScienceHouse"))
+            if (asset.Name.IsEquivalentTo("Data/Events/ScienceHouse"))
             {
                 #region Maru sex machine event 594808 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventMaru} - need to write event and letter", LogLevel.Alert);
@@ -1086,9 +1131,11 @@ namespace MilkVillagers.Asset_Editors
                 #endregion
                 #endregion
 
+                #region Farmer taking up Maru on the option of providing milk directly.
+                #endregion
             }
 
-            if (asset.AssetNameEquals("Data/Events/HaleyHouse"))
+            if (asset.Name.IsEquivalentTo("Data/Events/HaleyHouse"))
             {
                 #region Emily clothing model/groping event 594809 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventEmily} - need to write");
@@ -1215,6 +1262,56 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
+            if ( asset.Name.IsEquivalentTo("Data/Events/Beach"))
+            {
+                #region Shane Beach event
+                /*
+                 * 
+                 *  Shane 8 hearts
+                    requires seeing going sober event
+                    farmer has vagina
+                    ~craving a  drink~
+                 *  Letter from Marnie that Shane hasn't been doing so good/speaking with Jas and she's worried about uncle Shane
+
+                    Player finds Shane at the beach, staring at the sea
+                    
+                    Shane: sometimes i feel like i'm just trying to push back the tide. That no matter how hard and long i resist, eventually it will wash over me again.
+                    Player:concern
+                    Shane:I appreciate that you don't try and tell me to hang on for one more day. every day i hang on for one more day. some of them don't suck. some of them really do.
+                    	I don't know if i'll ever have good days in the future, or if mediocre is the best i can hope for.
+                    Player:*hug*
+                    Player: q: what do you want to say? they will come in time. you just can't see them right now | it's the same for everyone. you just need to lower your expectations and then you can be happy. | most of life sucks, but the bits that don't suck are what makes it worthwhile.
+                    shane: 
+                    		1+3: everyone keeps telling me that, but I don't think they realise how much they are asking me to trust them. 
+                    shane:I've had my expectations broken before and it hurt me so much. I end up so depressed that I need something to numb the pain, or take my mind off of it. that's where alcohol comes in...
+                    shane:right now the tide is going out, but how long before it comes back in?
+                    player: I can think of something else that can take your mind off of it...
+                    shane:heart
+                    player:heart
+                    
+                    fade to black
+                    you flash shane a coy smile, and start undressing. you throw your clothes further up the beach away from the shoreline so they won't get wet from the spray.
+                    You gently but firmly push shane on to his back, and climb aboard his body, careful not to kick sand over him.
+                    He looks up into your eyes, and you brush your hair out of your face.
+                    shane:are you sure about this? I have to know that this is what you want, not that you are doing it out of pity. I get enough of that from everyone else in the valley.
+                    farmer:This isn't just about you feeling good, it's about me as well. I want this, and sharing it with you feels right.
+                    As you say this you carefully spread your lips and guide him inside you, sliding down his penis as the waves crash in the background.
+                    shane:oh, %name. you feel just right around me. I guess you weren't just being nice about wanting this too? you're as wet as the shoreline!
+                    instead of replying, you start slowly sliding up and down on his pole, savouring the feeling of fullness that Shane's cock gives you.
+                    It's not long before a little moan escapes your lips, but it's easily drowned out by the sounds of the beach.
+                    shane:%name, you feel so good. This feels so much better sober than drunk, I can feel everything you are doing.
+                    You feel Shane starting to move his hips more, trying to time his thrusts with yours to feel more pleasure.
+                    It's not long before your juices are trickling down onto his groin, and the sounds of the two of you making love start to drown out the waves.
+                    %fish slap noises%
+                    %moan%
+                    shane:I'm starting to get closer, %name.
+                    farmer:q:do you want him to pull out? Yes|No
+		            1: As Shane's orgasm nears, he pulls out of you and sprays the sand with his seed. You wait for his orgasm to subside, and he
+		            2: You feel that Shane is getting close, and you flash him a grin to put his mind at ease, then start grinding your hips against his in short motions to push him over the edge. His cum spurts deep inside you, and the sensation, coupled with the knowledge that his seed is deep inside you now, brings you over the edge.
+                 * */
+                #endregion
+            }
+
             #region Blank
             if (false)
             {
@@ -1255,7 +1352,7 @@ namespace MilkVillagers.Asset_Editors
             #endregion
         }
 
-        public bool CheckAll()
+        public static bool CheckAll()
         {
             bool result = true;
 

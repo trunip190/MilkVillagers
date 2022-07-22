@@ -48,7 +48,6 @@ namespace MilkVillagers
         public static bool SelfCummedToday = false;
 
         // Extra Dialogue
-
         public static string FarmerCollectCum = "You free your penis and start using one hand to gently stroke it, and the other to massage your balls. " +
         "You close your eyes as you start to imagine someone leaning down and engulfing your cock between their lips. " +
         "#You pick up your pace as their imaginary mouth starts sucking harder, occasionally flicking your tip with their tongue. " +
@@ -73,19 +72,19 @@ namespace MilkVillagers
         public static bool IgnoreVillagerGender = false;
 
 
-        #region Quest ID storage
-        public static int QuestAbi1 = 594801;       // Abigail's Eggplant
-        public static int QuestAbi2 = 594802;       // Abigail's Carrot
-        public static int QuestAbi3 = 594803;       // Abigail's Radishes
-        public static int QuestAbi4 = 594804;       // Abigail's 'Helping hand'
-        public static int QuestMaru1 = 594805;      // Scientific sample
-        public static int QuestGeorge1 = 594806;    // Rejuvenating Milk
-        public static int QuestSeb1 = 594807;       // Curious tastes pt 1
-        public static int QuestSeb2 = 594808;       // Curious tastes pt 2
-        public static int QuestLeah1 = 594809;      // Leah's Muse quest
-        public static int QuestPenny1 = 594810;     // Penny check out book quest.
+        #region Quest ID storage        
+        //public static int QuestAbi1 = 594801;       
+        //public static int QuestAbi2 = 594802;       
+        //public static int QuestAbi3 = 594803;       
+        //public static int QuestAbi4 = 594804;       
+        //public static int QuestMaru1 = 594805;      
+        //public static int QuestGeorge1 = 594806;    
+        //public static int QuestSeb1 = 594807;       
+        //public static int QuestSeb2 = 594808;       
+        //public static int QuestLeah1 = 594809;      
+        //public static int QuestPenny1 = 594810;     
+        //public static int QuestPenny2 = 594811;     
 
-        public static int QuestIDWait = -1;         //594800; // Wait for Abigail.
         #endregion
 
         #region Event ID storage
@@ -163,6 +162,7 @@ namespace MilkVillagers
         public static int ProteinShake = 1240;
         public static int MilkShake = 1241;
         public static int SuperJuice = 1249;
+        public static int EldritchEnergy = 1250;
 
         // Other mods
         public static int MilkSophia = 803;
@@ -180,7 +180,11 @@ namespace MilkVillagers
         public static readonly int CumType = -35;
         public static readonly int SpecialType = -36;
 
-
+        // Quest items
+        public static int PennyBook = 804;
+        public static int HaleyCamera = 804;
+        public static int HaleyPanties = 804;
+        public static int ReadiMilk = 804;
 
         public static void ReportCodes()
         {
@@ -243,6 +247,12 @@ namespace MilkVillagers
             // Item types
             ModFunctions.LogVerbose($"MilkType is {MilkType}", LogLevel.Trace);
             ModFunctions.LogVerbose($"CumType is {CumType}", LogLevel.Trace);
+
+            // Quest items
+            ModFunctions.LogVerbose($"PennyBook is {PennyBook}",LogLevel.Trace);    
+            ModFunctions.LogVerbose($"HaleyCamera is {HaleyCamera}", LogLevel.Trace);
+            ModFunctions.LogVerbose($"HaleyPanties is {HaleyPanties}", LogLevel.Trace);
+            ModFunctions.LogVerbose($"ReadiMilk is {ReadiMilk}", LogLevel.Trace);
         }
 
 

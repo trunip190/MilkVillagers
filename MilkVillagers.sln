@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkVillagers", "MilkVillagers\MilkVillagers.csproj", "{5921CF02-A6B4-47AD-8C84-42455D671E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkVillagers", "MilkVillagers\MilkVillagers.csproj", "{5921CF02-A6B4-47AD-8C84-42455D671E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[JA]MilkVillagers", "[JA]MilkVillagers\[JA]MilkVillagers.csproj", "{659EAC39-3B1D-4876-800F-4A6188BC5E85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "[JA]MilkVillagers", "[JA]MilkVillagers\[JA]MilkVillagers.csproj", "{659EAC39-3B1D-4876-800F-4A6188BC5E85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[CP]MilkVillagers", "[CP]MilkVillager\[CP]MilkVillagers.csproj", "{D8CFC28E-2C05-45E9-A350-EE45939996B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{659EAC39-3B1D-4876-800F-4A6188BC5E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{659EAC39-3B1D-4876-800F-4A6188BC5E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{659EAC39-3B1D-4876-800F-4A6188BC5E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8CFC28E-2C05-45E9-A350-EE45939996B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8CFC28E-2C05-45E9-A350-EE45939996B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8CFC28E-2C05-45E9-A350-EE45939996B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8CFC28E-2C05-45E9-A350-EE45939996B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

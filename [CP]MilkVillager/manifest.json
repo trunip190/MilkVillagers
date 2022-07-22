@@ -1,0 +1,11 @@
+{
+   "Name": "[CP]MilkTheVillagers",
+   "Author": "Trunip190",
+   "Description": "Adds dialogue for the mod Milk the Villagers",
+   "Version": "1.0.9",
+   "UniqueID": "trunip190.CPMilkTheVillagers",
+   "ContentPackFor": {
+       "UniqueID": "Pathoschild.ContentPatcher"
+    },
+  "UpdateKeys": [ "Nexus:5948" ],
+}

@@ -10,11 +10,11 @@
     "ResultCount": 1,
     "Ingredients": [
       {
-        "Object": -34, // "Haley's Milk",//Human Milk Category
+        "Object": -34, //Breast Milk Category
         "Count": 2
       },
       {
-        "Object": -35, // "Haley's Milk",//Human Milk Category
+        "Object": -35, //Cum Category
         "Count": 2
       }
     ],

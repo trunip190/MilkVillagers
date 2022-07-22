@@ -4,25 +4,40 @@ using System.Collections.Generic;
 
 namespace MilkVillagers
 {
-    public class RecipeEditor : IAssetEditor
+    public static class RecipeEditor //: IAssetEditor
     {
-        public IDictionary<string, string> CookingData;
-        public IDictionary<string, string> CraftingData;
+        private static IDictionary<string, string> CookingData;
+        private static IDictionary<string, string> CraftingData;
 
-        public bool CanEdit<T>(IAssetInfo asset)
+        public static bool CanEdit<T>(IAssetInfo asset)
         {
-            return asset.AssetNameEquals("Data/CookingRecipes") || asset.AssetNameEquals("Data/CraftingRecipes");
+            return asset.Name.IsEquivalentTo("Data/CookingRecipes") || asset.Name.IsEquivalentTo("Data/CraftingRecipes");
         }
 
-        public void Edit<T>(IAssetData asset)
+        public static bool CanEdit(IAssetName asset)
+        {
+            return asset.IsEquivalentTo("Data/CookingRecipes") || asset.IsEquivalentTo("Data/CraftingRecipes");
+        }
+
+        public static void Edit<T>(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+        public static void Edit(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+        private static void EditAsset(IAssetData asset)
         {
             ModFunctions.LogVerbose("Loading recipes", LogLevel.Trace);
-            if (asset.AssetNameEquals("Data/CookingRecipes"))
+            if (asset.Name.IsEquivalentTo("Data/CookingRecipes"))
             {
                 CookingData = asset.AsDictionary<string, string>().Data;
                 SetCooking();
             }
-            if (asset.AssetNameEquals("Data/CraftingRecipes"))
+            if (asset.Name.IsEquivalentTo("Data/CraftingRecipes"))
             {
                 CraftingData = asset.AsDictionary<string, string>().Data;
 
@@ -30,7 +45,7 @@ namespace MilkVillagers
             }
         }
 
-        public bool SetCooking(bool Male = true, bool Female = true)
+        public static bool SetCooking(bool Male = true, bool Female = true)
         {
             if (CookingData == null)
                 return false;
@@ -46,7 +61,7 @@ namespace MilkVillagers
             return true;
         }
 
-        public bool SetCrafting(bool Male = true, bool Female = true)
+        public static bool SetCrafting(bool Male = true, bool Female = true)
         {
             if (CraftingData == null)
                 return false;
@@ -59,7 +74,7 @@ namespace MilkVillagers
             return true;
         }
 
-        public void RemoveInvalid(bool Male, bool Female)
+        public static void RemoveInvalid(bool Male, bool Female)
         {
             if (!Male)
             {
@@ -79,7 +94,7 @@ namespace MilkVillagers
             SetCrafting(Male, Female);
         }
 
-        public bool CheckAll()
+        public static bool CheckAll()
         {
             bool result = true;
 

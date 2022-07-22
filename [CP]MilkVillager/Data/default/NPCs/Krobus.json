@@ -1,0 +1,12 @@
+{
+	"Changes":[
+		{
+			"LogName":"Krobus",
+			"Action":"EditData",
+			"Target":"Characters/Dialogue/Krobus",
+			"Entries":{
+				
+			}
+		}
+	]
+}
