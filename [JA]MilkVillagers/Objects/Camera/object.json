@@ -1,5 +1,5 @@
 {
-    "Name": "Haley's Camera'", //The name you would like your object to have, this should be identical to the subfolder name.
+    "Name": "Haley's Camera", //The name you would like your object to have, this should be identical to the subfolder name.
     "Description": "The camera Haley uses to take her photos with", //Description of the product.
     "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
     "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.

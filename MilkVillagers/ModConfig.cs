@@ -16,7 +16,9 @@ namespace MilkVillagers
         // Farmer gender overrides.
         public bool OverrideGenitals = false;
         public bool HasPenis = false;
+        public bool HasVagina = false;
         public bool HasBreasts = false;
+        public bool AceCharacter = false;
 
         // Content
         public bool ExtraDialogue = true;
@@ -66,9 +68,19 @@ namespace MilkVillagers
         public static bool Verbose = false;
         public static bool MilkMale = true;
         public static bool MilkFemale = true;
+
+        #region Genitals
         public static bool OverrideGenitals = false;
         public static bool HasPenis = false;
-        public static bool HasBreasts = false;
+        public static bool HasVagina = false;
+
+        // TODO check for update to generic config menu mod to enable these.
+        //public static string Genitals = "Penis";
+        //public static bool HasPenis => Genitals == "Penis" || Genitals == "Both";
+        //public static bool HasVagina => Genitals == "Vagina" || Genitals == "Both";
+        #endregion
+
+        public static  bool HasBreasts = false;
         public static bool IgnoreVillagerGender = false;
 
 
@@ -88,22 +100,24 @@ namespace MilkVillagers
         #endregion
 
         #region Event ID storage
-        public static int EventAbi = 594801;        //Abigail
-        public static int EventHarvey = 594802;     //Harvey
-        public static int Event3HarMar = 594803;    //Harvey/Maru
-        public static int EventLeah = 594804;       //Leah
-        public static int EventPenny = 594805;      //Penny
-        public static int Event3HaleyAlex = 594806; //Haley/Alex
-        public static int EventCaroline = 594807;   //Caroline
-        public static int EventMaru = 594808;       //Maru
-        public static int EventEmily = 594809;      //Emily
-        public static int EventLeahExhibit = 594810;//Leah Exhibitionism
-        //public static int Event                     //
-        //public static int Event                     //
-        //public static int Event                     //
-        //public static int Event                     //
-        //public static int Event                     //
-        //public static int Event                     //
+        public static int EventAbi = 594801;            //Abigail
+        public static int EventHarvey = 594802;         //Harvey
+        public static int Event3HarMar = 594803;        //Harvey/Maru
+        public static int EventLeah = 594804;           //Leah
+        public static int EventPenny = 594805;          //Penny
+        public static int Event3HaleyAlex = 594806;     //Haley/Alex
+        public static int EventCaroline = 594807;       //Caroline
+        public static int EventMaru = 594808;           //Maru
+        public static int EventEmily = 594809;          //Emily
+        public static int EventLeahExhibitOld = 5948101;
+        public static int EventLeahExhibitA = 594810;   //Leah Exhibitionism Ace
+        public static int EventLeahExhibitV = 594811;   //Leah Exhibitionism Vagina
+        //public static int Event                       //
+        //public static int Event                       //
+        //public static int Event                       //
+        //public static int Event                       //
+        //public static int Event                       //
+        //public static int Event                       //
         #endregion
 
         #region Items

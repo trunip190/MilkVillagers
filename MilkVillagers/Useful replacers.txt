@@ -68,18 +68,19 @@ $1 <letter ID>#<1st-time text> #$e# <nth-time text> 		Creates a line of dialogue
 
 EVENTS
 
-/speak npc \"message\"
-/message \"message\"
-/textAboveHead npc \"message\"
-/move npc x y direction
-/faceDirection npc direction
-/viewport x y
-/fade
-/emote npc index
-/pause
-/beginSimultaneousCommand
-/endSimultaneousCommand
-/question null \"Question#answer1\"
-/question fork0 \"Question#Answer1\"
-/fork eventid
-/quickQuestion <question>#<answer1>#<answer2>#<answer3>(break)<answer1 script>(break)<answer2 script>(break)<answer3 script>
+"/speak npc \"message\""+
+"/message \"message\""+
+"/textAboveHead npc \"message\""+
+"/move npc x y direction"+
+"/faceDirection npc direction"+
+"/viewport x y"+
+"/fade"+
+"/emote npc index"+
+"/pause"+
+"/beginSimultaneousCommand"+
+"/endSimultaneousCommand"+
+"/switchEvent <event ID>"+
+"/question null \"Question#answer0\""+
+"/question fork0 \"Question#Answer0\""+
+"/fork eventid"+
+"/quickQuestion <question>#<answer1>#<answer2>#<answer3>(break)<answer1 script>(break)<answer2 script>(break)<answer3 script>"+

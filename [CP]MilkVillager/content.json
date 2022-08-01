@@ -67,11 +67,6 @@
             "FromFile": "Data/default/NPCs/Harvey.json"
         },
         {
-            "LogName": "Jas",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Jas.json"
-        },
-        {
             "LogName": "Jodi",
             "Action": "Include",
             "FromFile": "Data/default/NPCs/Jodi.json"
@@ -82,24 +77,9 @@
             "FromFile": "Data/default/NPCs/Kent.json"
         },
         {
-            "LogName": "Krobus",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Krobus.json"
-        },
-        {
             "LogName": "Leah",
             "Action": "Include",
             "FromFile": "Data/default/NPCs/Leah.json"
-        },
-        {
-            "LogName": "Leo",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Leo.json"
-        },
-        {
-            "LogName": "LeoMainland",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/LeoMainland.json"
         },
         {
             "LogName": "Lewis",
@@ -160,11 +140,6 @@
             "LogName": "Shane",
             "Action": "Include",
             "FromFile": "Data/default/NPCs/Shane.json"
-        },
-        {
-            "LogName": "Vincent",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Vincent.json"
         },
         {
             "LogName": "Willy",

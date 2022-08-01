@@ -47,6 +47,7 @@ namespace MilkVillagers
         // Time freeze stuff
         private float TimeFreezeTimer = 0;
         private float RegenAmount = 0;
+        private float MilkingCooldown = 0;
 
         // Adding item stuff
         StardewValley.Object AddItem;
@@ -98,6 +99,7 @@ namespace MilkVillagers
             helper.ConsoleCommands.Add("mtv_forceremovequest", "Remove specified quest from the farmer's questlog\n\nUsage: mtv_frq <value>\n- value: the quest id to remove from their questlog.", this.ForceRemoveQuest);
             helper.ConsoleCommands.Add("mtv_frq", "Remove specified quest from the farmer's questlog\n\nUsage: mtv_frq <value>\n- value: the quest id to remove from their questlog.", this.ForceRemoveQuest);
             helper.ConsoleCommands.Add("mtv_addquests", "Adds all quests to the farmer's questlog\n\nUsage: mtv_addquests", this.AddAllQuests);
+            helper.ConsoleCommands.Add("mtv_upgrade", "Force the mod to reset quest and mail flags when you have upgraded the mod\n\nUsage: mtv_upgrade",this.Upgrade);
         }
 
 
@@ -121,6 +123,7 @@ namespace MilkVillagers
                 api.SubscribeToChange(this.ModManifest, UpdateConfig);
 
                 // add some config options
+                #region basic mod options
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Milking Button",
@@ -176,10 +179,12 @@ namespace MilkVillagers
                     optionGet: () => this.Config.Quests,
                     optionSet: value => this.Config.Quests = value
                 );
+                #endregion
 
                 ////////////////////////////////////////////////////////////
                 //////////////////   Overrite Genitals   ///////////////////
                 ////////////////////////////////////////////////////////////
+                #region Override Genitals
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Override genitals",
@@ -187,15 +192,49 @@ namespace MilkVillagers
                     optionGet: () => this.Config.OverrideGenitals,
                     optionSet: value => this.Config.OverrideGenitals = value
                 );
+                #endregion
 
+                #region A-sexual character
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
-                    optionName: "Farmer has penis",
+                    optionName: "Ace Character",
+                    optionDesc: "Do you want to play an A-Sexual Character? Ignores genitals.",
+                    optionGet: () => this.Config.AceCharacter,
+                    optionSet: value => this.Config.AceCharacter = value
+                    );
+                #endregion
+
+                #region TODO not current version Farmer genitals
+                //api.AddTextOption(
+                //    mod: this.ModManifest,
+                //    name: () => "Example dropdown",
+                //    getValue: () => this.Config.ExampleDropdown,
+                //    setValue: value => this.Config.ExampleDropdown = value,
+                //    allowedValues: new string[] { "choice A", "choice B", "choice C" }
+                //);
+                #endregion
+
+                #region Farmer has Penis
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Farmer has a penis",
                     optionDesc: "Does the farmer have a penis? MUST select override as well",
                     optionGet: () => this.Config.HasPenis,
                     optionSet: value => this.Config.HasPenis = value
                 );
+                #endregion
 
+                #region Farmer has Vagina
+                api.RegisterSimpleOption(
+                    mod: this.ModManifest,
+                    optionName: "Farmer has a vagina",
+                    optionDesc: "Does the farmer have a vagina? MUST select override as well",
+                    optionGet: () => this.Config.HasVagina,
+                    optionSet: value => this.Config.HasVagina = value
+                );
+                #endregion
+
+                #region Farmer has breasts
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Farmer has breasts",
@@ -203,7 +242,9 @@ namespace MilkVillagers
                     optionGet: () => this.Config.HasBreasts,
                     optionSet: value => this.Config.HasBreasts = value
                 );
+                #endregion
 
+                #region Ignore villager gender for farming
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Ignore villager gender",
@@ -211,10 +252,12 @@ namespace MilkVillagers
                     optionGet: () => this.Config.IgnoreVillagerGender,
                     optionSet: value => this.Config.IgnoreVillagerGender = value
                     );
+                #endregion
 
                 ////////////////////////////////////////////////////////////
-                /////////////////////   Debug Mode   ///////////////////////
+                ///////////////// Developer options ////////////////////////
                 ////////////////////////////////////////////////////////////
+                #region Debug Mode
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Debug mode",
@@ -222,10 +265,9 @@ namespace MilkVillagers
                     optionGet: () => this.Config.Debug,
                     optionSet: value => this.Config.Debug = value
                 );
+                #endregion
 
-                ////////////////////////////////////////////////////////////
-                ///////////////////   Verbose Output   /////////////////////
-                ////////////////////////////////////////////////////////////
+                #region Verbose Output
                 api.RegisterSimpleOption(
                     mod: this.ModManifest,
                     optionName: "Verbose Dialogue",
@@ -233,9 +275,9 @@ namespace MilkVillagers
                     optionGet: () => this.Config.Verbose,
                     optionSet: value => this.Config.Verbose = value
                 );
+                #endregion
             }
             #endregion
-
 
             #region TODO need to move this over to new version
             //Helper.Content.AssetEditors.Add(_itemEditor);
@@ -252,6 +294,7 @@ namespace MilkVillagers
             TempRefs.Verbose = Config.Verbose;
             TempRefs.OverrideGenitals = Config.OverrideGenitals;
             TempRefs.HasPenis = Config.HasPenis;
+            TempRefs.HasVagina = Config.HasVagina;
             TempRefs.HasBreasts = Config.HasBreasts;
             TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
         }
@@ -267,27 +310,40 @@ namespace MilkVillagers
 
                 TimeFreezeTimer = 576000; // 1 minute timestop.
             }
-            else if(EatenItem == "Eldritch Energy")
+            else if (EatenItem == "Eldritch Energy")
             {
                 Game1.addHUDMessage(new HUDMessage("You feel energised"));
-                RegenAmount = 100; // 100 energy total restoration.
+                RegenAmount = 1000; // 100 energy total restoration.
 
-                //Remove this - testing only
-                who.Stamina = 100;
             }
         }
 
         private void SpaceEvents_BeforeGiftGiven(object sender, SpaceCore.Events.EventArgsBeforeReceiveObject e)
         {
             Farmer who = Game1.player;
-            e.Cancel = true;
             string ItemGiven = e.Gift.Name;
             NPC npcTarget = e.Npc;
 
-            if ( ItemGiven == "Readi Milk")
+            if (ItemGiven == "Readi Milk")
             {
-                SendNextQuest(who, MailEditor.FirstMail[npcTarget.Name], true);
+                e.Cancel = true;
 
+                if (!MailEditor.FirstMail.ContainsKey(npcTarget.Name))
+                    return;
+
+                string FirstQuestMail = MailEditor.FirstMail[npcTarget.Name];
+                if (FirstQuestMail != "" && !who.hasOrWillReceiveMail(FirstQuestMail))
+                {
+                    if (npcTarget.Dialogue.TryGetValue("readi_milk", out string dialogues))
+                    {
+                        Game1.drawDialogue(npcTarget, dialogues);
+                    }
+                    else
+                    {
+                        Game1.drawDialogue(npcTarget, "A drink? Sure, anything that comes from %farm is always tasty.");
+                    }
+                    SendNextQuest(who, FirstQuestMail, true);
+                }
             }
         }
         #endregion
@@ -295,6 +351,8 @@ namespace MilkVillagers
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
             ModFunctions.LogVerbose("Loaded savegame.");
+
+            doneOnce = false;
 
             if (runOnce)
                 return;
@@ -304,6 +362,7 @@ namespace MilkVillagers
             // Recipes.
             CorrectRecipes();
 
+            SendGenitalMail(Game1.player);
 
             foreach (Farmer who in Game1.getAllFarmers())
                 AddAllRecipes(who);
@@ -399,15 +458,15 @@ namespace MilkVillagers
 
                 //if (LostItem != null && NPCtarget != null && LostItem.Name == "Readi Milk")
                 //{
-                    //string name = NPCtarget.Name;
-                    //ModFunctions.LogVerbose($"{LostItem.Name} might have been given to {name}", LogLevel.Alert);
+                //string name = NPCtarget.Name;
+                //ModFunctions.LogVerbose($"{LostItem.Name} might have been given to {name}", LogLevel.Alert);
 
-                    //SendNextQuest(who, MailEditor.FirstMail[name], true);
-                    //LostItem = null;
+                //SendNextQuest(who, MailEditor.FirstMail[name], true);
+                //LostItem = null;
                 //}
                 //else
                 //{
-                    //ModFunctions.LogVerbose($"{Game1.player.CurrentItem} {LostItem}", LogLevel.Alert);
+                //ModFunctions.LogVerbose($"{Game1.player.CurrentItem} {LostItem}", LogLevel.Alert);
                 //}
             }
             else
@@ -454,6 +513,12 @@ namespace MilkVillagers
                     ModFunctions.LogVerbose($"Failed to add quest {kvp.Key} with error {ex.Message}");
                 }
             }
+        }
+
+        private void Upgrade(string command, string[] args)
+        {
+            RemoveAllMail("mtv_resetmail", null);
+            SendNewMail("mtv_sendmail", new string[] { });
         }
 
         private bool CheckNewQuest(Farmer who, int questID)
@@ -601,10 +666,14 @@ namespace MilkVillagers
                 if (Config.MilkFemale)
                 {
                     #region Abigail
-                    SendNextQuest(who, "AbiMilking", "AbiCarrots", "Abigail", 6);       // Abi Milk Quest 1
+                    //SendNextQuest(who, "AbiMilking", "AbiCarrots", "Abigail", 6);       // Abi Milk Quest 1 - now sent by giving item.
                     SendNextQuest(who, "AbiCarrotsT", "AbiRadishes", "Abigail", 7);     // Abi Milk Quest 2
                     SendNextQuest(who, "AbiRadishesT", "AbiEggplant", "Abigail", 8);    // Abi Milk Quest 3
                     SendNextQuest(who, "AbiEggplantT", "AbiSurpriseT", "Abigail", 10);  // Abi Milk Quest 4
+                    #endregion
+
+                    #region Emily
+                    SendNextQuest(who, "EmilyPhotoShootT", "EmilyBallgown", "Emily", 7);    //Emily Quest 2
                     #endregion
 
                     //SendNextQuest(who, "AbiSurpriseT", "GeorgeMilk", "George", 7);      // George Milk Quest 1
@@ -622,24 +691,7 @@ namespace MilkVillagers
         private void SendNewMail(string command, string[] args)
         {
             Farmer who = Game1.player;
-            if (Config.Quests) //TODO This section picks the next quest. Need to rewrite/decide how to send next mail/quest.
-            {
-                // Send new mail checks
-
-                // Tutorial
-                SendNextQuest(who, "MilkButton1", true);
-                SendNextQuest(who, "MilkButton1", "MilkButton2", true);
-
-                SendNextQuest(who, "MilkButton2", "AbiMilking", true);
-
-                SendNextQuest(who, "AbiMilking", "AbiCarrots", "Abigail", 8, true);   //Quest 1
-                SendNextQuest(who, "AbiCarrotsT", "AbiRadishes", true);   //Quest 2
-                SendNextQuest(who, "AbiRadishesT", "AbiEggplant", true); //Quest 3
-                SendNextQuest(who, "AbiEggplantT", "AbiSurpriseT", "Abigail", 10, true); //Quest 4
-                SendNextQuest(who, "AbiSurpriseT", "MaruSample", true);
-                SendNextQuest(who, "MaruSampleT", "GeorgeMilk", true);
-                SendNextQuest(who, "GeorgeMilkT", "LeahNudePainting", true);
-            }
+            SendNewMail(who);
         }
 
         private void SendMailCompleted(Farmer who)
@@ -704,14 +756,37 @@ namespace MilkVillagers
         #endregion
 
         #region Farmer genital calls
+        public void SendGenitalMail(Farmer who)
+        {
+            who.RemoveMail("MTV_Vagina");
+            who.RemoveMail("MTV_Penis");
+            who.RemoveMail("MTV_Ace");
+            who.RemoveMail("MTV_Herm");
+
+            if (Config.AceCharacter) { who.mailbox.Add("MTV_Ace"); return; }
+            if (GetPenis(who) && GetVagina(who)) { who.mailbox.Add("MTV_Herm"); return; }
+            if (GetPenis(who) && !GetVagina(who)) { who.mailbox.Add("MTV_Penis"); return; }
+            if (!GetPenis(who) && GetVagina(who)) { who.mailbox.Add("MTV_Vagina"); return; }
+
+        }
+
+        public bool GetVagina(Farmer who)
+        {
+            //ModFunctions.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Vagina: {TempRefs.HasVagina}");
+            if (TempRefs.OverrideGenitals) return TempRefs.HasVagina;
+            return !who.IsMale;
+        }
+
         public bool GetPenis(Farmer who)
         {
+            //ModFunctions.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Penis: {TempRefs.HasPenis}", LogLevel.Alert);
             if (TempRefs.OverrideGenitals) return TempRefs.HasPenis;
             return who.IsMale;
         }
 
         public bool GetBreasts(Farmer who)
         {
+            //ModFunctions.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Breasts: {TempRefs.HasBreasts}", LogLevel.Alert);
             if (TempRefs.OverrideGenitals) return TempRefs.HasBreasts;
             return !who.IsMale;
         }
@@ -823,17 +898,23 @@ namespace MilkVillagers
             {
                 CheckAll(who);
 
-                Monitor.Log($"Farmer is at {who.getTileX()}, {who.getTileY()} on map {who.currentLocation.Name}");
+                Monitor.Log($"{who.currentLocation.Name}, {who.getTileX()}, {who.getTileY()}");
 
                 if (!doneOnce)
                 {
                     ForceRemoveQuest("mtv_frq", new string[] { "594801" });
                     RemoveAllMail("mtv_resetmail", null);
                     doneOnce = true;
+                    //SendNextQuest(who, "PennyLibrary", true);
+                    //SendNextQuest(who, "LeahSexShowPt1", true);
+                    //Game1.warpFarmer("Farm", 69, 16, false);
+                    //Game1.dayOfMonth = 10;
                 }
                 else
                 {
                     SendNewMail("mtv_sendmail", new string[] { });
+                    //Game1.warpFarmer("Forest", 104, 34, false);
+                    //Game1.warpFarmer("Town", 20, 90, false);
                 }
 
             }
@@ -851,7 +932,7 @@ namespace MilkVillagers
 
                     Game1.currentLocation.createQuestionDialogue($"What do you want to do with {NPCtarget.Name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                 }
-                else if (true) //Config.Debug)
+                else  //Config.Debug)
                 {
                     List<Response> options = new List<Response>();
 
@@ -916,8 +997,8 @@ namespace MilkVillagers
                     }
                 }
 
-                choices.Add(new Response("get_eaten", "Ask them to eat you out [15E] (not implemented)")); //TODO not written yet.
-                choices.Add(new Response("sex", "Ask them for sex [50E](not implemented)")); //TODO not written yet.
+                //choices.Add(new Response("get_eaten", "Ask them to eat you out [15E] (not implemented)")); //TODO not written yet.
+                //choices.Add(new Response("sex", "Ask them for sex [50E](not implemented)")); //TODO not written yet.
             }
 
             choices.Add(new Response("abort", "Do nothing"));

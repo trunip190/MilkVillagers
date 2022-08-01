@@ -1,11 +1,21 @@
 {
-   "Name": "[CP]MilkTheVillagers",
-   "Author": "Trunip190",
-   "Description": "Adds dialogue for the mod Milk the Villagers",
-   "Version": "1.0.9",
-   "UniqueID": "trunip190.CPMilkTheVillagers",
-   "ContentPackFor": {
-       "UniqueID": "Pathoschild.ContentPatcher"
+  "Name": "[CP]MilkTheVillagers",
+  "Author": "Trunip190",
+  "Description": "Adds dialogue for the mod Milk the Villagers",
+  "Version": "1.1.0",
+  "UniqueID": "trunip190.CP.MilkTheVillagers",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.JsonAssets",
+      "IsRequired": true
     },
-  "UpdateKeys": [ "Nexus:5948" ],
+    {
+      "UniqueID": "Trunip190.MilkVillagers",
+      "IsRequired": true
+    }
+  ],
+  "UpdateKeys": [ "Nexus:5948" ]
 }

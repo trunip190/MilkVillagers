@@ -20,7 +20,7 @@ namespace MilkVillagers.Asset_Editors
         blush = 60,
     }
 
-    public static class EventEditor //: IAssetEditor
+    public static class EventEditor
     {
         private static IDictionary<string, string> data;
 
@@ -68,6 +68,7 @@ namespace MilkVillagers.Asset_Editors
         {
             data = asset.AsDictionary<string, string>().Data;
 
+            // Completed
             if (asset.Name.IsEquivalentTo("Data/Events/Seedshop"))
             {
                 #region Abigail reward event 594801 - completed!
@@ -132,6 +133,7 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
+            // Completed
             if (asset.Name.IsEquivalentTo("Data/Events/Hospital"))
             {
                 #region Harvey Event 594802 - completed!
@@ -336,9 +338,10 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
+            // Complete
             if (asset.Name.IsEquivalentTo("Data/Events/LeahHouse"))
             {
-                #region Leah painting quest 594804 - completed
+                #region Leah painting quest 594829 - completed
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventLeah} - incomplete");
                 data[$"{TempRefs.EventLeah}" +                    // event id
                         $"/n LeahNudePainting" +    //need her invitation mail first
@@ -459,11 +462,12 @@ namespace MilkVillagers.Asset_Editors
                         $"/end";
                 #endregion
 
-                #region Leah/player exhibitionism - in progress
+                #region Leah sex show part 1
+                #region Leah/player exhibitionism - being replaced
                 if (false) //not finished
                 {
-                    ModFunctions.LogVerbose($"Loading event Leah Exhibitionism {TempRefs.EventLeahExhibit} - need to write", LogLevel.Alert);
-                    data[$"{TempRefs.EventLeahExhibit}" +
+                    ModFunctions.LogVerbose($"Loading event Leah Exhibitionism {TempRefs.EventLeahExhibitOld} - need to write", LogLevel.Alert);
+                    data[$"{TempRefs.EventLeahExhibitOld}" +
 
                             // Conditions
                             "D <name>" +                // player is dating the given NPC name.
@@ -533,28 +537,336 @@ namespace MilkVillagers.Asset_Editors
                             "";
                 }
                 #endregion
+
+                #region 594810 Leah visit show quest 594831 - started by WAILT. ACE version
+                bool finished = true;
+                if (finished)
+                {
+                    ModFunctions.LogVerbose($"EventLeahExhibitA {TempRefs.EventLeahExhibitA} marked ready? {finished}");
+                    data[$"{TempRefs.EventLeahExhibitA}" +
+
+                    #region Conditions - template only
+                            //"/D <name>" +                // player is dating the given NPC name.
+                            //"/J" +                       // player has finished the Joja Warehouse.
+                            //"/L" +                       // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                            //"/M <number>" +              // player has at least this much money.
+                            //"/O <name>" +                // player is married to that NPC.
+                            //"/S <secret note ID>" +      // player has seen the Secret Note with the given ID.
+                            //"/a <x> <y>" +               // player is on that tile position.
+                            //"/b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
+                            //"/c <number>" +              // player has at least that many free inventory slots.
+                            //"/e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
+                            "/f Leah 1500" +               // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                                                           //"/g <gender>" +              // player is the specified gender (male or female).
+                                                           //"/h <pet>" +                 // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                                                           //"/i <item ID>" +             // player has specified item in their inventory.
+                                                           //"/j <number>" +              // player has played more than <number> days.
+                                                           //"/k <event ID>" +            // player has not seen that event (may contain multiple event IDs).
+                                                           //"/l <letter ID>" +           // player has not received that mail letter or non-mail flag.
+                                                           //"/m <number>" +              // player has earned at least this much money (regardless of how much they really have).
+                            "/n MTV_Ace" +                 // player has received that mail letter or non-mail flag.
+                            "/n LeahSexShowPt1" +
+                            //"/o <name>" +                // player is not married to that NPC.
+                            //"/p <name>" +                // Specified NPC is in the player's location.
+                            //"/q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                            //"/s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                            //"/t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                            //"/u <day of month> 	" +   // day of month is one of the specified values (may contain multiple days).
+                            //"/x <letter ID>"             // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+                            ""] =
+                    #endregion
+
+                    #region set up event
+                            $"playful" +
+                            $"/14 20" +
+                            $"/farmer 14 23 0 Leah 40 18 1" +
+                            $"/skippable" +
+                    #endregion
+
+                    #region event text: A-sexual
+                            // Leah Pt. 3 (We’ll need to credit Seattle Erotic Arts Festival for inspiration. It looks like it was amazing)\"" + 
+                            "/viewport -100 -100" +
+                            "/message \"The exhibit is in a building with blacked out windows. You’re a little nervous, but Leah confidently takes your hand and leads you inside." +
+                                "#The person at the front desk checks your IDs before motioning for you to go back. You and Leah part the thick black curtain that hangs in the entryway and step through." +
+                                "#The first thing you see is a small platform where a nude man kneels on a soft looking pillow, arms bound by leather cuffs in front of him. His eyes are covered by a dark blindfold. Around his neck hangs a sign that says ’No Photography’." +
+                                "#Next to him is a throne, where another man, wearing a leather harness over a crisp white button up, sits with a goblet in one hand, talking to a few guests. His other hand is running through the kneeling man’s hair." +
+                                "#You look at Leah unsure but she’s looking towards the stage where a large metal frame with loops and hooks hanging from the top bars. Hanging from the bar is a large hoop on which a woman in a sparkling leotard is doing aerial acrobatics.\"" +
+
+                            "/speak Leah \"Let’s go find seats. I want to watch the aerial performances.\"" +
+
+                            "/message \"You follow along, looking around as you do. There are a lot of different static pieces. People wrapped in leather and latex, bound in various positions, modeling harnesses, cuffs, masks, and more." +
+                                "#Leah drags you to a seat, close to the front, squeezing your hand before pulling out a sketch pad. You both watch the show in awe. The strength of the hoop and silk artists bodies is incredible." +
+                                "#When the next group comes on stage carrying a bag full of ropes, Leah gets an excited look in her eye. Two women wearing sheer colored lacy lingerie and gauzy butterfly wings begin setting up their rope." +
+                                "#Their bodies are both wrapped in rope harnesses. You can see the way it presses into their skin and you can’t help but imagine how that would feel on you." +
+                                "#They do a series of positions, the woman dressed in blue suspended in the air. The ropes have on her back, hanging with a leg tied underneath her to her thigh where they frame her figure beautifully." +
+                                "#By the time the show is over, you can’t stop imagining how stunning rope art is. There’s something beautiful in the constriction. Leah takes your hand and you can’t help but grin at how flushed her cheeks are.\"" +
+
+                            "/speak Leah \"Let’s go back to my place and I can tell you my ideas.\"" +
+
+                            "/message \"You nod and follow her to the exit. On your way out, you see a person sitting on a motor bunny, arms bound behind their back, while another plays with the controls." +
+                                "#The one riding the toy looks like they’re in miserable ecstasy, tears streaking their face and, by the mess on the floor, you’re pretty sure they’ve cum more than a few times already. There’s a strange beauty in the way they cry.\"" +
+
+                            "/speak Leah \"I'm so excited about the coming exhibit. I can't wait to show you the ideas this has given me.\"" +
+
+                            // End event and choose aftercare
+                            "/quickquestion \"Do you want to head back with Leah and cuddle in her cottage?" +
+                            "#Go home with Leah and cuddle." +
+                            "#Say goodnight to Leah." +
+                            "(break)switchEvent 594804R2" +// Switch to cuddling result if chosen
+                            "(break)switchEvent 594804R3\"" +// Otherwise go to end of event.
+                            "/end";
+                    #endregion
+                }
+                #endregion
+
+                #region 594811 Leah visit show quest 594831 - started by WAILT. Vagina version
+                finished = true;
+                if (finished)
+                {
+                    ModFunctions.LogVerbose($"EventLeahExhibitV {TempRefs.EventLeahExhibitV} marked ready? {finished}");
+                    data[$"{TempRefs.EventLeahExhibitV}" +
+
+                    #region Conditions - template only
+                            //"/D <name>" +                // player is dating the given NPC name.
+                            //"/J" +                       // player has finished the Joja Warehouse.
+                            //"/L" +                       // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                            //"/M <number>" +              // player has at least this much money.
+                            //"/O <name>" +                // player is married to that NPC.
+                            //"/S <secret note ID>" +      // player has seen the Secret Note with the given ID.
+                            //"/a <x> <y>" +               // player is on that tile position.
+                            //"/b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
+                            //"/c <number>" +              // player has at least that many free inventory slots.
+                            //"/e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
+                            "/f Leah 1500" +               // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                                                           //"/g <gender>" +              // player is the specified gender (male or female).
+                                                           //"/h <pet>" +                 // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                                                           //"/i <item ID>" +             // player has specified item in their inventory.
+                                                           //"/j <number>" +              // player has played more than <number> days.
+                                                           //"/k <event ID>" +            // player has not seen that event (may contain multiple event IDs).
+                                                           //"/l <letter ID>" +           // player has not received that mail letter or non-mail flag.
+                                                           //"/m <number>" +              // player has earned at least this much money (regardless of how much they really have).
+                            "/n MTV_Vagina" +              // player has received that mail letter or non-mail flag.
+                            "/n LeahSexShowPt1" +
+                            //"/o <name>" +                // player is not married to that NPC.
+                            //"/p <name>" +                // Specified NPC is in the player's location.
+                            //"/q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                            //"/s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                            //"/t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                            //"/u <day of month> 	" +   // day of month is one of the specified values (may contain multiple days).
+                            //"/x <letter ID>" +           // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+                            ""] =
+                    #endregion
+
+                    #region set up event
+                            $"playful" +
+                            $"/6 5" +
+                            $"/farmer 7 9 0 Leah 6 5 0" +
+                            $"/skippable" +
+                    #endregion
+
+                    #region event text: Vagina
+                            // Leah Pt. 3 (We’ll need to credit Seattle Erotic Arts Festival for inspiration. It looks like it was amazing)
+                            "/message \"The exhibit is in a building with blacked out windows. You’re a little nervous, but Leah confidently takes your hand and leads you inside." +
+                                "#The person at the front desk checks your IDs before motioning for you to go back. You and Leah part the thick black curtain that hangs in the entryway and step through." +
+                                "#The first thing you see is a small platform where a nude man kneels on a soft looking pillow, arms bound by leather cuffs in front of him. His eyes are covered by a dark blindfold. Around his neck hangs a sign that says ’No Photography’." +
+                                "#Next to him is a throne, where another man, wearing a leather harness over a crisp white button up, sits with a goblet in one hand, talking to a few guests. His other hand is running through the kneeling man’s hair." +
+                                "#You look at Leah unsure but she’s looking towards the stage where a large metal frame with loops and hooks hanging from the top bars. Hanging from the bar is a large hoop on which a woman in a sparkling leotard is doing aerial acrobatics.\"" +
+
+                            "/speak Leah \"Let’s go find seats. I want to watch the aerial performances.\"" +
+
+                            "/message \"You follow along, looking around as you do. There are a lot of different static pieces. People wrapped in leather and latex, bound in various positions, modeling harnesses, cuffs, masks, and more." +
+                                "#Leah drags you to a seat, close to the front, squeezing your hand before pulling out a sketch pad. You both watch the show in awe. The strength of the hoop and silk artists bodies is incredible." +
+                                "#When the next group comes on stage carrying a bag full of ropes, Leah gets an excited look in her eye. Two women wearing shear colored lacy lingerie and gauzy butterfly wings begin setting up their rope." +
+                                "#Their bodies are both wrapped in rope harnesses. You can see the way it presses into their skin and you can’t help but imagine how that would feel on you. A shiver crawls up your spine and your pussy clenches around nothing." +
+                                "#They do a series of positions, the woman dressed in blue suspended in the air. The ropes have her on her back, hanging with a leg tied underneath her to her thigh where they frame her ass beautifully." +
+                                "#By the time the show is over, you’re so wet you’re worried it’s seeped through the fabric of your bottoms. Leah’s squeezing her legs together so at least you know you’re not alone. Leah takes your hand and you can’t help but grin at how flushed her cheeks are.\"" +
+
+                            "/speak Leah \"Let’s go back to my place and I can tell you my ideas.\"" +
+                            "/message \"You nod and follow her to the exit. On your way out, you see a person sitting on a motor bunny, arms bound behind their back, while another plays with the controls." +
+                                "#The one riding the toy looks like they’re in miserable ecstasy tears streaking their face and, by the mess on the floor, you’re pretty sure they’ve cum more than a few times already." +
+                                "#When you get out, you’re not sure how much longer you can wait before you need to fuck yourself into orgasm. Or maybe, Leah would be willing to help you out.\"" +
+                    #endregion
+
+                    #region set up post event
+                            //$"/resetVariable" +
+                            //$"/question fork0 \"Do you want to head home or see if Leah is up for more?#Head home#Talk to Leah\"" +
+                            //$"/fork LeahShowPt1R3" +
+
+                            //$"/resetVariable" +
+                            //$"/question fork0 \"Do you want to head back with Leah and cuddle in her cottage?#See if Leah is up for getting rid of that sexual frustration.#Go home with Leah and cuddle.\"" +
+                            //$"fork LeahShowPt1R1" +
+
+                            //$"/message \"picked option 2 - cuddles.\""+
+                            //$"switchEvent LeahShowPt1R2" +
+
+
+                            "/quickQuestion \"Do you want to head back with Leah and cuddle in her cottage?" +
+                            "#See if Leah is up for getting rid of that sexual frustration." +
+                            "#Go home with Leah and cuddle." +
+                            "#Head home" +
+                            "(break)switchEvent 594804R1" +
+                            "(break)switchEvent 594804R2" +
+                            "(break)switchEvent 594804R3\"" +
+
+                            //"/fork LeahShowSex 594804R1" +
+                            //"/fork LeahShowCuddle 594804R2" +
+                            //"/fork LeahShowLeave 594804R3" +
+                    #endregion
+
+                            "/end";
+                }
+                #endregion
+
+                #region Result 1
+                data[$"594804R1"] =
+                            // Map LeahHouse+
+
+                            //"fade" +
+                            "viewport 7 7" +
+
+                            //"playful" +
+                            //"/14 20" +
+                            "/warp farmer 7 9 0" +
+                            "/warp Leah 7 8 0" +
+                            //"/skippable" +
+
+                            //"/fade" +
+                            //"/viewport 6 6" +
+
+                            "/message \"Farmer and Leah enter Leah’s house.\"" +
+                            "/move Leah 0 -1 2" +
+                            "/pause 300" +
+
+                            "/beginSimultaneousCommand" +
+                            "/move Leah 0 -2 2" +
+                            "/move farmer 0 -3 0" +
+                            "/endSimultaneousCommand" +
+
+                            "/speak Leah \"Well, thank you for coming. That show was definitely...enlightening.\"" +
+                            "/question null \"#Did you gain anything from it?\"" +
+                            "/speak Leah \"I got a lot of new ideas, though that’s not all.\"" +
+                            "/emote Leah 60" +
+                            "/speak Leah \"Everything was so erotic, I got really wet from watching it. Would you want to give me a hand?\"" +
+                            "/message \"Trigger Warning: If you choose to help Leah the scene involves consensual rope bondage.\"" +
+                            "/quickquestion \"Do you want to help Leah get off?" +
+                            "#Definitely, let’s give her a private show." +
+                            "#That’s not really my thing, but we can cuddle." +
+                            "#I’m too tired to do anything tonight." +
+                            "(break)Fade" +                             // Result 1: Go to her bed (continue) 
+                            "(break)switchEvent 594804R2" +             // Result 2: cuddle
+                            "(break)switchEvent 594804R3\"" +           // Result 3: leave
+
+                            "/beginSimultaneousCommand" +
+                            "/viewport 5 5" +
+                            "/move Leah -3 0 0" +
+                            "/move farmer 0 -1 3" +
+                            "/endSimultaneousCommand" +
+
+                            "/move farmer -2 0 3" +
+
+                            "/message \"You step close to Leah and brush her hair back behind her ear. She looks stunning, her gray brown eyes sparkling from the low firelight.\"" +
+                            "/message \"A soft blush has spread high on her cheeks and you can't help but kiss it. Her eyes flutter closed and she lets out a soft gasp. You pull back after a quick peck to her nose.\"" +
+                            "/message \"You look at her bed and notice there are cotton ropes tied to the bedposts and the shears on the side table. Leah notices you looking and follows your gaze. Her flush gets brighter.\"" +
+
+                            "/question null \"#Would you like me to use those on you?\"" +
+                            "/Speak Leah \"Yes, please.\"" +
+                            "/pause 300" +
+                            "/fade" +
+                            "/viewport -100 -100" +
+
+                            "/message \"You kiss her hard and filthily, tongues slicking together before you pull back abruptly. You strip her of her top and bra, trailing kisses up her stomach as you do, then sit her on the bed.\"" +
+                            "/message \"You pull off her shoes and socks, tucking them under the bed. You stand her up, undo the buttons of her pants, and slide them down her legs until she can step out. You fold them neatly and place them next to her shoes.\"" +
+                            "/message \"You undress yourself and she watches you, her blush spreading down her chest." +
+
+                            "/question \"#Let me know if you need me to stop at any time. Do you have a safeword? Do you have any limits that we haven’t talked about before?\"" +
+                            "/Speak Leah \"The light system. Red for stop, yellow for slow down, pause, talk it out and green for keep going. Same limits as before, no teeth being the biggest.\"" +
+                            "/message \"You smile softly and give her a gentle kiss before you use a single column tie (thank you, college experimentation) to secure the cotton rope around each wrist and ankle, checking in with her as you do, until she’s spread eagle.\"" +
+                            "/message \" You climb onto the bed between her legs, rubbing your hands up and down her thighs, her skin soft with the slight tickle of hair.\"" +
+                            "/question null \"#Color?\"" +
+                            "/speak Leah \"Green.\"" +
+
+                            "/message \"You finally allow yourself to look at her fully. You curse softly under your breath. You don’t know if you’ve ever seen anything so beautiful. The color of the ropes contrasts beautifully with her skin." +
+                                "#Your eyes fall on her underwear, a pair of dark green boyshorts. She wasn’t exaggerating when she said she soaked them through. The crotch is stained darker, spread all the way to the where the shorts stop an inch down her thighs." +
+                                "#You lay on your stomach and press your face against the fabric covering her pussy. She smells of clean sweat. You drag your tongue against the fabric tasting the slight saltiness of it mixing with the mild taste of her slick." +
+                                "#She moans as you continue to lick then gasps when you pull the fabric into your mouth and suck. You pull away once you’ve gotten all the flavor from it. Leah’s looking at you half lidded, with a small smirk." +
+                                "#You notice the small buttons on the sides of her underwear and snap them open. She must’ve been hoping for something like this if she wore those. You pull them off, and drop them on the pile of her clothes before your gaze falls to her pussy." +
+                                "#Leah’s dripping slick, the hair matted down and shiny. You meet her eyes, giving a devilish smirk, before dropping down, parting her lips with your nose, wrapping your mouth around her clit and sucking hard.\"" +
+
+                            "/speak Leah \"Oh Yoba!\"" +
+                            "/message \"You’re careful to keep your lips over your teeth as you suck at her, then dip your tongue low and slurp up her juices. You’ve never tasted anything so good. She tastes fresh and natural and you continue using your tongue to clean up every bit of slick.\"" +
+                            "/message \"Leah is moaning, her arms and legs jerking as they try to close around your head.\"" +
+                            "/question null \"#Color?\"" +
+                            "/speak Leah \"Green! More! Please, more!\"" +
+
+                            "/message \"You dip your head further, using your nose to rub against her clit as you lick around her entrance until you finally bury your tongue inside her." +
+                                "#You fuck your tongue inside, making sure to curl it up to try and hit her g-spot while the tip of your nose rubs her clit. Leah’s moans are beautiful and you can hear her breath getting quicker." +
+                                "#You thrust in a few more times before licking up to her clit, using your tongue to get under its hood and then you suck on it. The strong pressure pulls Leah over into an explosive orgasm, slick drenching her thighs." +
+                                "#You work her clit until her orgasm tapers off and then slowly clean her up with your mouth, making sure to be as gentle as possible." +
+                                "#When you’ve licked everything up, you crawl up Leah’s body and kiss her filthily, letting her taste herself. She moans into it, lips slow and dragging against yours." +
+                                "#You pull back enough to see her face. Her eyes are mostly closed, cheeks red, and hair messy. She licks her lips.\"" +
+
+                            "/question null \"#Are you ready for me to untie you?\"" +
+                            "/Speak Leah \"Yes, then cuddles.\"" +
+
+                            "/message \"You smile, kissing her softly one more time before you start untying her. You rub her wrists and ankles where the ropes were, admiring the way the light rope marks look against her skin." +
+                                "#You help her sit up, and shuffle underneath the blankets. There’s a reusable water bottle on the bedside table and you grab it, helping her drink a little." +
+                                "#Leah smiles sleepily at you and you can’t help but press soft kisses to her forehead, cheeks, and nose. You scoot down and wrap her in your arms.\"" +
+
+                            "/question null \"#How was it? What did you like? Anything you want to do different?\"" +
+                            "/Speak Leah \"It was perfect. Though, next time, I want you to cum too. Maybe while sitting on my face.\"" +
+                            "/message \"You squeeze your thighs together and you groan, burying your face in her neck. She laughs at you quietly and you let out a contented sigh. You can’t wait to see what she’s going to come up with for the exhibit.\"" +
+                            "/end";
+                #endregion
+
+                #region Result 2 - Cuddles!
+                data[$"594804R2"] = "pause 500" +
+                            "/speak Leah \"Sure, that sounds really nice! Let me go take care of myself real quick.\"" +
+                            "/message \"Leah gives you a pair of pajamas to borrow before she goes to change into her own. When you’re both dressed you shuffle underneath the blankets." +
+                                "#Leah smiles sleepily at you and you can’t help but press soft kisses to her forehead, cheeks, and nose. You scoot down and wrap her in your arms.\"" +
+                            "/question \"#What was your favorite part of the show?\"" +
+                            "/speak Leah \"I loved the rope artists with the fairy wings. The way the blue fairy’s dark skin contrasted with the rope was stunning.\"" +
+                            "/message \"You agree and continue to talk until your voices are just murmurs, eyes fluttering shut. You love the warmth of her skin against yours, how safe and loved you feel, from the simple contact. You can’t wait to see what she’s going to come up with for the exhibit.\"" +
+                            "/end";
+                #endregion
+
+                #region Result 3 - Say goodbye
+                data[$"594804R3"] =
+
+                "speak Leah \"Okay! No worries. I’ll let you know when I’ve figured out exactly what I want to do. Thanks for all your help.\"" +
+                "/emote Leah 20" +
+                "/message \"You give her a hug goodbye.\"" +
+                "/face direction 2" +
+                "/move farmer 3 0 2" +
+                "/move farmer 0 5 2" +
+                "/playSound doorOpen" +
+                "/fade" +
+                "/end";
+                #endregion
+                #endregion
+
             }
 
+            // 1 done, 1 ideas only
             if (asset.Name.IsEquivalentTo("Data/Events/ArchaeologyHouse"))
             {
-                #region Penny Library event 594805 - in progress. Need to finish endings and link to next quest.
+                #region Penny Library event 594805 - Need to playtest
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventPenny} (need to make mail and quest)");
                 data[$"{TempRefs.EventPenny}" +                    // event id
                         $"/n PennyLibrary" +        // need her invitation mail first. This is a temporary way of adding the quest
                         $"/f Penny 2000" +          // Penny at 8 hearts
-                        $"/p Penny" +               // Penny present
+                        //$"/p Penny" +               // Penny present
                         $""] =
 
                         // Setup the scene
                         $"echos" +
                         $"/13 9" +
-                        $"/farmer 8 14 1 Penny 17 5 2" +
+                        $"/farmer 8 14 1 Penny 17 5 0 Gunther 3 8 2" +
                         $"/skippable" +
 
                         // Begin scene  looking for Penny
-                        $"/move farmer 3 0 1" +
-                        $"/move farmer 0 -2 0" +
-                        $"/move farmer 3 0 1" +
+                        $"/move farmer 3 0 1" +   // 11 14 1
+                        $"/move farmer 0 -2 0" +  // 11 12 0
+                        $"/move farmer 3 0 1" +   // 14 12 1
                         $"/pause 500" +
                         $"/emote farmer 8" +
                         $"/faceDirection farmer 1" +
@@ -568,16 +880,23 @@ namespace MilkVillagers.Asset_Editors
                         $"/pause 500" +
 
                         // Move farmer to beside Penny
-                        $"/move farmer 0 -7 1" +
-                        $"/move farmer 2 0 1" +
-                        //$"/faceDirection farmer 1" +
+                        $"/move farmer 0 -7 1" +  // 14 5 1
+                        $"/move farmer 1 0 1" +   // 15 5 1
+                                                  //$"/faceDirection farmer 1" +
                         $"/pause 300" +
                         //make penny do sit down and shake animation.
                         $"/faceDirection Penny 3" +
                         $"/pause 300" +
-                        $"/speak Penny \"Oh, @. I didn't hear...I mean see you there.\"" +
                         $"/message \"Penny quickly pulls her hand out of her skirt and tries to hide a book behind the stool.\"" +
-                        $"/question null \"What do you say to Penny?#I heard you making a noise in the shelving#I heard someone moaning#I just wandered over here.\"" +
+                        $"/speak Penny \"Oh, @. I didn't hear...I mean see you there.\"" +
+
+                        $"/quickquestion \"What do you say to Penny?" +
+                            $"#I heard you making a noise in the shelving" +
+                            $"#I heard someone moaning" +
+                            $"#I just wandered over here." +
+                            $"(break)emote Penny 60" +
+                            $"(break)textAboveHead Penny \"Oh no...\"" +
+                            $"(break)textAboveHead Penny \"Phew\"" +
 
                         $"/speak Penny \"Oh...that. I guess you're wondering what I'm doing over here..." +
                         $"#$b#The last time I was here I found a book in the shelves that I hadn't seen before, and I started to read it. It was a kind of romance novel, but after a couple of chapters it became clear that 'romance' was just a loose metaphor for..." +
@@ -596,46 +915,125 @@ namespace MilkVillagers.Asset_Editors
 
                         // Question Penny about her feelings
                         $"/pause 600" +
-                        $"/question null \"What do you want to ask Penny?" +
-                            $"#What kind of things did it make you do?" +                                           // Question 1
-                            $"#Did it turn you on?\"" +                                                             // Question 2
-                        $"/speak Penny \"It didn't really make me do anything. I know it was all me, but I just got sooo wet down there, and before I knew what was happening I was rubbing away, and I moaned, and...you appeared." +
-                        $"#$b#Anyway, I really want to continue reading this book, but I can't exactly do that here in the library. What if Gunther had found me instead!? Or one of the kids!?" +
-                            $"#I want to ask you a favour. Could you check out this book for me? I would die of embarrassment if Gunther knew what it was, or if someone else saw me carrying it. Please, @.\"" +
+
+                        $"/quickquestion \"What do you want to ask Penny?" +
+                            "#What kind of things did it make you do?" +                                           // Question 1
+                            "#Did it turn you on?" +
+                            "#Did you touch yourself?" +
+                            "(break)speak Penny \"It didn't really make me do anything. I know it was all me, but I just got sooo wet down there, and before I knew what was happening I was rubbing away, and I moaned, and...you appeared.\"" +
+                            "(break)speak Penny \"I guess, though I didn't really get that far into the book yet.\"" +
+                            "(break)speak Penny \"I...may have touched myself a little just before you got here.\"" +
+
+                        $"/speak Penny \"Anyway, I really want to continue reading this book, but I can't exactly do that here in the library. What if Gunther had found me instead!? Or one of the kids!?\"" +
+                            "/speak Penny \"I want to ask you a favour. Could you check out this book for me? I would die of embarrassment if Gunther knew what it was, or if someone else saw me carrying it.\"" +
+
                         $"/question fork1 \"Will you check out the book for Penny?#Of course.#No." +
-                        $"/fork  594805refused" +
-                        $"/addQuest 594810" +
+                        $"/fork 594805refused" +
+                        //$"/addQuest 594810" +
+
                         $"/speak Penny \"Thank you so much, @. Please bring me the book once you have checked it out. You are the best! $h\"" +
                         $"/emote farmer 32" +
-                        // Penny walks away.
-                        // pause
+
+                        // Fade to next scene
+                        $"/fade" +
+                        $"/viewport -100 -100" +
+
+                        $"/beginSimultaneousCommand" +
+                        $"/move farmer -1 0 3" +  // 14 5 3
+                        $"/warp Penny 0 0 1" +
+                        $"/endSimultaneousCommand" +
+                        $"/warp farmer 6 12 3" +  // 6 12 3
+
+                        $"/viewport 4 11" +
+
                         // farmer goes to walk out, but Gunther calls out to them
-                        $"/speak Gunther \"Good day, @. I don't mean to pry, but have you noticed Penny acting a little...stressed?\""+
+                        $"/move farmer -3 0 3" +    // 3 12 3
+                        "/textAboveHead Gunther \"Do you have a moment?\"" +
+                        "/emote farmer 16" +
+                        "/pause 500"+
+                        "/move farmer 0 -2 0"+      // 3 10 1
+                        $"/speak Gunther \"Good day, @. I don't mean to pry, but have you noticed Penny acting a little...stressed?\"" +
                         $"#$b#The last couple of times she's come here she has always been in a rush to get in, and then a rush to leave. I am concerned that something is bothering her." +
-                        $"/question fork2 \"What do you think is bothering Penny#I think she's just very busy#She's been reading erotic books#I'm think she has a crush on you.\"" +
-                        $"/fork  594805snitch" +
-                        $"#$b#" +
+
+                        $"/quickQuestion \"What do you think is bothering Penny" +
+                            $"#I think she's just very busy" +
+                            $"#She's been reading erotic books" +
+                            $"#I'm think she has a crush on you." +
+                            $"(break)switchEvent 594805helped" +
+                            $"(break)switchEvent 594805snitch" +
+                            $"(break)switchEvent 594805crush" +
+
+                        //$"/speak Gunther \"Ah, that is probably it. I did recommend that she try some light reading rather than always working on lessons for the children.\"" +
+                        //$"#$b#Anyway, please take care and give my regards to Miss Penny.\"" +
+                        //$"/addQuest 594826" +
                         $"/end";
 
                 // Initially refused
-                data["594805refused"] = $"/speak Penny \"I'm too ashamed to ask anyone else, @! Please, if you change your mind, bring em the book at home.\"" +
-                        $"/addQuest 594810" +
+                data["594805refused"] = $"speak Penny \"I'm too ashamed to ask anyone else, @! Please, if you change your mind, bring me the book at home.\"" +
+                        $"/addQuest 594826" +
                         $"/end";
 
-                data["594805snitch"] = $"/speak Gunther \"Oh. I wasn't aware that we had any books like that in the library.\"" +
-                    $"/speak Gunther \"If Penny has been hiding books like that in the shelves then I will have to make sure the children don't read them.\"" +
-                        
+                #region Helped Penny: Done
+                data["594805helped"] = "pause 300" +
+                    
+                    "/speak Gunther \"Ah, that is probably it. I did recommend that she try some light reading rather than always working on lessons for the children." +
+                        "#$b#Anyway, please take care and give my regards to Miss Penny.\"" +
+
                     //transition to outside
                     "/fade" +
                     "/viewport -300 -300" +
 
-                    $"/speak Penny \"I can't believe you would rat me out like that to Gunther! I don't know how I'm going to be able to look him in the eye now!\""+
-                    $"/speak Penny \"Anyway. Thank you for getting the book for me.\"" +
-                    $"/friendship Penny -50"+
-                    $"/end";
+                    "/speak Penny \"Thank you, @. How did it go?\"" +
+                    "/question null \"Did Gunther say anything about the book?" +
+                        "#No, but he asked after you." +
+                    "/speak Penny \"Thank you for helping me out, @. You are a real friend. Perhaps in the future we could read together...\"" +
+                    "/friendship Penny 50" +
+                    "/end";
                 #endregion
 
-                #region Gunther event
+                #region Snitched: Done
+                data["594805snitch"] = $"pause 50" +
+                    
+                    "/speak Gunther \"Oh dear, I wasn't aware we had such books in the library!" +
+                        "#$b#Imagine if the children had gotten a hold of them? I suppose I'll have to through our bookshelves now and quarantine any books I find." +
+                        "#$b#If Miss Penny wants to continue to read those books, she'll have to book them out and read them at home.\"" +
+
+                    //transition to outside
+                    "/fade" +
+                    "/viewport -300 -300" +
+
+                    "/speak Penny \"I can't believe you would say that to Gunther! I don't know how I'm going to be able to look him in the eye now!" +
+                        "#$b#It is going to be so awkward now every time I see him, or when I teach the children there." +
+                        "#$b#Anyway. I guess I should take that book, seeing as I cannot be any more embarrassed today.\"" +
+                    
+                    "/message \"Penny appears pretty disappointed.\"" +
+                    "/friendship Penny -50" +
+
+                    "/end";
+                #endregion
+
+                #region Crush: Done
+                ModFunctions.LogVerbose("Loading 594805crush", LogLevel.Alert);
+                data["594805crush"] = "pause 50" +                    
+                    "/speak Gunther \"Oh. I wasn't aware that Miss Penny had those kinds of feelings for me. I must confess that I'm a little flustered." +
+                        "#$b#In hindsight I see that it I should have noticed those feelings sooner, seeing as I am here all of the time." +
+                        "#$b#Do you REALLY think she has a crush on me? Actually, please don't answer that. I'd rather ask her myself. Take care, @.\"" +
+                    
+                        //transition to outside
+                    "/fade" +
+                    "/viewport -300 -300" +
+
+                    "/speak Penny \"I can't believe you would say that to Gunther! I don't know how I'm going to be able to look him in the eye now!" +
+                        "#$b#It is going to be so awkward now every time I see him, or when I teach the children there." +
+                        "#$b#Anyway. I guess I should take that book, seeing as I cannot be any more embarrassed today.\"" +
+
+                    "/message \"Penny is very embarrassed.\"" +
+
+                    "/end";
+                #endregion
+                #endregion
+
+                #region Gunther event writing ideas down
                 /* Encourage Gunther to spend some time outside of the Library/Museum
                  * He's not against being outside he just has his priorities set on fixing/cleaning it up, so the farmer tries to show them that other things are more important.
                  * Gunther is surprisingly charming and flirtateous, and wants to go up to the mountains.
@@ -682,11 +1080,12 @@ namespace MilkVillagers.Asset_Editors
                  * message \"You ignore his comments, and take his prick into your mouth in one go. The warm, wet sensation causes Gunther to gasp, and you feel him jerk as you start sucking on him.\""+
                  * message \"You start off slow, swirling your tongue around the head, sucking it every so often to encourage it to swell up. It's not long before you start bobbing your head back and forth, locking eyes with Gunther.\""+
                  * \"Oh Yoba, this is heavenly!\""+
-                 * message \"You start to get into the rhythm, and 
+                 * message \"You start to get into the rhythm, and it's not long before Gunther is on the edge, fighting to control himself as his fingers curl in your hair.
                  */
                 #endregion
             }
 
+            // need to check
             if (asset.Name.IsEquivalentTo("Data/Events/Saloon"))
             {
                 #region Haley Saloon event 594806 complete?
@@ -806,65 +1205,69 @@ namespace MilkVillagers.Asset_Editors
 
             }
 
+            // not started
             if (asset.Name.IsEquivalentTo("Data/Events/Sunroom"))
             {
                 #region Caroline sunroom event 594807 not started
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventCaroline} - need to write");
-                data[$"{TempRefs.EventCaroline}" +
-                        // Conditions
-                        "D <name>" +                // player is dating the given NPC name.
-                        "J 	" +                     // player has finished the Joja Warehouse.
-                        "L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
-                        "M <number>" +              // player has at least this much money.
-                        "O <name>" +                // player is married to that NPC.
-                        "S <secret note ID>" +      // player has seen the Secret Note with the given ID.
-                        "a <x> <y>" +               // player is on that tile position.
-                        "b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
-                        "c <number>" +              // player has at least that many free inventory slots.
-                        "e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
-                        "f <name> <number>" +       // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
-                        "g <gender> 	" +         // player is the specified gender (male or female).
-                        "h <pet> 	" +             // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
-                        "i <item ID> 	" +         // player has specified item in their inventory.
-                        "j <number> 	" +         // player has played more than <number> days.
-                        "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
-                        "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
-                        "m <number> 	" +         // player has earned at least this much money (regardless of how much they " + //ly have).
-                        "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
-                        "o <name> 	" +             // player is not married to that NPC.
-                        "p <name>" + 	            // Specified NPC is in the player's location.
-                        "q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
-                        "s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
-                        "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
-                        "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
-                        "x <letter ID>"] =          // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+                if (false)
+                {
+                    data[$"{TempRefs.EventCaroline}" +
+                            // Conditions
+                            "D <name>" +                // player is dating the given NPC name.
+                            "J 	" +                     // player has finished the Joja Warehouse.
+                            "L" +                       // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                            "M <number>" +              // player has at least this much money.
+                            "O <name>" +                // player is married to that NPC.
+                            "S <secret note ID>" +      // player has seen the Secret Note with the given ID.
+                            "a <x> <y>" +               // player is on that tile position.
+                            "b <number>" +              // player has reached the bottom floor of the Mines at least that many times.
+                            "c <number>" +              // player has at least that many free inventory slots.
+                            "e <event ID>" +            // player has seen the specified event (may contain multiple event IDs).
+                            "f <name> <number>" +       // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
+                            "g <gender> 	" +         // player is the specified gender (male or female).
+                            "h <pet> 	" +             // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                            "i <item ID> 	" +         // player has specified item in their inventory.
+                            "j <number> 	" +         // player has played more than <number> days.
+                            "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
+                            "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
+                            "m <number> 	" +         // player has earned at least this much money (regardless of how much they " + //ly have).
+                            "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
+                            "o <name> 	" +             // player is not married to that NPC.
+                            "p <name>" +                // Specified NPC is in the player's location.
+                            "q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                            "s <item ID> <number>" +    // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                            "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                            "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
+                            "x <letter ID>"] =          // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
 
-                        // Setup the scene
-                        $"playful" +
-                        $"/14 20" +
-                        $"/farmer 14 23 0 Haley 40 18 1 Gus 14 18 2 Alex 42 18 3" +
-                        $"/skippable" +
+                            // Setup the scene
+                            $"playful" +
+                            $"/14 20" +
+                            $"/farmer 14 23 0 Haley 40 18 1 Gus 14 18 2 Alex 42 18 3" +
+                            $"/skippable" +
 
-                        // Begin the scene
-                        "" +
+                            // Begin the scene
+                            "" +
 
-                        // End the scene
-                        "/end";
-
+                            // End the scene
+                            "/end";
+                }
                 #endregion
 
             }
 
+            // 1 needs checking, 1 is idea only
             if (asset.Name.IsEquivalentTo("Data/Events/ScienceHouse"))
             {
                 #region Maru sex machine event 594808 complete?
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventMaru} - need to write event and letter", LogLevel.Alert);
                 data[$"{TempRefs.EventMaru}" +
 
-                        // Conditions
+                #region Conditions
                         //"/D Maru" +                    // player is dating the given NPC name.
                         //"/J" +                         // player has finished the Joja Warehouse.
-                        //"/L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                        //"/L" + 	                     // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
                         //"/M <number>" +                // player has at least this much money.
                         //"/O <name>" +                  // player is married to that NPC.
                         //"/S <secret note ID>" +        // player has seen the Secret Note with the given ID.
@@ -873,7 +1276,7 @@ namespace MilkVillagers.Asset_Editors
                         //"/c <number>" +                // player has at least that many free inventory slots.
                         //"/e <event ID>" +              // player has seen the specified event (may contain multiple event IDs).
                         "/f Maru 2000" +                 // player has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the player must meet all of them.
-                                                         //"/g female" +                    // player is the specified gender (male or female).
+                        "/g female" +                    // player is the specified gender (male or female).
                                                          //"h <pet>" +                   // player does not already have a pet, and their preference matches <pet> ("cat" or "dog").
                                                          //"i <item ID>" +               // player has specified item in their inventory.
                                                          //"j <number>" +                // player has played more than <number> days.
@@ -882,21 +1285,24 @@ namespace MilkVillagers.Asset_Editors
                                                          //"m <number>" +                // player has earned at least this much money (regardless of how much they have).
                         "/n 5948MaruStart" +             // player has received that mail letter or non-mail flag.
                                                          //"o <name>" +                  // player is not married to that NPC.
-                                                         //"/p Maru" +                      // Specified NPC is in the player's location.
+                        "/p Maru" +                      // Specified NPC is in the player's location.
                                                          //"q <dialogue ID>" +           // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
                                                          //"s <item ID> <number>" +      // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
-                                                         //"t <min time> <max time>" +   // time is between between the specified times. Can range from 600 to 2600.
+                        $"/t 1800 2400" +                //"t <min time> <max time>" +   // time is between between the specified times. Can range from 600 to 2600.
                                                          //"/u <day of month>" +            // day of month is one of the specified values (may contain multiple days).
                                                          //"x <letter ID>"] =            // For the player: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
                         ""] =
+                #endregion
 
-                        // Setup the scene
+                #region Scene setup
                         $"echos" +                // set music
                         $"/7 7" +
                         $"/farmer 11 12 0 Maru 7 6 1 Demetrius 19 12 3" +
                         $"/skippable" +
+                #endregion
 
-                        //Begin the scene
+
+                #region Begin the scene
                         "/move farmer -4 0 3" +
                         //"/pause 300" +
                         "/move farmer 0 -1 0" +
@@ -953,6 +1359,8 @@ namespace MilkVillagers.Asset_Editors
 
                         // ######## The big split! ########
                         $"/fork {TempRefs.EventMaru}machine" +
+
+                #endregion
 
                 #region Route A - Inspiration
                         // ROUTE A - INSPIRATION
@@ -1035,8 +1443,6 @@ namespace MilkVillagers.Asset_Editors
 
                 //Maru encourages farmer to get undressed, and says she will 'take notes'
                 //farmer starts undressing
-
-
 
 
                 // ROUTE A - INSPIRATION
@@ -1135,46 +1541,50 @@ namespace MilkVillagers.Asset_Editors
                 #endregion
             }
 
+            // Partial
             if (asset.Name.IsEquivalentTo("Data/Events/HaleyHouse"))
             {
                 #region Emily clothing model/groping event 594809 complete?
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventEmily} - need to write");
-                data[$"{TempRefs.EventEmily}" +
+                ModFunctions.LogVerbose($"Loading event {TempRefs.EventEmily} - need to finish");
+                data[$"594809" +
 
                         // Conditions
-                        "D <name>" +                // farmer is dating the given NPC name.
-                        "J 	" +                     // farmer has finished the Joja Warehouse.
-                        "L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
-                        "M <number>" +              // farmer has at least this much money.
-                        "O <name>" +                // farmer is married to that NPC.
-                        "S <secret note ID>" +      // farmer has seen the Secret Note with the given ID.
-                        "a <x> <y>" +               // farmer is on that tile position.
-                        "b <number>" +              // farmer has reached the bottom floor of the Mines at least that many times.
-                        "c <number>" +              // farmer has at least that many free inventory slots.
-                        "e <event ID>" +            // farmer has seen the specified event (may contain multiple event IDs).
-                        "f <name> <number>" +       // farmer has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the farmer must meet all of them.
-                        "g <gender> 	" +         // farmer is the specified gender (male or female).
-                        "h <pet> 	" +             // farmer does not already have a pet, and their preference matches <pet> ("cat" or "dog").
-                        "i <item ID> 	" +         // farmer has specified item in their inventory.
-                        "j <number> 	" +         // farmer has played more than <number> days.
-                        "k <event ID> 	" +         // farmer has not seen that event (may contain multiple event IDs).
-                        "l <letter ID> 	" +         // farmer has not received that mail letter or non-mail flag.
-                        "m <number> 	" +         // farmer has earned at least this much money (regardless of how much they really have).
-                        "n <letter ID> 	" +         // farmer has received that mail letter or non-mail flag.
-                        "o <name> 	" +             // farmer is not married to that NPC.
-                        "p <name>" + 	            // Specified NPC is in the farmer's location.
-                        "q <dialogue ID>" +         // farmer has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
-                        "s <item ID> <number>" +    // farmer has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
-                        "t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
-                        "u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
-                        "x <letter ID>"] =          // For the farmer: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+                        //"D <name>" +                // farmer is dating the given NPC name.
+                        //"J 	" +                     // farmer has finished the Joja Warehouse.
+                        //"L" + 	                    // Event is in the FarmHouse and the FarmHouse has been upgraded at least twice (has nursery but not necessarily cellar).
+                        //"M <number>" +              // farmer has at least this much money.
+                        //"O <name>" +                // farmer is married to that NPC.
+                        //"S <secret note ID>" +      // farmer has seen the Secret Note with the given ID.
+                        //"a <x> <y>" +               // farmer is on that tile position.
+                        //"b <number>" +              // farmer has reached the bottom floor of the Mines at least that many times.
+                        //"c <number>" +              // farmer has at least that many free inventory slots.
+                        //"e <event ID>" +            // farmer has seen the specified event (may contain multiple event IDs).
+                        "f Emily 1500" +            // farmer has at least <number> friendship points with the <name> NPC. Can specify multiple name and number pairs, in which case the farmer must meet all of them.
+                        //"g <gender> 	" +         // farmer is the specified gender (male or female).
+                        //"h <pet> 	" +             // farmer does not already have a pet, and their preference matches <pet> ("cat" or "dog").
+                        //"i <item ID> 	" +         // farmer has specified item in their inventory.
+                        //"j <number> 	" +         // farmer has played more than <number> days.
+                        //"k <event ID> 	" +         // farmer has not seen that event (may contain multiple event IDs).
+                        //"l <letter ID> 	" +         // farmer has not received that mail letter or non-mail flag.
+                        //"m <number> 	" +         // farmer has earned at least this much money (regardless of how much they really have).
+                        "n EmilyBallgown" +         // farmer has received that mail letter or non-mail flag.
+                        //"o <name> 	" +             // farmer is not married to that NPC.
+                        "p Emily" + 	            // Specified NPC is in the farmer's location.
+                        //"q <dialogue ID>" +         // farmer has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
+                        //"s <item ID> <number>" +    // farmer has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
+                        //"t <min time> <max time>" + // time is between between the specified times. Can range from 600 to 2600.
+                        //"u <day of month> 	" +     // day of month is one of the specified values (may contain multiple days).
+                        //"x <letter ID>" +          // For the farmer: mark this event as seen, add the specified letter to tomorrow's mail, then return false (so that nothing further happens). Use the format "x letterid true" to send the letter immediately.     
+                        ""] =
 
-                        // Setup the scene
+                #region Setup the scene
                         $"playful" +
-                        $"/14 20" +
+                        $"/14 6" +
                         $"/farmer 16 10 0 Emily 14 5 0" +
                         $"/skippable" +
+                #endregion
 
+                #region Start of scene
                         // Begin the scene
                         "/emote Emily 56" +
                         "/textAboveHead Emily \"Hum dee hum\"" +
@@ -1192,15 +1602,15 @@ namespace MilkVillagers.Asset_Editors
                         "/pause 500" +
                         "/speak Emily \"There we go! It took a lot of work, but I think its ready. I'm really excited to see how it looks on a real person.\"" +
                         "/question null \"#What is it?\"" +
-                        "/speak Emily \"Well, I got a commission for a ball gown, and they sent me some sketches of what they want it to look like, along with their measurements. I hope you don't mind, but I like to guess peoples measurements, and I think you're actually the same size as the client.\"" +
+                        "/speak Emily \"Well, I got a commission for a ball gown, and they sent me some sketches of what they want it to look like, along with their measurements. I hope you don't mind, but I think you're actually the same size as the client.\"" +
                         "/emote farmer 8" +
                         "/pause 300" +
                         "/emote Emily 16" +
                         "/emote farmer 60" +
                         "/pause 400" +
-                        "/speak Emily \"Oh, I hope you don't think I'm creepy. It's just very difficult to find models outside of Zuzu City, so I often ask Robin, Jodi and Caroline to model dresses for me, depending on what size I need to make it.\"" +
-                        "/speak Emily \"Here, let me just double check your waist and bust to make sure it's going to fit.\"" +
-                        "/message \"Emily doesn't wait for you to respond, and has her tailors tape around your waist before you can protest. She clucks her tongue as she writes it down on a notepad, and then quickly checks your chest size in a very professional manner.\"" +
+                        "/speak Emily \"Oh, I hope you don't think I'm creepy. It's just very difficult to find models outside of Zuzu City, so I often ask Robin, Jodi and Caroline to model dresses for me, depending on what size I need to make it." +
+                            "#$b#Here, let me just double check your waist and bust to make sure it's going to fit.\"" +
+                        "/message \"Emily doesn't wait for you to respond, and has her tailors tape around your waist before you can protest. She clucks her tongue as she writes down your measurements on a notepad, and then quickly checks your chest size in a very professional manner.\"" +
                         "/emote farmer 16" +
                         "/speak Emily \"Oh, don't worry. I don't tell anyone about the measurements I take, and bodies come in all shapes and sizes. Don't let the magazines tell you that everyone needs to be the same size to be beautiful!\"" +
                         "/emote farmer 32" +
@@ -1208,61 +1618,105 @@ namespace MilkVillagers.Asset_Editors
                         "/message \"Emily checks her notes for the dress against yours, and seems happy.\"" +
                         "/speak Emily \"Just right. You're an inch or so thinner around the chest, but you have an extra couple of inches on the waist. Don't pout, I actually think you have a better body shape, and you work on the farm so it's to be expected.\"" +
 
+                        "/fade" +
+                        "/viewport -100 -100"+
+
                         // Try on the dress
-                        "/message \"Emily removes the dress from her sewing machine, while you strip out of your outwear, and hands it to you. She helps you step into it, and after a few minutes of wriggling and making sure the seams aren't going to pop, you are ready for her to zip you up.\"" +
+                        "/message \"Emily removes the dress from her sewing machine, while you strip out of your outerwear, and hands it to you. She helps you step into it, and after a few minutes of wriggling and making sure the seams aren't going to pop, you are ready for her to zip you up.\"" +
                         "/speak Emily \"Oh wow, it looks so good on you! It really catches the light and accentuates your curves! Can you move around and walk in it fine?\"" +
-                        "/move farmer -2 0 1" +
-                        "/pause 300" +
-                        "/faceDirection farmer 3" +
-                        "/pause 300" +
-                        "/move farmer 2 0 3" +
-                        "/faceDirection farmer 0" +
+                        //"/move farmer -2 0 1" +
+                        //"/pause 200" +
+                        //"/faceDirection farmer 3" +
+                        //"/pause 200" +
+                        //"/move farmer 2 0 3" +
+                        //"/faceDirection farmer 0" +
                         "/speak Emily \"Wow, your ass looks so good in it! Here, it looks like it was hitching up a little. That won't be an issue with the right underwear, but I understand not wearing lingerie while farming. Here, let me smooth it out for you.\"" +
                         "/message \"Emily walks behind you and starts smoothing down your rump. She seems to get a distracted after a moment, and she gives your ass a couple of squeezes, causing you to yelp.\"" +
-                        "/speak Emily \"Oh! I'm so sorry, @. You just look so good in the dress, and I get a little caught up in my head sometimes. I have to admit, I've been working non-stop on this dress for a while, and it's been quite a while since I've taken care of myself.\"" +
+                        "/speak Emily \"Oh! I'm so sorry, @. You just look so good in the dress, and I get a little caught up in my head sometimes. I have to admit, I've been working non-stop on this dress for a while, and staring at reference pictures all day can get me a little...distracted.\"" +
                         "/emote Emily 32" +
                         "/emote farmer 32" +
-                        "/pause 500" +
+                        "/pause 200" +
 
-                        "/speak Emily \"Here, let me help you out of the dress, I don't think you can reach the zipper yourself. I have a couple of things to finish off on the dress and then I can ship it off to the client.\"" +
+                        "/speak Emily \"Here, let me help you out of the dress, I don't think you can reach the zipper yourself. I have a couple of things to finish off and then I can ship it off to the client tomorrow morning.\"" +
                         "/fade" +
                         "/viewport -300 -300" +
                         "/message \"Emily walks around behind you and starts unzipping the dress. She helps slide it down around your waist, and kneels down behind you to pick up the dress as your step out of it. After a moment you realise she is still behind you, and feel her hand gently rest against your behind.\"" +
                         "/speak Emily \"You really do have such an attractive body, @. I promise I didn't ask you to do this just so I could see you in your underwear, but if you ever wanted me to design you something sexier I would love to.\"" +
-                        "/message \"You smile at Emily as she straights up and places the dress on her work table, then turn around and pose for her.\"" +
-                        "/message \"Emily walks over and wraps her arms around you, pulling you in close. Her body is pressed tightly against yours, and she lean into you, resting her head on your shoulder.\"" +
+                        "/message \"You smile at Emily as she straights up and places the dress on her work table, then turn around and pose for her." +
+                            "#Emily walks over and wraps her arms around you, pulling you in close. Her body is pressed tightly against yours, and she lean into you, resting her head on your shoulder.\"" +
                         "/speak Emily \"I would love to lose myself with you right now, but you'd be suprised how tiring sitting at a sewing machine can be.\"" +
-                        "/question fork0 \"What would you like to do?#Give her a relaxing massage#Offer to help her work out her sexual frustrations\"" +
-                        $"/fork {TempRefs.EventEmily}Sexytime" +
-                        "/resetVariable" +
+
+                        "/mail EmilyPhotoShootT" +
+
+                        "/quickquestion \"What would you like to do?" +
+                            "#Give her a relaxing massage" +
+                            "#Offer to help her work out her sexual frustrations" +
+                            "(break)switchevent 594809boring" +
+                            "(break)switchevent 594809Sexytime" +
+
+                        "/end";
+                #endregion
 
                 #region Boring choice
+                data["594809boring"] = "pause 50" +
                         "/speak Emily \"Oh, @. That would be wonderful. Here, give me a moment to take off my shirt and pants. There's some oil in the dresser over there.\"" +
                         "/message \"Emily quickly disrobes and lies on her bed, face down, quickly settling. Her body doesn't seem to be very relaxed, but you warm up the oil on your hands and start gently running your hands over her back. Her skin is soon glistening, and she is soon gently moaning into her pillow.\"" +
                         "/speak Emily \"Oh, @. That feels heavenly. Most of my tension is in my shoulders and lower back.\"" +
                         "/message \"You start rubbing her shoulders a little more intently, creating circles and spirals on her back that quickly fade from view. Her body is soon much more relaxed on the bed, and her moans and sighs of appreciation start getting quieter.\"" +
                         "/speak Emily \"@, if you keep this up then I'm going to fall asleep. As wonderful as this is we should probably stop so I can finish up the dress. Perhaps you can come back later after I've finished up and I can show you my appreciation?\"" +
 
-
                         "/addConversationTopic get_eaten 4" +
                         // End the scene
                         "/end";
                 #endregion
 
-                // write the sexy time fork!
-                data[$"{TempRefs.EventEmily}Sexytime"] =
+                #region sexytime fork!
+                data["594809Sexytime"] = "pause 50" +
                         "/speak Emily \"Oh! I wasn't touching you because I wanted to have sex with you, I just get distracted when I'm tired. It's not that I wouldn't love to, I just don't want to take advantage of you.\"" +
                         "/question null \"#It's ok, I want this too.\"" +
-                        "/speak Emily \"Let's get a bit more comfortable then. I feel like I'm overdressed for.\"" +
-                        "/message \"Emily removes her pants and top, her tired back clearly slowing her down. When she gets down to her underwear, you help her unclasp her bra, and sit her down on her bed so you can remove her panties.\"" +
-                        "/message \"She leans back on the bed, so you start trailing kisses up her legs, pausing when you reach the top of her thigh. You hook your fingers in her underwear and slowly pull them down, taking the last of her reserve with them.\"" +
-                        "/speak Emily \"Come join me on the bed, @. I could really \"" +
+                        "/speak Emily \"Let's get a bit more comfortable then. I feel like I'm overdressed for this now.\"" +
+                        "/message \"Emily removes her pants and top, her tired back clearly slowing her down. When she gets down to her underwear, you help her unclasp her bra, and sit her down on her bed so you can remove her panties." +
+                            "#She leans back on the bed, so you start trailing kisses up her legs, pausing when you reach the top of her thigh." +
+                            "#You hook your fingers in her underwear and slowly pull them down, taking the last of her reserve with them.\"" +
+                        "/speak Emily \"Come join me on the bed, @. I don't have a lot of strength left, but I would love to be intimate with you.\"" +
+                        "/message \"You quickly shed the last of your clothing and join Emily on the bed, cuddling against her naked body and gently stroking her skin." +
+                            "#Emily sighs contentedly, and you start gently cupping and squeezing her breasts, watching her face to see her reactions." +
+                            "#Before long you see that Emily's breath is getting shorter, and you take that as your cue to start gently brushing her nipples with your finger tips, squeezing them slightly, and eventually taking one of her nipples into your mouth and suckling.\"" +
+                        
+                        "/speak Emily \"Don't get too rough with me today, @, I need some tender loving today.\"" +
+                        "/question null \"#Ok, gentle, tender loving today.\"" +
+                        "/message \"You suck on her nipple a couple more time, the sweet taste of her milk wetting your appetite, and reminding you that there are other juicey places to explore." +
+                            "#You shimmy down the bed and seat yourself between her legs, knees bent to create space for you. You grab her slim butt and use it to hold yourself in place as you start planting kisses around her inner thighs" +
+                            "#Not wanting to rush this, and knowing that she needs relaxing just as much as she needs an orgasm, you take your time making sure every spot of skin is loved, and then move inwards, building the suspense and arousal." +
+                            "#The slight trickle of juices from when you started has now become a river snaking its way between Emily's lips. You place your tongue at the bottom of her slit and take one long, slow lick all the way up.\"" +
+                        
+                        "/speak Emily \"oooooohhhhhh!\"" +
+                        "/message \"You can feel Emily fighting not to close her legs right now, and her pussy is trembling as you reach the top, your tongue gently touching her clit momentarily." +
+                            "#You sneak a glance upwards and see Emily blissfully gazing at the ceiling, a content look upon her face.\"" +
+                            
+                        "/question null \"#Want me to keep going?\"" +
+                        "/speak Emily \"Please, @. I didn't realise how much I needed this until you started kissing me down there.\"" +
+                        "/message \"You start gently kneeding Emily's ass before going back to work licking all the juices from around her outer labia, and then taking slow deliberate licks between them." +
+                            "#The flow isn't stopping any time soon, but you start tongueing her opening directly, probing the edge of it and then pushing your tongue in and wiggling it to stimulate her." +
+                            "#The slow build at the beginning, and her overdue orgasm, soon has Emily's hips bucking as your tongue delves deep inside.\"" +
+                        
+                        "speak Emily \"I'm getting close, @!\"" +
+                        "/message \"You try and push as much of your tongue into Emily as you can as she goes over the edge. " +
+                            "#Her hips close around your head in ecstasy and everything goes dark. You find her clit and start flicking it with your tongue, causing Emily to cry out loudly as she gushes." +
+                            "#You ride out her orgasm until she collapses back on the bed, letting you see and breathe once more.\"" +
+                        
+                        "/speak Emily \"That was amazing @, but I don't think I have any energy to do anything else today now. I'll have to pack up the dress later, but it was definitely worth it. Thank you.$l\"" +
+                        
+                        "" +
                         "/end";
+                #endregion
+
                 #endregion
 
             }
 
-            if ( asset.Name.IsEquivalentTo("Data/Events/Beach"))
+            // idea only
+            if (asset.Name.IsEquivalentTo("Data/Events/Beach"))
             {
                 #region Shane Beach event
                 /*
@@ -1312,7 +1766,7 @@ namespace MilkVillagers.Asset_Editors
                 #endregion
             }
 
-            #region Blank
+            #region Example: Blank
             if (false)
             {
                 ModFunctions.LogVerbose($"Loading event {"ID"} - need to write");
@@ -1359,6 +1813,34 @@ namespace MilkVillagers.Asset_Editors
             ModFunctions.LogVerbose($"Can't confirm events", LogLevel.Alert);
 
             return result;
+        }
+    }
+
+    public class EventShell
+    {
+        public bool Has_Vagina = false;
+        public bool Has_Penis = false;
+        public bool Is_Ace = false;
+
+        public string EventConditions = "";
+        public string EventDataV = "";  // Has Vagina
+        public string EventDataP = "";  // Has Penis
+        public string EventDataA = "";  // Is Ace
+        public string EventDataB = "";  // Is Herm
+
+        public EventShell()
+        {
+
+        }
+
+        public string GetEventData()
+        {
+            if (Is_Ace) return EventDataA;
+            if (Has_Penis && Has_Vagina) return EventDataB;
+            if (Has_Vagina) return EventDataV;
+            if (Has_Penis) return EventDataP;
+
+            return "";
         }
     }
 

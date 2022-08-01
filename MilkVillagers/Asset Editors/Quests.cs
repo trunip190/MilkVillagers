@@ -79,10 +79,10 @@ namespace MilkVillagers.Asset_Editors
             ["QuestSeb3"] = 594811,
             ["QuestSeb4"] = 594812,
 
-            ["QuestMaru1"] = 594813,         // Scientific sample
-            ["QuestMaru2"] = 594814,
-            ["QuestMaru3"] = 594815,
-            ["QuestMaru4"] = 594816,
+            ["QuestMaru1"] = 594813,        // Scientific sample
+            ["QuestMaru2"] = 594814,        // Straight from the source
+            ["QuestMaru3"] = 594815,        // Magical Essence
+            ["QuestMaru4"] = 594816,        // Machine Pleasure
 
             ["QuestEmily1"] = 594817,
             ["QuestEmily2"] = 594818,
@@ -99,9 +99,9 @@ namespace MilkVillagers.Asset_Editors
             ["QuestPenny3"] = 594827,
             ["QuestPenny4"] = 594828,
 
-            ["QuestLeah1"] = 594829,         // Leah's Muse quest
-            ["QuestLeah2"] = 594830,
-            ["QuestLeah3"] = 594831,
+            ["QuestLeah1"] = 594829,        // Leah's Muse quest
+            ["QuestLeah2"] = 594830,        // Leah requests
+            ["QuestLeah3"] = 594831,        // Leah takes farmer to Zuzu show.
             ["QuestLeah4"] = 594832,
 
             ["QuestGeorge1"] = 594833,       // Rejuvenating Milk
@@ -176,7 +176,7 @@ namespace MilkVillagers.Asset_Editors
                 QuestData[QuestIDs["QuestMaru3"]] = $"ItemDelivery/Sharing notes on potions/Maru wants you collect some essence from a magical creature so she can study how it is different./Bring Maru some distilled magical essence/Maru {TempRefs.SpecialType}/-1/420/-1/FALSE/Completion Text";
                 QuestData[QuestIDs["QuestMaru4"]] = $"Basic/Lacking the human touch/Maru wants you to test out one of her inventions with her//null/-1/500/-1/FALSE/Completion Text";
 
-                QuestData[QuestIDs["QuestEmily1"]] = $"LostItem/Emily's photoshoot/Emily needs someone to take some photos of her in a dress for an online commission, and she needs Haley's camera for it./Fetch Haley's camera for Emily and help her take some photos./Emily {TempRefs.HaleyCamera} HaleyHouse 5 4/-1/240/-1/FALSE/Thank you so much. I don't really want Haley to see the kind of clothes I have to make sometimes. She'd never let me live it down after the sundress incident last year.";
+                QuestData[QuestIDs["QuestEmily1"]] = $"LostItem/Emily's photoshoot/Emily needs someone to take some photos of her in a dress for an online commission, and she needs Haley's camera for it./Fetch Haley's camera for Emily and help her take some photos./Emily {TempRefs.HaleyCamera} HaleyHouse 1 9/-1/240/-1/FALSE/Thank you so much. I don't really want Haley to see the kind of clothes I have to make sometimes. She'd never let me live it down after the sundress incident last year.";
                 QuestData[QuestIDs["QuestEmily2"]] = $"Location/Modelling surrogate/Follow up commission but this time  she wants a model because the comments were a little close to home///-1/355/-1/FALSE/Completion Text";
                 QuestData[QuestIDs["QuestEmily3"]] = $"Basic/Show and Tell/Abigail has requested a special crotchless underwear set, and Emily uses this as an excuse to design a prototype set///-1/420/-1/FALSE/Completion Text";
                 QuestData[QuestIDs["QuestEmily4"]] = $"Location/Barely contained pleasure/Emily is high and horny and wants your help to push her limits/Go wait at Emily's house before she does something silly/HaleyHouse/-1/500/-1/FALSE/Completion Text";
@@ -187,7 +187,7 @@ namespace MilkVillagers.Asset_Editors
                 QuestData[QuestIDs["QuestHaley4"]] = $"Location/Cover me with your love/bukkake milking scene?///-1/500/-1/FALSE/Completion Text";
 
                 QuestData[QuestIDs["QuestPenny1"]] = $"Location/What's the matter with Penny?/Pam wants you to check up on Penny at the museum. Apparently she's been acting weird around Gunther./Go check on Penny at the museum./ArchaeologyHouse/{QuestEditor.QuestIDs["QuestPenny2"]}/240/-1/FALSE/No text - just event";
-                QuestData[QuestIDs["QuestPenny2"]] = $"LostItem/Penny's book/Penny has asked you to bring her the smutty book./Delivey Boethia's pillow book to Penny./Penny {TempRefs.PennyBook} ArchaeologyHouse 21 5/-1/355/-1/FALSE/Thank you for doing that for me. I was so embarrassed";
+                QuestData[QuestIDs["QuestPenny2"]] = $"LostItem/Penny's book/Penny has asked you to bring her the smutty book./Deliver Boethia's pillow book to Penny./Penny {TempRefs.PennyBook} ArchaeologyHouse 21 5/-1/355/-1/FALSE/Thank you for doing that for me. I was so embarrassed. Maybe next time we can explore some of the ideas in the book?";
                 QuestData[QuestIDs["QuestPenny3"]] = $"Basic/Fifty shades of Penny/Penny wants to explore her sexual side, but needs a firmer hand to guide her///-1/420/-1/FALSE/Completion Text";
                 QuestData[QuestIDs["QuestPenny4"]] = $"Location/Not all stories are found in books/sex in library, gets caught///-1/500/-1/FALSE/Completion Text";
 
