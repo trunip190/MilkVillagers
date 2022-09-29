@@ -23,11 +23,11 @@
     "ResultCount": 1,
     "Ingredients": [
       {
-        "Object": -34, //Breast Milk Category
+        "Object": "Woman's Milk", //Breast Milk Category
         "Count": 2
       },
       {
-        "Object": -35, //Cum Category
+        "Object": "Special Milk", //Cum Category
         "Count": 2
       }
     ],
@@ -42,6 +42,10 @@
     "Dislike": [ "Sam, Sebastien" ], //Example of multiple NPC
     "Hate": [ "Lewis, George" ]
   },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
 
   // Localization
 

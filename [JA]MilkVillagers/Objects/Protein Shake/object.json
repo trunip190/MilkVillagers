@@ -19,7 +19,17 @@
   },
   "Price": 250, //How much your item sells for.
   "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
-  "Recipe": null,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Special Milk", //Cum Category
+        "Count": 1
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": true
+  },
   "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "Abigail, Caroline, Haley" ], //Example of a single NPC
@@ -28,6 +38,10 @@
     "Dislike": [ "Sam, Sebastien" ], //Example of multiple NPC
     "Hate": [ "Lewis, George" ]
   },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
 
   // Localization
 

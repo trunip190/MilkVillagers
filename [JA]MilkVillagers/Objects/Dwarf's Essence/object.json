@@ -16,6 +16,11 @@
     "Dislike": [ "Haley" ], //Example of multiple NPC
     "Hate": [ "Sam" ]
   },
+  "ContextTags": [
+    "magic_essence_item",
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
   // Localization
 

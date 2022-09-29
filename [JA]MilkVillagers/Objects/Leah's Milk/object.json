@@ -14,6 +14,10 @@
     "Dislike": [ "Haley, Abigail" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
   // Localization
 
@@ -28,7 +32,7 @@
     "pt": "", //Portuguese
     "ru": "", //Russian
     "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
+    "zh": "" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
     "es": "", //Spansih
@@ -41,6 +45,6 @@
     "pt": "", //Portuguese
     "ru": "", //Russian
     "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
-  },
+    "zh": "" //Chinese (Simplified)
+  }
 }

@@ -14,6 +14,10 @@
     "Dislike": [ "Pierre" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "magic_essence_item",
+    "MTV_item"
+  ],
 
   // Localization
 

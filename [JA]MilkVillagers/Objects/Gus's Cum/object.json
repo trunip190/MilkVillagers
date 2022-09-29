@@ -15,6 +15,10 @@
     "Dislike": [ "Pierre" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
 
   // Localization
 

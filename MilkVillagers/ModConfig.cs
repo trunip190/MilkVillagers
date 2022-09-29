@@ -24,6 +24,7 @@ namespace MilkVillagers
         public bool ExtraDialogue = true;
         public bool ThirdParty = true;
         public bool Quests = true;
+        public bool RushMail = false;
 
         // Debugging
         public bool Debug = false;
@@ -44,8 +45,8 @@ namespace MilkVillagers
         public static IMonitor Monitor;
         public static SButton ActionKey = SButton.O;
 
-        public static List<NPC> milkedtoday = new List<NPC>();
-        public static List<NPC> SexToday = new List<NPC>();
+        public static List<NPC> milkedtoday = new();
+        public static List<NPC> SexToday = new();
         public static bool SelfMilkedToday = false;
         public static bool SelfCummedToday = false;
 
@@ -112,7 +113,9 @@ namespace MilkVillagers
         public static int EventLeahExhibitOld = 5948101;
         public static int EventLeahExhibitA = 594810;   //Leah Exhibitionism Ace
         public static int EventLeahExhibitV = 594811;   //Leah Exhibitionism Vagina
-        //public static int Event                       //
+        public static int EventBathHouseA = 594812;     //BathHouse Scene Ace
+        public static int EventBathHouseV = 594813;     //BathHouse Scene Vagina
+        public static int EventBathHouseP = 594814;     //BathHouse Scene Penis
         //public static int Event                       //
         //public static int Event                       //
         //public static int Event                       //
@@ -177,6 +180,8 @@ namespace MilkVillagers
         public static int MilkShake = 1241;
         public static int SuperJuice = 1249;
         public static int EldritchEnergy = 1250;
+        public static int MartiniKairos = 1251;
+        public static int SweetSibling = 1252;
 
         // Other mods
         public static int MilkSophia = 803;

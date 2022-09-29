@@ -6,334 +6,42 @@
     <AssemblyName>MilkVillagers</AssemblyName>
     <ApplicationIcon />
     <Version>1.1.0</Version>
+	<GameModsPath>E:\Stardew Valley Android\Mods\Milk the Villagers</GameModsPath>
+	<BaseOutputPath></BaseOutputPath>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
-    <PackageReference Include="Platonymous.PyTK" Version="1.12.40" />
-  </ItemGroup>
   
   <ItemGroup>
-    <None Remove="Data\default\NPCs\Abigail.json" />
-    <None Remove="Data\default\NPCs\Alex.json" />
-    <None Remove="Data\default\NPCs\Andy.json" />
-    <None Remove="Data\default\NPCs\Caroline.json" />
-    <None Remove="Data\default\NPCs\Claire.json" />
-    <None Remove="Data\default\NPCs\Clint.json" />
-    <None Remove="Data\default\NPCs\Demetrius.json" />
-    <None Remove="Data\default\NPCs\Dwarf.json" />
-    <None Remove="Data\default\NPCs\Elliott.json" />
-    <None Remove="Data\default\NPCs\Emily.json" />
-    <None Remove="Data\default\NPCs\Evelyn.json" />
-    <None Remove="Data\default\NPCs\files.txt" />
-    <None Remove="Data\default\NPCs\George.json" />
-    <None Remove="Data\default\NPCs\Gil.json" />
-    <None Remove="Data\default\NPCs\Gunther.json" />
-    <None Remove="Data\default\NPCs\Gus.json" />
-    <None Remove="Data\default\NPCs\Haley.json" />
-    <None Remove="Data\default\NPCs\Harvey.json" />
-    <None Remove="Data\default\NPCs\Jodi.json" />
-    <None Remove="Data\default\NPCs\Kent.json" />
-    <None Remove="Data\default\NPCs\Krobus.json" />
-    <None Remove="Data\default\NPCs\Leah.json" />
-    <None Remove="Data\default\NPCs\Lewis.json" />
-    <None Remove="Data\default\NPCs\Linus.json" />
-    <None Remove="Data\default\NPCs\Marlon.json" />
-    <None Remove="Data\default\NPCs\Marnie.json" />
-    <None Remove="Data\default\NPCs\Martin.json" />
-    <None Remove="Data\default\NPCs\Maru.json" />
-    <None Remove="Data\default\NPCs\Mister Qi.json" />
-    <None Remove="Data\default\NPCs\Morris.json" />
-    <None Remove="Data\default\NPCs\Olivia.json" />
-    <None Remove="Data\default\NPCs\Pam.json" />
-    <None Remove="Data\default\NPCs\Penny.json" />
-    <None Remove="Data\default\NPCs\Pierre.json" />
-    <None Remove="Data\default\NPCs\Robin.json" />
-    <None Remove="Data\default\NPCs\Sam.json" />
-    <None Remove="Data\default\NPCs\Sandy.json" />
-    <None Remove="Data\default\NPCs\Sebastian.json" />
-    <None Remove="Data\default\NPCs\Shane.json" />
-    <None Remove="Data\default\NPCs\Sophia.json" />
-    <None Remove="Data\default\NPCs\Susan.json" />
-    <None Remove="Data\default\NPCs\Victor.json" />
-    <None Remove="Data\default\NPCs\Willy.json" />
-    <None Remove="Data\default\NPCs\Wizard.json" />
+    <None Remove="Data\Dialogue.json" />
+    <None Remove="Data\Events.json" />
+    <None Remove="Data\Mail.json" />
+    <None Remove="Data\Translations.json" />
   </ItemGroup>
   
   <ItemGroup>
 	  <Content Include="content.json">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
+	  <Content Include="Data\Dialogue.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Data\Events.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Data\Mail.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Data\Translations.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	  <Content Include="manifest.json">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
-    <Content Include="Data\default\NPCs\Abigail.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Alex.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Andy.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Caroline.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Claire.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Clint.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Demetrius.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Dwarf.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Elliott.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Emily.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Evelyn.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\George.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Gil.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Gunther.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Gus.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Haley.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Harvey.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Jodi.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Kent.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Krobus.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Leah.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Lewis.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Linus.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Marlon.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Marnie.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Martin.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Maru.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Mister Qi.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Morris.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Olivia.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Pam.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Penny.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Pierre.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Robin.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Sam.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Sandy.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Sebastian.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Shane.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Sophia.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Susan.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Victor.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Willy.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\default\NPCs\Wizard.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   
   <ItemGroup>
-  <None Update="Data\default\NPCs\Abigail.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Alex.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Andy.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Caroline.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Claire.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Clint.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Demetrius.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Dwarf.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Elliott.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Emily.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Evelyn.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\files.txt">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\George.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Gil.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Gunther.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Gus.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Haley.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Harvey.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Jodi.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Kent.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Krobus.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Leah.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Lewis.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Linus.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Marlon.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Marnie.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Martin.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Maru.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Mister Qi.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Morris.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Olivia.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Pam.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Penny.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Pierre.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Robin.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Sam.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Sandy.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Sebastian.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Shane.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Sophia.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Susan.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Victor.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Willy.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\default\NPCs\Wizard.json">
-<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
-<None Update="Data\Translations.json">
-  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-</None>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
   </ItemGroup>
+  
+  <ProjectExtensions><VisualStudio><UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" /></VisualStudio></ProjectExtensions>
   
 </Project>

@@ -42,6 +42,10 @@
     "Dislike": null, //Example of multiple NPC
     "Hate": [ "Pierre, Lewis" ]
   },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
 
   // Localization
 

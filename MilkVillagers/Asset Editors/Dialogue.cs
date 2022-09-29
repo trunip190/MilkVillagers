@@ -4,7 +4,6 @@ using System.IO;
 
 namespace MilkVillagers.Asset_Editors
 {
-
     public static class DialogueEditor // : IAssetEditor
     {
         private static IDictionary<string, string> data;
@@ -219,15 +218,13 @@ namespace MilkVillagers.Asset_Editors
                 if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley"))
                 {
                     ModFunctions.LogVerbose($"Adding milk_start for Haley", LogLevel.Trace);
-                    data["milk_start"] = $"Everyone always said my boobs were great. I guess I shouldn't be surprised that you love them too." +
+                    data["milk_start"] = $"Everyone always said my boobs are great. I guess I shouldn't be surprised that you love them too." +
                     $"#$b#I just LOVE it when guys play with my tits. They're just so sensitive, and my nipples feel heavenly when people lick or suck on them.$h" +
                     $"#$b#%You need no further encouragement, and immediately dive into her cleavage, coating them in your saliva as you try and get her nipples into your mouth*" +
                     $"#$b#Oh @, you don't need to go crazy. We have plenty of time for this." +
                     $"#$b#%*You slow down and suck teasingly on one of her nipplers, eliciting a wonderful moan from Haley. You reluctantly withdraw, and get back to the task at hand, pulling a bottle from your bag*" +
                     $"#$b#%*You start playing with her nipple with one hand, whilst using the other to set up a steady milking rhythm. Milk is soon collecting in the bottle, and Haley is making blissful sounds*" +
                     $"#$b#%*You switch breasts, and Haley is once again lost in her own world as you empty her breasts into your bottle. You soon finish up, and leave a drained Haley to cover up her milk-stained top*";
-
-
                 }
                 if (asset.Name.IsEquivalentTo("Characters/Dialogue/Leah"))
                 {
@@ -1115,6 +1112,13 @@ namespace MilkVillagers.Asset_Editors
             }
 
             //DumpData(asset);
+
+            #region add in dialogue hooks
+            if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley") && !data.ContainsKey("HaleyPanties"))
+            {
+                data["HaleyPanties"] = "placeholder";
+            }
+            #endregion
         }
 
         private static void DumpData(IAssetData asset)

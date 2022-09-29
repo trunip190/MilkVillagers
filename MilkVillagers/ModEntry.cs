@@ -9,6 +9,9 @@ using StardewValley;
 using MilkVillagers.Asset_Editors;
 using System;
 using System.Reflection;
+using System.Linq;
+using SpaceShared.APIs;
+using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
 
 namespace MilkVillagers
 {
@@ -20,7 +23,6 @@ namespace MilkVillagers
         eat_out = 6,
         get_eaten = 7,
         sex = 10,
-        cunni = 7,
     };
 
     public enum SexCost : int
@@ -31,7 +33,16 @@ namespace MilkVillagers
         eat_out = 30,
         get_eaten = 15,
         sex = 50,
-        cunni = 30,
+    };
+
+    public enum SexLove : int
+    {
+        milk_start = 20,
+        milk_fast = 20,
+        BJ = 20,
+        eat_out = 30,
+        get_eaten = 15,
+        sex = 50,
     };
 
     public class ModEntry : Mod
@@ -47,22 +58,12 @@ namespace MilkVillagers
         // Time freeze stuff
         private float TimeFreezeTimer = 0;
         private float RegenAmount = 0;
-        private float MilkingCooldown = 0;
 
         // Adding item stuff
         StardewValley.Object AddItem;
-        StardewValley.Farmer CurrentFarmer;
-
-        // Asset Editors.
-        //private RecipeEditor _recipeEditor;
-        //private DialogueEditor _dialogueEditor;
-        //private ItemEditor _itemEditor;
-        //private QuestEditor _questEditor;
-        //private EventEditor _eventEditor;
-        //private MailEditor _mailEditor;
+        Farmer CurrentFarmer;
 
         private ModConfig Config;
-        //public int CurrentQuest = 0; //currently loaded quest id.
         List<int> CurrentQuests = new List<int>();
 
         #endregion
@@ -99,12 +100,40 @@ namespace MilkVillagers
             helper.ConsoleCommands.Add("mtv_forceremovequest", "Remove specified quest from the farmer's questlog\n\nUsage: mtv_frq <value>\n- value: the quest id to remove from their questlog.", this.ForceRemoveQuest);
             helper.ConsoleCommands.Add("mtv_frq", "Remove specified quest from the farmer's questlog\n\nUsage: mtv_frq <value>\n- value: the quest id to remove from their questlog.", this.ForceRemoveQuest);
             helper.ConsoleCommands.Add("mtv_addquests", "Adds all quests to the farmer's questlog\n\nUsage: mtv_addquests", this.AddAllQuests);
-            helper.ConsoleCommands.Add("mtv_upgrade", "Force the mod to reset quest and mail flags when you have upgraded the mod\n\nUsage: mtv_upgrade",this.Upgrade);
+            helper.ConsoleCommands.Add("mtv_upgrade", "Force the mod to reset quest and mail flags when you have upgraded the mod\n\nUsage: mtv_upgrade", this.Upgrade);
+            helper.ConsoleCommands.Add("mtv_renewItems", "Update items in farmer's inventory to newer versions after upgrade.\n\nUsage: mtv_renewItems", this.UpgradeItems);
+            helper.ConsoleCommands.Add("mtv_reportItems", "Ouput debug info on mod items currently in the game.\n\nUsage: mtv_reportItems", this.ReportItems);
+            helper.ConsoleCommands.Add("mtv_reportRecipes", "Output debug info on all recipes in game.\n\nUsage: mtv_reportRecipes", this.ReportRecipes);
+            helper.ConsoleCommands.Add("mtv_dumpDialogue", "Output all dialogue for specified villager\n\nUsage: mtv_dumpDialogue VillagerName", this.DumpDialogue);
+            helper.ConsoleCommands.Add("mtv_reloadconfig", "Forces Milk The Villagers to reload it's config from the file. Useful in case of editing with Generic Mod Config Menu during a session.\n\nUsage: mtv_reloadconfig", this.ReloadConfig);
         }
-
 
         #region Game OnEvent Triggers
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
+        {
+            UpdateConfig();
+            #region Old style of editing assets.
+            //Helper.Content.AssetEditors.Add(_itemEditor);
+            //Helper.Content.AssetEditors.Add(_dialogueEditor);
+            //Helper.Content.AssetEditors.Add(_questEditor); //TODO needs fully writing.
+            //Helper.Content.AssetEditors.Add(_recipeEditor);
+            //if (Config.Debug) Helper.Content.AssetEditors.Add(_eventEditor);
+            //Helper.Content.AssetEditors.Add(_mailEditor);
+            #endregion
+
+            // New style of editing assets.
+            Helper.Events.Content.AssetRequested += Content_AssetRequested;
+
+            TempRefs.thirdParty = Config.ThirdParty;
+            TempRefs.Verbose = Config.Verbose;
+            TempRefs.OverrideGenitals = Config.OverrideGenitals;
+            TempRefs.HasPenis = Config.HasPenis;
+            TempRefs.HasVagina = Config.HasVagina;
+            TempRefs.HasBreasts = Config.HasBreasts;
+            TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
+        }
+
+        private void UpdateConfig()
         {
             #region Generic Mod Config
             // get Generic Mod Config Menu API (if it's installed)
@@ -278,25 +307,6 @@ namespace MilkVillagers
                 #endregion
             }
             #endregion
-
-            #region TODO need to move this over to new version
-            //Helper.Content.AssetEditors.Add(_itemEditor);
-            //Helper.Content.AssetEditors.Add(_dialogueEditor);
-            //Helper.Content.AssetEditors.Add(_questEditor); //TODO needs fully writing.
-            //Helper.Content.AssetEditors.Add(_recipeEditor);
-            //if (Config.Debug) Helper.Content.AssetEditors.Add(_eventEditor);
-            //Helper.Content.AssetEditors.Add(_mailEditor);
-
-            Helper.Events.Content.AssetRequested += Content_AssetRequested;
-            #endregion
-
-            TempRefs.thirdParty = Config.ThirdParty;
-            TempRefs.Verbose = Config.Verbose;
-            TempRefs.OverrideGenitals = Config.OverrideGenitals;
-            TempRefs.HasPenis = Config.HasPenis;
-            TempRefs.HasVagina = Config.HasVagina;
-            TempRefs.HasBreasts = Config.HasBreasts;
-            TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
         }
 
         #region SpaceEvents
@@ -304,11 +314,11 @@ namespace MilkVillagers
         {
             Farmer who = Game1.player;
             string EatenItem = who.itemToEat.Name;
-            if (EatenItem == "Mr. Qi's Essence")
+            if (EatenItem == "Martini Kairos")
             {
                 Game1.addHUDMessage(new HUDMessage("Time slows"));
 
-                TimeFreezeTimer = 576000; // 1 minute timestop.
+                TimeFreezeTimer = 200000; // 1 minute timestop.
             }
             else if (EatenItem == "Eldritch Energy")
             {
@@ -342,7 +352,7 @@ namespace MilkVillagers
                     {
                         Game1.drawDialogue(npcTarget, "A drink? Sure, anything that comes from %farm is always tasty.");
                     }
-                    SendNextQuest(who, FirstQuestMail, true);
+                    SendNextMail(who, FirstQuestMail, true);
                 }
             }
         }
@@ -350,8 +360,6 @@ namespace MilkVillagers
 
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
-            ModFunctions.LogVerbose("Loaded savegame.");
-
             doneOnce = false;
 
             if (runOnce)
@@ -359,26 +367,28 @@ namespace MilkVillagers
 
             GetItemCodes();
 
-            // Recipes.
-            CorrectRecipes();
-
-            SendGenitalMail(Game1.player);
-
             foreach (Farmer who in Game1.getAllFarmers())
+            {
+                ModFunctions.LogVerbose($"Sending mail to {who.displayName}", LogLevel.Alert);
+                CorrectRecipes();
                 AddAllRecipes(who);
+                SendGenitalMail(who);
+            }
+
 
             runOnce = true;
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
         {
-            if (TempRefs.milkedtoday == null)
-                ModFunctions.LogVerbose("TempRefs not set");
+            if (TempRefs.milkedtoday == null) ModFunctions.LogVerbose("TempRefs not set");
             else
             {
                 ModFunctions.LogVerbose($"TempRefs is set. Cleared {TempRefs.milkedtoday.Count}");
                 TempRefs.milkedtoday.Clear();
                 TempRefs.SexToday.Clear();
+                TempRefs.SelfCummedToday = false;
+                TempRefs.SelfMilkedToday = false;
             }
 
 
@@ -394,8 +404,11 @@ namespace MilkVillagers
             foreach (Farmer who in Game1.getOnlineFarmers())
             {
                 //Don't check anything if they haven't received the first or last quest
-                if (!who.mailReceived.Contains("AbiMilking") || who.mailReceived.Contains("LeahNudePaintingT"))
+                if (!who.mailReceived.Contains("MilkButton1") || who.mailReceived.Contains("LeahNudePaintingT"))
+                {
+                    ModFunctions.LogVerbose("Skipping quest watching");
                     return;
+                }
 
                 QuestChecks(who);
                 SendMailCompleted(who);
@@ -408,7 +421,7 @@ namespace MilkVillagers
 
             if (RegenAmount > 0)
             {
-                Monitor.Log($"{RegenAmount} - {Game1.gameTimeInterval}", LogLevel.Alert);
+                Monitor.Log($"{RegenAmount} - {Game1.gameTimeInterval}", LogLevel.Trace);
                 float restore = (float)(Game1.gameTimeInterval * 0.001);
                 RegenAmount -= restore;
                 Game1.player.stamina += restore;
@@ -416,9 +429,11 @@ namespace MilkVillagers
             }
             if (TimeFreezeTimer > 0)
             {
-                Monitor.Log($"{TimeFreezeTimer} - {Game1.gameTimeInterval}", LogLevel.Alert);
+                Monitor.Log($"{TimeFreezeTimer} - {Game1.gameTimeInterval}", LogLevel.Trace);
                 TimeFreezeTimer -= Game1.gameTimeInterval;
                 Game1.gameTimeInterval = 0;
+                if (TimeFreezeTimer <= 0)
+                    Game1.addHUDMessage(new HUDMessage("Time speeds back up again"));
             }
         }
 
@@ -433,6 +448,11 @@ namespace MilkVillagers
 
                 QuestChecks(who);
                 SendMailCompleted(who);
+
+                #region remove repeatable events.
+                ModFunctions.LogVerbose("removing repeatable events from seenEvents", LogLevel.Trace);
+                who.eventsSeen.Remove(5948121);
+                #endregion
             }
         }
 
@@ -450,29 +470,6 @@ namespace MilkVillagers
                 AddItem = null;
                 CurrentFarmer = null;
             }
-            else if (newMenu == "StardewValley.Menus.DialogueBox" && oldMenu == "")
-            {
-                //Farmer who = Game1.player;
-                //target = GetNewPos(who.FacingDirection, FarmerPos(who)[0], FarmerPos(who)[1]);
-                //NPC NPCtarget = ModFunctions.FindTarget(who.currentLocation, this.target, FarmerPos(who));
-
-                //if (LostItem != null && NPCtarget != null && LostItem.Name == "Readi Milk")
-                //{
-                //string name = NPCtarget.Name;
-                //ModFunctions.LogVerbose($"{LostItem.Name} might have been given to {name}", LogLevel.Alert);
-
-                //SendNextQuest(who, MailEditor.FirstMail[name], true);
-                //LostItem = null;
-                //}
-                //else
-                //{
-                //ModFunctions.LogVerbose($"{Game1.player.CurrentItem} {LostItem}", LogLevel.Alert);
-                //}
-            }
-            else
-            {
-                //ModFunctions.LogVerbose($"oldMenu= {oldMenu}; newMenu = {newMenu}", LogLevel.Alert);
-            }
         }
 
         private void Content_AssetRequested(object sender, AssetRequestedEventArgs e)
@@ -483,9 +480,7 @@ namespace MilkVillagers
             if (Config.Debug && EventEditor.CanEdit(e.Name)) { e.Edit(EventEditor.Edit); }
             if (MailEditor.CanEdit(e.Name)) { e.Edit(MailEditor.Edit); }
             if (ItemEditor.CanEdit(e.Name)) { e.Edit(ItemEditor.Edit); }
-
         }
-
 
         #endregion
 
@@ -519,12 +514,76 @@ namespace MilkVillagers
         {
             RemoveAllMail("mtv_resetmail", null);
             SendNewMail("mtv_sendmail", new string[] { });
+
+
+        }
+
+        private void UpgradeItems(string command, string[] args)
+        {
+            Farmer who = Game1.player;
+
+            //Alternative method
+            foreach (Item v in who.Items)
+            {
+                if (v == null) continue;
+
+                if (ItemEditor.ModItems.ContainsKey(v.Name))
+                {
+                    ModFunctions.LogVerbose($"Correcting item {v.Name}");
+                    v.Category = v.Name.Contains("Milk") ? -34 : -35;
+
+                    if (v.Name == "Dwarf's Essence"
+                        || v.Name == "Krobus's Essence"
+                        || v.Name == "Wizard's Essence"
+                        || v.Name == "Mr. Qi's Essence"
+                        || v.Name == "Magical Essence")
+                    {
+                        v.Category = -36;
+                    }
+                }
+                else
+                {
+                    ModFunctions.LogVerbose($"Skipping item {v.Name}");
+
+                }
+            }
+
+        }
+
+        private void ReportItems(string command, string[] args)
+        {
+            ItemEditor.GetAllItemIDs(report: true);
+            RecipeEditor.SetCooking();
+            RecipeEditor.SetCrafting();
+            ItemEditor.Report();
+        }
+
+        private void ReportRecipes(string command, string[] args)
+        {
+            ModFunctions.LogVerbose("Dumping all recipes.", Force: true);
+            RecipeEditor.ReportAll();
         }
 
         private bool CheckNewQuest(Farmer who, int questID)
         {
             if (!CurrentQuests.Contains(questID) && HasQuest(who, questID))
             {
+                if (questID == QuestEditor.QuestIDs["QuestGeorge2"])
+                {
+                    ModFunctions.LogVerbose("Adding ConversationTopic", LogLevel.Alert);
+                    Game1.player.activeDialogueEvents.Add("HaleyPanties", 0);
+
+                    // force the game to pick the right dialogue when married to Haley.
+                    NPC haley = Game1.getCharacterFromName("Haley");
+                    Game1.getCharacterFromName("Haley").resetCurrentDialogue();
+
+                    string dialogues = "blank";
+                    bool check = haley.Dialogue.TryGetValue("HaleyPanties", out dialogues);
+
+                    ModFunctions.LogVerbose($"{haley.Name} {check} {dialogues}", LogLevel.Alert);
+                    haley.setNewDialogue(dialogues);
+                }
+
                 CurrentQuests.Add(questID);
                 ModFunctions.LogVerbose($"Watching quest ID {questID}", LogLevel.Alert);
                 return true;
@@ -579,8 +638,20 @@ namespace MilkVillagers
             return false;
         }
 
-        #region SendNextQuest
-        private static void SendNextQuest(Farmer who, string FinishedMail, string NextMail, string Villager, int Heartlevel, bool Immediate = false)
+        private void ListCurrentQuests(Farmer who)
+        {
+            foreach (var q in who.questLog)
+            {
+                ModFunctions.LogVerbose($"has id {q}");
+
+            }
+        }
+
+        #endregion
+
+        #region Mail
+        #region SendNextMail
+        private static void SendNextMail(Farmer who, string FinishedMail, string NextMail, string Villager, int Heartlevel, bool Immediate = false)
         {
             if (who.mailReceived.Contains(FinishedMail) &&
                 !who.hasOrWillReceiveMail(NextMail) &&
@@ -599,7 +670,7 @@ namespace MilkVillagers
             }
         }
 
-        private static void SendNextQuest(Farmer who, string FinishedMail, string NextMail, bool Immediate = false)
+        private static void SendNextMail(Farmer who, string FinishedMail, string NextMail, bool Immediate = false)
         {
             if (who.mailReceived.Contains(FinishedMail) && !who.hasOrWillReceiveMail(NextMail))
             {
@@ -616,7 +687,7 @@ namespace MilkVillagers
             }
         }
 
-        private static void SendNextQuest(Farmer who, string NextMail, bool Immediate = false)
+        private static void SendNextMail(Farmer who, string NextMail, bool Immediate = false)
         {
             if (!who.mailReceived.Contains(NextMail) && !who.hasOrWillReceiveMail(NextMail))
             {
@@ -657,26 +728,59 @@ namespace MilkVillagers
                 // Send new mail checks
 
                 // Tutorial
-                SendNextQuest(who, "MilkButton1", true);
-                SendNextQuest(who, "MilkButton1", "MilkButton2");
+                SendNextMail(who, "MilkButton1", Immediate: true);
+                SendNextMail(who, "MilkButton1", "MilkButton2", Immediate: Config.RushMail);
 
-                SendNextQuest(who, "MilkButton2", "AbiMilking");
+                SendNextMail(who, "MilkButton2", "AbiMilking", Immediate: Config.RushMail);
 
                 // TODO change this so that first mail item is sent when farmer uses wand/gives gift to villager.
                 if (Config.MilkFemale)
                 {
                     #region Abigail
                     //SendNextQuest(who, "AbiMilking", "AbiCarrots", "Abigail", 6);       // Abi Milk Quest 1 - now sent by giving item.
-                    SendNextQuest(who, "AbiCarrotsT", "AbiRadishes", "Abigail", 7);     // Abi Milk Quest 2
-                    SendNextQuest(who, "AbiRadishesT", "AbiEggplant", "Abigail", 8);    // Abi Milk Quest 3
-                    SendNextQuest(who, "AbiEggplantT", "AbiSurpriseT", "Abigail", 10);  // Abi Milk Quest 4
+                    SendNextMail(who, "AbiCarrotsT", "AbiRadishes", "Abigail", 7, Immediate: Config.RushMail);     // Abi Milk Quest 2
+                    SendNextMail(who, "AbiRadishesT", "AbiEggplant", "Abigail", 8, Immediate: Config.RushMail);    // Abi Milk Quest 3
+                    SendNextMail(who, "AbiEggplantT", "AbiSurpriseT", "Abigail", 10, Immediate: Config.RushMail);  // Abi Milk Quest 4
+                    #endregion
+
+                    #region Elliott
+
+                    #endregion
+
+                    #region Sebastian
+
+                    #endregion
+
+                    #region Maru
+
                     #endregion
 
                     #region Emily
-                    SendNextQuest(who, "EmilyPhotoShootT", "EmilyBallgown", "Emily", 7);    //Emily Quest 2
+                    SendNextMail(who, "EmilyPhotoShootT", "EmilyBallgown", "Emily", 7, Immediate: Config.RushMail);    //Emily Quest 2
                     #endregion
 
-                    //SendNextQuest(who, "AbiSurpriseT", "GeorgeMilk", "George", 7);      // George Milk Quest 1
+                    #region Haley
+
+                    #endregion
+
+                    #region Penny
+
+                    #endregion
+
+                    #region Leah
+
+                    #endregion
+
+                    #region George 
+                    SendNextMail(who, "GeorgeMilkT", "GeorgeMail2", "George", 7, Immediate: Config.RushMail);      // George Quest 2
+                    SendNextMail(who, "GeorgeMail2T", "GeorgeMail3", "George", 8, Immediate: Config.RushMail);     // George Quest 3
+                    SendNextMail(who, "GeorgeMail3T", "GeorgeMail4", "George", 10, Immediate: Config.RushMail);   // George Quest 4
+                    #endregion
+
+                    #region Harvey
+
+                    #endregion
+
 
                     //SendNextQuest(who, "GeorgeMilkT", "LeahNudePainting");
                 }
@@ -691,7 +795,22 @@ namespace MilkVillagers
         private void SendNewMail(string command, string[] args)
         {
             Farmer who = Game1.player;
-            SendNewMail(who);
+
+            if (args.Length > 0)
+            {
+                try
+                {
+                    who.mailbox.Add(args[0]);
+                }
+                catch (Exception ex)
+                {
+                    ModFunctions.LogVerbose(ex.Message, Level: LogLevel.Alert);
+                }
+            }
+            else
+            {
+                SendNewMail(who);
+            }
         }
 
         private void SendMailCompleted(Farmer who)
@@ -743,16 +862,6 @@ namespace MilkVillagers
 
             }
         }
-
-        private void ListCurrentQuests(Farmer who)
-        {
-            foreach (var q in who.questLog)
-            {
-                ModFunctions.LogVerbose($"has id {q}");
-
-            }
-        }
-
         #endregion
 
         #region Farmer genital calls
@@ -763,11 +872,17 @@ namespace MilkVillagers
             who.RemoveMail("MTV_Ace");
             who.RemoveMail("MTV_Herm");
 
-            if (Config.AceCharacter) { who.mailbox.Add("MTV_Ace"); return; }
-            if (GetPenis(who) && GetVagina(who)) { who.mailbox.Add("MTV_Herm"); return; }
-            if (GetPenis(who) && !GetVagina(who)) { who.mailbox.Add("MTV_Penis"); return; }
-            if (!GetPenis(who) && GetVagina(who)) { who.mailbox.Add("MTV_Vagina"); return; }
+            Netcode.NetStringList mailbox = Config.Verbose ? who.mailbox : who.mailReceived;
+            string newMail = "MTV_null";
 
+            if (Config.AceCharacter) { newMail = "MTV_Ace"; }
+            if (GetPenis(who) && GetVagina(who)) { newMail = "MTV_Herm"; }
+            if (GetPenis(who) && !GetVagina(who)) { newMail = "MTV_Penis"; }
+            if (!GetPenis(who) && GetVagina(who)) { newMail = "MTV_Vagina"; }
+
+
+            ModFunctions.LogVerbose($"{newMail}: {MailEditor.mail.Contains(newMail)}", LogLevel.Alert);
+            mailbox.Add(newMail);
         }
 
         public bool GetVagina(Farmer who)
@@ -833,22 +948,19 @@ namespace MilkVillagers
         private void AddAllRecipes(Farmer who)
         {
             //TODO move this to be a quest reward or something.
-            ModFunctions.LogVerbose($"Adding in {5} recipes", LogLevel.Trace);
+            ModFunctions.LogVerbose($"Removing recipes", LogLevel.Trace);
+            who.cookingRecipes.Remove("Special Milkshake");
+            who.cookingRecipes.Remove("Protein Shake");
+            who.cookingRecipes.Remove("Super Juice");
+            who.craftingRecipes.Remove("Woman's Milk");
+            who.craftingRecipes.Remove("Special Milk");
 
-            if (!who.cookingRecipes.ContainsKey("Milkshake") && Config.MilkFemale)
-                who.cookingRecipes.Add("Milkshake", 0);
-
-            if (!who.cookingRecipes.ContainsKey("'Protein' Shake") && Config.MilkMale)
-                who.cookingRecipes.Add("'Protein' Shake", 0);
-
-            if (!who.cookingRecipes.ContainsKey("Special Juice") && Config.MilkFemale && Config.MilkMale)
-                who.cookingRecipes.Add("Special Juice", 0);
-
-            if (!who.craftingRecipes.ContainsKey("Generic Milk") && Config.MilkFemale)
-                who.craftingRecipes.Add("Generic Milk", 0);
-
-            if (!who.craftingRecipes.ContainsKey("Generic Cum") && Config.MilkMale)
-                who.craftingRecipes.Add("Generic Cum", 0);
+            ModFunctions.LogVerbose($"Adding back in {5} recipes", LogLevel.Trace);
+            if (Config.MilkFemale) who.cookingRecipes.Add("Special Milkshake", 0);
+            if (Config.MilkMale) who.cookingRecipes.Add("Protein Shake", 0);
+            if (Config.MilkFemale && Config.MilkMale) who.cookingRecipes.Add("Super Juice", 0);
+            if (Config.MilkFemale) who.craftingRecipes.Add("Woman's Milk", 0);
+            if (Config.MilkMale) who.craftingRecipes.Add("Special Milk", 0);
 
             RecipeEditor.RemoveInvalid(Config.MilkMale, Config.MilkFemale);
         }
@@ -861,6 +973,7 @@ namespace MilkVillagers
 
             TempRefs.loaded = true;
 
+            ItemEditor.GetAllItemIDs();
             ItemEditor.RemoveInvalid(Config.MilkMale, Config.MilkFemale);
         }
 
@@ -869,7 +982,7 @@ namespace MilkVillagers
             RecipeEditor.SetCooking();
             RecipeEditor.SetCrafting();
 
-            //_recipeEditor.CookingData["'Protein' Shake"] = $"{TempRefs.CumType} 3/10 10/{TempRefs.ProteinShake}/default/'Protein' shake";
+            //_recipeEditor.CookingData["Protein Shake"] = $"{TempRefs.CumType} 3/10 10/{TempRefs.ProteinShake}/default/Protein shake";
             //_recipeEditor.CookingData["Milkshake"] = $"{TempRefs.MilkType} 3/10 10/{TempRefs.MilkShake}/default/Milkshake";
             //_recipeEditor.CookingData["Super Juice"] = $"{TempRefs.MilkType} 2 {TempRefs.CumType} 2/10 10/{TempRefs.MilkShake}/default/Super Juice";
 
@@ -898,7 +1011,7 @@ namespace MilkVillagers
             {
                 CheckAll(who);
 
-                Monitor.Log($"{who.currentLocation.Name}, {who.getTileX()}, {who.getTileY()}");
+                ModFunctions.LogVerbose($"{who.currentLocation.Name}, {who.getTileX()}, {who.getTileY()}");
 
                 if (!doneOnce)
                 {
@@ -909,12 +1022,35 @@ namespace MilkVillagers
                     //SendNextQuest(who, "LeahSexShowPt1", true);
                     //Game1.warpFarmer("Farm", 69, 16, false);
                     //Game1.dayOfMonth = 10;
+
+                    //all event pre-requisites.
+                    //who.mailReceived.Add("HarveyCheckup");
+                    //who.mailReceived.Add("HarveyTrial");
+                    //who.mailReceived.Add("AbiSurprise");
+                    //who.mailReceived.Add("LeahNudePainting");
+                    //who.mailReceived.Add("LeahSexShowPt1");
+                    //who.mailReceived.Add("PennyLibrary");
+                    //who.mailReceived.Add("5948HaleySaloon");
+                    //who.mailReceived.Add("5948MaruStart");
+                    //who.mailReceived.Add("EmilyBallgown");
+                    //who.mailReceived.Add("MTV_PennyBathhouse");
+
+                    //int ah = who.getFriendshipLevelForNPC("Alex");
+                    //int h = 2000 - ah;
+                    //ModFunctions.LogVerbose($"Alex was at {ah}, adding {h}, now at {who.getFriendshipLevelForNPC("Alex")}", LogLevel.Debug);
+                    //who.changeFriendship(h, Game1.getCharacterFromName("Alex"));
                 }
                 else
                 {
                     SendNewMail("mtv_sendmail", new string[] { });
                     //Game1.warpFarmer("Forest", 104, 34, false);
                     //Game1.warpFarmer("Town", 20, 90, false);
+                    foreach (string v in who.mailForTomorrow)
+                    {
+                        ModFunctions.LogVerbose($"rushing mail item {v}", LogLevel.Alert);
+                        who.mailbox.Add(v);
+                    }
+                    who.mailForTomorrow.Clear();
                 }
 
             }
@@ -937,19 +1073,27 @@ namespace MilkVillagers
                     List<Response> options = new List<Response>();
 
                     // TODO change to energy based or time based
-                    if (GetPenis(who) && !TempRefs.SelfCummedToday)
+                    if (GetPenis(who) && who.Stamina > 150)
+                    {
                         options.Add(new Response("self_cum", "Collect your own cum")); //collect own cum
+                    }
 
-                    if (GetBreasts(who) && !TempRefs.SelfMilkedToday)
+                    if (GetBreasts(who) && who.stamina > 150)// && !TempRefs.SelfMilkedToday)
+                    {
                         options.Add(new Response("self_milk", "Milk yourself")); //collect own breastmilk
+                    }
 
                     // TODO not showing up?
                     if (who.hasItemInInventory(TempRefs.MilkQi, 1))
+                    {
                         options.Add(new Response("time_freeze", "Freeze time"));
+                    }
 
                     // TODO not showing up?
                     if (who.hasItemInInventory(TempRefs.EldritchEnergy, 1))
+                    {
                         options.Add(new Response("stamina_regen", "Drink Eldritch Energy"));
+                    }
 
                     if (options.Count > 0)
                     {
@@ -967,6 +1111,22 @@ namespace MilkVillagers
             {
                 //ModFunctions.LogVerbose($"Button {e.Button} not registered to a function.");
             }
+        }
+
+        private void DumpDialogue(string command, string[] args)
+        {
+            if (args.Length < 1) return;
+
+            ModFunctions.LogVerbose($"Dumping {args[0]}'s dialogue", LogLevel.Alert);
+            foreach (KeyValuePair<string, string> kvp in Game1.getCharacterFromName(args[0]).Dialogue)
+            {
+                ModFunctions.LogVerbose($"{kvp.Key}: {kvp.Value}");
+            }
+        }
+
+        private void ReloadConfig(string command, string[] args)
+        {
+            UpdateConfig();
         }
 
         private List<Response> GenerateSexOptions(NPC target)
@@ -1037,7 +1197,8 @@ namespace MilkVillagers
 
                 who.addItemToInventory(new StardewValley.Object(TempRefs.MilkGeneric, 1, quality: 2));
 
-                TempRefs.SelfMilkedToday = true;
+                who.Stamina -= 150;
+                //TempRefs.SelfMilkedToday = true;
             }
             else if (action == "self_cum") // farmer collects their own cum
             {
@@ -1045,7 +1206,8 @@ namespace MilkVillagers
 
                 who.addItemToInventory(new StardewValley.Object(TempRefs.MilkSpecial, 1, quality: 2));
 
-                TempRefs.SelfCummedToday = true;
+                who.Stamina -= 150;
+                //TempRefs.SelfCummedToday = true;
             }
             else
                 ActionOnNPC(currentTarget, who, action);
@@ -1060,18 +1222,12 @@ namespace MilkVillagers
         /// <param name="action">the text name of the dialogue to perform</param>
         private void ActionOnNPC(NPC npc, Farmer who, string action = "milk_start")
         {
-            // TODO make this an option for requiring quest start.
-            //if (Config.NeedTool && Game1.player.CurrentTool.GetType().ToString() != typeof(StardewValley.Tools.MilkPail).ToString())
-            //{
-            //    Game1.addHUDMessage(new HUDMessage("You need to be holding a pail to milk people."));
-            //    return;
-            //}
-
             ModFunctions.LogVerbose($"{npc.Name} {who.Name} {action}");
 
             bool success = false;
             int heartMin = 0;
             int energyCost = 0;
+            int friendGain = 0;
             int HeartCurrent = who.getFriendshipHeartLevelForNPC(npc.Name);
             string chosenString;
             int Quality;
@@ -1082,32 +1238,38 @@ namespace MilkVillagers
             {
                 case "milk_start":
                     heartMin = (int)SexPositions.milk_start;
-                    energyCost = (int)SexCost.milk_fast;
+                    energyCost = (int)SexCost.milk_start;
+                    friendGain = (int)SexLove.milk_start;
                     break;
 
                 case "milk_fast":
                     heartMin = (int)SexPositions.milk_fast;
                     energyCost = (int)SexCost.milk_fast;
+                    friendGain = (int)SexLove.milk_fast;
                     break;
 
                 case "BJ":
                     heartMin = (int)SexPositions.BJ;
                     energyCost = (int)SexCost.BJ;
+                    friendGain = (int)SexLove.BJ;
                     break;
 
                 case "eat_out":
                     heartMin = (int)SexPositions.eat_out;
                     energyCost = (int)SexCost.eat_out;
+                    friendGain = (int)SexLove.eat_out;
                     break;
 
                 case "get_eaten":
                     heartMin = (int)SexPositions.get_eaten;
                     energyCost = (int)SexCost.get_eaten;
+                    friendGain = (int)SexLove.get_eaten;
                     break;
 
                 case "sex":
                     heartMin = (int)SexPositions.sex;
                     energyCost = (int)SexCost.sex;
+                    friendGain = (int)SexLove.sex;
                     break;
             }
 
@@ -1224,6 +1386,19 @@ namespace MilkVillagers
             AddItem = new StardewValley.Object(ItemCode, Quantity, quality: Quality);
             CurrentFarmer = who;
 
+            // Trying to fix item category
+            AddItem.Category = (AddItem.Name.Contains("Milk") && AddItem.Name != "Special Milk") ? -34 : -35;
+            if (AddItem.Name == "Dwarf's Essence"
+                || AddItem.Name == "Krobus's Essence"
+                || AddItem.Name == "Wizard's Essence"
+                || AddItem.Name == "Mr. Qi's Essence"
+                || AddItem.Name == "Magical Essence")
+            {
+                AddItem.Category = -36;
+            }
+
+            ModFunctions.LogVerbose($"Trying to milk {npc.Name}. Will give item {ItemCode}: {ItemEditor.GetItemName(ItemCode)}, Category: {AddItem.Category} / {AddItem.getCategoryName()}", LogLevel.Trace);
+
             // If no male milking, don't give item.
             if ((npc.Gender == 0 & !Config.MilkMale) || !Config.CollectItems)
             {
@@ -1232,14 +1407,59 @@ namespace MilkVillagers
             }
             #endregion
 
-            ModFunctions.LogVerbose($"Trying to milk {npc.Name}. Will give item {ItemCode}: {ItemEditor.GetItemName(ItemCode)}", LogLevel.Trace);
-
             #region Draw Dialogue
             npc.facePlayer(who);
             if (npc.Dialogue.TryGetValue(action, out string dialogues)) //Does npc have milking dialogue?
             {
                 chosenString = GetRandomString(dialogues.Split(new string[] { "#split#" }, System.StringSplitOptions.None));
-                Game1.drawDialogue(npc, $"{chosenString}");
+
+                // Get Item code from ChosenString
+                if (chosenString.Contains("["))
+                {
+                    //"{{spacechase0.JsonAssets/ObjectId: }}";
+                    int start = chosenString.IndexOf("[") + 1;
+                    int end = chosenString.LastIndexOf("]");
+                    string val = chosenString.Substring(start, end - start);
+                    ModFunctions.LogVerbose($"{npc.Name} value was {val}", LogLevel.Alert);
+                    int.TryParse(val, out ItemCode);
+                    chosenString = chosenString.Replace($"[{val}]", "");
+
+                }
+
+                // Get Quality from ChosenString
+                if (chosenString.Contains("{Quality:"))
+                {
+                    //"{{spacechase0.JsonAssets/ObjectId: }}";
+                    int start = chosenString.IndexOf("{Quality:");
+                    int end = chosenString.IndexOf("}", start);
+
+                    string val = chosenString.Substring(end - 1, 1);
+                    ModFunctions.LogVerbose($"{npc.Name} Quality was {val}", LogLevel.Alert);
+                    int.TryParse(val, out Quality);
+
+                    AddItem.Quality = Quality;
+                    chosenString = chosenString.Replace($"Quality:{val}", "").Replace("{}", "");
+                }
+
+                // Get Quantity from ChosenString
+                if (chosenString.Contains("{Quantity:"))
+                {
+                    //"{{spacechase0.JsonAssets/ObjectId: }}";
+                    int start = chosenString.IndexOf("{Quantity:");
+                    int end = chosenString.IndexOf("}", start);
+
+                    string val = chosenString.Substring(end - 1, 1);
+                    ModFunctions.LogVerbose($"{npc.Name} Quantity was {val}", LogLevel.Alert);
+                    int.TryParse(val, out Quality);
+
+                    AddItem.Quality = Quality;
+                    chosenString = chosenString.Replace($"Quantity:{val}", "").Replace("{}", "");
+                }
+
+                ModFunctions.LogVerbose($"chosenString: '{chosenString}'");
+
+                Game1.drawDialogue(npc, $"{chosenString.Trim()}");
+
                 success = true;
             }
             else if (action != "milk_fast")
@@ -1257,31 +1477,44 @@ namespace MilkVillagers
 
                     case "milk_start":
                         if (npc.Gender == 1)
-                            Game1.drawDialogue(npc, $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {SItemCode}");
+                        {
+                            chosenString = $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {SItemCode}";
+                        }
                         else if (npc.Gender == 0)
-                            Game1.drawDialogue(npc, $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {SItemCode}");
+                        {
+                            chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {SItemCode}";
+                        }
                         else
-                            Game1.drawDialogue(npc, $"I'm sorry, but I don't produce anything you would want to collect. Perhaps we can do something else instead?");
+                        {
+                            chosenString = $"I'm sorry, but I don't produce anything you would want to collect. Perhaps we can do something else instead?";
+                        }
+
+                        Game1.drawDialogue(npc, chosenString);
                         success = true;
                         break;
 
                     case "eat_out":
-                        Game1.drawDialogue(npc, $"You want to go down on me? I don't think I've ever had a guy offer to do that without an ulterior motive before.$h" +
+                        chosenString = $"You want to go down on me? I don't think I've ever had a guy offer to do that without an ulterior motive before.$h" +
                             $"#$b#%*{npc.Name} quickly strips out of her lower garments, and opens her legs wide for you. You're greeted with a heady smell, and notice that her lips are starting to swell*" +
                             $"#$b#%*You lean in and start licking between {npc.Name}'s lips, tasting her sweet nectar as she buries her hands in your hair*" +
                             $"#$b#%*As her moans get louder you use your tongue to flick her clit, and she clenches her legs tightly around your head*" +
                             $"#$b#%*You gently suck on the nub, and then plunge your tongue as deeply into her as you can, shaking your tongue from side to side to stimulate {npc.Name} even more*" +
-                            $"#$b#@, I'm cumming!");
+                            $"#$b#@, I'm cumming!";
+
+                        Game1.drawDialogue(npc, chosenString);
                         success = true;
                         break;
 
                     case "get_eaten":
-                        Game1.drawDialogue(npc, $"I'm sorry, dialogue hasn't been written for that yet.");
+                        chosenString = $"I'm sorry, dialogue hasn't been written for that yet.";
+                        Game1.drawDialogue(npc, chosenString);
                         success = false;
                         break;
 
                     case "BJ":
-                        Game1.drawDialogue(npc, $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {SItemCode}");
+                        chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. " +
+                            $"After a couple of quick licks to get them hard, you start sucking on their penis*#$b#I think I'm getting close! Here it comes! {SItemCode}";
+                        Game1.drawDialogue(npc, chosenString);
                         success = true;
                         break;
 
@@ -1301,12 +1534,12 @@ namespace MilkVillagers
                             chosenString = $"You and {npc.Name} lick, suck and finger each other into oblivion";
 
                         Game1.drawDialogue(npc, chosenString);
-
                         success = true;
                         break;
 
                     default:
-                        Game1.drawDialogue(npc, $"I don't have any dialogue written for that. Sorry.");
+                        chosenString = $"I don't have any dialogue written for that. Sorry.";
+                        Game1.drawDialogue(npc, chosenString);
                         Monitor.Log($"{action} for {npc.Name} wasn't found");
                         break;
                 }
@@ -1320,33 +1553,31 @@ namespace MilkVillagers
                 switch (action)
                 {
                     case "milk_fast":
-                        who.changeFriendship(30, npc);
                         TempRefs.milkedtoday.Add(npc);
                         break;
 
                     case "milk_start":
-                        who.changeFriendship(30, npc);
                         TempRefs.milkedtoday.Add(npc);
                         break;
 
                     case "sex":
-                        who.changeFriendship(45, npc);
                         TempRefs.SexToday.Add(npc);
                         break;
 
                     case "BJ":
-                        who.changeFriendship(30, npc);
                         TempRefs.SexToday.Add(npc);
                         break;
                 }
 
-                if (AddItem != null
-                    && AddItem.Category == TempRefs.SpecialType
-                    && !who.mailReceived.Contains("MagicalItem")
-                    && !who.mailForTomorrow.Contains("MagicalItem"))
-                {
-                    //who.mailForTomorrow.Add("MagicalItem");
-                }
+                who.changeFriendship(friendGain, npc);
+
+                //if (AddItem != null
+                //    && AddItem.Category == TempRefs.SpecialType
+                //    && !who.mailReceived.Contains("MagicalItem")
+                //    && !who.mailForTomorrow.Contains("MagicalItem"))
+                //{
+                //    who.mailForTomorrow.Add("MagicalItem");
+                //}
             }
             //_ = npc.checkAction(who, Game1.currentLocation);
         }
