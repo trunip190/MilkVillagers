@@ -14,13 +14,15 @@
         // Mod tutorial mail.
         "MilkButton1": "@,^^ You can now milk villagers using the 'O' button.^To milk a villager they must be an adult and have more than 8 hearts.^You can only milk them once a day, but be warned that once you start they may get addicted.   ^           -Anonymous. %item object {{spacechase0.JsonAssets/ObjectId: Readi Milk}} 1 %%",
         "MilkButton2": "@,^^ I forgot to tell you that if your inventory is cluttered, there is a recipe that converts the different types of milk and cum into a base type to save space.^They can no longer be used in some special recipes, though most of the recipes require them to be converted this way first.^           -Anonymous.",
+        "MilkingProfQuality": "Thank you for collecting the milk for me. I'm sure that you've learnt a few tricks from this task. You can get better quality items when milking people[#]Milk Quality",
+        "MilkingProfCount": "Congratulations on completing another task for me. Squeezing out a little more should be a breeze for you now. You can get more items when milking people[#]Milk Quantity",
 
         // Quest giving mail.
         "AbiMilking": "Hey @,^^I have something embarrassing to tell you, but I need to do it in person.^When you have time can you come see me?^^PS. Make sure you bring your milk pail.   ^-Abigail. %item object {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}} 1 %%",
 
         // Abigail Quests
         // Quest 1
-        "AbiCarrots": "Hey @,^^I need a cave carrot for my show, and Marlon won't let me in the mines yet. Preferably one that has been cleaned.   ^-Abigail%item quest 594801 %%",
+        "AbiCarrots": "Hey @,^^I need a cave carrot for my show, and Marlon won't let me in the mines yet. Preferably one that has been cleaned.   ^-Abigail %item quest 594801 %%",
         "AbiCarrotsT": "I don't know where you found that cave carrot, but the next time you find one make sure you bring it to me! My viewers loved seeing it tickle me inside and out, and I have to admit I loved it too. Not my first choice, but here's hoping the next request is a little more normal.   ^-Your local camgirl",
 
         // Quest 2
@@ -83,6 +85,11 @@
 
         "MagicalItem": "Pay special attention, @.^You have come into possession of something very powerful, and need to be aware of this. The 'essence' that you acquired yesterday is from a creature that is not wholly of this realm, and if concentrated can interrupt the current time. Once crafted, if you press 'O' when you have some space around you, then you can rewind time by releasing the essence.^^Be Warned^   Qi %item cookingRecipe %%",
 
+        // Elliott Quests
+        // Quest 1
+        "mtv_ElliottQ1": "Salutations, @.^I have recently been struggling a little with every authors worst nightmare, a case of 'writers blocks'. I find myself unable to shake it, and so I was hoping for a visit from my muse, and a little 'inspiration'. ^Forever in your debt, Elliott. %item quest 594805 %%",
+        "mtv_ElliottQ1T": "",
+
         // Emily Quests
         // Quest 1
         "EmilyPhotoShoot": "Hi @,^I need someone to help me take some photos of a dress for a client, and Haley is being a brat right now. Can you grab her camera and come help me please?^^     -Emily %item quest 594817 %%",
@@ -101,8 +108,10 @@
         "LeahSexShowPt1T": "blank",
 
         // Penny Quests
+        // Penny Quest 1
         "PennyLibrary": "Wotcha, @.^^I'm not much for writing letters, but I don't want to go punching the wrong person and getting in trouble with Lewis and Gus. Anyway, Penny has always loved books, but yesterday when I got home she was all secretive about that darned book place. Can you go and see if something happened between Gunther and her?^^   Pam",
 
+        // Penny Quest 2
         "MTV_PennyBathhouse": "Psst.^Come by the bath house in the evenings. You MIGHT see something...special. (If you look in the windows)^^      -Anonymous.^^PS. Don't get caught!",
         "MTV_PennyBathhouseT": "Hey there, @.^I don't know if you saw anything at the bath house last night, but I head someone russling around in the bushes out there while I was soaking last night.^   Penny.^^PS. If you want to join me next time, I'll be inside.",
 

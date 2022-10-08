@@ -15,7 +15,7 @@
     "Speed": 2,
     "Defense": 0,
     "Attack": 0,
-    "Duration": 700
+    "Duration": 600
   },
   "Price": 1250, //How much your item sells for.
   "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.

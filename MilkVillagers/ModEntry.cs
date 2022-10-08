@@ -12,46 +12,48 @@ using System.Reflection;
 using System.Linq;
 using SpaceShared.APIs;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
+using StardewValley.Menus;
+using StardewValley.Locations;
+using StardewValley.Minigames;
 
 namespace MilkVillagers
 {
-    public enum SexPositions : int
-    {
-        milk_start = 8,
-        milk_fast = 8,
-        BJ = 6,
-        eat_out = 6,
-        get_eaten = 7,
-        sex = 10,
-    };
-
-    public enum SexCost : int
-    {
-        milk_start = 20,
-        milk_fast = 20,
-        BJ = 20,
-        eat_out = 30,
-        get_eaten = 15,
-        sex = 50,
-    };
-
-    public enum SexLove : int
-    {
-        milk_start = 20,
-        milk_fast = 20,
-        BJ = 20,
-        eat_out = 30,
-        get_eaten = 15,
-        sex = 50,
-    };
-
     public class ModEntry : Mod
     {
         #region class variables
         private int[] target;
         private bool running;
         private bool runOnce;
+        private bool MessageOnce;
         private NPC currentTarget;
+
+        public Dictionary<string, int> LoveRequirement = new()
+        {
+            {"milk_start" , 8},
+            {"milk_fast" , 8},
+            {"BJ" , 6},
+            {"eat_out" , 6},
+            {"get_eaten" , 7},
+            {"sex" , 10 },
+        };
+        public Dictionary<string, int> SexCost = new()
+        {
+            {"milk_start" , 20},
+            {"milk_fast" , 20},
+            {"BJ" , 20},
+            {"eat_out" , 30},
+            {"get_eaten" , 15},
+            {"sex" , 50 },
+        };
+        public Dictionary<string, int> SexLove = new()
+        {
+            {"milk_start" , 20},
+            {"milk_fast" , 20},
+            {"BJ" , 20},
+            {"eat_out" , 30},
+            {"get_eaten" , 15},
+            {"sex" , 50 },
+        };
 
         private bool doneOnce = false; //remove when not testing.
 
@@ -66,6 +68,7 @@ namespace MilkVillagers
         private ModConfig Config;
         List<int> CurrentQuests = new List<int>();
 
+        public event ActionNPC onActionNPC;
         #endregion
 
         public override void Entry(IModHelper helper)
@@ -94,6 +97,8 @@ namespace MilkVillagers
 
             SpaceEvents.BeforeGiftGiven += SpaceEvents_BeforeGiftGiven;
             SpaceEvents.OnItemEaten += SpaceEvents_OnItemEaten;
+
+            onActionNPC += CheckQuestActionOnNPC;
 
             helper.ConsoleCommands.Add("mtv_resetmail", "Removes all mail flags\n\nUsage: mtv_resetmail <value>\n- value: the farmer to remove mail from.", this.RemoveAllMail);
             helper.ConsoleCommands.Add("mtv_sendmail", "Send the next mail item if conditions are met\n\nUsage: mtv_sendmail <value>\n- value: the farmer to send mail to.", this.SendNewMail);
@@ -389,8 +394,8 @@ namespace MilkVillagers
                 TempRefs.SexToday.Clear();
                 TempRefs.SelfCummedToday = false;
                 TempRefs.SelfMilkedToday = false;
+                MessageOnce = false;
             }
-
 
             //TODO change this for multiplayer
             Farmer who = Game1.player;
@@ -482,6 +487,12 @@ namespace MilkVillagers
             if (ItemEditor.CanEdit(e.Name)) { e.Edit(ItemEditor.Edit); }
         }
 
+        protected virtual void doActionNPC(object sender, ActionNPCEventArgs e)
+        {
+            ActionNPC handler = onActionNPC;
+            if (handler != null)
+                handler(this, e);
+        }
         #endregion
 
         #region Quest methods
@@ -638,13 +649,31 @@ namespace MilkVillagers
             return false;
         }
 
-        private void ListCurrentQuests(Farmer who)
+        private void CheckQuestActionOnNPC(object sender, ActionNPCEventArgs e)
         {
-            foreach (var q in who.questLog)
-            {
-                ModFunctions.LogVerbose($"has id {q}");
 
+            if (e.who.hasQuest(594805) && e.recipient.Name == "Elliott" && (e.action == "BJ" || e.action == "milk_fast"))
+            {
+                ModFunctions.LogVerbose("Completing quest 594805", LogLevel.Alert);
+                e.who.completeQuest(594805);
             }
+            if (e.who.hasQuest(594822) && e.recipient.Name == "Haley" && (e.action == "milk_start" || e.action == "milk_fast"))
+            {
+                ModFunctions.LogVerbose("Completing quest 594822", LogLevel.Alert);
+                e.who.completeQuest(594822);
+            }
+            if (e.who.hasQuest(594837) && e.recipient.Name == "George" && (e.action == "milk_start" || e.action == "milk_fast"))
+            {
+                ModFunctions.LogVerbose("Completing quest 594837", LogLevel.Alert);
+                e.who.completeQuest(594837);
+            }
+            if (e.who.hasQuest(594839) && e.recipient.Name == "Harvey" && (e.action == "milk_start" || e.action == "milk_fast"))
+            {
+                ModFunctions.LogVerbose("Completing quest 594839", LogLevel.Alert);
+                e.who.completeQuest(594839);
+            }
+
+            Monitor.Log($"{e.who.Name} did {e.action} with {e.recipient.Name} in {e.map.Name}", LogLevel.Trace);
         }
 
         #endregion
@@ -907,6 +936,7 @@ namespace MilkVillagers
         }
         #endregion
 
+        #region checks etc.
         private bool CheckAll(Farmer who)
         {
             bool result = true;
@@ -990,7 +1020,9 @@ namespace MilkVillagers
             //_recipeEditor.data["Generic Cum"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.MilkSpecial}/null/Special Milk";
 
         }
+        #endregion
 
+        #region Interact with NPC section
         private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
         {
             if (running)
@@ -1233,45 +1265,52 @@ namespace MilkVillagers
             int Quality;
             int Quantity = 1;
 
-            //TODO Work out how to pass string to enum for result. maybe dictionary.
-            switch (action)
-            {
-                case "milk_start":
-                    heartMin = (int)SexPositions.milk_start;
-                    energyCost = (int)SexCost.milk_start;
-                    friendGain = (int)SexLove.milk_start;
-                    break;
+            // Reset Additem
+            AddItem = null;
 
-                case "milk_fast":
-                    heartMin = (int)SexPositions.milk_fast;
-                    energyCost = (int)SexCost.milk_fast;
-                    friendGain = (int)SexLove.milk_fast;
-                    break;
+            // This replaces the switch below.
+            heartMin = LoveRequirement[action];
+            energyCost = SexCost[action];
+            friendGain = SexLove[action];
 
-                case "BJ":
-                    heartMin = (int)SexPositions.BJ;
-                    energyCost = (int)SexCost.BJ;
-                    friendGain = (int)SexLove.BJ;
-                    break;
+            //switch (action)
+            //{
+            //    case "milk_start":
+            //        heartMin = SexPositions["milk_start"];
+            //        energyCost = SexCost["milk_start"];
+            //        friendGain = SexLove["milk_start"];
+            //        break;
 
-                case "eat_out":
-                    heartMin = (int)SexPositions.eat_out;
-                    energyCost = (int)SexCost.eat_out;
-                    friendGain = (int)SexLove.eat_out;
-                    break;
+            //    case "milk_fast":
+            //        heartMin = SexPositions["milk_fast"];
+            //        energyCost = SexCost["milk_fast"];
+            //        friendGain = SexLove["milk_fast"];
+            //        break;
 
-                case "get_eaten":
-                    heartMin = (int)SexPositions.get_eaten;
-                    energyCost = (int)SexCost.get_eaten;
-                    friendGain = (int)SexLove.get_eaten;
-                    break;
+            //    case "BJ":
+            //        heartMin = SexPositions["BJ"];
+            //        energyCost = SexCost["BJ"];
+            //        friendGain = SexLove["BJ"];
+            //        break;
 
-                case "sex":
-                    heartMin = (int)SexPositions.sex;
-                    energyCost = (int)SexCost.sex;
-                    friendGain = (int)SexLove.sex;
-                    break;
-            }
+            //    case "eat_out":
+            //        heartMin = SexPositions["eat_out"];
+            //        energyCost = SexCost["eat_out"];
+            //        friendGain = SexLove["eat_out"];
+            //        break;
+
+            //    case "get_eaten":
+            //        heartMin = SexPositions["get_eaten"];
+            //        energyCost = SexCost["get_eaten"];
+            //        friendGain = SexLove["get_eaten"];
+            //        break;
+
+            //    case "sex":
+            //        heartMin = SexPositions["sex"];
+            //        energyCost = SexCost["sex"];
+            //        friendGain = SexLove["sex"];
+            //        break;
+            //}
 
             #region validity checks
             if (npc.Age == 2) // 2 is a child - immediate yeet
@@ -1450,10 +1489,30 @@ namespace MilkVillagers
 
                     string val = chosenString.Substring(end - 1, 1);
                     ModFunctions.LogVerbose($"{npc.Name} Quantity was {val}", LogLevel.Alert);
-                    int.TryParse(val, out Quality);
+                    int.TryParse(val, out Quantity);
 
-                    AddItem.Quality = Quality;
+                    AddItem.Stack = Quantity;
                     chosenString = chosenString.Replace($"Quantity:{val}", "").Replace("{}", "");
+                }
+
+                if (who.mailReceived.Contains("MilkingProfQuality") && who.mailReceived.Contains("MilkingProfCount"))
+                {
+                    if (Config.Verbose && !MessageOnce) Game1.addHUDMessage(new HUDMessage("You manage to improve the quantity and quality of the item through your dextrous hand and tender touch."));
+                    AddItem.Stack += 1;
+                    AddItem.Quality += 1;
+                    MessageOnce = true;
+                }
+                else if (who.mailReceived.Contains("MilkingProfQuality") && !MessageOnce)
+                {
+                    if (Config.Verbose) Game1.addHUDMessage(new HUDMessage("You manage to improve the quality of the item through your tender touch."));
+                    AddItem.Quality += 1;
+                    MessageOnce = true;
+                }
+                else if (who.mailReceived.Contains("MilkingProfCount") && !MessageOnce)
+                {
+                    if (Config.Verbose) Game1.addHUDMessage(new HUDMessage("You manage to coax out another batch through your dextrous hands."));
+                    AddItem.Stack += 1;
+                    MessageOnce = true;
                 }
 
                 ModFunctions.LogVerbose($"chosenString: '{chosenString}'");
@@ -1571,15 +1630,17 @@ namespace MilkVillagers
 
                 who.changeFriendship(friendGain, npc);
 
-                //if (AddItem != null
-                //    && AddItem.Category == TempRefs.SpecialType
-                //    && !who.mailReceived.Contains("MagicalItem")
-                //    && !who.mailForTomorrow.Contains("MagicalItem"))
-                //{
-                //    who.mailForTomorrow.Add("MagicalItem");
-                //}
+                // Raise new event
+                ActionNPCEventArgs args = new ActionNPCEventArgs()
+                {
+                    who = who,
+                    recipient = npc,
+                    action = action,
+                    map = who.currentLocation
+                };
+                doActionNPC(this, args);
+
             }
-            //_ = npc.checkAction(who, Game1.currentLocation);
         }
 
         private string GetRandomString(string[] dialogues)
@@ -1626,6 +1687,17 @@ namespace MilkVillagers
                     who.getTileY()
             };
         }
+
+        #endregion
+
     }
 
+    public delegate void ActionNPC(object sender, ActionNPCEventArgs e);
+    public class ActionNPCEventArgs : EventArgs
+    {
+        public Farmer who { get; set; }
+        public NPC recipient { get; set; }
+        public string action { get; set; }
+        public GameLocation map { get; set; }
+    }
 }

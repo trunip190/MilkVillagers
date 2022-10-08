@@ -1,12 +1,13 @@
 ﻿using StardewModdingAPI;
 using StardewValley;
+using System;
 using System.Collections.Generic;
 
 namespace MilkVillagers
 {
+
     public static class ModFunctions
     {
-
         public static void LogVerbose(string message, LogLevel Level = LogLevel.Trace, bool Force = false)
         {
             if (TempRefs.Verbose || Force) TempRefs.Monitor.Log(message, Level);

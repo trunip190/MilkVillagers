@@ -1,5 +1,15 @@
 {
   "Format": "1.28.1",
+  "ConfigSchema": {
+    "ExtraDialogue": {
+      "AllowValues": "true, false",
+      "Default": true
+    },
+    "Quests": {
+      "AllowValues": "true, false",
+      "Default": true
+    }
+  },
   "Changes": [
     // Dialogue
     {
@@ -27,11 +37,11 @@
       "LogName": "Include Quests",
       "Action": "Include",
       "FromFile": "Data/Quests.json"
-    }
+
 
     }
   ],
   "RepeatEvents": [
     "5948121"
-  ],
+  ]
 }

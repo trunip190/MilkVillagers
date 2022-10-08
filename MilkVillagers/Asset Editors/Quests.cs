@@ -16,7 +16,7 @@ namespace MilkVillagers.Asset_Editors
             [594803] = "AbiEggplantT",  //Abigail quest 3
             [594804] = "AbiSurpriseT",  //Abigail quest 4
 
-            [594805] = "",          //Elliott quest 1
+            [594805] = "mtv_ElliottQ1T",//Elliott quest 1
             [594806] = "",          //Elliott quest 2
             [594807] = "",          //Elliott quest 3
             [594808] = "",          //Elliott quest 4
@@ -216,7 +216,7 @@ namespace MilkVillagers.Asset_Editors
                     Name = "Vitality Collection",
                     Duration = "Week",
                     Requester = "Mister Qi",
-                    Repeatable = "False",
+                    Repeatable = "True",
                     Text = "Please practise your cum collection technique. If you can collect 10 samples for me by the end of the week I'll have special reward for you.",
                     ItemToRemoveOnEnd = "",
                     MailToRemoveOnEnd = "",
@@ -241,7 +241,7 @@ namespace MilkVillagers.Asset_Editors
                             Type = "Mail",
                             Data = new Dictionary<string, string>()
                             {
-                                { "MailReceived", "SOQiReward1" },
+                                { "MailReceived", "MilkingProfCount" },
                                 { "NoLetter", "false"},
                             }
                         }
@@ -278,7 +278,7 @@ namespace MilkVillagers.Asset_Editors
                     Name = "Soma Collection",
                     Duration = "Week",
                     Requester = "Mister Qi",
-                    Repeatable = "False",
+                    Repeatable = "True",
                     Text = "The women of Stardew Valley contain a vitality that is not found elsewhere. Please collect 10 bottles of their milk and deliver it to me.",
                     ItemToRemoveOnEnd = "",
                     MailToRemoveOnEnd = "",
@@ -303,7 +303,7 @@ namespace MilkVillagers.Asset_Editors
                             Type = "Mail",
                             Data = new Dictionary<string, string>()
                             {
-                                { "MailReceived", "SOQiReward2" },
+                                { "MailReceived", "MilkingProfQuality" },
                                 { "NoLetter", "false"},
                             }
                         }

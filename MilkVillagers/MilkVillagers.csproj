@@ -5,7 +5,7 @@
     <RootNamespace>MilkVillagers</RootNamespace>
     <Version>1.1.2</Version>
     <TargetFramework>net5.0</TargetFramework>
-	<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
+	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="csproj backup.7z" />

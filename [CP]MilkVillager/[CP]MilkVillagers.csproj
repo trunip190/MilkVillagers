@@ -6,7 +6,7 @@
     <AssemblyName>MilkVillagers</AssemblyName>
     <ApplicationIcon />
     <Version>1.1.0</Version>
-	<GameModsPath>E:\Stardew Valley Android\Mods\Milk the Villagers</GameModsPath>
+	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
 	<BaseOutputPath></BaseOutputPath>
   </PropertyGroup>
   
@@ -14,6 +14,7 @@
     <None Remove="Data\Dialogue.json" />
     <None Remove="Data\Events.json" />
     <None Remove="Data\Mail.json" />
+    <None Remove="Data\Quests.json" />
     <None Remove="Data\Translations.json" />
   </ItemGroup>
   
@@ -30,7 +31,7 @@
 	  <Content Include="Data\Mail.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="Data\Translations.json">
+	  <Content Include="Data\Quests.json">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	  <Content Include="manifest.json">

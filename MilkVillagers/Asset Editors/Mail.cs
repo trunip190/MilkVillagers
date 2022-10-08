@@ -162,7 +162,7 @@ namespace MilkVillagers.Asset_Editors
         public static Dictionary<string, string> FirstMail = new Dictionary<string, string>()
         {
             ["Abigail"] = "AbiCarrots",         //Abigail quest 1
-            ["Elliott"] = "",                   //Elliott quest 1
+            ["Elliott"] = "mtv_ElliottQ1",      //Elliott quest 1
             ["Sebastian"] = "",                 //Sebastian quest 1
             ["Maru"] = "MaruSample",            //Maru quest 1
             ["Emily"] = "EmilyPhotoShoot",      //Emily quest 1
