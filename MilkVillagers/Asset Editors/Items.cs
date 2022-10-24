@@ -209,6 +209,12 @@ namespace MilkVillagers.Asset_Editors
             //ContextData["Boethia's Pillow Book"] = "quest_item";
         }
 
+        public static void UpdateData(Dictionary<int, string> assetdata)
+        {
+            ItemData = assetdata;
+            SetItems();
+        }
+
         public static void RemoveInvalid(bool Male, bool Female)
         {
             if (!Female)
@@ -398,7 +404,7 @@ namespace MilkVillagers.Asset_Editors
                 if (ModItems.ContainsKey(stringSplit[0]) && ItemData.ContainsKey(kvp.Key))
                 {
                     ModItems[stringSplit[0]] = kvp.Key;
-                    if ( report) ModFunctions.LogVerbose($"{stringSplit[0]}: [{kvp.Key}] = {ItemData[kvp.Key]}", Force: true);
+                    if (report) ModFunctions.LogVerbose($"{stringSplit[0]}: [{kvp.Key}] = {ItemData[kvp.Key]}", Force: true);
                 }
                 else
                 {

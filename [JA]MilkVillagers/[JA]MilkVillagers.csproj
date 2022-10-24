@@ -16,8 +16,8 @@
     <None Remove="Objects\Alex%27s Cum\object.json" />
     <None Remove="Objects\Alex's Cum\object.png" />
     <None Remove="Objects\Andy%27s Cum\object.json" />
-    <None Remove="Objects\Camera\object.json" />
-    <None Remove="Objects\Camera\object.png" />
+    <None Remove="Objects\Haley%27s Camera\object.json" />
+    <None Remove="Objects\Haley%27s Camera\object.png" />
     <None Remove="Objects\Caroline%27s Milk\object.json" />
     <None Remove="Objects\Caroline's Milk\object.png" />
     <None Remove="Objects\Claire%27s Milk\object.json" />
@@ -39,6 +39,8 @@
     <None Remove="Objects\Haley%27s Milk\object.json" />
     <None Remove="Objects\Haley%27s Panties\object.json" />
     <None Remove="Objects\Harvey%27s Cum\object.json" />
+    <None Remove="Objects\Invitation\object.json" />
+    <None Remove="Objects\Invitation\object.png" />
     <None Remove="Objects\Jodi%27s Milk\object.json" />
     <None Remove="Objects\Kent%27s Cum\object.json" />
     <None Remove="Objects\Krobus Essence\object.json" />
@@ -79,7 +81,7 @@
     <None Remove="Objects\Olivia%27s Milk\object.json" />
     <None Remove="Objects\Pam%27s Milk\object.json" />
     <None Remove="Objects\Pam's Milk\object.png" />
-    <None Remove="Objects\Penny%27s Erotic Book\object.json" />
+    <None Remove="Objects\Boethia%27s Pillow Book\object.json" />
     <None Remove="Objects\Penny%27s Milk\object.json" />
     <None Remove="Objects\Penny's Erotic Book\object.png" />
     <None Remove="Objects\Penny's Milk\object.png" />
@@ -100,9 +102,11 @@
     <None Remove="Objects\Sebastian's Cum\object.png" />
     <None Remove="Objects\Shane%27s Cum\object.json" />
     <None Remove="Objects\Shane's Cum\object.png" />
-    <None Remove="Objects\shirts\crotchless teddy\female.png" />
-    <None Remove="Objects\shirts\crotchless teddy\male.png" />
-    <None Remove="Objects\shirts\crotchless teddy\shirt.json" />
+    <None Remove="pants\mtvTeddyl\pants.json" />
+    <None Remove="pants\mtvTeddyl\pants.png" />
+    <None Remove="shirts\mtvTeddyu\female.png" />
+    <None Remove="shirts\mtvTeddyu\male.png" />
+    <None Remove="shirts\mtvTeddyu\shirt.json" />
     <None Remove="Objects\Sophia%27s Milk\object.json" />
     <None Remove="Objects\Special Milkshake\object.json" />
     <None Remove="Objects\Special Milk\object.json" />
@@ -143,10 +147,10 @@
     <Content Include="Objects\Andy's Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\Camera\object.json">
+    <Content Include="Objects\Haley%27s Camera\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\Camera\object.png">
+    <Content Include="Objects\Haley%27s Camera\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Caroline's Milk\object.json">
@@ -204,6 +208,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Harvey's Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Invitation\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Invitation\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Jodi's Milk\object.json">
@@ -269,10 +279,10 @@
     <Content Include="Objects\Pam's Milk\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\Penny's Erotic Book\object.json">
+    <Content Include="Objects\Boethia%27s Pillow Book\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\Penny's Erotic Book\object.png">
+    <Content Include="Objects\Boethia%27s Pillow Book\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Penny's Milk\object.json">
@@ -305,13 +315,19 @@
     <Content Include="Objects\Shane's Cum\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\shirts\crotchless teddy\female.png">
+    <Content Include="pants\mtvTeddyl\pants.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\shirts\crotchless teddy\male.png">
+    <Content Include="pants\mtvTeddyl\pants.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Objects\shirts\crotchless teddy\shirt.json">
+    <Content Include="shirts\mtvTeddyu\female.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shirts\mtvTeddyu\male.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="shirts\mtvTeddyu\shirt.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Sophia's Milk\object.json">
@@ -503,5 +519,7 @@
   <ItemGroup>
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties objects_4invitation_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4sebastian_x0027_s_x0020_cum_4object_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

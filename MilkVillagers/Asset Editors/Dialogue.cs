@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using StardewModdingAPI;
 using System.IO;
+using StardewModdingAPI.Events;
 
 namespace MilkVillagers.Asset_Editors
 {
@@ -1119,6 +1120,12 @@ namespace MilkVillagers.Asset_Editors
                 data["HaleyPanties"] = "placeholder";
             }
             #endregion
+        }
+
+        public static void UpdateData(Dictionary<string, string> assetdata)
+        {
+            data = assetdata;
+            ModFunctions.LogVerbose("Updating DialogueEditor: Data", LogLevel.Trace);
         }
 
         private static void DumpData(IAssetData asset)

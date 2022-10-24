@@ -45,6 +45,18 @@ namespace MilkVillagers
             }
         }
 
+        public static void UpdateCookingData(Dictionary<string, string> assetdata)
+        {
+            CookingData = assetdata;
+            ModFunctions.LogVerbose("Updating RecipeEditor: CookingData", LogLevel.Trace);
+        }
+
+        public static void UpdateCraftingData(Dictionary<string, string> assetdata)
+        {
+            CraftingData = assetdata;
+            ModFunctions.LogVerbose("Updating RecipeEditor: CraftingData", LogLevel.Trace);
+        }
+
         public static bool SetCooking(bool Male = true, bool Female = true)
         {
             if (CookingData == null) return false;

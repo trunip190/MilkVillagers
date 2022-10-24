@@ -204,6 +204,7 @@ namespace MilkVillagers
         public static int HaleyCamera = 804;
         public static int HaleyPanties = 804;
         public static int ReadiMilk = 804;
+        public static int Invitation = 804;
 
         public static void ReportCodes()
         {

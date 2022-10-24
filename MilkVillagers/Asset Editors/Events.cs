@@ -59,7 +59,7 @@ namespace MilkVillagers.Asset_Editors
                     data[$"{TempRefs.EventAbi}" +                    // event id
                             $"/d Mon Wed Fri" +         //not Mon, Wed or Fri 
                             $"/f Abigail 2000" +        //affection level
-                            $"/n AbiSurprise" +         //need her invitation mail first
+                            $"/n MTV_AbigailQ4" +         //need her invitation mail first
                             $"/t 1900 2400"] =          //between 7pm and midnight
                                                         //data[$"598401/f Abigail 2000"] =
                             $"echos" +
@@ -110,7 +110,7 @@ namespace MilkVillagers.Asset_Editors
                             $"/speak Abigail \"Ooooh yes! The stretch is sooo good! I'm cumming!\"" +
                             $"/message \"Abigail starts shaking on top of you, and you wriggle your fingers inside her to make her cum explosively. After a few minutes, she recovers, and you gently remove your hand from her loose pussy.\"" +
                             $"/speak Abigail \"Well viewers, I think I'm well and truly done for tonight. Look at this giant, gaping hole where my pussy was an hour ago! I hope you also came a ton and had a great time. Anyway, I'm signing off now - come back for my next show!\"" +
-                            $"/mail AbiSurpriseT" +
+                            $"/mail MTV_AbigailQ4T" +
                             $"/end";
                 }
                 else { ModFunctions.LogVerbose($"{TempRefs.EventAbi} already loaded.", LogLevel.Alert); }
@@ -128,7 +128,7 @@ namespace MilkVillagers.Asset_Editors
                                         "/d Tue Thu" +
                                         "/f Harvey 2000" +
                                         "/p Harvey" +
-                                        "/n HarveyCheckup" +
+                                        "/n MTV_HarveyQ3" +
                                         "/t 900 1500"] =
 
                                         //data["594802/f Harvey 2000"] =
@@ -193,7 +193,7 @@ namespace MilkVillagers.Asset_Editors
                                         "/message \"Harvey leans against your body, clearly exhausted from this session. You move a little to the side and he lies on the bed beside you, his cock slipping out of your pussy.\"" +
                                         "/message \"After a few minutes of half lying on the bed you both get up, and Harvey hands you some surgical wipes to clean yourself with while he disposes of the condom.\"" +
                                         "/speak Harvey \"Well, @. I’d say that you are in perfect health. Please feel free to return any time you want another check up.\"" +
-                                        "/mail HarveyCheckupT" +
+                                        "/mail MTV_HarveyQ3T" +
                                         "/end";
 
                 }
@@ -212,7 +212,7 @@ namespace MilkVillagers.Asset_Editors
                                         "/f Maru 2000" +
                                         "/p Harvey" +
                                         "/p Maru" +
-                                        "/n HarveyTrial" +
+                                        "/n MTV_HarveyQ4" +
                                         "/t 900 1500"] =
 
                                         //data["594803/f Harvey 2000/f Maru 2000"] =
@@ -325,7 +325,7 @@ namespace MilkVillagers.Asset_Editors
                                         "/speak Harvey \"Once you have both taken a moment to recover, can you clean up the patient and debrief them on the experience? Make sure you document absolutely everything.\"" +
                                         "/pause 300" +
                                         "/speak Maru \"Thank you for that, @. I hope you'll take part if we have another trial in the future.\"" +
-                                        "/mail HarveyTrialT" +
+                                        "/mail MTV_HarveyQ4T" +
                                         "/end";
                 }
                 else { ModFunctions.LogVerbose($"{TempRefs.Event3HarMar} already loaded.", LogLevel.Alert); }
@@ -338,7 +338,7 @@ namespace MilkVillagers.Asset_Editors
                 #region Leah painting quest 594829 - completed
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventLeah} - incomplete");
                 data[$"{TempRefs.EventLeah}" +                    // event id
-                        $"/n LeahNudePainting" +    //need her invitation mail first
+                        $"/n MTV_LeahQ1" +    //need her invitation mail first
                         $"/f Leah 2000" +           //Leah at 8 hearts
                                                     //$"/t 1100 1800" +           //between 11am and 6pm
                         $""] =
@@ -561,7 +561,7 @@ namespace MilkVillagers.Asset_Editors
                                                            //"/l <letter ID>" +           // player has not received that mail letter or non-mail flag.
                                                            //"/m <number>" +              // player has earned at least this much money (regardless of how much they really have).
                             "/n MTV_Ace" +                 // player has received that mail letter or non-mail flag.
-                            "/n LeahSexShowPt1" +
+                            "/n MTV_LeahQ3" +
                             //"/o <name>" +                // player is not married to that NPC.
                             //"/p <name>" +                // Specified NPC is in the player's location.
                             //"/q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
@@ -642,7 +642,7 @@ namespace MilkVillagers.Asset_Editors
                                                            //"/l <letter ID>" +           // player has not received that mail letter or non-mail flag.
                                                            //"/m <number>" +              // player has earned at least this much money (regardless of how much they really have).
                             "/n MTV_Vagina" +              // player has received that mail letter or non-mail flag.
-                            "/n LeahSexShowPt1" +
+                            "/n MTV_LeahQ3" +
                             //"/o <name>" +                // player is not married to that NPC.
                             //"/p <name>" +                // Specified NPC is in the player's location.
                             //"/q <dialogue ID>" +         // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
@@ -848,7 +848,7 @@ namespace MilkVillagers.Asset_Editors
                 #region Penny Library event 594805 - Need to playtest
                 ModFunctions.LogVerbose($"Loading event {TempRefs.EventPenny} (need to make mail and quest)");
                 data[$"{TempRefs.EventPenny}" +                    // event id
-                        $"/n PennyLibrary" +        // need her invitation mail first. This is a temporary way of adding the quest
+                        $"/n MTV_PennyQ1" +        // need her invitation mail first. This is a temporary way of adding the quest
                         $"/f Penny 2000" +          // Penny at 8 hearts
                                                     //$"/p Penny" +               // Penny present
                         $""] =
@@ -1281,7 +1281,7 @@ namespace MilkVillagers.Asset_Editors
                                                          //"k <event ID>" +              // player has not seen that event (may contain multiple event IDs).
                                                          //"l <letter ID>" +             // player has not received that mail letter or non-mail flag.
                                                          //"m <number>" +                // player has earned at least this much money (regardless of how much they have).
-                        "/n 5948MaruStart" +             // player has received that mail letter or non-mail flag.
+                        "/n MTV_MaruQ4" +             // player has received that mail letter or non-mail flag.
                                                          //"o <name>" +                  // player is not married to that NPC.
                         "/p Maru" +                      // Specified NPC is in the player's location.
                                                          //"q <dialogue ID>" +           // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
@@ -1565,7 +1565,7 @@ namespace MilkVillagers.Asset_Editors
                                                     //"k <event ID> 	" +         // farmer has not seen that event (may contain multiple event IDs).
                                                     //"l <letter ID> 	" +         // farmer has not received that mail letter or non-mail flag.
                                                     //"m <number> 	" +         // farmer has earned at least this much money (regardless of how much they really have).
-                        "n EmilyBallgown" +         // farmer has received that mail letter or non-mail flag.
+                        "n MTV_EmilyQ2" +         // farmer has received that mail letter or non-mail flag.
                                                     //"o <name> 	" +             // farmer is not married to that NPC.
                         "p Emily" +                 // Specified NPC is in the farmer's location.
                                                     //"q <dialogue ID>" +         // farmer has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
@@ -1644,7 +1644,7 @@ namespace MilkVillagers.Asset_Editors
                             "#Emily walks over and wraps her arms around you, pulling you in close. Her body is pressed tightly against yours, and she lean into you, resting her head on your shoulder.\"" +
                         "/speak Emily \"I would love to lose myself with you right now, but you'd be suprised how tiring sitting at a sewing machine can be.\"" +
 
-                        "/mail EmilyPhotoShootT" +
+                        "/mail MTV_EmilyQ1T" +
 
                         "/quickquestion \"What would you like to do?" +
                             "#Give her a relaxing massage" +

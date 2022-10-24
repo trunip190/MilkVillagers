@@ -5,6 +5,9 @@
       "Action": "EditData",
       "Target": "Data/Mail",
       "Entries": {
+        // Item ID storage
+        "MTV_InvitationID": "{{spacechase0.JsonAssets/ObjectId: Invitation}}",
+
         // Gender mail
         "MTV_Vagina": "Your config has specified that you have a vagina, no penis, and are not Ace. This will be used for events. If you wish to change this, please edit your preferences in the config (this overrides your Stardew option)",
         "MTV_Penis": "Your config has specified that you have a penis, no vagina, and are not Ace. This will be used for events. If you wish to change this, please edit your preferences in the config (this overrides your Stardew option)",
@@ -20,100 +23,186 @@
         // Quest giving mail.
         "AbiMilking": "Hey @,^^I have something embarrassing to tell you, but I need to do it in person.^When you have time can you come see me?^^PS. Make sure you bring your milk pail.   ^-Abigail. %item object {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}} 1 %%",
 
-        // Abigail Quests
-        // Quest 1
-        "AbiCarrots": "Hey @,^^I need a cave carrot for my show, and Marlon won't let me in the mines yet. Preferably one that has been cleaned.   ^-Abigail %item quest 594801 %%",
-        "AbiCarrotsT": "I don't know where you found that cave carrot, but the next time you find one make sure you bring it to me! My viewers loved seeing it tickle me inside and out, and I have to admit I loved it too. Not my first choice, but here's hoping the next request is a little more normal.   ^-Your local camgirl",
 
-        // Quest 2
-        "AbiRadishes": "Hey @,^^They really loved the cave carrot, especially when it was scraping up my insides.^This time they want a string of radishes, so make sure there are a bunch of them, k?   ^-Abigail %item quest 594802 %%",
-        "AbiRadishesT": "I would NEVER have imagined that radishes could feel so good, but when I remembered that they came from your farm, I really got into them. Well, they certainly got into me. I had a whole bunch up there, and feeling them inside me was amazing.   ^-Your favourite camslut",
+        //*****************
+        // Abigail Quest 1
+        "MTV_AbigailQ1": "Hey @,^^I need a cave carrot for my show, and Marlon won't let me in the mines yet. Preferably one that has been cleaned.   ^-Abigail %item quest 594801 %%",
+        "MTV_AbigailQ1T": "I don't know where you found that cave carrot, but the next time you find one make sure you bring it to me! My viewers loved seeing it tickle me inside and out, and I have to admit I loved it too. Not my first choice, but here's hoping the next request is a little more normal.   ^-Your local camgirl",
 
-        // Quest 3
-        "AbiEggplant": "Hey @,^^I need an eggplant for my next camshow, and I was hoping it would be one from YOUR farm.^Try to make it a challenge, ok?   ^-Abigail %item quest 594803 %%",
-        "AbiEggplantT": "Hey there, @. You really came through for me, there. That eggplant felt sooo good rubbing up against my pussy, and when I tried to force it into my ass I came so hard. Shame it wouldn't fit. Oh well, I really hope you caught my show. Anyway, next time I need something smooth or bumpy, I know who to call on.   ^-The best camwhore",
+        // Abigail Quest 2
+        "MTV_AbigailQ2": "Hey @,^^They really loved the cave carrot, especially when it was scraping up my insides.^This time they want a string of radishes, so make sure there are a bunch of them, k?   ^-Abigail %item quest 594802 %%",
+        "MTV_AbigailQ2T": "I would NEVER have imagined that radishes could feel so good, but when I remembered that they came from your farm, I really got into them. Well, they certainly got into me. I had a whole bunch up there, and feeling them inside me was amazing.   ^-Your favourite camslut",
 
-        // Quest 4
-        "AbiSurprise": "Hey @,^^I've had enough of sticking random veggies up my ass - I want to see how much of you I can fit in my pussy.^Make sure you come to my place tonight, ok? Clothing is optional. ;)   ^-Abigail%item quest 594804 %%",
-        "AbiSurpriseT": "I got more views last night than ever before! You would not BELIEVE how many people watched you pounding my ass all night, and I got SO MANY tips. You are the best friend ever, @.   ^-Your friend with sexy benefits",
+        // Abigail Quest 3
+        "MTV_AbigailQ3": "Hey @,^^I need an eggplant for my next camshow, and I was hoping it would be one from YOUR farm.^Try to make it a challenge, ok?   ^-Abigail %item quest 594803 %%",
+        "MTV_AbigailQ3T": "Hey there, @. You really came through for me, there. That eggplant felt sooo good rubbing up against my pussy, and when I tried to force it into my ass I came so hard. Shame it wouldn't fit. Oh well, I really hope you caught my show. Anyway, next time I need something smooth or bumpy, I know who to call on.   ^-The best camwhore",
 
-        // Maru
-        // Quest 1
-        "MaruSample": "Hello @,^^I know that you are as inquisitive and curious as I am, and I have some tests that I thought you might be interested in. For this next experiment, I need you to covertly collect a sample of semen from one of the residents of this town. Please bring it to me diretly.   ^-Maru. %item quest 594813 %%",
-        "MaruSampleT": "Hello fellow researcher!^^That sample you got for me was pretty good, but I think it was contaminated. I think I'm going to need to get my samples straight from the source in future, but thank you for your help.   ^-Maru.",
+        // Abigail Quest 4
+        "MTV_AbigailQ4": "Hey @,^^I've had enough of sticking random veggies up my ass - I want to see how much of you I can fit in my pussy.^Make sure you come to my place tonight, ok? Clothing is optional. ;)   ^-Abigail%item quest 594804 %%",
+        "MTV_AbigailQ4T": "I got more views last night than ever before! You would not BELIEVE how many people watched you pounding my ass all night, and I got SO MANY tips. You are the best friend ever, @.   ^-Your friend with sexy benefits",
 
-        // Quest 2
-        "MaruMagicEssence": "That last sample was great, but now I want to study something more exotic. Can you bring me a sample from a magical or mystical creature? I want to run some experiments on it.^^    Maru. %item quest 594814 %%",
-        "MaruMagicEssenceT": "I've already written pages and pages in my notebook on this liquid, so if you're interested then please come look through my notes. Anyway, I wanted to say thank you for all you've done. I'd love to hear about any special 'collection techniques' you have.^^     Maru",
 
-        // Quest 3
-        "MaruDrDistract": "@,^^ I have a problem that I need your help with. Dr Harvey is getting a little obsessive, and I REALLY need someone to distract him from me. I've booked you in for a medical, so if you can help me out and I'd really appreciate it.^  Maru %item quest 594815 %%",
-        "MaruDrDistractT": "I'm really sorry about yesterday, @. I know it wasn't the best way of handling Dr. Harvey, but I really appreciate what you did. I have been thinking about my experiments lately, and the doctor was so distracting that I made a bad call as your friend. He's really not so bad, and has been so sweet to me since your 'checkup'.^^    Maru^PS. I think I might have started him down a little bit of a perverted route. I hope this doesn't come back to bite us later.",
+        //*****************
+        // Maru Quest 1
+        "MTV_MaruQ1": "Hello @,^^I know that you are as inquisitive and curious as I am, and I have some tests that I thought you might be interested in. For this next experiment, I need you to covertly collect a sample of semen from one of the residents of this town. Please bring it to me diretly.   ^-Maru. %item quest 594813 %%",
+        "MTV_MaruQ1T": "Hello fellow researcher!^^That sample you got for me was pretty good, but I think it was contaminated. I think I'm going to need to get my samples straight from the source in future, but thank you for your help.   ^-Maru.",
 
-        // Quest 4
-        "5948MaruStart": "Morning @,^^I have a new project that I'm working on, and I could really use your help...and discretion. If you have some time could you come to my house so I can show you what I've been working on?^   Maru",
+        // Maru Quest 2
+        "MTV_MaruQ2": "That last sample was great, but now I want to study something more exotic. Can you bring me a sample from a magical or mystical creature? I want to run some experiments on it.^^    Maru. %item quest 594814 %%",
+        "MTV_MaruQ2T": "I've already written pages and pages in my notebook on this liquid, so if you're interested then please come look through my notes. Anyway, I wanted to say thank you for all you've done. I'd love to hear about any special 'collection techniques' you have.^^     Maru",
 
-        // George Quests
-        // Quest 1
-        "GeorgeMilk": "Morning, whippersnapper.^^My bones have been acting up lately, and 'Dr Harvey' said that I should be drinking healthy milk. Ever since you gave me that Readi Milk I've been craving the best milk of all, breast milk. Evelyn is a little old for that, so I was thinking you could 'convince' either Emily or Haley to part with some of theirs and make me a healthy shake? I doubt they'd let me get it straight from the source.^   -George. %item quest 594833 %%",
-        "GeorgeMilkT": "Good morning, whippersnapper.^^Evelyn said I should write you and thank you for the effort you went to, but I think you're just as much of a pervert as I am, so you got your reward by milking a couple of gorgeous women.^Anyway, thank you. I feel amazing and it's all down to you.   ^-George.",
+        // Maru Quest 3
+        "MTV_MaruQ3": "@,^^ I have a problem that I need your help with. Dr Harvey is getting a little obsessive, and I REALLY need someone to distract him from me. I've booked you in for a medical, so if you can help me out and I'd really appreciate it.^  Maru %item quest 594815 %%",
+        "MTV_MaruQ3T": "I'm really sorry about yesterday, @. I know it wasn't the best way of handling Dr. Harvey, but I really appreciate what you did. I have been thinking about my experiments lately, and the doctor was so distracting that I made a bad call as your friend. He's really not so bad, and has been so sweet to me since your 'checkup'.^^    Maru^PS. I think I might have started him down a little bit of a perverted route. I hope this doesn't come back to bite us later.",
 
-        // Quest 2
-        "GeorgeMail2": "Psst!^ Ever since you gave me that 'medicine' I've been feeling years younger. ^I'm still stuck in a wheelchair though, so I need you to be my legs. ^I know this is creepy, but I want you to get me pair of Haley's underwear. I don't care how you do it, but bring them here, and don't let Evelyn hear about it!^^    George. %item quest 594834 %% %item conversationTopic HaleyPanties 10 %%",
-        "GeorgeMail2T": "Quest 2 completed",
+        // Maru Quest 4
+        "MTV_MaruQ4": "Morning @,^^I have a new project that I'm working on, and I could really use your help...and discretion. If you have some time, could you come by my house at night so I can show you what I've been working on?^   Maru",
 
-        // Quest 3
-        "GeorgeMail3": "%item quest 594835 %%",
-        "GeorgeMail3T": "Quest 3 completed",
 
-        // Quest 4
-        "GeorgeMail4": "%item quest 594836 %%",
-        "GeorgeMail4T": "Quest 4 completed",
+        //*****************
+        // George Quest 1
+        "MTV_GeorgeQ1": "Morning, young'un.^^My bones have been acting up lately, and 'Dr Harvey' said that I should be drinking healthy milk. Ever since you gave me that Readi Milk I've been craving the best milk of all, breast milk. Evelyn is a little old for that, so I was thinking you could 'convince' either Emily or Haley to part with some of theirs and make me a healthy shake? I doubt they'd let me get it straight from the source.^   -George. %item quest 594833 %%",
+        "MTV_GeorgeQ1T": "Good morning, whippersnapper.^^Evelyn said I should write you and thank you for the effort you went to, but I think you're just as much of a pervert as I am, so you got your reward by milking a couple of gorgeous women.^Anyway, thank you. I feel amazing and it's all down to you.   ^-George.",
 
-        // Harvey quests
-        // Quest 1
+        // George Quest 2
+        "MTV_GeorgeQ2": "Psst!^ Ever since you gave me that 'medicine' I've been feeling years younger. ^I'm still stuck in a wheelchair though, so I need you to be my legs. ^I know this is creepy, but I want you to get me pair of Haley's underwear. I don't care how you do it, but bring them here, and don't let Evelyn hear about it!^^    George. %item quest 594834 %% %item conversationTopic HaleyPanties 10 %%",
+        "MTV_GeorgeQ2T": "George quest 2 completed",
 
-        // Quest 2
+        // George Quest 3
+        "MTV_GeorgeQ3": "%item quest 594835 %%",
+        "MTV_GeorgeQ3T": "George quest 3 completed",
 
-        // Quest 3
-        "HarveyCheckup": "Greetings Farmer @.^^I was going through my records and I need to run some tests on you. It appears you are suffering from elevated levels and I want to make sure you are perfectly healthy. Pleae come see me during clinic hours. (But when Maru is not around).   ^-Your love doctor. %item quest 594839 %%",
-        "HarveyCheckupT": "Medical report^^Subject: @^Condition: Extremely arousing^Diagnoses:Too hot to handle^Prognosis:Will continue to cause erections and wet pussies wherever they go^Course of action prescribed: Continue visiting your local doctor for 'tests'.   ^-Your love doctor.",
+        // George Quest 4
+        "MTV_GeorgeQ4": "%item quest 594836 %%",
+        "MTV_GeorgeQ4T": "George quest 4 completed",
 
-        // Quest 4
-        "HarveyTrial": "Greetings @.^^I've been contacted by the Ferngill department of health, and they have a new type of ointment they are conducting trials on. It is perfectly safe, but I was hoping you would be up for participating.^Please come by the clinic on a Tuesday or Thursday, as Nurse Maru will be assisting.   ^Dr Harvey, md %item quest 594840 %%",
-        "HarveyTrialT": "Good morning @. I've attached a copy of my report.^^Medical trial: new drug report^Subject:@^Response to treatment:Patient experience immediate increase of bloodflow to labia, but no response found in breasts. Subject reported feeling heat in their genitals, and started producing lubricating fluids immediately. After manual stimulation the patient started producing copious amounts of fluid, and found it difficult resist orgasm.^   Dr Harvey, MD",
 
-        "MagicalItem": "Pay special attention, @.^You have come into possession of something very powerful, and need to be aware of this. The 'essence' that you acquired yesterday is from a creature that is not wholly of this realm, and if concentrated can interrupt the current time. Once crafted, if you press 'O' when you have some space around you, then you can rewind time by releasing the essence.^^Be Warned^   Qi %item cookingRecipe %%",
+        //*****************
+        // Harvey Quest 1
+        "MTV_HarveyQ1": "%item quest 594837 %%",
+        "MTV_HarveyQ1T": "Harvey Quest 1 Completed",
 
-        // Elliott Quests
-        // Quest 1
+        // Harvey Quest 2
+        "MTV_HarveyQ2": "%item quest 594838 %%",
+        "MTV_HarveyQ2T": "Harvey Quest 2 Completed",
+
+        // Harvey Quest 3
+        "MTV_HarveyQ3": "Greetings Farmer @.^^I was going through my records and I need to run some tests on you. It appears you are suffering from elevated levels and I want to make sure you are perfectly healthy. Pleae come see me during clinic hours. (But when Maru is not around).   ^-Your love doctor. %item quest 594839 %%",
+        "MTV_HarveyQ3T": "Medical report^^Subject: @^Condition: Extremely arousing^Diagnoses:Too hot to handle^Prognosis:Will continue to cause erections and wet pussies wherever they go^Course of action prescribed: Continue visiting your local doctor for 'tests'.   ^-Your love doctor.",
+
+        // Harvey Quest 4
+        "MTV_HarveyQ4": "Greetings @.^^I've been contacted by the Ferngill department of health, and they have a new type of ointment they are conducting trials on. It is perfectly safe, but I was hoping you would be up for participating.^Please come by the clinic on a Tuesday or Thursday, as Nurse Maru will be assisting.   ^Dr Harvey, md %item quest 594840 %%",
+        "MTV_HarveyQ4T": "Good morning @. I've attached a copy of my report.^^Medical trial: new drug report^Subject:@^Response to treatment:Patient experience immediate increase of bloodflow to labia, but no response found in breasts. Subject reported feeling heat in their genitals, and started producing lubricating fluids immediately. After manual stimulation the patient started producing copious amounts of fluid, and found it difficult resist orgasm.^   Dr Harvey, MD",
+
+
+        //*****************
+        // Elliott Quest 1
         "mtv_ElliottQ1": "Salutations, @.^I have recently been struggling a little with every authors worst nightmare, a case of 'writers blocks'. I find myself unable to shake it, and so I was hoping for a visit from my muse, and a little 'inspiration'. ^Forever in your debt, Elliott. %item quest 594805 %%",
-        "mtv_ElliottQ1T": "",
+        "mtv_ElliottQ1T": "Elliott Quest 1 completed.",
 
-        // Emily Quests
-        // Quest 1
-        "EmilyPhotoShoot": "Hi @,^I need someone to help me take some photos of a dress for a client, and Haley is being a brat right now. Can you grab her camera and come help me please?^^     -Emily %item quest 594817 %%",
-        "EmilyPhotoShootT": "@,^Thank you so much for your help yesterday. I hope the client likes the photos you took of the dress, and I can send it off for them. I'm a little confused by the mailing address, as it seems to be a redirecting service.^Oh well, I know I did a good job on the dress, so thank you once again.^^    Emily",
+        // Elliott Quest 2
+        "mtv_ElliottQ2": "%item quest 594806 %%",
+        "mtv_ElliottQ2T": "Elliott Quest 2 completed.",
 
-        // Quest 2
-        "EmilyBallgown": "@, ^I hope you can stop by my cottage today if you've got some time? I have a dress for a client that I would like you to try on so I can see how it is.^^      Emily",
+        // Elliott Quest 2
+        "mtv_ElliottQ3": "%item quest 594807 %%",
+        "mtv_ElliottQ3T": "Elliott Quest 3 completed.",
 
-        // Leah Quests
-        // Leah Quest 1
-        "LeahNudePainting": "Hey @.^I need a model for an art contest I'm entering. The theme is 'the beautiful body', and I immediately thought of you. Please come by my cottage when you have the time.^   Leah^^^PS. Clothing is optional.%item quest 594829 %%",
-        "LeahNudePaintingT": "Thank you so much for coming by my cottage yesterday. The paint is drying, and I can't wait to send it off to the competition. I'll let you know as soon as I hear back^   Leah",
+        // Elliott Quest 2
+        "mtv_ElliottQ4": "%item quest 594808 %%",
+        "mtv_ElliottQ4T": "Elliott Quest 4 completed.",
 
-        // Leah Quest 3
-        "LeahSexShowPt1": "Can you come by the cottage when you have some time? There's an event coming up that I want to take you to see.%item quest 594831 %%",
-        "LeahSexShowPt1T": "blank",
 
-        // Penny Quests
+        //*****************
+        // Emily Quest 1
+        "MTV_EmilyQ1": "Hi @,^I need someone to help me take some photos of a dress for a client, and Haley is being a brat right now. Can you grab her camera and come help me please?^^     -Emily %item quest 594817 %%",
+        "MTV_EmilyQ1T": "@,^Thank you so much for your help yesterday. I hope the client likes the photos you took of the dress, and I can send it off for them. I'm a little confused by the mailing address, as it seems to be a redirecting service.^Oh well, I know I did a good job on the dress, so thank you once again.^^    Emily",
+
+        // Emily Quest 2
+        "MTV_EmilyQ2": "@, ^I hope you can stop by my cottage today if you've got some time? I have a dress for a client that I would like you to try on so I can see how it is.^^      Emily %item quest 594818 %%",
+
+        // Emily Quest 3
+        "MTV_EmilyQ3": "%item quest 594819 %%",
+        "MTV_EmilyQ3T": "Emily Quest 3 completed",
+
+        // Emily Quest 4
+        "MTV_EmilyQ4": "%item quest 594820 %%",
+        "MTV_EmilyQ4T": "Emily Quest 4 completed",
+
+
+        //*****************
+        // Haley Quest 1
+        "MTV_HaleyQ1": "%item quest 594821 %%",
+        "MTV_HaleyQ1T": "Haley Quest 1 completed",
+
+        // Haley Quest 2
+        "MTV_HaleyQ2": "%item quest 594822 %%",
+        "MTV_HaleyQ2T": "Haley Quest 2 completed",
+
+        // Haley Quest 3
+        "MTV_HaleyQ3": "%item quest 594823 %%",
+        "MTV_HaleyQ3T": "Haley Quest 3 completed",
+
+        // Haley Quest 4
+        "MTV_HaleyQ4": "Quest item %item quest 594824 %%", //%item object {{spacechase0.JsonAssets/ObjectId: Invitation}} 7 %%",
+        "MTV_HaleyQ4-2": "Psst. This is super secret!^I got everything set up - make sure you come to my place on Thursday night, around 7pm. Emily will be out of town. %item quest 5948242 %%",
+
+
+        //*****************
         // Penny Quest 1
-        "PennyLibrary": "Wotcha, @.^^I'm not much for writing letters, but I don't want to go punching the wrong person and getting in trouble with Lewis and Gus. Anyway, Penny has always loved books, but yesterday when I got home she was all secretive about that darned book place. Can you go and see if something happened between Gunther and her?^^   Pam",
+        "MTV_PennyQ1": "Wotcha, @.^^I'm not much for writing letters, but I don't want to go punching the wrong person and getting in trouble with Lewis and Gus. Anyway, Penny has always loved books, but yesterday when I got home she was all secretive about that darned book place. Can you go and see if something happened between Gunther and her?^^   Pam item quest 594825 %%",
+        "MTV_PennyQ1T": "Penny Quest 1 completed",
 
         // Penny Quest 2
-        "MTV_PennyBathhouse": "Psst.^Come by the bath house in the evenings. You MIGHT see something...special. (If you look in the windows)^^      -Anonymous.^^PS. Don't get caught!",
-        "MTV_PennyBathhouseT": "Hey there, @.^I don't know if you saw anything at the bath house last night, but I head someone russling around in the bushes out there while I was soaking last night.^   Penny.^^PS. If you want to join me next time, I'll be inside.",
+        "MTV_PennyQ2": "Psst.^Come by the bath house in the evenings. You MIGHT see something...special. (If you look in the windows)^^      -Anonymous.^^PS. Don't get caught! item quest 594826 %%",
+        "MTV_PennyQ2T": "Hey there, @.^I don't know if you saw anything at the bath house last night, but I head someone russling around in the bushes out there while I was soaking last night.^   Penny.^^PS. If you want to join me next time, I'll be inside.",
+
+        // Penny Quest 3
+        "MTV_PennyQ3": "item quest 594827 %%",
+        "MTV_PennyQ3T": "Penny Quest 3 completed",
+
+        // Penny Quest 4
+        "MTV_PennyQ4": "item quest 594828 %%",
+        "MTV_PennyQ4T": "Penny Quest 4 completed",
+
+
+        //*****************
+        // Leah Quest 1
+        "MTV_LeahQ1": "Hey @.^I need a model for an art contest I'm entering. The theme is 'the beautiful body', and I immediately thought of you. Please come by my cottage when you have the time.^   Leah^^^PS. Clothing is optional.%item quest 594829 %%",
+        "MTV_LeahQ1T": "Thank you so much for coming by my cottage yesterday. The paint is drying, and I can't wait to send it off to the competition. I'll let you know as soon as I hear back^   Leah",
+
+        // Leah Quest 2
+        "MTV_LeahQ2": "%item quest 594830 %%",
+        "MTV_LeahQ2T": "Leah Quest 2 completed",
+
+        // Leah Quest 3
+        "MTV_LeahQ3": "Can you come by the cottage when you have some time? There's an event coming up that I want to take you to see.%item quest 594831 %%",
+        "MTV_LeahQ3T": "Leah Quest 3 completed.",
+
+        // Leah Quest 4
+        "MTV_LeahQ4": "%item quest 594832 %%",
+        "MTV_LeahQ4T": "Leah Quest 4 completed",
+
+
+        //*****************
+        // Sebastian Quest 1
+        "MTV_SebQuest1": "I hear you've been doing some pretty freaky things around town, and I was hoping you could help me out with something. I've always had a thing for Abigail, particularly since she started her streams online. Do you think you could get me some of her milk? Fresh from the source?^^Thanks. Sebastian %item quest 594809 %%",
+        "MTV_SebQuest1T": "Sebastian Quest 1 completed",
+
+        // Sebastian Quest 2
+        "MTV_SebQuest2": "Time for revenge, @.^Don't worry, it's a good kind of revenge, and I think both you and Seb will like it. If he's gonna watch me on my streams, say nothing, and then act all stalker-y then we're going to play with him a bit. Can you give him a BJ, and then just as he's finishing tell him 'Abigail knows'.^^I think that will do for today.^ ^_^ Abigail~ %item quest 594810 %%",
+        "MTV_SebQuest2T": "Sebastian Quest 2 completed",
+
+        // Sebastian Quest 3
+        "MTV_SebQuest3": "%item quest 594811 %%",
+        "MTV_SebQuest3T": "Sebastian Quest 3 completed",
+
+        // Sebastian Quest 4
+        "MTV_SebQuest4": "%item quest 594812 %%",
+        "MTV_SebQuest4T": "Sebastian Quest 4 completed",
+
+
+        "MagicalItem": "Pay special attention, @.^You have come into possession of something very powerful, and need to be aware of this. The 'essence' that you acquired yesterday is from a creature that is not wholly of this realm, and if concentrated can interrupt the current time. Once crafted, if you press 'O' when you have some space around you, then you can rewind time by releasing the essence.^^Be Warned^   Qi %item cookingRecipe %%",
 
         // Special order mail
         "SOQiReward1": "Greeting @,^^I am very impressed with your dedication to the tasks I set you, no matter what they are. I have enclosed a portion of magical essence, many creatures will produce this, and it has many properties you may find useful. Please experiment as you open your mind to new posibilities.^   Qi.%item object {{spacechase0.JsonAssets/ObjectId: Magical Essence}} 1 %%",
