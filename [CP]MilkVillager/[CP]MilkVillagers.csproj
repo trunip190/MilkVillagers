@@ -43,6 +43,6 @@
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
   </ItemGroup>
   
-  <ProjectExtensions><VisualStudio><UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio></ProjectExtensions>
   
 </Project>

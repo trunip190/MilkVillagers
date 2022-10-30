@@ -7,40 +7,47 @@
       "Entries": {
         // Abigail
         "594801": "ItemDelivery/Abigail's Carrot/Abigail needs a cave carrot to scratch an itch. Bring her one to 'fill' a need/Bring Abigail a cave carrot/Abigail 78/-1/240/-1/FALSE/I hope you washed it! Those caves are wonderful, but the cave carrot needs to be SUPER clean before its going anywhere near my ass.",
-        "594802": "ItemDelivery/Abigail's Radishes/Abigail wants some radishes for a new idea she had/Bring Abigail Radishes/Abigail 264 5/-1/355/-1/FALSE/I'm gonna have so much fun with these! How many do you think I can fit?",
+        "594802": "ItemDelivery/Abigail's Radishes/Abigail wants some radishes for a new idea she had/Bring Abigail 5 Radishes/Abigail 264 5/-1/355/-1/FALSE/I'm gonna have so much fun with these! How many do you think I can fit?",
         "594803": "ItemDelivery/Abigail's Eggplant/Abigail needs an eggplant for her cam show. Make sure it's a good one/Bring Abigail an eggplant./Abigail 272/-1/420/-1/FALSE/Wow, it's so big!. I'll be thinking of you tonight, @. Be sure to watch my show.",
-        "594804": "Location/Abigail's 'helping hand'/Abigail wants you to help her with her show tonight. Go visit her at her house, and bring her an amethyst./Go to Abigail's house with an Amethyst/SeedShop/-1/500/-1/FALSE/I'm so glad you could come over and give me a helping 'hand'. My viewers are going to appreciate it as well...",
-
-        // Elliott
-        "594805": "Basic/Writers Block/Elliott needs a distraction from writing. Make you can get his creative juices flowing./Go to Elliott's house and see if you can help them relieve some frustration/null/-1/240/-1/False/Thank you for that, @. I don't know whether it has cured my writers block yet, but without wanting to sound crass, you've helped me get rid of another kind of blockage.",
-        "594806": "Location/Attentive Listener/Elliott would like your thoughts on a newly written section of his book. Apparently it's pretty steamy./Visit Elliott at their seaside cabin/ElliottHouse/-1/355/-1/False/Completion Text",
-        "594807": "Location/Enter stage right/Elliott wants to try out a new scene from book/Visit Elliott at their seaside cabin/ElliottHouse/-1/420/-1/False/Completion Text",
-        "594808": "Location/Tell me everything you know/Elliott roleplay 'interrogating the enemy captain'/Visit Elliott at their seaside cabin/ElliottHouse/-1/500/-1/False/Completion Text",
-
-        // Sebastian
-        "594809": "Basic/Curious tastes pt 1/Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly/Collect some of Abigail's Milk/Abigail milk/5948092/0/-1/FALSE/",
-        "5948092": "ItemDelivery/Curious tastes pt 2/Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly/Bring Sebastian some of Abigail's Milk/Sebastian {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}}/-1/240/-1/FALSE/Wow, She was ok with it? Did you tell her who it was for? Oh...I guess that's only fair. I knew she was kind of into me, but this could be amazing!",
-        "594810": "Basic/Curious tastes pt 3/Sebastian can have some of Abigail's milk, but only if she gets to taste his cum/Collect some of Sebastian's Cum/null/5948102/0/-1/FALSE/",
-        "5948102": "ItemDelivery/Curious tastes pt 4/Sebastian can have some of Abigail's milk, but only if she gets to taste his cum/Bring Abigail some of Sebastian's Cum/Abigail {{spacechase0.JsonAssets/ObjectId: Sebastian's Cum}}/-1/355/-1/FALSE/Did you suck it out of him, while looking into his eyes? Touching yourself as you brought him closer to orgasm? Did he cum all over your face, or were you tempted to swallow it instead? Anyway, thanks for that, cum buddy.",
-        "594811": "Basic/Coding pipelines need clearing/Sebastian has been stuck in his room too much lately and needs some human interaction./Give Sebastian a pick me up BJ/null/-1/420/-1/FALSE/Completion Text",
-        "594812": "Location/Purple and black desires/Seb special event with Abigail. Abigail and farmer peg Seb/Go visit Sebastian in his basement suite. Abigail will be waiting too./SebastianRoom/-1/500/-1/FALSE/Completion Text",
+        "594804": "Basic/Abigail's 'helping hand'/Abigail wants you to help her with her show tonight. Go visit her at her house, and bring her an amethyst./Go to Abigail's house with an Amethyst/SeedShop/-1/500/-1/FALSE/I'm so glad you could come over and give me a helping 'hand'. My viewers are going to appreciate it as well...",
 
         // Maru
-        "594813": "Basic/Scientific sample/Maru wants to test some cum/Harvest some cum from a villager/Male BJ Milk_fast/5948132/0/-1/False/",
-        "5948132": "ItemDelivery/Scientific sample/Maru wants to test some cum/Bring Maru a sample of cum from a villager/Maru -35/-1/240/-1/False/Wow, I didn't expect you to bring it so quickly! It definitely looks right, and...it has that wonderful heady smell. I might post some request in the future, if you're interested.",
-        "594814": "Basic/Sharing notes on potions/Maru wants you collect some essence from a magical creature so she can study how it is different./Collect some essence from a magical creature./Maru -36/5948142/0/-1/False/",
-        "5948142": "ItemDelivery/Sharing notes on potions/Maru wants you collect some essence from a magical creature so she can study how it is different./Bring Maru the item you collected./Maru -36/-1/355/-1/False/It doesn't look anything like I expected. Did it take a lot of hard work to get this sample, @?",
-        "594815": "Basic/Please keep the doctor occupied/Doctor Harvey has been getting a little touchy with Maru and she wants you to distract him./Visit Dr. Harvey when he's at the clinic./null/-1/420/-1/FALSE/Completion Text",
+        "594813": "Basic/Scientific samples/Maru wants to run some tests on how the Valley affects villagers' cum./Harvest some cum from a villager/Male BJ Milk_fast/5948132/0/-1/False/Reaction Text",
+        "5948132": "ItemDelivery/Scientific sample/Maru wants to run some tests on how the Valley affects villagers' cum./Bring Maru a sample of cum from a villager/Maru -35/-1/240/-1/False/Wow, I didn't expect you to bring it so quickly! It definitely looks right, and...it has that wonderful heady smell. I might post some request in the future, if you're interested.",
+        "594814": "Basic/Making potions the adult way/Maru wants you collect some essence from a magical creature so she can study how it is different./Collect some essence from a magical creature./Maru -36/5948142/0/-1/False/Reaction Text",
+        "5948142": "ItemDelivery/Making potions the adult way/Maru wants you collect some essence from a magical creature so she can study how it is different./Bring Maru the item you collected./Maru -36/-1/355/-1/False/It doesn't look anything like I expected. Did it take a lot of hard work to get this sample, @?",
+        "594815": "Basic/Excuse me, Dr?/Harvey has been distracting Maru from her duties. See if you can distract the doctor by giving him some oral relief/Give Harvey a blowjob/null/-1/420/-1/FALSE/Completion Text",
         "594816": "Basic/Lacking the human touch/Maru wants you to test out one of her inventions with her/Go visit Maru in the evening when she is at home./null/-1/500/-1/FALSE/Completion Text",
+
+        // George
+        "594833": "ItemDelivery/Rejuvenating Milk/George wants to taste some of Haley's and Emily's milk/Bring George some 'Sweet Sibling' milkshake/George {{spacechase0.JsonAssets/ObjectId: Sweet Sibling}}/-1/240/-1/FALSE/This is exactly what I need. I've been lusting after those two for so long, but Penny keeps getting in the way and blocking me any time I get a good eyeful.",
+        "594834": "LostItem/Ninja mission/George thinks you are a pervert, and wants you to grab him a pair of Haley's underwear 'as a trophy'./Bring George a pair of Haley's underwear/George {{spacechase0.JsonAssets/ObjectId: Haley's Panties}} HaleyHouse 6 5/-1/355/-1/FALSE/I knew you had it in you. Let me just stash these down the side of my chair for later.",
+        "594835": "ItemDelivery/Here cums the aeroplane/Dr Harvey needs your help convincing George to try some 'Super Juice'. This may take some creativity./Convince George to drink Super Juice/George {{spacechase0.JsonAssets/ObjectId: Super Juice}}/-1/420/-1/FALSE/Completion Text",
+        "594836": "Basic/The Hugh Hefner achievement/You and Haley double blowjob for George/Meet up with Haley convince her to help you with George/JoshHouse/5948362/0/-1/FALSE/Completion Text",
+        "5948362": "Basic/The Hugh Hefner achievement/You and Haley double blowjob for George/Go visit George at his house to surpise him with Haley/JoshHouse/-1/500/-1/FALSE/Completion Text",
+
+        // Elliott
+        "594805": "Basic/Writers Block/Elliott needs a distraction from writing. Maybe you can get his creative juices flowing./See if giving Elliott a BJ helps get him in the right headspace./null/-1/240/-1/False/Thank you for that, @. I don't know whether it has cured my writers block yet, but without wanting to sound crass, you've helped me get rid of another kind of blockage.",
+        "594806": "Basic/Attentive Listener/Elliott would like your thoughts on a newly written section of his book. Apparently it's pretty steamy./Visit Elliott at their seaside cabin/ElliottHouse/-1/355/-1/False/Completion Text",
+        "594807": "Basic/Enter stage right/Elliott wants to try out a new scene from book/Visit Elliott at their seaside cabin/ElliottHouse/-1/420/-1/False/Completion Text",
+        "594808": "Basic/Tell me everything you know/Elliott roleplay 'interrogating the enemy captain'/Visit Elliott at their seaside cabin/ElliottHouse/-1/500/-1/False/Completion Text",
+
+        // Sebastian
+        "594809": "Basic/Curious tastes/Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly/Collect some of Abigail's Milk/Abigail milk/5948092/0/-1/FALSE/",
+        "5948092": "ItemDelivery/Curious tastes/Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly/Bring Sebastian some of Abigail's Milk/Sebastian {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}}/-1/240/-1/FALSE/Wow, She was ok with it? Did you tell her who it was for? Oh...I guess that's only fair. I knew she was kind of into me, but this could be amazing!",
+        "594810": "Basic/Curious tastes pt 2/Sebastian can have some of Abigail's milk, but only if she gets to taste his cum/Collect some of Sebastian's Cum/null/5948102/0/-1/FALSE/",
+        "5948102": "ItemDelivery/Curious tastes pt 2/Sebastian can have some of Abigail's milk, but only if she gets to taste his cum/Bring Abigail some of Sebastian's Cum/Abigail {{spacechase0.JsonAssets/ObjectId: Sebastian's Cum}}/-1/355/-1/FALSE/Did you suck it out of him, while looking into his eyes? Touching yourself as you brought him closer to orgasm? Did he cum all over your face, or were you tempted to swallow it instead? Anyway, thanks for that, cum buddy.",
+        "594811": "Basic/Coding pipelines need clearing/Sebastian has been stuck in his room too much lately and needs some human interaction./Give Sebastian a pick me up BJ/Sebastian BJ milk_fast/-1/420/-1/False/Completion Text",
+        "594812": "Location/Purple and black desires/Seb special event with Abigail. Abigail and farmer peg Seb/Go visit Sebastian in his basement suite. Abigail will be waiting too./SebastianRoom/-1/500/-1/FALSE/Completion Text",
 
         // Emily
         "594817": "LostItem/Emily's photoshoot/Emily needs someone to take some photos of her in a dress for an online commission, and she needs Haley's camera for it./Fetch Haley's camera for Emily and help her take some photos./Emily {{spacechase0.JsonAssets/ObjectId: Haley's Camera}} HaleyHouse 1 9/-1/240/-1/False/Thank you so much. I don't really want Haley to see the kind of clothes I have to make sometimes. She'd never let me live it down after the sundress incident last year.",
-        "594818": "Location/Modelling surrogate/Follow up commission but this time she wants a model because the comments were a little close to home/Hint/Solution/-1/355/-1/False/Completion Text",
+        "594818": "Basic/Modelling surrogate/Emily needs a model for a dress commission, and she thinks you're the right size./Go to Emily's house when she's home/Solution/-1/355/-1/False/Completion Text",
         "594819": "Basic/Show and Tell/Abigail has requested a special crotchless underwear set, and Emily uses this as an excuse to design a prototype set/Hint/Solution/-1/420/-1/False/Completion Text",
         "594820": "Location/Barely contained pleasure/Emily is high and horny and wants your help to push her limits/Go wait at Emily's house before she does something silly/HaleyHouse/-1/500/-1/FALSE/Completion Text",
 
         // Haley
-        "594821": "Location/Bringing out the inner beauty/Haley photography set - wants to do some artistic nudes of someone/Hint/Solution/-1/240/-1/False/Completion Text",
+        "594821": "Basic/Bringing out the inner beauty/Haley photography set - wants to do some artistic nudes of someone/Hint/Solution/-1/240/-1/False/Completion Text",
         "594822": "Basic/Can't contain the power/Haley is feeling frustrated and swollen - help her relieve both pressures a the same time./Haley needs someone to help relieve her swollen breasts/Solution/5948222/0/-1/False/Thank you, @. This girl has other needs that need relieving now, and I hope you'll take some responsiblity for them.",
         "5948222": "Basic/Can't contain the power/Haley is feeling frustrated and swollen - help her relieve both pressures a the same time./See if you can use your tongue to relieve Haley's other needs./Solution/-1/355/-1/False/I knew I could count on you. My legs are a little weak now so I'm going to rest for a while.",
         "594823": "Basic/Milkers needed/Haley needs a volunteer villager for a milking scene - find a volunteer!/Hint/Solution/-1/420/-1/False/Completion Text",
@@ -48,30 +55,24 @@
         "5948242": "Location/Cover me with your love/Haley wants to be the center of attention at group sex event. She needs volunteers from the community to realise this fantasy./Visit Haley's house to take part in the event/HaleyHouse/-1/500/-1/False/Completion Text",
 
         // Penny
-        "594825": "Location/What's the matter with Penny?/Pam wants you to check up on Penny at the museum. Apparently she's been acting weird around Gunther./Go check on Penny at the museum./ArchaeologyHouse/594826/240/-1/FALSE/No text - just event",
+        "594825": "Basic/What's the matter with Penny?/Pam wants you to check up on Penny at the museum. Apparently she's been acting weird around Gunther./Go check on Penny at the museum./ArchaeologyHouse/594826/240/-1/FALSE/No text - just event",
         "594826": "LostItem/Penny's book/Penny has asked you to bring her the smutty book./Deliver Boethia's pillow book to Penny./Penny {{spacechase0.JsonAssets/ObjectId: Boethia's Pillow Book}} ArchaeologyHouse 21 5/-1/355/-1/FALSE/Thank you for doing that for me. I was so embarrassed. Maybe next time we can explore some of the ideas in the book?",
-        "594827": "Basic/Fifty shades of Penny/Penny wants to explore her sexual side, but needs a firmer hand to guide her/Hint/Solution/-1/420/-1/False/Completion Text",
+        "594827": "Basic/Fifty shades of Penny/Penny left you a note saying she's at the bathhouse. It seems like she wants an audience for something./Go to the bathhouse after 7pm/Solution/-1/420/-1/False/Completion Text",
         "594828": "Location/Not all stories are found in books/sex in library, gets caught/Hint/Solution/-1/500/-1/False/Completion Text",
 
         // Leah
-        "594829": "Location/Leah pt 1/Leah has asked you to be a model for a painting she is working on. It is for an art competition, and the theme is 'The beautiful body'/Go to Leah's cabin and model for her/LeahHouse/-1/240/-1/FALSE/Thank you, @. I feel so confident about this painting. It really highlights your...I mean the beauty of the human body.",
-        "594830": "Basic/Quest Name/Get special item from Robin? Need to look at addconversationtopic/Hint/Solution/-1/355/-1/False/Completion Text",
+        "594829": "Basic/Leah's muse/Leah has asked you to be a model for a painting she is working on. It is for an art competition, and the theme is 'The beautiful body'/Go to Leah's cabin and model for her/LeahHouse/-1/240/-1/FALSE/Thank you, @. I feel so confident about this painting. It really highlights your...I mean the beauty of the human body.",
+        "594830": "LostItem/Strap me down/Leah wants you to go collect a commissioned item from Robin./Go to Robin's and pick up the parcel by her counter/Leah {{spacechase0.JsonAssets/ObjectId: Strapon}} ScienceHouse 4 19/-1/355/-1/False/Thank you for this! I can't wait to try it out.",
         "594831": "Location/Tongue Tied/Leah wants you to go to an exhibit with her to get ideas, but it's a sex show/Meet up with Leah at her cabin/LeahHouse/-1/420/-1/FALSE/Completion Text",
         "594832": "Location/Bound by love/Leah needs a volunteer for an art exhibition, and wants you to model for her./Go to Leah's cabin and model for her/LeahHouse/-1/500/-1/FALSE/Completion Text",
 
-        // George
-        "594833": "ItemDelivery/Rejuvenating Milk/George wants to taste some of Haley's and Emily's milk/Bring George some 'Sweet Sibling' milkshake/George {{spacechase0.JsonAssets/ObjectId: Sweet Sibling}}/-1/240/-1/FALSE/This is exactly what I need. I've been lusting after those two for so long, but Penny keeps getting in the way and blocking me any time I get a good eyeful.",
-        "594834": "LostItem/Ninja mission/George thinks you are a pervert, and wants you to grab him a pair of Haley's underwear 'as a trophy'./Bring George a pair of Haley's underwear/George {{spacechase0.JsonAssets/ObjectId: Haley's Panties}} HaleyHouse 6 5/-1/355/-1/FALSE/I knew you had it in you. Let me just stash these down the side of my chair for later.",
-        "594835": "ItemDelivery/Here cums the aeroplane/Dr Harvey needs your help convincing George to try some 'Super Juice'. This may take some creativity./Convince George to drink Super Juice/George {{spacechase0.JsonAssets/ObjectId: Super Juice}}/-1/420/-1/FALSE/Completion Text",
-        "594836": "Location/The Hugh Hefner achievement/You and Haley double blowjob for George/Meet up with Haley and go visit George/JoshHouse/-1/500/-1/FALSE/Completion Text",
-
         // Harvey
-        "594837": "Basic/Bitter with age/Harvey wants you to collect a sample of George's cum for testing purposes/Give George a blowjob/Solution/5948372/0/-1/False/Completion Text",
+        "594837": "Basic/Bitter with age/Harvey wants you to collect a sample of George's cum for testing purposes/Give George a BJ/Solution/5948372/0/-1/False/Completion Text",
         "5948372": "ItemDelivery/Bitter with age/Harvey wants you to collect a sample of George's cum for testing purposes/Deliver George's Cum to Dr Harvey/Harvey {{spacechase0.JsonAssets/ObjectId: George's Cum}}/-1/240/Reward Description/False/Ah, I hope this is fresh, or you will have gone through that for no reason at all.",
-        "594838": "LostItem/Jodi's medicine/Harvey wants you to take some 'medicine' to Jodi/Bring Jodi the special medicine/Jodi {{spacechase0.JsonAssets/ObjectId: Super Juice}} Hospital 2 3/-1/0/-1/FALSE/Oh, thank you for bringing that for me, @. Let me just see the instructions on it...#bOh! seems like I might need you to give me a hand with this one. It says that one of the side effects is producing too much milk of my own!",
-        "5948382": "Basic/Jodi's medicine/Help Jodi out by relieving the pressure of her milk/Milk Jodi/Solution/-1/355/Reward Description/False/Oh, thank you, @. I don't know how I would have coped without you around, dear.",
-        "594839": "Basic/Excuse me, Dr?/Maru wants you to distract Harvey (blowjob)/Hint/Solution/-1/420/-1/False/Completion Text",
-        "594840": "Location/Doctors & Nurses/Harvey & Maru event/Hint/Solution/-1/500/-1/False/Completion Text"
+        "594838": "LostItem/Jodi's medicine/Harvey wants you to take some 'medicine' to Jodi/Bring Jodi the special medicine from the doctors office/Jodi {{spacechase0.JsonAssets/ObjectId: Super Juice}} Hospital 5 5/5948382/0/-1/FALSE/Oh, thank you for bringing that for me, @. Let me just see the instructions on it...#$b#Oh! seems like I might need you to give me a hand with this one. It says that one of the side effects is producing too much milk of my own!",
+        "5948382": "Basic/Jodi's medicine/Help Jodi out by relieving the pressure building in her breasts/Milk Jodi to help her out./Solution/-1/355/Reward Description/False/Oh, thank you, @. I don't know how I would have coped without you around, dear.",
+        "594839": "Basic/Purely for medical science/Harvey has asked you come by for a physical. See how physical you can get/Go to the medical clinic when Maru isn't working/Solution/-1/420/-1/False/Completion Text",
+        "594840": "Basic/Doctors & Nurses/Dr Harvey and Nurse Maru need your assistance in a clinical trial. They promise you'll enjoy the testing process./Go to the clinic when Harvey and Maru are there./Solution/-1/500/-1/False/Completion Text"
       }
     }
   ]

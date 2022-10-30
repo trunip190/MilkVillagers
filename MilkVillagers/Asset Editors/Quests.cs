@@ -24,17 +24,17 @@ namespace MilkVillagers.Asset_Editors
             [594803] = "MTV_AbigailQ3T",    //Abigail quest 3
             [594804] = "MTV_AbigailQ4T",    //Abigail quest 4
 
-            [594805] = "mtv_ElliottQ1T",    //Elliott quest 1
-            [594806] = "mtv_ElliottQ2T",    //Elliott quest 2
-            [594807] = "mtv_ElliottQ3T",    //Elliott quest 3
-            [594808] = "mtv_ElliottQ4T",    //Elliott quest 4
+            [594805] = "MTV_ElliottQ1T",    //Elliott quest 1
+            [594806] = "MTV_ElliottQ2T",    //Elliott quest 2
+            [594807] = "MTV_ElliottQ3T",    //Elliott quest 3
+            [594808] = "MTV_ElliottQ4T",    //Elliott quest 4
 
-            [594809] = "",                  //Sebastian quest 1 pt 1
-            [5948092] = "MTV_SebQuest1T",   //Sebastian quest 1 pt 2
-            [594810] = "",                  //Sebastian quest 2 pt 1
-            [5948102]= "MTV_SebQuest2T",    //Sebastian quest 2 pt 2
-            [594811] = "MTV_SebQuest3T",    //Sebastian quest 3
-            [594812] = "MTV_SebQuest4T",    //Sebastian quest 4
+            //[594809] = "",                  //Sebastian quest 1 pt 1
+            [5948092] = "MTV_SebQ1T",   //Sebastian quest 1 pt 2
+            //[594810] = "",              //Sebastian quest 2 pt 1
+            [5948102]= "MTV_SebQ2T",    //Sebastian quest 2 pt 2
+            [594811] = "MTV_SebQ3T",    //Sebastian quest 3
+            [594812] = "MTV_SebQ4T",    //Sebastian quest 4
 
             [594813] = "MTV_MaruQ1T",       //Maru quest 1
             [594814] = "MTV_MaruQ2T",       //Maru quest 2
@@ -50,7 +50,7 @@ namespace MilkVillagers.Asset_Editors
             [594822] = "MTV_HaleyQ2T",      //Haley quest 2
             [594823] = "MTV_HaleyQ3T",      //Haley quest 3
             [594824] = "MTV_HaleyQ4-2",     //Haley quest 4
-            [5948242] = "",
+            //[5948242] = "",
 
             [594825] = "MTV_PennyQ1T",      //Penny quest 1
             [594826] = "MTV_PennyQ2T",      //Penny quest 2
@@ -65,9 +65,11 @@ namespace MilkVillagers.Asset_Editors
             [594833] = "MTV_GeorgeQ1T",     //George quest 1
             [594834] = "MTV_GeorgeQ2T",     //George quest 2
             [594835] = "MTV_GeorgeQ3T",     //George quest 3
-            [594836] = "MTV_GeorgeQ4T",     //George quest 4
+            //[594836] = "",     //George quest 4
+            //[5948362] = "MTV_GeorgeQ4T",     //George quest 4
 
-            [594837] = "MTV_HarveyQ1T",     //Harvey quest 1
+            [594837] = "",     //Harvey quest 1
+            [5948372] = "MTV_HarveyQ1T",     //Harvey quest 1
             [594838] = "MTV_HarveyQ2T",     //Harvey quest 2
             [594839] = "MTV_HarveyQ3T",     //Harvey quest 3
             [594840] = "MTV_HarveyQ4T",     //Harvey quest 4
@@ -78,25 +80,35 @@ namespace MilkVillagers.Asset_Editors
         /// </summary>
         public static Dictionary<string, int> QuestIDs = new Dictionary<string, int>()
         {
-            ["QuestAbi1"] = 594801,      // Abigail's Carrot
-            ["QuestAbi2"] = 594802,      // Abigail's Radishes
-            ["QuestAbi3"] = 594803,      // Abigail's Eggplant
-            ["QuestAbi4"] = 594804,      // Abigail's 'Helping hand'
+            ["QuestAbi1"] = 594801,
+            ["QuestAbi2"] = 594802,
+            ["QuestAbi3"] = 594803,
+            ["QuestAbi4"] = 594804,
+
+            ["QuestMaru1"] = 594813,
+            ["QuestMaru1-2"] = 5948132,
+            ["QuestMaru2"] = 594814,
+            ["QuestMaru2-2"] = 5948142,
+            ["QuestMaru3"] = 594815,
+            ["QuestMaru4"] = 594816,
+
+            ["QuestGeorge1"] = 594833,
+            ["QuestGeorge2"] = 594834,
+            ["QuestGeorge3"] = 594835,
+            ["QuestGeorge4"] = 594836,
+            ["QuestGeorge4-2"] = 5948362,
 
             ["QuestElliott1"] = 594805,
             ["QuestElliott2"] = 594806,
             ["QuestElliott3"] = 594807,
             ["QuestElliott4"] = 594808,
 
-            ["QuestSeb1"] = 594809,          // Curious tastes pt 1
-            ["QuestSeb2"] = 594810,          // Curious tastes pt 2
+            ["QuestSeb1"] = 594809,
+            ["QuestSeb1-2"] = 5948092,
+            ["QuestSeb2"] = 594810,
+            ["QuestSeb2-2"] = 5948102,
             ["QuestSeb3"] = 594811,
             ["QuestSeb4"] = 594812,
-
-            ["QuestMaru1"] = 594813,        // Scientific sample
-            ["QuestMaru2"] = 594814,        // Straight from the source
-            ["QuestMaru3"] = 594815,        // Magical Essence
-            ["QuestMaru4"] = 594816,        // Machine Pleasure
 
             ["QuestEmily1"] = 594817,
             ["QuestEmily2"] = 594818,
@@ -105,26 +117,25 @@ namespace MilkVillagers.Asset_Editors
 
             ["QuestHaley1"] = 594821,
             ["QuestHaley2"] = 594822,
+            ["QuestHaley2-2"] = 5948222,
             ["QuestHaley3"] = 594823,
             ["QuestHaley4"] = 594824,
+            ["QuestHaley4-2"] = 5948242,
 
-            ["QuestPenny1"] = 594825,        // Penny check out book quest.
-            ["QuestPenny2"] = 594826,        // Give Penny the book.
+            ["QuestPenny1"] = 594825,
+            ["QuestPenny2"] = 594826,
             ["QuestPenny3"] = 594827,
             ["QuestPenny4"] = 594828,
 
-            ["QuestLeah1"] = 594829,        // Leah's Muse quest
-            ["QuestLeah2"] = 594830,        // Leah requests
-            ["QuestLeah3"] = 594831,        // Leah takes farmer to Zuzu show.
+            ["QuestLeah1"] = 594829,
+            ["QuestLeah2"] = 594830,
+            ["QuestLeah3"] = 594831,
             ["QuestLeah4"] = 594832,
 
-            ["QuestGeorge1"] = 594833,       // Rejuvenating Milk
-            ["QuestGeorge2"] = 594834,
-            ["QuestGeorge3"] = 594835,
-            ["QuestGeorge4"] = 594836,
-
             ["QuestHarvey1"] = 594837,
+            ["QuestHarvey1-2"] = 5948372,
             ["QuestHarvey2"] = 594838,
+            ["QuestHarvey2-2"] = 5948382,
             ["QuestHarvey3"] = 594839,
             ["QuestHarvey4"] = 594840,
         };
