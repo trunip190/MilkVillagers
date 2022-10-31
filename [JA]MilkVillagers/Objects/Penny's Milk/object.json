@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Penny's Milk", //Spansih
+    "ko": "Penny's Milk", //Korean
+    "de": "Penny's Milk", //German
+    "fr": "Penny's Milk", //French
+    "hu": "Penny's Milk", //Hungarian
+    "it": "Penny's Milk", //Italian
+    "ja": "Penny's Milk", //Japanese
+    "pt": "Penny's Milk", //Portuguese
+    "ru": "Penny's Milk", //Russian
+    "tr": "Penny's Milk", //Turkish
+    "zh": "Penny's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Penny's milk", //Spansih
+    "ko": "A jug of Penny's milk", //Korean
+    "de": "A jug of Penny's milk", //German
+    "fr": "A jug of Penny's milk", //French
+    "hu": "A jug of Penny's milk", //Hungarian
+    "it": "A jug of Penny's milk", //Italian
+    "ja": "A jug of Penny's milk", //Japanese
+    "pt": "A jug of Penny's milk", //Portuguese
+    "ru": "A jug of Penny's milk", //Russian
+    "tr": "A jug of Penny's milk", //Turkish
+    "zh": "A jug of Penny's milk" //Chinese (Simplified)
   }
 }

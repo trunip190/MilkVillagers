@@ -24,29 +24,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Haley's Milk", //Spansih
+    "ko": "Haley's Milk", //Korean
+    "de": "Haley's Milk", //German
+    "fr": "Haley's Milk", //French
+    "hu": "Haley's Milk", //Hungarian
+    "it": "Haley's Milk", //Italian
+    "ja": "Haley's Milk", //Japanese
+    "pt": "Haley's Milk", //Portuguese
+    "ru": "Haley's Milk", //Russian
+    "tr": "Haley's Milk", //Turkish
+    "zh": "Haley's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Haley's milk", //Spansih
+    "ko": "A jug of Haley's milk", //Korean
+    "de": "A jug of Haley's milk", //German
+    "fr": "A jug of Haley's milk", //French
+    "hu": "A jug of Haley's milk", //Hungarian
+    "it": "A jug of Haley's milk", //Italian
+    "ja": "A jug of Haley's milk", //Japanese
+    "pt": "A jug of Haley's milk", //Portuguese
+    "ru": "A jug of Haley's milk", //Russian
+    "tr": "A jug of Haley's milk", //Turkish
+    "zh": "A jug of Haley's milk" //Chinese (Simplified)
   }
 }

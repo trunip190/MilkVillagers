@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Jodi's Milk", //Spansih
+    "ko": "Jodi's Milk", //Korean
+    "de": "Jodi's Milk", //German
+    "fr": "Jodi's Milk", //French
+    "hu": "Jodi's Milk", //Hungarian
+    "it": "Jodi's Milk", //Italian
+    "ja": "Jodi's Milk", //Japanese
+    "pt": "Jodi's Milk", //Portuguese
+    "ru": "Jodi's Milk", //Russian
+    "tr": "Jodi's Milk", //Turkish
+    "zh": "Jodi's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Jodi's milk", //Spansih
+    "ko": "A jug of Jodi's milk", //Korean
+    "de": "A jug of Jodi's milk", //German
+    "fr": "A jug of Jodi's milk", //French
+    "hu": "A jug of Jodi's milk", //Hungarian
+    "it": "A jug of Jodi's milk", //Italian
+    "ja": "A jug of Jodi's milk", //Japanese
+    "pt": "A jug of Jodi's milk", //Portuguese
+    "ru": "A jug of Jodi's milk", //Russian
+    "tr": "A jug of Jodi's milk", //Turkish
+    "zh": "A jug of Jodi's milk" //Chinese (Simplified)
   }
 }

@@ -1,6 +1,6 @@
 {
   "Name": "Protein Shake", //The name you would like your object to have, this should be identical to the subfolder name.
-  "Description": "A special protein shake made from a donor's \"milk\"'", //Description of the product.
+  "Description": "A special protein shake made from a donor's 'milk'", //Description of the product.
   "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
   "Edibility": 40, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "EdibleIsDrink": true,
@@ -46,29 +46,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Protein Shake", //Spansih
+    "ko": "Protein Shake", //Korean
+    "de": "Protein Shake", //German
+    "fr": "Protein Shake", //French
+    "hu": "Protein Shake", //Hungarian
+    "it": "Protein Shake", //Italian
+    "ja": "Protein Shake", //Japanese
+    "pt": "Protein Shake", //Portuguese
+    "ru": "Protein Shake", //Russian
+    "tr": "Protein Shake", //Turkish
+    "zh": "Protein Shake" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A special protein shake made from a donor's 'milk'", //Spansih
+    "ko": "A special protein shake made from a donor's 'milk'", //Korean
+    "de": "A special protein shake made from a donor's 'milk'", //German
+    "fr": "A special protein shake made from a donor's 'milk'", //French
+    "hu": "A special protein shake made from a donor's 'milk'", //Hungarian
+    "it": "A special protein shake made from a donor's 'milk'", //Italian
+    "ja": "A special protein shake made from a donor's 'milk'", //Japanese
+    "pt": "A special protein shake made from a donor's 'milk'", //Portuguese
+    "ru": "A special protein shake made from a donor's 'milk'", //Russian
+    "tr": "A special protein shake made from a donor's 'milk'", //Turkish
+    "zh": "A special protein shake made from a donor's 'milk'" //Chinese (Simplified)
   }
 }

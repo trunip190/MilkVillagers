@@ -18,29 +18,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
+    "es": "Readi Milk", //Spansih
+    "ko": "Readi Milk", //Korean
+    "de": "Readi Milk", //German
+    "fr": "Readi Milk", //French
+    "hu": "Readi Milk", //Hungarian
+    "it": "Readi Milk", //Italian
+    "ja": "Readi Milk", //Japanese
+    "pt": "Readi Milk", //Portuguese
+    "ru": "Readi Milk", //Russian
+    "tr": "Readi Milk", //Turkish
+    "zh": "Readi Milk", //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
+    "es": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Spansih
+    "ko": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Korean
+    "de": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //German
+    "fr": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //French
+    "hu": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Hungarian
+    "it": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Italian
+    "ja": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Japanese
+    "pt": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Portuguese
+    "ru": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Russian
+    "tr": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Turkish
+    "zh": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.", //Chinese (Simplified)
   },
 }

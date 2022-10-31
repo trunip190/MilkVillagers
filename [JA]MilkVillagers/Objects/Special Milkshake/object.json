@@ -46,29 +46,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Special Milkshake", //Spansih
+    "ko": "Special Milkshake", //Korean
+    "de": "Special Milkshake", //German
+    "fr": "Special Milkshake", //French
+    "hu": "Special Milkshake", //Hungarian
+    "it": "Special Milkshake", //Italian
+    "ja": "Special Milkshake", //Japanese
+    "pt": "Special Milkshake", //Portuguese
+    "ru": "Special Milkshake", //Russian
+    "tr": "Special Milkshake", //Turkish
+    "zh": "Special Milkshake" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "My milkshake brings all the...", //Spansih
+    "ko": "My milkshake brings all the...", //Korean
+    "de": "My milkshake brings all the...", //German
+    "fr": "My milkshake brings all the...", //French
+    "hu": "My milkshake brings all the...", //Hungarian
+    "it": "My milkshake brings all the...", //Italian
+    "ja": "My milkshake brings all the...", //Japanese
+    "pt": "My milkshake brings all the...", //Portuguese
+    "ru": "My milkshake brings all the...", //Russian
+    "tr": "My milkshake brings all the...", //Turkish
+    "zh": "My milkshake brings all the..." //Chinese (Simplified)
   }
 }

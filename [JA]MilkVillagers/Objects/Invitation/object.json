@@ -20,26 +20,26 @@
     "es": "Invitación", //Spanish
     "ko": "초대", //Korean
     "de": "Einladung", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "fr": "Invitation", //French
+    "hu": "Invitation", //Hungarian
+    "it": "Invitation", //Italian
+    "ja": "Invitation", //Japanese
+    "pt": "Invitation", //Portuguese
+    "ru": "Invitation", //Russian
+    "tr": "Invitation", //Turkish
+    "zh": "Invitation" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Indicates you found someone willing to come to Haley's sex event.", //Spansih
+    "ko": "Indicates you found someone willing to come to Haley's sex event.", //Korean
+    "de": "Indicates you found someone willing to come to Haley's sex event.", //German
+    "fr": "Indicates you found someone willing to come to Haley's sex event.", //French
+    "hu": "Indicates you found someone willing to come to Haley's sex event.", //Hungarian
+    "it": "Indicates you found someone willing to come to Haley's sex event.", //Italian
+    "ja": "Indicates you found someone willing to come to Haley's sex event.", //Japanese
+    "pt": "Indicates you found someone willing to come to Haley's sex event.", //Portuguese
+    "ru": "Indicates you found someone willing to come to Haley's sex event.", //Russian
+    "tr": "Indicates you found someone willing to come to Haley's sex event.", //Turkish
+    "zh": "Indicates you found someone willing to come to Haley's sex event." //Chinese (Simplified)
   }
 }

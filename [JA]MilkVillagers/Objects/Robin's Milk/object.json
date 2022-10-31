@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Robin's Milk", //Spansih
+    "ko": "Robin's Milk", //Korean
+    "de": "Robin's Milk", //German
+    "fr": "Robin's Milk", //French
+    "hu": "Robin's Milk", //Hungarian
+    "it": "Robin's Milk", //Italian
+    "ja": "Robin's Milk", //Japanese
+    "pt": "Robin's Milk", //Portuguese
+    "ru": "Robin's Milk", //Russian
+    "tr": "Robin's Milk", //Turkish
+    "zh": "Robin's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Robin's milk", //Spansih
+    "ko": "A jug of Robin's milk", //Korean
+    "de": "A jug of Robin's milk", //German
+    "fr": "A jug of Robin's milk", //French
+    "hu": "A jug of Robin's milk", //Hungarian
+    "it": "A jug of Robin's milk", //Italian
+    "ja": "A jug of Robin's milk", //Japanese
+    "pt": "A jug of Robin's milk", //Portuguese
+    "ru": "A jug of Robin's milk", //Russian
+    "tr": "A jug of Robin's milk", //Turkish
+    "zh": "A jug of Robin's milk" //Chinese (Simplified)
   }
 }

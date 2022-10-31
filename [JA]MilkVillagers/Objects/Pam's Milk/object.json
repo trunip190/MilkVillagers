@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Pam's Milk", //Spansih
+    "ko": "Pam's Milk", //Korean
+    "de": "Pam's Milk", //German
+    "fr": "Pam's Milk", //French
+    "hu": "Pam's Milk", //Hungarian
+    "it": "Pam's Milk", //Italian
+    "ja": "Pam's Milk", //Japanese
+    "pt": "Pam's Milk", //Portuguese
+    "ru": "Pam's Milk", //Russian
+    "tr": "Pam's Milk", //Turkish
+    "zh": "Pam's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Pam's milk", //Spansih
+    "ko": "A jug of Pam's milk", //Korean
+    "de": "A jug of Pam's milk", //German
+    "fr": "A jug of Pam's milk", //French
+    "hu": "A jug of Pam's milk", //Hungarian
+    "it": "A jug of Pam's milk", //Italian
+    "ja": "A jug of Pam's milk", //Japanese
+    "pt": "A jug of Pam's milk", //Portuguese
+    "ru": "A jug of Pam's milk", //Russian
+    "tr": "A jug of Pam's milk", //Turkish
+    "zh": "A jug of Pam's milk" //Chinese (Simplified)
   }
 }

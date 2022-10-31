@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Marnie's Milk", //Spansih
+    "ko": "Marnie's Milk", //Korean
+    "de": "Marnie's Milk", //German
+    "fr": "Marnie's Milk", //French
+    "hu": "Marnie's Milk", //Hungarian
+    "it": "Marnie's Milk", //Italian
+    "ja": "Marnie's Milk", //Japanese
+    "pt": "Marnie's Milk", //Portuguese
+    "ru": "Marnie's Milk", //Russian
+    "tr": "Marnie's Milk", //Turkish
+    "zh": "Marnie's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Marnie's milk", //Spansih
+    "ko": "A jug of Marnie's milk", //Korean
+    "de": "A jug of Marnie's milk", //German
+    "fr": "A jug of Marnie's milk", //French
+    "hu": "A jug of Marnie's milk", //Hungarian
+    "it": "A jug of Marnie's milk", //Italian
+    "ja": "A jug of Marnie's milk", //Japanese
+    "pt": "A jug of Marnie's milk", //Portuguese
+    "ru": "A jug of Marnie's milk", //Russian
+    "tr": "A jug of Marnie's milk", //Turkish
+    "zh": "A jug of Marnie's milk" //Chinese (Simplified)
   }
 }

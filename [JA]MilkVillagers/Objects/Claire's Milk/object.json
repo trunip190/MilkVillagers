@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Claire's Milk", //Spansih
+    "ko": "Claire's Milk", //Korean
+    "de": "Claire's Milk", //German
+    "fr": "Claire's Milk", //French
+    "hu": "Claire's Milk", //Hungarian
+    "it": "Claire's Milk", //Italian
+    "ja": "Claire's Milk", //Japanese
+    "pt": "Claire's Milk", //Portuguese
+    "ru": "Claire's Milk", //Russian
+    "tr": "Claire's Milk", //Turkish
+    "zh": "Claire's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Claire's milk", //Spansih
+    "ko": "A jug of Claire's milk", //Korean
+    "de": "A jug of Claire's milk", //German
+    "fr": "A jug of Claire's milk", //French
+    "hu": "A jug of Claire's milk", //Hungarian
+    "it": "A jug of Claire's milk", //Italian
+    "ja": "A jug of Claire's milk", //Japanese
+    "pt": "A jug of Claire's milk", //Portuguese
+    "ru": "A jug of Claire's milk", //Russian
+    "tr": "A jug of Claire's milk", //Turkish
+    "zh": "A jug of Claire's milk" //Chinese (Simplified)
   }
 }

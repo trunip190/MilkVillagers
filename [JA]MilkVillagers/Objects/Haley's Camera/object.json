@@ -1,6 +1,6 @@
 {
   "Name": "Haley's Camera", //The name you would like your object to have, this should be identical to the subfolder name.
-  "Description": "The camera Haley uses to take her photos with", //Description of the product.
+  "Description": "The camera Haley uses to take her photos with.", //Description of the product.
   "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
   "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "Price": 1, //How much your item sells for.
@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Haley's Camera", //Spansih
+    "ko": "Haley's Camera", //Korean
+    "de": "Haley's Camera", //German
+    "fr": "Haley's Camera", //French
+    "hu": "Haley's Camera", //Hungarian
+    "it": "Haley's Camera", //Italian
+    "ja": "Haley's Camera", //Japanese
+    "pt": "Haley's Camera", //Portuguese
+    "ru": "Haley's Camera", //Russian
+    "tr": "Haley's Camera", //Turkish
+    "zh": "Haley's Camera" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "The camera Haley uses to take her photos with.", //Spansih
+    "ko": "The camera Haley uses to take her photos with.", //Korean
+    "de": "The camera Haley uses to take her photos with.", //German
+    "fr": "The camera Haley uses to take her photos with.", //French
+    "hu": "The camera Haley uses to take her photos with.", //Hungarian
+    "it": "The camera Haley uses to take her photos with.", //Italian
+    "ja": "The camera Haley uses to take her photos with.", //Japanese
+    "pt": "The camera Haley uses to take her photos with.", //Portuguese
+    "ru": "The camera Haley uses to take her photos with.", //Russian
+    "tr": "The camera Haley uses to take her photos with.", //Turkish
+    "zh": "The camera Haley uses to take her photos with." //Chinese (Simplified)
   }
 }

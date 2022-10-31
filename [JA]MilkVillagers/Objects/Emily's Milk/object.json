@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
+    "es": "Emily's Milk", //Spansih
+    "ko": "Emily's Milk", //Korean
+    "de": "Emily's Milk", //German
     "fr": "Le lait d'Emilie", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "hu": "Emily's Milk", //Hungarian
+    "it": "Emily's Milk", //Italian
+    "ja": "Emily's Milk", //Japanese
+    "pt": "Emily's Milk", //Portuguese
+    "ru": "Emily's Milk", //Russian
+    "tr": "Emily's Milk", //Turkish
+    "zh": "Emily's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
+    "es": "A jug of Emily's milk", //Spansih
+    "ko": "A jug of Emily's milk", //Korean
+    "de": "A jug of Emily's milk", //German
     "fr": "Un pot de lait d'Emily", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "hu": "A jug of Emily's milk", //Hungarian
+    "it": "A jug of Emily's milk", //Italian
+    "ja": "A jug of Emily's milk", //Japanese
+    "pt": "A jug of Emily's milk", //Portuguese
+    "ru": "A jug of Emily's milk", //Russian
+    "tr": "A jug of Emily's milk", //Turkish
+    "zh": "A jug of Emily's milk" //Chinese (Simplified)
   }
 }

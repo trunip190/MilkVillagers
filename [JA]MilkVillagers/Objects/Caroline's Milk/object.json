@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Caroline's Milk", //Spansih
+    "ko": "Caroline's Milk", //Korean
+    "de": "Caroline's Milk", //German
+    "fr": "Caroline's Milk", //French
+    "hu": "Caroline's Milk", //Hungarian
+    "it": "Caroline's Milk", //Italian
+    "ja": "Caroline's Milk", //Japanese
+    "pt": "Caroline's Milk", //Portuguese
+    "ru": "Caroline's Milk", //Russian
+    "tr": "Caroline's Milk", //Turkish
+    "zh": "Caroline's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Caroline's milk", //Spansih
+    "ko": "A jug of Caroline's milk", //Korean
+    "de": "A jug of Caroline's milk", //German
+    "fr": "A jug of Caroline's milk", //French
+    "hu": "A jug of Caroline's milk", //Hungarian
+    "it": "A jug of Caroline's milk", //Italian
+    "ja": "A jug of Caroline's milk", //Japanese
+    "pt": "A jug of Caroline's milk", //Portuguese
+    "ru": "A jug of Caroline's milk", //Russian
+    "tr": "A jug of Caroline's milk", //Turkish
+    "zh": "A jug of Caroline's milk" //Chinese (Simplified)
   }
 }

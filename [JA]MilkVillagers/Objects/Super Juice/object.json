@@ -50,29 +50,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Super Juice", //Spansih
+    "ko": "Super Juice", //Korean
+    "de": "Super Juice", //German
+    "fr": "Super Juice", //French
+    "hu": "Super Juice", //Hungarian
+    "it": "Super Juice", //Italian
+    "ja": "Super Juice", //Japanese
+    "pt": "Super Juice", //Portuguese
+    "ru": "Super Juice", //Russian
+    "tr": "Super Juice", //Turkish
+    "zh": "Super Juice" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "The perfect fusion of male and female juices", //Spansih
+    "ko": "The perfect fusion of male and female juices", //Korean
+    "de": "The perfect fusion of male and female juices", //German
+    "fr": "The perfect fusion of male and female juices", //French
+    "hu": "The perfect fusion of male and female juices", //Hungarian
+    "it": "The perfect fusion of male and female juices", //Italian
+    "ja": "The perfect fusion of male and female juices", //Japanese
+    "pt": "The perfect fusion of male and female juices", //Portuguese
+    "ru": "The perfect fusion of male and female juices", //Russian
+    "tr": "The perfect fusion of male and female juices", //Turkish
+    "zh": "The perfect fusion of male and female juices" //Chinese (Simplified)
   }
 }

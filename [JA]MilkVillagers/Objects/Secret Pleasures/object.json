@@ -50,29 +50,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Secret Pleasures", //Spansih
+    "ko": "Secret Pleasures", //Korean
+    "de": "Secret Pleasures", //German
+    "fr": "Secret Pleasures", //French
+    "hu": "Secret Pleasures", //Hungarian
+    "it": "Secret Pleasures", //Italian
+    "ja": "Secret Pleasures", //Japanese
+    "pt": "Secret Pleasures", //Portuguese
+    "ru": "Secret Pleasures", //Russian
+    "tr": "Secret Pleasures", //Turkish
+    "zh": "Secret Pleasures" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A special cocktail immortalising secret love.", //Spansih
+    "ko": "A special cocktail immortalising secret love.", //Korean
+    "de": "A special cocktail immortalising secret love.", //German
+    "fr": "A special cocktail immortalising secret love.", //French
+    "hu": "A special cocktail immortalising secret love.", //Hungarian
+    "it": "A special cocktail immortalising secret love.", //Italian
+    "ja": "A special cocktail immortalising secret love.", //Japanese
+    "pt": "A special cocktail immortalising secret love.", //Portuguese
+    "ru": "A special cocktail immortalising secret love.", //Russian
+    "tr": "A special cocktail immortalising secret love.", //Turkish
+    "zh": "A special cocktail immortalising secret love." //Chinese (Simplified)
   }
 }

@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Evelyn's Milk", //Spansih
+    "ko": "Evelyn's Milk", //Korean
+    "de": "Evelyn's Milk", //German
+    "fr": "Evelyn's Milk", //French
+    "hu": "Evelyn's Milk", //Hungarian
+    "it": "Evelyn's Milk", //Italian
+    "ja": "Evelyn's Milk", //Japanese
+    "pt": "Evelyn's Milk", //Portuguese
+    "ru": "Evelyn's Milk", //Russian
+    "tr": "Evelyn's Milk", //Turkish
+    "zh": "Evelyn's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Evelyn's milk", //Spansih
+    "ko": "A jug of Evelyn's milk", //Korean
+    "de": "A jug of Evelyn's milk", //German
+    "fr": "A jug of Evelyn's milk", //French
+    "hu": "A jug of Evelyn's milk", //Hungarian
+    "it": "A jug of Evelyn's milk", //Italian
+    "ja": "A jug of Evelyn's milk", //Japanese
+    "pt": "A jug of Evelyn's milk", //Portuguese
+    "ru": "A jug of Evelyn's milk", //Russian
+    "tr": "A jug of Evelyn's milk", //Turkish
+    "zh": "A jug of Evelyn's milk" //Chinese (Simplified)
   }
 }

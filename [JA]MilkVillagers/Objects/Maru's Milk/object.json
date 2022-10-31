@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Maru's Milk", //Spansih
+    "ko": "Maru's Milk", //Korean
+    "de": "Maru's Milk", //German
+    "fr": "Maru's Milk", //French
+    "hu": "Maru's Milk", //Hungarian
+    "it": "Maru's Milk", //Italian
+    "ja": "Maru's Milk", //Japanese
+    "pt": "Maru's Milk", //Portuguese
+    "ru": "Maru's Milk", //Russian
+    "tr": "Maru's Milk", //Turkish
+    "zh": "Maru's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Maru's milk", //Spansih
+    "ko": "A jug of Maru's milk", //Korean
+    "de": "A jug of Maru's milk", //German
+    "fr": "A jug of Maru's milk", //French
+    "hu": "A jug of Maru's milk", //Hungarian
+    "it": "A jug of Maru's milk", //Italian
+    "ja": "A jug of Maru's milk", //Japanese
+    "pt": "A jug of Maru's milk", //Portuguese
+    "ru": "A jug of Maru's milk", //Russian
+    "tr": "A jug of Maru's milk", //Turkish
+    "zh": "A jug of Maru's milk" //Chinese (Simplified)
   }
 }

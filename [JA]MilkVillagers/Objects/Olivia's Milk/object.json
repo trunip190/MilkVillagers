@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Olivia's Milk", //Spansih
+    "ko": "Olivia's Milk", //Korean
+    "de": "Olivia's Milk", //German
+    "fr": "Olivia's Milk", //French
+    "hu": "Olivia's Milk", //Hungarian
+    "it": "Olivia's Milk", //Italian
+    "ja": "Olivia's Milk", //Japanese
+    "pt": "Olivia's Milk", //Portuguese
+    "ru": "Olivia's Milk", //Russian
+    "tr": "Olivia's Milk", //Turkish
+    "zh": "Olivia's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of Olivia's milk", //Spansih
+    "ko": "A jug of Olivia's milk", //Korean
+    "de": "A jug of Olivia's milk", //German
+    "fr": "A jug of Olivia's milk", //French
+    "hu": "A jug of Olivia's milk", //Hungarian
+    "it": "A jug of Olivia's milk", //Italian
+    "ja": "A jug of Olivia's milk", //Japanese
+    "pt": "A jug of Olivia's milk", //Portuguese
+    "ru": "A jug of Olivia's milk", //Russian
+    "tr": "A jug of Olivia's milk", //Turkish
+    "zh": "A jug of Olivia's milk" //Chinese (Simplified)
   }
 }

@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Mr. Qi's Essence", //Spansih
+    "ko": "Mr. Qi's Essence", //Korean
+    "de": "Mr. Qi's Essence", //German
+    "fr": "Mr. Qi's Essence", //French
+    "hu": "Mr. Qi's Essence", //Hungarian
+    "it": "Mr. Qi's Essence", //Italian
+    "ja": "Mr. Qi's Essence", //Japanese
+    "pt": "Mr. Qi's Essence", //Portuguese
+    "ru": "Mr. Qi's Essence", //Russian
+    "tr": "Mr. Qi's Essence", //Turkish
+    "zh": "Mr. Qi's Essence" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Spansih
+    "ko": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Korean
+    "de": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //German
+    "fr": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //French
+    "hu": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Hungarian
+    "it": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Italian
+    "ja": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Japanese
+    "pt": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Portuguese
+    "ru": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Russian
+    "tr": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light", //Turkish
+    "zh": "A bottle of Mr. Qi's Essence. It shifts and sparkles in the light" //Chinese (Simplified)
   }
 }

@@ -25,29 +25,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Dwarf's Essence", //Spansih
+    "ko": "Dwarf's Essence", //Korean
+    "de": "Dwarf's Essence", //German
+    "fr": "Dwarf's Essence", //French
+    "hu": "Dwarf's Essence", //Hungarian
+    "it": "Dwarf's Essence", //Italian
+    "ja": "Dwarf's Essence", //Japanese
+    "pt": "Dwarf's Essence", //Portuguese
+    "ru": "Dwarf's Essence", //Russian
+    "tr": "Dwarf's Essence", //Turkish
+    "zh": "Dwarf's Essence" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A bottle of Dwarf's cum", //Spansih
+    "ko": "A bottle of Dwarf's cum", //Korean
+    "de": "A bottle of Dwarf's cum", //German
+    "fr": "A bottle of Dwarf's cum", //French
+    "hu": "A bottle of Dwarf's cum", //Hungarian
+    "it": "A bottle of Dwarf's cum", //Italian
+    "ja": "A bottle of Dwarf's cum", //Japanese
+    "pt": "A bottle of Dwarf's cum", //Portuguese
+    "ru": "A bottle of Dwarf's cum", //Russian
+    "tr": "A bottle of Dwarf's cum", //Turkish
+    "zh": "A bottle of Dwarf's cum" //Chinese (Simplified)
   }
 }
