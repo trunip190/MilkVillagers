@@ -442,7 +442,7 @@ namespace MilkVillagers
                 if (NPCtarget != null)
                 {
                     List<Response> choices = GenerateSexOptions(NPCtarget); // Get list of available options for this character
-                    ModFunctions.LogVerbose($"{NPCtarget.Name}: gendercode = {NPCtarget.Gender}, age = {NPCtarget.Age}");
+                    ModFunctions.LogVerbose($"{NPCtarget.Name}: gendercode = {NPCtarget.Gender}, age = {NPCtarget.Age}", LogLevel.Alert);
 
                     currentTarget = NPCtarget;
                     running = false;
@@ -528,7 +528,7 @@ namespace MilkVillagers
             }
 
             //TODO change this for multiplayer
-            foreach ( Farmer who in Game1.getOnlineFarmers())
+            foreach (Farmer who in Game1.getOnlineFarmers())
             {
                 SendNewMail(who);
             }
@@ -753,7 +753,7 @@ namespace MilkVillagers
                     ModFunctions.LogVerbose($"{haley.Name} {check} {dialogues}", LogLevel.Info);
                     haley.setNewDialogue(dialogues);
                 }
-                if ( questID == 594836)
+                if (questID == 594836)
                 {
                     ModFunctions.LogVerbose("Setting ActiveConversationEvent to MTV_GeorgeQ4", LogLevel.Info);
                     Game1.player.activeDialogueEvents.Add("MTV_GeorgeQ4", 0);
@@ -1388,60 +1388,68 @@ namespace MilkVillagers
             #endregion
 
             #region set item to give
-            switch (npc.Name) //Give items to player
+            if (false)
             {
-                // Milk
-                case "Abigail": ItemCode = TempRefs.MilkAbig; Quality = 2; Quantity = 2; break;
-                case "Caroline": ItemCode = TempRefs.MilkCaro; Quality = 2; Quantity = 2; break;
-                case "Emily": ItemCode = TempRefs.MilkEmil; Quality = 2; break;
-                case "Evelyn": ItemCode = TempRefs.MilkEvel; Quality = 0; break;
-                case "Haley": ItemCode = TempRefs.MilkHale; Quality = 2; Quantity = 2; break;
-                case "Jodi": ItemCode = TempRefs.MilkJodi; Quality = 1; Quantity = 2; break;
-                case "Leah": ItemCode = TempRefs.MilkLeah; Quality = 2; Quantity = 2; break;
-                case "Marnie": ItemCode = TempRefs.MilkMarn; Quality = 1; Quantity = 3; break;
-                case "Maru": ItemCode = TempRefs.MilkMaru; Quality = 2; Quantity = 2; break;
-                case "Pam": ItemCode = TempRefs.MilkPam; Quality = 0; break;
-                case "Penny": ItemCode = TempRefs.MilkPenn; Quality = 2; break;
-                case "Robin": ItemCode = TempRefs.MilkRobi; Quality = 1; break;
-                case "Sandy": ItemCode = TempRefs.MilkSand; Quality = 2; Quantity = 2; break;
+                switch (npc.Name) //Give items to player
+                {
+                    // Milk
+                    case "Abigail": ItemCode = TempRefs.MilkAbig; Quality = 2; Quantity = 2; break;
+                    case "Caroline": ItemCode = TempRefs.MilkCaro; Quality = 2; Quantity = 2; break;
+                    case "Emily": ItemCode = TempRefs.MilkEmil; Quality = 2; break;
+                    case "Evelyn": ItemCode = TempRefs.MilkEvel; Quality = 0; break;
+                    case "Haley": ItemCode = TempRefs.MilkHale; Quality = 2; Quantity = 2; break;
+                    case "Jodi": ItemCode = TempRefs.MilkJodi; Quality = 1; Quantity = 2; break;
+                    case "Leah": ItemCode = TempRefs.MilkLeah; Quality = 2; Quantity = 2; break;
+                    case "Marnie": ItemCode = TempRefs.MilkMarn; Quality = 1; Quantity = 3; break;
+                    case "Maru": ItemCode = TempRefs.MilkMaru; Quality = 2; Quantity = 2; break;
+                    case "Pam": ItemCode = TempRefs.MilkPam; Quality = 0; break;
+                    case "Penny": ItemCode = TempRefs.MilkPenn; Quality = 2; break;
+                    case "Robin": ItemCode = TempRefs.MilkRobi; Quality = 1; break;
+                    case "Sandy": ItemCode = TempRefs.MilkSand; Quality = 2; Quantity = 2; break;
 
-                case "Sophia": ItemCode = TempRefs.MilkSophia; Quality = 2; Quantity = 2; break;
-                case "Olivia": ItemCode = TempRefs.MilkOlivia; Quality = 1; break;
-                case "Susan": ItemCode = TempRefs.MilkSusan; Quality = 2; Quantity = 2; break;
-                case "Claire": ItemCode = TempRefs.MilkClaire; Quality = 1; break;
+                    case "Sophia": ItemCode = TempRefs.MilkSophia; Quality = 2; Quantity = 2; break;
+                    case "Olivia": ItemCode = TempRefs.MilkOlivia; Quality = 1; break;
+                    case "Susan": ItemCode = TempRefs.MilkSusan; Quality = 2; Quantity = 2; break;
+                    case "Claire": ItemCode = TempRefs.MilkClaire; Quality = 1; break;
 
-                // Cum
-                case "Alex": ItemCode = TempRefs.MilkAlex; Quality = 2; Quantity = 2; break;
-                case "Clint": ItemCode = TempRefs.MilkClint; Quality = 1; break;
-                case "Demetrius": ItemCode = TempRefs.MilkDemetrius; Quality = 2; Quantity = 2; break;
-                case "Elliott": ItemCode = TempRefs.MilkElliott; Quality = 2; break;
-                case "George": ItemCode = TempRefs.MilkGeorge; Quality = 0; break;
-                case "Gus": ItemCode = TempRefs.MilkGus; Quality = 1; Quantity = 2; break;
-                case "Harvey": ItemCode = TempRefs.MilkHarv; Quality = 2; Quantity = 2; break;
-                case "Kent": ItemCode = TempRefs.MilkKent; Quality = 2; Quantity = 2; break;
-                case "Lewis": ItemCode = TempRefs.MilkLewis; Quality = 0; break;
-                case "Linus": ItemCode = TempRefs.MilkLinus; Quality = 1; break;
-                case "Pierre": ItemCode = TempRefs.MilkPierre; Quality = 1; break;
-                case "Sam": ItemCode = TempRefs.MilkSam; Quality = 2; break;
-                case "Sebastian": ItemCode = TempRefs.MilkSeb; Quality = 2; break;
-                case "Shane": ItemCode = TempRefs.MilkShane; Quality = 1; break;
-                case "Willy": ItemCode = TempRefs.MilkWilly; Quality = 1; break;
+                    // Cum
+                    case "Alex": ItemCode = TempRefs.MilkAlex; Quality = 2; Quantity = 2; break;
+                    case "Clint": ItemCode = TempRefs.MilkClint; Quality = 1; break;
+                    case "Demetrius": ItemCode = TempRefs.MilkDemetrius; Quality = 2; Quantity = 2; break;
+                    case "Elliott": ItemCode = TempRefs.MilkElliott; Quality = 2; break;
+                    case "George": ItemCode = TempRefs.MilkGeorge; Quality = 0; break;
+                    case "Gus": ItemCode = TempRefs.MilkGus; Quality = 1; Quantity = 2; break;
+                    case "Harvey": ItemCode = TempRefs.MilkHarv; Quality = 2; Quantity = 2; break;
+                    case "Kent": ItemCode = TempRefs.MilkKent; Quality = 2; Quantity = 2; break;
+                    case "Lewis": ItemCode = TempRefs.MilkLewis; Quality = 0; break;
+                    case "Linus": ItemCode = TempRefs.MilkLinus; Quality = 1; break;
+                    case "Pierre": ItemCode = TempRefs.MilkPierre; Quality = 1; break;
+                    case "Sam": ItemCode = TempRefs.MilkSam; Quality = 2; break;
+                    case "Sebastian": ItemCode = TempRefs.MilkSeb; Quality = 2; break;
+                    case "Shane": ItemCode = TempRefs.MilkShane; Quality = 1; break;
+                    case "Willy": ItemCode = TempRefs.MilkWilly; Quality = 1; break;
 
-                //Magical
-                case "Dwarf": ItemCode = TempRefs.MilkDwarf; Quality = 1; break;
-                case "Krobus": ItemCode = TempRefs.MilkKrobus; Quality = 1; break;
-                case "Mister Qi": ItemCode = TempRefs.MilkQi; Quality = 2; break;
-                case "Wizard": ItemCode = TempRefs.MilkWiz; Quality = 2; break;
+                    //Magical
+                    case "Dwarf": ItemCode = TempRefs.MilkDwarf; Quality = 1; break;
+                    case "Krobus": ItemCode = TempRefs.MilkKrobus; Quality = 1; break;
+                    case "Mister Qi": ItemCode = TempRefs.MilkQi; Quality = 2; break;
+                    case "Wizard": ItemCode = TempRefs.MilkWiz; Quality = 2; break;
 
-                case "Andy": ItemCode = TempRefs.MilkAndy; Quality = 1; break;
-                case "Victor": ItemCode = TempRefs.MilkVictor; Quality = 2; break;
-                case "Martin": ItemCode = TempRefs.MilkMartin; Quality = 1; Quantity = 2; break;
+                    case "Andy": ItemCode = TempRefs.MilkAndy; Quality = 1; break;
+                    case "Victor": ItemCode = TempRefs.MilkVictor; Quality = 2; break;
+                    case "Martin": ItemCode = TempRefs.MilkMartin; Quality = 1; Quantity = 2; break;
 
-                default: //NPC's I don't know.
-                    ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
-                    Quality = 1;
-                    ModFunctions.LogVerbose($"Couldn't find {npc.Name} in the list of items", LogLevel.Debug);
-                    break;
+                    default: //NPC's I don't know.
+                        ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
+                        Quality = 1;
+                        ModFunctions.LogVerbose($"Couldn't find {npc.Name} in the list of items", LogLevel.Debug);
+                        break;
+                }
+            }
+            else
+            {
+                ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
+                Quality = 1;
             }
 
             // Don't remove this - It's a good way of speeding up for people.
@@ -1457,7 +1465,6 @@ namespace MilkVillagers
                 }
             }
 
-            string SItemCode = $"[{ItemCode}]";
             AddItem = new sObject(ItemCode, Quantity, quality: Quality);
             CurrentFarmer = who;
 
@@ -1477,7 +1484,7 @@ namespace MilkVillagers
             // If no male milking, don't give item.
             if ((npc.Gender == 0 & !Config.MilkMale) || !Config.CollectItems)
             {
-                SItemCode = "";
+                //SItemCode = "";
                 AddItem = null;
             }
             #endregion
@@ -1489,6 +1496,7 @@ namespace MilkVillagers
                 chosenString = GetRandomString(dialogues.Split(new string[] { "#split#" }, System.StringSplitOptions.None));
 
                 #region move the whole item selection to a separate method.
+
                 // Get Item code from ChosenString
                 if (chosenString.Contains("["))
                 {
@@ -1499,8 +1507,10 @@ namespace MilkVillagers
                     ModFunctions.LogVerbose($"{npc.Name} value was {val}", LogLevel.Trace);
                     int.TryParse(val, out ItemCode);
                     chosenString = chosenString.Replace($"[{val}]", "");
-
                 }
+
+                AddItem = new sObject(ItemCode, 1);
+                //string SItemCode = $"[{ItemCode}]";
 
                 // Get Quality from ChosenString
                 if (chosenString.Contains("{Quality:"))
@@ -1573,11 +1583,11 @@ namespace MilkVillagers
                     case "milk_start":
                         if (npc.Gender == 1)
                         {
-                            chosenString = $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. {SItemCode}";
+                            chosenString = $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. [{ItemCode}]";
                         }
                         else if (npc.Gender == 0)
                         {
-                            chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! {SItemCode}";
+                            chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! [{ItemCode}]";
                         }
                         else
                         {
@@ -1608,7 +1618,7 @@ namespace MilkVillagers
 
                     case "BJ":
                         chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. " +
-                            $"After a couple of quick licks to get them hard, you start sucking on their penis*#$b#I think I'm getting close! Here it comes! {SItemCode}";
+                            $"After a couple of quick licks to get them hard, you start sucking on their penis*#$b#I think I'm getting close! Here it comes! [{ItemCode}]";
                         Game1.drawDialogue(npc, chosenString);
                         success = true;
                         break;
@@ -1734,7 +1744,7 @@ namespace MilkVillagers
         private void SendAllMail(string command, string[] args)
         {
             Farmer Who = Game1.player;
-            foreach ( string s in MailEditor.Mail)
+            foreach (string s in MailEditor.Mail)
             {
                 Who.mailbox.Add(s);
             }

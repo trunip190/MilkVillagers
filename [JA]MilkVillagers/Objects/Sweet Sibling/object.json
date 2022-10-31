@@ -1,6 +1,6 @@
 {
   "Name": "Sweet Sibling", //The name you would like your object to have, this should be identical to the subfolder name.
-  "Description": "A special milkshake that embodies a sisterly bond. Just add a fruit.", //Description of the product.
+  "Description": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Description of the product.
   "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
   "Edibility": 70, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "EdibleIsDrink": true,
@@ -54,29 +54,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Sweet Sibling", //Spansih
+    "ko": "Sweet Sibling", //Korean
+    "de": "Sweet Sibling", //German
+    "fr": "Sweet Sibling", //French
+    "hu": "Sweet Sibling", //Hungarian
+    "it": "Sweet Sibling", //Italian
+    "ja": "Sweet Sibling", //Japanese
+    "pt": "Sweet Sibling", //Portuguese
+    "ru": "Sweet Sibling", //Russian
+    "tr": "Sweet Sibling", //Turkish
+    "zh": "Sweet Sibling" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Spansih
+    "ko": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Korean
+    "de": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //German
+    "fr": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //French
+    "hu": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Hungarian
+    "it": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Italian
+    "ja": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Japanese
+    "pt": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Portuguese
+    "ru": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Russian
+    "tr": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Turkish
+    "zh": "A special milkshake that embodies a sisterly bond. Just add a strawberry." //Chinese (Simplified)
   }
 }

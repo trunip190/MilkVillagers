@@ -32,29 +32,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Woman's Milk", //Spansih
+    "ko": "Woman's Milk", //Korean
+    "de": "Woman's Milk", //German
+    "fr": "Woman's Milk", //French
+    "hu": "Woman's Milk", //Hungarian
+    "it": "Woman's Milk", //Italian
+    "ja": "Woman's Milk", //Japanese
+    "pt": "Woman's Milk", //Portuguese
+    "ru": "Woman's Milk", //Russian
+    "tr": "Woman's Milk", //Turkish
+    "zh": "Woman's Milk" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A jug of woman's milk", //Spansih
+    "ko": "A jug of woman's milk", //Korean
+    "de": "A jug of woman's milk", //German
+    "fr": "A jug of woman's milk", //French
+    "hu": "A jug of woman's milk", //Hungarian
+    "it": "A jug of woman's milk", //Italian
+    "ja": "A jug of woman's milk", //Japanese
+    "pt": "A jug of woman's milk", //Portuguese
+    "ru": "A jug of woman's milk", //Russian
+    "tr": "A jug of woman's milk", //Turkish
+    "zh": "A jug of woman's milk" //Chinese (Simplified)
   }
 }

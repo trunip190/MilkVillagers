@@ -32,29 +32,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Magical Essence", //Spansih
+    "ko": "Magical Essence", //Korean
+    "de": "Magical Essence", //German
+    "fr": "Magical Essence", //French
+    "hu": "Magical Essence", //Hungarian
+    "it": "Magical Essence", //Italian
+    "ja": "Magical Essence", //Japanese
+    "pt": "Magical Essence", //Portuguese
+    "ru": "Magical Essence", //Russian
+    "tr": "Magical Essence", //Turkish
+    "zh": "Magical Essence" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A bottle of magical Essence. It shifts and sparkles in the light", //Spansih
+    "ko": "A bottle of magical Essence. It shifts and sparkles in the light", //Korean
+    "de": "A bottle of magical Essence. It shifts and sparkles in the light", //German
+    "fr": "A bottle of magical Essence. It shifts and sparkles in the light", //French
+    "hu": "A bottle of magical Essence. It shifts and sparkles in the light", //Hungarian
+    "it": "A bottle of magical Essence. It shifts and sparkles in the light", //Italian
+    "ja": "A bottle of magical Essence. It shifts and sparkles in the light", //Japanese
+    "pt": "A bottle of magical Essence. It shifts and sparkles in the light", //Portuguese
+    "ru": "A bottle of magical Essence. It shifts and sparkles in the light", //Russian
+    "tr": "A bottle of magical Essence. It shifts and sparkles in the light", //Turkish
+    "zh": "A bottle of magical Essence. It shifts and sparkles in the light" //Chinese (Simplified)
   }
 }

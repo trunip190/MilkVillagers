@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Wizard's Essence", //Spansih
+    "ko": "Wizard's Essence", //Korean
+    "de": "Wizard's Essence", //German
+    "fr": "Wizard's Essence", //French
+    "hu": "Wizard's Essence", //Hungarian
+    "it": "Wizard's Essence", //Italian
+    "ja": "Wizard's Essence", //Japanese
+    "pt": "Wizard's Essence", //Portuguese
+    "ru": "Wizard's Essence", //Russian
+    "tr": "Wizard's Essence", //Turkish
+    "zh": "Wizard's Essence" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "A bottle of Wizard's cum", //Spansih
+    "ko": "A bottle of Wizard's cum", //Korean
+    "de": "A bottle of Wizard's cum", //German
+    "fr": "A bottle of Wizard's cum", //French
+    "hu": "A bottle of Wizard's cum", //Hungarian
+    "it": "A bottle of Wizard's cum", //Italian
+    "ja": "A bottle of Wizard's cum", //Japanese
+    "pt": "A bottle of Wizard's cum", //Portuguese
+    "ru": "A bottle of Wizard's cum", //Russian
+    "tr": "A bottle of Wizard's cum", //Turkish
+    "zh": "A bottle of Wizard's cum" //Chinese (Simplified)
   }
 }

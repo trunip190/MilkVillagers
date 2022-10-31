@@ -89,14 +89,20 @@ namespace MilkVillagers
 
             if (Male)
             {
-                ModFunctions.LogVerbose($"{CraftingData["Special Milk"]}");
+                if (CraftingData.ContainsKey("Special Milk"))
+                {
+                    ModFunctions.LogVerbose($"{CraftingData["Special Milk"]}");
+                }
                 CraftingData["Special Milk"] = $"{TempRefs.CumType} 1/Field/{TempRefs.MilkSpecial}/false/Special Milk";
                 ModFunctions.LogVerbose($"{CraftingData["Special Milk"]}");
             }
 
             if (Female)
             {
-                ModFunctions.LogVerbose($"{CraftingData["Woman's Milk"]}");
+                if (CraftingData.ContainsKey("Woman's Milk"))
+                {
+                    ModFunctions.LogVerbose($"{CraftingData["Woman's Milk"]}");
+                }
                 CraftingData["Woman's Milk"] = $"{TempRefs.MilkType} 1/Field/{TempRefs.MilkGeneric}/false/Woman's Milk";
                 ModFunctions.LogVerbose($"{CraftingData["Woman's Milk"]}");
             }
@@ -126,7 +132,7 @@ namespace MilkVillagers
 
         public static void ReportAll()
         {
-            foreach( KeyValuePair<string, string> kvp in CookingData)
+            foreach (KeyValuePair<string, string> kvp in CookingData)
             {
                 ModFunctions.LogVerbose($"{kvp.Key}: {kvp.Value}", Force: true);
             }
