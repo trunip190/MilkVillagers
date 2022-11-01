@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Willy's Cum", //Spansih
-    "ko": "Willy's Cum", //Korean
-    "de": "Willy's Cum", //German
-    "fr": "Willy's Cum", //French
-    "hu": "Willy's Cum", //Hungarian
+    "es": "Willy's Cum", //Spanish
+    "ko": "윌리의 정액", //Korean
+    "de": "Willys Sperma", //German
+    "fr": "Le sperme de Willy", //French
+    "hu": "Willy cum", //Hungarian
     "it": "Willy's Cum", //Italian
-    "ja": "Willy's Cum", //Japanese
-    "pt": "Willy's Cum", //Portuguese
-    "ru": "Willy's Cum", //Russian
-    "tr": "Willy's Cum", //Turkish
-    "zh": "Willy's Cum" //Chinese (Simplified)
+    "ja": "ウィリーの精液", //Japanese
+    "pt": "Willy's esperma", //Portuguese
+    "ru": "Сперма Вилли", //Russian
+    "tr": "Willy's cum", //Turkish
+    "zh": "威利的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Willy's cum", //Spansih
-    "ko": "A bottle of Willy's cum", //Korean
-    "de": "A bottle of Willy's cum", //German
-    "fr": "A bottle of Willy's cum", //French
-    "hu": "A bottle of Willy's cum", //Hungarian
-    "it": "A bottle of Willy's cum", //Italian
-    "ja": "A bottle of Willy's cum", //Japanese
-    "pt": "A bottle of Willy's cum", //Portuguese
-    "ru": "A bottle of Willy's cum", //Russian
-    "tr": "A bottle of Willy's cum", //Turkish
-    "zh": "A bottle of Willy's cum" //Chinese (Simplified)
+    "es": "Una botella de Cum Willy", //Spanish
+    "ko": "윌리의 정액 병", //Korean
+    "de": "Eine Flasche Willys Sperma", //German
+    "fr": "Une bouteille de sperme de Willy", //French
+    "hu": "Egy üveg Willy's Cum", //Hungarian
+    "it": "Una bottiglia di sperma di Willy", //Italian
+    "ja": "ウィリーの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Willy", //Portuguese
+    "ru": "Бутылка спермы Вилли", //Russian
+    "tr": "Bir şişe Willy's cum", //Turkish
+    "zh": "一瓶威利的暨" //Chinese (Simplified)
   }
 }

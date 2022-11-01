@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Boethia's Pillow Book", //Spansih
-    "ko": "Boethia's Pillow Book", //Korean
-    "de": "Boethia's Pillow Book", //German
-    "fr": "Boethia's Pillow Book", //French
-    "hu": "Boethia's Pillow Book", //Hungarian
-    "it": "Boethia's Pillow Book", //Italian
+    "es": "Libro de almohadas de Boethia", //Spanish
+    "ko": "보에 티아의 베개 책", //Korean
+    "de": "Boethias Kissenbuch", //German
+    "fr": "Le livre d'oreiller de Boethia", //French
+    "hu": "Boethia párna könyve", //Hungarian
+    "it": "Book del cuscino di Boetia", //Italian
     "ja": "Boethia's Pillow Book", //Japanese
-    "pt": "Boethia's Pillow Book", //Portuguese
-    "ru": "Boethia's Pillow Book", //Russian
-    "tr": "Boethia's Pillow Book", //Turkish
-    "zh": "Boethia's Pillow Book" //Chinese (Simplified)
+    "pt": "Livro de travesseiros de Boethia", //Portuguese
+    "ru": "Книга подушек Боэтии", //Russian
+    "tr": "Boethia'nın Yastık Kitabı", //Turkish
+    "zh": "布特亚的枕头书" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "An erotic book about various sexual positions.", //Spansih
-    "ko": "An erotic book about various sexual positions.", //Korean
-    "de": "An erotic book about various sexual positions.", //German
-    "fr": "An erotic book about various sexual positions.", //French
-    "hu": "An erotic book about various sexual positions.", //Hungarian
-    "it": "An erotic book about various sexual positions.", //Italian
-    "ja": "An erotic book about various sexual positions.", //Japanese
-    "pt": "An erotic book about various sexual positions.", //Portuguese
-    "ru": "An erotic book about various sexual positions.", //Russian
-    "tr": "An erotic book about various sexual positions.", //Turkish
-    "zh": "An erotic book about various sexual positions." //Chinese (Simplified)
+    "es": "Un libro erótico sobre varias posiciones sexuales.", //Spanish
+    "ko": "다양한 성적 위치에 대한 에로틱 한 책.", //Korean
+    "de": "Ein erotisches Buch über verschiedene sexuelle Positionen.", //German
+    "fr": "Un livre érotique sur diverses positions sexuelles.", //French
+    "hu": "Erotikus könyv a különféle szexuális pozíciókról.", //Hungarian
+    "it": "Un libro erotico su varie posizioni sessuali.", //Italian
+    "ja": "さまざまな性的立場についてのエロティックな本。", //Japanese
+    "pt": "Um livro erótico sobre várias posições sexuais.", //Portuguese
+    "ru": "Эротическая книга о различных сексуальных позициях.", //Russian
+    "tr": "Çeşitli cinsel pozisyonlar hakkında erotik bir kitap.", //Turkish
+    "zh": "一本关于各种性立场的色情书。" //Chinese (Simplified)
   }
 }

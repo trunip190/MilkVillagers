@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Caroline's Milk", //Spansih
-    "ko": "Caroline's Milk", //Korean
-    "de": "Caroline's Milk", //German
-    "fr": "Caroline's Milk", //French
+    "es": "Leche de Caroline", //Spanish
+    "ko": "캐롤라인의 우유", //Korean
+    "de": "Carolines Milch", //German
+    "fr": "Le lait de Caroline", //French
     "hu": "Caroline's Milk", //Hungarian
     "it": "Caroline's Milk", //Italian
-    "ja": "Caroline's Milk", //Japanese
-    "pt": "Caroline's Milk", //Portuguese
-    "ru": "Caroline's Milk", //Russian
-    "tr": "Caroline's Milk", //Turkish
-    "zh": "Caroline's Milk" //Chinese (Simplified)
+    "ja": "キャロラインの牛乳", //Japanese
+    "pt": "Leite de Caroline", //Portuguese
+    "ru": "Кэролайн молоко", //Russian
+    "tr": "Caroline Sütü", //Turkish
+    "zh": "卡罗琳的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Caroline's milk", //Spansih
-    "ko": "A jug of Caroline's milk", //Korean
-    "de": "A jug of Caroline's milk", //German
-    "fr": "A jug of Caroline's milk", //French
-    "hu": "A jug of Caroline's milk", //Hungarian
-    "it": "A jug of Caroline's milk", //Italian
-    "ja": "A jug of Caroline's milk", //Japanese
-    "pt": "A jug of Caroline's milk", //Portuguese
-    "ru": "A jug of Caroline's milk", //Russian
-    "tr": "A jug of Caroline's milk", //Turkish
-    "zh": "A jug of Caroline's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Caroline", //Spanish
+    "ko": "캐롤라인 우유 주전자", //Korean
+    "de": "Ein Krug von Carolines Milch", //German
+    "fr": "Une cruche de lait de Caroline", //French
+    "hu": "Egy kancsó Caroline tej", //Hungarian
+    "it": "Una brocca del latte di Caroline", //Italian
+    "ja": "キャロラインの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Caroline", //Portuguese
+    "ru": "Кувшин молока Кэролайн", //Russian
+    "tr": "Bir sürahi Caroline Sütü", //Turkish
+    "zh": "一罐卡罗琳的牛奶" //Chinese (Simplified)
   }
 }

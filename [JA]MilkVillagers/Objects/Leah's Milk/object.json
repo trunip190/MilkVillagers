@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Leah's Milk", //Spansih
-    "ko": "Leah's Milk", //Korean
-    "de": "Leah's Milk", //German
-    "fr": "Leah's Milk", //French
-    "hu": "Leah's Milk", //Hungarian
-    "it": "Leah's Milk", //Italian
-    "ja": "Leah's Milk", //Japanese
-    "pt": "Leah's Milk", //Portuguese
-    "ru": "Leah's Milk", //Russian
-    "tr": "Leah's Milk", //Turkish
-    "zh": "Leah's Milk" //Chinese (Simplified)
+    "es": "Leche de Leah", //Spanish
+    "ko": "레아의 우유", //Korean
+    "de": "Leahs Milch", //German
+    "fr": "Leh's Milk", //French
+    "hu": "Leah teje", //Hungarian
+    "it": "Latte di Leah", //Italian
+    "ja": "リアの牛乳", //Japanese
+    "pt": "Leite de Leah", //Portuguese
+    "ru": "Лия молоко", //Russian
+    "tr": "Leah Sütü", //Turkish
+    "zh": "利亚的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Leah's milk", //Spansih
-    "ko": "A jug of Leah's milk", //Korean
-    "de": "A jug of Leah's milk", //German
-    "fr": "A jug of Leah's milk", //French
-    "hu": "A jug of Leah's milk", //Hungarian
-    "it": "A jug of Leah's milk", //Italian
-    "ja": "A jug of Leah's milk", //Japanese
-    "pt": "A jug of Leah's milk", //Portuguese
-    "ru": "A jug of Leah's milk", //Russian
-    "tr": "A jug of Leah's milk", //Turkish
-    "zh": "A jug of Leah's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Leah", //Spanish
+    "ko": "Leah의 우유 주전자", //Korean
+    "de": "Ein Krug von Leahs Milch", //German
+    "fr": "Une cruche de Leah's Milk", //French
+    "hu": "Egy kancsó Leah tej", //Hungarian
+    "it": "Una brocca del latte di Leah", //Italian
+    "ja": "リアの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de leah", //Portuguese
+    "ru": "Кувшин молока Лии", //Russian
+    "tr": "Bir sürahi Leah sütü", //Turkish
+    "zh": "一罐莉亚牛奶" //Chinese (Simplified)
   }
 }

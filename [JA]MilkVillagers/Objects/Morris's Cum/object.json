@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Morris's Cum", //Spansih
-    "ko": "Morris's Cum", //Korean
-    "de": "Morris's Cum", //German
-    "fr": "Morris's Cum", //French
-    "hu": "Morris's Cum", //Hungarian
+    "es": "Morris's Cum", //Spanish
+    "ko": "모리스의 정액", //Korean
+    "de": "Morris 'Sperma", //German
+    "fr": "Sperme de Morris", //French
+    "hu": "Morris cum", //Hungarian
     "it": "Morris's Cum", //Italian
-    "ja": "Morris's Cum", //Japanese
-    "pt": "Morris's Cum", //Portuguese
-    "ru": "Morris's Cum", //Russian
-    "tr": "Morris's Cum", //Turkish
-    "zh": "Morris's Cum" //Chinese (Simplified)
+    "ja": "モリスの精液", //Japanese
+    "pt": "Cum de Morris", //Portuguese
+    "ru": "Моррис сперма", //Russian
+    "tr": "Morris'in cum", //Turkish
+    "zh": "莫里斯的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Morris's cum", //Spansih
-    "ko": "A bottle of Morris's cum", //Korean
-    "de": "A bottle of Morris's cum", //German
-    "fr": "A bottle of Morris's cum", //French
-    "hu": "A bottle of Morris's cum", //Hungarian
-    "it": "A bottle of Morris's cum", //Italian
-    "ja": "A bottle of Morris's cum", //Japanese
-    "pt": "A bottle of Morris's cum", //Portuguese
-    "ru": "A bottle of Morris's cum", //Russian
-    "tr": "A bottle of Morris's cum", //Turkish
-    "zh": "A bottle of Morris's cum" //Chinese (Simplified)
+    "es": "Una botella de morris's cum", //Spanish
+    "ko": "모리스의 정액 병", //Korean
+    "de": "Eine Flasche Morris 'Sperma", //German
+    "fr": "Une bouteille de sperme de Morris", //French
+    "hu": "Egy üveg Morris cum", //Hungarian
+    "it": "Una bottiglia di sborra di Morris", //Italian
+    "ja": "モリスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Morris", //Portuguese
+    "ru": "Бутылка спермы Морриса", //Russian
+    "tr": "Bir şişe Morris'in cum", //Turkish
+    "zh": "一瓶莫里斯的暨" //Chinese (Simplified)
   }
 }

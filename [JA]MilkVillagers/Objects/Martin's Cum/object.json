@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Martin's Cum", //Spansih
-    "ko": "Martin's Cum", //Korean
-    "de": "Martin's Cum", //German
-    "fr": "Martin's Cum", //French
-    "hu": "Martin's Cum", //Hungarian
+    "es": "Cum de Martin", //Spanish
+    "ko": "마틴의 정액", //Korean
+    "de": "Martins Sperma", //German
+    "fr": "Le sperme de Martin", //French
+    "hu": "Martin cum", //Hungarian
     "it": "Martin's Cum", //Italian
-    "ja": "Martin's Cum", //Japanese
-    "pt": "Martin's Cum", //Portuguese
-    "ru": "Martin's Cum", //Russian
-    "tr": "Martin's Cum", //Turkish
-    "zh": "Martin's Cum" //Chinese (Simplified)
+    "ja": "マーティンの精液", //Japanese
+    "pt": "Cum de Martin", //Portuguese
+    "ru": "Мартин сперма", //Russian
+    "tr": "Martin's cum", //Turkish
+    "zh": "马丁的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Martin's cum", //Spansih
-    "ko": "A bottle of Martin's cum", //Korean
-    "de": "A bottle of Martin's cum", //German
-    "fr": "A bottle of Martin's cum", //French
-    "hu": "A bottle of Martin's cum", //Hungarian
-    "it": "A bottle of Martin's cum", //Italian
-    "ja": "A bottle of Martin's cum", //Japanese
-    "pt": "A bottle of Martin's cum", //Portuguese
-    "ru": "A bottle of Martin's cum", //Russian
-    "tr": "A bottle of Martin's cum", //Turkish
-    "zh": "A bottle of Martin's cum" //Chinese (Simplified)
+    "es": "Una botella de Martin's Cum", //Spanish
+    "ko": "마틴의 정액 병", //Korean
+    "de": "Eine Flasche Martins Sperma", //German
+    "fr": "Une bouteille de sperme de Martin", //French
+    "hu": "Egy üveg Martin cum", //Hungarian
+    "it": "Una bottiglia di sborra di Martin", //Italian
+    "ja": "マーティンの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Martin", //Portuguese
+    "ru": "Бутылка спермы Мартина", //Russian
+    "tr": "Bir şişe Martin's cum", //Turkish
+    "zh": "一瓶马丁的暨" //Chinese (Simplified)
   }
 }

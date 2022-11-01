@@ -102,6 +102,8 @@
     <None Remove="Objects\Sebastian's Cum\object.png" />
     <None Remove="Objects\Shane%27s Cum\object.json" />
     <None Remove="Objects\Shane's Cum\object.png" />
+    <None Remove="Objects\Victor's Cum - Copy\object.json" />
+    <None Remove="Objects\Victor's Cum - Copy\object.png" />
     <None Remove="pants\mtvTeddyl\pants.json" />
     <None Remove="pants\mtvTeddyl\pants.png" />
     <None Remove="shirts\mtvTeddyu\female.png" />
@@ -313,6 +315,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Shane's Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Lance%27s Cum\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Lance%27s Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="pants\mtvTeddyl\pants.png">

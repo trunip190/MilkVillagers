@@ -50,29 +50,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Creamy Coffee", //Spansih
-    "ko": "Creamy Coffee", //Korean
-    "de": "Creamy Coffee", //German
-    "fr": "Creamy Coffee", //French
-    "hu": "Creamy Coffee", //Hungarian
-    "it": "Creamy Coffee", //Italian
-    "ja": "Creamy Coffee", //Japanese
-    "pt": "Creamy Coffee", //Portuguese
-    "ru": "Creamy Coffee", //Russian
-    "tr": "Creamy Coffee", //Turkish
-    "zh": "Creamy Coffee" //Chinese (Simplified)
+    "es": "Café cremoso", //Spanish
+    "ko": "크림 같은 커피", //Korean
+    "de": "Cremiger Kaffee", //German
+    "fr": "Café crémeux", //French
+    "hu": "Krémes kávé", //Hungarian
+    "it": "Caffè cremoso", //Italian
+    "ja": "クリーミーコーヒー", //Japanese
+    "pt": "Café cremoso", //Portuguese
+    "ru": "Сливочный кофе", //Russian
+    "tr": "Kremalı Kahve", //Turkish
+    "zh": "奶油咖啡" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "Morning coffee made with milk from a friend.", //Spansih
-    "ko": "Morning coffee made with milk from a friend.", //Korean
-    "de": "Morning coffee made with milk from a friend.", //German
-    "fr": "Morning coffee made with milk from a friend.", //French
-    "hu": "Morning coffee made with milk from a friend.", //Hungarian
-    "it": "Morning coffee made with milk from a friend.", //Italian
-    "ja": "Morning coffee made with milk from a friend.", //Japanese
-    "pt": "Morning coffee made with milk from a friend.", //Portuguese
-    "ru": "Morning coffee made with milk from a friend.", //Russian
-    "tr": "Morning coffee made with milk from a friend.", //Turkish
-    "zh": "Morning coffee made with milk from a friend." //Chinese (Simplified)
+    "es": "Café de la mañana hecho con leche de un amigo.", //Spanish
+    "ko": "친구로부터 우유로 만든 모닝 커피.", //Korean
+    "de": "Morgenkaffee mit Milch von einem Freund.", //German
+    "fr": "Café du matin à base de lait d'un ami.", //French
+    "hu": "Reggeli kávé készítve egy barátjától tejjel.", //Hungarian
+    "it": "Caffè mattutino preparato con latte di un amico.", //Italian
+    "ja": "友達から牛乳で作られた朝のコーヒー。", //Japanese
+    "pt": "Café da manhã feito com leite de um amigo.", //Portuguese
+    "ru": "Утренний кофе, приготовленный с молоком от друга.", //Russian
+    "tr": "Bir arkadaşımdan sütle yapılmış sabah kahvesi.", //Turkish
+    "zh": "用朋友用牛奶制成的早晨咖啡。" //Chinese (Simplified)
   }
 }

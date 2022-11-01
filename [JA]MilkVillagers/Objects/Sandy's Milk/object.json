@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Sandy's Milk", //Spansih
-    "ko": "Sandy's Milk", //Korean
-    "de": "Sandy's Milk", //German
-    "fr": "Sandy's Milk", //French
-    "hu": "Sandy's Milk", //Hungarian
-    "it": "Sandy's Milk", //Italian
-    "ja": "Sandy's Milk", //Japanese
-    "pt": "Sandy's Milk", //Portuguese
-    "ru": "Sandy's Milk", //Russian
-    "tr": "Sandy's Milk", //Turkish
-    "zh": "Sandy's Milk" //Chinese (Simplified)
+    "es": "Leche de Sandy", //Spanish
+    "ko": "샌디의 우유", //Korean
+    "de": "Sandys Milch", //German
+    "fr": "Lait de sable", //French
+    "hu": "Homokos tej", //Hungarian
+    "it": "Latte di Sandy", //Italian
+    "ja": "サンディの牛乳", //Japanese
+    "pt": "Leite de Sandy", //Portuguese
+    "ru": "Сэнди молоко", //Russian
+    "tr": "Sandy Sütü", //Turkish
+    "zh": "桑迪的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Sandy's milk", //Spansih
-    "ko": "A jug of Sandy's milk", //Korean
-    "de": "A jug of Sandy's milk", //German
-    "fr": "A jug of Sandy's milk", //French
-    "hu": "A jug of Sandy's milk", //Hungarian
-    "it": "A jug of Sandy's milk", //Italian
-    "ja": "A jug of Sandy's milk", //Japanese
-    "pt": "A jug of Sandy's milk", //Portuguese
-    "ru": "A jug of Sandy's milk", //Russian
-    "tr": "A jug of Sandy's milk", //Turkish
-    "zh": "A jug of Sandy's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Sandy", //Spanish
+    "ko": "샌디의 우유 주전자", //Korean
+    "de": "Ein Krug aus Sandys Milch", //German
+    "fr": "Une cruche de lait de sable", //French
+    "hu": "Egy kancsó homokos tej", //Hungarian
+    "it": "Una brocca di latte di Sandy", //Italian
+    "ja": "サンディの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de areia", //Portuguese
+    "ru": "Кувшин песчаного молока", //Russian
+    "tr": "Bir sürahi Sandy'nin sütü", //Turkish
+    "zh": "一罐桑迪牛奶" //Chinese (Simplified)
   }
 }

@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Penny's Milk", //Spansih
-    "ko": "Penny's Milk", //Korean
-    "de": "Penny's Milk", //German
-    "fr": "Penny's Milk", //French
-    "hu": "Penny's Milk", //Hungarian
+    "es": "Leche de Penny", //Spanish
+    "ko": "페니의 우유", //Korean
+    "de": "Pennys Milch", //German
+    "fr": "Penny's Lait", //French
+    "hu": "Penny teje", //Hungarian
     "it": "Penny's Milk", //Italian
-    "ja": "Penny's Milk", //Japanese
-    "pt": "Penny's Milk", //Portuguese
-    "ru": "Penny's Milk", //Russian
-    "tr": "Penny's Milk", //Turkish
-    "zh": "Penny's Milk" //Chinese (Simplified)
+    "ja": "ペニーの牛乳", //Japanese
+    "pt": "Leite de Penny", //Portuguese
+    "ru": "Пенни молоко", //Russian
+    "tr": "Penny Sütü", //Turkish
+    "zh": "便士的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Penny's milk", //Spansih
-    "ko": "A jug of Penny's milk", //Korean
-    "de": "A jug of Penny's milk", //German
-    "fr": "A jug of Penny's milk", //French
-    "hu": "A jug of Penny's milk", //Hungarian
-    "it": "A jug of Penny's milk", //Italian
-    "ja": "A jug of Penny's milk", //Japanese
-    "pt": "A jug of Penny's milk", //Portuguese
-    "ru": "A jug of Penny's milk", //Russian
-    "tr": "A jug of Penny's milk", //Turkish
-    "zh": "A jug of Penny's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Penny", //Spanish
+    "ko": "페니 우유 주전자", //Korean
+    "de": "Ein Krug Pennys Milch", //German
+    "fr": "Une cruche de lait de Penny", //French
+    "hu": "Egy kancsó pennytej", //Hungarian
+    "it": "Una brocca di latte di Penny", //Italian
+    "ja": "ペニーの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de centavo", //Portuguese
+    "ru": "Кувшин молока Пенни", //Russian
+    "tr": "Bir sürahi kuruş sütü", //Turkish
+    "zh": "一罐便士牛奶" //Chinese (Simplified)
   }
 }

@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Krobus Essence", //Spansih
-    "ko": "Krobus Essence", //Korean
-    "de": "Krobus Essence", //German
+    "es": "Esencia de Krobus", //Spanish
+    "ko": "크로버스 본질", //Korean
+    "de": "Krobus Essenz", //German
     "fr": "Krobus Essence", //French
-    "hu": "Krobus Essence", //Hungarian
+    "hu": "Krobus esszencia", //Hungarian
     "it": "Krobus Essence", //Italian
     "ja": "Krobus Essence", //Japanese
-    "pt": "Krobus Essence", //Portuguese
+    "pt": "Essência de Krobus", //Portuguese
     "ru": "Krobus Essence", //Russian
-    "tr": "Krobus Essence", //Turkish
+    "tr": "Krobus özü", //Turkish
     "zh": "Krobus Essence" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of magical Essence. It shifts and sparkles in the light", //Spansih
-    "ko": "A bottle of magical Essence. It shifts and sparkles in the light", //Korean
-    "de": "A bottle of magical Essence. It shifts and sparkles in the light", //German
-    "fr": "A bottle of magical Essence. It shifts and sparkles in the light", //French
-    "hu": "A bottle of magical Essence. It shifts and sparkles in the light", //Hungarian
-    "it": "A bottle of magical Essence. It shifts and sparkles in the light", //Italian
-    "ja": "A bottle of magical Essence. It shifts and sparkles in the light", //Japanese
-    "pt": "A bottle of magical Essence. It shifts and sparkles in the light", //Portuguese
-    "ru": "A bottle of magical Essence. It shifts and sparkles in the light", //Russian
-    "tr": "A bottle of magical Essence. It shifts and sparkles in the light", //Turkish
-    "zh": "A bottle of magical Essence. It shifts and sparkles in the light" //Chinese (Simplified)
+    "es": "Una botella de esencia mágica. Cambia y brilla a la luz", //Spanish
+    "ko": "마법의 에센스 병. 그것은 빛의 변화와 반짝입니다", //Korean
+    "de": "Eine Flasche magischer Essenz. Es verschiebt und funkelt im Licht", //German
+    "fr": "Une bouteille d'essence magique. Ça change et scintille dans la lumière", //French
+    "hu": "Egy üveg varázslatos lényeg. A fényben eltolódik és csillog", //Hungarian
+    "it": "Una bottiglia di essenza magica. Si sposta e brilla nella luce", //Italian
+    "ja": "魔法の本質のボトル。それは光の中でシフトして輝きます", //Japanese
+    "pt": "Uma garrafa de essência mágica. Ele muda e brilha na luz", //Portuguese
+    "ru": "Бутылка магической сущности. Это смещается и сверкает в свете", //Russian
+    "tr": "Bir şişe büyülü öz. Işıkta değişir ve parlar", //Turkish
+    "zh": "一瓶神奇的本质。它在光线下移动和闪闪发光" //Chinese (Simplified)
   }
 }

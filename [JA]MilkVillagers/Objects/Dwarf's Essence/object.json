@@ -25,29 +25,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Dwarf's Essence", //Spansih
-    "ko": "Dwarf's Essence", //Korean
-    "de": "Dwarf's Essence", //German
-    "fr": "Dwarf's Essence", //French
-    "hu": "Dwarf's Essence", //Hungarian
-    "it": "Dwarf's Essence", //Italian
-    "ja": "Dwarf's Essence", //Japanese
-    "pt": "Dwarf's Essence", //Portuguese
-    "ru": "Dwarf's Essence", //Russian
-    "tr": "Dwarf's Essence", //Turkish
-    "zh": "Dwarf's Essence" //Chinese (Simplified)
+    "es": "Esencia de enano", //Spanish
+    "ko": "드워프의 본질", //Korean
+    "de": "Zwergs Essenz", //German
+    "fr": "L'essence du nain", //French
+    "hu": "Törpe lényege", //Hungarian
+    "it": "L'essenza di Dwarf", //Italian
+    "ja": "ドワーフの本質", //Japanese
+    "pt": "A essência do anão", //Portuguese
+    "ru": "Сущность гнома", //Russian
+    "tr": "Cüce Özü", //Turkish
+    "zh": "矮人的本质" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Dwarf's cum", //Spansih
-    "ko": "A bottle of Dwarf's cum", //Korean
-    "de": "A bottle of Dwarf's cum", //German
-    "fr": "A bottle of Dwarf's cum", //French
-    "hu": "A bottle of Dwarf's cum", //Hungarian
-    "it": "A bottle of Dwarf's cum", //Italian
-    "ja": "A bottle of Dwarf's cum", //Japanese
-    "pt": "A bottle of Dwarf's cum", //Portuguese
-    "ru": "A bottle of Dwarf's cum", //Russian
-    "tr": "A bottle of Dwarf's cum", //Turkish
-    "zh": "A bottle of Dwarf's cum" //Chinese (Simplified)
+    "es": "Una botella de semen enano", //Spanish
+    "ko": "난쟁이 정액의 병", //Korean
+    "de": "Eine Flasche Zwergsende", //German
+    "fr": "Une bouteille de sperme de nain", //French
+    "hu": "Egy üveg törpe cum", //Hungarian
+    "it": "Una bottiglia di sperma di nano", //Italian
+    "ja": "ドワーフの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de anão", //Portuguese
+    "ru": "Бутылка спермы карлика", //Russian
+    "tr": "Bir şişe cüce cum", //Turkish
+    "zh": "一瓶矮人的暨" //Chinese (Simplified)
   }
 }

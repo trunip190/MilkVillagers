@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Haley's Camera", //Spansih
-    "ko": "Haley's Camera", //Korean
-    "de": "Haley's Camera", //German
-    "fr": "Haley's Camera", //French
-    "hu": "Haley's Camera", //Hungarian
-    "it": "Haley's Camera", //Italian
-    "ja": "Haley's Camera", //Japanese
-    "pt": "Haley's Camera", //Portuguese
-    "ru": "Haley's Camera", //Russian
-    "tr": "Haley's Camera", //Turkish
-    "zh": "Haley's Camera" //Chinese (Simplified)
+    "es": "Cámara de Haley", //Spanish
+    "ko": "헤일리의 카메라", //Korean
+    "de": "Haleys Kamera", //German
+    "fr": "Caméra de Haley", //French
+    "hu": "Haley fényképezőgépe", //Hungarian
+    "it": "La telecamera di Haley", //Italian
+    "ja": "ヘイリーのカメラ", //Japanese
+    "pt": "A câmera de Haley", //Portuguese
+    "ru": "Камера Хейли", //Russian
+    "tr": "Haley'in Kamerası", //Turkish
+    "zh": "海莉的相机" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "The camera Haley uses to take her photos with.", //Spansih
-    "ko": "The camera Haley uses to take her photos with.", //Korean
-    "de": "The camera Haley uses to take her photos with.", //German
-    "fr": "The camera Haley uses to take her photos with.", //French
-    "hu": "The camera Haley uses to take her photos with.", //Hungarian
-    "it": "The camera Haley uses to take her photos with.", //Italian
-    "ja": "The camera Haley uses to take her photos with.", //Japanese
-    "pt": "The camera Haley uses to take her photos with.", //Portuguese
-    "ru": "The camera Haley uses to take her photos with.", //Russian
-    "tr": "The camera Haley uses to take her photos with.", //Turkish
-    "zh": "The camera Haley uses to take her photos with." //Chinese (Simplified)
+    "es": "La cámara que Haley usa para tomar sus fotos con", //Spanish
+    "ko": "카메라 Haley는 사진을 찍기 위해 사용합니다", //Korean
+    "de": "Die Kamera, die Haley verwendet, um ihre Fotos mitzunehmen", //German
+    "fr": "La caméra que Haley utilise pour prendre ses photos avec", //French
+    "hu": "A Haley kamera használja fényképeit", //Hungarian
+    "it": "La fotocamera che Haley usa per scattare le sue foto", //Italian
+    "ja": "カメラヘイリーは写真を撮るために使用します", //Japanese
+    "pt": "A câmera Haley usa para tirar suas fotos com", //Portuguese
+    "ru": "Камера, которую Хейли использует, чтобы сделать свои фотографии с", //Russian
+    "tr": "Haley fotoğraflarını çekmek için kullanıyor kamera", //Turkish
+    "zh": "Haley摄像机用她的照片与" //Chinese (Simplified)
   }
 }

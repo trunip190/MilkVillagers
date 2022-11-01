@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Gus's Cum", //Spansih
-    "ko": "Gus's Cum", //Korean
-    "de": "Gus's Cum", //German
-    "fr": "Gus's Cum", //French
-    "hu": "Gus's Cum", //Hungarian
+    "es": "Cum de Gus", //Spanish
+    "ko": "거스의 정액", //Korean
+    "de": "Gus 'Sperma", //German
+    "fr": "Le sperme de Gus", //French
+    "hu": "Gus cum", //Hungarian
     "it": "Gus's Cum", //Italian
-    "ja": "Gus's Cum", //Japanese
-    "pt": "Gus's Cum", //Portuguese
-    "ru": "Gus's Cum", //Russian
-    "tr": "Gus's Cum", //Turkish
-    "zh": "Gus's Cum" //Chinese (Simplified)
+    "ja": "ガスの精液", //Japanese
+    "pt": "Gus's esperma", //Portuguese
+    "ru": "Гус сперма", //Russian
+    "tr": "Gus's cum", //Turkish
+    "zh": "古斯的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Gus's cum", //Spansih
-    "ko": "A bottle of Gus's cum", //Korean
-    "de": "A bottle of Gus's cum", //German
-    "fr": "A bottle of Gus's cum", //French
-    "hu": "A bottle of Gus's cum", //Hungarian
-    "it": "A bottle of Gus's cum", //Italian
-    "ja": "A bottle of Gus's cum", //Japanese
-    "pt": "A bottle of Gus's cum", //Portuguese
-    "ru": "A bottle of Gus's cum", //Russian
-    "tr": "A bottle of Gus's cum", //Turkish
-    "zh": "A bottle of Gus's cum" //Chinese (Simplified)
+    "es": "Una botella de Cum de Gus", //Spanish
+    "ko": "거스의 정액 병", //Korean
+    "de": "Eine Flasche Gus 'Sperma", //German
+    "fr": "Une bouteille de sperme de Gus", //French
+    "hu": "Egy üveg Gus's Cum", //Hungarian
+    "it": "Una bottiglia di sperma di gus", //Italian
+    "ja": "ガスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Gus", //Portuguese
+    "ru": "Бутылка спермы Гаса", //Russian
+    "tr": "Bir şişe gus cum", //Turkish
+    "zh": "一瓶古斯的暨" //Chinese (Simplified)
   }
 }

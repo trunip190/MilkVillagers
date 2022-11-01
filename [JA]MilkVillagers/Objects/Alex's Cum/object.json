@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Alex's Cum", //Spansih
-    "ko": "Alex's Cum", //Korean
-    "de": "Samen", //German
-    "fr": "Alex's Cum", //French
-    "hu": "Alex's Cum", //Hungarian
+    "es": "Cum Alex", //Spanish
+    "ko": "알렉스의 정액", //Korean
+    "de": "Alex 'Sperma", //German
+    "fr": "Le sperme d'Alex", //French
+    "hu": "Alex cum", //Hungarian
     "it": "Alex's Cum", //Italian
-    "ja": "Alex's Cum", //Japanese
-    "pt": "Alex's Cum", //Portuguese
-    "ru": "Alex's Cum", //Russian
-    "tr": "Alex's Cum", //Turkish
-    "zh": "Alex's Cum" //Chinese (Simplified)
+    "ja": "アレックスの精液", //Japanese
+    "pt": "Cum de Alex", //Portuguese
+    "ru": "Алекс сперма", //Russian
+    "tr": "Alex's cum", //Turkish
+    "zh": "亚历克斯的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Alex's cum", //Spansih
-    "ko": "A bottle of Alex's cum", //Korean
-    "de": "A bottle of Alex's cum", //German
-    "fr": "A bottle of Alex's cum", //French
-    "hu": "A bottle of Alex's cum", //Hungarian
-    "it": "A bottle of Alex's cum", //Italian
-    "ja": "A bottle of Alex's cum", //Japanese
-    "pt": "A bottle of Alex's cum", //Portuguese
-    "ru": "A bottle of Alex's cum", //Russian
-    "tr": "A bottle of Alex's cum", //Turkish
-    "zh": "A bottle of Alex's cum" //Chinese (Simplified)
+    "es": "Una botella de Alex's Cum", //Spanish
+    "ko": "Alex의 정액 병", //Korean
+    "de": "Eine Flasche Alex 'Sperma", //German
+    "fr": "Une bouteille de sperme d'Alex", //French
+    "hu": "Egy üveg Alex cum", //Hungarian
+    "it": "Una bottiglia di sperma di Alex", //Italian
+    "ja": "アレックスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Alex", //Portuguese
+    "ru": "Бутылка спермы Алекса", //Russian
+    "tr": "Bir şişe Alex's cum", //Turkish
+    "zh": "一瓶亚历克斯的暨" //Chinese (Simplified)
   }
 }

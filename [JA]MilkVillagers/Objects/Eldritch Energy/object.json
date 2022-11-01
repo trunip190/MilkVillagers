@@ -50,29 +50,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Eldritch Energy", //Spansih
-    "ko": "Eldritch Energy", //Korean
-    "de": "Eldritch Energy", //German
+    "es": "Energía de Eldritch", //Spanish
+    "ko": "엘 드리치 에너지", //Korean
+    "de": "Eldritch -Energie", //German
     "fr": "Eldritch Energy", //French
-    "hu": "Eldritch Energy", //Hungarian
-    "it": "Eldritch Energy", //Italian
-    "ja": "Eldritch Energy", //Japanese
+    "hu": "Eldritch energia", //Hungarian
+    "it": "Energia Eldritch", //Italian
+    "ja": "エルドリッチエネルギー", //Japanese
     "pt": "Eldritch Energy", //Portuguese
-    "ru": "Eldritch Energy", //Russian
-    "tr": "Eldritch Energy", //Turkish
+    "ru": "Элдрич Энергия", //Russian
+    "tr": "Eldritch Enerji", //Turkish
     "zh": "Eldritch Energy" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "Magical potion that grants energy regeneration", //Spansih
-    "ko": "Magical potion that grants energy regeneration", //Korean
-    "de": "Magical potion that grants energy regeneration", //German
-    "fr": "Magical potion that grants energy regeneration", //French
-    "hu": "Magical potion that grants energy regeneration", //Hungarian
-    "it": "Magical potion that grants energy regeneration", //Italian
-    "ja": "Magical potion that grants energy regeneration", //Japanese
-    "pt": "Magical potion that grants energy regeneration", //Portuguese
-    "ru": "Magical potion that grants energy regeneration", //Russian
-    "tr": "Magical potion that grants energy regeneration", //Turkish
-    "zh": "Magical potion that grants energy regeneration" //Chinese (Simplified)
+    "es": "Poción mágica que otorga regeneración de energía", //Spanish
+    "ko": "에너지 재생을 부여하는 마법의 물약", //Korean
+    "de": "Magischer Trank, der Energieregeneration gewährt", //German
+    "fr": "Potion magique qui accorde une régénération énergétique", //French
+    "hu": "Varázslatos bájital, amely energiát regenerálódik", //Hungarian
+    "it": "Pozione magica che concede la rigenerazione dell'energia", //Italian
+    "ja": "エネルギー再生を付与する魔法のポーション", //Japanese
+    "pt": "Poção mágica que concede regeneração energética", //Portuguese
+    "ru": "Волшебное зелье, которое дает регенерацию энергии", //Russian
+    "tr": "Enerji yenilenmesi sağlayan büyülü iksir", //Turkish
+    "zh": "赋予能量再生的魔法药水" //Chinese (Simplified)
   }
 }

@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Abigails Panties", //Spansih
-    "ko": "Abigails Panties", //Korean
-    "de": "Abigails Panties", //German
-    "fr": "Abigails Panties", //French
-    "hu": "Abigails Panties", //Hungarian
-    "it": "Abigails Panties", //Italian
-    "ja": "Abigails Panties", //Japanese
-    "pt": "Abigails Panties", //Portuguese
-    "ru": "Abigails Panties", //Russian
-    "tr": "Abigails Panties", //Turkish
-    "zh": "Abigails Panties" //Chinese (Simplified)
+    "es": "Bragas Abigail's", //Spanish
+    "ko": "아비가일 팬티", //Korean
+    "de": "Abigails Höschen", //German
+    "fr": "Abigails culotte", //French
+    "hu": "Abigails bugyi", //Hungarian
+    "it": "Mutandine di Abigails", //Italian
+    "ja": "アビゲイルパンティー", //Japanese
+    "pt": "Calcinha abigails", //Portuguese
+    "ru": "Абигейлс трусики", //Russian
+    "tr": "Abigails külot", //Turkish
+    "zh": "Abigails内裤" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A pair of Abigail's panties", //Spansih
-    "ko": "A pair of Abigail's panties", //Korean
-    "de": "A pair of Abigail's panties", //German
-    "fr": "A pair of Abigail's panties", //French
-    "hu": "A pair of Abigail's panties", //Hungarian
-    "it": "A pair of Abigail's panties", //Italian
-    "ja": "A pair of Abigail's panties", //Japanese
-    "pt": "A pair of Abigail's panties", //Portuguese
-    "ru": "A pair of Abigail's panties", //Russian
-    "tr": "A pair of Abigail's panties", //Turkish
-    "zh": "A pair of Abigail's panties" //Chinese (Simplified)
+    "es": "Un par de bragas de Abigail", //Spanish
+    "ko": "아비가일 팬티 한 쌍", //Korean
+    "de": "Ein Paar Abigails Höschen", //German
+    "fr": "Une paire de culotte d'Abigail", //French
+    "hu": "Egy pár Abigail bugyi", //Hungarian
+    "it": "Una coppia di mutandine di Abigail", //Italian
+    "ja": "アビゲイルのパンティーのペア", //Japanese
+    "pt": "Uma calcinha de Abigail", //Portuguese
+    "ru": "Пара трусиков Абигейл", //Russian
+    "tr": "Bir çift Abigail'in külotu", //Turkish
+    "zh": "一双阿比盖尔的内裤" //Chinese (Simplified)
   }
 }

@@ -50,29 +50,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Super Juice", //Spansih
-    "ko": "Super Juice", //Korean
-    "de": "Super Juice", //German
-    "fr": "Super Juice", //French
-    "hu": "Super Juice", //Hungarian
-    "it": "Super Juice", //Italian
-    "ja": "Super Juice", //Japanese
-    "pt": "Super Juice", //Portuguese
-    "ru": "Super Juice", //Russian
-    "tr": "Super Juice", //Turkish
-    "zh": "Super Juice" //Chinese (Simplified)
+    "es": "Súper jugo", //Spanish
+    "ko": "슈퍼 주스", //Korean
+    "de": "Supersaft", //German
+    "fr": "Super jus", //French
+    "hu": "Szuperlé", //Hungarian
+    "it": "Super succo", //Italian
+    "ja": "スーパージュース", //Japanese
+    "pt": "Super suco", //Portuguese
+    "ru": "Супер сок", //Russian
+    "tr": "Süper meyve suyu", //Turkish
+    "zh": "超级果汁" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "The perfect fusion of male and female juices", //Spansih
-    "ko": "The perfect fusion of male and female juices", //Korean
-    "de": "The perfect fusion of male and female juices", //German
-    "fr": "The perfect fusion of male and female juices", //French
-    "hu": "The perfect fusion of male and female juices", //Hungarian
-    "it": "The perfect fusion of male and female juices", //Italian
-    "ja": "The perfect fusion of male and female juices", //Japanese
-    "pt": "The perfect fusion of male and female juices", //Portuguese
-    "ru": "The perfect fusion of male and female juices", //Russian
-    "tr": "The perfect fusion of male and female juices", //Turkish
-    "zh": "The perfect fusion of male and female juices" //Chinese (Simplified)
+    "es": "La fusión perfecta de jugos masculinos y femeninos", //Spanish
+    "ko": "수컷과 암컷 주스의 완벽한 융합", //Korean
+    "de": "Die perfekte Fusion männlicher und weiblicher Säfte", //German
+    "fr": "La fusion parfaite des jus mâles et femelles", //French
+    "hu": "A férfi és női gyümölcslevek tökéletes fúziója", //Hungarian
+    "it": "La fusione perfetta dei succhi maschi e femmine", //Italian
+    "ja": "オスとメスのジュースの完璧な融合", //Japanese
+    "pt": "A fusão perfeita de sucos masculinos e femininos", //Portuguese
+    "ru": "Идеальное слияние мужских и женских соков", //Russian
+    "tr": "Erkek ve kadın meyve sularının mükemmel füzyonu", //Turkish
+    "zh": "雄性果汁的完美融合" //Chinese (Simplified)
   }
 }

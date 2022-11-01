@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Evelyn's Milk", //Spansih
-    "ko": "Evelyn's Milk", //Korean
-    "de": "Evelyn's Milk", //German
-    "fr": "Evelyn's Milk", //French
-    "hu": "Evelyn's Milk", //Hungarian
-    "it": "Evelyn's Milk", //Italian
-    "ja": "Evelyn's Milk", //Japanese
-    "pt": "Evelyn's Milk", //Portuguese
-    "ru": "Evelyn's Milk", //Russian
-    "tr": "Evelyn's Milk", //Turkish
-    "zh": "Evelyn's Milk" //Chinese (Simplified)
+    "es": "Leche de Evelyn", //Spanish
+    "ko": "에블린의 우유", //Korean
+    "de": "Evelyns Milch", //German
+    "fr": "Le lait d'Evelyn", //French
+    "hu": "Evelyn teje", //Hungarian
+    "it": "Latte di Evelyn", //Italian
+    "ja": "エブリンの牛乳", //Japanese
+    "pt": "O leite de Evelyn", //Portuguese
+    "ru": "Эвелинское молоко", //Russian
+    "tr": "Evelyn'in Sütü", //Turkish
+    "zh": "伊芙琳的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Evelyn's milk", //Spansih
-    "ko": "A jug of Evelyn's milk", //Korean
-    "de": "A jug of Evelyn's milk", //German
-    "fr": "A jug of Evelyn's milk", //French
-    "hu": "A jug of Evelyn's milk", //Hungarian
-    "it": "A jug of Evelyn's milk", //Italian
-    "ja": "A jug of Evelyn's milk", //Japanese
-    "pt": "A jug of Evelyn's milk", //Portuguese
-    "ru": "A jug of Evelyn's milk", //Russian
-    "tr": "A jug of Evelyn's milk", //Turkish
-    "zh": "A jug of Evelyn's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Evelyn", //Spanish
+    "ko": "에블린 우유 주전자", //Korean
+    "de": "Ein Krug von Evelyns Milch", //German
+    "fr": "Une cruche de lait d'Evelyn", //French
+    "hu": "Egy kancsó Evelyn tej", //Hungarian
+    "it": "Una brocca del latte di Evelyn", //Italian
+    "ja": "エブリンの牛乳の水差し", //Japanese
+    "pt": "Um jarro do leite de Evelyn", //Portuguese
+    "ru": "Кувшин эвелинского молока", //Russian
+    "tr": "Evelyn'in sütü bir sürahi", //Turkish
+    "zh": "一罐伊芙琳的牛奶" //Chinese (Simplified)
   }
 }

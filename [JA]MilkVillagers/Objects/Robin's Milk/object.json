@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Robin's Milk", //Spansih
-    "ko": "Robin's Milk", //Korean
-    "de": "Robin's Milk", //German
+    "es": "Leche de Robin", //Spanish
+    "ko": "로빈의 우유", //Korean
+    "de": "Robins Milch", //German
     "fr": "Robin's Milk", //French
-    "hu": "Robin's Milk", //Hungarian
-    "it": "Robin's Milk", //Italian
-    "ja": "Robin's Milk", //Japanese
-    "pt": "Robin's Milk", //Portuguese
-    "ru": "Robin's Milk", //Russian
-    "tr": "Robin's Milk", //Turkish
-    "zh": "Robin's Milk" //Chinese (Simplified)
+    "hu": "Robin teje", //Hungarian
+    "it": "Il latte di Robin", //Italian
+    "ja": "ロビンの牛乳", //Japanese
+    "pt": "Leite de Robin", //Portuguese
+    "ru": "Робин молоко", //Russian
+    "tr": "Robin Sütü", //Turkish
+    "zh": "罗宾的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Robin's milk", //Spansih
-    "ko": "A jug of Robin's milk", //Korean
-    "de": "A jug of Robin's milk", //German
-    "fr": "A jug of Robin's milk", //French
-    "hu": "A jug of Robin's milk", //Hungarian
-    "it": "A jug of Robin's milk", //Italian
-    "ja": "A jug of Robin's milk", //Japanese
-    "pt": "A jug of Robin's milk", //Portuguese
-    "ru": "A jug of Robin's milk", //Russian
-    "tr": "A jug of Robin's milk", //Turkish
-    "zh": "A jug of Robin's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Robin", //Spanish
+    "ko": "로빈의 우유 주전자", //Korean
+    "de": "Ein Krug von Robins Milch", //German
+    "fr": "Une cruche de lait de Robin", //French
+    "hu": "Egy kancsó Robin tej", //Hungarian
+    "it": "Una brocca del latte di Robin", //Italian
+    "ja": "ロビンの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Robin", //Portuguese
+    "ru": "Кувшин молока Робина", //Russian
+    "tr": "Bir sürahi Robin Sütü", //Turkish
+    "zh": "罗宾牛奶罐" //Chinese (Simplified)
   }
 }

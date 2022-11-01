@@ -32,29 +32,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Woman's Milk", //Spansih
-    "ko": "Woman's Milk", //Korean
-    "de": "Woman's Milk", //German
-    "fr": "Woman's Milk", //French
-    "hu": "Woman's Milk", //Hungarian
-    "it": "Woman's Milk", //Italian
-    "ja": "Woman's Milk", //Japanese
-    "pt": "Woman's Milk", //Portuguese
-    "ru": "Woman's Milk", //Russian
-    "tr": "Woman's Milk", //Turkish
-    "zh": "Woman's Milk" //Chinese (Simplified)
+    "es": "La leche materna", //Spanish
+    "ko": "어머니의 우유", //Korean
+    "de": "Muttermilch", //German
+    "fr": "Lait maternel", //French
+    "hu": "Anyatej", //Hungarian
+    "it": "Latte di madre", //Italian
+    "ja": "母の牛乳", //Japanese
+    "pt": "Leite da mãe", //Portuguese
+    "ru": "Материнское молоко", //Russian
+    "tr": "Anne sütü", //Turkish
+    "zh": "母亲的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of woman's milk", //Spansih
-    "ko": "A jug of woman's milk", //Korean
-    "de": "A jug of woman's milk", //German
-    "fr": "A jug of woman's milk", //French
-    "hu": "A jug of woman's milk", //Hungarian
-    "it": "A jug of woman's milk", //Italian
-    "ja": "A jug of woman's milk", //Japanese
-    "pt": "A jug of woman's milk", //Portuguese
-    "ru": "A jug of woman's milk", //Russian
-    "tr": "A jug of woman's milk", //Turkish
-    "zh": "A jug of woman's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de madre", //Spanish
+    "ko": "어머니 우유 주전자", //Korean
+    "de": "Ein Krug von Muttermilch", //German
+    "fr": "Une cruche de lait mère", //French
+    "hu": "Egy kancsó anyatej", //Hungarian
+    "it": "Una brocca di latte madre", //Italian
+    "ja": "母乳の水差し", //Japanese
+    "pt": "Um jarro de leite da mãe", //Portuguese
+    "ru": "Кувшин материнского молока", //Russian
+    "tr": "Bir sürahi anne sütü", //Turkish
+    "zh": "一罐母亲的牛奶" //Chinese (Simplified)
   }
 }

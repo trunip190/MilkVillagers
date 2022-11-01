@@ -54,29 +54,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Sweet Sibling", //Spansih
-    "ko": "Sweet Sibling", //Korean
-    "de": "Sweet Sibling", //German
-    "fr": "Sweet Sibling", //French
-    "hu": "Sweet Sibling", //Hungarian
-    "it": "Sweet Sibling", //Italian
-    "ja": "Sweet Sibling", //Japanese
-    "pt": "Sweet Sibling", //Portuguese
-    "ru": "Sweet Sibling", //Russian
-    "tr": "Sweet Sibling", //Turkish
-    "zh": "Sweet Sibling" //Chinese (Simplified)
+    "es": "Dulce hermano", //Spanish
+    "ko": "달콤한 형제", //Korean
+    "de": "Süßes Geschwister", //German
+    "fr": "Frères et sœurs doux", //French
+    "hu": "Édes testvér", //Hungarian
+    "it": "Dolce fratello", //Italian
+    "ja": "甘い兄弟", //Japanese
+    "pt": "Doce irmão", //Portuguese
+    "ru": "Сладкий брат", //Russian
+    "tr": "Tatlı Kardeş", //Turkish
+    "zh": "甜蜜的兄弟姐妹" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Spansih
-    "ko": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Korean
-    "de": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //German
-    "fr": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //French
-    "hu": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Hungarian
-    "it": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Italian
-    "ja": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Japanese
-    "pt": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Portuguese
-    "ru": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Russian
-    "tr": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Turkish
-    "zh": "A special milkshake that embodies a sisterly bond. Just add a strawberry." //Chinese (Simplified)
+    "es": "Un batido especial que encarna un vínculo fraternal. Simplemente agregue una fresa.", //Spanish
+    "ko": "자매 유대를 구현하는 특별한 밀크 쉐이크. 딸기 만 추가하십시오.", //Korean
+    "de": "Ein besonderer Milchshake, der eine schwesterliche Bindung verkörpert. Fügen Sie einfach eine Erdbeere hinzu.", //German
+    "fr": "Un milk-shake spécial qui incarne un lien fraternel. Ajoutez simplement une fraise.", //French
+    "hu": "Egy speciális turmix, amely testvéri köteléket testesít meg. Csak adjon hozzá egy eper.", //Hungarian
+    "it": "Un frappè speciale che incarna un legame fraterno. Basta aggiungere una fragola.", //Italian
+    "ja": "姉妹の絆を体現する特別なミルクセーキ。イチゴを追加するだけです。", //Japanese
+    "pt": "Um milk -shake especial que incorpora um vínculo de irmã. Basta adicionar um morango.", //Portuguese
+    "ru": "Специальный молочный коктейль, который воплощает сестринскую связь. Просто добавьте клубнику.", //Russian
+    "tr": "Kardeş bir bağı somutlaştıran özel bir milkshake. Sadece bir çilek ekleyin.", //Turkish
+    "zh": "一种特殊的奶昔，体现了一个姐妹的纽带。只需加一个草莓即可。" //Chinese (Simplified)
   }
 }

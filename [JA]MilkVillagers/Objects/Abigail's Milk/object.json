@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Abigail's Milk", //Spansih
-    "ko": "Abigail's Milk", //Korean
-    "de": "Abigail's Milk", //German
-    "fr": "Abigail's Milk", //French
-    "hu": "Abigail's Milk", //Hungarian
-    "it": "Abigail's Milk", //Italian
-    "ja": "Abigail's Milk", //Japanese
-    "pt": "Abigail's Milk", //Portuguese
-    "ru": "Abigail's Milk", //Russian
-    "tr": "Abigail's Milk", //Turkish
-    "zh": "Abigail's Milk" //Chinese (Simplified)
+    "es": "Leche de Abigail", //Spanish
+    "ko": "아비가일의 우유", //Korean
+    "de": "Abigails Milch", //German
+    "fr": "Le lait d'Abigail", //French
+    "hu": "Abigail teje", //Hungarian
+    "it": "Latte di Abigail", //Italian
+    "ja": "アビゲイルの牛乳", //Japanese
+    "pt": "Leite de Abigail", //Portuguese
+    "ru": "Абигейлс молоко", //Russian
+    "tr": "Abigail'in Sütü", //Turkish
+    "zh": "阿比盖尔的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Abigail's milk", //Spanish
-    "ko": "A jug of Abigail's milk", //Korean
-    "de": "A jug of Abigail's milk", //German
-    "fr": "A jug of Abigail's milk", //French
-    "hu": "A jug of Abigail's milk", //Hungarian
-    "it": "A jug of Abigail's milk", //Italian
-    "ja": "A jug of Abigail's milk", //Japanese
-    "pt": "A jug of Abigail's milk", //Portuguese
-    "ru": "A jug of Abigail's milk", //Russian
-    "tr": "A jug of Abigail's milk", //Turkish
-    "zh": "A jug of Abigail's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Abigail", //Spanish
+    "ko": "아비가일 우유 주전자", //Korean
+    "de": "Ein Krug von Abigails Milch", //German
+    "fr": "Une cruche de lait d'Abigail", //French
+    "hu": "Egy kancsó Abigail teje", //Hungarian
+    "it": "Una brocca del latte di Abigail", //Italian
+    "ja": "アビゲイルの牛乳の水差し", //Japanese
+    "pt": "Um jarro do leite de Abigail", //Portuguese
+    "ru": "Кувшин молока Абигейл", //Russian
+    "tr": "Abigail'in sütü bir sürahi", //Turkish
+    "zh": "一罐阿比盖尔的牛奶" //Chinese (Simplified)
   }
 }

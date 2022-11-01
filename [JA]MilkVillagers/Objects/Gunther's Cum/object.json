@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Gunther's Cum", //Spansih
-    "ko": "Gunther's Cum", //Korean
-    "de": "Gunther's Cum", //German
-    "fr": "Gunther's Cum", //French
-    "hu": "Gunther's Cum", //Hungarian
+    "es": "Cum Gunther", //Spanish
+    "ko": "Gunther의 정액", //Korean
+    "de": "Gunthers Sperma", //German
+    "fr": "Gunther's sperme", //French
+    "hu": "Gunther cum", //Hungarian
     "it": "Gunther's Cum", //Italian
-    "ja": "Gunther's Cum", //Japanese
-    "pt": "Gunther's Cum", //Portuguese
-    "ru": "Gunther's Cum", //Russian
-    "tr": "Gunther's Cum", //Turkish
-    "zh": "Gunther's Cum" //Chinese (Simplified)
+    "ja": "ガンサーの精液", //Japanese
+    "pt": "Cum de Gunther", //Portuguese
+    "ru": "Гюнтер сперма", //Russian
+    "tr": "Gunther's cum", //Turkish
+    "zh": "Gunther的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Gunther's cum", //Spansih
-    "ko": "A bottle of Gunther's cum", //Korean
-    "de": "A bottle of Gunther's cum", //German
-    "fr": "A bottle of Gunther's cum", //French
-    "hu": "A bottle of Gunther's cum", //Hungarian
-    "it": "A bottle of Gunther's cum", //Italian
-    "ja": "A bottle of Gunther's cum", //Japanese
-    "pt": "A bottle of Gunther's cum", //Portuguese
-    "ru": "A bottle of Gunther's cum", //Russian
-    "tr": "A bottle of Gunther's cum", //Turkish
-    "zh": "A bottle of Gunther's cum" //Chinese (Simplified)
+    "es": "Una botella de Cum Gunther", //Spanish
+    "ko": "Gunther의 정액 병", //Korean
+    "de": "Eine Flasche Gunthers Sperma", //German
+    "fr": "Une bouteille de sperme de Gunther", //French
+    "hu": "Egy üveg Gunther cum", //Hungarian
+    "it": "Una bottiglia di sperma di Gunther", //Italian
+    "ja": "ガンサーの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Gunther", //Portuguese
+    "ru": "Бутылка спермы Гюнтера", //Russian
+    "tr": "Bir şişe Gunther's cum", //Turkish
+    "zh": "一瓶甘瑟的暨" //Chinese (Simplified)
   }
 }

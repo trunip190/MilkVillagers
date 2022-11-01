@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Claire's Milk", //Spansih
-    "ko": "Claire's Milk", //Korean
-    "de": "Claire's Milk", //German
-    "fr": "Claire's Milk", //French
-    "hu": "Claire's Milk", //Hungarian
-    "it": "Claire's Milk", //Italian
-    "ja": "Claire's Milk", //Japanese
-    "pt": "Claire's Milk", //Portuguese
-    "ru": "Claire's Milk", //Russian
-    "tr": "Claire's Milk", //Turkish
-    "zh": "Claire's Milk" //Chinese (Simplified)
+    "es": "Leche de Claire", //Spanish
+    "ko": "클레어의 우유", //Korean
+    "de": "Claires Milch", //German
+    "fr": "Le lait de Claire", //French
+    "hu": "Claire's Tej", //Hungarian
+    "it": "Latte di Claire", //Italian
+    "ja": "クレアの牛乳", //Japanese
+    "pt": "Leite de Claire", //Portuguese
+    "ru": "Клэр молоко", //Russian
+    "tr": "Claire Sütü", //Turkish
+    "zh": "克莱尔的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Claire's milk", //Spansih
-    "ko": "A jug of Claire's milk", //Korean
-    "de": "A jug of Claire's milk", //German
-    "fr": "A jug of Claire's milk", //French
-    "hu": "A jug of Claire's milk", //Hungarian
-    "it": "A jug of Claire's milk", //Italian
-    "ja": "A jug of Claire's milk", //Japanese
-    "pt": "A jug of Claire's milk", //Portuguese
-    "ru": "A jug of Claire's milk", //Russian
-    "tr": "A jug of Claire's milk", //Turkish
-    "zh": "A jug of Claire's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Claire", //Spanish
+    "ko": "클레어 우유 주전자", //Korean
+    "de": "Ein Krug von Claires Milch", //German
+    "fr": "Une cruche de lait de Claire", //French
+    "hu": "Egy kancsó Claire -tej", //Hungarian
+    "it": "Una brocca del latte di Claire", //Italian
+    "ja": "クレアの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Claire", //Portuguese
+    "ru": "Кувшин молока Клэр", //Russian
+    "tr": "Bir sürahi Claire Sütü", //Turkish
+    "zh": "克莱尔的牛奶罐" //Chinese (Simplified)
   }
 }

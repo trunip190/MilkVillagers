@@ -50,29 +50,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Secret Pleasures", //Spansih
-    "ko": "Secret Pleasures", //Korean
-    "de": "Secret Pleasures", //German
-    "fr": "Secret Pleasures", //French
-    "hu": "Secret Pleasures", //Hungarian
-    "it": "Secret Pleasures", //Italian
-    "ja": "Secret Pleasures", //Japanese
-    "pt": "Secret Pleasures", //Portuguese
-    "ru": "Secret Pleasures", //Russian
-    "tr": "Secret Pleasures", //Turkish
-    "zh": "Secret Pleasures" //Chinese (Simplified)
+    "es": "Placeres secretos", //Spanish
+    "ko": "비밀 즐거움", //Korean
+    "de": "Geheime Freuden", //German
+    "fr": "Plaisirs secrets", //French
+    "hu": "Titkos örömök", //Hungarian
+    "it": "Piaceri segreti", //Italian
+    "ja": "秘密の喜び", //Japanese
+    "pt": "Prazeres secretos", //Portuguese
+    "ru": "Секретные удовольствия", //Russian
+    "tr": "Gizli zevkler", //Turkish
+    "zh": "秘密的乐趣" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A special cocktail immortalising secret love.", //Spansih
-    "ko": "A special cocktail immortalising secret love.", //Korean
-    "de": "A special cocktail immortalising secret love.", //German
-    "fr": "A special cocktail immortalising secret love.", //French
-    "hu": "A special cocktail immortalising secret love.", //Hungarian
-    "it": "A special cocktail immortalising secret love.", //Italian
-    "ja": "A special cocktail immortalising secret love.", //Japanese
-    "pt": "A special cocktail immortalising secret love.", //Portuguese
-    "ru": "A special cocktail immortalising secret love.", //Russian
-    "tr": "A special cocktail immortalising secret love.", //Turkish
-    "zh": "A special cocktail immortalising secret love." //Chinese (Simplified)
+    "es": "Un cóctel especial que inmortaliza el amor secreto.", //Spanish
+    "ko": "특별한 칵테일 불멸의 비밀 사랑.", //Korean
+    "de": "Ein besonderer Cocktail verewigte geheime Liebe.", //German
+    "fr": "Un cocktail spécial immortalisant l'amour secret.", //French
+    "hu": "Egy speciális koktél, amely halhatatlanná teszi a titkos szerelmet.", //Hungarian
+    "it": "Uno speciale cocktail immortalizzazione dell'amore segreto.", //Italian
+    "ja": "特別なカクテルの不滅の秘密の愛。", //Japanese
+    "pt": "Um coquetel especial imortalizando o amor secreto.", //Portuguese
+    "ru": "Особая коктейльная бессмертная тайная любовь.", //Russian
+    "tr": "Gizli aşkı ölümsüzleştiren özel bir kokteyl.", //Turkish
+    "zh": "一种特殊的鸡尾酒不朽的秘密爱情。" //Chinese (Simplified)
   }
 }

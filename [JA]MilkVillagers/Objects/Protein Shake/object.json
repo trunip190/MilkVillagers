@@ -46,29 +46,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Protein Shake", //Spansih
-    "ko": "Protein Shake", //Korean
-    "de": "Protein Shake", //German
-    "fr": "Protein Shake", //French
-    "hu": "Protein Shake", //Hungarian
-    "it": "Protein Shake", //Italian
-    "ja": "Protein Shake", //Japanese
-    "pt": "Protein Shake", //Portuguese
-    "ru": "Protein Shake", //Russian
-    "tr": "Protein Shake", //Turkish
-    "zh": "Protein Shake" //Chinese (Simplified)
+    "es": "Batido de proteinas", //Spanish
+    "ko": "단백질 쉐이크", //Korean
+    "de": "Eiweißschütter", //German
+    "fr": "Shake protéin", //French
+    "hu": "Fehérjeturmix", //Hungarian
+    "it": "Frullato proteico", //Italian
+    "ja": "プロテインシェイク", //Japanese
+    "pt": "Shake proteico", //Portuguese
+    "ru": "Протеиновый коктейль", //Russian
+    "tr": "Protein takviyesi", //Turkish
+    "zh": "高蛋白饮品" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A special protein shake made from a donor's 'milk'", //Spansih
-    "ko": "A special protein shake made from a donor's 'milk'", //Korean
-    "de": "A special protein shake made from a donor's 'milk'", //German
-    "fr": "A special protein shake made from a donor's 'milk'", //French
-    "hu": "A special protein shake made from a donor's 'milk'", //Hungarian
-    "it": "A special protein shake made from a donor's 'milk'", //Italian
-    "ja": "A special protein shake made from a donor's 'milk'", //Japanese
-    "pt": "A special protein shake made from a donor's 'milk'", //Portuguese
-    "ru": "A special protein shake made from a donor's 'milk'", //Russian
-    "tr": "A special protein shake made from a donor's 'milk'", //Turkish
-    "zh": "A special protein shake made from a donor's 'milk'" //Chinese (Simplified)
+    "es": "Un batido de proteína especial hecho de un donante de un donante", //Spanish
+    "ko": "기증자의 정액으로 만든 특별한 단백질 쉐이크", //Korean
+    "de": "Ein spezieller Protein -Shake aus dem Sperma eines Spenders", //German
+    "fr": "Un shake protéine spécial fabriqué à partir du sperme d'un donneur", //French
+    "hu": "Egy speciális fehérjebőzés, amelyet egy donor cumából készítenek", //Hungarian
+    "it": "Uno speciale frullato proteico realizzato dal sperma di un donatore", //Italian
+    "ja": "ドナーの精液から作られた特別なプロテインシェイク", //Japanese
+    "pt": "Um shake de proteína especial feito de esperma de um doador", //Portuguese
+    "ru": "Специальный протеиновый коктейль, сделанный из спермы донора", //Russian
+    "tr": "Bir donörün cum'dan yapılmış özel bir protein sarsıntısı", //Turkish
+    "zh": "由供体的暨制成的特殊蛋白质奶昔" //Chinese (Simplified)
   }
 }

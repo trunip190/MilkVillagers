@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Pam's Milk", //Spansih
-    "ko": "Pam's Milk", //Korean
-    "de": "Pam's Milk", //German
-    "fr": "Pam's Milk", //French
-    "hu": "Pam's Milk", //Hungarian
+    "es": "Leche de Pam", //Spanish
+    "ko": "팸의 우유", //Korean
+    "de": "Pams Milch", //German
+    "fr": "Lait de pam", //French
+    "hu": "Pam teje", //Hungarian
     "it": "Pam's Milk", //Italian
-    "ja": "Pam's Milk", //Japanese
-    "pt": "Pam's Milk", //Portuguese
-    "ru": "Pam's Milk", //Russian
-    "tr": "Pam's Milk", //Turkish
-    "zh": "Pam's Milk" //Chinese (Simplified)
+    "ja": "パムの牛乳", //Japanese
+    "pt": "Leite de pam", //Portuguese
+    "ru": "Пэмс молоко", //Russian
+    "tr": "Pam Sütü", //Turkish
+    "zh": "帕姆的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Pam's milk", //Spansih
-    "ko": "A jug of Pam's milk", //Korean
-    "de": "A jug of Pam's milk", //German
-    "fr": "A jug of Pam's milk", //French
-    "hu": "A jug of Pam's milk", //Hungarian
-    "it": "A jug of Pam's milk", //Italian
-    "ja": "A jug of Pam's milk", //Japanese
-    "pt": "A jug of Pam's milk", //Portuguese
-    "ru": "A jug of Pam's milk", //Russian
-    "tr": "A jug of Pam's milk", //Turkish
-    "zh": "A jug of Pam's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Pam", //Spanish
+    "ko": "팸 우유 주전자", //Korean
+    "de": "Ein Krug von Pams Milch", //German
+    "fr": "Une cruche de lait de pam", //French
+    "hu": "Egy kancsó pam tej", //Hungarian
+    "it": "Una brocca di latte di Pam", //Italian
+    "ja": "パムの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de pam", //Portuguese
+    "ru": "Кувшин молока Пэм", //Russian
+    "tr": "Bir sürahi Pam Sütü", //Turkish
+    "zh": "一罐帕姆牛奶" //Chinese (Simplified)
   }
 }

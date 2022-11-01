@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Wizard's Essence", //Spansih
-    "ko": "Wizard's Essence", //Korean
-    "de": "Wizard's Essence", //German
-    "fr": "Wizard's Essence", //French
-    "hu": "Wizard's Essence", //Hungarian
-    "it": "Wizard's Essence", //Italian
-    "ja": "Wizard's Essence", //Japanese
-    "pt": "Wizard's Essence", //Portuguese
-    "ru": "Wizard's Essence", //Russian
-    "tr": "Wizard's Essence", //Turkish
-    "zh": "Wizard's Essence" //Chinese (Simplified)
+    "es": "Esencia del mago", //Spanish
+    "ko": "마법사의 본질", //Korean
+    "de": "Wesen des Zauberers", //German
+    "fr": "L'essence du sorcier", //French
+    "hu": "Varázsló lényege", //Hungarian
+    "it": "Essenza di Wizard", //Italian
+    "ja": "ウィザードの本質", //Japanese
+    "pt": "Essência do mago", //Portuguese
+    "ru": "Сущность волшебника", //Russian
+    "tr": "Sihirbazın Özü", //Turkish
+    "zh": "向导的本质" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Wizard's cum", //Spansih
-    "ko": "A bottle of Wizard's cum", //Korean
-    "de": "A bottle of Wizard's cum", //German
-    "fr": "A bottle of Wizard's cum", //French
-    "hu": "A bottle of Wizard's cum", //Hungarian
-    "it": "A bottle of Wizard's cum", //Italian
-    "ja": "A bottle of Wizard's cum", //Japanese
-    "pt": "A bottle of Wizard's cum", //Portuguese
-    "ru": "A bottle of Wizard's cum", //Russian
-    "tr": "A bottle of Wizard's cum", //Turkish
-    "zh": "A bottle of Wizard's cum" //Chinese (Simplified)
+    "es": "Una botella de semen de mago", //Spanish
+    "ko": "마법사의 정액", //Korean
+    "de": "Eine Flasche Zauberer", //German
+    "fr": "Une bouteille de sperme de l'assistant", //French
+    "hu": "Egy üveg varázsló cum", //Hungarian
+    "it": "Una bottiglia di sperma", //Italian
+    "ja": "ウィザードの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma do mago", //Portuguese
+    "ru": "Бутылка спермы волшебника", //Russian
+    "tr": "Bir şişe sihirbaz cum", //Turkish
+    "zh": "一瓶巫师的暨" //Chinese (Simplified)
   }
 }

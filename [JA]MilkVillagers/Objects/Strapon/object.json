@@ -20,29 +20,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Strapon", //Spansih
-    "ko": "Strapon", //Korean
+    "es": "Strapon", //Spanish
+    "ko": "스트랩 폰", //Korean
     "de": "Strapon", //German
     "fr": "Strapon", //French
-    "hu": "Strapon", //Hungarian
+    "hu": "Heveder", //Hungarian
     "it": "Strapon", //Italian
-    "ja": "Strapon", //Japanese
+    "ja": "ストラポン", //Japanese
     "pt": "Strapon", //Portuguese
-    "ru": "Strapon", //Russian
+    "ru": "Страпон", //Russian
     "tr": "Strapon", //Turkish
     "zh": "Strapon" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A strapon for using in lesbian sex or pegging.", //Spansih
-    "ko": "A strapon for using in lesbian sex or pegging.", //Korean
-    "de": "A strapon for using in lesbian sex or pegging.", //German
-    "fr": "A strapon for using in lesbian sex or pegging.", //French
-    "hu": "A strapon for using in lesbian sex or pegging.", //Hungarian
-    "it": "A strapon for using in lesbian sex or pegging.", //Italian
-    "ja": "A strapon for using in lesbian sex or pegging.", //Japanese
-    "pt": "A strapon for using in lesbian sex or pegging.", //Portuguese
-    "ru": "A strapon for using in lesbian sex or pegging.", //Russian
-    "tr": "A strapon for using in lesbian sex or pegging.", //Turkish
-    "zh": "A strapon for using in lesbian sex or pegging." //Chinese (Simplified)
+    "es": "Una cortra para usar en sexo o fijación de lesbianas.", //Spanish
+    "ko": "레즈비언 섹스 또는 페깅에 사용하기위한 스트랩 폰.", //Korean
+    "de": "Ein Strapon für Lesben Sex oder Pegging.", //German
+    "fr": "Un strapon à utiliser dans le sexe ou le saut lesbien.", //French
+    "hu": "Egy strapon a leszbikus szexben vagy a rögzítéshez.", //Hungarian
+    "it": "Uno strapon per l'uso nel sesso lesbico o nel pegging.", //Italian
+    "ja": "レズビアンのセックスまたはペギングで使用するためのストラップン。", //Japanese
+    "pt": "Um Strapon para usar em sexo lésbico ou pegando.", //Portuguese
+    "ru": "Страпон для использования в лесбийском сексе или привязке.", //Russian
+    "tr": "Lezbiyen seks veya pegging kullanmak için bir strapon.", //Turkish
+    "zh": "用于女同性恋或固定的Strapon。" //Chinese (Simplified)
   }
 }

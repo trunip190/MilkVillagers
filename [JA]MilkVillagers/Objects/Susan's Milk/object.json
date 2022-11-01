@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Susan's Milk", //Spansih
-    "ko": "Susan's Milk", //Korean
-    "de": "Susan's Milk", //German
-    "fr": "Susan's Milk", //French
-    "hu": "Susan's Milk", //Hungarian
-    "it": "Susan's Milk", //Italian
-    "ja": "Susan's Milk", //Japanese
-    "pt": "Susan's Milk", //Portuguese
-    "ru": "Susan's Milk", //Russian
-    "tr": "Susan's Milk", //Turkish
-    "zh": "Susan's Milk" //Chinese (Simplified)
+    "es": "Leche de Susan", //Spanish
+    "ko": "수잔의 우유", //Korean
+    "de": "Susans Milch", //German
+    "fr": "Le lait de Susan", //French
+    "hu": "Susan teje", //Hungarian
+    "it": "Milk di Susan", //Italian
+    "ja": "スーザンの牛乳", //Japanese
+    "pt": "Leite de Susan", //Portuguese
+    "ru": "Сьюзен молоко", //Russian
+    "tr": "Susan'ın Sütü", //Turkish
+    "zh": "苏珊的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Susan's milk", //Spansih
-    "ko": "A jug of Susan's milk", //Korean
-    "de": "A jug of Susan's milk", //German
-    "fr": "A jug of Susan's milk", //French
-    "hu": "A jug of Susan's milk", //Hungarian
-    "it": "A jug of Susan's milk", //Italian
-    "ja": "A jug of Susan's milk", //Japanese
-    "pt": "A jug of Susan's milk", //Portuguese
-    "ru": "A jug of Susan's milk", //Russian
-    "tr": "A jug of Susan's milk", //Turkish
-    "zh": "A jug of Susan's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Susan", //Spanish
+    "ko": "수잔의 주전자", //Korean
+    "de": "Ein Krug von Susans Milch", //German
+    "fr": "Une cruche de lait de Susan", //French
+    "hu": "Egy kancsó Susan -tejet", //Hungarian
+    "it": "Una brocca del latte di Susan", //Italian
+    "ja": "スーザンの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Susan", //Portuguese
+    "ru": "Кувшин молока Сьюзен", //Russian
+    "tr": "Bir sürahi Susan Sütü", //Turkish
+    "zh": "一罐苏珊的牛奶" //Chinese (Simplified)
   }
 }

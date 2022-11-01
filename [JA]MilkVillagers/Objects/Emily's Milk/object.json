@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Emily's Milk", //Spansih
-    "ko": "Emily's Milk", //Korean
-    "de": "Emily's Milk", //German
-    "fr": "Le lait d'Emilie", //French
-    "hu": "Emily's Milk", //Hungarian
-    "it": "Emily's Milk", //Italian
-    "ja": "Emily's Milk", //Japanese
-    "pt": "Emily's Milk", //Portuguese
-    "ru": "Emily's Milk", //Russian
+    "es": "Leche de Emily", //Spanish
+    "ko": "에밀리의 우유", //Korean
+    "de": "Emilys Milch", //German
+    "fr": "Le lait d'Emily", //French
+    "hu": "Emily teje", //Hungarian
+    "it": "Latte di Emily", //Italian
+    "ja": "エミリーの牛乳", //Japanese
+    "pt": "Leite de Emily", //Portuguese
+    "ru": "Эмили молоко", //Russian
     "tr": "Emily's Milk", //Turkish
-    "zh": "Emily's Milk" //Chinese (Simplified)
+    "zh": "艾米丽的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Emily's milk", //Spansih
-    "ko": "A jug of Emily's milk", //Korean
-    "de": "A jug of Emily's milk", //German
-    "fr": "Un pot de lait d'Emily", //French
-    "hu": "A jug of Emily's milk", //Hungarian
-    "it": "A jug of Emily's milk", //Italian
-    "ja": "A jug of Emily's milk", //Japanese
-    "pt": "A jug of Emily's milk", //Portuguese
-    "ru": "A jug of Emily's milk", //Russian
-    "tr": "A jug of Emily's milk", //Turkish
-    "zh": "A jug of Emily's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Emily", //Spanish
+    "ko": "에밀리 우유 주전자", //Korean
+    "de": "Ein Krug von Emilys Milch", //German
+    "fr": "Une cruche du lait d'Emily", //French
+    "hu": "Egy kancsó Emily teje", //Hungarian
+    "it": "Una brocca del latte di Emily", //Italian
+    "ja": "エミリーの牛乳の水差し", //Japanese
+    "pt": "Um jarro do leite de Emily", //Portuguese
+    "ru": "Кувшин молока Эмили", //Russian
+    "tr": "Bir sürahi Emily'nin sütü", //Turkish
+    "zh": "一罐艾米丽的牛奶" //Chinese (Simplified)
   }
 }

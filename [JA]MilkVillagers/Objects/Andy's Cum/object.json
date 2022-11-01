@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Cum Andy", //Spanish
+    "ko": "앤디의 정액", //Korean
+    "de": "Andys Sperma", //German
+    "fr": "Le sperme d'Andy", //French
+    "hu": "Andy cum", //Hungarian
+    "it": "Andy's Cum", //Italian
+    "ja": "アンディの精液", //Japanese
+    "pt": "Cum de Andy", //Portuguese
+    "ru": "Энди сперма", //Russian
+    "tr": "Andy's cum", //Turkish
+    "zh": "安迪的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Una botella de Andy's Cum", //Spanish
+    "ko": "앤디의 정액 병", //Korean
+    "de": "Eine Flasche Andys Sperma", //German
+    "fr": "Une bouteille de sperme d'Andy", //French
+    "hu": "Egy üveg Andy cum", //Hungarian
+    "it": "Una bottiglia di Andy's Cum", //Italian
+    "ja": "アンディの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Andy", //Portuguese
+    "ru": "Бутылка спермы Энди", //Russian
+    "tr": "Bir şişe Andy's cum", //Turkish
+    "zh": "一瓶安迪的暨" //Chinese (Simplified)
   }
 }

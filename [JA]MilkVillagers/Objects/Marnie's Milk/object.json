@@ -23,29 +23,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Marnie's Milk", //Spansih
-    "ko": "Marnie's Milk", //Korean
-    "de": "Marnie's Milk", //German
-    "fr": "Marnie's Milk", //French
-    "hu": "Marnie's Milk", //Hungarian
-    "it": "Marnie's Milk", //Italian
-    "ja": "Marnie's Milk", //Japanese
-    "pt": "Marnie's Milk", //Portuguese
-    "ru": "Marnie's Milk", //Russian
-    "tr": "Marnie's Milk", //Turkish
-    "zh": "Marnie's Milk" //Chinese (Simplified)
+    "es": "Leche de Marnie", //Spanish
+    "ko": "Marnie의 우유", //Korean
+    "de": "Marnies Milch", //German
+    "fr": "Lait Marnie", //French
+    "hu": "Marnie teje", //Hungarian
+    "it": "Il latte di Marnie", //Italian
+    "ja": "マーニーの牛乳", //Japanese
+    "pt": "Leite de Marnie", //Portuguese
+    "ru": "Марни молоко", //Russian
+    "tr": "Marnie'nin Sütü", //Turkish
+    "zh": "玛妮的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Marnie's milk", //Spansih
-    "ko": "A jug of Marnie's milk", //Korean
-    "de": "A jug of Marnie's milk", //German
-    "fr": "A jug of Marnie's milk", //French
-    "hu": "A jug of Marnie's milk", //Hungarian
-    "it": "A jug of Marnie's milk", //Italian
-    "ja": "A jug of Marnie's milk", //Japanese
-    "pt": "A jug of Marnie's milk", //Portuguese
-    "ru": "A jug of Marnie's milk", //Russian
-    "tr": "A jug of Marnie's milk", //Turkish
-    "zh": "A jug of Marnie's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Marnie", //Spanish
+    "ko": "Marnie의 우유 주전자", //Korean
+    "de": "Ein Krug von Marnies Milch", //German
+    "fr": "Une cruche de lait de Marnie", //French
+    "hu": "Egy kancsó Marnie teje", //Hungarian
+    "it": "Una brocca del latte di Marnie", //Italian
+    "ja": "マーニーの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Marnie", //Portuguese
+    "ru": "Кувшин с молоком Марни", //Russian
+    "tr": "Marnie'nin sütü bir sürahi", //Turkish
+    "zh": "一罐玛妮的牛奶" //Chinese (Simplified)
   }
 }

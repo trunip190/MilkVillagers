@@ -32,29 +32,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Special Milk", //Spansih
-    "ko": "Special Milk", //Korean
-    "de": "Special Milk", //German
-    "fr": "Special Milk", //French
-    "hu": "Special Milk", //Hungarian
-    "it": "Special Milk", //Italian
-    "ja": "Special Milk", //Japanese
-    "pt": "Special Milk", //Portuguese
-    "ru": "Special Milk", //Russian
-    "tr": "Special Milk", //Turkish
-    "zh": "Special Milk" //Chinese (Simplified)
+    "es": "Leche especial", //Spanish
+    "ko": "특별한 우유", //Korean
+    "de": "Spezialmilch", //German
+    "fr": "Lait spécial", //French
+    "hu": "Speciális tej", //Hungarian
+    "it": "Latte speciale", //Italian
+    "ja": "特別な牛乳", //Japanese
+    "pt": "Leite especial", //Portuguese
+    "ru": "Специальное молоко", //Russian
+    "tr": "Özel süt", //Turkish
+    "zh": "特殊牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A small jar of cum from a donor", //Spansih
-    "ko": "A small jar of cum from a donor", //Korean
-    "de": "A small jar of cum from a donor", //German
-    "fr": "A small jar of cum from a donor", //French
-    "hu": "A small jar of cum from a donor", //Hungarian
-    "it": "A small jar of cum from a donor", //Italian
-    "ja": "A small jar of cum from a donor", //Japanese
-    "pt": "A small jar of cum from a donor", //Portuguese
-    "ru": "A small jar of cum from a donor", //Russian
-    "tr": "A small jar of cum from a donor", //Turkish
-    "zh": "A small jar of cum from a donor" //Chinese (Simplified)
+    "es": "Un pequeño frasco de semen de un donante", //Spanish
+    "ko": "기증자의 작은 정액", //Korean
+    "de": "Ein kleines Glas Spender von einem Spender", //German
+    "fr": "Un petit pot de sperme d'un donateur", //French
+    "hu": "Egy kis edény cum egy donortól", //Hungarian
+    "it": "Un barattolo di sperma da un donatore", //Italian
+    "ja": "ドナーからの兼の小さな瓶", //Japanese
+    "pt": "Um pequeno pote de esperma de um doador", //Portuguese
+    "ru": "Небольшая банка спермы от донора", //Russian
+    "tr": "Bir donörden küçük bir kavanoz", //Turkish
+    "zh": "一小罐捐助者" //Chinese (Simplified)
   }
 }

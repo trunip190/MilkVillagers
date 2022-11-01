@@ -21,25 +21,25 @@
     "ko": "초대", //Korean
     "de": "Einladung", //German
     "fr": "Invitation", //French
-    "hu": "Invitation", //Hungarian
-    "it": "Invitation", //Italian
-    "ja": "Invitation", //Japanese
-    "pt": "Invitation", //Portuguese
-    "ru": "Invitation", //Russian
-    "tr": "Invitation", //Turkish
-    "zh": "Invitation" //Chinese (Simplified)
+    "hu": "Meghívás", //Hungarian
+    "it": "Invito", //Italian
+    "ja": "招待", //Japanese
+    "pt": "Convite", //Portuguese
+    "ru": "Приглашение", //Russian
+    "tr": "Davet", //Turkish
+    "zh": "邀请" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "Indicates you found someone willing to come to Haley's sex event.", //Spansih
-    "ko": "Indicates you found someone willing to come to Haley's sex event.", //Korean
-    "de": "Indicates you found someone willing to come to Haley's sex event.", //German
-    "fr": "Indicates you found someone willing to come to Haley's sex event.", //French
-    "hu": "Indicates you found someone willing to come to Haley's sex event.", //Hungarian
-    "it": "Indicates you found someone willing to come to Haley's sex event.", //Italian
-    "ja": "Indicates you found someone willing to come to Haley's sex event.", //Japanese
-    "pt": "Indicates you found someone willing to come to Haley's sex event.", //Portuguese
-    "ru": "Indicates you found someone willing to come to Haley's sex event.", //Russian
-    "tr": "Indicates you found someone willing to come to Haley's sex event.", //Turkish
-    "zh": "Indicates you found someone willing to come to Haley's sex event." //Chinese (Simplified)
+    "es": "Indica que encontraste a alguien dispuesto a venir al evento sexual de Haley", //Spanish
+    "ko": "헤일리의 섹스 이벤트에 기꺼이 올 사람을 찾았 음을 나타냅니다.", //Korean
+    "de": "Zeigt an, dass Sie jemanden gefunden haben, der bereit ist, zu Haleys Sex -Event zu kommen", //German
+    "fr": "Indique que vous avez trouvé quelqu'un prêt à venir à l'événement sexuel de Haley", //French
+    "hu": "Azt jelzi, hogy talált valakit, aki hajlandó jönni Haley szexuális rendezvényére", //Hungarian
+    "it": "Indica che hai trovato qualcuno disposto a venire all'evento sessuale di Haley", //Italian
+    "ja": "誰かがヘイリーのセックスイベントに来ることをいとわないことを見つけました", //Japanese
+    "pt": "Indica que você encontrou alguém disposto a vir para o evento sexual de Haley", //Portuguese
+    "ru": "Указывает, что вы нашли кого -то, кто хочет прийти на секс -мероприятие Хейли", //Russian
+    "tr": "Haley'in seks etkinliğine gelmek isteyen birini bulduğunuzu gösterir", //Turkish
+    "zh": "表明您发现有人愿意参加海莉的性爱活动" //Chinese (Simplified)
   }
 }

@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Olivia's Milk", //Spansih
-    "ko": "Olivia's Milk", //Korean
-    "de": "Olivia's Milk", //German
-    "fr": "Olivia's Milk", //French
-    "hu": "Olivia's Milk", //Hungarian
-    "it": "Olivia's Milk", //Italian
-    "ja": "Olivia's Milk", //Japanese
-    "pt": "Olivia's Milk", //Portuguese
-    "ru": "Olivia's Milk", //Russian
-    "tr": "Olivia's Milk", //Turkish
-    "zh": "Olivia's Milk" //Chinese (Simplified)
+    "es": "Leche de Olivia", //Spanish
+    "ko": "올리비아의 우유", //Korean
+    "de": "Olivias Milch", //German
+    "fr": "Le lait d'Olivia", //French
+    "hu": "Olivia teje", //Hungarian
+    "it": "Latte di Olivia", //Italian
+    "ja": "オリビアの牛乳", //Japanese
+    "pt": "Leite de Olivia", //Portuguese
+    "ru": "Оливия молоко", //Russian
+    "tr": "Olivia'nın Sütü", //Turkish
+    "zh": "奥利维亚的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Olivia's milk", //Spansih
-    "ko": "A jug of Olivia's milk", //Korean
-    "de": "A jug of Olivia's milk", //German
-    "fr": "A jug of Olivia's milk", //French
-    "hu": "A jug of Olivia's milk", //Hungarian
-    "it": "A jug of Olivia's milk", //Italian
-    "ja": "A jug of Olivia's milk", //Japanese
-    "pt": "A jug of Olivia's milk", //Portuguese
-    "ru": "A jug of Olivia's milk", //Russian
-    "tr": "A jug of Olivia's milk", //Turkish
-    "zh": "A jug of Olivia's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Olivia", //Spanish
+    "ko": "올리비아 우유 주전자", //Korean
+    "de": "Ein Krug von Olivias Milch", //German
+    "fr": "Une cruche de lait d'Olivia", //French
+    "hu": "Egy kancsó Olivia tej", //Hungarian
+    "it": "Una brocca del latte di Olivia", //Italian
+    "ja": "オリビアの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Olivia", //Portuguese
+    "ru": "Кувшин молока Оливии", //Russian
+    "tr": "Bir sürahi Olivia'nın sütü", //Turkish
+    "zh": "奥利维亚的牛奶罐" //Chinese (Simplified)
   }
 }

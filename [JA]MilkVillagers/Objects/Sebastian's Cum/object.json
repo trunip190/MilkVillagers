@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Sebastian's Cum", //Spansih
-    "ko": "Sebastian's Cum", //Korean
-    "de": "Sebastian's Cum", //German
-    "fr": "Sebastian's Cum", //French
-    "hu": "Sebastian's Cum", //Hungarian
+    "es": "Cum de Sebastian", //Spanish
+    "ko": "세바스찬의 정액", //Korean
+    "de": "Sebastians Sperma", //German
+    "fr": "Le sperme de Sebastian", //French
+    "hu": "Sebastian cum", //Hungarian
     "it": "Sebastian's Cum", //Italian
-    "ja": "Sebastian's Cum", //Japanese
-    "pt": "Sebastian's Cum", //Portuguese
-    "ru": "Sebastian's Cum", //Russian
-    "tr": "Sebastian's Cum", //Turkish
-    "zh": "Sebastian's Cum" //Chinese (Simplified)
+    "ja": "セバスチャンの精液", //Japanese
+    "pt": "Sebastian's esperma", //Portuguese
+    "ru": "Себастьян сперма", //Russian
+    "tr": "Sebastian's cum", //Turkish
+    "zh": "塞巴斯蒂安的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of Sebastian's cum", //Spansih
-    "ko": "A bottle of Sebastian's cum", //Korean
-    "de": "A bottle of Sebastian's cum", //German
-    "fr": "A bottle of Sebastian's cum", //French
-    "hu": "A bottle of Sebastian's cum", //Hungarian
-    "it": "A bottle of Sebastian's cum", //Italian
-    "ja": "A bottle of Sebastian's cum", //Japanese
-    "pt": "A bottle of Sebastian's cum", //Portuguese
-    "ru": "A bottle of Sebastian's cum", //Russian
-    "tr": "A bottle of Sebastian's cum", //Turkish
-    "zh": "A bottle of Sebastian's cum" //Chinese (Simplified)
+    "es": "Una botella de semen de Sebastian", //Spanish
+    "ko": "세바스티안의 정액 병", //Korean
+    "de": "Eine Flasche Sebastians Sperma", //German
+    "fr": "Une bouteille de sperme de Sebastian", //French
+    "hu": "Egy üveg Sebastian cum", //Hungarian
+    "it": "Una bottiglia di sperma di Sebastian", //Italian
+    "ja": "セバスチャンの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Sebastian", //Portuguese
+    "ru": "Бутылка спермы Себастьяна", //Russian
+    "tr": "Bir şişe Sebastian's cum", //Turkish
+    "zh": "一瓶塞巴斯蒂安的暨" //Chinese (Simplified)
   }
 }

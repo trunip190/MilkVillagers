@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Sophia's Milk", //Spansih
-    "ko": "Sophia's Milk", //Korean
-    "de": "Sophia's Milk", //German
-    "fr": "Sophia's Milk", //French
-    "hu": "Sophia's Milk", //Hungarian
-    "it": "Sophia's Milk", //Italian
-    "ja": "Sophia's Milk", //Japanese
+    "es": "Leche de Sophia", //Spanish
+    "ko": "소피아의 우유", //Korean
+    "de": "Sophias Milch", //German
+    "fr": "Le lait de Sophia", //French
+    "hu": "Sophia teje", //Hungarian
+    "it": "Latte di Sophia", //Italian
+    "ja": "ソフィアの牛乳", //Japanese
     "pt": "Sophia's Milk", //Portuguese
-    "ru": "Sophia's Milk", //Russian
-    "tr": "Sophia's Milk", //Turkish
-    "zh": "Sophia's Milk" //Chinese (Simplified)
+    "ru": "София молоко", //Russian
+    "tr": "Sophia'nın Sütü", //Turkish
+    "zh": "索菲亚的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A jug of Sophia's milk", //Spansih
-    "ko": "A jug of Sophia's milk", //Korean
-    "de": "A jug of Sophia's milk", //German
-    "fr": "A jug of Sophia's milk", //French
-    "hu": "A jug of Sophia's milk", //Hungarian
-    "it": "A jug of Sophia's milk", //Italian
-    "ja": "A jug of Sophia's milk", //Japanese
-    "pt": "A jug of Sophia's milk", //Portuguese
-    "ru": "A jug of Sophia's milk", //Russian
-    "tr": "A jug of Sophia's milk", //Turkish
-    "zh": "A jug of Sophia's milk" //Chinese (Simplified)
+    "es": "Una jarra de leche de Sophia", //Spanish
+    "ko": "소피아의 주전자", //Korean
+    "de": "Ein Krug von Sophias Milch", //German
+    "fr": "Une cruche de lait de Sophia", //French
+    "hu": "Egy kancsó Sophia tej", //Hungarian
+    "it": "Una brocca del latte di Sophia", //Italian
+    "ja": "ソフィアの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Sophia", //Portuguese
+    "ru": "Кувшин софии", //Russian
+    "tr": "Bir sürahi Sophia'nın sütü", //Turkish
+    "zh": "索菲亚牛奶罐" //Chinese (Simplified)
   }
 }

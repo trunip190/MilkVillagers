@@ -22,29 +22,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "George's Cum", //Spansih
-    "ko": "George's Cum", //Korean
-    "de": "Samen", //German
-    "fr": "George's Cum", //French
-    "hu": "George's Cum", //Hungarian
+    "es": "Cum George", //Spanish
+    "ko": "조지의 정액", //Korean
+    "de": "Georges Sperma", //German
+    "fr": "George's sperme", //French
+    "hu": "George cum", //Hungarian
     "it": "George's Cum", //Italian
-    "ja": "George's Cum", //Japanese
-    "pt": "George's Cum", //Portuguese
-    "ru": "George's Cum", //Russian
-    "tr": "George's Cum", //Turkish
-    "zh": "George's Cum" //Chinese (Simplified)
+    "ja": "ジョージの精液", //Japanese
+    "pt": "George's esperma", //Portuguese
+    "ru": "Джордж сперма", //Russian
+    "tr": "George's cum", //Turkish
+    "zh": "乔治的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "A bottle of George's cum", //Spansih
-    "ko": "A bottle of George's cum", //Korean
-    "de": "A bottle of George's cum", //German
-    "fr": "A bottle of George's cum", //French
-    "hu": "A bottle of George's cum", //Hungarian
-    "it": "A bottle of George's cum", //Italian
-    "ja": "A bottle of George's cum", //Japanese
-    "pt": "A bottle of George's cum", //Portuguese
-    "ru": "A bottle of George's cum", //Russian
-    "tr": "A bottle of George's cum", //Turkish
-    "zh": "A bottle of George's cum" //Chinese (Simplified)
+    "es": "Una botella de Cum George", //Spanish
+    "ko": "조지의 정액 병", //Korean
+    "de": "Eine Flasche Georges Sperma", //German
+    "fr": "Une bouteille de sperme de George", //French
+    "hu": "Egy üveg George cum", //Hungarian
+    "it": "Una bottiglia di sperma di George", //Italian
+    "ja": "ジョージの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de George", //Portuguese
+    "ru": "Бутылка спермы Джорджа", //Russian
+    "tr": "Bir şişe George's cum", //Turkish
+    "zh": "一瓶乔治的暨" //Chinese (Simplified)
   }
 }

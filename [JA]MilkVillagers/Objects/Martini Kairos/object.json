@@ -50,29 +50,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "Martini Kairos", //Spansih
-    "ko": "Martini Kairos", //Korean
+    "es": "Martini kairos", //Spanish
+    "ko": "마티니 카이로스", //Korean
     "de": "Martini Kairos", //German
-    "fr": "Martini Kairos", //French
+    "fr": "Martini kairos", //French
     "hu": "Martini Kairos", //Hungarian
     "it": "Martini Kairos", //Italian
-    "ja": "Martini Kairos", //Japanese
+    "ja": "マティーニ・カイロス", //Japanese
     "pt": "Martini Kairos", //Portuguese
-    "ru": "Martini Kairos", //Russian
+    "ru": "Мартини Кайрос", //Russian
     "tr": "Martini Kairos", //Turkish
     "zh": "Martini Kairos" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "Magical cocktail that pauses time.", //Spansih
-    "ko": "Magical cocktail that pauses time.", //Korean
-    "de": "Magical cocktail that pauses time.", //German
-    "fr": "Magical cocktail that pauses time.", //French
-    "hu": "Magical cocktail that pauses time.", //Hungarian
-    "it": "Magical cocktail that pauses time.", //Italian
-    "ja": "Magical cocktail that pauses time.", //Japanese
-    "pt": "Magical cocktail that pauses time.", //Portuguese
-    "ru": "Magical cocktail that pauses time.", //Russian
-    "tr": "Magical cocktail that pauses time.", //Turkish
-    "zh": "Magical cocktail that pauses time." //Chinese (Simplified)
+    "es": "Cóctel mágico que detiene el tiempo", //Spanish
+    "ko": "시간을 일시 정지시키는 마법의 칵테일", //Korean
+    "de": "Magischer Cocktail, der Zeit innehalten", //German
+    "fr": "Cocktail magique qui fait une pause", //French
+    "hu": "Varázslatos koktél, amely szünetet tart", //Hungarian
+    "it": "Cocktail magico che fa una pausa tempo", //Italian
+    "ja": "時間を一時停止する魔法のカクテル", //Japanese
+    "pt": "Coquetel mágico que faz o tempo", //Portuguese
+    "ru": "Волшебный коктейль, который останавливается", //Russian
+    "tr": "Zamanı durduran büyülü kokteyl", //Turkish
+    "zh": "暂停时间的神奇鸡尾酒" //Chinese (Simplified)
   }
 }
