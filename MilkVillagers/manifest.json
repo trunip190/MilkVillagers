@@ -1,7 +1,7 @@
 {
 	"Name": "MilkVillagers",
 	"Author": "Trunip190",
-	"Version": "1.2.1",
+	"Version": "1.2.2",
 	"Description": "Lets you milk the villagers",
 	"UniqueID": "Trunip190.MilkTheVillagers",
 	"EntryDll": "MilkVillagers.dll",

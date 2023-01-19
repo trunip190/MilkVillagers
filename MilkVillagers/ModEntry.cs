@@ -534,6 +534,8 @@ namespace MilkVillagers
             }
             //Farmer who = Game1.player;
             //SendNewMail(who);
+            TimeFreezeTimer = 0;
+            RegenAmount = 0;
         }
 
         private void GameLoop_TimeChanged(object sender, TimeChangedEventArgs e)
@@ -1304,7 +1306,7 @@ namespace MilkVillagers
             }
             else if (action == "self_milk") // farmer collects their own breast milk.
             {
-                Game1.drawObjectDialogue(TempRefs.FarmerCollectionMilk);
+                Game1.drawObjectDialogue(Config.FarmerCollectionMilk);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkGeneric, 1, quality: 2));
 
@@ -1313,7 +1315,7 @@ namespace MilkVillagers
             }
             else if (action == "self_cum") // farmer collects their own cum
             {
-                Game1.drawObjectDialogue(TempRefs.FarmerCollectCum);
+                Game1.drawObjectDialogue(Config.FarmerCollectCum);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkSpecial, 1, quality: 2));
 
