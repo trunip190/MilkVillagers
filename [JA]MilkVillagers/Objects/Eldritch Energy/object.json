@@ -2,7 +2,7 @@
   "Name": "Eldritch Energy", //The name you would like your object to have, this should be identical to the subfolder name.
   "Description": "Magical potion that grants energy regeneration", //Description of the product.
   "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-  "Edibility": 30, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Edibility": 14, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "EdibleIsDrink": true,
   "EdibleBuffs": {
     "Farming": 0,
@@ -42,33 +42,37 @@
     "Dislike": null, //Example of multiple NPC
     "Hate": [ "Pierre, Lewis" ]
   },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Energía de Eldritch", //Spanish
+    "ko": "엘 드리치 에너지", //Korean
+    "de": "Eldritch -Energie", //German
+    "fr": "Eldritch Energy", //French
+    "hu": "Eldritch energia", //Hungarian
+    "it": "Energia Eldritch", //Italian
+    "ja": "エルドリッチエネルギー", //Japanese
+    "pt": "Eldritch Energy", //Portuguese
+    "ru": "Элдрич Энергия", //Russian
+    "tr": "Eldritch Enerji", //Turkish
+    "zh": "Eldritch Energy" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Poción mágica que otorga regeneración de energía", //Spanish
+    "ko": "에너지 재생을 부여하는 마법의 물약", //Korean
+    "de": "Magischer Trank, der Energieregeneration gewährt", //German
+    "fr": "Potion magique qui accorde une régénération énergétique", //French
+    "hu": "Varázslatos bájital, amely energiát regenerálódik", //Hungarian
+    "it": "Pozione magica che concede la rigenerazione dell'energia", //Italian
+    "ja": "エネルギー再生を付与する魔法のポーション", //Japanese
+    "pt": "Poção mágica que concede regeneração energética", //Portuguese
+    "ru": "Волшебное зелье, которое дает регенерацию энергии", //Russian
+    "tr": "Enerji yenilenmesi sağlayan büyülü iksir", //Turkish
+    "zh": "赋予能量再生的魔法药水" //Chinese (Simplified)
   }
 }

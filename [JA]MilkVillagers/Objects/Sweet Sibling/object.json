@@ -1,0 +1,82 @@
+{
+  "Name": "Sweet Sibling", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A special milkshake that embodies a sisterly bond. Just add a strawberry.", //Description of the product.
+  "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 70, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "EdibleIsDrink": true,
+  "EdibleBuffs": {
+    "Farming": 0,
+    "Fishing": 0,
+    "Mining": 0,
+    "Luck": 2,
+    "Foraging": 0,
+    "MaxStamina": 25,
+    "MagnetRadius": 0,
+    "Speed": 3,
+    "Defense": 2,
+    "Attack": 0,
+    "Duration": 700
+  },
+  "Price": 1250, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Haley's Milk",
+        "Count": 1
+      },
+      {
+        "Object": "Emily's Milk",
+        "Count": 1
+      },
+      {
+        "Object": 400, // Strawberry
+        "Count": 1
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": true
+  },
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "George" ], //Example of a single NPC
+    "Like": [ "Lewis, Alex, Sebastian" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Penny" ], //Example of multiple NPC
+    "Hate": [ "Haley, Emily" ]
+  },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Dulce hermano", //Spanish
+    "ko": "달콤한 형제", //Korean
+    "de": "Süßes Geschwister", //German
+    "fr": "Frères et sœurs doux", //French
+    "hu": "Édes testvér", //Hungarian
+    "it": "Dolce fratello", //Italian
+    "ja": "甘い兄弟", //Japanese
+    "pt": "Doce irmão", //Portuguese
+    "ru": "Сладкий брат", //Russian
+    "tr": "Tatlı Kardeş", //Turkish
+    "zh": "甜蜜的兄弟姐妹" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Un batido especial que encarna un vínculo fraternal. Simplemente agregue una fresa.", //Spanish
+    "ko": "자매 유대를 구현하는 특별한 밀크 쉐이크. 딸기 만 추가하십시오.", //Korean
+    "de": "Ein besonderer Milchshake, der eine schwesterliche Bindung verkörpert. Fügen Sie einfach eine Erdbeere hinzu.", //German
+    "fr": "Un milk-shake spécial qui incarne un lien fraternel. Ajoutez simplement une fraise.", //French
+    "hu": "Egy speciális turmix, amely testvéri köteléket testesít meg. Csak adjon hozzá egy eper.", //Hungarian
+    "it": "Un frappè speciale che incarna un legame fraterno. Basta aggiungere una fragola.", //Italian
+    "ja": "姉妹の絆を体現する特別なミルクセーキ。イチゴを追加するだけです。", //Japanese
+    "pt": "Um milk -shake especial que incorpora um vínculo de irmã. Basta adicionar um morango.", //Portuguese
+    "ru": "Специальный молочный коктейль, который воплощает сестринскую связь. Просто добавьте клубнику.", //Russian
+    "tr": "Kardeş bir bağı somutlaştıran özel bir milkshake. Sadece bir çilek ekleyin.", //Turkish
+    "zh": "一种特殊的奶昔，体现了一个姐妹的纽带。只需加一个草莓即可。" //Chinese (Simplified)
+  }
+}

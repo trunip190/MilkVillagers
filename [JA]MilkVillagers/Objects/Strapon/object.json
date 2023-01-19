@@ -20,29 +20,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Strapon", //Spanish
+    "ko": "스트랩 폰", //Korean
+    "de": "Strapon", //German
+    "fr": "Strapon", //French
+    "hu": "Heveder", //Hungarian
+    "it": "Strapon", //Italian
+    "ja": "ストラポン", //Japanese
+    "pt": "Strapon", //Portuguese
+    "ru": "Страпон", //Russian
+    "tr": "Strapon", //Turkish
+    "zh": "Strapon" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Una cortra para usar en sexo o fijación de lesbianas.", //Spanish
+    "ko": "레즈비언 섹스 또는 페깅에 사용하기위한 스트랩 폰.", //Korean
+    "de": "Ein Strapon für Lesben Sex oder Pegging.", //German
+    "fr": "Un strapon à utiliser dans le sexe ou le saut lesbien.", //French
+    "hu": "Egy strapon a leszbikus szexben vagy a rögzítéshez.", //Hungarian
+    "it": "Uno strapon per l'uso nel sesso lesbico o nel pegging.", //Italian
+    "ja": "レズビアンのセックスまたはペギングで使用するためのストラップン。", //Japanese
+    "pt": "Um Strapon para usar em sexo lésbico ou pegando.", //Portuguese
+    "ru": "Страпон для использования в лесбийском сексе или привязке.", //Russian
+    "tr": "Lezbiyen seks veya pegging kullanmak için bir strapon.", //Turkish
+    "zh": "用于女同性恋或固定的Strapon。" //Chinese (Simplified)
   }
 }

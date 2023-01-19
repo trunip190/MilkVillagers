@@ -33,8 +33,8 @@ Example:			Hi there @!
 
 Eotes
 row	index	purpose
-1	0–3	animation used to start an emote (I think)
-2	4–7	empty can
+1	0–3		animation used to start an emote (I think)
+2	4–7		concerned
 3	8–11	question mark
 4	12–15	angry
 5	16–19	exclamation
@@ -44,8 +44,8 @@ row	index	purpose
 9	32–35	happy
 10	36–39	x
 11	40–43	pause
-12	44–47	not used
-13	48–51	not used
+12	44–47	fishing
+13	48–51	star tree
 14	52–55	videogame
 15	56–59	music note
 16	60–63	blush

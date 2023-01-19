@@ -1,0 +1,51 @@
+{
+  "Name": "Abigails Panties", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A pair of Abigail's panties", //Description of the product.
+  "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "CategoryTextOverride": "Clothing",
+  "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 1, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": null, //Example of a single NPC
+    "Like": null,
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": null, //Example of multiple NPC
+    "Hate": null
+  },
+  "ContextTags": [
+    "quest_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Bragas Abigail's", //Spanish
+    "ko": "아비가일 팬티", //Korean
+    "de": "Abigails Höschen", //German
+    "fr": "Abigails culotte", //French
+    "hu": "Abigails bugyi", //Hungarian
+    "it": "Mutandine di Abigails", //Italian
+    "ja": "アビゲイルパンティー", //Japanese
+    "pt": "Calcinha abigails", //Portuguese
+    "ru": "Абигейлс трусики", //Russian
+    "tr": "Abigails külot", //Turkish
+    "zh": "Abigails内裤" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Un par de bragas de Abigail", //Spanish
+    "ko": "아비가일 팬티 한 쌍", //Korean
+    "de": "Ein Paar Abigails Höschen", //German
+    "fr": "Une paire de culotte d'Abigail", //French
+    "hu": "Egy pár Abigail bugyi", //Hungarian
+    "it": "Una coppia di mutandine di Abigail", //Italian
+    "ja": "アビゲイルのパンティーのペア", //Japanese
+    "pt": "Uma calcinha de Abigail", //Portuguese
+    "ru": "Пара трусиков Абигейл", //Russian
+    "tr": "Bir çift Abigail'in külotu", //Turkish
+    "zh": "一双阿比盖尔的内裤" //Chinese (Simplified)
+  }
+}

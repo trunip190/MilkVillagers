@@ -1,160 +1,47 @@
 {
-    "Format": "1.19.0",
-    "Changes": [
-        {
-            "LogName": "Abigail",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Abigail.json"
-        },
-        {
-            "LogName": "Alex",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Alex.json"
-        },
-        {
-            "LogName": "Caroline",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Caroline.json"
-        },
-        {
-            "LogName": "Clint",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Clint.json"
-        },
-        {
-            "LogName": "Demetrius",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Demetrius.json"
-        },
-        {
-            "LogName": "Dwarf",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Dwarf.json"
-        },
-        {
-            "LogName": "Elliott",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Elliott.json"
-        },
-        {
-            "LogName": "Emily",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Emily.json"
-        },
-        {
-            "LogName": "Evelyn",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Evelyn.json"
-        },
-        {
-            "LogName": "George",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/George.json"
-        },
-        {
-            "LogName": "Gus",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Gus.json"
-        },
-        {
-            "LogName": "Haley",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Haley.json"
-        },
-        {
-            "LogName": "Harvey",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Harvey.json"
-        },
-        {
-            "LogName": "Jodi",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Jodi.json"
-        },
-        {
-            "LogName": "Kent",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Kent.json"
-        },
-        {
-            "LogName": "Leah",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Leah.json"
-        },
-        {
-            "LogName": "Lewis",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Lewis.json"
-        },
-        {
-            "LogName": "Linus",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Linus.json"
-        },
-        {
-            "LogName": "Marnie",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Marnie.json"
-        },
-        {
-            "LogName": "Maru",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Maru.json"
-        },
-        {
-            "LogName": "Pam",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Pam.json"
-        },
-        {
-            "LogName": "Penny",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Penny.json"
-        },
-        {
-            "LogName": "Pierre",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Pierre.json"
-        },
-        {
-            "LogName": "Robin",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Robin.json"
-        },
-        {
-            "LogName": "Sam",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Sam.json"
-        },
-        {
-            "LogName": "Sandy",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Sandy.json"
-        },
-        {
-            "LogName": "Sebastian",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Sebastian.json"
-        },
-        {
-            "LogName": "Shane",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Shane.json"
-        },
-        {
-            "LogName": "Willy",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Willy.json"
-        },
-        {
-            "LogName": "Wizard",
-            "Action": "Include",
-            "FromFile": "Data/default/NPCs/Wizard.json"
-        },
-        {
-            "LogName": "Translations",
-            "Action": "Include",
-            "FromFile": "Data/Translations.json",
-        },
-    ]
+  "Format": "1.28.1",
+  "ConfigSchema": {
+    "ExtraDialogue": {
+      "AllowValues": "true, false",
+      "Default": "true"
+    },
+    "Quests": {
+      "AllowValues": "true, false",
+      "Default": "true"
+    }
+  },
+  "Changes": [
+    // Dialogue
+    {
+      "LogName": "Include Dialogue",
+      "Action": "Include",
+      "FromFile": "Data/Dialogue.json"
+    },
+
+    //Events
+    {
+      "LogName": "Include Events",
+      "Action": "Include",
+      "FromFile": "Data/Events.json"
+    },
+
+    //Mail Items
+    {
+      "LogName": "Include Mail",
+      "Action": "Include",
+      "FromFile": "Data/Mail.json"
+    },
+
+    // Quest Items
+    {
+      "LogName": "Include Quests",
+      "Action": "Include",
+      "FromFile": "Data/Quests.json"
+
+
+    }
+  ],
+  "RepeatEvents": [
+    "5948121"
+  ]
 }

@@ -3,8 +3,9 @@
   <PropertyGroup>
     <AssemblyName>MilkVillagers</AssemblyName>
     <RootNamespace>MilkVillagers</RootNamespace>
-    <Version>1.1.0</Version>
+    <Version>1.1.2</Version>
     <TargetFramework>net5.0</TargetFramework>
+	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="csproj backup.7z" />
@@ -13,7 +14,6 @@
     <None Include="manifest.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Todo.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -25,7 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
-    <PackageReference Include="Platonymous.PyTK" Version="1.12.40" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SpaceCore">

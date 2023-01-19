@@ -1,0 +1,78 @@
+{
+  "Name": "Creamy Coffee", //The name you would like your Item_Template1 to have, this should be identical to the subfolder name.
+  "Description": "Morning coffee made with milk from a friend.", //Description of the product.
+  "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 16, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "EdibleIsDrink": true,
+  "EdibleBuffs": {
+    "Farming": 0,
+    "Fishing": 0,
+    "Mining": 0,
+    "Luck": 1,
+    "Foraging": 0,
+    "MaxStamina": 0,
+    "MagnetRadius": 0,
+    "Speed": 2,
+    "Defense": 0,
+    "Attack": 0,
+    "Duration": 600
+  },
+  "Price": 1250, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
+  "Recipe": {
+    "ResultCount": 2,
+    "Ingredients": [
+      {
+        "Object": 395, // Coffee
+        "Count": 2
+      },
+      {
+        "Object": "Woman's Milk", //Breast milk
+        "Count": 1
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": true
+  },
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "George" ], //Example of a single NPC
+    "Like": [ "Lewis, Alex, Sebastian" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Penny" ], //Example of multiple NPC
+    "Hate": [ "Haley, Emily" ]
+  },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Café cremoso", //Spanish
+    "ko": "크림 같은 커피", //Korean
+    "de": "Cremiger Kaffee", //German
+    "fr": "Café crémeux", //French
+    "hu": "Krémes kávé", //Hungarian
+    "it": "Caffè cremoso", //Italian
+    "ja": "クリーミーコーヒー", //Japanese
+    "pt": "Café cremoso", //Portuguese
+    "ru": "Сливочный кофе", //Russian
+    "tr": "Kremalı Kahve", //Turkish
+    "zh": "奶油咖啡" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Café de la mañana hecho con leche de un amigo.", //Spanish
+    "ko": "친구로부터 우유로 만든 모닝 커피.", //Korean
+    "de": "Morgenkaffee mit Milch von einem Freund.", //German
+    "fr": "Café du matin à base de lait d'un ami.", //French
+    "hu": "Reggeli kávé készítve egy barátjától tejjel.", //Hungarian
+    "it": "Caffè mattutino preparato con latte di un amico.", //Italian
+    "ja": "友達から牛乳で作られた朝のコーヒー。", //Japanese
+    "pt": "Café da manhã feito com leite de um amigo.", //Portuguese
+    "ru": "Утренний кофе, приготовленный с молоком от друга.", //Russian
+    "tr": "Bir arkadaşımdan sütle yapılmış sabah kahvesi.", //Turkish
+    "zh": "用朋友用牛奶制成的早晨咖啡。" //Chinese (Simplified)
+  }
+}

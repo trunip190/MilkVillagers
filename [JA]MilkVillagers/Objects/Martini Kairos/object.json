@@ -1,0 +1,78 @@
+{
+  "Name": "Martini Kairos", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "Magical cocktail that pauses time.", //Description of the product.
+  "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 5, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "EdibleIsDrink": true,
+  "EdibleBuffs": {
+    "Farming": 0,
+    "Fishing": 0,
+    "Mining": 0,
+    "Luck": 0,
+    "Foraging": 0,
+    "MaxStamina": 100,
+    "MagnetRadius": 0,
+    "Speed": 1,
+    "Defense": 0,
+    "Attack": 0,
+    "Duration": 150
+  },
+  "Price": 400, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Magical Essence", //Breast Milk Category
+        "Count": 2
+      },
+      {
+        "Object": "Mr. Qi's Essence", //Cum Category
+        "Count": 4
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": true
+  },
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Caroline, Abigail" ], //Example of a single NPC
+    "Like": [ "Krobus" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": null, //Example of multiple NPC
+    "Hate": [ "Pierre, Lewis" ]
+  },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Martini kairos", //Spanish
+    "ko": "마티니 카이로스", //Korean
+    "de": "Martini Kairos", //German
+    "fr": "Martini kairos", //French
+    "hu": "Martini Kairos", //Hungarian
+    "it": "Martini Kairos", //Italian
+    "ja": "マティーニ・カイロス", //Japanese
+    "pt": "Martini Kairos", //Portuguese
+    "ru": "Мартини Кайрос", //Russian
+    "tr": "Martini Kairos", //Turkish
+    "zh": "Martini Kairos" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Cóctel mágico que detiene el tiempo", //Spanish
+    "ko": "시간을 일시 정지시키는 마법의 칵테일", //Korean
+    "de": "Magischer Cocktail, der Zeit innehalten", //German
+    "fr": "Cocktail magique qui fait une pause", //French
+    "hu": "Varázslatos koktél, amely szünetet tart", //Hungarian
+    "it": "Cocktail magico che fa una pausa tempo", //Italian
+    "ja": "時間を一時停止する魔法のカクテル", //Japanese
+    "pt": "Coquetel mágico que faz o tempo", //Portuguese
+    "ru": "Волшебный коктейль, который останавливается", //Russian
+    "tr": "Zamanı durduran büyülü kokteyl", //Turkish
+    "zh": "暂停时间的神奇鸡尾酒" //Chinese (Simplified)
+  }
+}

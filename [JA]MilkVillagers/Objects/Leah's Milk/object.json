@@ -14,33 +14,37 @@
     "Dislike": [ "Haley, Abigail" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
+    "es": "Leche de Leah", //Spanish
+    "ko": "레아의 우유", //Korean
+    "de": "Leahs Milch", //German
+    "fr": "Leh's Milk", //French
+    "hu": "Leah teje", //Hungarian
+    "it": "Latte di Leah", //Italian
+    "ja": "リアの牛乳", //Japanese
+    "pt": "Leite de Leah", //Portuguese
+    "ru": "Лия молоко", //Russian
+    "tr": "Leah Sütü", //Turkish
+    "zh": "利亚的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
-  },
+    "es": "Una jarra de leche de Leah", //Spanish
+    "ko": "Leah의 우유 주전자", //Korean
+    "de": "Ein Krug von Leahs Milch", //German
+    "fr": "Une cruche de Leah's Milk", //French
+    "hu": "Egy kancsó Leah tej", //Hungarian
+    "it": "Una brocca del latte di Leah", //Italian
+    "ja": "リアの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de leah", //Portuguese
+    "ru": "Кувшин молока Лии", //Russian
+    "tr": "Bir sürahi Leah sütü", //Turkish
+    "zh": "一罐莉亚牛奶" //Chinese (Simplified)
+  }
 }

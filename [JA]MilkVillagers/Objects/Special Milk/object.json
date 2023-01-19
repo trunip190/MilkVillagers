@@ -1,7 +1,7 @@
 {
   "Name": "Special Milk", //The name you would like your object to have, this should be identical to the subfolder name.
   "Description": "A small jar of cum from a donor", //Description of the product.
-  "Category": "Crafting", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
   "Edibility": 17, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "Price": 250, //How much your item sells for.
   "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
@@ -24,33 +24,37 @@
     "Dislike": [ "Sam, Sebastien" ], //Example of multiple NPC
     "Hate": [ "Lewis, George" ]
   },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Leche especial", //Spanish
+    "ko": "특별한 우유", //Korean
+    "de": "Spezialmilch", //German
+    "fr": "Lait spécial", //French
+    "hu": "Speciális tej", //Hungarian
+    "it": "Latte speciale", //Italian
+    "ja": "特別な牛乳", //Japanese
+    "pt": "Leite especial", //Portuguese
+    "ru": "Специальное молоко", //Russian
+    "tr": "Özel süt", //Turkish
+    "zh": "特殊牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Un pequeño frasco de semen de un donante", //Spanish
+    "ko": "기증자의 작은 정액", //Korean
+    "de": "Ein kleines Glas Spender von einem Spender", //German
+    "fr": "Un petit pot de sperme d'un donateur", //French
+    "hu": "Egy kis edény cum egy donortól", //Hungarian
+    "it": "Un barattolo di sperma da un donatore", //Italian
+    "ja": "ドナーからの兼の小さな瓶", //Japanese
+    "pt": "Um pequeno pote de esperma de um doador", //Portuguese
+    "ru": "Небольшая банка спермы от донора", //Russian
+    "tr": "Bir donörden küçük bir kavanoz", //Turkish
+    "zh": "一小罐捐助者" //Chinese (Simplified)
   }
 }

@@ -1,48 +1,50 @@
 {
-    "Name": "Alex's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "A bottle of Alex's cum", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 20, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 150, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
-    "Recipe": null, //Set to null.
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": ["Caroline, Haley"], //Example of a single NPC
-        "Like": ["Alex"],
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Pierre"], //Example of multiple NPC
-        "Hate": ["Lewis"]
-    },
+  "Name": "Alex's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A bottle of Alex's cum", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 20, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 150, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Caroline, Haley" ], //Example of a single NPC
+    "Like": [ "Alex" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Pierre" ], //Example of multiple NPC
+    "Hate": [ "Lewis" ]
+  },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "Samen", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "Cum Alex", //Spanish
+    "ko": "알렉스의 정액", //Korean
+    "de": "Alex 'Sperma", //German
+    "fr": "Le sperme d'Alex", //French
+    "hu": "Alex cum", //Hungarian
+    "it": "Alex's Cum", //Italian
+    "ja": "アレックスの精液", //Japanese
+    "pt": "Cum de Alex", //Portuguese
+    "ru": "Алекс сперма", //Russian
+    "tr": "Alex's cum", //Turkish
+    "zh": "亚历克斯的暨" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una botella de Alex's Cum", //Spanish
+    "ko": "Alex의 정액 병", //Korean
+    "de": "Eine Flasche Alex 'Sperma", //German
+    "fr": "Une bouteille de sperme d'Alex", //French
+    "hu": "Egy üveg Alex cum", //Hungarian
+    "it": "Una bottiglia di sperma di Alex", //Italian
+    "ja": "アレックスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Alex", //Portuguese
+    "ru": "Бутылка спермы Алекса", //Russian
+    "tr": "Bir şişe Alex's cum", //Turkish
+    "zh": "一瓶亚历克斯的暨" //Chinese (Simplified)
+  }
 }

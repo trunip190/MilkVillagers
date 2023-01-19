@@ -1,48 +1,50 @@
 {
-    "Name": "Maru's Milk", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "A jug of Maru's milk", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 22, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 300, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
-    "Recipe": null, //Set to null.
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": ["Sam, Jodi, Kent"], //Example of a single NPC
-        "Like": ["Alex"],
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Haley, Abigail"], //Example of multiple NPC
-        "Hate": ["Lewis"]
-    },
+  "Name": "Maru's Milk", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A jug of Maru's milk", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 22, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 300, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Sam, Jodi, Kent" ], //Example of a single NPC
+    "Like": [ "Alex" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Haley, Abigail" ], //Example of multiple NPC
+    "Hate": [ "Lewis" ]
+  },
+  "ContextTags": [
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "Leche de Maru", //Spanish
+    "ko": "마루의 우유", //Korean
+    "de": "Marus Milch", //German
+    "fr": "Le lait de Maru", //French
+    "hu": "Maru teje", //Hungarian
+    "it": "Il latte di Maru", //Italian
+    "ja": "マルの牛乳", //Japanese
+    "pt": "Leite de Maru", //Portuguese
+    "ru": "Мару из молока", //Russian
+    "tr": "Maru'nun Sütü", //Turkish
+    "zh": "马鲁的牛奶" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una jarra de leche de Maru", //Spanish
+    "ko": "마루 우유 주전자", //Korean
+    "de": "Ein Krug von Marus Milch", //German
+    "fr": "Une cruche de lait de Maru", //French
+    "hu": "Egy kancsó maru tej", //Hungarian
+    "it": "Una brocca di latte di Maru", //Italian
+    "ja": "マルの牛乳の水差し", //Japanese
+    "pt": "Um jarro do leite de Maru", //Portuguese
+    "ru": "Кувшин молока Мару", //Russian
+    "tr": "Maru'nun sütü bir sürahi", //Turkish
+    "zh": "一罐玛鲁的牛奶" //Chinese (Simplified)
+  }
 }

@@ -1,48 +1,51 @@
 {
-    "Name": "Wizard's Essence", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "A bottle of Wizard's cum", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 150, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 290, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
-    "Recipe": null, //Set to null.
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": ["Caroline, Abigail, Maru"], //Example of a single NPC
-        "Like": ["Krobus"],
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Pierre"], //Example of multiple NPC
-        "Hate": ["Lewis"]
-    },
+  "Name": "Wizard's Essence", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A bottle of Wizard's cum", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 150, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 290, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Caroline, Abigail, Maru" ], //Example of a single NPC
+    "Like": [ "Krobus" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Pierre" ], //Example of multiple NPC
+    "Hate": [ "Lewis" ]
+  },
+  "ContextTags": [
+    "magic_essence_item",
+    "human_cum_item",
+    "MTV_item"
+  ],
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "Esencia del mago", //Spanish
+    "ko": "마법사의 본질", //Korean
+    "de": "Wesen des Zauberers", //German
+    "fr": "L'essence du sorcier", //French
+    "hu": "Varázsló lényege", //Hungarian
+    "it": "Essenza di Wizard", //Italian
+    "ja": "ウィザードの本質", //Japanese
+    "pt": "Essência do mago", //Portuguese
+    "ru": "Сущность волшебника", //Russian
+    "tr": "Sihirbazın Özü", //Turkish
+    "zh": "向导的本质" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una botella de semen de mago", //Spanish
+    "ko": "마법사의 정액", //Korean
+    "de": "Eine Flasche Zauberer", //German
+    "fr": "Une bouteille de sperme de l'assistant", //French
+    "hu": "Egy üveg varázsló cum", //Hungarian
+    "it": "Una bottiglia di sperma", //Italian
+    "ja": "ウィザードの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma do mago", //Portuguese
+    "ru": "Бутылка спермы волшебника", //Russian
+    "tr": "Bir şişe sihirbaz cum", //Turkish
+    "zh": "一瓶巫师的暨" //Chinese (Simplified)
+  }
 }

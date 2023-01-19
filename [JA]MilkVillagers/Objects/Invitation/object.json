@@ -1,0 +1,45 @@
+{
+  "Name": "Invitation", //The name you would like your Item_Template1 to have, this should be identical to the subfolder name.
+  "Description": "Indicates you found someone willing to come to Haley's sex event.", //Description of the product.
+  "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 0, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": null, //Example of a single NPC
+    "Like": null,
+    "Neutral": [ "Haley" ], //Example of `null`. Can also remove if not being used.
+    "Dislike": null,
+    "Hate": null
+  },
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Invitación", //Spanish
+    "ko": "초대", //Korean
+    "de": "Einladung", //German
+    "fr": "Invitation", //French
+    "hu": "Meghívás", //Hungarian
+    "it": "Invito", //Italian
+    "ja": "招待", //Japanese
+    "pt": "Convite", //Portuguese
+    "ru": "Приглашение", //Russian
+    "tr": "Davet", //Turkish
+    "zh": "邀请" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Indica que encontraste a alguien dispuesto a venir al evento sexual de Haley", //Spanish
+    "ko": "헤일리의 섹스 이벤트에 기꺼이 올 사람을 찾았 음을 나타냅니다.", //Korean
+    "de": "Zeigt an, dass Sie jemanden gefunden haben, der bereit ist, zu Haleys Sex -Event zu kommen", //German
+    "fr": "Indique que vous avez trouvé quelqu'un prêt à venir à l'événement sexuel de Haley", //French
+    "hu": "Azt jelzi, hogy talált valakit, aki hajlandó jönni Haley szexuális rendezvényére", //Hungarian
+    "it": "Indica che hai trovato qualcuno disposto a venire all'evento sessuale di Haley", //Italian
+    "ja": "誰かがヘイリーのセックスイベントに来ることをいとわないことを見つけました", //Japanese
+    "pt": "Indica que você encontrou alguém disposto a vir para o evento sexual de Haley", //Portuguese
+    "ru": "Указывает, что вы нашли кого -то, кто хочет прийти на секс -мероприятие Хейли", //Russian
+    "tr": "Haley'in seks etkinliğine gelmek isteyen birini bulduğunuzu gösterir", //Turkish
+    "zh": "表明您发现有人愿意参加海莉的性爱活动" //Chinese (Simplified)
+  }
+}

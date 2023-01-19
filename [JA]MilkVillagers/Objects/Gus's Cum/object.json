@@ -15,33 +15,37 @@
     "Dislike": [ "Pierre" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Cum de Gus", //Spanish
+    "ko": "거스의 정액", //Korean
+    "de": "Gus 'Sperma", //German
+    "fr": "Le sperme de Gus", //French
+    "hu": "Gus cum", //Hungarian
+    "it": "Gus's Cum", //Italian
+    "ja": "ガスの精液", //Japanese
+    "pt": "Gus's esperma", //Portuguese
+    "ru": "Гус сперма", //Russian
+    "tr": "Gus's cum", //Turkish
+    "zh": "古斯的暨" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Una botella de Cum de Gus", //Spanish
+    "ko": "거스의 정액 병", //Korean
+    "de": "Eine Flasche Gus 'Sperma", //German
+    "fr": "Une bouteille de sperme de Gus", //French
+    "hu": "Egy üveg Gus's Cum", //Hungarian
+    "it": "Una bottiglia di sperma di gus", //Italian
+    "ja": "ガスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Gus", //Portuguese
+    "ru": "Бутылка спермы Гаса", //Russian
+    "tr": "Bir şişe gus cum", //Turkish
+    "zh": "一瓶古斯的暨" //Chinese (Simplified)
   }
 }

@@ -1,0 +1,50 @@
+{
+  "Name": "Haley's Camera", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "The camera Haley uses to take her photos with.", //Description of the product.
+  "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 1, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": null, //Example of a single NPC
+    "Like": null,
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": null, //Example of multiple NPC
+    "Hate": null
+  },
+  "ContextTags": [
+    "quest_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Cámara de Haley", //Spanish
+    "ko": "헤일리의 카메라", //Korean
+    "de": "Haleys Kamera", //German
+    "fr": "Caméra de Haley", //French
+    "hu": "Haley fényképezőgépe", //Hungarian
+    "it": "La telecamera di Haley", //Italian
+    "ja": "ヘイリーのカメラ", //Japanese
+    "pt": "A câmera de Haley", //Portuguese
+    "ru": "Камера Хейли", //Russian
+    "tr": "Haley'in Kamerası", //Turkish
+    "zh": "海莉的相机" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "La cámara que Haley usa para tomar sus fotos con", //Spanish
+    "ko": "카메라 Haley는 사진을 찍기 위해 사용합니다", //Korean
+    "de": "Die Kamera, die Haley verwendet, um ihre Fotos mitzunehmen", //German
+    "fr": "La caméra que Haley utilise pour prendre ses photos avec", //French
+    "hu": "A Haley kamera használja fényképeit", //Hungarian
+    "it": "La fotocamera che Haley usa per scattare le sue foto", //Italian
+    "ja": "カメラヘイリーは写真を撮るために使用します", //Japanese
+    "pt": "A câmera Haley usa para tirar suas fotos com", //Portuguese
+    "ru": "Камера, которую Хейли использует, чтобы сделать свои фотографии с", //Russian
+    "tr": "Haley fotoğraflarını çekmek için kullanıyor kamera", //Turkish
+    "zh": "Haley摄像机用她的照片与" //Chinese (Simplified)
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "Name": "Lance's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A bottle of Lance's cum", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 20, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 150, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Caroline, Haley" ], //Example of a single NPC
+    "Like": null,
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Pierre" ], //Example of multiple NPC
+    "Hate": [ "Lewis" ]
+  },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "el semen de lance", //Spanish
+    "ko": "랜스의 정액", //Korean
+    "de": "Lances Sperma", //German
+    "fr": "Le sperme de Lance", //French
+    "hu": "Le sperme de Lance", //Hungarian
+    "it": "La sborra di lancia", //Italian
+    "ja": "ランスの精液", //Japanese
+    "pt": "Ejaculação de Lance", //Portuguese
+    "ru": "Сперма Лэнса", //Russian
+    "tr": "Lance'in Cum", //Turkish
+    "zh": "兰斯的精液" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una botella de semen de Lance", //Spanish
+    "ko": "Lance의 정액 한 병", //Korean
+    "de": "Eine Flasche Lances Sperma", //German
+    "fr": "Une bouteille de sperme de Lance", //French
+    "hu": "Egy üveg Lance cum", //Hungarian
+    "it": "Una bottiglia di sperma di Lance", //Italian
+    "ja": "ランスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Lance", //Portuguese
+    "ru": "Бутылка спермы Лэнса", //Russian
+    "tr": "Bir şişe Lance'in boşalması", //Turkish
+    "zh": "一瓶兰斯的精液" //Chinese (Simplified)
+  }
+}

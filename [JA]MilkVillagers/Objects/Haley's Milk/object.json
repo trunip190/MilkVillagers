@@ -16,33 +16,37 @@
     "Dislike": [ "Haley" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Leche de Haley", //Spanish
+    "ko": "헤일리의 우유", //Korean
+    "de": "Haleys Milch", //German
+    "fr": "Lait Haley", //French
+    "hu": "Haley's Milk", //Hungarian
+    "it": "Latte di Haley", //Italian
+    "ja": "ヘイリーの牛乳", //Japanese
+    "pt": "Leite de Haley", //Portuguese
+    "ru": "Молоко Хейли", //Russian
+    "tr": "Haley Sütü", //Turkish
+    "zh": "海莉的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Una jarra de leche de Haley", //Spanish
+    "ko": "헤일리 우유 주전자", //Korean
+    "de": "Ein Krug von Haleys Milch", //German
+    "fr": "Une cruche de lait de Haley", //French
+    "hu": "Egy kancsó Haley -tej", //Hungarian
+    "it": "Una brocca del latte di Haley", //Italian
+    "ja": "ヘイリーの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Haley", //Portuguese
+    "ru": "Кувшин молока Хейли", //Russian
+    "tr": "Bir sürahi Haley Sütü", //Turkish
+    "zh": "一罐海莉的牛奶" //Chinese (Simplified)
   }
 }

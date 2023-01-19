@@ -14,33 +14,37 @@
     "Dislike": [ "Haley" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
+    "es": "Leche de Sophia", //Spanish
+    "ko": "소피아의 우유", //Korean
+    "de": "Sophias Milch", //German
+    "fr": "Le lait de Sophia", //French
+    "hu": "Sophia teje", //Hungarian
+    "it": "Latte di Sophia", //Italian
+    "ja": "ソフィアの牛乳", //Japanese
+    "pt": "Sophia's Milk", //Portuguese
+    "ru": "София молоко", //Russian
+    "tr": "Sophia'nın Sütü", //Turkish
+    "zh": "索菲亚的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
-  },
+    "es": "Una jarra de leche de Sophia", //Spanish
+    "ko": "소피아의 주전자", //Korean
+    "de": "Ein Krug von Sophias Milch", //German
+    "fr": "Une cruche de lait de Sophia", //French
+    "hu": "Egy kancsó Sophia tej", //Hungarian
+    "it": "Una brocca del latte di Sophia", //Italian
+    "ja": "ソフィアの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Sophia", //Portuguese
+    "ru": "Кувшин софии", //Russian
+    "tr": "Bir sürahi Sophia'nın sütü", //Turkish
+    "zh": "索菲亚牛奶罐" //Chinese (Simplified)
+  }
 }

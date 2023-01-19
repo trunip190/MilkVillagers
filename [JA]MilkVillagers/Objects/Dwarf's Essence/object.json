@@ -16,33 +16,38 @@
     "Dislike": [ "Haley" ], //Example of multiple NPC
     "Hate": [ "Sam" ]
   },
+  "ContextTags": [
+    "magic_essence_item",
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Esencia de enano", //Spanish
+    "ko": "드워프의 본질", //Korean
+    "de": "Zwergs Essenz", //German
+    "fr": "L'essence du nain", //French
+    "hu": "Törpe lényege", //Hungarian
+    "it": "L'essenza di Dwarf", //Italian
+    "ja": "ドワーフの本質", //Japanese
+    "pt": "A essência do anão", //Portuguese
+    "ru": "Сущность гнома", //Russian
+    "tr": "Cüce Özü", //Turkish
+    "zh": "矮人的本质" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Una botella de semen enano", //Spanish
+    "ko": "난쟁이 정액의 병", //Korean
+    "de": "Eine Flasche Zwergsende", //German
+    "fr": "Une bouteille de sperme de nain", //French
+    "hu": "Egy üveg törpe cum", //Hungarian
+    "it": "Una bottiglia di sperma di nano", //Italian
+    "ja": "ドワーフの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de anão", //Portuguese
+    "ru": "Бутылка спермы карлика", //Russian
+    "tr": "Bir şişe cüce cum", //Turkish
+    "zh": "一瓶矮人的暨" //Chinese (Simplified)
   }
 }

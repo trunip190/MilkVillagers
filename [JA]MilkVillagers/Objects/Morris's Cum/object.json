@@ -1,48 +1,50 @@
 {
-    "Name": "Morris's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "A bottle of Morris's cum", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 5, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 50, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
-    "Recipe": null, //Set to null.
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": null, //Example of a single NPC
-        "Like": null,
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Lewis"], //Example of multiple NPC
-        "Hate": null
-    },
+  "Name": "Morris's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A bottle of Morris's cum", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 5, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 50, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": null, //Example of a single NPC
+    "Like": null,
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Lewis" ], //Example of multiple NPC
+    "Hate": null
+  },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "Morris's Cum", //Spanish
+    "ko": "모리스의 정액", //Korean
+    "de": "Morris 'Sperma", //German
+    "fr": "Sperme de Morris", //French
+    "hu": "Morris cum", //Hungarian
+    "it": "Morris's Cum", //Italian
+    "ja": "モリスの精液", //Japanese
+    "pt": "Cum de Morris", //Portuguese
+    "ru": "Моррис сперма", //Russian
+    "tr": "Morris'in cum", //Turkish
+    "zh": "莫里斯的暨" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una botella de morris's cum", //Spanish
+    "ko": "모리스의 정액 병", //Korean
+    "de": "Eine Flasche Morris 'Sperma", //German
+    "fr": "Une bouteille de sperme de Morris", //French
+    "hu": "Egy üveg Morris cum", //Hungarian
+    "it": "Una bottiglia di sborra di Morris", //Italian
+    "ja": "モリスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Morris", //Portuguese
+    "ru": "Бутылка спермы Морриса", //Russian
+    "tr": "Bir şişe Morris'in cum", //Turkish
+    "zh": "一瓶莫里斯的暨" //Chinese (Simplified)
+  }
 }

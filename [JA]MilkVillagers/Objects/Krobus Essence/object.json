@@ -14,33 +14,37 @@
     "Dislike": [ "Pierre" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "magic_essence_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Esencia de Krobus", //Spanish
+    "ko": "크로버스 본질", //Korean
+    "de": "Krobus Essenz", //German
+    "fr": "Krobus Essence", //French
+    "hu": "Krobus esszencia", //Hungarian
+    "it": "Krobus Essence", //Italian
+    "ja": "Krobus Essence", //Japanese
+    "pt": "Essência de Krobus", //Portuguese
+    "ru": "Krobus Essence", //Russian
+    "tr": "Krobus özü", //Turkish
+    "zh": "Krobus Essence" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Una botella de esencia mágica. Cambia y brilla a la luz", //Spanish
+    "ko": "마법의 에센스 병. 그것은 빛의 변화와 반짝입니다", //Korean
+    "de": "Eine Flasche magischer Essenz. Es verschiebt und funkelt im Licht", //German
+    "fr": "Une bouteille d'essence magique. Ça change et scintille dans la lumière", //French
+    "hu": "Egy üveg varázslatos lényeg. A fényben eltolódik és csillog", //Hungarian
+    "it": "Una bottiglia di essenza magica. Si sposta e brilla nella luce", //Italian
+    "ja": "魔法の本質のボトル。それは光の中でシフトして輝きます", //Japanese
+    "pt": "Uma garrafa de essência mágica. Ele muda e brilha na luz", //Portuguese
+    "ru": "Бутылка магической сущности. Это смещается и сверкает в свете", //Russian
+    "tr": "Bir şişe büyülü öz. Işıkta değişir ve parlar", //Turkish
+    "zh": "一瓶神奇的本质。它在光线下移动和闪闪发光" //Chinese (Simplified)
   }
 }

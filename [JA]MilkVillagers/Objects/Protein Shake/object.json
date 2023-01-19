@@ -1,8 +1,8 @@
 {
   "Name": "Protein Shake", //The name you would like your object to have, this should be identical to the subfolder name.
-  "Description": "A special protein shake made from a donor's \"milk\"'", //Description of the product.
+  "Description": "A special protein shake made from a donor's 'milk'", //Description of the product.
   "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-  "Edibility": 17, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Edibility": 40, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "EdibleIsDrink": true,
   "EdibleBuffs": {
     "Farming": 0,
@@ -19,7 +19,17 @@
   },
   "Price": 250, //How much your item sells for.
   "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
-  "Recipe": null,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Special Milk", //Cum Category
+        "Count": 1
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": true
+  },
   "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "Abigail, Caroline, Haley" ], //Example of a single NPC
@@ -28,33 +38,37 @@
     "Dislike": [ "Sam, Sebastien" ], //Example of multiple NPC
     "Hate": [ "Lewis, George" ]
   },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Batido de proteinas", //Spanish
+    "ko": "단백질 쉐이크", //Korean
+    "de": "Eiweißschütter", //German
+    "fr": "Shake protéin", //French
+    "hu": "Fehérjeturmix", //Hungarian
+    "it": "Frullato proteico", //Italian
+    "ja": "プロテインシェイク", //Japanese
+    "pt": "Shake proteico", //Portuguese
+    "ru": "Протеиновый коктейль", //Russian
+    "tr": "Protein takviyesi", //Turkish
+    "zh": "高蛋白饮品" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Un batido de proteína especial hecho de un donante de un donante", //Spanish
+    "ko": "기증자의 정액으로 만든 특별한 단백질 쉐이크", //Korean
+    "de": "Ein spezieller Protein -Shake aus dem Sperma eines Spenders", //German
+    "fr": "Un shake protéine spécial fabriqué à partir du sperme d'un donneur", //French
+    "hu": "Egy speciális fehérjebőzés, amelyet egy donor cumából készítenek", //Hungarian
+    "it": "Uno speciale frullato proteico realizzato dal sperma di un donatore", //Italian
+    "ja": "ドナーの精液から作られた特別なプロテインシェイク", //Japanese
+    "pt": "Um shake de proteína especial feito de esperma de um doador", //Portuguese
+    "ru": "Специальный протеиновый коктейль, сделанный из спермы донора", //Russian
+    "tr": "Bir donörün cum'dan yapılmış özel bir protein sarsıntısı", //Turkish
+    "zh": "由供体的暨制成的特殊蛋白质奶昔" //Chinese (Simplified)
   }
 }

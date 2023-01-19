@@ -1,14 +1,6 @@
 ﻿using System.Collections.Generic;
-using StardewValley;
 using StardewModdingAPI;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using SObject = StardewValley.Object;
-using SFarmer = StardewValley.Farmer;
-using Microsoft.Xna.Framework;
-using PyTK;
-using PyTK.Extensions;
-using PyTK.CustomElementHandler;
 
 namespace MilkVillagers.Asset_Editors
 {
@@ -16,7 +8,7 @@ namespace MilkVillagers.Asset_Editors
     {
         private static IDictionary<int, string> ItemData;
         private static IDictionary<string, string> ContextData;
-        private static Dictionary<string, int> ModItems = new Dictionary<string, int>()
+        public static Dictionary<string, int> ModItems = new()
         {
             ["Abigail's Milk"] = 1,
             ["Emily's Milk"] = 2,
@@ -38,9 +30,9 @@ namespace MilkVillagers.Asset_Editors
             ["Susan's Milk"] = 16,
             ["Claire's Milk"] = 17,
 
-            //recipe	
+            // crafting recipe	
             ["Woman's Milk"] = 20,
-            ["Special Milkshake"] = 21,
+            ["Special Milk"] = 21,
 
             //cum items	
             ["Alex's Cum"] = 22,
@@ -75,8 +67,8 @@ namespace MilkVillagers.Asset_Editors
             ["Mr. Qi's Essence"] = 47,
             ["Magical Essence"] = 48,
 
-            //recipe	
-            ["Special Milk"] = 49,
+            // cooking recipe	
+            ["Special Milkshake"] = 49,
             ["Protein Shake"] = 50,
             ["Super Juice"] = 51,
             ["Eldritch Energy"] = 52,
@@ -84,6 +76,7 @@ namespace MilkVillagers.Asset_Editors
             ["Haley's Camera"] = 54,
             ["Haley's Panties"] = 55,
             ["Readi Milk"] = 56,
+            ["Sweet Sibling"] = 57,
         };
         public static bool Initialised => ItemData != null;
 
@@ -93,16 +86,14 @@ namespace MilkVillagers.Asset_Editors
             {
                 if (ItemData.ContainsKey(kvp.Value))
                 {
-                    MilkItems output = new MilkItems();
                     try
                     {
                         //output.LoadString(ItemData[kvp.Value]);
-                        ModFunctions.LogVerbose($"{ItemData[kvp.Value]}");
+                        ModFunctions.LogVerbose($"{kvp.Key}: {ItemData[kvp.Value]}");
                     }
                     catch
                     {
                         ModFunctions.LogVerbose($"Failed to output {kvp.Key}", LogLevel.Alert);
-                        ModFunctions.LogVerbose($"{ItemData[kvp.Value]}");
                     }
                 }
             }
@@ -117,8 +108,7 @@ namespace MilkVillagers.Asset_Editors
         {
             bool result = AssetName.IsEquivalentTo("Data/ObjectInformation") || AssetName.IsEquivalentTo("Data/ObjectContextTags");
 
-            if (result)
-                ModFunctions.LogVerbose("Asking to edit items");
+            // if (result) ModFunctions.LogVerbose("Asking to edit items");
 
             return result;
         }
@@ -137,7 +127,7 @@ namespace MilkVillagers.Asset_Editors
 
         private static void EditAsset(IAssetData asset)
         {
-            ModFunctions.LogVerbose("Adding in items");
+            // ModFunctions.LogVerbose("Adding in items");
 
             if (asset.Name.IsEquivalentTo("Data/ObjectInformation"))
             {
@@ -161,71 +151,68 @@ namespace MilkVillagers.Asset_Editors
 
         }
 
-        private static void ReportContextData()
-        {
-            ModFunctions.LogVerbose("Dumping context data");
-            foreach (KeyValuePair<string, string> kvp in ContextData)
-            {
-                ModFunctions.LogVerbose($"{kvp.Key} - {kvp.Value}");
-            }
-        }
-
         private static void EditContextData()
         {
-            ContextData["Abigail's Milk"] = "breast_milk_item";
-            ContextData["Caroline's Milk"] = "breast_milk_item";
-            ContextData["Claire's Milk"] = "breast_milk_item";
-            ContextData["Emily's Milk"] = "breast_milk_item";
-            ContextData["Evelyn's Milk"] = "breast_milk_item";
-            ContextData["Haley's Milk"] = "breast_milk_item";
-            ContextData["Jodi's Milk"] = "breast_milk_item";
-            ContextData["Leah's Milk"] = "breast_milk_item";
-            ContextData["Marnie's Milk"] = "breast_milk_item";
-            ContextData["Maru's Milk"] = "breast_milk_item";
-            ContextData["Olivia's Milk"] = "breast_milk_item";
-            ContextData["Pam's Milk"] = "breast_milk_item";
-            ContextData["Penny's Milk"] = "breast_milk_item";
-            ContextData["Robin's Milk"] = "breast_milk_item";
-            ContextData["Sandy's Milk"] = "breast_milk_item";
-            ContextData["Sophia's Milk"] = "breast_milk_item";
-            ContextData["Susan's Milk"] = "breast_milk_item";
-            ContextData["Woman's Milk"] = "breast_milk_item";
+            //ContextData["Abigail's Milk"] = "breast_milk_item";
+            //ContextData["Caroline's Milk"] = "breast_milk_item";
+            //ContextData["Claire's Milk"] = "breast_milk_item";
+            //ContextData["Emily's Milk"] = "breast_milk_item";
+            //ContextData["Evelyn's Milk"] = "breast_milk_item";
+            //ContextData["Haley's Milk"] = "breast_milk_item";
+            //ContextData["Jodi's Milk"] = "breast_milk_item";
+            //ContextData["Leah's Milk"] = "breast_milk_item";
+            //ContextData["Marnie's Milk"] = "breast_milk_item";
+            //ContextData["Maru's Milk"] = "breast_milk_item";
+            //ContextData["Olivia's Milk"] = "breast_milk_item";
+            //ContextData["Pam's Milk"] = "breast_milk_item";
+            //ContextData["Penny's Milk"] = "breast_milk_item";
+            //ContextData["Robin's Milk"] = "breast_milk_item";
+            //ContextData["Sandy's Milk"] = "breast_milk_item";
+            //ContextData["Sophia's Milk"] = "breast_milk_item";
+            //ContextData["Susan's Milk"] = "breast_milk_item";
+            //ContextData["Woman's Milk"] = "breast_milk_item";
 
-            ContextData["Alex's Cum"] = "human_cum_item";
-            ContextData["Andy's Cum"] = "human_cum_item";
-            ContextData["Clint's Cum"] = "human_cum_item";
-            ContextData["Demetrius's Cum"] = "human_cum_item";
-            ContextData["Elliott's Cum"] = "human_cum_item";
-            ContextData["George's Cum"] = "human_cum_item";
-            ContextData["Gil's Cum"] = "human_cum_item";
-            ContextData["Gunther's Cum"] = "human_cum_item";
-            ContextData["Gus's Cum"] = "human_cum_item";
-            ContextData["Harvey's Cum"] = "human_cum_item";
-            ContextData["Kent's Cum"] = "human_cum_item";
-            ContextData["Lewis's Cum"] = "human_cum_item";
-            ContextData["Linus's Cum"] = "human_cum_item";
-            ContextData["Marlon's Cum"] = "human_cum_item";
-            ContextData["Martin's Cum"] = "human_cum_item";
-            ContextData["Morris's Cum"] = "human_cum_item";
-            ContextData["Pierre's Cum"] = "human_cum_item";
-            ContextData["Sam's Cum"] = "human_cum_item";
-            ContextData["Sebastian's Cum"] = "human_cum_item";
-            ContextData["Shane's Cum"] = "human_cum_item";
-            ContextData["Victor's Cum"] = "human_cum_item";
-            ContextData["Willy's Cum"] = "human_cum_item";
-            ContextData["Special Milk"] = "human_cum_item";
+            //ContextData["Alex's Cum"] = "human_cum_item";
+            //ContextData["Andy's Cum"] = "human_cum_item";
+            //ContextData["Clint's Cum"] = "human_cum_item";
+            //ContextData["Demetrius's Cum"] = "human_cum_item";
+            //ContextData["Elliott's Cum"] = "human_cum_item";
+            //ContextData["George's Cum"] = "human_cum_item";
+            //ContextData["Gil's Cum"] = "human_cum_item";
+            //ContextData["Gunther's Cum"] = "human_cum_item";
+            //ContextData["Gus's Cum"] = "human_cum_item";
+            //ContextData["Harvey's Cum"] = "human_cum_item";
+            //ContextData["Kent's Cum"] = "human_cum_item";
+            //ContextData["Lewis's Cum"] = "human_cum_item";
+            //ContextData["Linus's Cum"] = "human_cum_item";
+            //ContextData["Marlon's Cum"] = "human_cum_item";
+            //ContextData["Martin's Cum"] = "human_cum_item";
+            //ContextData["Morris's Cum"] = "human_cum_item";
+            //ContextData["Pierre's Cum"] = "human_cum_item";
+            //ContextData["Sam's Cum"] = "human_cum_item";
+            //ContextData["Sebastian's Cum"] = "human_cum_item";
+            //ContextData["Shane's Cum"] = "human_cum_item";
+            //ContextData["Victor's Cum"] = "human_cum_item";
+            //ContextData["Willy's Cum"] = "human_cum_item";
+            //ContextData["Special Milk"] = "human_cum_item";
 
-            ContextData["Wizard's Cum"] = "human_cum_item,magic_essence_item";
-            ContextData["Dwarf's Milk"] = "breast_milk_item,magic_essence_item";
-            ContextData["Mr.Qi's Essence"] = "magic_essence_item";
-            ContextData["Magical Essence"] = "magic_essence_item";
+            //ContextData["Wizard's Cum"] = "human_cum_item,magic_essence_item";
+            //ContextData["Dwarf's Milk"] = "breast_milk_item,magic_essence_item";
+            //ContextData["Mr.Qi's Essence"] = "magic_essence_item";
+            //ContextData["Magical Essence"] = "magic_essence_item";
 
-            ContextData["Eldritch Energy"] = "cooking_item";
-            ContextData["Protein Shake"] = "cooking_item";
-            ContextData["Special Milkshake"] = "cooking_item";
-            ContextData["Super Juice"] = "cooking_item";
+            //ContextData["Eldritch Energy"] = "cooking_item";
+            //ContextData["Protein Shake"] = "cooking_item";
+            //ContextData["Special Milkshake"] = "cooking_item";
+            //ContextData["Super Juice"] = "cooking_item";
 
-            ContextData["Boethia's Pillow Book"] = "quest_item";
+            //ContextData["Boethia's Pillow Book"] = "quest_item";
+        }
+
+        public static void UpdateData(Dictionary<int, string> assetdata)
+        {
+            ItemData = assetdata;
+            SetItems();
         }
 
         public static void RemoveInvalid(bool Male, bool Female)
@@ -255,6 +242,7 @@ namespace MilkVillagers.Asset_Editors
                 // Recipes
                 ItemData.Remove(TempRefs.MilkGeneric);
                 ItemData.Remove(TempRefs.MilkShake);
+                ItemData.Remove(TempRefs.SweetSibling);
 
             }
 
@@ -292,6 +280,8 @@ namespace MilkVillagers.Asset_Editors
                 // Recipes.
                 ItemData.Remove(TempRefs.MilkSpecial);
                 ItemData.Remove(TempRefs.ProteinShake);
+                ItemData.Remove(TempRefs.MartiniKairos);
+                ItemData.Remove(TempRefs.EldritchEnergy);
 
             }
 
@@ -313,80 +303,76 @@ namespace MilkVillagers.Asset_Editors
             if (Female)
             {
                 // milk items
-                ItemData[TempRefs.MilkAbig] = ItemData[TempRefs.MilkAbig].Replace("Milk -6", $"Drink {TempRefs.MilkType}");  // $"Abigail's Milk/300/30/Drink {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkEmil] = ItemData[TempRefs.MilkEmil].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Emily's Milk/300/30/Drink {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkHale] = ItemData[TempRefs.MilkHale].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Haley's Milk/300/30/Drink {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkLeah] = ItemData[TempRefs.MilkLeah].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Leah's Milk/300/30/Drink {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkMaru] = ItemData[TempRefs.MilkMaru].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Maru's Milk/300/30/Drink {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkPenn] = ItemData[TempRefs.MilkPenn].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Penny's Milk/300/30/Drink {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkCaro] = ItemData[TempRefs.MilkCaro].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Caroline's Milk/300/30/Drink {TempRefs.MilkType}/Caroline's Milk/A jug of Caroline's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkJodi] = ItemData[TempRefs.MilkJodi].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Jodi's Milk/200/20/Drink {TempRefs.MilkType}/Jodi's Milk/A jug of Jodi's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkMarn] = ItemData[TempRefs.MilkMarn].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Marnie's Milk/200/20/Drink {TempRefs.MilkType}/Marnie's Milk/A jug of Marnie's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkRobi] = ItemData[TempRefs.MilkRobi].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Robin's Milk/200/20/Drink {TempRefs.MilkType}/Robin's Milk/A jug of Robin's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkPam] = ItemData[TempRefs.MilkPam].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); //$"Pam's Milk/90/10/Drink {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkSand] = ItemData[TempRefs.MilkSand].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Sandy's Milk/200/20/Drink {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkEvel] = ItemData[TempRefs.MilkEvel].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Evelyn's Milk/90/10/Drink {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkAbig)) ItemData[TempRefs.MilkAbig] = ItemData[TempRefs.MilkAbig].Replace("Milk -6", $"Drink {TempRefs.MilkType}");  // $"Abigail's Milk/300/30/Drink {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkEmil)) ItemData[TempRefs.MilkEmil] = ItemData[TempRefs.MilkEmil].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Emily's Milk/300/30/Drink {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkHale)) ItemData[TempRefs.MilkHale] = ItemData[TempRefs.MilkHale].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Haley's Milk/300/30/Drink {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkLeah)) ItemData[TempRefs.MilkLeah] = ItemData[TempRefs.MilkLeah].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Leah's Milk/300/30/Drink {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkMaru)) ItemData[TempRefs.MilkMaru] = ItemData[TempRefs.MilkMaru].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Maru's Milk/300/30/Drink {TempRefs.MilkType}/Maru's Milk/A jug of Maru's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkPenn)) ItemData[TempRefs.MilkPenn] = ItemData[TempRefs.MilkPenn].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Penny's Milk/300/30/Drink {TempRefs.MilkType}/Penny's Milk/A jug of Penny's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkCaro)) ItemData[TempRefs.MilkCaro] = ItemData[TempRefs.MilkCaro].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Caroline's Milk/300/30/Drink {TempRefs.MilkType}/Caroline's Milk/A jug of Caroline's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkJodi)) ItemData[TempRefs.MilkJodi] = ItemData[TempRefs.MilkJodi].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Jodi's Milk/200/20/Drink {TempRefs.MilkType}/Jodi's Milk/A jug of Jodi's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkMarn)) ItemData[TempRefs.MilkMarn] = ItemData[TempRefs.MilkMarn].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Marnie's Milk/200/20/Drink {TempRefs.MilkType}/Marnie's Milk/A jug of Marnie's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkRobi)) ItemData[TempRefs.MilkRobi] = ItemData[TempRefs.MilkRobi].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Robin's Milk/200/20/Drink {TempRefs.MilkType}/Robin's Milk/A jug of Robin's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkPam)) ItemData[TempRefs.MilkPam] = ItemData[TempRefs.MilkPam].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); //$"Pam's Milk/90/10/Drink {TempRefs.MilkType}/Pam's Milk/A jug of Pam's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkSand)) ItemData[TempRefs.MilkSand] = ItemData[TempRefs.MilkSand].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Sandy's Milk/200/20/Drink {TempRefs.MilkType}/Sandy's Milk/A jug of Sandy's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkEvel)) ItemData[TempRefs.MilkEvel] = ItemData[TempRefs.MilkEvel].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Evelyn's Milk/90/10/Drink {TempRefs.MilkType}/Evelyn's Milk/A jug of Evelyn's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
                 // Other mods
-                ItemData[TempRefs.MilkSophia] = ItemData[TempRefs.MilkSophia].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Sophia's Milk/300/30/Drink {TempRefs.MilkType}/Sophia's Milk/A jug of Sophia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkOlivia] = ItemData[TempRefs.MilkOlivia].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Olivia's Milk/200/20/Drink {TempRefs.MilkType}/Olivia's Milk/A jug of Olivia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkSusan] = ItemData[TempRefs.MilkSusan].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); //$"Susan's Milk/300/30/Drink {TempRefs.MilkType}/Susan's Milk/A jug of Susan 's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkClaire] = ItemData[TempRefs.MilkClaire].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Claire's Milk/200/20/Drink {TempRefs.MilkType}/Claire's Milk/A jug of Claire's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkSophia)) ItemData[TempRefs.MilkSophia] = ItemData[TempRefs.MilkSophia].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Sophia's Milk/300/30/Drink {TempRefs.MilkType}/Sophia's Milk/A jug of Sophia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkOlivia)) ItemData[TempRefs.MilkOlivia] = ItemData[TempRefs.MilkOlivia].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Olivia's Milk/200/20/Drink {TempRefs.MilkType}/Olivia's Milk/A jug of Olivia's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkSusan)) ItemData[TempRefs.MilkSusan] = ItemData[TempRefs.MilkSusan].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); //$"Susan's Milk/300/30/Drink {TempRefs.MilkType}/Susan's Milk/A jug of Susan 's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkClaire)) ItemData[TempRefs.MilkClaire] = ItemData[TempRefs.MilkClaire].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Claire's Milk/200/20/Drink {TempRefs.MilkType}/Claire's Milk/A jug of Claire's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
                 //recipe
-                ItemData[TempRefs.MilkGeneric] = ItemData[TempRefs.MilkGeneric].Replace("Crafting -8", $"Drink {TempRefs.MilkType}");  //$"Breast Milk/50/15/Cooking {TempRefs.MilkType}/Breast Milk/A jug of breast milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkShake] = $"Milkshake/50/15/Cooking -7/Special' Milkshake/Extra milky milkshake./drink/0 0 0 0 0 0 0 25 0 1 0/343";
+                if (ItemData.ContainsKey(TempRefs.MilkGeneric)) ItemData[TempRefs.MilkGeneric] = ItemData[TempRefs.MilkGeneric].Replace("Milk -6", $"Drink {TempRefs.MilkType}");  //$"Breast Milk/50/15/Cooking {TempRefs.MilkType}/Breast Milk/A jug of breast milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
             }
 
             if (Male)
             {
                 //cum items
-                ItemData[TempRefs.MilkAlex] = ItemData[TempRefs.MilkAlex].Replace("Milk -6", $"Drink {TempRefs.CumType}");      //$"Alex's Cum/300/15/Drink {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkClint] = ItemData[TempRefs.MilkClint].Replace("Milk -6", $"Drink {TempRefs.CumType}");     //$"Clint's Cum/300/15/Drink {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkDemetrius] = ItemData[TempRefs.MilkDemetrius].Replace("Milk -6", $"Drink {TempRefs.CumType}"); //$"Demetrius's Cum/300/15/Drink {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkElliott] = ItemData[TempRefs.MilkElliott].Replace("Milk -6", $"Drink {TempRefs.CumType}");   //$"Elliott's Cum/300/15/Drink {TempRefs.CumType}/Elliott's Cum/A bottle of Elliott's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkGeorge] = ItemData[TempRefs.MilkGeorge].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"George's Cum/300/15/Drink {TempRefs.CumType}/George's Cum /A bottle of George's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkGil] = ItemData[TempRefs.MilkGil].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Gil's Cum/300/15/Drink {TempRefs.CumType}/Gil's Cum/A bottle of Gil's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkGunther] = ItemData[TempRefs.MilkGunther].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Gunther's Cum/300/15/Drink {TempRefs.CumType}/Gunther's Cum/A bottle of Gunther's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkGus] = ItemData[TempRefs.MilkGus].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Gus's Cum/300/15/Drink {TempRefs.CumType}/Gus's Cum/A bottle of Gus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkHarv] = ItemData[TempRefs.MilkHarv].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Harvey's Cum/300/15/Drink {TempRefs.CumType}/Harvey's Cum /A bottle of Harvey's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkKent] = ItemData[TempRefs.MilkKent].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Kent's Cum/300/15/Drink {TempRefs.CumType}/Kent's Cum /A bottle of Kent's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkLewis] = ItemData[TempRefs.MilkLewis].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Lewis's Cum/300/15/Drink {TempRefs.CumType}/Lewis's Cum/A bottle of Lewis's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkLinus] = ItemData[TempRefs.MilkLinus].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Linus's Cum/300/15/Drink {TempRefs.CumType}/Linus's Cum/A bottle of Linus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkMarlon] = ItemData[TempRefs.MilkMarlon].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Marlon's Cum/300/15/Drink {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkMorris] = ItemData[TempRefs.MilkMorris].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Morris's Cum/300/15/Drink {TempRefs.CumType}/Morris's Cum /A bottle of Morris's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkPierre] = ItemData[TempRefs.MilkPierre].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Pierre's Cum/300/15/Drink {TempRefs.CumType}/Pierre's Cum /A bottle of Pierre's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkSam] = ItemData[TempRefs.MilkSam].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Sam's Cum/300/15/Drink {TempRefs.CumType}/Sam's Cum/A bottle of Sam's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkSeb] = ItemData[TempRefs.MilkSeb].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Sebastian's Cum/300/15/Drink {TempRefs.CumType}/Sebastian's Cum/A bottle of Sebastian's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkShane] = ItemData[TempRefs.MilkShane].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Shane's Cum/300/15/Drink {TempRefs.CumType}/Shane's Cum/A bottle of Shane's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkWilly] = ItemData[TempRefs.MilkWilly].Replace("Milk -6", $"Drink {TempRefs.CumType}");//$"Willy's Cum/300/15/Drink {TempRefs.CumType}/Willy's Cum/A bottle of Willy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkAlex)) ItemData[TempRefs.MilkAlex] = ItemData[TempRefs.MilkAlex].Replace("Milk -6", $"Drink {TempRefs.CumType}");      //$"Alex's Cum/300/15/Drink {TempRefs.CumType}/Alex's Cum /A bottle of Alex's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkClint)) ItemData[TempRefs.MilkClint] = ItemData[TempRefs.MilkClint].Replace("Milk -6", $"Drink {TempRefs.CumType}");     //$"Clint's Cum/300/15/Drink {TempRefs.CumType}/Clint's Cum/A bottle of Clint's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkDemetrius)) ItemData[TempRefs.MilkDemetrius] = ItemData[TempRefs.MilkDemetrius].Replace("Milk -6", $"Drink {TempRefs.CumType}"); //$"Demetrius's Cum/300/15/Drink {TempRefs.CumType}/Demetrius's Cum/A bottle of Demetrius's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkElliott)) ItemData[TempRefs.MilkElliott] = ItemData[TempRefs.MilkElliott].Replace("Milk -6", $"Drink {TempRefs.CumType}");   //$"Elliott's Cum/300/15/Drink {TempRefs.CumType}/Elliott's Cum/A bottle of Elliott's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkGeorge)) ItemData[TempRefs.MilkGeorge] = ItemData[TempRefs.MilkGeorge].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"George's Cum/300/15/Drink {TempRefs.CumType}/George's Cum /A bottle of George's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkGil)) ItemData[TempRefs.MilkGil] = ItemData[TempRefs.MilkGil].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Gil's Cum/300/15/Drink {TempRefs.CumType}/Gil's Cum/A bottle of Gil's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkGunther)) ItemData[TempRefs.MilkGunther] = ItemData[TempRefs.MilkGunther].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Gunther's Cum/300/15/Drink {TempRefs.CumType}/Gunther's Cum/A bottle of Gunther's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkGus)) ItemData[TempRefs.MilkGus] = ItemData[TempRefs.MilkGus].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Gus's Cum/300/15/Drink {TempRefs.CumType}/Gus's Cum/A bottle of Gus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkHarv)) ItemData[TempRefs.MilkHarv] = ItemData[TempRefs.MilkHarv].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Harvey's Cum/300/15/Drink {TempRefs.CumType}/Harvey's Cum /A bottle of Harvey's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkKent)) ItemData[TempRefs.MilkKent] = ItemData[TempRefs.MilkKent].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Kent's Cum/300/15/Drink {TempRefs.CumType}/Kent's Cum /A bottle of Kent's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkLewis)) ItemData[TempRefs.MilkLewis] = ItemData[TempRefs.MilkLewis].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Lewis's Cum/300/15/Drink {TempRefs.CumType}/Lewis's Cum/A bottle of Lewis's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkLinus)) ItemData[TempRefs.MilkLinus] = ItemData[TempRefs.MilkLinus].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Linus's Cum/300/15/Drink {TempRefs.CumType}/Linus's Cum/A bottle of Linus's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkMarlon)) ItemData[TempRefs.MilkMarlon] = ItemData[TempRefs.MilkMarlon].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Marlon's Cum/300/15/Drink {TempRefs.CumType}/Marlon's Cum /A bottle of Marlon's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkMorris)) ItemData[TempRefs.MilkMorris] = ItemData[TempRefs.MilkMorris].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Morris's Cum/300/15/Drink {TempRefs.CumType}/Morris's Cum /A bottle of Morris's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkPierre)) ItemData[TempRefs.MilkPierre] = ItemData[TempRefs.MilkPierre].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Pierre's Cum/300/15/Drink {TempRefs.CumType}/Pierre's Cum /A bottle of Pierre's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkSam)) ItemData[TempRefs.MilkSam] = ItemData[TempRefs.MilkSam].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Sam's Cum/300/15/Drink {TempRefs.CumType}/Sam's Cum/A bottle of Sam's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkSeb)) ItemData[TempRefs.MilkSeb] = ItemData[TempRefs.MilkSeb].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Sebastian's Cum/300/15/Drink {TempRefs.CumType}/Sebastian's Cum/A bottle of Sebastian's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkShane)) ItemData[TempRefs.MilkShane] = ItemData[TempRefs.MilkShane].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Shane's Cum/300/15/Drink {TempRefs.CumType}/Shane's Cum/A bottle of Shane's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkWilly)) ItemData[TempRefs.MilkWilly] = ItemData[TempRefs.MilkWilly].Replace("Milk -6", $"Drink {TempRefs.CumType}");//$"Willy's Cum/300/15/Drink {TempRefs.CumType}/Willy's Cum/A bottle of Willy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
                 // Other mods
-                ItemData[TempRefs.MilkAndy] = ItemData[TempRefs.MilkAndy].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Andy's Cum/50/15/Drink {TempRefs.CumType}/Andy's Cum/A bottle of Andy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkVictor] = ItemData[TempRefs.MilkVictor].Replace("Milk -6", $"Drink {TempRefs.CumType}");//$"Victor's Cum/50/15/Drink {TempRefs.CumType}/Victor's Cum/A bottle of Victor's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkMartin] = ItemData[TempRefs.MilkMartin].Replace("Milk -6", $"Drink {TempRefs.CumType}");//$"Martin's Cum/50/15/Drink {TempRefs.CumType}/Martin's Cum/A bottle of Martin's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkAndy)) ItemData[TempRefs.MilkAndy] = ItemData[TempRefs.MilkAndy].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Andy's Cum/50/15/Drink {TempRefs.CumType}/Andy's Cum/A bottle of Andy's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkVictor)) ItemData[TempRefs.MilkVictor] = ItemData[TempRefs.MilkVictor].Replace("Milk -6", $"Drink {TempRefs.CumType}");//$"Victor's Cum/50/15/Drink {TempRefs.CumType}/Victor's Cum/A bottle of Victor's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkMartin)) ItemData[TempRefs.MilkMartin] = ItemData[TempRefs.MilkMartin].Replace("Milk -6", $"Drink {TempRefs.CumType}");//$"Martin's Cum/50/15/Drink {TempRefs.CumType}/Martin's Cum/A bottle of Martin's Cum./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
                 // Special materials
-                ItemData[TempRefs.MilkDwarf] = ItemData[TempRefs.MilkDwarf].Replace("Milk -6", $"Drink {TempRefs.CumType}"); //$"Dwarf's Essence/300/15/Drink {TempRefs.SpecialType}/Dwarf's Essence/A bottle of Dwarf's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkKrobus] = ItemData[TempRefs.MilkKrobus].Replace("Milk -6", $"Drink {TempRefs.CumType}"); //$"Krobus's Essence/300/15/Drink {TempRefs.SpecialType}/Krobus's Essence/A bottle of Krobus's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkWiz] = ItemData[TempRefs.MilkWiz].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Wizard's Essence/300/15/Drink {TempRefs.SpecialType}/Wizard's Essence/A bottle of Wizard's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkQi] = ItemData[TempRefs.MilkQi].Replace("Milk -6", $"Drink {TempRefs.CumType}");    //$"Mr. Qi's Essence/300/15/Drink {TempRefs.SpecialType}/Mr. Qi's Essence/A bottle of Mr. Qi's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.MilkMagic] = ItemData[TempRefs.MilkMagic].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Magical Essence/300/15/Drink {TempRefs.SpecialType}/Magical Essence/A bottle of Magical Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkDwarf)) ItemData[TempRefs.MilkDwarf] = ItemData[TempRefs.MilkDwarf].Replace("Milk -6", $"Drink {TempRefs.CumType}"); //$"Dwarf's Essence/300/15/Drink {TempRefs.SpecialType}/Dwarf's Essence/A bottle of Dwarf's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkKrobus)) ItemData[TempRefs.MilkKrobus] = ItemData[TempRefs.MilkKrobus].Replace("Milk -6", $"Drink {TempRefs.CumType}"); //$"Krobus's Essence/300/15/Drink {TempRefs.SpecialType}/Krobus's Essence/A bottle of Krobus's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkWiz)) ItemData[TempRefs.MilkWiz] = ItemData[TempRefs.MilkWiz].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Wizard's Essence/300/15/Drink {TempRefs.SpecialType}/Wizard's Essence/A bottle of Wizard's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkQi)) ItemData[TempRefs.MilkQi] = ItemData[TempRefs.MilkQi].Replace("Milk -6", $"Drink {TempRefs.CumType}");    //$"Mr. Qi's Essence/300/15/Drink {TempRefs.SpecialType}/Mr. Qi's Essence/A bottle of Mr. Qi's Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                if (ItemData.ContainsKey(TempRefs.MilkMagic)) ItemData[TempRefs.MilkMagic] = ItemData[TempRefs.MilkMagic].Replace("Milk -6", $"Drink {TempRefs.CumType}");  //$"Magical Essence/300/15/Drink {TempRefs.SpecialType}/Magical Essence/A bottle of Magical Essence./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
                 //recipe
-                ItemData[TempRefs.MilkSpecial] = ItemData[TempRefs.MilkSpecial].Replace("Crafting -8", $"Drink {TempRefs.CumType}"); //$"Special Milk/50/15/Cooking {TempRefs.CumType}/Special Milk/A bottle of 'special' milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
-                ItemData[TempRefs.ProteinShake] = $"Protein shake/50/15/Cooking -7/Protein' shake/Shake made with extra protein/drink/0 0 0 0 0 0 0 25 0 0 2/343";
+                if (ItemData.ContainsKey(TempRefs.MilkSpecial)) ItemData[TempRefs.MilkSpecial] = ItemData[TempRefs.MilkSpecial].Replace("Milk -6", $"Drink {TempRefs.CumType}"); //$"Special Milk/50/15/Cooking {TempRefs.CumType}/Special Milk/A bottle of 'special' milk./drink/0 0 0 0 0 0 0 0 0 0 0/0";
 
             }
 
-            if (Male && Female) ItemData[TempRefs.SuperJuice] = $"Super Juice/150/125/Cooking -7/Super Juice/The perfect fusion of male and female juices./Drink/0 0 0 0 2 0 0 25 0 3 2/700";
-
             //Report(); // After change.
-            //ItemData[TempRefs.PennyBook] = $"Boethia's Pillow Book/1/1/Junk/Boethia's Pillow Book/An erotic book about various sexual positions./";
         }
 
         public static string GetItemName(int id)
         {
+            if (!ItemData.ContainsKey(id)) return "Item Name Not Found";
             return ItemData[id];
         }
 
@@ -405,7 +391,7 @@ namespace MilkVillagers.Asset_Editors
             return -1;
         }
 
-        public static void GetAllItemIDs()
+        public static void GetAllItemIDs(bool report = false)
         {
             if (ItemData == null)
                 return;
@@ -416,10 +402,10 @@ namespace MilkVillagers.Asset_Editors
             {
                 stringSplit = kvp.Value.Split('/');
 
-                if (ModItems.ContainsKey(stringSplit[0]))
+                if (ModItems.ContainsKey(stringSplit[0]) && ItemData.ContainsKey(kvp.Key))
                 {
                     ModItems[stringSplit[0]] = kvp.Key;
-                    //ModFunctions.LogVerbose($"{stringSplit[0]} = {kvp.Key}");
+                    if (report) ModFunctions.LogVerbose($"{stringSplit[0]}: [{kvp.Key}] = {ItemData[kvp.Key]}", Force: true);
                 }
                 else
                 {
@@ -494,6 +480,7 @@ namespace MilkVillagers.Asset_Editors
             TempRefs.HaleyCamera = ModItems["Haley's Camera"];
             TempRefs.HaleyPanties = ModItems["Haley's Panties"];
             TempRefs.ReadiMilk = ModItems["Readi Milk"];
+            TempRefs.SweetSibling = ModItems["Sweet Sibling"];
             #endregion
 
         }
@@ -552,6 +539,10 @@ namespace MilkVillagers.Asset_Editors
             if (TempRefs.MilkShake == 1241) { result = false; ModFunctions.LogVerbose($"MilkShake is not set", LogLevel.Trace); }
             if (TempRefs.SuperJuice == 1249) { result = false; ModFunctions.LogVerbose($"SuperJuice is not set", LogLevel.Trace); }
 
+            if (TempRefs.EldritchEnergy == 1241) { result = false; ModFunctions.LogVerbose($"EldritchEnergy is not set", LogLevel.Trace); }
+            if (TempRefs.MartiniKairos == 1249) { result = false; ModFunctions.LogVerbose($"MartiniKairos is not set", LogLevel.Trace); }
+            if (TempRefs.SweetSibling == 1249) { result = false; ModFunctions.LogVerbose($"SweetSibling is not set", LogLevel.Trace); }
+
             // Other mods
             if (TempRefs.MilkSophia == 803) { result = false; ModFunctions.LogVerbose($"MilkSophia is not set", LogLevel.Trace); }
             if (TempRefs.MilkOlivia == 803) { result = false; ModFunctions.LogVerbose($"MilkOlivia is not set", LogLevel.Trace); }
@@ -575,92 +566,6 @@ namespace MilkVillagers.Asset_Editors
 
             return result;
         }
-    }
-
-    public class MilkItems : SObject
-    {
-        //                  0             1   2    3          4                 5                6  7  8  9 10 11 12 13 14 15 16 17 18  19
-        string[] RAW; // "Abigail's Milk/300/22/Milk -6/Abigail's Milk/A jug of Abigail's milk/food/0  0  0  0  0  0  0  0  0  0  0  0/ 0";
-        string output = "";
-
-        public void LoadString(string input)
-        {
-            RAW = input.Split('/');
-
-            #region format the output
-            output = "{";
-            output += "\r\n" + $"    \"Name\": \"{RAW[0]}\", //The name you would like your object to have, this should be identical to the subfolder name.";
-            output += "\r\n" + $"    \"Description\": \"{RAW[5]}\", //Description of the product.";
-            output += "\r\n" + $"    \"Category\": \"{RAW[6]}\", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.";
-            output += "\r\n" + $"    \"Edibility\": {RAW[1]}, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.";
-            output += "\r\n" + $"    \"Price\": {""}, //How much your item sells for.";
-            output += "\r\n" + $"    \"IsColored\": {"null"}, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.";
-            output += "\r\n" + $"    \"Recipe\": {"null"}, //Set to null.";
-            output += "\r\n" + $"    \"GiftTastes\": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.";
-            output += "\r\n" + "    {                    ";
-            output += "\r\n" + $"        \"Love\": [\"{""}\"], //Example of a single NPC";
-            output += "\r\n" + $"        \"Like\": [\"{""}\"],";
-            output += "\r\n" + $"        \"Neutral\": [\"{""}\"], //Example of `null`. Can also remove if not being used.";
-            output += "\r\n" + $"        \"Dislike\": [\"{""}\"], //Example of multiple NPC";
-            output += "\r\n" + $"        \"Hate\": [\"{""}\"]";
-            output += "\r\n" + "    },";
-            output += "\r\n";
-            output += "\r\n" + $"    // Localization";
-            output += "\r\n";
-            output += "\r\n" + $"    \"NameLocalization\":";
-            output += "\r\n" + "    {                    ";
-            output += "\r\n" + $"        \"es\": \"\", //Spanish";
-            output += "\r\n" + $"        \"ko\": \"\", //Korean";
-            output += "\r\n" + $"        \"de\": \"\", //German";
-            output += "\r\n" + $"        \"fr\": \"\", //French";
-            output += "\r\n" + $"        \"hu\": \"\", //Hungarian";
-            output += "\r\n" + $"        \"it\": \"\", //Italian";
-            output += "\r\n" + $"        \"ja\": \"\", //Japanese";
-            output += "\r\n" + $"        \"pt\": \"\", //Portuguese";
-            output += "\r\n" + $"        \"ru\": \"\", //Russian";
-            output += "\r\n" + $"        \"tr\": \"\", //Turkish";
-            output += "\r\n" + $"        \"zh\": \"\", //Chinese (Simplified)";
-            output += "\r\n" + "    },";
-            output += "\r\n" + $"    \"DescriptionLocalization\":";
-            output += "\r\n" + "    {                    ";
-            output += "\r\n" + $"        \"es\": \"\", //Spansih";
-            output += "\r\n" + $"        \"ko\": \"\", //Korean";
-            output += "\r\n" + $"        \"de\": \"\", //German";
-            output += "\r\n" + $"        \"fr\": \"\", //French";
-            output += "\r\n" + $"        \"hu\": \"\", //Hungarian";
-            output += "\r\n" + $"        \"it\": \"\", //Italian";
-            output += "\r\n" + $"        \"ja\": \"\", //Japanese";
-            output += "\r\n" + $"        \"pt\": \"\", //Portuguese";
-            output += "\r\n" + $"        \"ru\": \"\", //Russian";
-            output += "\r\n" + $"        \"tr\": \"\", //Turkish";
-            output += "\r\n" + $"        \"zh\": \"\", //Chinese (Simplified)";
-            output += "\r\n" + "    },";
-            output += "\r\n" + "}            ";
-            #endregion
-
-            System.IO.Directory.CreateDirectory($"C:\\Users\\truni\\datadump\\Items\\{RAW[0]}\\");
-            System.IO.File.WriteAllTextAsync($"C:\\Users\\truni\\datadump\\Items\\{RAW[0]}\\object.json", output);
-        }
-
-        public override string getCategoryName()
-        {
-            switch (Category) //TODO work out if this can be softcoded.
-            {
-                case -34: // MilkType
-                    return "Woman's Milk";
-
-                case -35: // CumType
-                    return "Man's Milk";
-
-                case -36: //SpecialType
-                    return "Magical Essence";
-
-                default: // Default - not found.
-                    return base.getCategoryName();
-            }
-
-        }
-
     }
 
 }

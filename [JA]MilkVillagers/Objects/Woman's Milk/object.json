@@ -1,7 +1,7 @@
 {
   "Name": "Woman's Milk", //The name you would like your object to have, this should be identical to the subfolder name.
   "Description": "A jug of woman's milk", //Description of the product.
-  "Category": "Crafting", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
   "Edibility": 17, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "Price": 250, //How much your item sells for.
   "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
@@ -24,33 +24,37 @@
     "Dislike": [ "Sam, Sebastien" ], //Example of multiple NPC
     "Hate": [ "Lewis, George" ]
   },
+  "ContextTags": [
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "La leche materna", //Spanish
+    "ko": "어머니의 우유", //Korean
+    "de": "Muttermilch", //German
+    "fr": "Lait maternel", //French
+    "hu": "Anyatej", //Hungarian
+    "it": "Latte di madre", //Italian
+    "ja": "母の牛乳", //Japanese
+    "pt": "Leite da mãe", //Portuguese
+    "ru": "Материнское молоко", //Russian
+    "tr": "Anne sütü", //Turkish
+    "zh": "母亲的牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Una jarra de leche de madre", //Spanish
+    "ko": "어머니 우유 주전자", //Korean
+    "de": "Ein Krug von Muttermilch", //German
+    "fr": "Une cruche de lait mère", //French
+    "hu": "Egy kancsó anyatej", //Hungarian
+    "it": "Una brocca di latte madre", //Italian
+    "ja": "母乳の水差し", //Japanese
+    "pt": "Um jarro de leite da mãe", //Portuguese
+    "ru": "Кувшин материнского молока", //Russian
+    "tr": "Bir sürahi anne sütü", //Turkish
+    "zh": "一罐母亲的牛奶" //Chinese (Simplified)
   }
 }

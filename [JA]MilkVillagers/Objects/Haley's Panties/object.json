@@ -16,33 +16,37 @@
     "Dislike": [ "Haley" ], //Example of multiple NPC
     "Hate": [ "Lewis" ]
   },
+  "ContextTags": [
+    "quest_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Las bragas de Haley", //Spanish
+    "ko": "헤일리의 팬티", //Korean
+    "de": "Haleys Höschen", //German
+    "fr": "La culotte de Haley", //French
+    "hu": "Haley bugyija", //Hungarian
+    "it": "Le mutandine di Haley", //Italian
+    "ja": "ヘイリーのパンティー", //Japanese
+    "pt": "Calcinha de Haley", //Portuguese
+    "ru": "Труды Хейли", //Russian
+    "tr": "Haley'nin külotu", //Turkish
+    "zh": "海莉的内裤" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Un par de bragas de Haley", //Spanish
+    "ko": "헤일리 팬티 한 쌍", //Korean
+    "de": "Ein Paar Haleys Höschen", //German
+    "fr": "Une paire de culotte de Haley", //French
+    "hu": "Egy pár Haley bugyi", //Hungarian
+    "it": "Un paio di mutandine di Haley", //Italian
+    "ja": "ヘイリーのパンティーのペア", //Japanese
+    "pt": "Uma calcinha de Haley", //Portuguese
+    "ru": "Пара трусиков Хейли", //Russian
+    "tr": "Bir çift Haley'nin külotu", //Turkish
+    "zh": "一双海莉的内裤" //Chinese (Simplified)
   }
 }

@@ -1,0 +1,51 @@
+{
+  "Name": "Boethia's Pillow Book", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "An erotic book about various sexual positions.", //Description of the product.
+  "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "CategoryTextOverride": "Quest Item",
+  "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 1, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": null, //Example of a single NPC
+    "Like": null,
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": null, //Example of multiple NPC
+    "Hate": null
+  },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Libro de almohadas de Boethia", //Spanish
+    "ko": "보에 티아의 베개 책", //Korean
+    "de": "Boethias Kissenbuch", //German
+    "fr": "Le livre d'oreiller de Boethia", //French
+    "hu": "Boethia párna könyve", //Hungarian
+    "it": "Book del cuscino di Boetia", //Italian
+    "ja": "Boethia's Pillow Book", //Japanese
+    "pt": "Livro de travesseiros de Boethia", //Portuguese
+    "ru": "Книга подушек Боэтии", //Russian
+    "tr": "Boethia'nın Yastık Kitabı", //Turkish
+    "zh": "布特亚的枕头书" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Un libro erótico sobre varias posiciones sexuales.", //Spanish
+    "ko": "다양한 성적 위치에 대한 에로틱 한 책.", //Korean
+    "de": "Ein erotisches Buch über verschiedene sexuelle Positionen.", //German
+    "fr": "Un livre érotique sur diverses positions sexuelles.", //French
+    "hu": "Erotikus könyv a különféle szexuális pozíciókról.", //Hungarian
+    "it": "Un libro erotico su varie posizioni sessuali.", //Italian
+    "ja": "さまざまな性的立場についてのエロティックな本。", //Japanese
+    "pt": "Um livro erótico sobre várias posições sexuais.", //Portuguese
+    "ru": "Эротическая книга о различных сексуальных позициях.", //Russian
+    "tr": "Çeşitli cinsel pozisyonlar hakkında erotik bir kitap.", //Turkish
+    "zh": "一本关于各种性立场的色情书。" //Chinese (Simplified)
+  }
+}

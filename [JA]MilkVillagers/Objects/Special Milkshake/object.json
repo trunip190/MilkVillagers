@@ -2,7 +2,7 @@
   "Name": "Special Milkshake", //The name you would like your object to have, this should be identical to the subfolder name.
   "Description": "My milkshake brings all the...", //Description of the product.
   "Category": "Cooking", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-  "Edibility": 17, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Edibility": 65, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
   "EdibleIsDrink": true,
   "EdibleBuffs": {
     "Farming": 0,
@@ -19,7 +19,17 @@
   },
   "Price": 250, //How much your item sells for.
   "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
-  "Recipe": null,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Woman's Milk", //Breast Milk Category
+        "Count": 2
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": true
+  },
   "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "Abigail, Caroline, Haley" ], //Example of a single NPC
@@ -28,33 +38,37 @@
     "Dislike": [ "Sam, Sebastien" ], //Example of multiple NPC
     "Hate": [ "Lewis, George" ]
   },
+  "ContextTags": [
+    "cooking_item",
+    "MTV_item"
+  ],
 
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Batido especial", //Spanish
+    "ko": "특별한 밀크 쉐이크", //Korean
+    "de": "Spezialmilchshake", //German
+    "fr": "Milk-shake spécial", //French
+    "hu": "Különleges turmix", //Hungarian
+    "it": "Markshake speciale", //Italian
+    "ja": "特別なミルクセーキ", //Japanese
+    "pt": "Milkshake especial", //Portuguese
+    "ru": "Специальный молочный коктейль", //Russian
+    "tr": "Özel Milkshake", //Turkish
+    "zh": "特殊的奶昔" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "" //Chinese (Simplified)
+    "es": "Batido hecho con leche de madre", //Spanish
+    "ko": "모유로 만든 밀크 쉐이크", //Korean
+    "de": "Milchshake aus Muttermilch", //German
+    "fr": "Milkshake fait avec du lait de mère", //French
+    "hu": "Milkshake anyatejből készült", //Hungarian
+    "it": "Frappè fatto con latte madre", //Italian
+    "ja": "母乳で作られたミルクセーキ", //Japanese
+    "pt": "Milkshake feito com leite da mãe", //Portuguese
+    "ru": "Молочный коктейль, приготовленный из материнского молока", //Russian
+    "tr": "Milkshake Anne Sütü ile Yapıldı", //Turkish
+    "zh": "用母乳制成的奶昔" //Chinese (Simplified)
   }
 }

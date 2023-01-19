@@ -1,11 +1,17 @@
 ﻿{
-	"Name": "MilkVillagers",
+	"Name": "[JA]MilkVillagers",
 	"Author": "Trunip190",
-	"Version": "1.1.0",
-	"Description": "Adds new objects",
-	"UniqueID": "Trunip190.JA.MilkVillagers",
-	"UpdateKeys": ["Nexus:5948"],
+	"Version": "1.2.1",
+	"Description": "Adds new objects used by Milk the Villagers",
+	"UniqueID": "Trunip190.JA.MilkTheVillagers",
+	"UpdateKeys": [ "Nexus:5948" ],
 	"ContentPackFor": {
-		"UniqueID": "spacechase0.JsonAssets",
+		"UniqueID": "spacechase0.JsonAssets"
 	},
+	"Dependencies": [
+		{
+			"UniqueID": "spacechase0.JsonAssets",
+			"IsRequired": true
+		}
+	]
 }

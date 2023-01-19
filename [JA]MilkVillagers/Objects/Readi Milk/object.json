@@ -18,29 +18,29 @@
   // Localization
 
   "NameLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
+    "es": "Leche para readi", //Spanish
+    "ko": "readi 우유", //Korean
+    "de": "Readi Milch", //German
+    "fr": "Lait de lecture", //French
+    "hu": "Olvasó tej", //Hungarian
+    "it": "Milk readi", //Italian
+    "ja": "Readi Milk", //Japanese
+    "pt": "Leia leia", //Portuguese
+    "ru": "Риджи молоко", //Russian
+    "tr": "Okuma sütü", //Turkish
+    "zh": "readi牛奶" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "", //Spansih
-    "ko": "", //Korean
-    "de": "", //German
-    "fr": "", //French
-    "hu": "", //Hungarian
-    "it": "", //Italian
-    "ja": "", //Japanese
-    "pt": "", //Portuguese
-    "ru": "", //Russian
-    "tr": "", //Turkish
-    "zh": "", //Chinese (Simplified)
+    "es": "Una botella de leche encantada que fomenta un crecimiento saludable. Darle a alguien para que comience misiones con ellos.", //Spanish
+    "ko": "건강한 성장을 장려하는 마법의 우유 한 병. 그들과 함께 퀘스트를 시작할 누군가에게주십시오.", //Korean
+    "de": "Eine Flasche verzauberte Milch, die ein gesundes Wachstum fördert. Geben Sie jemandem, um mit ihm Quests zu beginnen.", //German
+    "fr": "Une bouteille de lait enchanté qui encourage une croissance saine. Donnez à quelqu'un pour commencer des quêtes avec eux.", //French
+    "hu": "Egy üveg elvarázsolt tej, amely ösztönzi az egészséges növekedést. Adj valakinek, hogy kezdje el velük küldetéseket.", //Hungarian
+    "it": "Una bottiglia di latte incantato che incoraggia una crescita sana. Dai a qualcuno per iniziare le missioni con loro.", //Italian
+    "ja": "健康的な成長を促進する魅惑の牛乳のボトル。誰かに与えて、彼らとクエストを始めましょう。", //Japanese
+    "pt": "Uma garrafa de leite encantado que incentiva um crescimento saudável. Dê a alguém para iniciar missões com eles.", //Portuguese
+    "ru": "Бутылка зачарованного молока, которая поощряет здоровый рост. Дайте кому -нибудь, чтобы начать квесты с ними.", //Russian
+    "tr": "Sağlıklı büyümeyi teşvik eden bir şişe büyülü süt. Onlarla göreve başlamak için birine verin.", //Turkish
+    "zh": "一瓶魔法牛奶，可以鼓励健康的生长。给某人开始与他们一起任务。" //Chinese (Simplified)
   },
 }

@@ -1,48 +1,50 @@
 {
-    "Name": "Lewis's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "A bottle of Lewis's cum", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 20, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 150, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
-    "Recipe": null, //Set to null.
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": ["Marnie, Lewis"], //Example of a single NPC
-        "Like": null,
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Pierre"], //Example of multiple NPC
-        "Hate": ["Haley"]
-    },
+  "Name": "Lewis's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A bottle of Lewis's cum", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 20, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 150, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Marnie, Lewis" ], //Example of a single NPC
+    "Like": null,
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Pierre" ], //Example of multiple NPC
+    "Hate": [ "Haley" ]
+  },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "Cum de Lewis", //Spanish
+    "ko": "루이스의 정액", //Korean
+    "de": "Lewis 'Sperma", //German
+    "fr": "Le sperme de Lewis", //French
+    "hu": "Lewis cum", //Hungarian
+    "it": "Lo sperma di Lewis", //Italian
+    "ja": "ルイスの精液", //Japanese
+    "pt": "O esperma de Lewis", //Portuguese
+    "ru": "Сперма Льюиса", //Russian
+    "tr": "Lewis's cum", //Turkish
+    "zh": "刘易斯的暨" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una botella de semen de Lewis", //Spanish
+    "ko": "루이스의 정액 병", //Korean
+    "de": "Eine Flasche Lewis 'Sperma", //German
+    "fr": "Une bouteille de sperme de Lewis", //French
+    "hu": "Egy üveg Lewis cum", //Hungarian
+    "it": "Una bottiglia di sperma di Lewis", //Italian
+    "ja": "ルイスの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Lewis", //Portuguese
+    "ru": "Бутылка спермы Льюиса", //Russian
+    "tr": "Bir şişe Lewis's cum", //Turkish
+    "zh": "一瓶刘易斯的暨" //Chinese (Simplified)
+  }
 }

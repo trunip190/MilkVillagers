@@ -1,48 +1,50 @@
 {
-    "Name": "Olivia's Milk", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "A jug of Olivia's milk", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 22, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 300, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
-    "Recipe": null, //Set to null.
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": ["Harvey, Abigail, Caroline"], //Example of a single NPC
-        "Like": ["Alex"],
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Haley"], //Example of multiple NPC
-        "Hate": ["Lewis"]
-    },
+  "Name": "Olivia's Milk", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A jug of Olivia's milk", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 22, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 300, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Harvey, Abigail, Caroline" ], //Example of a single NPC
+    "Like": [ "Alex" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Haley" ], //Example of multiple NPC
+    "Hate": [ "Lewis" ]
+  },
+  "ContextTags": [
+    "breast_milk_item",
+    "MTV_item"
+  ],
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "Leche de Olivia", //Spanish
+    "ko": "올리비아의 우유", //Korean
+    "de": "Olivias Milch", //German
+    "fr": "Le lait d'Olivia", //French
+    "hu": "Olivia teje", //Hungarian
+    "it": "Latte di Olivia", //Italian
+    "ja": "オリビアの牛乳", //Japanese
+    "pt": "Leite de Olivia", //Portuguese
+    "ru": "Оливия молоко", //Russian
+    "tr": "Olivia'nın Sütü", //Turkish
+    "zh": "奥利维亚的牛奶" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una jarra de leche de Olivia", //Spanish
+    "ko": "올리비아 우유 주전자", //Korean
+    "de": "Ein Krug von Olivias Milch", //German
+    "fr": "Une cruche de lait d'Olivia", //French
+    "hu": "Egy kancsó Olivia tej", //Hungarian
+    "it": "Una brocca del latte di Olivia", //Italian
+    "ja": "オリビアの牛乳の水差し", //Japanese
+    "pt": "Um jarro de leite de Olivia", //Portuguese
+    "ru": "Кувшин молока Оливии", //Russian
+    "tr": "Bir sürahi Olivia'nın sütü", //Turkish
+    "zh": "奥利维亚的牛奶罐" //Chinese (Simplified)
+  }
 }

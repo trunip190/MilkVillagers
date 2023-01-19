@@ -1,48 +1,50 @@
 {
-    "Name": "Sam's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
-    "Description": "A bottle of Sam's cum", //Description of the product.
-    "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
-    "Edibility": 20, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-    "Price": 150, //How much your item sells for.
-    "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
-    "Recipe": null, //Set to null.
-    "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
-    {
-        "Love": ["Abigail, Sebastian"], //Example of a single NPC
-        "Like": ["Penny"],
-        "Neutral": null, //Example of `null`. Can also remove if not being used.
-        "Dislike": ["Caroline"], //Example of multiple NPC
-        "Hate": ["Kent"]
-    },
+  "Name": "Sam's Cum", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A bottle of Sam's cum", //Description of the product.
+  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Edibility": 20, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 150, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "Recipe": null, //Set to null.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Abigail, Sebastian" ], //Example of a single NPC
+    "Like": [ "Penny" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Caroline" ], //Example of multiple NPC
+    "Hate": [ "Kent" ]
+  },
+  "ContextTags": [
+    "human_cum_item",
+    "MTV_item"
+  ],
 
-    // Localization
+  // Localization
 
-    "NameLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
-    "DescriptionLocalization":
-    {
-        "es": "", //Spansih
-        "ko": "", //Korean
-        "de": "", //German
-        "fr": "", //French
-        "hu": "", //Hungarian
-        "it": "", //Italian
-        "ja": "", //Japanese
-        "pt": "", //Portuguese
-        "ru": "", //Russian
-        "tr": "", //Turkish
-        "zh": "", //Chinese (Simplified)
-    },
+  "NameLocalization": {
+    "es": "Sam's Cum", //Spanish
+    "ko": "샘의 정액", //Korean
+    "de": "Sams Sperma", //German
+    "fr": "Le sperme de Sam", //French
+    "hu": "Sam cum", //Hungarian
+    "it": "Sam's Cum", //Italian
+    "ja": "サムの精液", //Japanese
+    "pt": "Cum de Sam", //Portuguese
+    "ru": "Сперма Сэма", //Russian
+    "tr": "Sam's cum", //Turkish
+    "zh": "山姆的暨" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Una botella de Sam's Cum", //Spanish
+    "ko": "샘의 정액 병", //Korean
+    "de": "Eine Flasche Sams Sperma", //German
+    "fr": "Une bouteille de sperme de Sam", //French
+    "hu": "Egy üveg Sam cum", //Hungarian
+    "it": "Una bottiglia di Sam's Sbu", //Italian
+    "ja": "サムの精液のボトル", //Japanese
+    "pt": "Uma garrafa de esperma de Sam", //Portuguese
+    "ru": "Бутылка спермы Сэма", //Russian
+    "tr": "Bir şişe Sam's cum", //Turkish
+    "zh": "一瓶山姆的暨" //Chinese (Simplified)
+  }
 }
