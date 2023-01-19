@@ -4,10 +4,12 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Locations;
+using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using static System.Collections.Specialized.BitVector32;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
 using sObject = StardewValley.Object;
 
@@ -341,22 +343,33 @@ namespace MilkVillagers
                 e.Cancel = true;
 
                 if (!MailEditor.FirstMail.ContainsKey(npcTarget.Name))
-                    return;
+                {
+
+                    if (npcTarget.Dialogue.TryGetValue("QuestStartFail", out string FailDialogue)) 
+                        Game1.drawDialogue(npcTarget, FailDialogue);
+
+                    goto cleanup;
+                }
 
                 string FirstQuestMail = MailEditor.FirstMail[npcTarget.Name];
                 if (FirstQuestMail != "" && !who.hasOrWillReceiveMail(FirstQuestMail))
                 {
-                    if (npcTarget.Dialogue.TryGetValue("readi_milk", out string dialogues))
+                    if (npcTarget.Dialogue.TryGetValue("QuestStartSuccess", out string SuccessDialogue))
                     {
-                        Game1.drawDialogue(npcTarget, dialogues);
+                        Game1.drawDialogue(npcTarget, SuccessDialogue);
                     }
                     else
                     {
-                        Game1.drawDialogue(npcTarget, "A drink? Sure, anything that comes from %farm is always tasty.");
+                        Game1.drawDialogue(npcTarget, "(starting quests)");
                     }
                     SendNextMail(who, FirstQuestMail, true);
+
+                    goto cleanup;
                 }
             }
+
+        cleanup:
+            return;
         }
         #endregion
 
@@ -371,7 +384,7 @@ namespace MilkVillagers
             Farmer who = Game1.player;
             running = false;
 
-            if (!Context.IsWorldReady)
+            if (!Context.IsWorldReady || Game1.menuUp)
                 return;
 
             SButton button = e.Button;
