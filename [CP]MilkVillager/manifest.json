@@ -2,7 +2,7 @@
   "Name": "[CP]MilkTheVillagers",
   "Author": "Trunip190",
   "Description": "Adds dialogue for the mod Milk the Villagers",
-  "Version": "1.2.2",
+  "Version": "1.2.3",
   "UniqueID": "trunip190.CP.MilkTheVillagers",
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"

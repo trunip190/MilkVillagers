@@ -1,5 +1,6 @@
 ﻿using StardewModdingAPI;
 using StardewValley;
+using StardewValley.Network;
 using System.Collections.Generic;
 using sObject = StardewValley.Object;
 
@@ -18,9 +19,29 @@ namespace MilkVillagers
             return target[0] == NPC[0] && target[1] == NPC[1];
         }
 
+        public static Farmer FindFarmer(GameLocation location, int[] target, int[] farmerPos)
+        {
+            int[] NPC = new int[2];
+
+            using (FarmerCollection.Enumerator enumerator = location.farmers.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    Farmer current = enumerator.Current;
+                    NPC[0] = current.getTileX();
+                    NPC[1] = current.getTileY();
+                    if (LookingAtNPC(target, NPC) || LookingAtNPC(farmerPos, NPC))
+                        return current;
+                }
+            }
+
+            return null;
+        }
+
         public static NPC FindTarget(GameLocation location, int[] target, int[] farmerPos)
         {
             int[] NPC = new int[2];
+
             using (List<NPC>.Enumerator enumerator = location.characters.GetEnumerator())
             {
                 while (enumerator.MoveNext())

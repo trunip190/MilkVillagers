@@ -135,6 +135,7 @@ namespace MilkVillagers
             TempRefs.HasVagina = Config.HasVagina;
             TempRefs.HasBreasts = Config.HasBreasts;
             TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
+
         }
 
         private void UpdateConfig()
@@ -345,7 +346,7 @@ namespace MilkVillagers
                 if (!MailEditor.FirstMail.ContainsKey(npcTarget.Name))
                 {
 
-                    if (npcTarget.Dialogue.TryGetValue("QuestStartFail", out string FailDialogue)) 
+                    if (npcTarget.Dialogue.TryGetValue("QuestStartFail", out string FailDialogue))
                         Game1.drawDialogue(npcTarget, FailDialogue);
 
                     goto cleanup;
@@ -375,17 +376,16 @@ namespace MilkVillagers
 
         private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            if (running || Game1.menuUp)
+
+            if (running || !Context.IsWorldReady || Game1.menuUp || !Context.IsPlayerFree)
             {
+                ModFunctions.LogVerbose($"running: {running}, Context.IsPlayerFree: {Context.IsPlayerFree}, IsWorldReady {Context.IsWorldReady}, menuUp {Game1.menuUp}", LogLevel.Trace);
                 return;
             }
 
             //switch for multiplayer.
             Farmer who = Game1.player;
             running = false;
-
-            if (!Context.IsWorldReady || Game1.menuUp)
-                return;
 
             SButton button = e.Button;
 
@@ -452,6 +452,7 @@ namespace MilkVillagers
             {
                 target = GetNewPos(who.FacingDirection, FarmerPos(who)[0], FarmerPos(who)[1]);
                 NPC NPCtarget = ModFunctions.FindTarget(who.currentLocation, this.target, FarmerPos(who));
+                Farmer companion = ModFunctions.FindFarmer(who.currentLocation, this.target, FarmerPos(who));
                 if (NPCtarget != null)
                 {
                     List<Response> choices = GenerateSexOptions(NPCtarget); // Get list of available options for this character
@@ -461,6 +462,10 @@ namespace MilkVillagers
                     running = false;
 
                     Game1.currentLocation.createQuestionDialogue($"What do you want to do with {NPCtarget.Name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                }
+                else if (companion != null)
+                {
+                    Game1.addHUDMessage(new HUDMessage($"What do you want to do with {companion.displayName}?"));
                 }
                 else  //Config.Debug)
                 {
@@ -510,6 +515,14 @@ namespace MilkVillagers
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
             doneOnce = false;
+
+            TempRefs.thirdParty = Config.ThirdParty;
+            TempRefs.Verbose = Config.Verbose;
+            TempRefs.OverrideGenitals = Config.OverrideGenitals;
+            TempRefs.HasPenis = Config.HasPenis;
+            TempRefs.HasVagina = Config.HasVagina;
+            TempRefs.HasBreasts = Config.HasBreasts;
+            TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
 
             if (runOnce)
                 return;
@@ -683,7 +696,6 @@ namespace MilkVillagers
                 CheckNewQuest(who, kvp.Value);
             }
         }
-
 
         private void Upgrade(string command, string[] args)
         {
@@ -1319,6 +1331,9 @@ namespace MilkVillagers
             }
             else if (action == "self_milk") // farmer collects their own breast milk.
             {
+                //NPC Farmer = Game1.getCharacterFromName("Farmer");
+                //Farmer.Dialogue.TryGetValue("FarmerCollectionMilk", out string cumDialogue);
+                //Game1.drawObjectDialogue(cumDialogue);
                 Game1.drawObjectDialogue(Config.FarmerCollectionMilk);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkGeneric, 1, quality: 2));
@@ -1328,6 +1343,9 @@ namespace MilkVillagers
             }
             else if (action == "self_cum") // farmer collects their own cum
             {
+                //NPC Farmer = Game1.getCharacterFromName("Farmer");
+                //Farmer.Dialogue.TryGetValue("FarmerCollectCum", out string cumDialogue);
+                //Game1.drawObjectDialogue(cumDialogue);
                 Game1.drawObjectDialogue(Config.FarmerCollectCum);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkSpecial, 1, quality: 2));
