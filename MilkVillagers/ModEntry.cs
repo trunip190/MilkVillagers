@@ -386,6 +386,7 @@ namespace MilkVillagers
             //switch for multiplayer.
             Farmer who = Game1.player;
             running = false;
+            currentTarget = null;
 
             SButton button = e.Button;
 
@@ -463,7 +464,7 @@ namespace MilkVillagers
 
                     Game1.currentLocation.createQuestionDialogue($"What do you want to do with {NPCtarget.Name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                 }
-                else if (companion != null)
+                else if (companion != null && companion != who)
                 {
                     Game1.addHUDMessage(new HUDMessage($"What do you want to do with {companion.displayName}?"));
                 }

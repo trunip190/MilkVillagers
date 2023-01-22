@@ -27,9 +27,11 @@ namespace MilkVillagers
             {
                 while (enumerator.MoveNext())
                 {
+
                     Farmer current = enumerator.Current;
                     NPC[0] = current.getTileX();
                     NPC[1] = current.getTileY();
+
                     if (LookingAtNPC(target, NPC) || LookingAtNPC(farmerPos, NPC))
                         return current;
                 }
