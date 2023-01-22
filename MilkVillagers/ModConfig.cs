@@ -36,6 +36,19 @@ namespace MilkVillagers
         public readonly int SpecialType = -36;
 
         public SButton MilkButton = SButton.O;
+
+        // Extra Dialogue
+        public readonly string FarmerCollectCum = "You free your penis and start using one hand to gently stroke it, and the other to massage your balls. " +
+        "You close your eyes as you start to imagine someone leaning down and engulfing your cock between their lips. " +
+        "#You pick up your pace as their imaginary mouth starts sucking harder, occasionally flicking your tip with their tongue. " +
+        "Your clench your eyes tighter as your cum starts to spurt out, painting the inside of your jar. You seal the lid with a contented sigh. ";
+
+        public readonly string FarmerCollectionMilk = "You glance around for a mo to see if anyone is watching you, then slip your top over your head. " +
+        "You start massaging you breast, and your nipples are soon standing proud, calling for attention. " +
+        "#As you start kneading in earnest, a trickle quickly emerges from the sides of your nipple, and quickly becomes a stream. " +
+        "The flow increases as you find your rhythm, and the drip-drip of it collecting in your bottle is hypnotising. " +
+        "#After several minutes of switching between breasts you are much emptier, and you pull your top back on. " +
+        "The fabric rubs against your slightly sore nipples.";
     }
 
     public static class TempRefs
@@ -49,19 +62,6 @@ namespace MilkVillagers
         public static List<NPC> SexToday = new();
         public static bool SelfMilkedToday = false;
         public static bool SelfCummedToday = false;
-
-        // Extra Dialogue
-        public static string FarmerCollectCum = "You free your penis and start using one hand to gently stroke it, and the other to massage your balls. " +
-        "You close your eyes as you start to imagine someone leaning down and engulfing your cock between their lips. " +
-        "#You pick up your pace as their imaginary mouth starts sucking harder, occasionally flicking your tip with their tongue. " +
-        "Your clench your eyes tighter as your cum starts to spurt out, painting the inside of your jar. You seal the lid with a contented sigh. ";
-
-        public static string FarmerCollectionMilk = "You glance around for a mo to see if anyone is watching you, then slip your top over your head. " +
-        "You start massaging you breast, and your nipples are soon standing proud, calling for attention. " +
-        "#As you start kneading in earnest, a trickle quickly emerges from the sides of your nipple, and quickly becomes a stream. " +
-        "The flow increases as you find your rhythm, and the drip-drip of it collecting in your bottle is hypnotising. " +
-        "#After several minutes of switching between breasts you are much emptier, and you pull your top back on. " +
-        "The fabric rubs against your slightly sore nipples.";
 
         // Config options
         public static bool loaded = false;

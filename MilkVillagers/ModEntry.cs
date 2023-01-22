@@ -4,10 +4,12 @@ using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Locations;
+using StardewValley.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using static System.Collections.Specialized.BitVector32;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
 using sObject = StardewValley.Object;
 
@@ -133,6 +135,7 @@ namespace MilkVillagers
             TempRefs.HasVagina = Config.HasVagina;
             TempRefs.HasBreasts = Config.HasBreasts;
             TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
+
         }
 
         private void UpdateConfig()
@@ -341,38 +344,49 @@ namespace MilkVillagers
                 e.Cancel = true;
 
                 if (!MailEditor.FirstMail.ContainsKey(npcTarget.Name))
-                    return;
+                {
+
+                    if (npcTarget.Dialogue.TryGetValue("QuestStartFail", out string FailDialogue))
+                        Game1.drawDialogue(npcTarget, FailDialogue);
+
+                    goto cleanup;
+                }
 
                 string FirstQuestMail = MailEditor.FirstMail[npcTarget.Name];
                 if (FirstQuestMail != "" && !who.hasOrWillReceiveMail(FirstQuestMail))
                 {
-                    if (npcTarget.Dialogue.TryGetValue("readi_milk", out string dialogues))
+                    if (npcTarget.Dialogue.TryGetValue("QuestStartSuccess", out string SuccessDialogue))
                     {
-                        Game1.drawDialogue(npcTarget, dialogues);
+                        Game1.drawDialogue(npcTarget, SuccessDialogue);
                     }
                     else
                     {
-                        Game1.drawDialogue(npcTarget, "A drink? Sure, anything that comes from %farm is always tasty.");
+                        Game1.drawDialogue(npcTarget, "(starting quests)");
                     }
                     SendNextMail(who, FirstQuestMail, true);
+
+                    goto cleanup;
                 }
             }
+
+        cleanup:
+            return;
         }
         #endregion
 
         private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            if (running || Game1.menuUp)
+
+            if (running || !Context.IsWorldReady || Game1.menuUp || !Context.IsPlayerFree)
             {
+                ModFunctions.LogVerbose($"running: {running}, Context.IsPlayerFree: {Context.IsPlayerFree}, IsWorldReady {Context.IsWorldReady}, menuUp {Game1.menuUp}", LogLevel.Trace);
                 return;
             }
 
             //switch for multiplayer.
             Farmer who = Game1.player;
             running = false;
-
-            if (!Context.IsWorldReady)
-                return;
+            currentTarget = null;
 
             SButton button = e.Button;
 
@@ -439,6 +453,7 @@ namespace MilkVillagers
             {
                 target = GetNewPos(who.FacingDirection, FarmerPos(who)[0], FarmerPos(who)[1]);
                 NPC NPCtarget = ModFunctions.FindTarget(who.currentLocation, this.target, FarmerPos(who));
+                Farmer companion = ModFunctions.FindFarmer(who.currentLocation, this.target, FarmerPos(who));
                 if (NPCtarget != null)
                 {
                     List<Response> choices = GenerateSexOptions(NPCtarget); // Get list of available options for this character
@@ -448,6 +463,10 @@ namespace MilkVillagers
                     running = false;
 
                     Game1.currentLocation.createQuestionDialogue($"What do you want to do with {NPCtarget.Name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                }
+                else if (companion != null && companion != who)
+                {
+                    Game1.addHUDMessage(new HUDMessage($"What do you want to do with {companion.displayName}?"));
                 }
                 else  //Config.Debug)
                 {
@@ -498,6 +517,14 @@ namespace MilkVillagers
         {
             doneOnce = false;
 
+            TempRefs.thirdParty = Config.ThirdParty;
+            TempRefs.Verbose = Config.Verbose;
+            TempRefs.OverrideGenitals = Config.OverrideGenitals;
+            TempRefs.HasPenis = Config.HasPenis;
+            TempRefs.HasVagina = Config.HasVagina;
+            TempRefs.HasBreasts = Config.HasBreasts;
+            TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
+
             if (runOnce)
                 return;
 
@@ -534,6 +561,8 @@ namespace MilkVillagers
             }
             //Farmer who = Game1.player;
             //SendNewMail(who);
+            TimeFreezeTimer = 0;
+            RegenAmount = 0;
         }
 
         private void GameLoop_TimeChanged(object sender, TimeChangedEventArgs e)
@@ -668,7 +697,6 @@ namespace MilkVillagers
                 CheckNewQuest(who, kvp.Value);
             }
         }
-
 
         private void Upgrade(string command, string[] args)
         {
@@ -1304,7 +1332,10 @@ namespace MilkVillagers
             }
             else if (action == "self_milk") // farmer collects their own breast milk.
             {
-                Game1.drawObjectDialogue(TempRefs.FarmerCollectionMilk);
+                //NPC Farmer = Game1.getCharacterFromName("Farmer");
+                //Farmer.Dialogue.TryGetValue("FarmerCollectionMilk", out string cumDialogue);
+                //Game1.drawObjectDialogue(cumDialogue);
+                Game1.drawObjectDialogue(Config.FarmerCollectionMilk);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkGeneric, 1, quality: 2));
 
@@ -1313,7 +1344,10 @@ namespace MilkVillagers
             }
             else if (action == "self_cum") // farmer collects their own cum
             {
-                Game1.drawObjectDialogue(TempRefs.FarmerCollectCum);
+                //NPC Farmer = Game1.getCharacterFromName("Farmer");
+                //Farmer.Dialogue.TryGetValue("FarmerCollectCum", out string cumDialogue);
+                //Game1.drawObjectDialogue(cumDialogue);
+                Game1.drawObjectDialogue(Config.FarmerCollectCum);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkSpecial, 1, quality: 2));
 
