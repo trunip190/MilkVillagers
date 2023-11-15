@@ -8,7 +8,7 @@
   "Recipe": null, //Set to null.
   "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
   {
-    "Love": [ "Robin, Demetrius, Maru, Sebastian, Linus, Pierre, Caroline, Abigail, Alex, George, Evelyn, Lewis, Clint, Penny, Pam, Emily, Haley, Jas, Vincent, Jodi, Kent, Sam, Leah, Shane, Marnie, Elliott, Gus, Dwarf, Wizard, Harvey, Sandy, Willy, Krobus, Leo" ], 
+    "Love": [ "Robin", "Demetrius", "Maru", "Sebastian", "Linus", "Pierre", "Caroline", "Abigail", "Alex", "George", "Evelyn", "Lewis", "Clint", "Penny", "Pam", "Emily", "Haley", "Jas", "Vincent", "Jodi", "Kent", "Sam", "Leah", "Shane", "Marnie", "Elliott", "Gus", "Dwarf", "Wizard", "Harvey", "Sandy", "Willy", "Krobus", "Leo" ], 
     "Like": null,
     "Neutral": null, //Example of `null`. Can also remove if not being used.
     "Dislike": null, //Example of multiple NPC

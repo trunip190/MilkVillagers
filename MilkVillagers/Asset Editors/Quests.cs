@@ -477,14 +477,30 @@ namespace MilkVillagers.Asset_Editors
             return true;
         }
 
-        public static void Report()
+        public static void Report(bool i18n = false)
         {
             if (QuestData != null)
             {
                 ModFunctions.LogVerbose($"Dumping quests");
                 foreach (KeyValuePair<int, string> d in QuestData)
                 {
-                    ModFunctions.LogVerbose($"{d.Key}: {d.Value}");
+                    if (d.Key.ToString().Contains("5948"))
+                    {
+                        string parsed = d.Value.Replace("spacechase0.JsonAssets/ObjectId:", "spacechase0.JsonAssets#ObjectId:");
+                        string[] split= parsed.Split('/');
+
+                        if (i18n)
+                        {
+                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.01\": \"{split[1]}\"", Force: true);
+                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.02\": \"{split[2]}\"", Force: true);
+                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.03\": \"{split[3]}\"", Force: true);
+                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.09\": \"{split[9]}\"", Force: true);
+                        }
+
+                        ModFunctions.LogVerbose($"{d.Key}: {split[0]}/{{{{i18n:Quests.{d.Key}.01}}}}/{{{{i18n:Quests.{d.Key}.02}}}}/{{{{i18n:Quests.{d.Key}.03}}}}/{split[4]}/{split[5]}" +
+                            $"/{split[6]}/{split[7]}/{split[8]}/{{{{i18n:Quests.{d.Key}.09}}}}", Force: true);
+
+                    }
                 }
             }
             if (SOData != null)

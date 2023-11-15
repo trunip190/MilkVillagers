@@ -239,7 +239,6 @@ namespace MilkVillagers.Asset_Editors
             ["Penny"] = "MTV_PennyQ1",          //Penny quest 1
             ["Leah"] = "MTV_LeahQ1",            //Leah quest 1
             ["Sebastian"] = "MTV_SebQ1",    //Sebastian quest 1
-
         };
 
 

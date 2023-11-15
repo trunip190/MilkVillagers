@@ -1799,7 +1799,7 @@ namespace MilkVillagers.Asset_Editors
                         "j <number> 	" +         // player has played more than <number> days.
                         "k <event ID> 	" +         // player has not seen that event (may contain multiple event IDs).
                         "l <letter ID> 	" +         // player has not received that mail letter or non-mail flag.
-                        "m <number> 	" +         // player has earned at least this much money (regardless of how much they " + //ly have).
+                        "m <number> 	" +         // player has earned at least this much money (regardless of how much they really have).
                         "n <letter ID> 	" +         // player has received that mail letter or non-mail flag.
                         "o <name> 	" +             // player is not married to that NPC.
                         "p <name>" +                // Specified NPC is in the player's location.

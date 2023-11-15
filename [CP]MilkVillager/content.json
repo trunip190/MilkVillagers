@@ -37,8 +37,71 @@
       "LogName": "Include Quests",
       "Action": "Include",
       "FromFile": "Data/Quests.json"
+    },
 
-
+    //Farmer gets added as an NPC (Trunip)
+    {
+      "LogName": "Sprites",
+      "Action": "Load",
+      "Target": "Characters/Trunip",
+      "FromFile": "assets/sprites.png"
+    },
+    {
+      "LogName": "Portraits",
+      "Action": "Load",
+      "Target": "Portraits/Trunip",
+      "FromFile": "assets/portraits.png"
+    },
+    {
+      "LogName": "Dialogue",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/Trunip",
+      "FromFile": "assets/dialogue.json"
+    },
+    {
+      "LogName": "Marriage Dialogue",
+      "Action": "Load",
+      "Target": "Characters/Dialogue/MarriageDialogueTrunip",
+      "FromFile": "assets/marriageDialogue.json"
+    },
+    {
+      "LogName": "Schedule",
+      "Action": "Load",
+      "Target": "Characters/schedules/Trunip",
+      "FromFile": "assets/schedule.json"
+    },
+    {
+      "LogName": "NPC Dispositions",
+      "Action": "EditData",
+      "Target": "Data/NPCDispositions",
+      "Entries": {
+        "Trunip": "adult/rude/neutral/positive/male/datable//Town/summer 7//BusStop 19 4/Trunip"
+      }
+    },
+    {
+      "LogName": "Trunip's AntiSocial Flag",
+      "Action": "EditData",
+      "Target": "Data/AntiSocialNPCs",
+      "Entries": {
+        "Trunip": true
+      }
+    },
+    //{
+    //  "LogName": "Gift tastes",
+    //  "Action": "EditData",
+    //  "Target": "Data/NPCGiftTastes",
+    //  "Entries": {
+    //    "Trunip": "You're giving this to me? This is amazing!/207 232 233 400/Thank you! This is a very interesting specimen./-5 -79 422/...What is this?/80 330/This is disgusting./2/That was very thoughtful of you./-4/ "
+    //  }
+    //},
+    {
+      "LogName": "Engagement Dialogue",
+      "Action": "EditData",
+      "Target": "Data/EngagementDialogue",
+      "Entries": {
+        "Trunip0": "I can't believe I am about to be married!$h",
+        "Trunip1": "I hope I don't get cold feet"
+      }
     }
   ],
   "RepeatEvents": [

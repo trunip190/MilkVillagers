@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using SpaceCore;
 using StardewModdingAPI;
 using StardewValley;
 
@@ -15,10 +17,15 @@ namespace MilkVillagers
 
         // Farmer gender overrides.
         public bool OverrideGenitals = false;
-        public bool HasPenis = false;
-        public bool HasVagina = false;
-        public bool HasBreasts = false;
-        public bool AceCharacter = false;
+        public string FarmerGender = "Genderfluid";
+        public string FarmerGenitals = "Vagina and breasts";
+        public bool HasPenis => FarmerGenitals.ToLower().Contains("penis");
+        public bool HasVagina => FarmerGenitals.ToLower().Contains("vagina");
+        public bool HasBreasts => FarmerGenitals.ToLower().Contains("breasts");
+        public bool AceCharacter => (HasPenis || HasVagina || HasBreasts);
+
+        public int HeartLevel1 = 6;
+        public int HeartLevel2 = 8;
 
         // Content
         public bool ExtraDialogue = true;
@@ -81,7 +88,7 @@ namespace MilkVillagers
         //public static bool HasVagina => Genitals == "Vagina" || Genitals == "Both";
         #endregion
 
-        public static  bool HasBreasts = false;
+        public static bool HasBreasts = false;
         public static bool IgnoreVillagerGender = false;
 
 
@@ -116,8 +123,8 @@ namespace MilkVillagers
         public static int EventBathHouseA = 594812;     //BathHouse Scene Ace
         public static int EventBathHouseV = 594813;     //BathHouse Scene Vagina
         public static int EventBathHouseP = 594814;     //BathHouse Scene Penis
-        //public static int Event                       //
-        //public static int Event                       //
+        public static int EventBlairKeahi1NA = 594815;  //Blair and farmer hide in bushes
+        public static int EventElliottScene1V = 594816; //Elliott Quest 2 roleplay event
         //public static int Event                       //
         //public static int Event                       //
         //public static int Event                       //
@@ -269,7 +276,7 @@ namespace MilkVillagers
             ModFunctions.LogVerbose($"CumType is {CumType}", LogLevel.Trace);
 
             // Quest items
-            ModFunctions.LogVerbose($"PennyBook is {PennyBook}",LogLevel.Trace);    
+            ModFunctions.LogVerbose($"PennyBook is {PennyBook}", LogLevel.Trace);
             ModFunctions.LogVerbose($"HaleyCamera is {HaleyCamera}", LogLevel.Trace);
             ModFunctions.LogVerbose($"HaleyPanties is {HaleyPanties}", LogLevel.Trace);
             ModFunctions.LogVerbose($"ReadiMilk is {ReadiMilk}", LogLevel.Trace);

@@ -2,6 +2,7 @@
 using StardewValley;
 using StardewValley.Network;
 using System.Collections.Generic;
+using System.IO;
 using sObject = StardewValley.Object;
 
 namespace MilkVillagers
@@ -9,8 +10,83 @@ namespace MilkVillagers
 
     public static class ModFunctions
     {
-        public static void LogVerbose(string message, LogLevel Level = LogLevel.Trace, bool Force = false)
+        public static List<string> topics = new List<string>
+            {
+                "5984GeorgeMed",
+                "5984GeorgeMedBJ",
+                "5984GeorgeMedHJ",
+                "5984GeorgeMedSex",
+                "BJ",
+                "eat_out",
+                "get_eaten",
+                "HaleyPanties",
+                "HaleyPantiesFinger",
+                "HaleyPantiesLick",
+                "HaleyPantiesReject",
+                "HaleyPantiesSex",
+                "milk_fast",
+                "milk_start",
+                "MTV_BathhouseFun",
+                "MTV_BoeBook1",
+                "MTV_BoeBook2",
+                "MTV_BoeBook3",
+                "MTV_BoethiaBook",
+                "MTV_BoethiaBookP1",
+                "MTV_BoethiaBookP2",
+                "MTV_BoethiaBookP3",
+                "MTV_Bukkake",
+                "mtv_ctcamshow",
+                "MTV_GeorgeQ4",
+                "QuestStartFail",
+                "QuestStartSuccess",
+                "sex"
+            };
+
+        public static List<string> chars = new List<string> {
+            "Abigail",
+            "Alex",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Elliott",
+            "Emily",
+            "Evelyn",
+            "George",
+            "Gil",
+            "Gunther",
+            "Gus",
+            "Haley",
+            "Harvey",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leah",
+            "Lewis",
+            "Linus",
+            "Magnus",
+            "Marlon",
+            "Marnie",
+            "Maru",
+            "Morris",
+            "Mr. Qi",
+            "Pam",
+            "Penny",
+            "Pierre",
+            "Robin",
+            "Sam",
+            "Sandy",
+            "Sebastian",
+            "Shane",
+            "Willy",
+            "Wizard"
+            };
+
+    public static void LogVerbose(string message, LogLevel Level = LogLevel.Trace, bool Force = false)
         {
+            if (message == null)
+                return;
+
             if (TempRefs.Verbose || Force) TempRefs.Monitor.Log(message, Level);
         }
 
@@ -185,6 +261,19 @@ namespace MilkVillagers
             if (who.mailReceived.Contains("MilkingProfQuality")) { result.Quality = 4; }
 
         cleanup:
+            return result;
+        }
+
+        public static List<string> GetDirectories(string root)
+        {
+            List<string> result = new List<string>();
+            result.Add(root);
+
+            foreach (string s in Directory.GetDirectories(root))
+            {
+                result.AddRange(GetDirectories(s));
+            }
+
             return result;
         }
 

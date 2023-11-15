@@ -3,10 +3,16 @@ using SpaceCore.Events;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Buildings;
 using StardewValley.Locations;
+using StardewValley.Network;
 using StardewValley.Objects;
+using StardewValley.Quests;
+using StardewValley.TerrainFeatures;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using static System.Collections.Specialized.BitVector32;
@@ -83,7 +89,7 @@ namespace MilkVillagers
                 TempRefs.Helper = helper;
             }
 
-            #region register events
+            #region register ingame events
 
             Helper.Events.Display.MenuChanged += Display_MenuChanged;
             Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
@@ -116,6 +122,10 @@ namespace MilkVillagers
             helper.ConsoleCommands.Add("mtv_reloadconfig", "Forces Milk The Villagers to reload it's config from the file. Useful in case of editing with Generic Mod Config Menu during a session.\n\nUsage: mtv_reloadconfig", this.ReloadConfig);
             helper.ConsoleCommands.Add("mtv_sendallmail", "Sends every mail item from this mod, even previously sent ones\n\nUsage:mtv_sendallmail", this.SendAllMail);
             helper.ConsoleCommands.Add("mtv_addquests", "Adds all quests to the farmer's questlog\n\nUsage: mtv_addquests", this.AddAllQuests);
+            helper.ConsoleCommands.Add("mtv_checkfiles", "checks your computer to see if the modfiles are in the right location\n\nUsage: mtv_checkfiles optional:all", this.FileCheck);
+            helper.ConsoleCommands.Add("mtv_resetmilk", "Resets the list of NPC's that have been milked today,\n\nUsage: mtv_resetmilk", this.ResetMilk);
+            helper.ConsoleCommands.Add("mtv_allfriends", "Sets all vanilla NPC's friends to either half or max\n\nmtv_allfriends | mtv_allfriends max", this.AllFriends);
+            helper.ConsoleCommands.Add("mtv_dumpquests", "Dumps all quests for translation\n\nmtv_dumpquests", this.DumpQuests);
             #endregion
         }
 
@@ -135,183 +145,275 @@ namespace MilkVillagers
             TempRefs.HasVagina = Config.HasVagina;
             TempRefs.HasBreasts = Config.HasBreasts;
             TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
-
         }
 
         private void UpdateConfig()
         {
             #region Generic Mod Config
+            // get Generic Mod Config Menu's API (if it's installed)
+            var configMenu = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
+            if (configMenu is null)
+                return;
+
+            // register mod
+            configMenu.Register(
+                mod: this.ModManifest,
+                reset: () => this.Config = new ModConfig(),
+                save: () => this.Helper.WriteConfig(this.Config)
+            );
+
             // get Generic Mod Config Menu API (if it's installed)
-            var api = this.Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
-            if (api != null)
-            {
-                // register mod configuration
-                api.RegisterModConfig(
-                    mod: this.ModManifest,
-                    revertToDefault: () => this.Config = new ModConfig(),
-                    saveToFile: () => this.Helper.WriteConfig(this.Config)
+            // add some config options
+            #region basic mod options
+            configMenu.AddKeybind(
+                fieldId: "Milking Button",
+                mod: this.ModManifest,
+                name: () => "Milking Button",
+                tooltip: () => "Set button for milking",
+                getValue: () => this.Config.MilkButton,
+                setValue: (SButton var) => this.Config.MilkButton = var
                 );
 
-                // let players configure your mod in-game (instead of just from the title screen)
-                api.SetDefaultIngameOptinValue(this.ModManifest, true);
-                api.SubscribeToChange(this.ModManifest, UpdateConfig);
+            configMenu.AddBoolOption(
+                fieldId: "Milk Females",
+                mod: this.ModManifest,
+                name: () => "Milk Females",
+                tooltip: () => "Lets you milk female characters if they like you enough",
+                getValue: () => this.Config.MilkFemale,
+                setValue: value => this.Config.MilkFemale = value
+            );
 
-                // add some config options
-                #region basic mod options
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Milking Button",
-                    optionDesc: "Set button for milking",
-                    optionGet: () => this.Config.MilkButton,
-                    optionSet: (SButton var) => this.Config.MilkButton = var
-                    );
+            configMenu.AddBoolOption(
+                fieldId: "Milk Males",
+                mod: this.ModManifest,
+                name: () => "Milk Males",
+                tooltip: () => "Lets you milk male characters if they like you enough",
+                getValue: () => this.Config.MilkMale,
+                setValue: value => this.Config.MilkMale = value
+            );
 
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Milk Females",
-                    optionDesc: "Lets you milk female characters if they like you enough",
-                    optionGet: () => this.Config.MilkFemale,
-                    optionSet: value => this.Config.MilkFemale = value
+            configMenu.AddBoolOption(
+                fieldId: "Collect Items?",
+                mod: this.ModManifest,
+                name: () => "Collect Items?",
+                tooltip: () => "Collect items, or just sex?",
+                getValue: () => this.Config.CollectItems,
+                setValue: value => this.Config.CollectItems = value
+            );
+
+            configMenu.AddBoolOption(
+                fieldId: "Simple milk/cum",
+                mod: this.ModManifest,
+                name: () => "Simple milk/cum",
+                tooltip: () => "Replace individual items with generic ones.",
+                getValue: () => this.Config.StackMilk,
+                setValue: value => this.Config.StackMilk = value
+            );
+
+            configMenu.AddBoolOption(
+                fieldId: "ExtraDialogue",
+                mod: this.ModManifest,
+                name: () => "ExtraDialogue",
+                tooltip: () => "Enable Abigail's everyday dialogue changes?",
+                getValue: () => this.Config.ExtraDialogue,
+                setValue: value => this.Config.ExtraDialogue = value
+            );
+
+            configMenu.AddBoolOption(
+                fieldId: "Quests",
+                mod: this.ModManifest,
+                name: () => "Quests",
+                tooltip: () => "Enable quest content",
+                getValue: () => this.Config.Quests,
+                setValue: value => this.Config.Quests = value
+            );
+
+            configMenu.AddNumberOption(
+                min: 0,
+                max: 10,
+                interval: 1,
+                fieldId: "HeartLevel1",
+                mod: this.ModManifest,
+                name: () => "HeartLevel1",
+                tooltip: () => "Hearts required for basic sexual interactions",
+                getValue: () => this.Config.HeartLevel1,
+                setValue: value => Config.HeartLevel1 = value
                 );
 
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Milk Males",
-                    optionDesc: "Lets you milk male characters if they like you enough",
-                    optionGet: () => this.Config.MilkMale,
-                    optionSet: value => this.Config.MilkMale = value
+            configMenu.AddNumberOption(
+                min: 0,
+                max: 10,
+                interval: 1,
+                fieldId: "HeartLevel2",
+                mod: this.ModManifest,
+                name: () => "HeartLevel2",
+                tooltip: () => "Hearts required for all sexual interactions",
+                getValue: () => this.Config.HeartLevel2,
+                setValue: value => Config.HeartLevel2 = value
                 );
-
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Collect Items?",
-                    optionDesc: "Collect items, or just sex?",
-                    optionGet: () => this.Config.CollectItems,
-                    optionSet: value => this.Config.CollectItems = value
-                );
-
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Simple milk/cum",
-                    optionDesc: "Replace individual items with generic ones.",
-                    optionGet: () => this.Config.StackMilk,
-                    optionSet: value => this.Config.StackMilk = value
-                );
-
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "ExtraDialogue",
-                    optionDesc: "Enable Abigail's everyday dialogue changes?",
-                    optionGet: () => this.Config.ExtraDialogue,
-                    optionSet: value => this.Config.ExtraDialogue = value
-                );
-
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Quests",
-                    optionDesc: "Enable quest content",
-                    optionGet: () => this.Config.Quests,
-                    optionSet: value => this.Config.Quests = value
-                );
-                #endregion
-
-                ////////////////////////////////////////////////////////////
-                //////////////////   Overrite Genitals   ///////////////////
-                ////////////////////////////////////////////////////////////
-                #region Override Genitals
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Override genitals",
-                    optionDesc: "Do you want to override the genitals of the farmer?",
-                    optionGet: () => this.Config.OverrideGenitals,
-                    optionSet: value => this.Config.OverrideGenitals = value
-                );
-                #endregion
-
-                #region A-sexual character
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Ace Character",
-                    optionDesc: "Do you want to play an A-Sexual Character? Ignores genitals.",
-                    optionGet: () => this.Config.AceCharacter,
-                    optionSet: value => this.Config.AceCharacter = value
-                    );
-                #endregion
-
-                #region TODO not current version Farmer genitals
-                //api.AddTextOption(
-                //    mod: this.ModManifest,
-                //    name: () => "Example dropdown",
-                //    getValue: () => this.Config.ExampleDropdown,
-                //    setValue: value => this.Config.ExampleDropdown = value,
-                //    allowedValues: new string[] { "choice A", "choice B", "choice C" }
-                //);
-                #endregion
-
-                #region Farmer has Penis
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Farmer has a penis",
-                    optionDesc: "Does the farmer have a penis? MUST select override as well",
-                    optionGet: () => this.Config.HasPenis,
-                    optionSet: value => this.Config.HasPenis = value
-                );
-                #endregion
-
-                #region Farmer has Vagina
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Farmer has a vagina",
-                    optionDesc: "Does the farmer have a vagina? MUST select override as well",
-                    optionGet: () => this.Config.HasVagina,
-                    optionSet: value => this.Config.HasVagina = value
-                );
-                #endregion
-
-                #region Farmer has breasts
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Farmer has breasts",
-                    optionDesc: "Does the farmer have breasts? MUST select override as well",
-                    optionGet: () => this.Config.HasBreasts,
-                    optionSet: value => this.Config.HasBreasts = value
-                );
-                #endregion
-
-                #region Ignore villager gender for farming
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Ignore villager gender",
-                    optionDesc: "Do you want to ignore the gender of the villager when milking?",
-                    optionGet: () => this.Config.IgnoreVillagerGender,
-                    optionSet: value => this.Config.IgnoreVillagerGender = value
-                    );
-                #endregion
-
-                ////////////////////////////////////////////////////////////
-                ///////////////// Developer options ////////////////////////
-                ////////////////////////////////////////////////////////////
-                #region Debug Mode
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Debug mode",
-                    optionDesc: "Enable debug mode content",
-                    optionGet: () => this.Config.Debug,
-                    optionSet: value => this.Config.Debug = value
-                );
-                #endregion
-
-                #region Verbose Output
-                api.RegisterSimpleOption(
-                    mod: this.ModManifest,
-                    optionName: "Verbose Dialogue",
-                    optionDesc: "Enable verbose dialogue for tracking errors",
-                    optionGet: () => this.Config.Verbose,
-                    optionSet: value => this.Config.Verbose = value
-                );
-                #endregion
-            }
             #endregion
+
+            ////////////////////////////////////////////////////////////
+            //////////////////   Override Genitals   ///////////////////
+            ////////////////////////////////////////////////////////////
+            #region Override Genitals
+            configMenu.AddBoolOption(
+                fieldId: "Override genitals",
+                mod: this.ModManifest,
+                name: () => "Override genitals",
+                tooltip: () => "Do you want to override the genitals of the farmer?",
+                getValue: () => this.Config.OverrideGenitals,
+                setValue: value => this.Config.OverrideGenitals = value
+            );
+
+            string[] genders = new string[] { "Male", "Female", "A-sexual", "Intersex", "Genderfluid" };
+            string[] genitals = new string[] { "Penis", "Vagina and breasts", "Vagina", "Vagina and Penis", "Penis and breasts", "Penis, Vagina, Breasts", "Breasts", "None" };
+
+            configMenu.AddTextOption(
+                fieldId: "Gender",
+                mod: this.ModManifest,
+                name: () => "Gender",
+                tooltip: () => "Gender choise for your farmer. Identity only.",
+                allowedValues: genders,
+                getValue: () => this.Config.FarmerGender,
+                setValue: value => Config.FarmerGender = value
+                );
+
+            configMenu.AddTextOption(
+                fieldId: "Genitals",
+                mod: this.ModManifest,
+                name: () => "Genitals",
+                tooltip: () => "Genital options for your farmer. Independent of Gender",
+                allowedValues: genitals,
+                getValue: () => this.Config.FarmerGenitals,
+                setValue: value => Config.FarmerGenitals = value
+                );
+            #endregion
+
+            #region A-sexual character
+            //configMenu.AddBoolOption(
+            //    mod: this.ModManifest,
+            //    name: () => "Ace Character",
+            //    tooltip: () => "Do you want to play an A-Sexual Character? Ignores genitals.",
+            //    getValue: () => this.Config.AceCharacter,
+            //    setValue: value => this.Config.AceCharacter = value
+            //    );
+            #endregion
+
+            #region TODO not current version Farmer genitals
+            //api.AddTextOption(
+            //    mod: this.ModManifest,
+            //    name: () => "Example dropdown",
+            //    getValue: () => this.Config.ExampleDropdown,
+            //    setValue: value => this.Config.ExampleDropdown = value,
+            //    allowedValues: new string[] { "choice A", "choice B", "choice C" }
+            //);
+            #endregion
+
+            #region Farmer has Penis
+            //configMenu.AddBoolOption(
+            //    mod: this.ModManifest,
+            //    name: () => "Farmer has a penis",
+            //    tooltip: () => "Does the farmer have a penis? MUST select override as well",
+            //    getValue: () => this.Config.HasPenis,
+            //    setValue: value => this.Config.HasPenis = value
+            //);
+            #endregion
+
+            #region Farmer has Vagina
+            //configMenu.AddBoolOption(
+            //    mod: this.ModManifest,
+            //    name: () => "Farmer has a vagina",
+            //    tooltip: () => "Does the farmer have a vagina? MUST select override as well",
+            //    getValue: () => this.Config.HasVagina,
+            //    setValue: value => this.Config.HasVagina = value
+            //);
+            #endregion
+
+            #region Farmer has breasts
+            //configMenu.AddBoolOption(
+            //    mod: this.ModManifest,
+            //    name: () => "Farmer has breasts",
+            //    tooltip: () => "Does the farmer have breasts? MUST select override as well",
+            //    getValue: () => this.Config.HasBreasts,
+            //    setValue: value => this.Config.HasBreasts = value
+            //);
+            #endregion
+
+            #region Ignore villager gender for farming
+            configMenu.AddBoolOption(
+                fieldId: "Ignore villager gender",
+                mod: this.ModManifest,
+                name: () => "Ignore villager gender",
+                tooltip: () => "Do you want to ignore the gender of the villager when milking?",
+                getValue: () => this.Config.IgnoreVillagerGender,
+                setValue: value => this.Config.IgnoreVillagerGender = value
+                );
+            #endregion
+
+            ////////////////////////////////////////////////////////////
+            ///////////////// Developer options ////////////////////////
+            ////////////////////////////////////////////////////////////
+            #region Debug Mode
+            configMenu.AddBoolOption(
+                fieldId: "Debug mode",
+                mod: this.ModManifest,
+                name: () => "Debug mode",
+                tooltip: () => "Enable debug mode content",
+                getValue: () => this.Config.Debug,
+                setValue: value => this.Config.Debug = value
+            );
+            #endregion
+
+            #region Verbose Output
+            configMenu.AddBoolOption(
+                fieldId: "Verbose Dialogue",
+                mod: this.ModManifest,
+                name: () => "Verbose Dialogue",
+                tooltip: () => "Enable verbose dialogue for tracking errors",
+                getValue: () => this.Config.Verbose,
+                setValue: value => this.Config.Verbose = value
+            );
+            #endregion
+
+            configMenu.OnFieldChanged(this.ModManifest, UpdateConfig);
+
+            #endregion
+
+            UpdateHeartReq();
+        }
+
+        private void UpdateHeartReq()
+        {
+            LoveRequirement["milk_start"] = Config.HeartLevel2;
+            LoveRequirement["milk_fast"] = Config.HeartLevel2;
+            LoveRequirement["BJ"] = Config.HeartLevel1;
+            LoveRequirement["eat_out"] = Config.HeartLevel1;
+            LoveRequirement["get_eaten"] = Config.HeartLevel1;
+            LoveRequirement["sex"] = Config.HeartLevel2;
+        }
+
+        private void UpdateConfig(string arg1, object arg2) //Updates config when items changed.
+        {
+            switch (arg1)
+            {
+                case "Collect Items?": Config.CollectItems = (bool)arg2; break;
+                case "Debug mode": Config.Debug = (bool)arg2; break;
+                case "ExtraDialogue": Config.ExtraDialogue = ((bool)arg2); break;
+                case "Gender": Config.FarmerGender = (string)arg2; break;
+                case "Genitals": Config.FarmerGenitals = (string)arg2; break;
+                case "HeartLevel1": Config.HeartLevel1 = (int)arg2; UpdateHeartReq(); break;
+                case "HeartLevel2": Config.HeartLevel2 = (int)arg2; UpdateHeartReq(); break;
+                case "Ignore villager gender": Config.IgnoreVillagerGender = (bool)arg2; break;
+                case "Milk Females": Config.MilkFemale = (bool)arg2; break;
+                case "Milk Males": Config.MilkMale = (bool)arg2; break;
+                case "Milking Button": Config.MilkButton = (SButton)arg2; break;
+                case "Override genitals": Config.OverrideGenitals = (bool)arg2; break;
+                case "Quests": Config.Quests = (bool)arg2; break;
+                case "Simple milk/cum": Config.StackMilk = (bool)arg2; break;
+                case "Verbose Dialogue": Config.Verbose = (bool)arg2; break;
+                default: ModFunctions.LogVerbose($"{arg1}", LogLevel.Alert, Force: true); break;
+            }
         }
 
         #region SpaceEvents
@@ -333,7 +435,7 @@ namespace MilkVillagers
             }
         }
 
-        private void SpaceEvents_BeforeGiftGiven(object sender, SpaceCore.Events.EventArgsBeforeReceiveObject e)
+        private void SpaceEvents_BeforeGiftGiven(object sender, EventArgsBeforeReceiveObject e)
         {
             Farmer who = Game1.player;
             string ItemGiven = e.Gift.Name;
@@ -553,6 +655,8 @@ namespace MilkVillagers
                 TempRefs.SelfMilkedToday = false;
                 MessageOnce = false;
             }
+
+
 
             //TODO change this for multiplayer
             foreach (Farmer who in Game1.getOnlineFarmers())
@@ -1016,7 +1120,7 @@ namespace MilkVillagers
                     #endregion
 
                     #region Elliott - events not written
-                    //SendNextMail(who, "MTV_ElliottQ1T", "MTV_ElliottQ2", "Elliott", 7, Immediate: Config.RushMail);         // Elliott Quest 2
+                    SendNextMail(who, "MTV_ElliottQ1T", "MTV_ElliottQ2", "Elliott", 7, Immediate: Config.RushMail);         // Elliott Quest 2
                     SendNextMail(who, "MTV_ElliottQ2T", "MTV_ElliottQ3", "Elliott", 8, Immediate: Config.RushMail);         // Elliott Quest 3
                     SendNextMail(who, "MTV_ElliottQ3T", "MTV_ElliottQ4", "Elliott", 10, Immediate: Config.RushMail);        // Elliott Quest 4
                     #endregion
@@ -1232,7 +1336,8 @@ namespace MilkVillagers
 
             TempRefs.loaded = true;
 
-            ItemEditor.GetAllItemIDs();
+            ItemEditor.GetAllItemIDs(TempRefs.Verbose);
+
             ItemEditor.RemoveInvalid(Config.MilkMale, Config.MilkFemale);
         }
 
@@ -1252,21 +1357,6 @@ namespace MilkVillagers
         #endregion
 
         #region Interact with NPC section
-        private void DumpDialogue(string command, string[] args)
-        {
-            if (args.Length < 1) return;
-
-            ModFunctions.LogVerbose($"Dumping {args[0]}'s dialogue", LogLevel.Trace);
-            foreach (KeyValuePair<string, string> kvp in Game1.getCharacterFromName(args[0]).Dialogue)
-            {
-                ModFunctions.LogVerbose($"{kvp.Key}: {kvp.Value}");
-            }
-        }
-
-        private void ReloadConfig(string command, string[] args)
-        {
-            UpdateConfig();
-        }
 
         private List<Response> GenerateSexOptions(NPC target)
         {
@@ -1308,6 +1398,7 @@ namespace MilkVillagers
         public void DialoguesSet(Farmer who, string action)
         {
             if (who == null || action == null) return;
+            NPC npc = Game1.getCharacterFromName("Trunip");
 
             if (Config.Verbose)
             {
@@ -1335,7 +1426,11 @@ namespace MilkVillagers
                 //NPC Farmer = Game1.getCharacterFromName("Farmer");
                 //Farmer.Dialogue.TryGetValue("FarmerCollectionMilk", out string cumDialogue);
                 //Game1.drawObjectDialogue(cumDialogue);
-                Game1.drawObjectDialogue(Config.FarmerCollectionMilk);
+
+
+                npc.Dialogue.TryGetValue("FarmerCollectionMilk", out string dialogues);
+                Game1.drawObjectDialogue(dialogues);
+                //Game1.drawObjectDialogue(Config.FarmerCollectionMilk);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkGeneric, 1, quality: 2));
 
@@ -1347,7 +1442,10 @@ namespace MilkVillagers
                 //NPC Farmer = Game1.getCharacterFromName("Farmer");
                 //Farmer.Dialogue.TryGetValue("FarmerCollectCum", out string cumDialogue);
                 //Game1.drawObjectDialogue(cumDialogue);
-                Game1.drawObjectDialogue(Config.FarmerCollectCum);
+
+                npc.Dialogue.TryGetValue("FarmerCollectCum", out string dialogues);
+                Game1.drawObjectDialogue(dialogues);
+                //Game1.drawObjectDialogue(Config.FarmerCollectCum);
 
                 who.addItemToInventory(new sObject(TempRefs.MilkSpecial, 1, quality: 2));
 
@@ -1775,6 +1873,42 @@ namespace MilkVillagers
         #endregion
 
         #region Testing
+        private void DumpDialogue(string command, string[] args)
+        {
+            ModFunctions.LogVerbose("Dumping main custom dialogue", LogLevel.Info, Force: true);
+
+            List<string> chars;
+            if (args.Length < 1)
+            {
+                chars = ModFunctions.chars;
+            }
+            else
+            {
+                chars = new List<string>();
+                chars.Add(args[0]);
+            }
+
+            foreach (string s in chars)
+            {
+                if (Game1.getCharacterFromName(s) != null && Game1.getCharacterFromName(s).Dialogue.Count > 0)
+                {
+                    ModFunctions.LogVerbose($"Dumping {s}'s dialogue", LogLevel.Trace);
+                    foreach (KeyValuePair<string, string> kvp in Game1.getCharacterFromName(s).Dialogue)
+                    {
+                        if (ModFunctions.topics.Contains(kvp.Key))
+                        {
+                            ModFunctions.LogVerbose($"{kvp.Key}: {kvp.Value}");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ReloadConfig(string command, string[] args)
+        {
+            UpdateConfig();
+        }
+
         private void SendAllMail(string command, string[] args)
         {
             Farmer Who = Game1.player;
@@ -1801,6 +1935,55 @@ namespace MilkVillagers
             }
         }
 
+        private void FileCheck(string command, string[] args)
+        {
+            ModFunctions.LogVerbose($"Checking files", LogLevel.Trace, Force: true);
+            List<string> folders;
+
+            if (args.Length > 0 && args[0].ToLower() == "all")
+            {
+                folders = ModFunctions.GetDirectories($"{Environment.CurrentDirectory}\\Mods\\Milk the Villagers");
+                foreach (string s in folders)
+                {
+                    foreach (string f in Directory.GetFiles(s))
+                    {
+                        ModFunctions.LogVerbose(f.Replace(Environment.CurrentDirectory, ".."), LogLevel.Trace, Force: true);
+                    }
+                }
+
+            }
+            else
+            {
+                folders = Directory.GetDirectories($"{Environment.CurrentDirectory}\\Mods\\Milk the Villagers").ToList();
+                foreach (string s in folders)
+                {
+                    ModFunctions.LogVerbose(s.Replace(Environment.CurrentDirectory, ".."), LogLevel.Trace, Force: true);
+                }
+            }
+
+
+        }
+
+        private void ResetMilk(string command, string[] args)
+        {
+            TempRefs.milkedtoday.Clear();
+        }
+
+        private void AllFriends(string command, string[] args)
+        {
+            int level = (args.Length > 1 && args[0].ToLower() == "max") ? 2500 : 1500;
+
+            foreach (string s in ModFunctions.chars)
+            {
+                Game1.player.changeFriendship(level, Game1.getCharacterFromName(s));
+            }
+
+        }
+
+        private void DumpQuests(string command, string[] args)
+        {
+            QuestEditor.Report(args.Length > 0 && args[0] == "i18n");
+        }
         #endregion
     }
 

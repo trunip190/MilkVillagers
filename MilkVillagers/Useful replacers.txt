@@ -82,5 +82,6 @@ EVENTS
 "/switchEvent <event ID>"+
 "/question null \"Question#answer0\""+
 "/question fork0 \"Question#Answer0\""+
+"/quickquestion \"question#option 1#option 2(break)outcome 1(break)outcome 2"+
 "/fork eventid"+
 "/quickQuestion <question>#<answer1>#<answer2>#<answer3>(break)<answer1 script>(break)<answer2 script>(break)<answer3 script>"+

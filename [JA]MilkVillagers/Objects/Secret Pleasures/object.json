@@ -41,10 +41,10 @@
   "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "George" ], //Example of a single NPC
-    "Like": [ "Lewis, Alex, Sebastian" ],
+    "Like": [ "Lewis", "Alex", "Sebastian" ],
     "Neutral": null, //Example of `null`. Can also remove if not being used.
     "Dislike": [ "Penny" ], //Example of multiple NPC
-    "Hate": [ "Haley, Emily" ]
+    "Hate": [ "Haley", "Emily" ]
   },
 
   // Localization

@@ -1,48 +1,74 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>MilkVillagers</RootNamespace>
-    <AssemblyName>MilkVillagers</AssemblyName>
-    <ApplicationIcon />
-    <Version>1.1.0</Version>
-	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
-	<BaseOutputPath></BaseOutputPath>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <None Remove="Data\Dialogue.json" />
-    <None Remove="Data\Events.json" />
-    <None Remove="Data\Mail.json" />
-    <None Remove="Data\Quests.json" />
-    <None Remove="Data\Translations.json" />
-  </ItemGroup>
-  
-  <ItemGroup>
-	  <Content Include="content.json">
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<RootNamespace>MilkVillagers</RootNamespace>
+		<AssemblyName>MilkVillagers</AssemblyName>
+		<ApplicationIcon />
+		<Version>1.1.0</Version>
+		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
+		<BaseOutputPath></BaseOutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Data\Dialogue.json" />
+		<None Remove="Data\Events.json" />
+		<None Remove="Data\Mail.json" />
+		<None Remove="Data\Quests.json" />
+		<None Remove="Data\Translations.json" />
+		<None Remove="i18n\default.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="content.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\Dialogue.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\Events.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\Mail.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\Quests.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="i18n\default.json">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Data\Dialogue.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Data\Events.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Data\Mail.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Data\Quests.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="manifest.json">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
-  </ItemGroup>
-  
-  <ProjectExtensions><VisualStudio><UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio></ProjectExtensions>
-  
+		</Content>
+		<Content Include="manifest.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="assets\dialogue.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="assets\marriageDialogue.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="assets\portraits.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="assets\schedule.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="assets\sprites.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" />
+		</VisualStudio>
+	</ProjectExtensions>
+
 </Project>

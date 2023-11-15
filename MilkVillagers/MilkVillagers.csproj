@@ -9,14 +9,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="csproj backup.7z" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="manifest.json" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Changelog.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
