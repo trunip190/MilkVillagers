@@ -1,5 +1,8 @@
-﻿using MilkVillagers.Asset_Editors;
+﻿using Microsoft.Xna.Framework.Graphics;
+using MilkVillagers.Asset_Editors;
+using SpaceCore;
 using SpaceCore.Events;
+using SpaceShared.APIs;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
@@ -134,6 +137,8 @@ namespace MilkVillagers
         {
             UpdateConfig();
 
+            LinkPhone();
+
             // New style of editing assets.
             Helper.Events.Content.AssetRequested += Content_AssetRequested;
             Helper.Events.Content.AssetReady += Content_AssetReady;
@@ -266,7 +271,7 @@ namespace MilkVillagers
                 setValue: value => this.Config.OverrideGenitals = value
             );
 
-            string[] genders = new string[] { "Male", "Female", "A-sexual", "Intersex", "Genderfluid" };
+            string[] genders = new string[] { "Male", "Female", "A-sexual" }; //, "Intersex", "Genderfluid" }; need to work this in.
             string[] genitals = new string[] { "Penis", "Vagina and breasts", "Vagina", "Vagina and Penis", "Penis and breasts", "Penis, Vagina, Breasts", "Breasts", "None" };
 
             configMenu.AddTextOption(
@@ -1152,7 +1157,7 @@ namespace MilkVillagers
                     #region Sebastian
                     SendNextMail(who, "MTV_SebQ1T", "MTV_SebQ2", "Sebastian", 7, Immediate: Config.RushMail);   //Sebastian Quest 2
                     SendNextMail(who, "MTV_SebQ2T", "MTV_SebQ3", "Sebastian", 8, Immediate: Config.RushMail);   //Sebastian Quest 3
-                    //SendNextMail(who, "MTV_SebQ3T", "MTV_SebQ4", "Sebastian", 10, Immediate: Config.RushMail);  //Sebastian Quest 4
+                    SendNextMail(who, "MTV_SebQ3T", "MTV_SebQ4", "Sebastian", 10, Immediate: Config.RushMail);  //Sebastian Quest 4
                     #endregion
 
                 }
@@ -1233,16 +1238,6 @@ namespace MilkVillagers
                 CurrentQuests.Remove(i);
             }
         }
-
-        //private static void ListMailReceived(Farmer who)
-        //{
-        //    foreach (string mailID in who.mailReceived)
-        //    {
-        //        if (MailEditor.ContainsKey(mailID))
-        //            ModFunctions.LogVerbose(mailID);
-
-        //    }
-        //}
         #endregion
 
         #region Farmer genital calls
@@ -1872,7 +1867,25 @@ namespace MilkVillagers
 
         #endregion
 
-        #region Testing
+        #region Mobile Phone
+        private void LinkPhone()
+        {
+            var api = this.Helper.ModRegistry.GetApi<IMobilePhoneApi>("aedenthorn.MobilePhone");
+            if (api != null)
+            {
+                Texture2D appIcon = Helper.Content.Load<Texture2D>(Path.Combine("assets", "app_icon.png"));
+                bool success = api.AddApp(Helper.ModRegistry.ModID, "MilkTheVillagers", MobileOpenApp, appIcon);
+                Monitor.Log($"loaded phone app successfully: {success}", LogLevel.Debug);
+            }
+        }
+
+        private void MobileOpenApp()
+        {
+
+        }
+        #endregion
+
+        #region Testing/Console Commands
         private void DumpDialogue(string command, string[] args)
         {
             ModFunctions.LogVerbose("Dumping main custom dialogue", LogLevel.Info, Force: true);

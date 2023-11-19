@@ -515,200 +515,402 @@
 
 
   // Quest Data
+  // Abigail
   "Quests.594801.01": "Abigail's Carrot",
   "Quests.594801.02": "Abigail needs a cave carrot to scratch an itch. Bring her one to 'fill' a need",
   "Quests.594801.03": "Bring Abigail a cave carrot",
   "Quests.594801.09": "I hope you washed it! Those caves are wonderful, but the cave carrot needs to be SUPER clean before its going anywhere near my ass.",
+
   "Quests.594802.01": "Abigail's Radishes",
   "Quests.594802.02": "Abigail wants some radishes for a new idea she had",
   "Quests.594802.03": "Bring Abigail 5 Radishes",
   "Quests.594802.09": "I'm gonna have so much fun with these! How many do you think I can fit?",
+
   "Quests.594803.01": "Abigail's Eggplant",
   "Quests.594803.02": "Abigail needs an eggplant for her cam show. Make sure it's a good one",
   "Quests.594803.03": "Bring Abigail an eggplant.",
   "Quests.594803.09": "Wow, it's so big!. I'll be thinking of you tonight, @. Be sure to watch my show.",
+
   "Quests.594804.01": "Abigail's 'helping hand'",
   "Quests.594804.02": "Abigail wants you to help her with her show tonight. Go visit her at her house, and bring her an amethyst.",
   "Quests.594804.03": "Go to Abigail's house with an Amethyst",
   "Quests.594804.09": "I'm so glad you could come over and give me a helping 'hand'. My viewers are going to appreciate it as well...",
+
+  // Elliott
   "Quests.594805.01": "Writers Block",
   "Quests.594805.02": "Elliott needs a distraction from writing. Maybe you can get his creative juices flowing.",
   "Quests.594805.03": "See if giving Elliott a BJ helps get him in the right headspace.",
   "Quests.594805.09": "Thank you for that, @. I don't know whether it has cured my writers block yet, but without wanting to sound crass, you've helped me get rid of another kind of blockage.",
+
   "Quests.594806.01": "Attentive Listener",
   "Quests.594806.02": "Elliott would like your thoughts on a newly written section of his book. Apparently it's pretty steamy. (Event)",
   "Quests.594806.03": "Visit Elliott at their seaside cabin. (Event)",
   "Quests.594806.09": "Completion Text",
+
   "Quests.594807.01": "Enter stage right",
   "Quests.594807.02": "Elliott wants to try out a new scene from book",
   "Quests.594807.03": "Visit Elliott at their seaside cabin",
   "Quests.594807.09": "Completion Text",
+
   "Quests.594808.01": "Tell me everything you know",
   "Quests.594808.02": "Elliott roleplay 'interrogating the enemy captain'",
   "Quests.594808.03": "Visit Elliott at their seaside cabin",
   "Quests.594808.09": "Completion Text",
-  "Quests.594809.01": "Curious tastes",
+
+  // Sebastian
+  "Quests.594809.01": "Curious tastes", // Quest 1 Part 1
   "Quests.594809.02": "Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly",
-  "Quests.594809.03": "Collect some of Abigail's Milk",
+  "Quests.594809.03": "Collect some of Abigail's Milk", // milk_start or milk_fast on Abigail.
   "Quests.594809.09": "",
-  "Quests.5948092.01": "Curious tastes",
+
+  "Quests.5948092.01": "Curious tastes", // Quest 1 Part 2
   "Quests.5948092.02": "Sebastian wants to drink some of Abigail's milk, but is nervous of asking her directly",
   "Quests.5948092.03": "Bring Sebastian some of Abigail's Milk",
   "Quests.5948092.09": "Wow, She was ok with it? Did you tell her who it was for? Oh...I guess that's only fair. I knew she was kind of into me, but this could be amazing!",
-  "Quests.594810.01": "Curious tastes pt 2",
+
+  "Quests.594810.01": "Curious tastes 2", // Quest 2 Part 1
   "Quests.594810.02": "Sebastian can have some of Abigail's milk, but only if she gets to taste his cum",
-  "Quests.594810.03": "Collect some of Sebastian's Cum",
+  "Quests.594810.03": "Collect some of Sebastian's Cum for Abigail",
   "Quests.594810.09": "",
-  "Quests.5948102.01": "Curious tastes pt 2",
+
+  "Quests.5948102.01": "Curious tastes 2", // Quest 2 Part 2
   "Quests.5948102.02": "Sebastian can have some of Abigail's milk, but only if she gets to taste his cum",
   "Quests.5948102.03": "Bring Abigail some of Sebastian's Cum",
-  "Quests.5948102.09": "Did you suck it out of him, while looking into his eyes? Touching yourself as you brought him closer to orgasm? Did he cum all over your face, or were you tempted to swallow it instead? Anyway, thanks for that, cum buddy.",
-  "Quests.594811.01": "Coding pipelines need clearing",
+  "Quests.5948102.09": "Did you suck it out of him, while looking into his eyes? Touching yourself as you brought him closer to orgasm? Did he cum all over your face, or were you tempted to swallow it instead? Anyway, thanks for that, cum buddy. I'll tell you what this was all about later.'",
+
+  "Quests.594811.01": "Go touch grass, coder", // Quest 3
   "Quests.594811.02": "Sebastian has been stuck in his room too much lately and needs some human interaction.",
-  "Quests.594811.03": "Give Sebastian a pick me up BJ",
-  "Quests.594811.09": "Completion Text",
-  "Quests.594812.01": "Purple and black desires",
-  "Quests.594812.02": "Seb special event with Abigail. Abigail and farmer peg Seb",
-  "Quests.594812.03": "Go visit Sebastian in his basement suite. Abigail will be waiting too.",
-  "Quests.594812.09": "Completion Text",
+  "Quests.594811.03": "Take Sebastian outside for some quality nature time.",
+  "Quests.594811.09": "I think it was obvious I really didn't want to leave my den, but you gave me more than enough incentive. I'm not gonna turn into a nature lover, but I did love this.",
+
+  "Quests.594812.01": "Purple and black desires", // Quest 4 - todo
+  "Quests.594812.02": "Abigail wants Sebastian and the farmer's help on stream. Convince Sebastian to help out.",
+  "Quests.594812.03": "Go visit Sebastian in his basement suite. Abigail will be waiting too.", // Abigal, Farmer and Sebastian have a threesome on screen. Decide who is receiving it all.
+  "Quests.594812.09": "That was a memory I'll never forget, and Abigail definitely won't let me forget it either. She told me to keep an eye on my email in a few days time.", // Add a way to replay the scene.
+
+  // Maru
   "Quests.594813.01": "Scientific samples",
   "Quests.594813.02": "Maru wants to run some tests on how the Valley affects villagers' cum.",
   "Quests.594813.03": "Harvest some cum from a villager",
   "Quests.594813.09": "Reaction Text",
+
   "Quests.5948132.01": "Scientific sample",
   "Quests.5948132.02": "Maru wants to run some tests on how the Valley affects villagers' cum.",
   "Quests.5948132.03": "Bring Maru a sample of cum from a villager",
   "Quests.5948132.09": "Wow, I didn't expect you to bring it so quickly! It definitely looks right, and...it has that wonderful heady smell. I might post some request in the future, if you're interested.",
+
   "Quests.594814.01": "Making potions the adult way",
   "Quests.594814.02": "Maru wants you collect some essence from a magical creature so she can study how it is different.",
   "Quests.594814.03": "Collect some essence from a magical creature.",
   "Quests.594814.09": "Reaction Text",
+
   "Quests.5948142.01": "Making potions the adult way",
   "Quests.5948142.02": "Maru wants you collect some essence from a magical creature so she can study how it is different.",
   "Quests.5948142.03": "Bring Maru the item you collected.",
   "Quests.5948142.09": "It doesn't look anything like I expected. Did it take a lot of hard work to get this sample, @?",
+
   "Quests.594815.01": "Excuse me, Dr?",
   "Quests.594815.02": "Harvey has been distracting Maru from her duties. See if you can distract the doctor by giving him some oral relief",
   "Quests.594815.03": "Give Harvey a blowjob",
   "Quests.594815.09": "Completion Text",
+
   "Quests.594816.01": "Lacking the human touch",
   "Quests.594816.02": "Maru wants you to test out one of her inventions with her",
   "Quests.594816.03": "Go visit Maru in the evening when she is at home.",
   "Quests.594816.09": "Completion Text",
+
+  // Emily
   "Quests.594817.01": "Emily's photoshoot",
   "Quests.594817.02": "Emily needs someone to take some photos of her in a dress for an online commission, and she needs Haley's camera for it.",
   "Quests.594817.03": "Fetch Haley's camera for Emily and help her take some photos.",
   "Quests.594817.09": "Thank you so much. I don't really want Haley to see the kind of clothes I have to make sometimes. She'd never let me live it down after the sundress incident last year.",
+
   "Quests.594818.01": "Modelling surrogate",
   "Quests.594818.02": "Emily needs a model for a dress commission, and she thinks you're the right size.",
   "Quests.594818.03": "Go to Emily's house when she's home",
   "Quests.594818.09": "Completion Text",
+
   "Quests.594819.01": "Show and Tell",
   "Quests.594819.02": "Abigail has requested a special crotchless underwear set, and Emily uses this as an excuse to design a prototype set",
   "Quests.594819.03": "Hint",
   "Quests.594819.09": "Completion Text",
+
   "Quests.594820.01": "Barely contained pleasure",
   "Quests.594820.02": "Emily is high and horny and wants your help to push her limits",
   "Quests.594820.03": "Go wait at Emily's house before she does something silly",
   "Quests.594820.09": "Completion Text",
+
+  // Haley
   "Quests.594821.01": "Bringing out the inner beauty",
   "Quests.594821.02": "Haley photography set - wants to do some artistic nudes of someone",
   "Quests.594821.03": "Hint",
   "Quests.594821.09": "Completion Text",
+
   "Quests.594822.01": "Can't contain the power",
   "Quests.594822.02": "Haley is feeling frustrated and swollen - help her relieve both pressures a the same time.",
   "Quests.594822.03": "Haley needs someone to help relieve her swollen breasts",
   "Quests.594822.09": "Thank you, @. This girl has other needs that need relieving now, and I hope you'll take some responsiblity for them.",
+
   "Quests.5948222.01": "Can't contain the power",
   "Quests.5948222.02": "Haley is feeling frustrated and swollen - help her relieve both pressures a the same time.",
   "Quests.5948222.03": "See if you can use your tongue to relieve Haley's other needs.",
   "Quests.5948222.09": "I knew I could count on you. My legs are a little weak now so I'm going to rest for a while.",
+
   "Quests.594823.01": "Milkers needed",
   "Quests.594823.02": "Haley needs a volunteer villager for a milking scene - find a volunteer!",
   "Quests.594823.03": "Hint",
   "Quests.594823.09": "Completion Text",
+
   "Quests.594824.01": "Cover me with your love",
   "Quests.594824.02": "Haley wants to be the center of attention at group sex event. She needs volunteers from the community to realise this fantasy.",
   "Quests.594824.03": "Find at least 5 people willing to come to Haley's event",
   "Quests.594824.09": "Thanks for seeing who is interested. Once I've worked out a night when my sister isn't around, I'll let you know.",
+
   "Quests.5948242.01": "Cover me with your love",
   "Quests.5948242.02": "Haley wants to be the center of attention at group sex event. She needs volunteers from the community to realise this fantasy.",
   "Quests.5948242.03": "Visit Haley's house to take part in the event",
   "Quests.5948242.09": "Completion Text",
+
+  // Penny
   "Quests.594825.01": "What's the matter with Penny?",
   "Quests.594825.02": "Pam wants you to check up on Penny at the museum. Apparently she's been acting weird around Gunther.",
   "Quests.594825.03": "Go check on Penny at the museum.",
   "Quests.594825.09": "No text - just event",
+
   "Quests.594826.01": "Penny's book",
   "Quests.594826.02": "Penny has asked you to bring her the smutty book.",
   "Quests.594826.03": "Deliver Boethia's pillow book to Penny.",
   "Quests.594826.09": "Thank you for doing that for me. I was so embarrassed. Maybe next time we can explore some of the ideas in the book?",
+
   "Quests.594827.01": "Fifty shades of Penny",
   "Quests.594827.02": "Penny left you a note saying she's at the bathhouse. It seems like she wants an audience for something.",
   "Quests.594827.03": "Go to the bathhouse after 7pm",
   "Quests.594827.09": "Completion Text",
+
   "Quests.594828.01": "Not all stories are found in books",
   "Quests.594828.02": "sex in library, gets caught",
   "Quests.594828.03": "Hint",
   "Quests.594828.09": "Completion Text",
+
+  // Leah
   "Quests.594829.01": "Leah's muse",
   "Quests.594829.02": "Leah has asked you to be a model for a painting she is working on. It is for an art competition, and the theme is 'The beautiful body'",
   "Quests.594829.03": "Go to Leah's cabin and model for her",
   "Quests.594829.09": "Thank you, @. I feel so confident about this painting. It really highlights your...I mean the beauty of the human body.",
+
   "Quests.594830.01": "Strap me down",
   "Quests.594830.02": "Leah wants you to go collect a commissioned item from Robin.",
   "Quests.594830.03": "Go to Robin's and pick up the parcel by her counter",
   "Quests.594830.09": "Thank you for this! I can't wait to try it out.",
+
   "Quests.594831.01": "Tongue Tied",
   "Quests.594831.02": "Leah wants you to go to an exhibit with her to get ideas, but it's a sex show",
   "Quests.594831.03": "Meet up with Leah at her cabin",
   "Quests.594831.09": "Completion Text",
+
   "Quests.594832.01": "Bound by love",
   "Quests.594832.02": "Leah needs a volunteer for an art exhibition, and wants you to model for her.",
   "Quests.594832.03": "Go to Leah's cabin and model for her",
   "Quests.594832.09": "Completion Text",
+
+  // George
   "Quests.594833.01": "Rejuvenating Milk",
   "Quests.594833.02": "George wants to taste some of Haley's and Emily's milk",
   "Quests.594833.03": "Bring George some 'Sweet Sibling' milkshake",
   "Quests.594833.09": "This is exactly what I need. I've been lusting after those two for so long, but Penny keeps getting in the way and blocking me any time I get a good eyeful.",
+
   "Quests.594834.01": "Ninja mission",
   "Quests.594834.02": "George thinks you are a pervert, and wants you to grab him a pair of Haley's underwear 'as a trophy'.",
   "Quests.594834.03": "Bring George a pair of Haley's underwear",
   "Quests.594834.09": "I knew you had it in you. Let me just stash these down the side of my chair for later.",
+
   "Quests.594835.01": "Here cums the aeroplane",
   "Quests.594835.02": "Dr Harvey needs your help convincing George to try some 'Super Juice'. This may take some creativity.",
   "Quests.594835.03": "Convince George to drink Super Juice",
   "Quests.594835.09": "Completion Text",
+
   "Quests.594836.01": "The Hugh Hefner achievement",
   "Quests.594836.02": "You and Haley double blowjob for George",
   "Quests.594836.03": "Meet up with Haley convince her to help you with George",
   "Quests.594836.09": "Completion Text",
+
   "Quests.5948362.01": "The Hugh Hefner achievement",
   "Quests.5948362.02": "You and Haley double blowjob for George",
   "Quests.5948362.03": "Go visit George at his house to surpise him with Haley",
   "Quests.5948362.09": "Completion Text",
+
+  // Harvey
   "Quests.594837.01": "Bitter with age",
   "Quests.594837.02": "Harvey wants you to collect a sample of George's cum for testing purposes",
   "Quests.594837.03": "Give George a BJ",
   "Quests.594837.09": "Completion Text",
+
   "Quests.5948372.01": "Bitter with age",
   "Quests.5948372.02": "Harvey wants you to collect a sample of George's cum for testing purposes",
   "Quests.5948372.03": "Deliver George's Cum to Dr Harvey",
   "Quests.5948372.09": "Ah, I hope this is fresh, or you will have gone through that for no reason at all.",
+
   "Quests.594838.01": "Jodi's medicine",
   "Quests.594838.02": "Harvey wants you to take some 'medicine' to Jodi",
   "Quests.594838.03": "Bring Jodi the special medicine from the doctors office",
   "Quests.594838.09": "Oh, thank you for bringing that for me, @. Let me just see the instructions on it...#$b#Oh! seems like I might need you to give me a hand with this one. It says that one of the side effects is producing too much milk of my own!",
+
   "Quests.5948382.01": "Jodi's medicine",
   "Quests.5948382.02": "Help Jodi out by relieving the pressure building in her breasts",
   "Quests.5948382.03": "Milk Jodi to help her out.",
   "Quests.5948382.09": "Oh, thank you, @. I don't know how I would have coped without you around, dear.",
+
   "Quests.594839.01": "Purely for medical science",
   "Quests.594839.02": "Harvey has asked you come by for a physical. See how physical you can get",
   "Quests.594839.03": "Go to the medical clinic when Maru isn't working",
   "Quests.594839.09": "Completion Text",
+
   "Quests.594840.01": "Doctors & Nurses",
   "Quests.594840.02": "Dr Harvey and Nurse Maru need your assistance in a clinical trial. They promise you'll enjoy the testing process.",
   "Quests.594840.03": "Go to the clinic when Harvey and Maru are there.",
-  "Quests.594840.09": "Completion Text"
+  "Quests.594840.09": "Completion Text",
+
+  // Mail
+  "MTV_Vagina": "{{i18n:Mail.MTV_Vagina}}",
+  "MTV_Penis": "{{i18n:Mail.MTV_Penis}}",
+  "MTV_Ace": "{{i18n:Mail.MTV_Ace}}",
+  "MTV_Herm": "{{i18n:Mail.MTV_Herm}}",
+
+  "MilkButton1": "{{i18n:Mail.MilkButton1}}",
+  "MilkButton2": "{{i18n:Mail.MilkButton2}}",
+  "MilkingProfQuality": "{{i18n:Mail.MilkingProfQuality}}",
+  "MilkingProfCount": "{{i18n:Mail.MilkingProfCount}}",
+
+  "AbiMilking": "{{i18n:Mail.AbiMilking}}",
+
+  "MTV_AbigailQ1": "{{i18n:Mail.MTV_AbigailQ1}}",
+  "MTV_AbigailQ1T": "{{i18n:Mail.MTV_AbigailQ1T}}",
+
+  "MTV_AbigailQ2": "{{i18n:Mail.MTV_AbigailQ2}}",
+  "MTV_AbigailQ2T": "{{i18n:Mail.MTV_AbigailQ2T}}",
+
+  "MTV_AbigailQ3": "{{i18n:Mail.MTV_AbigailQ3}}",
+  "MTV_AbigailQ3T": "{{i18n:Mail.MTV_AbigailQ3T}}",
+
+  "MTV_AbigailQ4": "{{i18n:Mail.MTV_AbigailQ4}}",
+  "MTV_AbigailQ4T": "{{i18n:Mail.MTV_AbigailQ4T}}",
+
+  "MTV_MaruQ1": "{{i18n:Mail.MTV_MaruQ1}}",
+  "MTV_MaruQ1T": "{{i18n:Mail.MTV_MaruQ1T}}",
+
+  "MTV_MaruQ2": "{{i18n:Mail.MTV_MaruQ2}}",
+  "MTV_MaruQ2T": "{{i18n:Mail.MTV_MaruQ2T}}",
+
+  "MTV_MaruQ3": "{{i18n:Mail.MTV_MaruQ3}}",
+  "MTV_MaruQ3T": "{{i18n:Mail.MTV_MaruQ3T}}",
+
+  "MTV_MaruQ4": "{{i18n:Mail.MTV_MaruQ4}}",
+  "MTV_MaruQ4T": "{{i18n:Mail.MTV_MaruQ4T}}",
+
+  "MTV_GeorgeQ1": "{{i18n:Mail.MTV_GeorgeQ1}}",
+  "MTV_GeorgeQ1T": "{{i18n:Mail.MTV_GeorgeQ1T}}",
+
+  "MTV_GeorgeQ2": "{{i18n:Mail.MTV_GeorgeQ2}}",
+  "MTV_GeorgeQ2T": "{{i18n:Mail.MTV_GeorgeQ2T}}",
+
+  "MTV_GeorgeQ3": "{{i18n:Mail.MTV_GeorgeQ3}}",
+  "MTV_GeorgeQ3T": "{{i18n:Mail.MTV_GeorgeQ3T}}",
+
+  "MTV_GeorgeQ4": "{{i18n:Mail.MTV_GeorgeQ4}}",
+  "MTV_GeorgeQ4T": "{{i18n:Mail.MTV_GeorgeQ4T}}",
+
+  "MTV_HarveyQ1": "{{i18n:Mail.MTV_HarveyQ1}}",
+  "MTV_HarveyQ1T": "{{i18n:Mail.MTV_HarveyQ1T}}",
+
+  "MTV_HarveyQ2": "{{i18n:Mail.MTV_HarveyQ2}}",
+  "MTV_HarveyQ2T": "{{i18n:Mail.MTV_HarveyQ2T}}",
+
+  "MTV_HarveyQ3": "{{i18n:Mail.MTV_HarveyQ3}}",
+  "MTV_HarveyQ3T": "{{i18n:Mail.MTV_HarveyQ3T}}",
+
+  "MTV_HarveyQ4": "{{i18n:Mail.MTV_HarveyQ4}}",
+  "MTV_HarveyQ4T": "{{i18n:Mail.MTV_HarveyQ4T}}",
+
+  "MTV_ElliottQ1": "{{i18n:Mail.MTV_ElliottQ1}}",
+  "MTV_ElliottQ1T": "{{i18n:Mail.MTV_ElliottQ1T}}",
+
+  "MTV_ElliottQ2": "{{i18n:Mail.MTV_ElliottQ2}}",
+  "MTV_ElliottQ2T": "{{i18n:Mail.MTV_ElliottQ2T}}",
+
+  "MTV_ElliottQ3": "{{i18n:Mail.MTV_ElliottQ3}}",
+  "MTV_ElliottQ3T": "{{i18n:Mail.MTV_ElliottQ3T}}",
+
+  "MTV_ElliottQ4": "{{i18n:Mail.MTV_ElliottQ4}}",
+  "MTV_ElliottQ4T": "{{i18n:Mail.MTV_ElliottQ4T}}",
+
+  "MTV_EmilyQ1": "{{i18n:Mail.MTV_EmilyQ1}}",
+  "MTV_EmilyQ1T": "{{i18n:Mail.MTV_EmilyQ1T}}",
+
+  "MTV_EmilyQ2": "{{i18n:Mail.MTV_EmilyQ2}}",
+  "MTV_EmilyQ2P": "{{i18n:Mail.MTV_EmilyQ2P}}",
+  "MTV_EmilyQ2T": "{{i18n:Mail.MTV_EmilyQ2T}}",
+
+  "MTV_EmilyQ3": "{{i18n:Mail.MTV_EmilyQ3}}",
+  "MTV_EmilyQ3T": "{{i18n:Mail.MTV_EmilyQ3T}}",
+
+  "MTV_EmilyQ4": "{{i18n:Mail.MTV_EmilyQ4}}",
+  "MTV_EmilyQ4T": "{{i18n:Mail.MTV_EmilyQ4T}}",
+
+  "MTV_HaleyQ1": "{{i18n:Mail.MTV_HaleyQ1}}",
+  "MTV_HaleyQ1T": "{{i18n:Mail.MTV_HaleyQ1T}}",
+
+  "MTV_HaleyQ2": "{{i18n:Mail.MTV_HaleyQ2}}",
+  "MTV_HaleyQ2T": "{{i18n:Mail.MTV_HaleyQ2T}}",
+
+  "MTV_HaleyQ3": "{{i18n:Mail.MTV_HaleyQ3}}",
+  "MTV_HaleyQ3T": "{{i18n:Mail.MTV_HaleyQ3T}}",
+
+  "MTV_HaleyQ4": "{{i18n:Mail.MTV_HaleyQ4}}",
+  "MTV_HaleyQ4-2": "{{i18n:Mail.MTV_HaleyQ4-2}}",
+
+  "MTV_PennyQ1": "{{i18n:Mail.MTV_PennyQ1}}",
+  "MTV_PennyQ1P": "{{i18n:Mail.MTV_PennyQ1P}}",
+  "MTV_PennyQ1T": "{{i18n:Mail.MTV_PennyQ1T}}",
+
+  "MTV_PennyQ2": "{{i18n:Mail.MTV_PennyQ2}}",
+  "MTV_PennyQ2T": "{{i18n:Mail.MTV_PennyQ2T}}",
+
+  "MTV_PennyQ3": "{{i18n:Mail.MTV_PennyQ3}}",
+  "MTV_PennyQ3T": "{{i18n:Mail.MTV_PennyQ3T}}",
+
+  "MTV_PennyQ4": "{{i18n:Mail.MTV_PennyQ4}}",
+  "MTV_PennyQ4T": "{{i18n:Mail.MTV_PennyQ4T}}",
+
+  "MTV_LeahQ1": "{{i18n:Mail.MTV_LeahQ1}}",
+  "MTV_LeahQ1P": "{{i18n:Mail.MTV_LeahQ1P}}",
+  "MTV_LeahQ1T": "{{i18n:Mail.MTV_LeahQ1T}}",
+
+  "MTV_LeahQ2": "{{i18n:Mail.MTV_LeahQ2}}",
+  "MTV_LeahQ2T": "{{i18n:Mail.MTV_LeahQ2T}}",
+
+  "MTV_LeahQ3": "{{i18n:Mail.MTV_LeahQ3}}",
+  "MTV_LeahQ3T": "{{i18n:Mail.MTV_LeahQ3T}}",
+
+    "MTV_LeahQ4": "{{i18n:Mail.MTV_LeahQ4}}",
+  "MTV_LeahQ4T": "{{i18n:Mail.MTV_LeahQ4T}}",
+
+  "MTV_SebQ1": "{{i18n:Mail.MTV_SebQ1}}",
+  "MTV_SebQ1T": "{{i18n:Mail.MTV_SebQ1T}}",
+
+  "MTV_SebQ2": "{{i18n:Mail.MTV_SebQ2}}",
+  "MTV_SebQ2T": "{{i18n:Mail.MTV_SebQ2T}}",
+
+  "MTV_SebQ3": "{{i18n:Mail.MTV_SebQ3}}",
+  "MTV_SebQ3T": "{{i18n:Mail.MTV_SebQ3T}}",
+
+  "MTV_SebQ4": "{{i18n:Mail.MTV_SebQ4}}",
+  "MTV_SebQ4T": "{{i18n:Mail.MTV_SebQ4T}}",
+
+  "MTV_SebAbi": "{{i18n:Mail.MTV_SebAbi}}",
+  "MTV_SebAbiT": "{{i18n:Mail.MTV_SebAbiT}}",
+
+  "MagicalItem": "{{i18n:Mail.MagicalItem}}",
+
+  "SOQiReward1": "{{i18n:Mail.SOQiReward1}}",
+  "SOQiReward2": "{{i18n:Mail.SOQiReward2}}%"
 }

@@ -23,7 +23,7 @@
         "5948092": "ItemDelivery/{{i18n:Quests.5948092.01}}/{{i18n:Quests.5948092.02}}/{{i18n:Quests.5948092.03}}/Sebastian 3000/-1/240/-1/FALSE/{{i18n:Quests.5948092.09}}",
         "594810": "Basic/{{i18n:Quests.594810.01}}/{{i18n:Quests.594810.02}}/{{i18n:Quests.594810.03}}/null/5948102/0/-1/FALSE/{{i18n:Quests.594810.09}}",
         "5948102": "ItemDelivery/{{i18n:Quests.5948102.01}}/{{i18n:Quests.5948102.02}}/{{i18n:Quests.5948102.03}}/Abigail 3152/-1/355/-1/FALSE/{{i18n:Quests.5948102.09}}",
-        "594811": "Basic/{{i18n:Quests.594811.01}}/{{i18n:Quests.594811.02}}/{{i18n:Quests.594811.03}}/Sebastian BJ milk_fast/-1/420/-1/False/{{i18n:Quests.594811.09}}",
+        "594811": "Basic/{{i18n:Quests.594811.01}}/{{i18n:Quests.594811.02}}/{{i18n:Quests.594811.03}}/null/-1/420/-1/False/{{i18n:Quests.594811.09}}",
         "594812": "Location/{{i18n:Quests.594812.01}}/{{i18n:Quests.594812.02}}/{{i18n:Quests.594812.03}}/SebastianRoom/-1/500/-1/FALSE/{{i18n:Quests.594812.09}}",
 
         // Maru
