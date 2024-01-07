@@ -1,29 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <AssemblyName>MilkVillagers</AssemblyName>
-    <RootNamespace>MilkVillagers</RootNamespace>
-    <Version>1.1.2</Version>
-    <TargetFramework>net5.0</TargetFramework>
-	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="csproj backup.7z" />
-    <None Include="manifest.json" />
-    <None Include="Todo.txt" />
-    <Content Include="Changelog.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Dialogue suggestions.txt" />
-    <Content Include="Useful replacers.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="SpaceCore">
-      <HintPath>$(GamePath)\Mods\SpaceCore\SpaceCore.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
+	<PropertyGroup>
+		<AssemblyName>MilkVillagers</AssemblyName>
+		<RootNamespace>MilkVillagers</RootNamespace>
+		<EnableHarmony>true</EnableHarmony>
+		<Version>1.1.2</Version>
+		<TargetFramework>net5.0</TargetFramework>
+		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <Optimize>False</Optimize>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="app_icon.png" />
+		<None Remove="csproj backup.7z" />
+		<None Include="manifest.json" />
+		<None Include="Todo.txt" />
+		<Content Include="assets\app_icon.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Changelog.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Dialogue suggestions.txt" />
+		<Content Include="Useful replacers.txt" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="SpaceCore">
+			<HintPath>$(GamePath)\Mods\SpaceCore\SpaceCore.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 using StardewModdingAPI;
 using System.IO;
 using StardewModdingAPI.Events;
+using System.Linq;
 
 namespace MilkVillagers.Asset_Editors
 {
@@ -128,7 +129,7 @@ namespace MilkVillagers.Asset_Editors
                 //TODO add way to update this on the fly.
                 if (ExtraContent && asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail"))
                 {
-                    ModFunctions.LogVerbose($"Loading in Abigail's extra dialogue", LogLevel.Trace);
+                    ModFunctions.Log($"Loading in Abigail's extra dialogue", LogLevel.Trace);
                     data["Introduction"] = "Oh, that's right... I heard someone new was moving onto that old farm.#$e#I used to love exploring those old fields. I could hide in the weeds, strip naked and masturbate as much as I wanted. $9#Now I guess I'll have to do all of my camgirl streams in my room.";
                     data["spring_mon2"] = "Did you know that Monday night is my streaming night?";
                     data["spring_mon4"] = "Did I tell you that Monday night is my streaming night?#Have you checked out my site, 'Purple Showers'?";
@@ -193,7 +194,7 @@ namespace MilkVillagers.Asset_Editors
                 {
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Abigail", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Abigail", LogLevel.Trace);
                         data["milk_start"] = "Please be gentle, they are really sore today." +
                         $"#$b#%*You sit down as she lies across your lap, letting her breast hang down. She gives you a bottle and you start kneeding her breasts as gently as you can*" +
                         $"#$b#%*Milk collects in the bottle as you expertly milk her, moving on to the second breast when the first runs dry*" +
@@ -206,7 +207,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Emily"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Emily", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Emily", LogLevel.Trace);
                         data["milk_start"] = $"Oh! Did you know that human breast milk is a super food?#$b#It's way better for you than cows milk..." +
                         $"#$b#Not that your milk isn't great! Well, your cows milk. I'm sure your milk is just wonderful.$h" +
                         $"#$b#%*She quickly bares her breasts and sigh as the cool air hits them. Her nipples are already hardening, and you reach out gently and pinch them*" +
@@ -220,7 +221,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Haley", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Haley", LogLevel.Trace);
                         data["milk_start"] = $"Everyone always said my boobs are great. I guess I shouldn't be surprised that you love them too." +
                         $"#$b#I just LOVE it when guys play with my tits. They're just so sensitive, and my nipples feel heavenly when people lick or suck on them.$h" +
                         $"#$b#%You need no further encouragement, and immediately dive into her cleavage, coating them in your saliva as you try and get her nipples into your mouth*" +
@@ -231,7 +232,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Leah"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Leah", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Leah", LogLevel.Trace);
                         data["milk_start"] = $"I love the way your hands feel on me, @. You might be better with your hands than me, though I'd love to have a contest some day." +
                             $"#$b#%*Your hands wonder over her breasts, circling slowly closer to her nipple and then dancing away. Leah gasps as you flick her nipple, and pulls away so she can remove her garments*" +
                             $"#$b#%*You retrieve a bottle from your bag, and Leah gets into a comfortable position while you kneel beside her and start firmly squeezing her breast. Milk is soon flowing into the bottle*" +
@@ -242,7 +243,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Maru"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Maru", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Maru", LogLevel.Trace);
                         data["milk_start"] = $"I'm sure I could come up with a machine to help with this...I'd have to do some tests to see how the level of arousal affects milk quality..." +
                             $"#$b#%*You quickly unbutton her top to distract her, and give her nipples a quick nibble. Maru yelps and gives you a displeased look*" +
                             $"#$b#@! Treat me properly or you can go find someone else." +
@@ -255,7 +256,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Penny"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Penny", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Penny", LogLevel.Trace);
                         data["milk_start"] = $"I'm always self conscious about the size of my breasts. George may leer at me, but I think that's just because I'm young and female." +
                             $"#$b#But with you I feel like you see me as a woman. A hot, sexy woman. I want you to see all of me, and touch all of me, without these stupid clothes in the way." +
                             $"#$b#%*Penny tears open her blouse, and brazenly bares her chest. You tell her how beautiful she is, and she blushes. Soon, her nipples are turning a dark shade as well*" +
@@ -268,7 +269,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Caroline"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Caroline", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Caroline", LogLevel.Trace);
                         data["milk_start"] = $"My breasts are so sore, I NEED someone to milk them. Pierre is so obsessed with his 'business' that he doesn't pay attention to me any more." +
                             $"#$b#%*Caroline sits down on a nearby seat, and you can see that milk is already leaking through her top. She smiles embarrassedly, and pulls her vest to the side*" +
                             $"#$b#Don't be shy, @. It's perfectly natural to feel aroused in this situation, and it's not like I'm going to jump you or anything...This time at least." +
@@ -279,7 +280,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Jodi"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Jodi", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Jodi", LogLevel.Trace);
                         data["milk_start"] = $"I've been so lonely since Kent first went off to war, and now that Vincent is growing up so fast I didn't think anyone would ever pay attention to me again.$s" +
                             $"#$b#Then you come along and make me feel so WANTED. I feel like I have a role to play again that is more than just cooking and cleaning. Like I'm a person again - desirable.$h" +
                             $"#$b#%*Your hands gently caress her breasts, and her nipples quickly get hard. Jodi leans into your body and starts rubbing her thighs against your leg*" +
@@ -291,7 +292,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marnie"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Marnie", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Marnie", LogLevel.Trace);
                         data["milk_start"] = $"I'm glad that Lewis isn't the only one to appreciate my big tits! He spends every moment he can in my cleavage, but he never thought to suck on them!" +
                             $"#$b#*Marnie's milk quickly fills the jar, and she sighs contentedly as she rearranges her clothing*" +
                             $"#$b#Make sure Lewis...I mean the Mayor...doesn't catch you! He might get jealous!";
@@ -299,7 +300,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Robin"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Robin", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Robin", LogLevel.Trace);
                         data["milk_start"] = $"Demetrius is always so...clinical...when he talks about my breasts. I wish he was as romantic as you!" +
                             $"#$b#Of course you can collect my milk! Just...don't be surprised if I leave a damp spot on the chair when you're done!" +
                             $"#$b#*As you massage her breast with your hand, filling up the jar, you make sure to play with her other nipple.*" +
@@ -309,7 +310,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pam"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Pam", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Pam", LogLevel.Trace);
                         data["milk_start"] = $"Really? I...didn't know people were into that kind of thing. I guess it wouldn't hurt, but don't expect me too go 'moo'!$n" +
                             $"#$b#%*Pam looks around before opening her shirt, and pulling her breasts out. They sag without a bra to support them, but your magic hands soon have her nipples perking up*" +
                             $"#$b#*You give her nipple a quick flick with your tongue, and then suck on it to taste her milk. It's sourer then normal milk*" +
@@ -319,7 +320,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sandy"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Sandy", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Sandy", LogLevel.Trace);
                         data["milk_start"] = $"I knew you were too tempted to pass up this opportunity. There's a reason I'm called the flower of the desert, and I'd love to have you worship my breasts." +
                             $"#$b#%*She quickly sheds her top, baring her beautiful breasts to the hot desert air. Her skin glistens with moisture, and you can't help but lick a droplet of sweat that has caught on her nipple*" +
                             $"#$b#%*Her nipples are perky for their size, and you give them both a quick suck to get the milk flowing, earning you a slight gasp from Sandy." +
@@ -331,7 +332,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Evelyn"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Evelyn", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Evelyn", LogLevel.Trace);
                         data["milk_start"] = $"*Evelyn sits down on a nearby chair and unbottons her blouse. She deftly unhooks her bra, and you tenderly hold her mature breasts in your hands.*" +
                             $"#$b#Oh, @, dear. I fear I may not be able to provide you with much, but I'm grateful that you would try it with me. You are such a darling child.$l" +
                             $"%*You aren't able to coax much milk out, but Evelyn sighs contentedly, grateful for the tender way you are treating her*" +
@@ -341,7 +342,7 @@ namespace MilkVillagers.Asset_Editors
 
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sophia"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Sophia", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Sophia", LogLevel.Trace);
                         data["milk_start"] = $"Oh, hey there @. I have the perfect cosplay outfit for that, but I've been too embarrassed to wear it out of the house...It's...a sexy maid outfit, but it doesn't cover...my..." +
                             $"#$b#My breasts very well. Oh god, I can't believe I told you. Please, if you promise not to laugh I'll change into it and you can milk me like a slutty maid.$s" +
                             $"#$b#%*She returns quickly, and the costume is everything she described. A sexy french maid, replete with short, frilly skirt that barely covers her ass, and her breasts are almost completely exposed*" +
@@ -354,7 +355,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Olivia"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Olivia", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Olivia", LogLevel.Trace);
                         data["milk_start"] = $"OH! @, I'm not surprised that you find me attractive, but I am a lady, not someone who would bare their breasts for anyone...$s" +
                             $"#$b#However, you are right. You aren't just anyone to me, and it's been so long since I've felt the passion of anothers touch on my body. I'm flattered.$h" +
                             $"#$b#%*She seductively slips her dress off of her shoulders, revealing her pale, white breasts to your gaze. You tenderly graze them with your finger tips, then, more boldy, brush her nipples*" +
@@ -367,7 +368,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Susan"))
                     {
-                        ModFunctions.LogVerbose($"Adding milk_start for Susan", LogLevel.Trace);
+                        ModFunctions.Log($"Adding milk_start for Susan", LogLevel.Trace);
                         data["milk_start"] = $"@, in case you didn't notice I'm an agricultural farmer. I don't keep cows, so cannot provide you with any milk." +
                             $"#$b#Oh. I..I misunderstood you. You are welcome to try, but unless you have some kind of magic touch, I don't see how this will turn into more than groping." +
                             $"#$b#%*Determined to prove her wrong, you start rubbing her chest through her overalls. You quickly feel her nipples stiffen, standing proud and become visible even through the coarse fabric*" +
@@ -388,7 +389,7 @@ namespace MilkVillagers.Asset_Editors
                 {
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Alex")) //Ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Alex", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Alex", LogLevel.Trace);
                         data["BJ"] = $"Ha! I knew you couldn't resist my dick. Sure you can have my cum. But I'm gonna need help, if you know what I mean.$h" +
                             $"#$b#%*Alex unzips his pants you you massage his cock. It swells under your touch. You bend down and begin to take in his member*" +
                             $"#$b#%*Slowly, moving back and forth until his tip is forcing its way further down your throat. You repress your gag reflex*" +
@@ -405,7 +406,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Clint")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Clint", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Clint", LogLevel.Trace);
                         data["BJ"] = $"Wow, this must be my lucky day, @! I might be a little hot and sweaty down there. I've been busy all day and haven't had a chance to wash" +
                             $"#$b#*You pull his pants and underwear down and are lost in his thick, musky smell.* " +
                             $"#$b#*It makes you a little light headed, but when his prick bumps against your forehead you get to business*" +
@@ -415,7 +416,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Demetrius")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Demetrius", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Demetrius", LogLevel.Trace);
                         data["BJ"] = "Hmm...I guess I could help you out. For scientific research purposes, of course. Just don't let this get back to Robin." +
                             $"#$b#%*Demetrius looks over his shoulder a few times before pulling down the zipper of his pants. You reach in, and removed a semi-erect cock." +
                             $"#$b#You place it in your mouth and it begins to expand to its full size as you move along, until his tip has reached your throat and then some." +
@@ -432,7 +433,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Elliott")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Elliott", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Elliott", LogLevel.Trace);
                         data["BJ"] = "I've been writing all day. This will be a perfect release, my love! I do however, have some carpal tunnel. Could you...?" +
                             $"#$b#%*You pull down Elliot's waistband and lather his cock in thick saliva, and begin working his shaft, starting with a loose grip at the base and firmer at the tip*" +
                             $"#$b#%*He moans with pleasure and smiles down at you before tilting his head back and closing his eyes. You quicken your hand movements, and flick the tip with your tongue*" +
@@ -449,18 +450,18 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/George")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for George", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for George", LogLevel.Trace);
                         data["BJ"] = $"I can't get out of this chair, and it's been so long since Evelyn did this for me. I wouldn't mind getting that Haley over here some time - she's such a tease." +
                             $"#$b#That's right, bend down and enjoy the taste. Bet you didn't expect to see such a large dick on a man in a wheelchair, huh?";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Gil")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Gil", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Gil", LogLevel.Trace);
                         data["BJ"] = $"Huh? What's going on? *Snore* Why are my pants off?#$b#Guess I must be dreaming again...having a beautiful face looking up at me from between my knees.#$b#*You quickly get to work, licking his balls while his penis hardens. It doesn't get fully erect at first, but after several minutes of soft sucking, and flicking his tip, he starts moaning and getting ready to cum*#$b#*Gil shoots his load into your mouth, and you quickly spit it into a bottle, wiping off any that dribbled down your chin*";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Harvey")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Harvey", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Harvey", LogLevel.Trace);
                         data["BJ"] = "Well, a good orgasm IS good for your health. You know, it decrease blood pressure, helps with stress and sleep, and lowers your risk for health disease?" +
                             $"#$b#In fact, there was a study done by Philip Haake that analyzed the effects of the male orgasm on limphocyte subset circulation and cytokine production..." +
                             $"#$b#%*Before Harvey can continue, you unzip his pants and immediately place your mouth on his cock. He stops mid sentence in both surprise and pleasure." +
@@ -478,7 +479,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sam")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Sam", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Sam", LogLevel.Trace);
                         data["BJ"] = $"I've been horny as hell all day, this is JUST what I need. Besides, who could resist you anyway?$h" +
                             $"#$b#%*Sam, all too eager, unzips his jeans and pulls out his dick, which is already full mast. He looks at you with a mixture of excitement and desire*" +
                             $"#$b#%*You bend down to your knees and place your hands firmly on his thighs, and insert his throbbing cock into your mouth. Sam has a sharp intake of breath as you begin to move, adding more and more suction as you go along*" +
@@ -496,7 +497,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sebastian")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Sebastian", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Sebastian", LogLevel.Trace);
                         data["BJ"] = $"I could never say no to something like that from someone as attractive as you. I'm already in the palm of your hand figuratively, might as well make it literally, too." +
                             $"#$b#%When you reach down to Sebastian's groin, you find that his erection is already straining against his jeans, struggling to break free. You carefully pull down the zipper and his wood bursts out, free in the open air." +
                             $"#$b#%*Gently but firmly, you massage it, feeling it pulse under your touch. You crouch down and begin to trace your tongue around the shaft, swirling up to the tipe before fully inserting his cock into your warm mouth." +
@@ -514,7 +515,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Shane")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Shane", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Shane", LogLevel.Trace);
                         data["BJ"] = $"You know I'll never get over the idea that someone like you could be attracted to a guy like me. You're too good for me, you know.$h" +
                             $"#$b#%*Despite this, Shane unbuckles his belt and lowers his shorts. He looks at you, almost disbelieving, as if he had found himself in some impossible dream." +
                             $"#$b#%*You maintain soft, tender, eye contact as your hand finds itself grasping his cock." +
@@ -535,7 +536,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pierre")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Pierre", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Pierre", LogLevel.Trace);
                         data["BJ"] = "Honestly, when you come into the store to buy seeds from me, I sometimes stare at you, imagining you on your knees, giving me all the pleasure in the world. It's nice to see I was right." +
                             $"#$b#I knew you were secretly into me. Don't worry, Caroline doesn't have to know. We don't do much together these days anyway. Well, not with each other.$s" +
                             $"#$b#%*Pierre fidgets the the button and zipper of his pants before pulling out his dick. It's not that impressive, but nothing to laugh at. It looks slightly sad. " +
@@ -554,7 +555,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Gunther"))
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Gunther", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Gunther", LogLevel.Trace);
                         data["BJ"] = $"If you are looking for books on that subject, I keep them in a private collection." +
                             $"#$b#Oh, a practical demonstration? I would be glad to be of assistance. This library is equipped with the finest tools for furthering your knowldge." +
                             $"#$b#%*He leads you between the shelves into a secluded area, and checks there is no-one following before dropping his pants and underwear*" +
@@ -566,7 +567,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Gus")) // Iliress dialogue
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Gus", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Gus", LogLevel.Trace);
                         data["BJ"] = "Honestly, @, this is unexpected. I didn't know you thought of me like that. You are an attractive person, so if you're up for it, I am too.$h" +
                             $"#$b#%*Gus undoes his belt and lowers his pants. You reach down and grasp his cock, and begin to move your hand steadily back and forth, but you struggle to get a rhythm going." +
                             $"#$b#%*Gus grabs some truffle oil he keeps nearby for cooking and pours some on your hands as they grip his cock, making your job much easier. As your hand movements quicken, so does his breathing*" +
@@ -576,7 +577,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Kent")) // Iliress dialogue
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Kent", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Kent", LogLevel.Trace);
                         data["BJ"] = "Jodi and I...we haven't been connecting on that level lately. I'll admit, I've been seeing you around town and have fantasized about you approaching me like this." +
                              $"#$b#Didn't expect it to actually happen, though. Do you mind keeping this quiet from my wife? I don't think she'd be so understanding. Life is short, but I don't want to hurt her." +
                              $"#$b#%*Kent unbuckles his belt and removes his dick, already fully erect. He looks at you, a mixture of trepidation and eagerness in his eyes. You take the initiative and gently grasp it*" +
@@ -588,7 +589,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Lewis"))
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Lewis", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Lewis", LogLevel.Trace);
                         data["BJ"] = $"Ah, @. This isn't one of the funny games you kids play, is it?$a" +
                             $"#$b#I've seen you walking around town, causing all kinds of problems and flaunting that cute little ass in everyone's faces." +
                             $"#$b#On your knees then, like the cockslut you are - I'm sure this isn't the first time you've done this, and you look so good down there." +
@@ -600,7 +601,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Linus"))// Iliress dialogue
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Linus", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Linus", LogLevel.Trace);
                         data["BJ"] = "Pleasure is but a natural part of life. We are but humans, after all. Society puts too large of a stigma on such a thing." +
                             $"#$b#%*Linus casually lifts his outfit revealing an unsurprising lack of undergarments. He smiles kindly and gestures to his organ." +
                             $"#$b#%*For someone who lives in the mountains he smells surprisingly little, with a nice, manly mush. You shrug, lick your hand, and start to work his member." +
@@ -611,7 +612,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marlon"))
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Marlon", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Marlon", LogLevel.Trace);
                         data["BJ"] = $"Ah, @. This life often ends unexpectedly, so we learn to take the pleasures where we can. I am grateful for this." +
                             $"#$b#%*Marlon quickly undoes his belt and drops his pants. He has lean but muscular legs, and every part of him is toned*" +
                             $"#$b#%*You lean in eagerly, and take his pleasntly firm cock into your mouth. He gives you gently affirming sounds, and you start pleasuring him intently*" +
@@ -622,7 +623,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Morris"))// Iliress dialogue
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Morris", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Morris", LogLevel.Trace);
                         data["BJ"] = "Okay, fine, but wear this JojaCorp uniform. It's the only way I can get off, and after my last store they won't let me do this with an employee...$s" +
                             $"#$b#%*You put on the blue outfit and Morris takes out his chode of a cock. He looks at you, but doesn't let you actually touch him." +
                             $"#$b#%*Using his thumb and forefinger, because his hand is too big, he begins to pleasure himself. His hand speeds up*" +
@@ -632,7 +633,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Mister Qi"))// Iliress dialogue
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Mister Qi", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Mister Qi", LogLevel.Trace);
                         data["BJ"] = $"$1 5948Q1#" + // First time switch
                             $"I knew you'd come to me for that one day. Your curiosity is very predictable. Be warned, @, this will not be like your experience you've had with others in town." +
                             $"#$b#%*Mr. Qi lifts up his shirt and begins to lower his waistband. But where any genitalia would be is instead a blinding light." +
@@ -649,7 +650,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Willy"))
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Willy", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Willy", LogLevel.Trace);
                         data["BJ"] = $"The sea may be a beautiful mistress, but she does not do much when it comes to physical gratification. I'd appreciate you helping an old sailor out.$h" +
                             $"#$b#%Willy guides your hand as it snakes its way down his waistband and into his crotch hair. Though you cannot see through his pants, you feel his fleshy, erect cock; warm in your hands*" +
                             $"#$b#%*You use your other hand to pull his pants down and give yourself some wiggle room. You work his member back and forth, then you bend down and swirl your tongue around his tip*" +
@@ -660,7 +661,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Wizard"))
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Wizard", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Wizard", LogLevel.Trace);
                         data["BJ"] = //$"$1 5948W1#" + // First time switch.
                             $"I am not used to the pleasures of the mortal world. It is a luxury I rarely partake in, as it keeps me distracted from communicating with the Elements. But...if you insist...I guess I could indulge myself." +
                             $"#$b#%The Wizard parts and lifts his robes, where his phallus hangs, flaccid. You gingerly reach forward and caress it, and it twitches under your touch. Then, in rising waves, it raises and extends." +
@@ -686,7 +687,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Dwarf")) // This isn't coming up for some reason.
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Dwarf", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Dwarf", LogLevel.Trace);
                         data["BJ"] = $"Most Dwarves never get this intimate with each other..." +
                             $"#$b#However, it has been a very long time since I've felt as close to someone as I do to you. I guess it's only natural to want to share our essence." +
                             $"#$b#%*You help the dwarf remove their garments, and a warm, earthy smell fills your nostrils as you lean in to their crotch*" +
@@ -698,7 +699,7 @@ namespace MilkVillagers.Asset_Editors
 
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Victor"))
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Victor", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Victor", LogLevel.Trace);
                         data["milk_start"] = $"That sounds wonderful, @. I think you are very attractive, and I often find myself fantasising about you...Here, let me help you." +
                             $"#$b#%*He unzips his pants, and frees his rather large cock, surprising you. A moment passes, and you come back to your senses, reaching out with a hand and starting to stroke his length*" +
                             $"#$b#%*You give the tip a tender kiss, and then lean underneath and lick the length of it, ending by engulfing the entire head with your mouth. Victor groans from this teasing stimulation, and you take that as a sign to continue*" +
@@ -712,7 +713,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Andy"))
                     {
-                        ModFunctions.LogVerbose($"Adding BJ for Andy", LogLevel.Trace);
+                        ModFunctions.Log($"Adding BJ for Andy", LogLevel.Trace);
                         data["milk_start"] = $"Damn right I'd love a blowjob! I know everyone looks down on me, but I have needs the same as everyone else.$s" +
                             $"#$b#He undoes his overalls and flops them down. He fumbles with the buttons, but you reach over and take his hands in yours momentarily before undoing the clasps*" +
                             $"#$b#Thank you @, I'm a little flustered. It's not every day someone like yourself does this for someone like me. I really appreciate this.$h" +
@@ -733,7 +734,7 @@ namespace MilkVillagers.Asset_Editors
                 {
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Abigail", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Abigail", LogLevel.Trace);
                         data["eat_out"] = $"You know I’m always down for an adventure...wanna adventure down on me?" +
                                             $"#$b#%You sweep in to kiss her tenderly, only to be met with ferocity and passion. She grabs your shirt and pulls you in, grabbing your hand and ushering it down the front of her pants. " +
                                             $"#$b#%Your fingers meet her soft, warm wetness. Gently, you stroke her clit with your middle finger, coating it in her juices." +
@@ -750,7 +751,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Emily"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Emily", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Emily", LogLevel.Trace);
                         data["eat_out"] = $"I’d love to feel our energies intertwine. Come, let’s explore them." +
                                             $"#$b#%In the blink of an eye Emily is sitting on a nearby table, smiling and lifting her dress. When you step towards her, she opens her legs and her smile turns coy." +
                                             $"#$b#%You crouch and duck into the blue hair of her privates. As you explore her soft folds she places a hand on your head, and affectionately strokes your hair." +
@@ -764,7 +765,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Haley", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Haley", LogLevel.Trace);
                         data["eat_out"] = $"Oh, @, that sounds just about perfect right now. Come on then." +
                                             $"#$b#%You crouch down to lift Haley’s skirt, but she pushes you back and instructs you to lie down. You do as you’re told and lie on your back." +
                                             $"#$b#%Haley grins and climbs on your chest, then lifts her skirt and shuffles until she’s almost sitting on your chin. Her skirt falls and you’re in a blue tinted shadow." +
@@ -785,7 +786,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Leah"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Leah", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Leah", LogLevel.Trace);
                         data["eat_out"] = $"You know, when I was dating Kel they’d never go down on me. You’re such a breath of fresh air, @." +
                                             $"#$b#%Leah cocks her head at you, giving you a seductive look as she unclips her suspenders from her jeans. She lowers them to her ankles, and steps out of them while walking towards you." +
                                             $"#$b#%Her lips meet yours, smoothly and tenderly. You hold her to you and she puts a palm on your chest, gently guiding you to lie down on the ground." +
@@ -803,7 +804,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Maru"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Maru", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Maru", LogLevel.Trace);
                         data["eat_out"] = $"I mean, I’ve invented something that can do this for me. It isn’t as good as the real thing, however. No emotional connection, you know?" +
                                             $"#$b#%Maru unbuckles her overalls and shimmies out of them, pushing her panties down, too. For good measure, she also takes off her top and bra, standing before you, fully nude and confident." +
                                             $"#$b#%You stride towards her, and she rushes to meet your embrace. You feel every curve of her against your body." +
@@ -818,7 +819,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Penny"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Penny", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Penny", LogLevel.Trace);
                         data["eat_out"] = $"Oh, @, I don’t know...are you sure? I’m a little self-conscious about that area, but if you really want to, then okay." +
                                             $"#$b#%You hold Penny’s hands and gently guide her to a chair. You hike up her skirt and remove her panties in a slow, steady motion. You don’t want to be too forceful and rush this." +
                                             $"#$b#%You spread her legs with your hands and check Penny’s face to wordlessly ask permission. She nervously exhales and nods to you, giving you the go ahead. With her consent, you lean forwards." +
@@ -833,7 +834,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Caroline"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Caroline", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Caroline", LogLevel.Trace);
                         data["eat_out"] = $"Pierre refuses to go down on me. I could really use some attention down there, it’s been too long." +
                                             $"#$b#%Caroline guides you to a counter and hops up on it. You help her remove her pants, and gingerly pull down her underwear." +
                                             $"#$b#%Her panties are nothing special, showing that she hasn’t been expecting much action recently. She eagerly spreads her legs for you, revealing a soft pink pussy in a sea of green." +
@@ -850,7 +851,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Jodi"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Jodi", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Jodi", LogLevel.Trace);
                         data["eat_out"] = $"Oh, it’s been too long since someone has pleasured me. Kent’s been dealing with his own problems lately, not much time for my needs. You wouldn’t mind?" +
                                             $"#$b#%To answer her question, you wordlessly guide her to the counter and hoist her up on top of it. You slide off both her jeans and panties, and discard them on the floor." +
                                             $"#$b#%Teasingly, you run your tongue up her thighs, circling but not yet touching her pussy. She twitches with anticipation every time you come near. Eventually..." +
@@ -868,7 +869,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marnie"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Marnie", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Marnie", LogLevel.Trace);
                         data["eat_out"] = $"I never thought someone as young as you would be attracted to someone my age. Lewis does his best, but I don’t think his mind is exactly with us when we’re together." +
                                             $"#$b#I’d like to see what you have to offer." +
                                             $"#$b#%Marnie walks over to a nearby chair, hoists up her dress, and sits down. She spreads her thick thighs and presents her pussy." +
@@ -886,7 +887,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Robin"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Robin", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Robin", LogLevel.Trace);
                         data["eat_out"] = $"Demetrius gets too wrapped up in the technicalities of it all; he never really just enjoys the moment. I'm game if you are?" +
                                             $"#$b#%Robin hops up on a counter and beckons you. You stride over and unbutton her jeans, and rip them and her panties right off, tossing them aside." +
                                             $"#$b#%Robin grabs your head by the hair and guides you down. You find yourself right in the middle of her delicious pussy, and she’s already soaking." +
@@ -900,7 +901,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pam"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Pam", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Pam", LogLevel.Trace);
                         data["eat_out"] = $"You really want to do that to me? I don’t get a lot of offers like that. Sure kid, go to town." +
                                             $"#$b#%Pam hobbles over to a chair and pulls down her sweatpants. She lifts up her gut and spreads her legs for you. As you get close to her crotch, an odor hits your nose." +
                                             $"#$b#%It’s a mixture of sweat, musk, and...is that booze? You have no clue how her pussy manages to smell like alcohol but dammit, your momma didn’t raise no quitter so you hold your breath and dive in." +
@@ -913,7 +914,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sandy"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Sandy", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Sandy", LogLevel.Trace);
                         data["eat_out"] = $"The desert may be dry, but I’m sure not. And no, my name is not indicative of anything, either." +
                                             $"#$b#%Sandy saunters over to her counter, casually pulling off her dress and tossing it aside. It appears that she had no underwear or bra underneath the blue gown." +
                                             $"#$b#%Her breasts jiggle as she hops backwards to a sitting position. She leans back on her elbows, tosses her hair, and spreads her legs for you. As you get closer you see that Sandy was true to her word." +
@@ -929,7 +930,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Evelyn"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Evelyn", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Evelyn", LogLevel.Trace);
                         data["eat_out"] = $"Oh honey, I'm flattered, but I don't think you I work down there like I used to." +
                             $"#$b#%You assure Evelyn that you're willing to try, and she blushes heavily, looking around for somewhere more private" +
                             $"#$b#%After a moments pause to remove her loose underwear, you sit her down on a chair and gently open her stick-thin legs" +
@@ -945,7 +946,7 @@ namespace MilkVillagers.Asset_Editors
 
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sophia"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Sophia", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Sophia", LogLevel.Trace);
                         data["eat_out"] = "Y-you’d really want to do that? For me? Okay…" +
                                             $"#$b#%Sophia shyly undoes her overalls and shimmies out of them, leaving them on the floor. You approach her, gently pick up her small frame, and place her on a table" +
                                             $"#$b#%You slide down her lacy pink panties and toss them aside. Sophia blushes at her vulnerable state. It takes a little physical coaxing from you but she cautiously opens her legs" +
@@ -963,7 +964,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Olivia"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Olivia", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Olivia", LogLevel.Trace);
                         data["eat_out"] = $"You want to eat me out? Be my guest, sweetie. Show me what you got." +
                                             $"#$b#%*Olivia gulps down the rest of her wine and sets the glass down. She looks at you with a sense of challenge in her eyes. She may be a widow, but she’s no spinster." +
                                             $"#$b#%Instead of lifting up her red dress, she unzips the back and lets the whole thing drop to the floor, revealing expensive black lace lingerie underneath." +
@@ -983,7 +984,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Susan"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Susan", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Susan", LogLevel.Trace);
                         data["eat_out"] = $"People tend to think that living in the mountains means I'm some kind of nun, but I love getting off just as the next person. Heck, I don't have to worry about the neighbours hearing me!" +
                                             $"#$b#It can get kind of boring with just me and my hands though, so I'm very appreciative of your offer" +
                                             $"#$b#%Susan undoes the snaps on her overalls and pushes them down, pausing when they catch on her full hips to remove her shirt and bra." +
@@ -1001,7 +1002,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Claire"))
                     {
-                        ModFunctions.LogVerbose($"Adding eat_out for Claire", LogLevel.Trace);
+                        ModFunctions.Log($"Adding eat_out for Claire", LogLevel.Trace);
                         data["eat_out"] = $"I don’t really think I’ve let anyone do that to me before...I mean sure if you want to? You don’t want anything in return?" +
                                             "#$b#%You assure Claire that no, right now it’s all about her and her needs.Reluctantly, she inches her bottoms down, but seems hesitant to fully take them off. " +
                                             "#$b#%You gently lay her down on the ground and put her ankles over your shoulders.When your tongue gives an introductory swipe of her privates, she lets out a repressed squeak and covers her mouth with her hands as if to stifle her own pleasurous sounds.Almost challenged by this, you begin to tongue her clit in short flicks. Her breath rate increases, inhaling and exhaling through her nose as her eyes begin to cross and her eyelids start to flicker. You can tell she is struggling to maintain composure." +
@@ -1020,90 +1021,90 @@ namespace MilkVillagers.Asset_Editors
                 {
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Abigail")) // ver 1.0
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Abigail", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Abigail", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Emily"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Emily", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Emily", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Haley"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Haley", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Haley", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Leah"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Leah", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Leah", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Maru"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Maru", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Maru", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Penny"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Penny", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Penny", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Caroline"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Caroline", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Caroline", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Jodi"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Jodi", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Jodi", LogLevel.Trace);
                         data["get_eaten"] = $"";
 
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Marnie"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Marnie", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Marnie", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Robin"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Robin", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Robin", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Pam"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Pam", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Pam", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sandy"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Sandy", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Sandy", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Evelyn"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Evelyn", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Evelyn", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
 
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Sophia"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Sophia", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Sophia", LogLevel.Trace);
                         data["get_eaten"] = "";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Olivia"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Olivia", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Olivia", LogLevel.Trace);
                         data["get_eaten"] = $"";
 
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Susan"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Susan", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Susan", LogLevel.Trace);
                         data["get_eaten"] = $"";
                     }
                     if (asset.Name.IsEquivalentTo("Characters/Dialogue/Claire"))
                     {
-                        ModFunctions.LogVerbose($"Adding get_eaten for Claire", LogLevel.Trace);
+                        ModFunctions.Log($"Adding get_eaten for Claire", LogLevel.Trace);
                         data["get_eaten"] = $"";
 
                     }
@@ -1128,7 +1129,7 @@ namespace MilkVillagers.Asset_Editors
         public static void UpdateData(Dictionary<string, string> assetdata)
         {
             data = assetdata;
-            ModFunctions.LogVerbose("Updating DialogueEditor: Data", LogLevel.Trace);
+            ModFunctions.Log("Updating DialogueEditor: Data", LogLevel.Trace);
         }
 
         private static void DumpData(IAssetData asset)
@@ -1148,4 +1149,49 @@ namespace MilkVillagers.Asset_Editors
         }
     }
 
+
+    public static class NPCGiftTastesEditor
+    {
+        private static IDictionary<string, string> data;
+        public static List<string> Villagers = new List<string>();
+
+
+        public static bool CanEdit(IAssetName AssetName)
+        {
+            return AssetName.IsEquivalentTo("Data/NPCGiftTastes");
+        }
+
+
+        public static void Edit(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+
+        private static void EditAsset(IAssetData asset)
+        {
+        }
+
+        public static void UpdateData(Dictionary<string, string> assetdata)
+        {
+            data = assetdata;
+
+            string[] banned = new string[] {
+                "Universal_Love",
+                "Universal_Like",
+                "Universal_Neutral",
+                "Universal_Dislike",
+                "Universal_Hate"
+            };
+
+            foreach (KeyValuePair<string, string> kvp in data)
+                if (!Villagers.Contains(kvp.Key))
+                {
+                    if (!banned.Contains(kvp.Key))
+                        Villagers.Add(kvp.Key);
+                }
+
+        }
+
+    }
 }

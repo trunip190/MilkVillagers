@@ -1,14 +1,14 @@
 {
   "Name": "Strapon", //The name you would like your object to have, this should be identical to the subfolder name.
-  "Description": "A strapon for using in lesbian sex or pegging.", //Description of the product.
+  "Description": "A meat substitute. Not as tasty, nor cream filled.", //Description of the product.
   "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
   "CategoryTextOverride": "Clothing",
-  "Edibility": 22, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
-  "EdibleIsDrink": true,
+  "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "EdibleIsDrink": false,
   "Price": 300, //How much your item sells for.
-  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
   "Recipe": null, //Set to null.
-  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neutral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "Emily", "Sam", "Harvey", "Demetrius" ], //Example of a single NPC
     "Like": [ "Alex" ],
@@ -33,16 +33,16 @@
     "zh": "Strapon" //Chinese (Simplified)
   },
   "DescriptionLocalization": {
-    "es": "Una cortra para usar en sexo o fijación de lesbianas.", //Spanish
-    "ko": "레즈비언 섹스 또는 페깅에 사용하기위한 스트랩 폰.", //Korean
-    "de": "Ein Strapon für Lesben Sex oder Pegging.", //German
-    "fr": "Un strapon à utiliser dans le sexe ou le saut lesbien.", //French
-    "hu": "Egy strapon a leszbikus szexben vagy a rögzítéshez.", //Hungarian
-    "it": "Uno strapon per l'uso nel sesso lesbico o nel pegging.", //Italian
-    "ja": "レズビアンのセックスまたはペギングで使用するためのストラップン。", //Japanese
-    "pt": "Um Strapon para usar em sexo lésbico ou pegando.", //Portuguese
-    "ru": "Страпон для использования в лесбийском сексе или привязке.", //Russian
-    "tr": "Lezbiyen seks veya pegging kullanmak için bir strapon.", //Turkish
-    "zh": "用于女同性恋或固定的Strapon。" //Chinese (Simplified)
+    "es": "Un sustituto de la carne. No tan sabroso ni relleno de crema", //Spanish
+    "ko": "고기 대용품. 맛이 좋지 않거나 크림이 가득 차 있습니다", //Korean
+    "de": "Ein Fleischersatz. Nicht so lecker oder cremefarben", //German
+    "fr": "Un substitut de viande. Pas aussi savoureux, ni rempli de crème", //French
+    "hu": "Húspótló. Nem olyan finom, sem krémmel töltött", //Hungarian
+    "it": "Un sostituto della carne. Non così gustoso, né pieno crema", //Italian
+    "ja": "肉の代替品。それほど美味しくなく、クリームが満たされていません", //Japanese
+    "pt": "Um substituto de carne. Não tão saboroso, nem cheio de creme", //Portuguese
+    "ru": "Заменитель мяса. Не так вкусно, и не наполненный сливками", //Russian
+    "tr": "Bir et ikamesi. O kadar lezzetli değil, ne krem dolu", //Turkish
+    "zh": "肉类替代品。不那么美味，也没有奶油" //Chinese (Simplified)
   }
 }

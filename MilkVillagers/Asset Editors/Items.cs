@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using StardewModdingAPI;
+﻿using StardewModdingAPI;
+using StardewValley.Objects;
+using System;
+using System.Collections.Generic;
 using SObject = StardewValley.Object;
 
 namespace MilkVillagers.Asset_Editors
@@ -10,78 +12,97 @@ namespace MilkVillagers.Asset_Editors
         private static IDictionary<string, string> ContextData;
         public static Dictionary<string, int> ModItems = new()
         {
-            ["Abigail's Milk"] = 1,
-            ["Emily's Milk"] = 2,
-            ["Haley's Milk"] = 3,
-            ["Leah's Milk"] = 4,
-            ["Maru's Milk"] = 5,
-            ["Penny's Milk"] = 6,
-            ["Caroline's Milk"] = 7,
-            ["Jodi's Milk"] = 8,
-            ["Marnie's Milk"] = 9,
-            ["Robin's Milk"] = 10,
-            ["Pam's Milk"] = 11,
-            ["Sandy's Milk"] = 12,
-            ["Evelyn's Milk"] = 13,
+            // Male Cum
+            ["Alex's Cum"] = 1,
+            ["Clint's Cum"] = 2,
+            ["Demetrius's Cum"] = 3,
+            ["Elliott's Cum"] = 4,
+            ["George's Cum"] = 5,
+            ["Gil's Cum"] = 6,
+            ["Gunther's Cum"] = 7,
+            ["Gus's Cum"] = 8,
+            ["Harvey's Cum"] = 9,
+            ["Kent's Cum"] = 10,
+            ["Lance's Cum"] = 11,
+            ["Lewis's Cum"] = 12,
+            ["Linus's Cum"] = 13,
+            ["Marlon's Cum"] = 14,
+            ["Morris's Cum"] = 15,
+            ["Pierre's Cum"] = 16,
+            ["Qi's Cum"] = 17,
+            ["Sam's Cum"] = 18,
+            ["Sebastian's Cum"] = 19,
+            ["Shane's Cum"] = 20,
+            ["Willy's Cum"] = 21,
 
-            // Other mods	
-            ["Sophia's Milk"] = 14,
-            ["Olivia's Milk"] = 15,
-            ["Susan's Milk"] = 16,
-            ["Claire's Milk"] = 17,
 
-            // crafting recipe	
-            ["Woman's Milk"] = 20,
-            ["Special Milk"] = 21,
+            // SDV Male Cum
+            ["Andy's Cum"] = 22,
+            ["Martin's Cum"] = 23,
+            ["Victor's Cum"] = 24,
 
-            //cum items	
-            ["Alex's Cum"] = 22,
-            ["Clint's Cum"] = 23,
-            ["Demetrius's Cum"] = 24,
-            ["Elliott's Cum"] = 25,
-            ["George's Cum"] = 26,
-            ["Gil's Cum"] = 27,
-            ["Gunther's Cum"] = 28,
-            ["Gus's Cum"] = 29,
-            ["Harvey's Cum"] = 30,
-            ["Kent's Cum"] = 31,
-            ["Lewis's Cum"] = 32,
-            ["Linus's Cum"] = 33,
-            ["Marlon's Cum"] = 34,
-            ["Morris's Cum"] = 35,
-            ["Pierre's Cum"] = 36,
-            ["Sam's Cum"] = 37,
-            ["Sebastian's Cum"] = 38,
-            ["Shane's Cum"] = 39,
-            ["Willy's Cum"] = 40,
+            // Magical
+            ["Wizard's Cum"] = 25,
+            ["Dwarf's Essence"] = 26,
+            ["Krobus Essence"] = 27,
+            ["Magical Essence"] = 28,
+            ["Wizard's Essence"] = 29,
+            ["Mr. Qi's Essence"] = 30,
 
-            // Other mods	
-            ["Andy's Cum"] = 41,
-            ["Victor's Cum"] = 42,
-            ["Martin's Cum"] = 43,
+            //Female Milk
+            ["Abigail's Milk"] = 31,
+            ["Caroline's Milk"] = 32,
+            ["Emily's Milk"] = 33,
+            ["Evelyn's Milk"] = 34,
+            ["Haley's Milk"] = 35,
+            ["Jodi's Milk"] = 36,
+            ["Leah's Milk"] = 37,
+            ["Marnie's Milk"] = 38,
+            ["Maru's Milk"] = 39,
+            ["Pam's Milk"] = 40,
+            ["Penny's Milk"] = 41,
+            ["Robin's Milk"] = 42,
+            ["Sandra's Milk"] = 43,
+            ["Sandy's Milk"] = 44,
+            ["Special Milk"] = 45,
+            ["Woman's Milk"] = 46,
 
-            // Special materials	
-            ["Dwarf's Essence"] = 44,
-            ["Krobus's Essence"] = 45,
-            ["Wizard's Essence"] = 46,
-            ["Mr. Qi's Essence"] = 47,
-            ["Magical Essence"] = 48,
+            // SVE Female Milk
+            ["Claire's Milk"] = 47,
+            ["Sophia's Milk"] = 48,
+            ["Olivia's Milk"] = 49,
+            ["Susan's Milk"] = 50,
 
-            // cooking recipe	
-            ["Special Milkshake"] = 49,
-            ["Protein Shake"] = 50,
-            ["Super Juice"] = 51,
-            ["Eldritch Energy"] = 52,
-            ["Boethia's Pillow Book"] = 53,
-            ["Haley's Camera"] = 54,
-            ["Haley's Panties"] = 55,
-            ["Readi Milk"] = 56,
-            ["Sweet Sibling"] = 57,
+            // Recipes
+            ["Eldritch Energy"] = 51,
+            ["Martini Kairos"] = 52,
+            ["Protein Shake"] = 53,
+            ["Special Milkshake"] = 54,
+            ["Super Juice"] = 55,
+            ["Sweet Sibling"] = 56,
+
+
+            // Quest Items
+            ["Abigails Panties"] = 57,
+            ["Boethia's Pillow Book"] = 58,
+            ["Creamy Coffee"] = 59,
+            ["Haley's Camera"] = 60,
+            ["Haley's Panties"] = 61,
+            ["Invitation"] = 62,
+            ["Readi Milk"] = 63,
+            ["Shibari rope"] = 64,
+            ["Strapon"] = 65,
+
+            // Clothing
+            ["mtvTeddyu"] = 66
         };
+
         public static bool Initialised => ItemData != null;
 
         public static void Report()
         {
+            List<string> failed = new List<string>();
+
             foreach (KeyValuePair<string, int> kvp in ModItems)
             {
                 if (ItemData.ContainsKey(kvp.Value))
@@ -89,13 +110,18 @@ namespace MilkVillagers.Asset_Editors
                     try
                     {
                         //output.LoadString(ItemData[kvp.Value]);
-                        ModFunctions.LogVerbose($"{kvp.Key}: {ItemData[kvp.Value]}");
+                        ModFunctions.Log($"{kvp.Key}: {ItemData[kvp.Value]}", LogLevel.Trace);
                     }
                     catch
                     {
-                        ModFunctions.LogVerbose($"Failed to output {kvp.Key}", LogLevel.Alert);
+                        failed.Add(kvp.Key);
                     }
                 }
+            }
+
+            foreach (string s in failed)
+            {
+                ModFunctions.Log($"Failed to output {s}", LogLevel.Alert, Force: true);
             }
         }
 
@@ -133,9 +159,17 @@ namespace MilkVillagers.Asset_Editors
             {
                 ItemData = asset.AsDictionary<int, string>().Data;
 
+                Dictionary<int, string> results = new Dictionary<int, string>();
+
+                foreach (KeyValuePair<int, string> kvp in ItemData)
+                {
+                    if (kvp.Value.ToLower().Contains("teddy"))
+                        results.Add(kvp.Key, kvp.Value);
+                }
+
                 if (!TempRefs.loaded)
                 {
-                    ModFunctions.LogVerbose("TempRefs not loaded.");
+                    ModFunctions.Log("TempRefs not loaded.");
                     return;
                 }
 
@@ -298,8 +332,6 @@ namespace MilkVillagers.Asset_Editors
 
             GetAllItemIDs();
 
-            //Report(); // Before change
-
             if (Female)
             {
                 // milk items
@@ -391,6 +423,13 @@ namespace MilkVillagers.Asset_Editors
             return -1;
         }
 
+        public static SObject GetItem(string Name)
+        {
+            SObject result = new SObject(GetItemId("Name"), 1);
+
+            return result;
+        }
+
         public static void GetAllItemIDs(bool report = false)
         {
             if (ItemData == null)
@@ -405,11 +444,10 @@ namespace MilkVillagers.Asset_Editors
                 if (ModItems.ContainsKey(stringSplit[0]) && ItemData.ContainsKey(kvp.Key))
                 {
                     ModItems[stringSplit[0]] = kvp.Key;
-                    if (report) ModFunctions.LogVerbose($"{stringSplit[0]}: [{kvp.Key}] = {ItemData[kvp.Key]}", Force: true);
+                    if (report) ModFunctions.Log($"{stringSplit[0]}: [{kvp.Key}] = {ItemData[kvp.Key]}", Force: true);
                 }
                 else
                 {
-                    //ModFunctions.LogVerbose($"{stringSplit[0]} not found.");
                 }
             }
 
@@ -491,81 +529,153 @@ namespace MilkVillagers.Asset_Editors
 
             #region Items
             // Milk item code storage
-            if (TempRefs.MilkAbig == 803) { result = false; ModFunctions.LogVerbose($"MilkAbig is not set", LogLevel.Trace); }
-            if (TempRefs.MilkEmil == 803) { result = false; ModFunctions.LogVerbose($"MilkEmil is not set", LogLevel.Trace); }
-            if (TempRefs.MilkHale == 803) { result = false; ModFunctions.LogVerbose($"MilkHale is not set", LogLevel.Trace); }
-            if (TempRefs.MilkLeah == 803) { result = false; ModFunctions.LogVerbose($"MilkLeah is not set", LogLevel.Trace); }
-            if (TempRefs.MilkMaru == 803) { result = false; ModFunctions.LogVerbose($"MilkMaru is not set", LogLevel.Trace); }
-            if (TempRefs.MilkPenn == 803) { result = false; ModFunctions.LogVerbose($"MilkPenn is not set", LogLevel.Trace); }
-            if (TempRefs.MilkCaro == 803) { result = false; ModFunctions.LogVerbose($"MilkCaro is not set", LogLevel.Trace); }
-            if (TempRefs.MilkJodi == 803) { result = false; ModFunctions.LogVerbose($"MilkJodi is not set", LogLevel.Trace); }
-            if (TempRefs.MilkMarn == 803) { result = false; ModFunctions.LogVerbose($"MilkMarn is not set", LogLevel.Trace); }
-            if (TempRefs.MilkRobi == 803) { result = false; ModFunctions.LogVerbose($"MilkRobi is not set", LogLevel.Trace); }
-            if (TempRefs.MilkPam == 803) { result = false; ModFunctions.LogVerbose($"MilkPam is not set", LogLevel.Trace); }
-            if (TempRefs.MilkSand == 803) { result = false; ModFunctions.LogVerbose($"MilkSand is not set", LogLevel.Trace); }
-            if (TempRefs.MilkEvel == 803) { result = false; ModFunctions.LogVerbose($"MilkEvel is not set", LogLevel.Trace); }
-            if (TempRefs.MilkDwarf == 803) { result = false; ModFunctions.LogVerbose($"MilkDwarf is not set", LogLevel.Trace); }
-            if (TempRefs.MilkGeneric == 803) { result = false; ModFunctions.LogVerbose($"MilkGeneric is not set", LogLevel.Trace); }
+            if (TempRefs.MilkAbig == 803) { result = false; ModFunctions.Log($"MilkAbig is not set", LogLevel.Trace); }
+            if (TempRefs.MilkEmil == 803) { result = false; ModFunctions.Log($"MilkEmil is not set", LogLevel.Trace); }
+            if (TempRefs.MilkHale == 803) { result = false; ModFunctions.Log($"MilkHale is not set", LogLevel.Trace); }
+            if (TempRefs.MilkLeah == 803) { result = false; ModFunctions.Log($"MilkLeah is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMaru == 803) { result = false; ModFunctions.Log($"MilkMaru is not set", LogLevel.Trace); }
+            if (TempRefs.MilkPenn == 803) { result = false; ModFunctions.Log($"MilkPenn is not set", LogLevel.Trace); }
+            if (TempRefs.MilkCaro == 803) { result = false; ModFunctions.Log($"MilkCaro is not set", LogLevel.Trace); }
+            if (TempRefs.MilkJodi == 803) { result = false; ModFunctions.Log($"MilkJodi is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMarn == 803) { result = false; ModFunctions.Log($"MilkMarn is not set", LogLevel.Trace); }
+            if (TempRefs.MilkRobi == 803) { result = false; ModFunctions.Log($"MilkRobi is not set", LogLevel.Trace); }
+            if (TempRefs.MilkPam == 803) { result = false; ModFunctions.Log($"MilkPam is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSand == 803) { result = false; ModFunctions.Log($"MilkSand is not set", LogLevel.Trace); }
+            if (TempRefs.MilkEvel == 803) { result = false; ModFunctions.Log($"MilkEvel is not set", LogLevel.Trace); }
+            if (TempRefs.MilkDwarf == 803) { result = false; ModFunctions.Log($"MilkDwarf is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGeneric == 803) { result = false; ModFunctions.Log($"MilkGeneric is not set", LogLevel.Trace); }
 
 
             // Cum item code storage.
-            if (TempRefs.MilkSpecial == 803) { result = false; ModFunctions.LogVerbose($"MilkSpecial is not set", LogLevel.Trace); }
-            if (TempRefs.MilkAlex == 803) { result = false; ModFunctions.LogVerbose($"MilkAlex is not set", LogLevel.Trace); }
-            if (TempRefs.MilkClint == 803) { result = false; ModFunctions.LogVerbose($"MilkClint is not set", LogLevel.Trace); }
-            if (TempRefs.MilkDemetrius == 803) { result = false; ModFunctions.LogVerbose($"MilkDemetrius is not set", LogLevel.Trace); }
-            if (TempRefs.MilkElliott == 803) { result = false; ModFunctions.LogVerbose($"MilkElliott is not set", LogLevel.Trace); }
-            if (TempRefs.MilkGeorge == 803) { result = false; ModFunctions.LogVerbose($"MilkGeorge is not set", LogLevel.Trace); }
-            if (TempRefs.MilkGil == 803) { result = false; ModFunctions.LogVerbose($"MilkGil is not set", LogLevel.Trace); }
-            if (TempRefs.MilkGunther == 803) { result = false; ModFunctions.LogVerbose($"MilkGunther is not set", LogLevel.Trace); }
-            if (TempRefs.MilkGus == 803) { result = false; ModFunctions.LogVerbose($"MilkGus is not set", LogLevel.Trace); }
-            if (TempRefs.MilkHarv == 803) { result = false; ModFunctions.LogVerbose($"MilkHarv is not set", LogLevel.Trace); }
-            if (TempRefs.MilkKent == 803) { result = false; ModFunctions.LogVerbose($"MilkKent is not set", LogLevel.Trace); }
-            if (TempRefs.MilkLewis == 803) { result = false; ModFunctions.LogVerbose($"MilkLewis is not set", LogLevel.Trace); }
-            if (TempRefs.MilkLinus == 803) { result = false; ModFunctions.LogVerbose($"MilkLinus is not set", LogLevel.Trace); }
-            if (TempRefs.MilkMarlon == 803) { result = false; ModFunctions.LogVerbose($"MilkMarlon is not set", LogLevel.Trace); }
-            if (TempRefs.MilkMorris == 803) { result = false; ModFunctions.LogVerbose($"MilkMorris is not set", LogLevel.Trace); }
-            if (TempRefs.MilkQi == 803) { result = false; ModFunctions.LogVerbose($"MilkQi is not set", LogLevel.Trace); }
-            if (TempRefs.MilkPierre == 803) { result = false; ModFunctions.LogVerbose($"MilkPierre is not set", LogLevel.Trace); }
-            if (TempRefs.MilkSam == 803) { result = false; ModFunctions.LogVerbose($"MilkSam is not set", LogLevel.Trace); }
-            if (TempRefs.MilkSeb == 803) { result = false; ModFunctions.LogVerbose($"MilkSeb is not set", LogLevel.Trace); }
-            if (TempRefs.MilkShane == 803) { result = false; ModFunctions.LogVerbose($"MilkShane is not set", LogLevel.Trace); }
-            if (TempRefs.MilkWilly == 803) { result = false; ModFunctions.LogVerbose($"MilkWilly is not set", LogLevel.Trace); }
-            if (TempRefs.MilkWiz == 803) { result = false; ModFunctions.LogVerbose($"MilkWiz is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSpecial == 803) { result = false; ModFunctions.Log($"MilkSpecial is not set", LogLevel.Trace); }
+            if (TempRefs.MilkAlex == 803) { result = false; ModFunctions.Log($"MilkAlex is not set", LogLevel.Trace); }
+            if (TempRefs.MilkClint == 803) { result = false; ModFunctions.Log($"MilkClint is not set", LogLevel.Trace); }
+            if (TempRefs.MilkDemetrius == 803) { result = false; ModFunctions.Log($"MilkDemetrius is not set", LogLevel.Trace); }
+            if (TempRefs.MilkElliott == 803) { result = false; ModFunctions.Log($"MilkElliott is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGeorge == 803) { result = false; ModFunctions.Log($"MilkGeorge is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGil == 803) { result = false; ModFunctions.Log($"MilkGil is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGunther == 803) { result = false; ModFunctions.Log($"MilkGunther is not set", LogLevel.Trace); }
+            if (TempRefs.MilkGus == 803) { result = false; ModFunctions.Log($"MilkGus is not set", LogLevel.Trace); }
+            if (TempRefs.MilkHarv == 803) { result = false; ModFunctions.Log($"MilkHarv is not set", LogLevel.Trace); }
+            if (TempRefs.MilkKent == 803) { result = false; ModFunctions.Log($"MilkKent is not set", LogLevel.Trace); }
+            if (TempRefs.MilkLewis == 803) { result = false; ModFunctions.Log($"MilkLewis is not set", LogLevel.Trace); }
+            if (TempRefs.MilkLinus == 803) { result = false; ModFunctions.Log($"MilkLinus is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMarlon == 803) { result = false; ModFunctions.Log($"MilkMarlon is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMorris == 803) { result = false; ModFunctions.Log($"MilkMorris is not set", LogLevel.Trace); }
+            if (TempRefs.MilkQi == 803) { result = false; ModFunctions.Log($"MilkQi is not set", LogLevel.Trace); }
+            if (TempRefs.MilkPierre == 803) { result = false; ModFunctions.Log($"MilkPierre is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSam == 803) { result = false; ModFunctions.Log($"MilkSam is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSeb == 803) { result = false; ModFunctions.Log($"MilkSeb is not set", LogLevel.Trace); }
+            if (TempRefs.MilkShane == 803) { result = false; ModFunctions.Log($"MilkShane is not set", LogLevel.Trace); }
+            if (TempRefs.MilkWilly == 803) { result = false; ModFunctions.Log($"MilkWilly is not set", LogLevel.Trace); }
+            if (TempRefs.MilkWiz == 803) { result = false; ModFunctions.Log($"MilkWiz is not set", LogLevel.Trace); }
             //if (TempRefs.MilkWMarlon == 803) { result = false; ModFunctions.LogVerbose($"MilkWMarlon is not set", LogLevel.Trace); }
-            if (TempRefs.MilkKrobus == 803) { result = false; ModFunctions.LogVerbose($"MilkKrobus is not set", LogLevel.Trace); }
+            if (TempRefs.MilkKrobus == 803) { result = false; ModFunctions.Log($"MilkKrobus is not set", LogLevel.Trace); }
 
             // Recipe item code storage
-            if (TempRefs.ProteinShake == 1240) { result = false; ModFunctions.LogVerbose($"ProteinShake is not set", LogLevel.Trace); }
-            if (TempRefs.MilkShake == 1241) { result = false; ModFunctions.LogVerbose($"MilkShake is not set", LogLevel.Trace); }
-            if (TempRefs.SuperJuice == 1249) { result = false; ModFunctions.LogVerbose($"SuperJuice is not set", LogLevel.Trace); }
+            if (TempRefs.ProteinShake == 1240) { result = false; ModFunctions.Log($"ProteinShake is not set", LogLevel.Trace); }
+            if (TempRefs.MilkShake == 1241) { result = false; ModFunctions.Log($"MilkShake is not set", LogLevel.Trace); }
+            if (TempRefs.SuperJuice == 1249) { result = false; ModFunctions.Log($"SuperJuice is not set", LogLevel.Trace); }
 
-            if (TempRefs.EldritchEnergy == 1241) { result = false; ModFunctions.LogVerbose($"EldritchEnergy is not set", LogLevel.Trace); }
-            if (TempRefs.MartiniKairos == 1249) { result = false; ModFunctions.LogVerbose($"MartiniKairos is not set", LogLevel.Trace); }
-            if (TempRefs.SweetSibling == 1249) { result = false; ModFunctions.LogVerbose($"SweetSibling is not set", LogLevel.Trace); }
+            if (TempRefs.EldritchEnergy == 1241) { result = false; ModFunctions.Log($"EldritchEnergy is not set", LogLevel.Trace); }
+            if (TempRefs.MartiniKairos == 1249) { result = false; ModFunctions.Log($"MartiniKairos is not set", LogLevel.Trace); }
+            if (TempRefs.SweetSibling == 1249) { result = false; ModFunctions.Log($"SweetSibling is not set", LogLevel.Trace); }
 
             // Other mods
-            if (TempRefs.MilkSophia == 803) { result = false; ModFunctions.LogVerbose($"MilkSophia is not set", LogLevel.Trace); }
-            if (TempRefs.MilkOlivia == 803) { result = false; ModFunctions.LogVerbose($"MilkOlivia is not set", LogLevel.Trace); }
-            if (TempRefs.MilkSusan == 803) { result = false; ModFunctions.LogVerbose($"MilkSusan is not set", LogLevel.Trace); }
-            if (TempRefs.MilkClaire == 803) { result = false; ModFunctions.LogVerbose($"MilkClaire is not set", LogLevel.Trace); }
-            if (TempRefs.MilkAndy == 803) { result = false; ModFunctions.LogVerbose($"MilkAndy is not set", LogLevel.Trace); }
-            if (TempRefs.MilkVictor == 803) { result = false; ModFunctions.LogVerbose($"MilkVictor is not set", LogLevel.Trace); }
-            if (TempRefs.MilkMartin == 803) { result = false; ModFunctions.LogVerbose($"MilkMartin is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSophia == 803) { result = false; ModFunctions.Log($"MilkSophia is not set", LogLevel.Trace); }
+            if (TempRefs.MilkOlivia == 803) { result = false; ModFunctions.Log($"MilkOlivia is not set", LogLevel.Trace); }
+            if (TempRefs.MilkSusan == 803) { result = false; ModFunctions.Log($"MilkSusan is not set", LogLevel.Trace); }
+            if (TempRefs.MilkClaire == 803) { result = false; ModFunctions.Log($"MilkClaire is not set", LogLevel.Trace); }
+            if (TempRefs.MilkAndy == 803) { result = false; ModFunctions.Log($"MilkAndy is not set", LogLevel.Trace); }
+            if (TempRefs.MilkVictor == 803) { result = false; ModFunctions.Log($"MilkVictor is not set", LogLevel.Trace); }
+            if (TempRefs.MilkMartin == 803) { result = false; ModFunctions.Log($"MilkMartin is not set", LogLevel.Trace); }
             #endregion
 
             // Item types
-            if (TempRefs.MilkType == -34) { result = false; ModFunctions.LogVerbose($"MilkType hasn't changed", LogLevel.Trace); }
-            if (TempRefs.CumType == -35) { result = false; ModFunctions.LogVerbose($"CumType hasn't changed", LogLevel.Trace); }
-            if (TempRefs.SpecialType == -36) { result = false; ModFunctions.LogVerbose($"SpecialType hasn't changed", LogLevel.Trace); }
+            if (TempRefs.MilkType == -34) { result = false; ModFunctions.Log($"MilkType hasn't changed", LogLevel.Trace); }
+            if (TempRefs.CumType == -35) { result = false; ModFunctions.Log($"CumType hasn't changed", LogLevel.Trace); }
+            if (TempRefs.SpecialType == -36) { result = false; ModFunctions.Log($"SpecialType hasn't changed", LogLevel.Trace); }
 
             // Quest items
-            if (TempRefs.PennyBook == 804) { result = false; ModFunctions.LogVerbose($"Penny's book hasn't changed", LogLevel.Trace); }
-            if (TempRefs.HaleyCamera == 804) { result = false; ModFunctions.LogVerbose($"Haley's Camera hasn't changed", LogLevel.Trace); }
-            if (TempRefs.HaleyPanties == 804) { result = false; ModFunctions.LogVerbose($"Haley's Panties hasn't changed.", LogLevel.Trace); }
-            if (TempRefs.ReadiMilk == 804) { result = false; ModFunctions.LogVerbose($"Readi Milk hasn't changed.", LogLevel.Trace); }
+            if (TempRefs.PennyBook == 804) { result = false; ModFunctions.Log($"Penny's book hasn't changed", LogLevel.Trace); }
+            if (TempRefs.HaleyCamera == 804) { result = false; ModFunctions.Log($"Haley's Camera hasn't changed", LogLevel.Trace); }
+            if (TempRefs.HaleyPanties == 804) { result = false; ModFunctions.Log($"Haley's Panties hasn't changed.", LogLevel.Trace); }
+            if (TempRefs.ReadiMilk == 804) { result = false; ModFunctions.Log($"Readi Milk hasn't changed.", LogLevel.Trace); }
 
             return result;
         }
     }
+
+    public static class ClothingEditor
+    {
+        private static IDictionary<int, string> ClothingData;
+        private static Dictionary<string, int> ClothingLookup = new Dictionary<string, int>
+        {
+            ["mtvTeddyu"] = 1,
+            ["mtvTeddyl"] = 2,
+            ["Tentacle Armour Torso"] = 3,
+            ["Tentacle Armour Lower"] = 4
+        };
+
+        public static bool CanEdit(IAssetName AssetName)
+        {
+            bool result = AssetName.IsEquivalentTo("Data/ClothingInformation");
+
+            return result;
+        }
+
+        public static void Edit(IAssetData asset)
+        {
+            if (asset.Name.IsEquivalentTo("Data/ClothingInformation"))
+            {
+                EditClothingData(asset);
+            }
+        }
+
+        private static void EditClothingData(IAssetData asset)
+        {
+            ClothingData = (IDictionary<int, string>)asset.Data;
+
+            foreach (KeyValuePair<int, string> kvp in ClothingData)
+            {
+                string[] split = kvp.Value.Split('/', StringSplitOptions.RemoveEmptyEntries);
+
+                switch (split[0])
+                {
+                    case "mtvTeddyu": ClothingLookup["mtvTeddyu"] = kvp.Key; continue;
+                    case "mtvTeddyl": ClothingLookup["mtvTeddyu"] = kvp.Key; continue;
+                    case "Tentacle Armour Torso": ClothingLookup["Tentacle Armour Torso"] = kvp.Key; continue;
+                    case "Tentacle Armour Lower": ClothingLookup["Tentacle Armour Lower"] = kvp.Key; continue;
+
+
+
+                }
+                //if (ClothingLookup.ContainsKey(split[0]))
+                //{
+                //    ClothingLookup[split[0]] = kvp.Key;
+                //}
+            }
+
+            UpdateTempCodes();
+        }
+
+        private static void UpdateTempCodes()
+        {
+            TempRefs.mtvTeddy = ClothingLookup["mtvTeddyu"] != 1 ? ClothingLookup["mtvTeddyu"] : 806;
+            TempRefs.mtvTeddyl = ClothingLookup["mtvTeddyl"] != 2 ? ClothingLookup["mtvTeddyl"] : 806;
+            TempRefs.TentacleTop = ClothingLookup["Tentacle Armour Torso"] != 3 ? ClothingLookup["Tentacle Armour Torso"] : 806;
+            TempRefs.TentacleLeg = ClothingLookup["Tentacle Armour Lower"] != 4 ? ClothingLookup["Tentacle Armour Lower"] : 806;
+        }
+
+        public static Clothing getClothing(string Name)
+        {
+            if (!ClothingLookup.ContainsKey(Name))
+                return null;
+
+            Clothing result = new Clothing(ClothingLookup[Name]);
+            return result;
+        }
+    }
+
 
 }

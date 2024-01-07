@@ -1,0 +1,58 @@
+{
+  "Name": "Shibari rope", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "All you need now is someone to turn into a rope bunny.", //Description of the product.
+  "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "CategoryTextOverride": "Clothing",
+  "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "EdibleIsDrink": false,
+  "Price": 300, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": 771, // Plant Fibre
+        "Count": 2
+      }
+    ],
+    "IsDefault": true,
+    "CanPurchase": false
+  },
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neutral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Emily", "Sam", "Harvey", "Demetrius" ], //Example of a single NPC
+    "Like": [ "Alex" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Haley" ], //Example of multiple NPC
+    "Hate": [ "Lewis" ]
+  },
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Cuerda shibari", //Spanish
+    "ko": "시바리 로프", //Korean
+    "de": "Shibari -Seil", //German
+    "fr": "Corde shibari", //French
+    "hu": "Shibari kötél", //Hungarian
+    "it": "Shibari Rope", //Italian
+    "ja": "シバリロープ", //Japanese
+    "pt": "Corda Shibari", //Portuguese
+    "ru": "Шибари веревка", //Russian
+    "tr": "Shibari ipi", //Turkish
+    "zh": "shibari绳子" //Chinese (Simplified)
+  },
+  "DescriptionLocalization": {
+    "es": "Todo lo que necesitas ahora es alguien para convertirte en un conejito de cuerda.", //Spanish
+    "ko": "지금 필요한 것은 로프 토끼로 변하는 사람 만 있으면됩니다.", //Korean
+    "de": "Jetzt brauchen Sie nur noch jemand, der sich in einen Seilhasen verwandelt.", //German
+    "fr": "Tout ce dont vous avez besoin maintenant, c'est de quelqu'un pour transformer en un lapin de corde.", //French
+    "hu": "Most csak annyit kell tennie, hogy valaki kötélnyuszivá váljon.", //Hungarian
+    "it": "Tutto ciò di cui hai bisogno ora è qualcuno che si trasformi in un coniglietto di corda.", //Italian
+    "ja": "あなたが今必要なのは、ロープ・バニーに変わる人だけです。", //Japanese
+    "pt": "Tudo o que você precisa agora é alguém para se transformar em um coelho de corda.", //Portuguese
+    "ru": "Все, что вам нужно сейчас, это кто -то, кто превратился в веревочного кролика.", //Russian
+    "tr": "Şimdi ihtiyacınız olan tek şey bir ip tavşanına dönüşecek biri.", //Turkish
+    "zh": "您现在需要的只是一个变成绳兔子的人" //Chinese (Simplified)
+  }
+}

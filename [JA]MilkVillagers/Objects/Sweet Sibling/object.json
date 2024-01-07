@@ -38,7 +38,7 @@
     "IsDefault": true,
     "CanPurchase": true
   },
-  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neutral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "George" ], //Example of a single NPC
     "Like": [ "Lewis", "Alex", "Sebastian" ],

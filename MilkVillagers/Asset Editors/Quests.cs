@@ -32,7 +32,7 @@ namespace MilkVillagers.Asset_Editors
             //[594809] = "",                  //Sebastian quest 1 pt 1
             [5948092] = "MTV_SebQ1T",   //Sebastian quest 1 pt 2
             //[594810] = "",              //Sebastian quest 2 pt 1
-            [5948102]= "MTV_SebQ2T",    //Sebastian quest 2 pt 2
+            [5948102] = "MTV_SebQ2T",    //Sebastian quest 2 pt 2
             [594811] = "MTV_SebQ3T",    //Sebastian quest 3
             [594812] = "MTV_SebQ4T",    //Sebastian quest 4
 
@@ -66,9 +66,9 @@ namespace MilkVillagers.Asset_Editors
             [594834] = "MTV_GeorgeQ2T",     //George quest 2
             [594835] = "MTV_GeorgeQ3T",     //George quest 3
             //[594836] = "",     //George quest 4
-            //[5948362] = "MTV_GeorgeQ4T",     //George quest 4
+            [5948362] = "MTV_GeorgeQ4T",     //George quest 4
 
-            [594837] = "",     //Harvey quest 1
+            //[594837] = "MTV_HarveyQ1T",     //Harvey quest 1
             [5948372] = "MTV_HarveyQ1T",     //Harvey quest 1
             [594838] = "MTV_HarveyQ2T",     //Harvey quest 2
             [594839] = "MTV_HarveyQ3T",     //Harvey quest 3
@@ -146,7 +146,7 @@ namespace MilkVillagers.Asset_Editors
                 || asset.Name.IsEquivalentTo("Data/SpecialOrders");
 
             if (result)
-                ModFunctions.LogVerbose(asset.Name.Name);
+                ModFunctions.Log(asset.Name.Name);
 
             return result;
         }
@@ -175,6 +175,11 @@ namespace MilkVillagers.Asset_Editors
         {
             if (asset.Name.IsEquivalentTo("Data/Quests"))
             {
+                //ModFunctions.LogVerbose("Dumping quests", LogLevel.Trace, Force: true);
+                //foreach (KeyValuePair<int, string> kvp in asset.AsDictionary<int, string>().Data)
+                //{
+                //    ModFunctions.LogVerbose($"{kvp.Key}: {kvp.Value}", LogLevel.Trace, Force: true);
+                //}
 
                 QuestData = asset.AsDictionary<int, string>().Data;
                 //QuestData[QuestIDs["QuestName"]] = $"Type/Name/Description/Hint/Condition/Next Quest/Gold/Reward Description/Cancellable/Completion Text";
@@ -373,7 +378,7 @@ namespace MilkVillagers.Asset_Editors
         public static void UpdateData(Dictionary<int, string> assetdata)
         {
             QuestData = assetdata;
-            ModFunctions.LogVerbose("Updating QuestEditor: QuestData", LogLevel.Trace);
+            ModFunctions.Log("Updating QuestEditor: QuestData", LogLevel.Trace);
         }
 
         public static bool ExportSpecialOrder(string ID)
@@ -383,7 +388,7 @@ namespace MilkVillagers.Asset_Editors
 
             SpecialOrderData sso = SOData[ID];
 
-            ModFunctions.LogVerbose($"Dumping data now", LogLevel.Alert);
+            ModFunctions.Log($"Dumping data now", LogLevel.Alert);
             string output = $"\r\nSpecialOrderData SampleSpecialOrder = new SpecialOrderData()\r\n" +
                                 "   {\r\n" +
                                 $"  Name = \"{sso.Name}\",\r\n" +
@@ -473,42 +478,52 @@ namespace MilkVillagers.Asset_Editors
             "  }\r\n" +
             "};";
 
-            ModFunctions.LogVerbose(output);
+            ModFunctions.Log(output);
             return true;
         }
 
-        public static void Report(bool i18n = false)
+        public static void Report(bool i18n = false, bool raw = false, bool special = false)
         {
-            if (QuestData != null)
+            if (!special && QuestData != null)
             {
-                ModFunctions.LogVerbose($"Dumping quests");
+                ModFunctions.Log($"Dumping quests");
                 foreach (KeyValuePair<int, string> d in QuestData)
                 {
                     if (d.Key.ToString().Contains("5948"))
                     {
-                        string parsed = d.Value.Replace("spacechase0.JsonAssets/ObjectId:", "spacechase0.JsonAssets#ObjectId:");
-                        string[] split= parsed.Split('/');
-
-                        if (i18n)
+                        if (raw)
                         {
-                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.01\": \"{split[1]}\"", Force: true);
-                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.02\": \"{split[2]}\"", Force: true);
-                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.03\": \"{split[3]}\"", Force: true);
-                            ModFunctions.LogVerbose($"\"Quests.{d.Key}.09\": \"{split[9]}\"", Force: true);
+                            string parsed = d.Value.Replace("spacechase0.JsonAssets/ObjectId:", "spacechase0.JsonAssets#ObjectId:");
+                            string[] split = parsed.Split('/');
+
+                            if (i18n)
+                            {
+                                ModFunctions.Log($"\"Quests.{d.Key}.01\": \"{split[1]}\"", Force: true);
+                                ModFunctions.Log($"\"Quests.{d.Key}.02\": \"{split[2]}\"", Force: true);
+                                ModFunctions.Log($"\"Quests.{d.Key}.03\": \"{split[3]}\"", Force: true);
+                                ModFunctions.Log($"\"Quests.{d.Key}.09\": \"{split[9]}\"", Force: true);
+                            }
+
+                            ModFunctions.Log($"{d.Key}: {split[0]}/{{{{i18n:Quests.{d.Key}.01}}}}/{{{{i18n:Quests.{d.Key}.02}}}}/{{{{i18n:Quests.{d.Key}.03}}}}/{split[4]}/{split[5]}" +
+                                $"/{split[6]}/{split[7]}/{split[8]}/{{{{i18n:Quests.{d.Key}.09}}}}", Force: true);
+
                         }
+                        else
+                        {
+                            string[] split = d.Value.Split('/');
 
-                        ModFunctions.LogVerbose($"{d.Key}: {split[0]}/{{{{i18n:Quests.{d.Key}.01}}}}/{{{{i18n:Quests.{d.Key}.02}}}}/{{{{i18n:Quests.{d.Key}.03}}}}/{split[4]}/{split[5]}" +
-                            $"/{split[6]}/{split[7]}/{split[8]}/{{{{i18n:Quests.{d.Key}.09}}}}", Force: true);
-
+                            ModFunctions.Log($"{d.Key}: {split[0]}/{split[1]}/{split[2]}/{split[3]}/{split[4]}/{split[5]}" +
+                                $"/{split[6]}/{split[7]}/{split[8]}/{split[9]}", Force: true);
+                        }
                     }
                 }
             }
-            if (SOData != null)
+            if (special & SOData != null)
             {
-                ModFunctions.LogVerbose($"Dumping Special Orders");
+                ModFunctions.Log($"Dumping Special Orders");
                 foreach (KeyValuePair<string, SpecialOrderData> d in SOData)
                 {
-                    ModFunctions.LogVerbose($"{d.Key}: {d.Value.Name}, {d.Value.Text}");
+                    ModFunctions.Log($"{d.Key}: {d.Value.Name}, {d.Value.Text}");
                 }
             }
         }
@@ -521,7 +536,7 @@ namespace MilkVillagers.Asset_Editors
             {
                 if (!QuestData.Keys.Contains(kvp.Value))
                 {
-                    ModFunctions.LogVerbose($"Missing quest {kvp.Key}", LogLevel.Alert);
+                    ModFunctions.Log($"Missing quest {kvp.Key}", LogLevel.Alert);
                     result = false;
                 }
             }

@@ -82,9 +82,9 @@ namespace MilkVillagers
             "Wizard"
             };
 
-    public static void LogVerbose(string message, LogLevel Level = LogLevel.Trace, bool Force = false)
+        public static void Log(string message, LogLevel Level = LogLevel.Trace, bool Force = false)
         {
-            if (message == null)
+            if (message == null || TempRefs.Monitor == null)
                 return;
 
             if (TempRefs.Verbose || Force) TempRefs.Monitor.Log(message, Level);
@@ -263,6 +263,8 @@ namespace MilkVillagers
         cleanup:
             return result;
         }
+
+
 
         public static List<string> GetDirectories(string root)
         {

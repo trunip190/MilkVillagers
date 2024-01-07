@@ -33,6 +33,18 @@ namespace MilkVillagers
         public bool Quests = true;
         public bool RushMail = false;
 
+        /// <summary>
+        /// List of sex topics to hook into. You can add your own topics here, and add entries under dialogue for the NPC
+        /// </summary>
+        public Dictionary<string, string> SexTopics = new Dictionary<string, string>() {
+            ["milk_start"] = "Female 1" ,
+            ["milk_fast"] = "Both 1",
+            ["BJ"] = "Male 1" ,
+            ["eat_out"] = "Female 1",
+            ["get_eaten"] = "Both 2" ,
+            ["sex"] = "Both 2"
+            };
+
         // Debugging
         public bool Debug = false;
         public bool Verbose = false;
@@ -126,7 +138,7 @@ namespace MilkVillagers
         public static int EventBlairKeahi1NA = 594815;  //Blair and farmer hide in bushes
         public static int EventElliottScene1 = 594816;  //Elliott Quest 2 roleplay event
         public static int EventSebTouchGrass = 594817;  //Sebastian go touch grass event (quest 3)
-        //public static int Event                       //
+        public static int EventSebAbi = 594818;         //Abigail, Sebastian, farmer threeway stream.
         //public static int Event                       //
         #endregion
 
@@ -202,9 +214,9 @@ namespace MilkVillagers
         #endregion
 
         // Item types 
-        public static readonly int MilkType = -34;
-        public static readonly int CumType = -35;
-        public static readonly int SpecialType = -36;
+        public const int MilkType = -34;
+        public const int CumType = -35;
+        public const int SpecialType = -36;
 
         // Quest items
         public static int PennyBook = 804;
@@ -213,73 +225,79 @@ namespace MilkVillagers
         public static int ReadiMilk = 804;
         public static int Invitation = 804;
 
+        // Clothing Items
+        public static int mtvTeddyl = 806;
+        public static int mtvTeddy = 806;
+        public static int TentacleTop = 806;
+        public static int TentacleLeg = 806;
+
         public static void ReportCodes()
         {
             // Milk item code storage
-            ModFunctions.LogVerbose($"MilkAbig is {MilkAbig}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkEmil is {MilkEmil}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkHale is {MilkHale}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkLeah is {MilkLeah}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkMaru is {MilkMaru}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkPenn is {MilkPenn}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkCaro is {MilkCaro}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkJodi is {MilkJodi}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkMarn is {MilkMarn}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkRobi is {MilkRobi}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkPam is {MilkPam}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkSand is {MilkSand}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkEvel is {MilkEvel}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkDwarf is {MilkDwarf}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkGeneric is {MilkGeneric}", LogLevel.Trace);
+            ModFunctions.Log($"MilkAbig is {MilkAbig}", LogLevel.Trace);
+            ModFunctions.Log($"MilkEmil is {MilkEmil}", LogLevel.Trace);
+            ModFunctions.Log($"MilkHale is {MilkHale}", LogLevel.Trace);
+            ModFunctions.Log($"MilkLeah is {MilkLeah}", LogLevel.Trace);
+            ModFunctions.Log($"MilkMaru is {MilkMaru}", LogLevel.Trace);
+            ModFunctions.Log($"MilkPenn is {MilkPenn}", LogLevel.Trace);
+            ModFunctions.Log($"MilkCaro is {MilkCaro}", LogLevel.Trace);
+            ModFunctions.Log($"MilkJodi is {MilkJodi}", LogLevel.Trace);
+            ModFunctions.Log($"MilkMarn is {MilkMarn}", LogLevel.Trace);
+            ModFunctions.Log($"MilkRobi is {MilkRobi}", LogLevel.Trace);
+            ModFunctions.Log($"MilkPam is {MilkPam}", LogLevel.Trace);
+            ModFunctions.Log($"MilkSand is {MilkSand}", LogLevel.Trace);
+            ModFunctions.Log($"MilkEvel is {MilkEvel}", LogLevel.Trace);
+            ModFunctions.Log($"MilkDwarf is {MilkDwarf}", LogLevel.Trace);
+            ModFunctions.Log($"MilkGeneric is {MilkGeneric}", LogLevel.Trace);
 
             // Cum item code storage.
-            ModFunctions.LogVerbose($"MilkSpecial is {MilkSpecial}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkAlex is {MilkAlex}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkClint is {MilkClint}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkDemetrius is {MilkDemetrius}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkElliott is {MilkElliott}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkGeorge is {MilkGeorge}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkGil is {MilkGil}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkGunther is {MilkGunther}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkGus is {MilkGus}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkHarv is {MilkHarv}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkKent is {MilkKent}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkLewis is {MilkLewis}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkLinus is {MilkLinus}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkMorris is {MilkMorris}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkQi is {MilkQi}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkPierre is {MilkPierre}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkSam is {MilkSam}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkSeb is {MilkSeb}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkShane is {MilkShane}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkWilly is {MilkWilly}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkWiz is {MilkWiz}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkKrobus is {MilkKrobus}", LogLevel.Trace);
+            ModFunctions.Log($"MilkSpecial is {MilkSpecial}", LogLevel.Trace);
+            ModFunctions.Log($"MilkAlex is {MilkAlex}", LogLevel.Trace);
+            ModFunctions.Log($"MilkClint is {MilkClint}", LogLevel.Trace);
+            ModFunctions.Log($"MilkDemetrius is {MilkDemetrius}", LogLevel.Trace);
+            ModFunctions.Log($"MilkElliott is {MilkElliott}", LogLevel.Trace);
+            ModFunctions.Log($"MilkGeorge is {MilkGeorge}", LogLevel.Trace);
+            ModFunctions.Log($"MilkGil is {MilkGil}", LogLevel.Trace);
+            ModFunctions.Log($"MilkGunther is {MilkGunther}", LogLevel.Trace);
+            ModFunctions.Log($"MilkGus is {MilkGus}", LogLevel.Trace);
+            ModFunctions.Log($"MilkHarv is {MilkHarv}", LogLevel.Trace);
+            ModFunctions.Log($"MilkKent is {MilkKent}", LogLevel.Trace);
+            ModFunctions.Log($"MilkLewis is {MilkLewis}", LogLevel.Trace);
+            ModFunctions.Log($"MilkLinus is {MilkLinus}", LogLevel.Trace);
+            ModFunctions.Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
+            ModFunctions.Log($"MilkMorris is {MilkMorris}", LogLevel.Trace);
+            ModFunctions.Log($"MilkQi is {MilkQi}", LogLevel.Trace);
+            ModFunctions.Log($"MilkPierre is {MilkPierre}", LogLevel.Trace);
+            ModFunctions.Log($"MilkSam is {MilkSam}", LogLevel.Trace);
+            ModFunctions.Log($"MilkSeb is {MilkSeb}", LogLevel.Trace);
+            ModFunctions.Log($"MilkShane is {MilkShane}", LogLevel.Trace);
+            ModFunctions.Log($"MilkWilly is {MilkWilly}", LogLevel.Trace);
+            ModFunctions.Log($"MilkWiz is {MilkWiz}", LogLevel.Trace);
+            ModFunctions.Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
+            ModFunctions.Log($"MilkKrobus is {MilkKrobus}", LogLevel.Trace);
 
             // Other Mods
-            ModFunctions.LogVerbose($"MilkSophia is {MilkSophia}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkOlivia is {MilkOlivia}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkSusan is {MilkSusan}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkClaire is {MilkClaire}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkAndy is {MilkAndy}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkVictor is {MilkVictor}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkMartin is {MilkMartin}", LogLevel.Trace);
+            ModFunctions.Log($"MilkSophia is {MilkSophia}", LogLevel.Trace);
+            ModFunctions.Log($"MilkOlivia is {MilkOlivia}", LogLevel.Trace);
+            ModFunctions.Log($"MilkSusan is {MilkSusan}", LogLevel.Trace);
+            ModFunctions.Log($"MilkClaire is {MilkClaire}", LogLevel.Trace);
+            ModFunctions.Log($"MilkAndy is {MilkAndy}", LogLevel.Trace);
+            ModFunctions.Log($"MilkVictor is {MilkVictor}", LogLevel.Trace);
+            ModFunctions.Log($"MilkMartin is {MilkMartin}", LogLevel.Trace);
 
             // Recipe item code storage
-            ModFunctions.LogVerbose($"ProteinShake is {ProteinShake}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"MilkShake is {MilkShake}", LogLevel.Trace);
+            ModFunctions.Log($"ProteinShake is {ProteinShake}", LogLevel.Trace);
+            ModFunctions.Log($"MilkShake is {MilkShake}", LogLevel.Trace);
 
             // Item types
-            ModFunctions.LogVerbose($"MilkType is {MilkType}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"CumType is {CumType}", LogLevel.Trace);
+            ModFunctions.Log($"MilkType is {MilkType}", LogLevel.Trace);
+            ModFunctions.Log($"CumType is {CumType}", LogLevel.Trace);
 
             // Quest items
-            ModFunctions.LogVerbose($"PennyBook is {PennyBook}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"HaleyCamera is {HaleyCamera}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"HaleyPanties is {HaleyPanties}", LogLevel.Trace);
-            ModFunctions.LogVerbose($"ReadiMilk is {ReadiMilk}", LogLevel.Trace);
+            ModFunctions.Log($"PennyBook is {PennyBook}", LogLevel.Trace);
+            ModFunctions.Log($"HaleyCamera is {HaleyCamera}", LogLevel.Trace);
+            ModFunctions.Log($"HaleyPanties is {HaleyPanties}", LogLevel.Trace);
+            ModFunctions.Log($"ReadiMilk is {ReadiMilk}", LogLevel.Trace);
         }
 
 

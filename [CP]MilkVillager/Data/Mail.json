@@ -16,13 +16,14 @@
         "MTV_Herm": "{{i18n:Mail.MTV_Herm}}",
 
         // Mod tutorial mail.
-        "MilkButton1": "{{i18n:Mail.MilkButton1}}",
+        "MilkButton1": "{{i18n:Mail.MilkButton1}}  %item object {{spacechase0.JsonAssets/ObjectId: Readi Milk}} 1 %%",
         "MilkButton2": "{{i18n:Mail.MilkButton2}}",
         "MilkingProfQuality": "{{i18n:Mail.MilkingProfQuality}}",
         "MilkingProfCount": "{{i18n:Mail.MilkingProfCount}}",
 
         // Quest giving mail.
-        "AbiMilking": "{{i18n:Mail.AbiMilking}}",
+        //"AbiMilking": "Hey @,^^I have something embarrassing to tell you, but I need to do it in person.^When you have time can you come see me?^^PS. Make sure you bring your milk pail.^^      -Abigail. %item object {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}} 1 %%",
+        "AbiMilking": "{{i18n:Mail.AbiMilking}}  %item object {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}} 1 %%",
 
 
         //*****************
@@ -195,7 +196,7 @@
         "MTV_SebQ1T": "{{i18n:Mail.MTV_SebQ1T}}",
 
         // Sebastian Quest 2 Curious tastes pt 2
-        "MTV_SebQ2: {{i18n:Mail.MTV_SebQ2}}",
+        "MTV_SebQ2": "{{i18n:Mail.MTV_SebQ2}}",
         "MTV_SebQ2T": "{{i18n:Mail.MTV_SebQ2T}}",
 
         // Sebastian Quest 3 Coding pipelines need clearing
@@ -209,7 +210,6 @@
         // Seb + Abi streaming event quest
         "MTV_SebAbi": "{{i18n:Mail.MTV_SebAbi}}",
         "MTV_SebAbiT": "{{i18n:Mail.MTV_SebAbiT}}",
-
 
         "MagicalItem": "{{i18n:Mail.MagicalItem}}",
 

@@ -102,13 +102,19 @@
     <None Remove="Objects\Sebastian's Cum\object.png" />
     <None Remove="Objects\Shane%27s Cum\object.json" />
     <None Remove="Objects\Shane's Cum\object.png" />
+    <None Remove="Objects\Shibari rope\object.json" />
+    <None Remove="Objects\Shibari rope\object.png" />
     <None Remove="Objects\Victor's Cum - Copy\object.json" />
     <None Remove="Objects\Victor's Cum - Copy\object.png" />
-    <None Remove="pants\mtvTeddyl\pants.json" />
-    <None Remove="pants\mtvTeddyl\pants.png" />
-    <None Remove="shirts\mtvTeddyu\female.png" />
-    <None Remove="shirts\mtvTeddyu\male.png" />
-    <None Remove="shirts\mtvTeddyu\shirt.json" />
+    <None Remove="Pants\Tentacle Armour Lower\pants.json" />
+    <None Remove="Pants\Tentacle Armour Lower\pants.png" />
+    <None Remove="Pants\mtvTeddyl\pants.json" />
+    <None Remove="Pants\mtvTeddyl\pants.png" />
+    <None Remove="Shirts\Tentacle Armour Torso\female.png" />
+    <None Remove="Shirts\Tentacle Armour Torso\male.png" />
+    <None Remove="Shirts\Tentacle Armour Torso\shirt.json" />
+    <None Remove="Shirts\mtvTeddyu\female.png" />
+    <None Remove="Shirts\mtvTeddyu\male.png" />
     <None Remove="Objects\Sophia%27s Milk\object.json" />
     <None Remove="Objects\Special Milkshake\object.json" />
     <None Remove="Objects\Special Milk\object.json" />
@@ -128,6 +134,7 @@
     <None Remove="Objects\Wizard's Cum\object.png" />
     <None Remove="Objects\Woman%27s Milk\object.json" />
     <None Remove="Objects\Woman's Milk\object.png" />
+    <None Remove="Shirts\mtvTeddyu\shirt.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -323,19 +330,40 @@
     <Content Include="Objects\Lance%27s Cum\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="pants\mtvTeddyl\pants.png">
+    <Content Include="Objects\Shibari rope\object.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="pants\mtvTeddyl\pants.json">
+    <Content Include="Objects\Shibari rope\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="shirts\mtvTeddyu\female.png">
+    <Content Include="Pants\Tentacle Armour Lower\pants.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="shirts\mtvTeddyu\male.png">
+    <Content Include="Pants\Tentacle Armour Lower\pants.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="shirts\mtvTeddyu\shirt.json">
+    <Content Include="Pants\mtvTeddyl\pants.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Pants\mtvTeddyl\pants.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Shirts\Tentacle Armour Torso\female.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Shirts\Tentacle Armour Torso\male.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Shirts\Tentacle Armour Torso\shirt.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Shirts\mtvTeddyu\female.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Shirts\mtvTeddyu\male.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Shirts\mtvTeddyu\shirt.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Sophia's Milk\object.json">

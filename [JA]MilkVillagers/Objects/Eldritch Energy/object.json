@@ -18,7 +18,7 @@
     "Duration": 150
   },
   "Price": 400, //How much your item sells for.
-  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
   "Recipe": {
     "ResultCount": 1,
     "Ingredients": [
@@ -34,7 +34,7 @@
     "IsDefault": true,
     "CanPurchase": true
   },
-  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neutral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "Caroline", "Abigail" ], //Example of a single NPC
     "Like": [ "Krobus" ],

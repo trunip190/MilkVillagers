@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Netcode;
 using StardewModdingAPI;
 using StardewValley;
+using StardewValley.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -337,5 +338,22 @@ namespace MilkVillagers
         {
             throw new NotImplementedException();
         }
+
+
     }
+
+    public class uObject : StardewValley.Object
+    {
+        [XmlIgnore]
+        private readonly NetRef<LightSource> netLightSource = new NetRef<LightSource>();
+
+
+        protected override void initNetFields()
+        {
+            base.NetFields.AddFields(tileLocation, owner, type, canBeSetDown, canBeGrabbed, isHoedirt, isSpawnedObject, questItem, questId, isOn, fragility, price, edibility, stack, quality, uses, bigCraftable, setOutdoors, setIndoors, readyForHarvest, showNextIndex, flipped, hasBeenPickedUpByFarmer, isRecipe, isLamp, heldObject, minutesUntilReady, boundingBox, preserve, preservedParentSheetIndex, honeyType, netLightSource, orderData, _destroyOvernight);
+        }
+
+
+    }
+
 }

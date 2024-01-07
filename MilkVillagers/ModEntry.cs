@@ -6,6 +6,7 @@ using SpaceShared.APIs;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using sdv = StardewValley;
 using StardewValley.Buildings;
 using StardewValley.Locations;
 using StardewValley.Network;
@@ -21,6 +22,16 @@ using System.Reflection.Metadata.Ecma335;
 using static System.Collections.Specialized.BitVector32;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
 using sObject = StardewValley.Object;
+using log = MilkVillagers.ModFunctions;
+using HarmonyLib;
+using Microsoft.Xna.Framework;
+using System.Net.Http;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Xml.Schema;
+using Netcode;
+using System.Threading;
+using Microsoft.Xna.Framework.Audio;
 
 namespace MilkVillagers
 {
@@ -28,6 +39,7 @@ namespace MilkVillagers
     {
         #region class variables
         private int[] target;
+        private bool loaded;
         private bool running;
         private bool runOnce;
         private bool MessageOnce;
@@ -60,12 +72,20 @@ namespace MilkVillagers
             {"get_eaten" , 15},
             {"sex" , 50 },
         };
+        public Dictionary<string, string> SexTopics = new();
 
         private bool doneOnce = false; //remove when not testing.
 
-        // Time freeze stuff
-        private float TimeFreezeTimer = 0;
+        // Time based stuff
         private float RegenAmount = 0;
+
+        private float TimeFreezeTimer = 0;
+        private bool TimeFreeze = false; // Debug time freeze.
+
+        private bool TentacleArmour;
+        private bool TentacleCombination = false;
+        private float TentacleCount = 0;
+        private float TentacleLimit = 240; // Four ingame hours.
 
         // Adding item stuff
         sObject AddItem;
@@ -81,26 +101,40 @@ namespace MilkVillagers
         {
             Config = helper.ReadConfig<ModConfig>();
             DialogueEditor.ExtraContent = Config.ExtraDialogue;
-
             TempRefs.Monitor = Monitor;
+
+            #region Harmony setup
+            var harmony = new Harmony(this.ModManifest.UniqueID);
+
+            try
+            {
+                ItemPatches.ApplyPatch(harmony, this.Monitor);
+            }
+            catch (Exception ex)
+            {
+                log.Log(ex.Message, LogLevel.Alert, Force: true);
+            }
+            #endregion
+
+
             if (helper == null)
             {
-                ModFunctions.LogVerbose("helper is null.", LogLevel.Error);
+                log.Log("helper is null.", LogLevel.Error);
             }
             else
             {
                 TempRefs.Helper = helper;
             }
 
-            #region register ingame events
+            #region register in-game events
 
             Helper.Events.Display.MenuChanged += Display_MenuChanged;
             Helper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
             Helper.Events.GameLoop.GameLaunched += OnGameLaunched;
             Helper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
-            Helper.Events.GameLoop.TimeChanged += GameLoop_TimeChanged;
             Helper.Events.GameLoop.DayEnding += GameLoop_DayEnding;
             Helper.Events.GameLoop.OneSecondUpdateTicked += GameLoop_OneSecondUpdateTicked;
+            Helper.Events.GameLoop.TimeChanged += GameLoop_TimeChanged;
             Helper.Events.Input.ButtonPressed += OnButtonPressed;
 
             // SpaceCore events
@@ -113,22 +147,20 @@ namespace MilkVillagers
             #endregion
 
             #region Add in console commands
-            helper.ConsoleCommands.Add("mtv_resetmail", "Removes all mail flags\n\nUsage: mtv_resetmail <value>\n- value: the farmer to remove mail from.", this.RemoveAllMail);
-            helper.ConsoleCommands.Add("mtv_sendmail", "Send the next mail item if conditions are met\n\nUsage: mtv_sendmail <value>\n- value: the farmer to send mail to.", this.SendNewMail);
-            helper.ConsoleCommands.Add("mtv_forceremovequest", "Remove specified quest from the farmer's questlog\n\nUsage: mtv_frq <value>\n- value: the quest id to remove from their questlog.", this.ForceRemoveQuest);
-            helper.ConsoleCommands.Add("mtv_frq", "Remove specified quest from the farmer's questlog\n\nUsage: mtv_frq <value>\n- value: the quest id to remove from their questlog.", this.ForceRemoveQuest);
-            helper.ConsoleCommands.Add("mtv_upgrade", "Force the mod to reset quest and mail flags when you have upgraded the mod\n\nUsage: mtv_upgrade", this.Upgrade);
+            helper.ConsoleCommands.Add("mtv_addquests", "Adds all quests to the farmer's questlog\n\tUsage: mtv_addquests <completed> <list>\n\t- completed: auto complete quests as they are added.\n\t- list: prints every vilager changed.", this.AddAllQuests);
+            helper.ConsoleCommands.Add("mtv_checkfiles", "checks your computer to see if the modfiles are in the right location\n\nUsage: mtv_checkfiles <all>\n\t- all: Checks all files in folders recursively. Only checks JA folder by default.", this.FileCheck);
+            helper.ConsoleCommands.Add("mtv_dumpDialogue", "Output all dialogue for specified villager\n\nUsage: mtv_dumpDialogue <VillagerName> <bare>\n\t- VillagerName: Needs to be the full name of the villager.\n\t- bare: only lists topic names.", this.DumpDialogue);
+            helper.ConsoleCommands.Add("mtv_dumpItems", "Outputs all items to log.\n\nUsage: mtv_dumpItems <init>\n\t- init: Set up items, cooking and crafting.", this.CheckItemCodes);
+            helper.ConsoleCommands.Add("mtv_dumpquests", "Dumps all quests for translation\n\nmtv_dumpquests [i18n][raw][special]\n\ni18n: append the i18n translations.\nraw: leave data untranslated, with tokens in place.\nspecial: handles Special Orders instead.", this.DumpQuests);
+            helper.ConsoleCommands.Add("mtv_friends", "Sets all vanilla NPC's friends to either half or max\n\nmtv_friends <max>\n\t- max: set to 10 hearts. Default is 6 hearts.", this.Friends);
+            helper.ConsoleCommands.Add("mtv_forceremovequest", "Remove specified quest from the farmer's questlog\n\nUsage: mtv_frq <value>\n- value: the quest id to remove from the questlog.", this.ForceRemoveQuest);
+            helper.ConsoleCommands.Add("mtv_reportRecipes", "Output debug info on all MTV recipes.\n\nUsage: mtv_reportRecipes", this.ReportRecipes);
             helper.ConsoleCommands.Add("mtv_renewItems", "Update items in farmer's inventory to newer versions after upgrade.\n\nUsage: mtv_renewItems", this.RenewItems);
-            helper.ConsoleCommands.Add("mtv_reportItems", "Ouput debug info on mod items currently in the game.\n\nUsage: mtv_reportItems", this.ReportItems);
-            helper.ConsoleCommands.Add("mtv_reportRecipes", "Output debug info on all recipes in game.\n\nUsage: mtv_reportRecipes", this.ReportRecipes);
-            helper.ConsoleCommands.Add("mtv_dumpDialogue", "Output all dialogue for specified villager\n\nUsage: mtv_dumpDialogue VillagerName", this.DumpDialogue);
-            helper.ConsoleCommands.Add("mtv_reloadconfig", "Forces Milk The Villagers to reload it's config from the file. Useful in case of editing with Generic Mod Config Menu during a session.\n\nUsage: mtv_reloadconfig", this.ReloadConfig);
+            helper.ConsoleCommands.Add("mtv_resetmail", "Removes all mail flags\n\nUsage: mtv_resetmail <value>\n- value: the farmer to remove mail from.", this.RemoveAllMail);
+            helper.ConsoleCommands.Add("mtv_resetmilk", "Resets the list of NPC's that have been milked today, allowing you to collect from them again\n\nUsage: mtv_resetmilk", this.ResetMilk);
             helper.ConsoleCommands.Add("mtv_sendallmail", "Sends every mail item from this mod, even previously sent ones\n\nUsage:mtv_sendallmail", this.SendAllMail);
-            helper.ConsoleCommands.Add("mtv_addquests", "Adds all quests to the farmer's questlog\n\nUsage: mtv_addquests", this.AddAllQuests);
-            helper.ConsoleCommands.Add("mtv_checkfiles", "checks your computer to see if the modfiles are in the right location\n\nUsage: mtv_checkfiles optional:all", this.FileCheck);
-            helper.ConsoleCommands.Add("mtv_resetmilk", "Resets the list of NPC's that have been milked today,\n\nUsage: mtv_resetmilk", this.ResetMilk);
-            helper.ConsoleCommands.Add("mtv_allfriends", "Sets all vanilla NPC's friends to either half or max\n\nmtv_allfriends | mtv_allfriends max", this.AllFriends);
-            helper.ConsoleCommands.Add("mtv_dumpquests", "Dumps all quests for translation\n\nmtv_dumpquests", this.DumpQuests);
+            helper.ConsoleCommands.Add("mtv_sendmail", "Send the next mail item if conditions are met\n\nUsage: mtv_sendmail <value>\n- value: the farmer to send mail to.", this.SendNewMail);
+            helper.ConsoleCommands.Add("mtv_upgrade", "Force the mod to reset quest and mail flags when you have upgraded the mod\n\nUsage: mtv_upgrade", this.Upgrade);
             #endregion
         }
 
@@ -170,6 +202,8 @@ namespace MilkVillagers
             // get Generic Mod Config Menu API (if it's installed)
             // add some config options
             #region basic mod options
+
+            #region Set milking button
             configMenu.AddKeybind(
                 fieldId: "Milking Button",
                 mod: this.ModManifest,
@@ -178,7 +212,9 @@ namespace MilkVillagers
                 getValue: () => this.Config.MilkButton,
                 setValue: (SButton var) => this.Config.MilkButton = var
                 );
+            #endregion
 
+            #region Set gender based milking
             configMenu.AddBoolOption(
                 fieldId: "Milk Females",
                 mod: this.ModManifest,
@@ -196,7 +232,9 @@ namespace MilkVillagers
                 getValue: () => this.Config.MilkMale,
                 setValue: value => this.Config.MilkMale = value
             );
+            #endregion
 
+            #region Set whether items are collected
             configMenu.AddBoolOption(
                 fieldId: "Collect Items?",
                 mod: this.ModManifest,
@@ -205,7 +243,9 @@ namespace MilkVillagers
                 getValue: () => this.Config.CollectItems,
                 setValue: value => this.Config.CollectItems = value
             );
+            #endregion
 
+            #region Set whether generic items are used
             configMenu.AddBoolOption(
                 fieldId: "Simple milk/cum",
                 mod: this.ModManifest,
@@ -214,7 +254,9 @@ namespace MilkVillagers
                 getValue: () => this.Config.StackMilk,
                 setValue: value => this.Config.StackMilk = value
             );
+            #endregion
 
+            #region Whether to use Abigail's extra dialogue
             configMenu.AddBoolOption(
                 fieldId: "ExtraDialogue",
                 mod: this.ModManifest,
@@ -223,7 +265,9 @@ namespace MilkVillagers
                 getValue: () => this.Config.ExtraDialogue,
                 setValue: value => this.Config.ExtraDialogue = value
             );
+            #endregion
 
+            #region Enable quests
             configMenu.AddBoolOption(
                 fieldId: "Quests",
                 mod: this.ModManifest,
@@ -232,7 +276,9 @@ namespace MilkVillagers
                 getValue: () => this.Config.Quests,
                 setValue: value => this.Config.Quests = value
             );
+            #endregion
 
+            #region Set lower sex option level requirement
             configMenu.AddNumberOption(
                 min: 0,
                 max: 10,
@@ -244,7 +290,9 @@ namespace MilkVillagers
                 getValue: () => this.Config.HeartLevel1,
                 setValue: value => Config.HeartLevel1 = value
                 );
+            #endregion
 
+            #region Set upper sex option level requirement
             configMenu.AddNumberOption(
                 min: 0,
                 max: 10,
@@ -256,6 +304,19 @@ namespace MilkVillagers
                 getValue: () => this.Config.HeartLevel2,
                 setValue: value => Config.HeartLevel2 = value
                 );
+            #endregion
+
+            #region Send mail immediately, instead of next day (quest speed limiter)
+            configMenu.AddBoolOption(
+                fieldId: "Rush_Mail",
+                mod: this.ModManifest,
+                name: () => "Rush Mail",
+                tooltip: () => "Send quest mail immediately (not next day)",
+                getValue: () => this.Config.RushMail,
+                setValue: value => this.Config.RushMail = value
+            );
+            #endregion
+
             #endregion
 
             ////////////////////////////////////////////////////////////
@@ -390,12 +451,24 @@ namespace MilkVillagers
 
         private void UpdateHeartReq()
         {
-            LoveRequirement["milk_start"] = Config.HeartLevel2;
-            LoveRequirement["milk_fast"] = Config.HeartLevel2;
-            LoveRequirement["BJ"] = Config.HeartLevel1;
-            LoveRequirement["eat_out"] = Config.HeartLevel1;
-            LoveRequirement["get_eaten"] = Config.HeartLevel1;
-            LoveRequirement["sex"] = Config.HeartLevel2;
+            LoveRequirement.Clear();
+
+            // Level 1 actions
+            //LoveRequirement["milk_start"] = Config.HeartLevel1;
+            //LoveRequirement["milk_fast"] = Config.HeartLevel1;
+            //LoveRequirement["BJ"] = Config.HeartLevel1;
+            //LoveRequirement["eat_out"] = Config.HeartLevel1;
+            //LoveRequirement["get_eaten"] = Config.HeartLevel1;
+
+            // Level 2 actions
+            //LoveRequirement["sex"] = Config.HeartLevel2;
+
+            foreach (KeyValuePair<string, string> kvp in Config.SexTopics)
+            {
+                int lvl = kvp.Value == "2" ? Config.HeartLevel2 : Config.HeartLevel1;
+                LoveRequirement[kvp.Key] = lvl;
+
+            }
         }
 
         private void UpdateConfig(string arg1, object arg2) //Updates config when items changed.
@@ -406,7 +479,7 @@ namespace MilkVillagers
                 case "Debug mode": Config.Debug = (bool)arg2; break;
                 case "ExtraDialogue": Config.ExtraDialogue = ((bool)arg2); break;
                 case "Gender": Config.FarmerGender = (string)arg2; break;
-                case "Genitals": Config.FarmerGenitals = (string)arg2; break;
+                case "Genitals": Config.FarmerGenitals = (string)arg2; SendGenitalMail(Game1.player); break;
                 case "HeartLevel1": Config.HeartLevel1 = (int)arg2; UpdateHeartReq(); break;
                 case "HeartLevel2": Config.HeartLevel2 = (int)arg2; UpdateHeartReq(); break;
                 case "Ignore villager gender": Config.IgnoreVillagerGender = (bool)arg2; break;
@@ -417,7 +490,8 @@ namespace MilkVillagers
                 case "Quests": Config.Quests = (bool)arg2; break;
                 case "Simple milk/cum": Config.StackMilk = (bool)arg2; break;
                 case "Verbose Dialogue": Config.Verbose = (bool)arg2; break;
-                default: ModFunctions.LogVerbose($"{arg1}", LogLevel.Alert, Force: true); break;
+                case "Rush_Mail": Config.RushMail = (bool)arg2; break;
+                default: log.Log($"{arg1}", LogLevel.Alert, Force: true); break;
             }
         }
 
@@ -486,7 +560,7 @@ namespace MilkVillagers
 
             if (running || !Context.IsWorldReady || Game1.menuUp || !Context.IsPlayerFree)
             {
-                ModFunctions.LogVerbose($"running: {running}, Context.IsPlayerFree: {Context.IsPlayerFree}, IsWorldReady {Context.IsWorldReady}, menuUp {Game1.menuUp}", LogLevel.Trace);
+                //log.Log($"running: {running}, Context.IsPlayerFree: {Context.IsPlayerFree}, IsWorldReady {Context.IsWorldReady}, menuUp {Game1.menuUp}", LogLevel.Trace);
                 return;
             }
 
@@ -501,38 +575,28 @@ namespace MilkVillagers
             {
                 CheckAll();
 
-                ModFunctions.LogVerbose($"{who.currentLocation.Name}, {who.getTileX()}, {who.getTileY()}");
+                log.Log($"{who.currentLocation.Name}, {who.getTileX()}, {who.getTileY()}");
+
+                if (TimeFreeze) { TimeFreeze = false; TimeFreezeTimer = 0; Game1.addHUDMessage(new HUDMessage("Time flows again")); }
+                else { TimeFreeze = true; TimeFreezeTimer = 1000; Game1.addHUDMessage(new HUDMessage("Time is frozen")); }
 
                 // for release - skip below.
-                return;
+                //return;
 
+                ///
+                ///
+                /// Press P on load to trigger. for repeated testing only.
                 if (!doneOnce)
                 {
-                    //ForceRemoveQuest("mtv_frq", new string[] { "594801" });
-                    //RemoveAllMail("mtv_resetmail", null);
                     doneOnce = true;
 
                     //who.addQuest(594815);
-                    //who.mailbox.Add("MTV_AbigailQ1");
-                    //who.mailbox.Add("MTV_MaruQ1");
-                    //who.mailbox.Add("MTV_GeorgeQ1");
-                    //who.mailbox.Add("MTV_HarveyQ2");
-                    //who.mailbox.Add("MTV_HarveyQ3");
-                    //who.mailbox.Add("MTV_MaruQ3");
-                    //who.mailbox.Add("MTV_ElliottQ1");
-                    //who.mailbox.Add("MTV_EmilyQ1");
-                    //who.mailbox.Add("MTV_HaleyQ1");
-                    //who.mailbox.Add("MTV_PennyQ2");
-                    //who.mailbox.Remove("MTV_PennyQ2T");
-                    //who.mailbox.Add("MTV_LeahQ1");
-                    who.mailbox.Add("MTV_SebQ3");
+                    //who.mailbox.Add("MTV_SebQ3");
 
-                    Game1.warpFarmer("Farm", 69, 16, false);
+                    //Game1.warpFarmer("Farm", 69, 16, false);
+                    Clothing shibari = ClothingEditor.getClothing("Tentacle Armour Upper");
+                    who.addItemByMenuIfNecessary(shibari);
 
-                    //int ah = who.getFriendshipLevelForNPC("Alex");
-                    //int h = 2000 - ah;
-                    //ModFunctions.LogVerbose($"Alex was at {ah}, adding {h}, now at {who.getFriendshipLevelForNPC("Alex")}", LogLevel.Debug);
-                    //who.changeFriendship(h, Game1.getCharacterFromName("Alex"));
                 }
                 else
                 {
@@ -549,7 +613,7 @@ namespace MilkVillagers
                     //Game1.warpFarmer("Mountain", 10, 4, false);
                     foreach (string v in who.mailForTomorrow)
                     {
-                        ModFunctions.LogVerbose($"rushing mail item {v}", LogLevel.Trace);
+                        log.Log($"rushing mail item {v}", LogLevel.Trace);
                         who.mailbox.Add(v);
                     }
                     who.mailForTomorrow.Clear();
@@ -559,12 +623,12 @@ namespace MilkVillagers
             else if (button == Config.MilkButton)
             {
                 target = GetNewPos(who.FacingDirection, FarmerPos(who)[0], FarmerPos(who)[1]);
-                NPC NPCtarget = ModFunctions.FindTarget(who.currentLocation, this.target, FarmerPos(who));
-                Farmer companion = ModFunctions.FindFarmer(who.currentLocation, this.target, FarmerPos(who));
+                NPC NPCtarget = log.FindTarget(who.currentLocation, this.target, FarmerPos(who));
+                Farmer companion = log.FindFarmer(who.currentLocation, this.target, FarmerPos(who));
                 if (NPCtarget != null)
                 {
                     List<Response> choices = GenerateSexOptions(NPCtarget); // Get list of available options for this character
-                    ModFunctions.LogVerbose($"{NPCtarget.Name}: gendercode = {NPCtarget.Gender}, age = {NPCtarget.Age}", LogLevel.Alert);
+                    log.Log($"{NPCtarget.Name}: gendercode = {NPCtarget.Gender}, age = {NPCtarget.Age}", LogLevel.Alert);
 
                     currentTarget = NPCtarget;
                     running = false;
@@ -614,14 +678,11 @@ namespace MilkVillagers
                     }
                 }
             }
-            else if (Config.Debug && Config.Verbose)
-            {
-                //ModFunctions.LogVerbose($"Button {e.Button} not registered to a function.");
-            }
         }
 
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
+            loaded = true;
             doneOnce = false;
 
             TempRefs.thirdParty = Config.ThirdParty;
@@ -639,7 +700,7 @@ namespace MilkVillagers
 
             foreach (Farmer who in Game1.getAllFarmers())
             {
-                ModFunctions.LogVerbose($"Sending mail to {who.displayName}", LogLevel.Trace);
+                log.Log($"Sending mail to {who.displayName}", LogLevel.Trace);
                 CorrectRecipes();
                 AddAllRecipes(who);
                 SendGenitalMail(who);
@@ -650,17 +711,16 @@ namespace MilkVillagers
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
         {
-            if (TempRefs.milkedtoday == null) ModFunctions.LogVerbose("TempRefs not set");
+            if (TempRefs.milkedtoday == null) log.Log("TempRefs not set");
             else
             {
-                ModFunctions.LogVerbose($"TempRefs is set. Cleared {TempRefs.milkedtoday.Count}");
+                log.Log($"TempRefs is set. Cleared {TempRefs.milkedtoday.Count}");
                 TempRefs.milkedtoday.Clear();
                 TempRefs.SexToday.Clear();
                 TempRefs.SelfCummedToday = false;
                 TempRefs.SelfMilkedToday = false;
                 MessageOnce = false;
             }
-
 
 
             //TODO change this for multiplayer
@@ -674,8 +734,32 @@ namespace MilkVillagers
             RegenAmount = 0;
         }
 
-        private void GameLoop_TimeChanged(object sender, TimeChangedEventArgs e)
+        private void GameLoop_OneSecondUpdateTicked(object sender, OneSecondUpdateTickedEventArgs e)
         {
+            if (!loaded) return;
+
+            Farmer Who = Game1.player; //TODO change to multiplayer
+            if (Who.hasMenuOpen.Value) return;
+
+            SendNewMail(Who);
+            QuestsCompletedByMail(Who);
+            if (RegenAmount > 0)
+            {
+                float restore = (float)(Game1.gameTimeInterval * 0.001);
+                RegenAmount -= restore;
+                Game1.player.stamina += restore;
+                if (Game1.player.Stamina > Game1.player.MaxStamina) Game1.player.Stamina = Game1.player.MaxStamina;
+            }
+            if (TimeFreezeTimer > 0 || TimeFreeze)
+            {
+                if (!TimeFreeze)
+                    TimeFreezeTimer -= Game1.gameTimeInterval;
+
+                Game1.gameTimeInterval = 0;
+                if (TimeFreezeTimer <= 0)
+                    Game1.addHUDMessage(new HUDMessage("Time speeds back up again"));
+            }
+
             //TODO change for multiplayer
             foreach (Farmer who in Game1.getOnlineFarmers())
             {
@@ -685,7 +769,7 @@ namespace MilkVillagers
                     !who.mailReceived.Contains("MTV_Ace") &&
                     !who.mailReceived.Contains("MTV_Herm"))
                 {
-                    ModFunctions.LogVerbose("Skipping quest watching");
+                    log.Log("Skipping quest watching");
                     return;
                 }
 
@@ -694,38 +778,110 @@ namespace MilkVillagers
             }
         }
 
-        private void GameLoop_OneSecondUpdateTicked(object sender, OneSecondUpdateTickedEventArgs e)
+        private void GameLoop_TimeChanged(object sender, TimeChangedEventArgs e)
         {
-            Farmer Who = Game1.player;
-            if (Who.hasMenuOpen.Value) return;
+            Farmer who = Game1.player;
+            int diff;
 
-            CheckCompleteQuest(Who, 594825, "MTV_PennyQ1P");
-            CheckCompleteQuest(Who, 594829, "MTV_LeahQ1P");
-            CheckCompleteQuest(Who, 594818, "MTV_EmilyQ2P");
+            if (TentacleArmour ||
+                (who.shirtItem.Value != null && who.shirtItem.Value.Name.ToLower() == "tentacle armour torso") ||
+                (who.pantsItem.Value != null && who.pantsItem.Value.Name.ToLower() == "tentacle armour lower"))
+            {
+                if (TentacleCombination) // force equip top/bottom. Should be moved to ontimeupdate.
+                {
+                    if (who.pantsItem.Value == null || who.pantsItem.Value.Name.ToLower() != "tentacle armour lower")
+                    {
+                        if (TempRefs.TentacleLeg != 806)
+                        {
+                            Clothing tents = new(TempRefs.TentacleLeg);
+                            if (who.pantsItem.Value != null)
+                            {
+                                Clothing old = who.pantsItem.Value;
+                                who.removeItemFromInventory(old);
+                                who.addItemToInventory(old);
+                            }
+                            who.pantsItem.Value = tents;
+                        }
+                    }
+                    if (who.shirtItem.Value == null || who.shirtItem.Value.Name.ToLower() != "tentacle armour torso")
+                    {
+                        if (TempRefs.TentacleTop != 806)
+                        {
+                            Clothing tents = new(TempRefs.TentacleTop);
+                            if (who.shirtItem.Value != null)
+                            {
+                                Clothing old = who.shirtItem.Value;
+                                who.removeItemFromInventory(old);
+                                who.addItemToInventory(old);
+                            }
+                            who.shirtItem.Value = tents;
+                        }
+                    }
+                }
+
+                if (e.NewTime < e.OldTime) //Slept. reset and return;
+                {
+                    TentacleCount = 0;
+                    return;
+                }
+
+                diff = e.NewTime - e.OldTime;
+                TentacleCount += diff > 10 ? 10 : diff;
+                log.Log($"Ten: {TentacleCount}", LogLevel.Info, Force: true);
+
+
+                if (TentacleCount > TentacleLimit)
+                {
+                    Game1.addHUDMessage(new HUDMessage($"The tentacles make you climax: {TentacleCount}"));
+                    who.movementPause = 400;
+                    who.health = who.maxHealth;
+                    TentacleCount = 0;
+                }
+                //if (TentacleCount == (TentacleCount / 4 * 3))
+                if (TentacleCount == 180)
+                {
+                    Game1.addHUDMessage(new HUDMessage($"The tentacles have you right on the edge of cumming: {TentacleCount}"));
+                    who.health = who.health + 75 > who.maxHealth ? who.maxHealth : who.health + 75;
+                }
+                else if (TentacleCount == 120)
+                {
+                    Game1.addHUDMessage(new HUDMessage($"The tentacles are making it harder to think: {TentacleCount}"));
+                    who.health = who.health + 50 > who.maxHealth ? who.maxHealth : who.health + 50;
+                }
+                else if (TentacleCount == 60)
+                {
+                    if (Config.HasPenis)
+                        Game1.addHUDMessage(new HUDMessage($"The tentacles start rubbing up and down your shaft: {TentacleCount}"));
+                    else if (Config.HasVagina)
+                        Game1.addHUDMessage(new HUDMessage($"The tentacles start probing your entrance: {TentacleCount}"));
+                    else
+                    {
+                        Game1.addHUDMessage(new HUDMessage($"The tentacles start rubbing your crotch, unsure what to do: {TentacleCount}"));
+                    }
+
+                    who.health = who.health + 25 > who.maxHealth ? who.maxHealth : who.health + 25;
+                }
+            }
+        }
+
+        /// <summary>
+        /// List of quests that are completed by the player seeing a scene.
+        /// </summary>
+        /// <param name="Who">The player who has the quests.</param>
+        private static void QuestsCompletedByMail(Farmer Who)
+        {
             CheckCompleteQuest(Who, 594804, "MTV_AbigailQ4T");
-            CheckCompleteQuest(Who, 594839, "MTV_HarveyQ3T");
-            CheckCompleteQuest(Who, 594840, "MTV_HarveyQ4T");
             CheckCompleteQuest(Who, 594806, "MTV_ElliottQ2T");
             CheckCompleteQuest(Who, 594807, "MTV_ElliottQ3T");
             CheckCompleteQuest(Who, 594808, "MTV_ElliottQ4T");
+            CheckCompleteQuest(Who, 594818, "MTV_EmilyQ2P");
+            CheckCompleteQuest(Who, 594825, "MTV_PennyQ1P");
             CheckCompleteQuest(Who, 594827, "MTV_PennyQ2T");
+            CheckCompleteQuest(Who, 594829, "MTV_LeahQ1P");
+            CheckCompleteQuest(Who, 5948322, "MTV_LeahQ4T");
 
-            if (RegenAmount > 0)
-            {
-                Monitor.Log($"{RegenAmount} - {Game1.gameTimeInterval}", LogLevel.Trace);
-                float restore = (float)(Game1.gameTimeInterval * 0.001);
-                RegenAmount -= restore;
-                Game1.player.stamina += restore;
-                if (Game1.player.Stamina > Game1.player.MaxStamina) Game1.player.Stamina = Game1.player.MaxStamina;
-            }
-            if (TimeFreezeTimer > 0)
-            {
-                Monitor.Log($"{TimeFreezeTimer} - {Game1.gameTimeInterval}", LogLevel.Trace);
-                TimeFreezeTimer -= Game1.gameTimeInterval;
-                Game1.gameTimeInterval = 0;
-                if (TimeFreezeTimer <= 0)
-                    Game1.addHUDMessage(new HUDMessage("Time speeds back up again"));
-            }
+            //CheckCompleteQuest(Who, 594839, "MTV_HarveyQ3T");
+            CheckCompleteQuest(Who, 594840, "MTV_HarveyQ4T");
         }
 
         private void GameLoop_DayEnding(object sender, DayEndingEventArgs e)
@@ -740,7 +896,7 @@ namespace MilkVillagers
                 QuestChecks(who);
                 SendMailCompleted(who);
 
-                ModFunctions.LogVerbose("removing repeatable events from seenEvents", LogLevel.Trace);
+                log.Log("removing repeatable events from seenEvents", LogLevel.Trace);
                 who.eventsSeen.Remove(5948121);
             }
         }
@@ -764,12 +920,14 @@ namespace MilkVillagers
         [EventPriority(EventPriority.Low)]
         private void Content_AssetRequested(object sender, AssetRequestedEventArgs e)
         {
-            if (DialogueEditor.CanEdit(e.Name)) { e.Edit(DialogueEditor.Edit); }
-            if (QuestEditor.CanEdit(e.Name)) { e.Edit(QuestEditor.Edit); }
-            if (RecipeEditor.CanEdit(e.Name)) { e.Edit(RecipeEditor.Edit); }
-            if (EventEditor.CanEdit(e.Name)) { e.Edit(EventEditor.Edit); }
-            if (MailEditor.CanEdit(e.Name)) { e.Edit(MailEditor.Edit); }
-            if (ItemEditor.CanEdit(e.Name)) { e.Edit(ItemEditor.Edit); }
+            if (DialogueEditor.CanEdit(e.Name)) { e.Edit(DialogueEditor.Edit); return; }
+            if (QuestEditor.CanEdit(e.Name)) { e.Edit(QuestEditor.Edit); return; }
+            if (RecipeEditor.CanEdit(e.Name)) { e.Edit(RecipeEditor.Edit); return; }
+            if (EventEditor.CanEdit(e.Name)) { e.Edit(EventEditor.Edit); return; }
+            if (MailEditor.CanEdit(e.Name)) { e.Edit(MailEditor.Edit); return; }
+            if (ItemEditor.CanEdit(e.Name)) { e.Edit(ItemEditor.Edit); return; }
+            if (ClothingEditor.CanEdit(e.Name)) { e.Edit(ClothingEditor.Edit); return; }
+
         }
 
         private void Content_AssetReady(object sender, AssetReadyEventArgs e)
@@ -779,9 +937,7 @@ namespace MilkVillagers
             if (e.Name.IsEquivalentTo("Data/Quests")) { QuestEditor.UpdateData(Helper.GameContent.Load<Dictionary<int, string>>(e.Name)); }
             if (e.Name.IsEquivalentTo("Data/CookingRecipes")) { RecipeEditor.UpdateCookingData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
             if (e.Name.IsEquivalentTo("Data/CraftingRecipes")) { RecipeEditor.UpdateCraftingData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
-
-            //if (e.Name.IsEquivalentTo()) { DialogueEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
-            //if (e.Name.IsEquivalentTo()) { EventEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
+            if (NPCGiftTastesEditor.CanEdit(e.Name)) { NPCGiftTastesEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
         }
 
         protected virtual void DoActionNPC(object sender, ActionNPCEventArgs e)
@@ -791,12 +947,13 @@ namespace MilkVillagers
         #endregion
 
         #region Quest methods
-        private void CheckCompleteQuest(Farmer Who, int questID, string MailName)
+        private static void CheckCompleteQuest(Farmer Who, int questID, string MailName)
         {
-            if (Who.hasQuest(questID) && Who.hasOrWillReceiveMail(MailName))
-            {
-                Who.completeQuest(questID);
-            }
+            if (Who == null) { log.Log("ERROR: Who was null"); return; }
+
+            if (!Who.mailReceived.Contains(MailName)) return;
+
+            Who.completeQuest(questID);
         }
 
         private void QuestChecks(Farmer who)
@@ -807,78 +964,18 @@ namespace MilkVillagers
             }
         }
 
-        private void Upgrade(string command, string[] args)
-        {
-            RemoveAllMail("mtv_resetmail", null);
-            SendNewMail("mtv_sendmail", Array.Empty<string>());
-
-
-        }
-
-        private void RenewItems(string command, string[] args)
-        {
-            Farmer who = Game1.player;
-
-            //Alternative method
-            foreach (Item v in who.Items)
-            {
-                if (v == null || v.GetType() != typeof(sObject)) continue;
-
-                sObject ve = v as sObject;
-
-                if (ItemEditor.ModItems.ContainsKey(ve.Name))
-                {
-                    ve = ModFunctions.NewItem(who, ve);
-
-                    if (ve.Quality == 3) { ve.Quality = 2; }
-
-                    ModFunctions.LogVerbose($"Correcting item {ve.Name}");
-                    ve.Category = ve.Name.Contains("Milk") ? -34 : -35;
-
-                    if (ve.Name == "Dwarf's Essence"
-                        || ve.Name == "Krobus's Essence"
-                        || ve.Name == "Wizard's Essence"
-                        || ve.Name == "Mr. Qi's Essence"
-                        || ve.Name == "Magical Essence")
-                    {
-                        v.Category = -36;
-                    }
-                }
-                else
-                {
-                    ModFunctions.LogVerbose($"Skipping item {v.Name}");
-
-                }
-            }
-
-        }
-
-        private void ReportItems(string command, string[] args)
-        {
-            ItemEditor.GetAllItemIDs(report: true);
-            RecipeEditor.SetCooking();
-            RecipeEditor.SetCrafting();
-            ItemEditor.Report();
-        }
-
-        private void ReportRecipes(string command, string[] args)
-        {
-            ModFunctions.LogVerbose("Dumping all recipes.", Force: true);
-            RecipeEditor.ReportAll();
-        }
-
         private bool CheckNewQuest(Farmer who, int questID)
         {
             if (!CurrentQuests.Contains(questID) && HasQuest(who, questID))
             {
                 if (questID == 594824)
                 {
-                    ModFunctions.LogVerbose("Setting ActiveConversationEvent to MTV_Bukkake", LogLevel.Info);
+                    log.Log("Setting ActiveConversationEvent to MTV_Bukkake", LogLevel.Info);
                     Game1.player.activeDialogueEvents.Add("MTV_Bukkake", 1);
                 }
                 if (questID == 594834)
                 {
-                    ModFunctions.LogVerbose("Adding ConversationTopic", LogLevel.Info);
+                    log.Log("Adding ConversationTopic", LogLevel.Info);
                     Game1.player.activeDialogueEvents.Add("HaleyPanties", 0);
 
                     // force the game to pick the right dialogue when married to Haley.
@@ -887,36 +984,21 @@ namespace MilkVillagers
 
                     bool check = haley.Dialogue.TryGetValue("HaleyPanties", out string dialogues);
 
-                    ModFunctions.LogVerbose($"{haley.Name} {check} {dialogues}", LogLevel.Info);
+                    log.Log($"{haley.Name} {check} {dialogues}", LogLevel.Info);
                     haley.setNewDialogue(dialogues);
                 }
                 if (questID == 594836)
                 {
-                    ModFunctions.LogVerbose("Setting ActiveConversationEvent to MTV_GeorgeQ4", LogLevel.Info);
+                    log.Log("Setting ActiveConversationEvent to MTV_GeorgeQ4", LogLevel.Info);
                     Game1.player.activeDialogueEvents.Add("MTV_GeorgeQ4", 0);
                 }
 
                 CurrentQuests.Add(questID);
-                ModFunctions.LogVerbose($"Watching quest ID {questID}", LogLevel.Trace);
+                log.Log($"Watching quest ID {questID}", LogLevel.Trace);
                 return true;
             }
 
             return false;
-        }
-
-        private void ForceRemoveQuest(string command, string[] args)
-        {
-            Farmer who = Game1.player;
-            Dictionary<int, int> quests = GetAllIndexes(who);
-
-            for (int i = 0; i < args.Length; i++)
-            {
-                _ = args[i];
-                if (int.TryParse(args[0], out int id) && quests.ContainsKey(id))
-                {
-                    who.questLog.RemoveAt(quests[id]);
-                }
-            }
         }
 
         private static Dictionary<int, int> GetAllIndexes(Farmer who)
@@ -941,7 +1023,7 @@ namespace MilkVillagers
                 {
                     if (q.completed.Value)
                     {
-                        ModFunctions.LogVerbose($"Quest {q.GetName()} is complete.", LogLevel.Trace);
+                        log.Log($"Quest {q.GetName()} is complete.", LogLevel.Trace);
                         return false;
                     }
                     return true;
@@ -954,7 +1036,7 @@ namespace MilkVillagers
         {
             //if (who.hasQuest(QuestID) && Recipient == e.recipient.Name && ActionRequired.Contains(e.action))
             //{
-            //    ModFunctions.LogVerbose($"Completing quest {QuestID}", LogLevel.Alert);
+            //    log.LogVerbose($"Completing quest {QuestID}", LogLevel.Alert);
             //    who.completeQuest(QuestID);
             //    return true;
             //}
@@ -964,7 +1046,7 @@ namespace MilkVillagers
                 (Recipient == e.Recipient.Name) &&
                 ActionRequired.Contains(e.Action))
             {
-                ModFunctions.LogVerbose($"Completing quest {QuestID}", LogLevel.Trace);
+                log.Log($"Completing quest {QuestID}", LogLevel.Trace);
                 who.completeQuest(QuestID);
                 return true;
             }
@@ -974,7 +1056,7 @@ namespace MilkVillagers
                 ((Recipient == "Male" && e.Recipient.Gender == 0) || (Recipient == "Female" && e.Recipient.Gender == 1)) &&
                 ActionRequired.Contains(e.Action))
             {
-                ModFunctions.LogVerbose($"Completing quest {QuestID}", LogLevel.Trace);
+                log.Log($"Completing quest {QuestID}", LogLevel.Trace);
                 who.completeQuest(QuestID);
                 return true;
             }
@@ -984,7 +1066,7 @@ namespace MilkVillagers
                 (Recipient == "Magical" && (e.Recipient.Name == "Dwarf" || e.Recipient.Name == "Wizard" || e.Recipient.Name == "Mister Qi" || e.Recipient.Name == "Krobus")) &&
                 ActionRequired.Contains(e.Action))
             {
-                ModFunctions.LogVerbose($"Completing quest {QuestID}", LogLevel.Trace);
+                log.Log($"Completing quest {QuestID}", LogLevel.Trace);
                 who.completeQuest(QuestID);
                 return true;
             }
@@ -1006,9 +1088,9 @@ namespace MilkVillagers
 
             CheckActionQuest(e.Who, 594837, "George", new string[] { "BJ", "milk_fast" }, e);
             CheckActionQuest(e.Who, 5948382, "Jodi", new string[] { "milk_start", "milk_fast" }, e);
-            //CheckActionQuest(e.Who, 594839, "Harvey", new string[] { "BJ", "milk_fast" }, e);
 
-            ModFunctions.LogVerbose($"{e.Who.Name} did {e.Action} with {e.Recipient.Name} in {e.Map.Name}", LogLevel.Trace);
+
+            log.Log($"{e.Who.Name} did {e.Action} with {e.Recipient.Name} in {e.Map.Name}", LogLevel.Trace);
         }
 
         #endregion
@@ -1024,12 +1106,12 @@ namespace MilkVillagers
                 if (Immediate)
                 {
                     who.mailbox.Add(NextMail);
-                    ModFunctions.LogVerbose($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to today's mailbox.", LogLevel.Trace);
+                    log.Log($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to today's mailbox.", LogLevel.Trace);
                 }
                 else
                 {
                     who.mailForTomorrow.Add(NextMail);
-                    ModFunctions.LogVerbose($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to tomorrow's mailbox.", LogLevel.Trace);
+                    log.Log($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to tomorrow's mailbox.", LogLevel.Trace);
                 }
             }
         }
@@ -1041,13 +1123,20 @@ namespace MilkVillagers
                 if (Immediate)
                 {
                     who.mailbox.Add(NextMail);
-                    ModFunctions.LogVerbose($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to today's mailbox.", LogLevel.Trace);
+                    log.Log($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to today's mailbox.", LogLevel.Trace);
                 }
                 else
                 {
                     who.mailForTomorrow.Add(NextMail);
-                    ModFunctions.LogVerbose($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to tomorrow's mailbox.", LogLevel.Trace);
+                    log.Log($"{who.Name} has read mail {FinishedMail}. Adding {NextMail} to tomorrow's mailbox.", LogLevel.Trace);
                 }
+            }
+            if (who.mailForTomorrow.Contains(NextMail) && Immediate)
+            {
+                who.mailForTomorrow.Remove(NextMail);
+                who.mailbox.Add(NextMail);
+
+                log.Log($"Moving mail item {NextMail} to today's mailbox", LogLevel.Trace); ;
             }
         }
 
@@ -1058,12 +1147,12 @@ namespace MilkVillagers
                 if (Immediate)
                 {
                     who.mailbox.Add(NextMail);
-                    ModFunctions.LogVerbose($"Adding {NextMail} to today's mailbox.", LogLevel.Trace);
+                    log.Log($"Adding {NextMail} to today's mailbox.", LogLevel.Trace);
                 }
                 else
                 {
                     who.mailForTomorrow.Add(NextMail);
-                    ModFunctions.LogVerbose($"Adding {NextMail} to tomorrow's mailbox.", LogLevel.Trace);
+                    log.Log($"Adding {NextMail} to tomorrow's mailbox.", LogLevel.Trace);
                 }
             }
         }
@@ -1071,14 +1160,17 @@ namespace MilkVillagers
 
         private void RemoveAllMail(string command, string[] args)
         {
-            Farmer who = Game1.player;
+            List<Farmer> farmers = Game1.getAllFarmers().ToList();
+
+            Farmer who = args.Length > 0 ? farmers.Where(o => o.displayName.ToLower() == args[0].ToLower()) as Farmer : Game1.player;
+            who ??= Game1.player;
 
             foreach (string s in MailEditor.Mail)
             {
                 while (who.hasOrWillReceiveMail(s))
                 {
                     who.RemoveMail(s);
-                    ModFunctions.LogVerbose($"Removing mail {s} from mailbox");
+                    log.Log($"Removing mail {s} from mailbox");
                 }
             }
             SendNewMail(who);
@@ -1087,15 +1179,14 @@ namespace MilkVillagers
 
         private void SendNewMail(Farmer who)
         {
+            // Tutorial
+            SendNextMail(who, "MilkButton1", Immediate: true);
+            SendNextMail(who, "MilkButton1", "MilkButton2", Immediate: true);
+
+
             if (Config.Quests) //TODO This section picks the next quest. Need to rewrite/decide how to send next mail/quest.
             {
-                // Send new mail checks
-
-                // Tutorial
-                SendNextMail(who, "MilkButton1", Immediate: true);
-                SendNextMail(who, "MilkButton1", "MilkButton2", Immediate: Config.RushMail);
-
-                SendNextMail(who, "MilkButton2", "AbiMilking", Immediate: Config.RushMail);
+                //SendNextMail(who, "MilkButton2", "AbiMilking", Immediate: Config.RushMail);
 
                 // TODO change this so that first mail item is sent when farmer uses wand/gives gift to villager.
                 if (Config.MilkFemale)
@@ -1106,6 +1197,18 @@ namespace MilkVillagers
                     SendNextMail(who, "MTV_AbigailQ3T", "MTV_AbigailQ4", "Abigail", 10, Immediate: Config.RushMail);       // Abi Milk Quest 4
                     #endregion
 
+                    #region Elliott - events written, single gender
+                    SendNextMail(who, "MTV_ElliottQ1T", "MTV_ElliottQ2", "Elliott", 7, Immediate: Config.RushMail);         // Elliott Quest 2
+                    SendNextMail(who, "MTV_ElliottQ2T", "MTV_ElliottQ3", "Elliott", 8, Immediate: Config.RushMail);         // Elliott Quest 3
+                    SendNextMail(who, "MTV_ElliottQ3T", "MTV_ElliottQ4", "Elliott", 10, Immediate: Config.RushMail);        // Elliott Quest 4
+                    #endregion
+
+                    #region Sebastian
+                    SendNextMail(who, "MTV_SebQ1T", "MTV_SebQ2", "Sebastian", 7, Immediate: Config.RushMail);   //Sebastian Quest 2
+                    SendNextMail(who, "MTV_SebQ2T", "MTV_SebQ3", "Sebastian", 8, Immediate: Config.RushMail);   //Sebastian Quest 3
+                    SendNextMail(who, "MTV_SebQ3T", "MTV_SebQ4", "Sebastian", 10, Immediate: Config.RushMail);  //Sebastian Quest 4
+                    #endregion
+
                     #region Maru
                     SendNextMail(who, "MTV_MaruQ1T", "MTV_MaruQ2", "Maru", 7, Immediate: Config.RushMail);                  // Abi Milk Quest 2
                     SendNextMail(who, "MTV_MaruQ2T", "MTV_MaruQ3", "Maru", 8, Immediate: Config.RushMail);                  // Abi Milk Quest 3
@@ -1114,7 +1217,7 @@ namespace MilkVillagers
 
                     #region George 
                     SendNextMail(who, "MTV_GeorgeQ1T", "MTV_GeorgeQ2", "George", 7, Immediate: Config.RushMail);            // George Quest 2
-                    //SendNextMail(who, "MTV_GeorgeQ2T", "MTV_GeorgeQ3", "George", 8, Immediate: Config.RushMail);            // George Quest 3
+                                                                                                                            //SendNextMail(who, "MTV_GeorgeQ2T", "MTV_GeorgeQ3", "George", 8, Immediate: Config.RushMail);            // George Quest 3
                     SendNextMail(who, "MTV_GeorgeQ3T", "MTV_GeorgeQ4", "George", 10, Immediate: Config.RushMail);           // George Quest 4
                     #endregion
 
@@ -1124,15 +1227,9 @@ namespace MilkVillagers
                     SendNextMail(who, "MTV_HarveyQ3T", "MTV_HarveyQ4", "Harvey", 10, Immediate: Config.RushMail);           // Harvey Quest 4
                     #endregion
 
-                    #region Elliott - events not written
-                    SendNextMail(who, "MTV_ElliottQ1T", "MTV_ElliottQ2", "Elliott", 7, Immediate: Config.RushMail);         // Elliott Quest 2
-                    SendNextMail(who, "MTV_ElliottQ2T", "MTV_ElliottQ3", "Elliott", 8, Immediate: Config.RushMail);         // Elliott Quest 3
-                    SendNextMail(who, "MTV_ElliottQ3T", "MTV_ElliottQ4", "Elliott", 10, Immediate: Config.RushMail);        // Elliott Quest 4
-                    #endregion
-
                     #region Emily
                     SendNextMail(who, "MTV_EmilyQ1T", "MTV_EmilyQ2", "Emily", 7, Immediate: Config.RushMail);               //Emily Quest 2
-                    //SendNextMail(who, "MTV_EmilyQ2T", "MTV_EmilyQ3", "Emily", 8, Immediate: Config.RushMail);               //Emily Quest 3
+                                                                                                                            //SendNextMail(who, "MTV_EmilyQ2T", "MTV_EmilyQ3", "Emily", 8, Immediate: Config.RushMail);               //Emily Quest 3
                     SendNextMail(who, "MTV_EmilyQ3T", "MTV_EmilyQ4", "Emily", 10, Immediate: Config.RushMail);              //Emily Quest 4
                     #endregion
 
@@ -1144,20 +1241,14 @@ namespace MilkVillagers
 
                     #region Penny
                     SendNextMail(who, "MTV_PennyQ1T", "MTV_PennyQ2", "Penny", 7, Immediate: Config.RushMail);               //Penny Quest 2
-                    //SendNextMail(who, "MTV_PennyQ2T", "MTV_PennyQ3", "Penny", 8, Immediate: Config.RushMail);               //Penny Quest 3
+                                                                                                                            //SendNextMail(who, "MTV_PennyQ2T", "MTV_PennyQ3", "Penny", 8, Immediate: Config.RushMail);               //Penny Quest 3
                     SendNextMail(who, "MTV_PennyQ3T", "MTV_PennyQ4", "Penny", 10, Immediate: Config.RushMail);              //Penny Quest 4
                     #endregion
 
                     #region Leah
                     SendNextMail(who, "MTV_LeahQ1T", "MTV_LeahQ2", "Leah", 7, Immediate: Config.RushMail);                  //Leah Quest 2
                     SendNextMail(who, "MTV_LeahQ2T", "MTV_LeahQ3", "Leah", 8, Immediate: Config.RushMail);                  //Leah Quest 3
-                    //SendNextMail(who, "MTV_LeahQ3T", "MTV_LeahQ4", "Leah", 10, Immediate: Config.RushMail);                 //Leah Quest 4
-                    #endregion
-
-                    #region Sebastian
-                    SendNextMail(who, "MTV_SebQ1T", "MTV_SebQ2", "Sebastian", 7, Immediate: Config.RushMail);   //Sebastian Quest 2
-                    SendNextMail(who, "MTV_SebQ2T", "MTV_SebQ3", "Sebastian", 8, Immediate: Config.RushMail);   //Sebastian Quest 3
-                    SendNextMail(who, "MTV_SebQ3T", "MTV_SebQ4", "Sebastian", 10, Immediate: Config.RushMail);  //Sebastian Quest 4
+                                                                                                                            //SendNextMail(who, "MTV_LeahQ3T", "MTV_LeahQ4", "Leah", 10, Immediate: Config.RushMail);                 //Leah Quest 4
                     #endregion
 
                 }
@@ -1181,40 +1272,39 @@ namespace MilkVillagers
                 }
                 catch (Exception ex)
                 {
-                    ModFunctions.LogVerbose(ex.Message, Level: LogLevel.Alert);
+                    log.Log(ex.Message, Level: LogLevel.Alert);
                 }
             }
-            else
-            {
-                SendNewMail(who);
-            }
+
+            SendNewMail(who);
+
         }
 
         private void SendMailCompleted(Farmer who)
         {
             if (CurrentQuests.Count < 1)
             {
-                ModFunctions.LogVerbose($"Found {CurrentQuests.Count} quests. Skipping SendMailCompleted()");
+                log.Log($"Found {CurrentQuests.Count} quests. Skipping SendMailCompleted()");
                 return;
             }
 
-            ModFunctions.LogVerbose($"Found {CurrentQuests.Count} quests. Sending completed mail");
+            log.Log($"Found {CurrentQuests.Count} quests. Sending completed mail");
 
             List<int> QuestsToRemove = new();
 
             // Check if no longer has quest.
             foreach (int q in CurrentQuests)
             {
-                ModFunctions.LogVerbose($"Checking if quest {q} is complete yet", LogLevel.Trace);
+                log.Log($"Checking if quest {q} is complete yet", LogLevel.Trace);
                 if (!HasQuest(who, q)) // OR finished quest
                 {
-                    ModFunctions.LogVerbose($"Quest ID {q} has finished");
+                    log.Log($"Quest ID {q} has finished");
 
                     // Remove quest items
                     if (q == 594824)
                     {
                         int stack = who.getItemCount(TempRefs.Invitation);
-                        ModFunctions.LogVerbose($"removing {TempRefs.Invitation}: {stack}", LogLevel.Trace);
+                        log.Log($"removing {TempRefs.Invitation}: {stack}", LogLevel.Trace);
                         who.removeItemsFromInventory(TempRefs.Invitation, stack);
                     }
 
@@ -1222,11 +1312,11 @@ namespace MilkVillagers
                     if (QuestEditor.QuestMail.ContainsKey(q))
                     {
                         who.mailbox.Add(QuestEditor.QuestMail[q]);
-                        ModFunctions.LogVerbose($"Sending mail {q}: {QuestEditor.QuestMail[q]}", LogLevel.Trace);
+                        log.Log($"Sending mail {q}: {QuestEditor.QuestMail[q]}", LogLevel.Trace);
                     }
                     else
                     {
-                        ModFunctions.LogVerbose($"couldn't find a quest with ID {q}", LogLevel.Trace);
+                        log.Log($"couldn't find a quest with ID {q}", LogLevel.Trace);
                     }
 
                     QuestsToRemove.Add(q);
@@ -1248,7 +1338,7 @@ namespace MilkVillagers
             who.RemoveMail("MTV_Ace");
             who.RemoveMail("MTV_Herm");
 
-            ModFunctions.LogVerbose($"o:{Config.OverrideGenitals} a:{Config.AceCharacter} v:{GetVagina(who)} p:{GetPenis(who)}", LogLevel.Trace);
+            log.Log($"o:{Config.OverrideGenitals} a:{Config.AceCharacter} v:{GetVagina(who)} p:{GetPenis(who)}", LogLevel.Trace);
 
             Netcode.NetStringList mailbox = Config.Verbose ? who.mailbox : who.mailReceived;
             string newMail = "MTV_null";
@@ -1259,27 +1349,27 @@ namespace MilkVillagers
             if (!GetPenis(who) && GetVagina(who)) { newMail = "MTV_Vagina"; goto sendmail; }
 
         sendmail:
-            ModFunctions.LogVerbose($"{newMail}: {MailEditor.Mail.Contains(newMail)}", LogLevel.Trace);
+            log.Log($"{newMail}: {MailEditor.Mail.Contains(newMail)}", LogLevel.Trace);
             mailbox.Add(newMail);
         }
 
         public static bool GetVagina(Farmer who)
         {
-            //ModFunctions.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Vagina: {TempRefs.HasVagina}");
+            //log.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Vagina: {TempRefs.HasVagina}");
             if (TempRefs.OverrideGenitals) return TempRefs.HasVagina;
             return !who.IsMale;
         }
 
         public static bool GetPenis(Farmer who)
         {
-            //ModFunctions.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Penis: {TempRefs.HasPenis}", LogLevel.Alert);
+            //log.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Penis: {TempRefs.HasPenis}", LogLevel.Alert);
             if (TempRefs.OverrideGenitals) return TempRefs.HasPenis;
             return who.IsMale;
         }
 
         public static bool GetBreasts(Farmer who)
         {
-            //ModFunctions.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Breasts: {TempRefs.HasBreasts}", LogLevel.Alert);
+            //log.LogVerbose($"Override: {TempRefs.OverrideGenitals}. Breasts: {TempRefs.HasBreasts}", LogLevel.Alert);
             if (TempRefs.OverrideGenitals) return TempRefs.HasBreasts;
             return !who.IsMale;
         }
@@ -1290,14 +1380,14 @@ namespace MilkVillagers
         {
             bool result = true;
 
-            ModFunctions.LogVerbose("Checking items...");
+            log.Log("Checking items...");
             if (!ItemEditor.CheckAll())
                 result = false;
 
             return result;
         }
 
-        public void UpdateConfig(string key, string value)
+        public void UpdateItemConfig()
         {
             ItemEditor.RemoveInvalid(Config.MilkMale, Config.MilkFemale);
             RecipeEditor.RemoveInvalid(Config.MilkMale, Config.MilkFemale);
@@ -1306,14 +1396,14 @@ namespace MilkVillagers
         private void AddAllRecipes(Farmer who)
         {
             //TODO move this to be a quest reward or something.
-            ModFunctions.LogVerbose($"Removing recipes", LogLevel.Trace);
+            log.Log($"Removing recipes", LogLevel.Trace);
             who.cookingRecipes.Remove("Special Milkshake");
             who.cookingRecipes.Remove("Protein Shake");
             who.cookingRecipes.Remove("Super Juice");
             who.craftingRecipes.Remove("Woman's Milk");
             who.craftingRecipes.Remove("Special Milk");
 
-            ModFunctions.LogVerbose($"Adding back in {5} recipes", LogLevel.Trace);
+            log.Log($"Adding back in {5} recipes", LogLevel.Trace);
             if (Config.MilkFemale) who.cookingRecipes.Add("Special Milkshake", 0);
             if (Config.MilkMale) who.cookingRecipes.Add("Protein Shake", 0);
             if (Config.MilkFemale && Config.MilkMale) who.cookingRecipes.Add("Super Juice", 0);
@@ -1325,9 +1415,9 @@ namespace MilkVillagers
 
         private void GetItemCodes()
         {
-            ModFunctions.LogVerbose($"Correcting item codes");
+            log.Log($"Correcting item codes");
 
-            if (!ItemEditor.Initialised) { ModFunctions.LogVerbose("ItemEditor isn't initialised.", LogLevel.Trace); return; }
+            if (!ItemEditor.Initialised) { log.Log("ItemEditor isn't initialised.", LogLevel.Trace); return; }
 
             TempRefs.loaded = true;
 
@@ -1358,10 +1448,9 @@ namespace MilkVillagers
             List<Response> choices;
             choices = new List<Response>();
 
-
             if (target.Age == 2) // 2 is a child - immediate yeet
             {
-                ModFunctions.LogVerbose($"{target.Name} is a child.", LogLevel.Trace);
+                log.Log($"{target.Name} is a child.", LogLevel.Trace);
             }
             else
             {
@@ -1486,7 +1575,7 @@ namespace MilkVillagers
             if (HeartCurrent < heartMin && npc.CanSocialize)//  npc.name != "Mister Qi") // Check if the NPC likes you enough.
             {
                 Game1.drawDialogue(npc, $"That's flattering, but I don't like you enough for that. ({HeartCurrent}/{heartMin})");
-                ModFunctions.LogVerbose($"{npc.Name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Trace);
+                log.Log($"{npc.Name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Trace);
                 goto cleanup;
             }
 
@@ -1515,7 +1604,8 @@ namespace MilkVillagers
             #endregion
 
             #region set item to give
-            if (false)
+            #region old style
+            /*if (false)
             {
                 switch (npc.Name) //Give items to player
                 {
@@ -1569,15 +1659,15 @@ namespace MilkVillagers
                     default: //NPC's I don't know.
                         ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
                         Quality = 1;
-                        ModFunctions.LogVerbose($"Couldn't find {npc.Name} in the list of items", LogLevel.Debug);
+                        log.Log($"Couldn't find {npc.Name} in the list of items", LogLevel.Debug);
                         break;
                 }
             }
-            else
-            {
-                ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
-                Quality = 1;
-            }
+            */
+            #endregion
+
+            ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
+            Quality = 1;
 
             // Don't remove this - It's a good way of speeding up for people.
             if (Config.StackMilk)
@@ -1606,7 +1696,7 @@ namespace MilkVillagers
                 AddItem.Category = -36;
             }
 
-            ModFunctions.LogVerbose($"Trying to milk {npc.Name}. Will give item {ItemCode}: {ItemEditor.GetItemName(ItemCode)}, Category: {AddItem.Category} / {AddItem.getCategoryName()}", LogLevel.Trace);
+            log.Log($"Trying to milk {npc.Name}. Will give item {ItemCode}: {ItemEditor.GetItemName(ItemCode)}, Category: {AddItem.Category} / {AddItem.getCategoryName()}", LogLevel.Trace);
 
             // If no male milking, don't give item.
             if ((npc.Gender == 0 & !Config.MilkMale) || !Config.CollectItems)
@@ -1631,7 +1721,7 @@ namespace MilkVillagers
                     int start = chosenString.IndexOf("[") + 1;
                     int end = chosenString.LastIndexOf("]");
                     string val = chosenString[start..end];
-                    ModFunctions.LogVerbose($"{npc.Name} value was {val}", LogLevel.Trace);
+                    log.Log($"{npc.Name} value was {val}", LogLevel.Trace);
                     int.TryParse(val, out ItemCode);
                     chosenString = chosenString.Replace($"[{val}]", "");
                 }
@@ -1647,7 +1737,7 @@ namespace MilkVillagers
                     int end = chosenString.IndexOf("}", start);
 
                     string val = chosenString.Substring(end - 1, 1);
-                    ModFunctions.LogVerbose($"{npc.Name} Quality was {val}", LogLevel.Trace);
+                    log.Log($"{npc.Name} Quality was {val}", LogLevel.Trace);
                     int.TryParse(val, out Quality);
 
                     AddItem.Quality = Quality;
@@ -1662,7 +1752,7 @@ namespace MilkVillagers
                     int end = chosenString.IndexOf("}", start);
 
                     string val = chosenString.Substring(end - 1, 1);
-                    ModFunctions.LogVerbose($"{npc.Name} Quantity was {val}", LogLevel.Trace);
+                    log.Log($"{npc.Name} Quantity was {val}", LogLevel.Trace);
                     int.TryParse(val, out Quantity);
 
                     AddItem.Stack = Quantity;
@@ -1696,7 +1786,7 @@ namespace MilkVillagers
             }
             else //if (action != "milk_fast")
             {
-                ModFunctions.LogVerbose($"{npc.Name} failed to get anything for action {action}. Probably not written yet.", LogLevel.Info);
+                log.Log($"{npc.Name} failed to get anything for action {action}. Probably not written yet.", LogLevel.Info);
                 switch (action)
                 {
                     case "milk_fast":
@@ -1888,38 +1978,135 @@ namespace MilkVillagers
         #region Testing/Console Commands
         private void DumpDialogue(string command, string[] args)
         {
-            ModFunctions.LogVerbose("Dumping main custom dialogue", LogLevel.Info, Force: true);
+            log.Log("Dumping main custom dialogue", LogLevel.Info, Force: true);
 
             List<string> chars;
-            if (args.Length < 1)
+            List<string> sArgs = new();
+            List<string> results = new();
+
+            foreach (string s in args)
             {
-                chars = ModFunctions.chars;
+                if (s != "bare") sArgs.Add(s);
+            }
+
+            if (sArgs.Count < 1)
+            {
+                chars = NPCGiftTastesEditor.Villagers;
             }
             else
             {
                 chars = new List<string>();
-                chars.Add(args[0]);
+                chars.AddRange(sArgs);
             }
 
             foreach (string s in chars)
             {
-                if (Game1.getCharacterFromName(s) != null && Game1.getCharacterFromName(s).Dialogue.Count > 0)
+                var adj = NPCGiftTastesEditor.Villagers.Find(o => o.ToLower().Contains(s.ToLower()));
+                if (Game1.getCharacterFromName(adj) != null && Game1.getCharacterFromName(adj).Dialogue.Count > 0)
                 {
-                    ModFunctions.LogVerbose($"Dumping {s}'s dialogue", LogLevel.Trace);
-                    foreach (KeyValuePair<string, string> kvp in Game1.getCharacterFromName(s).Dialogue)
+                    foreach (KeyValuePair<string, string> kvp in Game1.getCharacterFromName(adj).Dialogue)
                     {
-                        if (ModFunctions.topics.Contains(kvp.Key))
+                        if (log.topics.Contains(kvp.Key))
                         {
-                            ModFunctions.LogVerbose($"{kvp.Key}: {kvp.Value}");
+                            if (args.Contains("bare")) results.Add($"{adj}:\t{kvp.Key}");
+                            else results.Add($"{adj}:\t{kvp.Key}:\t{kvp.Value}");
                         }
                     }
+                }
+                else
+                {
+                    results.Add($"{s} not found");
+                }
+            }
+
+            results.Sort();
+
+            foreach (string s in results)
+            {
+                log.Log(s);
+            }
+        }
+
+        private void ForceRemoveQuest(string command, string[] args)
+        {
+            Farmer who = Game1.player;
+            Dictionary<int, int> quests = GetAllIndexes(who);
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                _ = args[i];
+                if (int.TryParse(args[i], out int id) && quests.ContainsKey(id))
+                {
+                    who.questLog.RemoveAt(quests[id]);
                 }
             }
         }
 
-        private void ReloadConfig(string command, string[] args)
+        private void Upgrade(string command, string[] args)
         {
-            UpdateConfig();
+            RemoveAllMail("mtv_resetmail", null);
+            SendNewMail("mtv_sendmail", Array.Empty<string>());
+
+
+        }
+
+        private void RenewItems(string command, string[] args)
+        {
+            Farmer who = Game1.player;
+
+            //Alternative method
+            foreach (Item v in who.Items)
+            {
+                if (v == null || v.GetType() != typeof(sObject)) continue;
+
+                sObject ve = v as sObject;
+
+                if (ItemEditor.ModItems.ContainsKey(ve.Name))
+                {
+                    ve = log.NewItem(who, ve);
+
+                    if (ve.Quality == 3) { ve.Quality = 2; }
+
+                    log.Log($"Correcting item {ve.Name}");
+                    ve.Category = ve.Name.Contains("Milk") ? -34 : -35;
+
+                    if (ve.Name == "Dwarf's Essence"
+                        || ve.Name == "Krobus's Essence"
+                        || ve.Name == "Wizard's Essence"
+                        || ve.Name == "Mr. Qi's Essence"
+                        || ve.Name == "Magical Essence")
+                    {
+                        v.Category = -36;
+                    }
+                }
+                else
+                {
+                    log.Log($"Skipping item {v.Name}");
+
+                }
+            }
+
+        }
+
+        private void CheckItemCodes(string command, string[] args)
+        {
+            //log.Log($"Checking items are loaded");
+            //if (!ItemEditor.Initialised) { log.Log($"ItemEditor isn't initialised"); return; }
+
+            if (args.Contains("Init"))
+            {
+                ItemEditor.GetAllItemIDs(report: true);
+                RecipeEditor.SetCooking();
+                RecipeEditor.SetCrafting();
+            }
+
+            ItemEditor.Report();
+        }
+
+        private void ReportRecipes(string command, string[] args)
+        {
+            log.Log("Dumping all MTV recipes.", LogLevel.Info);
+            RecipeEditor.ReportAll();
         }
 
         private void SendAllMail(string command, string[] args)
@@ -1931,46 +2118,63 @@ namespace MilkVillagers
             }
         }
 
+        /// <summary>
+        /// Adds all quests from Milk The Villagers to the farmer's questslog. (uncompleted)
+        /// </summary>
+        /// <param name="args">[Completed]</param>
         private void AddAllQuests(string command, string[] args)
         {
             Farmer who = Game1.player;
+            List<string> failed = new();
             foreach (KeyValuePair<string, int> kvp in QuestEditor.QuestIDs)
             {
-                ModFunctions.LogVerbose($"Adding quests {kvp.Value}-{kvp.Key}");
+                if (!kvp.Value.ToString().StartsWith("5948")) continue;
+
+                log.Log($"\tAdding quests {kvp.Value}-{kvp.Key}");
                 try
                 {
                     who.addQuest(kvp.Value);
+                    if (args.Length > 0 && args.Contains("completed")) who.completeQuest(kvp.Value);
                 }
                 catch (Exception ex)
                 {
-                    ModFunctions.LogVerbose($"Failed to add quest {kvp.Key} with error {ex.Message}");
+                    log.Log($"{ex.Message}");
+                    failed.Add(kvp.Key); ;
                 }
+            }
+
+            foreach (string s in failed)
+            {
+                log.Log($"\t\tFailed to add quest {s}");
             }
         }
 
         private void FileCheck(string command, string[] args)
         {
-            ModFunctions.LogVerbose($"Checking files", LogLevel.Trace, Force: true);
+            log.Log($"Checking files", LogLevel.Trace, Force: true);
             List<string> folders;
 
-            if (args.Length > 0 && args[0].ToLower() == "all")
+            if (args.Contains("all"))
             {
-                folders = ModFunctions.GetDirectories($"{Environment.CurrentDirectory}\\Mods\\Milk the Villagers");
+                folders = log.GetDirectories($"{Environment.CurrentDirectory}\\Mods\\Milk the Villagers");
                 foreach (string s in folders)
                 {
                     foreach (string f in Directory.GetFiles(s))
                     {
-                        ModFunctions.LogVerbose(f.Replace(Environment.CurrentDirectory, ".."), LogLevel.Trace, Force: true);
+                        log.Log(f.Replace(Environment.CurrentDirectory, ".."), LogLevel.Trace, Force: true);
                     }
                 }
 
             }
             else
             {
-                folders = Directory.GetDirectories($"{Environment.CurrentDirectory}\\Mods\\Milk the Villagers").ToList();
+                folders = log.GetDirectories($"{Environment.CurrentDirectory}\\Mods\\Milk the Villagers\\[JA]MilkVillagers\\");
                 foreach (string s in folders)
                 {
-                    ModFunctions.LogVerbose(s.Replace(Environment.CurrentDirectory, ".."), LogLevel.Trace, Force: true);
+                    foreach (string f in Directory.GetFiles(s))
+                    {
+                        log.Log(f.Replace(Environment.CurrentDirectory, ".."), LogLevel.Trace, Force: true);
+                    }
                 }
             }
 
@@ -1982,25 +2186,140 @@ namespace MilkVillagers
             TempRefs.milkedtoday.Clear();
         }
 
-        private void AllFriends(string command, string[] args)
+        private void Friends(string command, string[] args)
         {
-            int level = (args.Length > 1 && args[0].ToLower() == "max") ? 2500 : 1500;
 
-            foreach (string s in ModFunctions.chars)
+            int level;
+            if (args.Length > 0 && int.TryParse(args[0], out int lv))
+                level = lv * 250;
+            else
+                level = (args.Length > 0 && args.Contains("max")) ? 2500 : 1500;
+
+            log.Log($"Setting all villagers to {level / 250} hearts", LogLevel.Info);
+
+            foreach (string s in NPCGiftTastesEditor.Villagers)
             {
-                Game1.player.changeFriendship(level, Game1.getCharacterFromName(s));
+                if (args.Contains("list")) log.Log($"{s} set to {level} -> {level / 250}", LogLevel.Info, Force: true);
+
+                int mod = level - Game1.player.getFriendshipLevelForNPC(s);
+                Game1.player.changeFriendship(mod, Game1.getCharacterFromName(s));
             }
 
         }
 
         private void DumpQuests(string command, string[] args)
         {
-            QuestEditor.Report(args.Length > 0 && args[0] == "i18n");
+            QuestEditor.Report(i18n: args.Length > 0 && args.Contains("i18n"), raw: args.Length > 0 && args.Contains("raw"), special: args.Length > 0 && args.Contains("special"));
+            log.Log($"i18n: {args.Contains("i18n")}; raw: {args.Contains("raw")}; special: {args.Contains("special")}", LogLevel.Debug, Force: true);
         }
         #endregion
+
+
+
     }
 
     public delegate void ActionNPC(object sender, ActionNPCEventArgs e);
+
+    [HarmonyPatch(typeof(StardewValley.Item), nameof(StardewValley.Item.getCategoryName))]
+    public static class ItemPatches
+    {
+        public static bool Applied { get; private set; } = false;
+        private static IMonitor Monitor { get; set; } = (IMonitor)null;
+
+        public static void CategoryNamePostfix(ref string __result, ref sObject __instance)
+        {
+            //log.Log($"mtv trying to edit getCategoryName with Harmony.", LogLevel.Info);
+
+            switch (__instance.Category)
+            {
+                case -34: __result = "Breast Milk"; return;
+                case -35: __result = "Human Cum"; return;
+                case -36: __result = "Mystical Essence"; return;
+
+                default: return;
+            }
+        }
+
+        public static void CategoryColourPostfix(ref Color __result, ref sObject __instance)
+        {
+            //log.Log($"mtv trying to edit getCategoryName with Harmony.", LogLevel.Info);
+
+            switch (__instance.Category)
+            {
+                case -34: __result = Color.DeepPink; return;
+                case -35: __result = Color.Blue; return;
+                case -36: __result = Color.Purple; return;
+
+                default: return;
+            }
+        }
+
+        public static void SpriteIndexFromRawPost(ref int index, ref int __result)
+        {
+            switch (index)
+            {
+                case -34: __result = TempRefs.MilkGeneric; break;
+                case -35: __result = TempRefs.MilkSpecial; break;
+                case -36: __result = TempRefs.MilkMagic; break;
+            };
+        }
+
+        public static void GetNameFromIndexPostFix(ref int index, ref string __result)
+        {
+            switch (index)
+            {
+                case -34: __result = "Breast Milk (any)"; break;
+                case -35: __result = "Human Cum (any)"; break;
+                case -36: __result = "Mystical Essence (any)"; break;
+            }
+        }
+
+        public static void ApplyPatch(Harmony harmony, IMonitor monitor)
+        {
+            if (Applied || monitor == null)
+                return;
+
+            Monitor = monitor;
+
+            log.Log("Applying Harmony patch to \"Item.getCategoryName\"", LogLevel.Info);
+            log.Log("Applying Harmony patch to \"Item.getCategoryColor\"", LogLevel.Info);
+            log.Log("Applying Harmony patch to \"CraftingRecipe.getNameFromIndex\"", LogLevel.Info);
+
+            // Re-write -34, -35 & -36 category name on items.
+            harmony.Patch((MethodBase)AccessTools.Method(typeof(sObject), "getCategoryName"), //Original
+                null,
+                new HarmonyMethod(typeof(ItemPatches), "CategoryNamePostfix", (Type[])null),
+                null,
+                null
+                );
+
+            // Re-write -34, -35 & -36 category colour on items.
+            harmony.Patch((MethodBase)AccessTools.Method(typeof(sObject), "getCategoryColor"), //Original
+                null,
+                new HarmonyMethod(typeof(ItemPatches), "CategoryColourPostfix", (Type[])null),
+                null,
+                null
+                );
+
+            // Re-write -34, -35 & -36 category name on recipes.
+            harmony.Patch((MethodBase)AccessTools.Method(typeof(CraftingRecipe), "getNameFromIndex"), //Original
+                null, // Pre-fix
+                new HarmonyMethod(typeof(ItemPatches), "GetNameFromIndexPostFix", (Type[])null), // Post-fix
+                null, // Transpiler
+                null // Injections
+                );
+
+            // Re-write -34, -35 & -36 category icon on recipes.
+            harmony.Patch((MethodBase)AccessTools.Method(typeof(CraftingRecipe), "getSpriteIndexFromRawIndex"), //Original
+                null, // Pre-fix
+                new HarmonyMethod(typeof(ItemPatches), "SpriteIndexFromRawPost", (Type[])null), // Post-fix
+                null, // Transpiler
+                null // Injections
+                );
+
+            Applied = true;
+        }
+    }
 
     public class ActionNPCEventArgs : EventArgs
     {

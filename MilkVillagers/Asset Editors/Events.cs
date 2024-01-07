@@ -36,7 +36,6 @@ namespace MilkVillagers.Asset_Editors
                 || asset.IsEquivalentTo("Data/Events/HaleyHouse")
                 || asset.IsEquivalentTo("Data/Events/BathHouse_Pool");
 
-
             return result;
         }
 
@@ -55,7 +54,7 @@ namespace MilkVillagers.Asset_Editors
                 #region Abigail reward event 594801 - completed!
                 if (!data.ContainsKey($"{TempRefs.EventAbi}")) //moved to CP version
                 {
-                    ModFunctions.LogVerbose($"Loading event {TempRefs.EventAbi} - finished.", LogLevel.Alert);
+                    ModFunctions.Log($"Loading event {TempRefs.EventAbi} - finished.", LogLevel.Alert);
                     data[$"{TempRefs.EventAbi}" +                    // event id
                             $"/d Mon Wed Fri" +         //not Mon, Wed or Fri 
                             $"/f Abigail 2000" +        //affection level
@@ -113,7 +112,7 @@ namespace MilkVillagers.Asset_Editors
                             $"/mail MTV_AbigailQ4T" +
                             $"/end";
                 }
-                else { ModFunctions.LogVerbose($"{TempRefs.EventAbi} already loaded.", LogLevel.Alert); }
+                else { ModFunctions.Log($"{TempRefs.EventAbi} already loaded.", LogLevel.Alert); }
                 #endregion
             }
 
@@ -123,7 +122,7 @@ namespace MilkVillagers.Asset_Editors
                 #region Harvey Event 594802 - completed!
                 if (!data.ContainsKey($"{TempRefs.EventHarvey}")) //moved to CP version
                 {
-                    ModFunctions.LogVerbose($"Loading event {TempRefs.EventHarvey}", LogLevel.Alert);
+                    ModFunctions.Log($"Loading event {TempRefs.EventHarvey}", LogLevel.Alert);
                     data[$"{TempRefs.EventHarvey}" +
                                         "/d Tue Thu" +
                                         "/f Harvey 2000" +
@@ -197,14 +196,14 @@ namespace MilkVillagers.Asset_Editors
                                         "/end";
 
                 }
-                else { ModFunctions.LogVerbose($"{TempRefs.EventHarvey} already loaded.", LogLevel.Alert); }
+                else { ModFunctions.Log($"{TempRefs.EventHarvey} already loaded.", LogLevel.Alert); }
                 #endregion
 
                 #region Maru/Harvey Event 594803 - completed!
                 if (false) //!data.ContainsKey($"{TempRefs.Event3HarMar}"))
                 {
 #pragma warning disable CS0162 // Unreachable code detected
-                    ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HarMar}", LogLevel.Alert);
+                    ModFunctions.Log($"Loading event {TempRefs.Event3HarMar}", LogLevel.Alert);
 #pragma warning restore CS0162 // Unreachable code detected
                     data[$"{TempRefs.Event3HarMar}" +
                                         "/d Mon Wed Fri Sat Sun" +
@@ -328,7 +327,7 @@ namespace MilkVillagers.Asset_Editors
                                         "/mail MTV_HarveyQ4T" +
                                         "/end";
                 }
-                else { ModFunctions.LogVerbose($"{TempRefs.Event3HarMar} already loaded.", LogLevel.Alert); }
+                else { ModFunctions.Log($"{TempRefs.Event3HarMar} already loaded.", LogLevel.Alert); }
                 #endregion
             }
 
@@ -336,7 +335,7 @@ namespace MilkVillagers.Asset_Editors
             if (asset.Name.IsEquivalentTo("Data/Events/LeahHouse") && false) // moved to CP
             {
                 #region Leah painting quest 594829 - completed
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventLeah} - incomplete");
+                ModFunctions.Log($"Loading event {TempRefs.EventLeah} - incomplete");
                 data[$"{TempRefs.EventLeah}" +                    // event id
                         $"/n MTV_LeahQ1" +    //need her invitation mail first
                         $"/f Leah 2000" +           //Leah at 8 hearts
@@ -461,7 +460,7 @@ namespace MilkVillagers.Asset_Editors
                 if (false) //not finished
                 {
 #pragma warning disable CS0162 // Unreachable code detected
-                    ModFunctions.LogVerbose($"Loading event Leah Exhibitionism {TempRefs.EventLeahExhibitOld} - need to write", LogLevel.Alert);
+                    ModFunctions.Log($"Loading event Leah Exhibitionism {TempRefs.EventLeahExhibitOld} - need to write", LogLevel.Alert);
 #pragma warning restore CS0162 // Unreachable code detected
                     data[$"{TempRefs.EventLeahExhibitOld}" +
 
@@ -538,7 +537,7 @@ namespace MilkVillagers.Asset_Editors
                 bool finished = true;
                 if (finished)
                 {
-                    ModFunctions.LogVerbose($"EventLeahExhibitA {TempRefs.EventLeahExhibitA} marked ready? {finished}");
+                    ModFunctions.Log($"EventLeahExhibitA {TempRefs.EventLeahExhibitA} marked ready? {finished}");
                     data[$"{TempRefs.EventLeahExhibitA}" +
 
                     #region Conditions - template only
@@ -619,7 +618,7 @@ namespace MilkVillagers.Asset_Editors
                 finished = true;
                 if (finished)
                 {
-                    ModFunctions.LogVerbose($"EventLeahExhibitV {TempRefs.EventLeahExhibitV} marked ready? {finished}");
+                    ModFunctions.Log($"EventLeahExhibitV {TempRefs.EventLeahExhibitV} marked ready? {finished}");
                     data[$"{TempRefs.EventLeahExhibitV}" +
 
                     #region Conditions - template only
@@ -846,7 +845,7 @@ namespace MilkVillagers.Asset_Editors
             if (asset.Name.IsEquivalentTo("Data/Events/ArchaeologyHouse") && false)
             {
                 #region Penny Library event 594805 - Need to playtest
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventPenny} (need to make mail and quest)");
+                ModFunctions.Log($"Loading event {TempRefs.EventPenny} (need to make mail and quest)");
                 data[$"{TempRefs.EventPenny}" +                    // event id
                         $"/n MTV_PennyQ1" +        // need her invitation mail first. This is a temporary way of adding the quest
                         $"/f Penny 2000" +          // Penny at 8 hearts
@@ -1009,7 +1008,7 @@ namespace MilkVillagers.Asset_Editors
                 #endregion
 
                 #region Crush: Done
-                ModFunctions.LogVerbose("Loading 594805crush", LogLevel.Alert);
+                ModFunctions.Log("Loading 594805crush", LogLevel.Alert);
                 data["594805crush"] = "pause 50" +
                     "/speak Gunther \"Oh. I wasn't aware that Miss Penny had those kinds of feelings for me. I must confess that I'm a little flustered." +
                         "#$b#In hindsight I see that it I should have noticed those feelings sooner, seeing as I am here all of the time." +
@@ -1087,7 +1086,7 @@ namespace MilkVillagers.Asset_Editors
                 #region Haley Saloon event 594806 complete?
                 if (true) // not complete?
                 {
-                    ModFunctions.LogVerbose($"Loading event {TempRefs.Event3HaleyAlex} - need to check");
+                    ModFunctions.Log($"Loading event {TempRefs.Event3HaleyAlex} - need to check");
                     data[$"{TempRefs.Event3HaleyAlex}" +
                             $"/n 5948HaleySaloon" +
                             $"/f Haley 2000" +
@@ -1205,7 +1204,7 @@ namespace MilkVillagers.Asset_Editors
             if (asset.Name.IsEquivalentTo("Data/Events/Sunroom"))
             {
                 #region Caroline sunroom event 594807 not started
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventCaroline} - need to write");
+                ModFunctions.Log($"Loading event {TempRefs.EventCaroline} - need to write");
                 if (false)
                 {
 #pragma warning disable CS0162 // Unreachable code detected
@@ -1259,7 +1258,7 @@ namespace MilkVillagers.Asset_Editors
             if (asset.Name.IsEquivalentTo("Data/Events/ScienceHouse") && false)
             {
                 #region Maru sex machine event 594808 complete?
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventMaru} - need to write event and letter", LogLevel.Alert);
+                ModFunctions.Log($"Loading event {TempRefs.EventMaru} - need to write event and letter", LogLevel.Alert);
                 data[$"{TempRefs.EventMaru}" +
 
                 #region Conditions
@@ -1282,7 +1281,7 @@ namespace MilkVillagers.Asset_Editors
                                                          //"l <letter ID>" +             // player has not received that mail letter or non-mail flag.
                                                          //"m <number>" +                // player has earned at least this much money (regardless of how much they have).
                         "/n MTV_MaruQ4" +             // player has received that mail letter or non-mail flag.
-                                                         //"o <name>" +                  // player is not married to that NPC.
+                                                      //"o <name>" +                  // player is not married to that NPC.
                         "/p Maru" +                      // Specified NPC is in the player's location.
                                                          //"q <dialogue ID>" +           // player has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
                                                          //"s <item ID> <number>" +      // player has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
@@ -1543,7 +1542,7 @@ namespace MilkVillagers.Asset_Editors
             if (asset.Name.IsEquivalentTo("Data/Events/HaleyHouse") && false)
             {
                 #region Emily clothing model/groping event 594809 complete?
-                ModFunctions.LogVerbose($"Loading event {TempRefs.EventEmily} - need to finish");
+                ModFunctions.Log($"Loading event {TempRefs.EventEmily} - need to finish");
                 data[$"594809" +
 
                         // Conditions
@@ -1566,7 +1565,7 @@ namespace MilkVillagers.Asset_Editors
                                                     //"l <letter ID> 	" +         // farmer has not received that mail letter or non-mail flag.
                                                     //"m <number> 	" +         // farmer has earned at least this much money (regardless of how much they really have).
                         "n MTV_EmilyQ2" +         // farmer has received that mail letter or non-mail flag.
-                                                    //"o <name> 	" +             // farmer is not married to that NPC.
+                                                  //"o <name> 	" +             // farmer is not married to that NPC.
                         "p Emily" +                 // Specified NPC is in the farmer's location.
                                                     //"q <dialogue ID>" +         // farmer has chosen the given answer in a dialogue. May contain multiple dialogue IDs, in which case they must all have been selected.
                                                     //"s <item ID> <number>" +    // farmer has shipped at least <number> of the specified item. Can specify multiple item and number pairs, in which case all of them must be met.
@@ -1777,7 +1776,7 @@ namespace MilkVillagers.Asset_Editors
             if (false)
             {
 #pragma warning disable CS0162 // Unreachable code detected
-                ModFunctions.LogVerbose($"Loading event {"ID"} - need to write");
+                ModFunctions.Log($"Loading event {"ID"} - need to write");
 #pragma warning restore CS0162 // Unreachable code detected
                 data[$"{"ID"}" +
 

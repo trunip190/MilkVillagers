@@ -1,12 +1,13 @@
 {
   "Name": "Susan's Milk", //The name you would like your object to have, this should be identical to the subfolder name.
   "Description": "A jug of Susan's milk", //Description of the product.
-  "Category": "Milk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "Category": "-34", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
   "Edibility": 22, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "EdibleIsDrink": true,
   "Price": 300, //How much your item sells for.
-  "IsColored": false, //(optional) Set this value to true if your product is colored. Primairly applies to flowers.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
   "Recipe": null, //Set to null.
-  "GiftTastes": //If an NPC isn't listed their gift taste will be neautral. If every NPC is specified you may remove unused categories.
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neutral. If every NPC is specified you may remove unused categories.
   {
     "Love": [ "Harvey", "Abigail", "Caroline" ], //Example of a single NPC
     "Like": [ "Alex" ],
