@@ -1,0 +1,11 @@
+﻿{
+	"Name": "[MFM]MilkVillagers",
+	"Author": "Trunip190",
+	"Version": "1.2.3",
+	"Description": "Adds mail used by Milk the Villagers",
+	"UniqueID": "Trunip190.MFM.MilkTheVillagers",
+	"UpdateKeys": [ "Nexus:5948" ],
+	"ContentPackFor": {
+		"UniqueID": "DIGUS.MailFrameworkMod"
+	}
+}

@@ -15,7 +15,7 @@
         // Elliott        
         "594805": "Basic/{{i18n:Quests.594805.01}}/{{i18n:Quests.594805.02}}/{{i18n:Quests.594805.03}}/null/-1/240/-1/False/{{i18n:Quests.594805.09}}",
         "594806": "Basic/{{i18n:Quests.594806.01}}/{{i18n:Quests.594806.02}}/{{i18n:Quests.594806.03}}/ElliottHouse/-1/355/-1/False/{{i18n:Quests.594806.09}}",
-        "594807": "Monster/{{i18n:Quests.594807.01}}/{{i18n:Quests.594807.02}}/{{i18n:Quests.594807.03}}/Skeleton 25/5948072/420/-1/False/{{i18n:Quests.594807.09}}",
+        "594807": "Monster/{{i18n:Quests.594807.01}}/{{i18n:Quests.594807.02}}/{{i18n:Quests.594807.03}}/Skeleton 25/5948072/-1/-1/False/{{i18n:Quests.594807.09}}",
         "5948072": "Basic/{{i18n:Quests.5948072.01}}/{{i18n:Quests.5948072.02}}/{{i18n:Quests.5948072.03}}/null/-1/420/-1/False/{{i18n:Quests.5948072.09}}",
         "594808": "Basic/{{i18n:Quests.594808.01}}/{{i18n:Quests.594808.02}}/{{i18n:Quests.594808.03}}/ElliottHouse/-1/500/-1/False/{{i18n:Quests.594808.09}}",
 
@@ -23,7 +23,7 @@
         "594809": "Basic/{{i18n:Quests.594809.01}}/{{i18n:Quests.594809.02}}/{{i18n:Quests.594809.03}}/Abigail milk/5948092/0/-1/FALSE/{{i18n:Quests.594809.09}}",
         "5948092": "ItemDelivery/{{i18n:Quests.5948092.01}}/{{i18n:Quests.5948092.02}}/{{i18n:Quests.5948092.03}}/Sebastian {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}}/-1/240/-1/FALSE/{{i18n:Quests.5948092.09}}",
         "594810": "Basic/{{i18n:Quests.594810.01}}/{{i18n:Quests.594810.02}}/{{i18n:Quests.594810.03}}/null/5948102/0/-1/FALSE/{{i18n:Quests.594810.09}}",
-        "5948102": "ItemDelivery/{{i18n:Quests.5948102.01}}/{{i18n:Quests.5948102.02}}/{{i18n:Quests.5948102.03}} 0 of 25 Skeleton slain./skeleton 10/-1/355/-1/FALSE/{{i18n:Quests.5948102.09}}",
+        "5948102": "ItemDelivery/{{i18n:Quests.5948102.01}}/{{i18n:Quests.5948102.02}}/{{i18n:Quests.5948102.03}}/Abigail {{spacechase0.JsonAssets/ObjectId: Sebastian's Cum}}/-1/355/-1/FALSE/{{i18n:Quests.5948102.09}}",
         "594811": "Basic/{{i18n:Quests.594811.01}}/{{i18n:Quests.594811.02}}/{{i18n:Quests.594811.03}}/null/-1/420/-1/False/{{i18n:Quests.594811.09}}",
         "594812": "Location/{{i18n:Quests.594812.01}}/{{i18n:Quests.594812.02}}/{{i18n:Quests.594812.03}}/SebastianRoom/-1/500/-1/FALSE/{{i18n:Quests.594812.09}}",
 
@@ -38,7 +38,7 @@
         // Emily
         "594817": "LostItem/{{i18n:Quests.594817.01}}/{{i18n:Quests.594817.02}}/{{i18n:Quests.594817.03}}/Emily {{spacechase0.JsonAssets/ObjectId: Haley's Camera}} HaleyHouse 1 9/-1/240/-1/False/{{i18n:Quests.594817.09}}",
         "594818": "Basic/{{i18n:Quests.594818.01}}/{{i18n:Quests.594818.02}}/{{i18n:Quests.594818.03}}/Solution/-1/355/-1/False/{{i18n:Quests.594818.09}}",
-        "594819": "Basic/{{i18n:Quests.594819.01}}/{{i18n:Quests.594819.02}}/{{i18n:Quests.594819.03}}/Solution/-1/420/-1/False/{{i18n:Quests.594819.09}}",
+        "594819": "ItemDelivery/{{i18n:Quests.594819.01}}/{{i18n:Quests.594819.02}}/{{i18n:Quests.594819.03}}/Emily {{spacechase0.JsonAssets/ObjectId: Crotchless Panties}}/-1/420/-1/False/{{i18n:Quests.594819.09}}",
         "594820": "Location/{{i18n:Quests.594820.01}}/{{i18n:Quests.594820.02}}/{{i18n:Quests.594820.03}}/HaleyHouse/-1/500/-1/FALSE/{{i18n:Quests.594820.09}}",
 
         // Haley
@@ -58,7 +58,7 @@
         // Leah
         "594829": "Basic/{{i18n: Quests.594829.01}}/{{i18n: Quests.594829.02}}/{{i18n: Quests.594829.03}}/null/-1/240/-1/false/{{i18n: Quests.594829.09}}",
         "594830": "LostItem/{{i18n: Quests.594830.01}}/{{i18n: Quests.594830.02}}/{{i18n: Quests.594829.03}}/Leah {{spacechase0.JsonAssets/ObjectId: Strapon}} ScienceHouse 4 19/-1/355/-1/False/{{i18n: Quests.594829.09}}",
-        "594831": "Location/{{i18n: Quests.594831.01}}/{{i18n: Quests.594831.02}}/{{i18n: Quests.594831.03}}/LeahHouse/-1/420/-1/False/{{i18n: Quests.594831.09}}",
+        "594831": "Basic/{{i18n: Quests.594831.01}}/{{i18n: Quests.594831.02}}/{{i18n: Quests.594831.03}}/LeahHouse/-1/420/-1/False/{{i18n: Quests.594831.09}}",
         "594832": "ItemDelivery/{{i18n: Quests.594832.01}}/{{i18n: Quests.594832.02}}/{{i18n: Quests.594832.03}}/Leah {{spacechase0.JsonAssets/ObjectId: Shibari rope}}/-1/500/-1/false/{{i18n: Quests.594832.09}}",
         "5948322": "Location/{{i18n: Quests.5948322.01}}/{{i18n: Quests.5948322.02}}/{{i18n: Quests.5948322.03}}/LeahHouse/-1/500/-1/FALSE/{{i18n: Quests.5948322.09}}",
 

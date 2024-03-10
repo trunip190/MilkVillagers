@@ -15,7 +15,7 @@
         "Count": 2
       }
     ],
-    "IsDefault": true,
+    "IsDefault": false,
     "CanPurchase": false
   },
   "GiftTastes": //If an NPC isn't listed their gift taste will be neutral. If every NPC is specified you may remove unused categories.

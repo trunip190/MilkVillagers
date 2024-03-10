@@ -1,5 +1,5 @@
 {
-  "Format": "1.28.1",
+  "Format": "1.29",
   "ConfigSchema": {
     "ExtraDialogue": {
       "AllowValues": "true, false",
@@ -10,6 +10,44 @@
       "Default": "true"
     }
   },
+  "DynamicTokens": [
+    {
+      "Name": "GenderSwitch",
+      "Value": "P" //Male.
+    },
+    {
+      "Name": "GenderSwitch",
+      "Value": "V", //Female.
+      "When": {
+        "HasFlag": "MTV_Vagina"
+      },
+      "Update": "OnLocationChange"
+    },
+    {
+      "Name": "GenderSwitch",
+      "Value": "A", //Ace.
+      "When": {
+        "HasFlag": "MTV_Ace"
+      },
+      "Update": "OnLocationChange"
+    },
+    {
+      "Name": "GenderSwitch",
+      "Value": "H", //Herm.
+      "When": {
+        "HasFlag": "MTV_Herm"
+      },
+      "Update": "OnLocationChange"
+    },
+    {
+      "Name": "GenderSwitch",
+      "Value": "P", //Male.
+      "When": {
+        "HasFlag": "MTV_Penis"
+      },
+      "Update": "OnLocationChange"
+    }
+  ],
   "Changes": [
     // Dialogue
     {
@@ -83,7 +121,7 @@
       "Action": "EditData",
       "Target": "Data/AntiSocialNPCs",
       "Entries": {
-        "Trunip": true
+        "Trunip": "true"
       }
     },
     //{

@@ -16,12 +16,15 @@ namespace MilkVillagers
         public bool IgnoreVillagerGender = false;
 
         // Farmer gender overrides.
+        public bool FarmerSavefileMale = true;
+        private string _faarmerSavefileGender => FarmerSavefileMale ? "Male" : "Female";
         public bool OverrideGenitals = false;
         public string FarmerGender = "Female";
+        public  string FarmerGenderMod => FarmerGender == "Save default" ? _faarmerSavefileGender : FarmerGender;
         public string FarmerGenitals = "Vagina and breasts";
-        public bool HasPenis => FarmerGenitals.ToLower().Contains("penis");
-        public bool HasVagina => FarmerGenitals.ToLower().Contains("vagina");
-        public bool HasBreasts => FarmerGenitals.ToLower().Contains("breasts");
+        public bool HasPenis => (FarmerGenitals.ToLower().Contains("penis") || FarmerGenderMod == "Male" && !OverrideGenitals);
+        public bool HasVagina => (FarmerGenitals.ToLower().Contains("vagina") || FarmerGenderMod == "Female" && !OverrideGenitals);
+        public bool HasBreasts => (FarmerGenitals.ToLower().Contains("breasts") || FarmerGenderMod == "Female" && !OverrideGenitals);
         public bool AceCharacter => (FarmerGender == "A-sexual");
 
         public int HeartLevel1 = 6;
@@ -36,14 +39,15 @@ namespace MilkVillagers
         /// <summary>
         /// List of sex topics to hook into. You can add your own topics here, and add entries under dialogue for the NPC
         /// </summary>
-        public Dictionary<string, string> SexTopics = new Dictionary<string, string>() {
-            ["milk_start"] = "Female 1" ,
+        public Dictionary<string, string> SexTopics = new Dictionary<string, string>()
+        {
+            ["milk_start"] = "Female 1",
             ["milk_fast"] = "Both 1",
-            ["BJ"] = "Male 1" ,
+            ["BJ"] = "Male 1",
             ["eat_out"] = "Female 1",
-            ["get_eaten"] = "Both 2" ,
+            ["get_eaten"] = "Both 2",
             ["sex"] = "Both 2"
-            };
+        };
 
         // Debugging
         public bool Debug = false;
@@ -91,54 +95,86 @@ namespace MilkVillagers
 
         #region Genitals
         public static bool OverrideGenitals = false;
-        public static bool HasPenis = false;
-        public static bool HasVagina = false;
-
-        // TODO check for update to generic config menu mod to enable these.
-        //public static string Genitals = "Penis";
-        //public static bool HasPenis => Genitals == "Penis" || Genitals == "Both";
-        //public static bool HasVagina => Genitals == "Vagina" || Genitals == "Both";
+        public static string FarmerGender = "Female";
+        public static string FarmerGenitals = "Vagina and breasts";
+        public static bool HasPenis => FarmerGenitals.ToLower().Contains("penis");
+        public static bool HasVagina => FarmerGenitals.ToLower().Contains("vagina");
+        public static bool HasBreasts => FarmerGenitals.ToLower().Contains("breasts");
+        public static bool AceCharacter => (FarmerGender == "A-sexual");
         #endregion
 
-        public static bool HasBreasts = false;
         public static bool IgnoreVillagerGender = false;
 
-
-        #region Quest ID storage        
-        //public static int QuestAbi1 = 594801;       
-        //public static int QuestAbi2 = 594802;       
-        //public static int QuestAbi3 = 594803;       
-        //public static int QuestAbi4 = 594804;       
-        //public static int QuestMaru1 = 594805;      
-        //public static int QuestGeorge1 = 594806;    
-        //public static int QuestSeb1 = 594807;       
-        //public static int QuestSeb2 = 594808;       
-        //public static int QuestLeah1 = 594809;      
-        //public static int QuestPenny1 = 594810;     
-        //public static int QuestPenny2 = 594811;     
-
+        #region Event ID storage
+        #region Abigail 5948 0X
+        public static int EventAbi01 = 594801;
+        public static int EventAbi02 = 594802;
+        public static int EventAbi03 = 594803;
+        public static int EventAbi04 = 594804;
         #endregion
 
-        #region Event ID storage
-        public static int EventAbi = 594801;            //Abigail
+        #region Elliott 5948 1X
+        public static int EventElliott01 = 594811; // unused random BJ
+        public static int EventElliott02 = 594812; // challenging sex repression in book
+        public static int EventElliott03 = 594813; // unused Skeleton slaying
+        public static int EventElliott04 = 594814; // placeholder (unwritten) - Roleplay interrogation
+        #endregion
+
+        #region Sebastian 5948 2X
+        public static int EventSeb01 = 594821;
+        public static int EventSeb02 = 594822;
+        public static int EventSeb03 = 594823;
+        public static int EventSeb04 = 594824;
+        #endregion
+
+        #region Maru 5948 3X
+        public static int EventMaru01 = 594831;
+        public static int EventMaru02 = 594832;
+        public static int EventMaru03 = 594833;
+        public static int EventMaru04 = 594834;
+        #endregion
+
+        #region Emily 5948 4X
+        public static int EventEmily01 = 594841;
+        public static int EventEmily02 = 594842;
+        public static int EventEmily03 = 594843;
+        public static int EventEmily04 = 594844;
+        #endregion
+
+        #region Haley 5948 5X
+        public static int EventHaley01 = 594851;
+        public static int EventHaley02 = 594852;
+        public static int EventHaley03 = 594853;
+        public static int EventHaley04 = 594854;
+        #endregion
+
+        #region Penny 5948 6X
+        public static int EventPenny01 = 594861;
+        public static int EventPenny02 = 594862;
+        public static int EventPenny03 = 594863;
+        public static int EventPenny04 = 594864;
+        #endregion
+
         public static int EventHarvey = 594802;         //Harvey
         public static int Event3HarMar = 594803;        //Harvey/Maru
         public static int EventLeah = 594804;           //Leah
         public static int EventPenny = 594805;          //Penny
         public static int Event3HaleyAlex = 594806;     //Haley/Alex
         public static int EventCaroline = 594807;       //Caroline
-        public static int EventMaru = 594808;           //Maru
         public static int EventEmily = 594809;          //Emily
         public static int EventLeahExhibitOld = 5948101;
-        public static int EventLeahExhibitA = 594810;   //Leah Exhibitionism Ace
-        public static int EventLeahExhibitV = 594811;   //Leah Exhibitionism Vagina
+        public static int EventLeahExhibitA = 5948101;   //Leah Exhibitionism Ace, Need to switch to 5948101
+        public static int EventLeahExhibitV = 5948102;   //Leah Exhibitionism Vagina. Need to switch to 5948102
+
+        public static int UnusedEvent = 594811;
+
         public static int EventBathHouseA = 594812;     //BathHouse Scene Ace
         public static int EventBathHouseV = 594813;     //BathHouse Scene Vagina
         public static int EventBathHouseP = 594814;     //BathHouse Scene Penis
         public static int EventBlairKeahi1NA = 594815;  //Blair and farmer hide in bushes
-        public static int EventElliottScene1 = 594816;  //Elliott Quest 2 roleplay event
-        public static int EventSebTouchGrass = 594817;  //Sebastian go touch grass event (quest 3)
-        public static int EventSebAbi = 594818;         //Abigail, Sebastian, farmer threeway stream.
+        public static int EventElliottScene1 = 594816;  //Elliott Q4, Quest 2 roleplay event
+        public static int EventSebTouchGrass = 594817;  //Seb Q3, Sebastian go touch grass event (quest 3)
+        public static int EventSebAbi = 594818;         //Seb Q4, Abigail, Sebastian, farmer threeway stream.
         //public static int Event                       //
         #endregion
 
@@ -157,6 +193,7 @@ namespace MilkVillagers
         public static int MilkPam = 803;
         public static int MilkSand = 803;
         public static int MilkEvel = 803;
+
         /// <summary>
         /// Generic Breast milk
         /// </summary>
@@ -211,7 +248,6 @@ namespace MilkVillagers
         public static int MilkAndy = 803;
         public static int MilkVictor = 803;
         public static int MilkMartin = 803;
-        #endregion
 
         // Item types 
         public const int MilkType = -34;
@@ -230,6 +266,7 @@ namespace MilkVillagers
         public static int mtvTeddy = 806;
         public static int TentacleTop = 806;
         public static int TentacleLeg = 806;
+        #endregion
 
         public static void ReportCodes()
         {

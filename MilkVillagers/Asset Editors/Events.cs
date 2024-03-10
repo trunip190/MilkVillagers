@@ -52,10 +52,10 @@ namespace MilkVillagers.Asset_Editors
             if (asset.Name.IsEquivalentTo("Data/Events/Seedshop") && false)
             {
                 #region Abigail reward event 594801 - completed!
-                if (!data.ContainsKey($"{TempRefs.EventAbi}")) //moved to CP version
+                if (!data.ContainsKey($"{TempRefs.EventAbi01}")) //moved to CP version
                 {
-                    ModFunctions.Log($"Loading event {TempRefs.EventAbi} - finished.", LogLevel.Alert);
-                    data[$"{TempRefs.EventAbi}" +                    // event id
+                    ModFunctions.Log($"Loading event {TempRefs.EventAbi01} - finished.", LogLevel.Alert);
+                    data[$"{TempRefs.EventAbi01}" +                    // event id
                             $"/d Mon Wed Fri" +         //not Mon, Wed or Fri 
                             $"/f Abigail 2000" +        //affection level
                             $"/n MTV_AbigailQ4" +         //need her invitation mail first
@@ -112,7 +112,7 @@ namespace MilkVillagers.Asset_Editors
                             $"/mail MTV_AbigailQ4T" +
                             $"/end";
                 }
-                else { ModFunctions.Log($"{TempRefs.EventAbi} already loaded.", LogLevel.Alert); }
+                else { ModFunctions.Log($"{TempRefs.EventAbi01} already loaded.", LogLevel.Alert); }
                 #endregion
             }
 
@@ -1258,8 +1258,8 @@ namespace MilkVillagers.Asset_Editors
             if (asset.Name.IsEquivalentTo("Data/Events/ScienceHouse") && false)
             {
                 #region Maru sex machine event 594808 complete?
-                ModFunctions.Log($"Loading event {TempRefs.EventMaru} - need to write event and letter", LogLevel.Alert);
-                data[$"{TempRefs.EventMaru}" +
+                ModFunctions.Log($"Loading event {TempRefs.EventMaru04} - need to write event and letter", LogLevel.Alert);
+                data[$"{TempRefs.EventMaru04}" +
 
                 #region Conditions
                         //"/D Maru" +                    // player is dating the given NPC name.
@@ -1355,7 +1355,7 @@ namespace MilkVillagers.Asset_Editors
                         "/question fork1 \"What do you want to say to Maru?#Maybe I can try and help you work out what you like#Maybe I can try out the machine and give you some feedback?\"" +
 
                         // ######## The big split! ########
-                        $"/fork {TempRefs.EventMaru}machine" +
+                        $"/fork {TempRefs.EventMaru04}machine" +
 
                 #endregion
 
@@ -1436,7 +1436,7 @@ namespace MilkVillagers.Asset_Editors
                 #endregion
 
                 #region Route B - Machine Sex
-                data[$"{TempRefs.EventMaru}machine"] = "" +
+                data[$"{TempRefs.EventMaru04}machine"] = "" +
 
                 //Maru encourages farmer to get undressed, and says she will 'take notes'
                 //farmer starts undressing
@@ -1775,9 +1775,9 @@ namespace MilkVillagers.Asset_Editors
             #region Example: Blank
             if (false)
             {
-#pragma warning disable CS0162 // Unreachable code detected
+                #pragma warning disable CS0162 // Unreachable code detected
                 ModFunctions.Log($"Loading event {"ID"} - need to write");
-#pragma warning restore CS0162 // Unreachable code detected
+                #pragma warning restore CS0162 // Unreachable code detected
                 data[$"{"ID"}" +
 
                         // Conditions

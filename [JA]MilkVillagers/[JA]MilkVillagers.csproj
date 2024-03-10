@@ -37,6 +37,8 @@
     <None Remove="Objects\Gunther%27s Cum\object.json" />
     <None Remove="Objects\Gus%27s Cum\object.json" />
     <None Remove="Objects\Haley%27s Milk\object.json" />
+    <None Remove="Objects\Crotchless Panties\object.json" />
+    <None Remove="Objects\Crotchless Panties\object.png" />
     <None Remove="Objects\Haley%27s Panties\object.json" />
     <None Remove="Objects\Harvey%27s Cum\object.json" />
     <None Remove="Objects\Invitation\object.json" />
@@ -211,6 +213,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Haley's Milk\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Crotchless Panties\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Crotchless Panties\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Haley's Panties\object.json">

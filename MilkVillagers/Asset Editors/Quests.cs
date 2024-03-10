@@ -26,7 +26,7 @@ namespace MilkVillagers.Asset_Editors
 
             [594805] = "MTV_ElliottQ1T",    //Elliott quest 1
             [594806] = "MTV_ElliottQ2T",    //Elliott quest 2
-            [594807] = "MTV_ElliottQ3T",    //Elliott quest 3
+            [5948072] = "MTV_ElliottQ3T",    //Elliott quest 3
             [594808] = "MTV_ElliottQ4T",    //Elliott quest 4
 
             //[594809] = "",                  //Sebastian quest 1 pt 1

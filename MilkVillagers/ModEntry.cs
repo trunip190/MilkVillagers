@@ -1,37 +1,22 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using MilkVillagers.Asset_Editors;
-using SpaceCore;
 using SpaceCore.Events;
-using SpaceShared.APIs;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
-using sdv = StardewValley;
-using StardewValley.Buildings;
-using StardewValley.Locations;
-using StardewValley.Network;
 using StardewValley.Objects;
-using StardewValley.Quests;
-using StardewValley.TerrainFeatures;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using static System.Collections.Specialized.BitVector32;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
+using MFM = MailFrameworkMod;
 using sObject = StardewValley.Object;
 using log = MilkVillagers.ModFunctions;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
-using System.Net.Http;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Xml.Schema;
-using Netcode;
-using System.Threading;
-using Microsoft.Xna.Framework.Audio;
+using MailFrameworkMod;
 
 namespace MilkVillagers
 {
@@ -178,9 +163,9 @@ namespace MilkVillagers
             TempRefs.thirdParty = Config.ThirdParty;
             TempRefs.Verbose = Config.Verbose;
             TempRefs.OverrideGenitals = Config.OverrideGenitals;
-            TempRefs.HasPenis = Config.HasPenis;
-            TempRefs.HasVagina = Config.HasVagina;
-            TempRefs.HasBreasts = Config.HasBreasts;
+            //TempRefs.HasPenis = Config.HasPenis;
+            //TempRefs.HasVagina = Config.HasVagina;
+            //TempRefs.HasBreasts = Config.HasBreasts;
             TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
         }
 
@@ -323,33 +308,33 @@ namespace MilkVillagers
             //////////////////   Override Genitals   ///////////////////
             ////////////////////////////////////////////////////////////
             #region Override Genitals
-            configMenu.AddBoolOption(
-                fieldId: "Override genitals",
-                mod: this.ModManifest,
-                name: () => "Override genitals",
-                tooltip: () => "Do you want to override the genitals of the farmer?",
-                getValue: () => this.Config.OverrideGenitals,
-                setValue: value => this.Config.OverrideGenitals = value
-            );
-
-            string[] genders = new string[] { "Male", "Female", "A-sexual" }; //, "Intersex", "Genderfluid" }; need to work this in.
+            string[] genders = new string[] {"Save default", "Male", "Female", "A-sexual" }; //, "Intersex", "Genderfluid" }; need to work this in.
             string[] genitals = new string[] { "Penis", "Vagina and breasts", "Vagina", "Vagina and Penis", "Penis and breasts", "Penis, Vagina, Breasts", "Breasts", "None" };
 
             configMenu.AddTextOption(
                 fieldId: "Gender",
                 mod: this.ModManifest,
                 name: () => "Gender",
-                tooltip: () => "Gender choise for your farmer. Identity only.",
+                tooltip: () => "Gender identity of your farmer.",
                 allowedValues: genders,
                 getValue: () => this.Config.FarmerGender,
                 setValue: value => Config.FarmerGender = value
                 );
 
+            configMenu.AddBoolOption(
+                fieldId: "Override genitals",
+                mod: this.ModManifest,
+                name: () => "Override genitals?",
+                tooltip: () => "Do you want to override the genitals of your farmer?",
+                getValue: () => this.Config.OverrideGenitals,
+                setValue: value => this.Config.OverrideGenitals = value
+            );
+
             configMenu.AddTextOption(
                 fieldId: "Genitals",
                 mod: this.ModManifest,
                 name: () => "Genitals",
-                tooltip: () => "Genital options for your farmer. Independent of Gender",
+                tooltip: () => "Genital options for your farmer.",
                 allowedValues: genitals,
                 getValue: () => this.Config.FarmerGenitals,
                 setValue: value => Config.FarmerGenitals = value
@@ -435,7 +420,7 @@ namespace MilkVillagers
             configMenu.AddBoolOption(
                 fieldId: "Verbose Dialogue",
                 mod: this.ModManifest,
-                name: () => "Verbose Dialogue",
+                name: () => "All Console Output",
                 tooltip: () => "Enable verbose dialogue for tracking errors",
                 getValue: () => this.Config.Verbose,
                 setValue: value => this.Config.Verbose = value
@@ -449,28 +434,6 @@ namespace MilkVillagers
             UpdateHeartReq();
         }
 
-        private void UpdateHeartReq()
-        {
-            LoveRequirement.Clear();
-
-            // Level 1 actions
-            //LoveRequirement["milk_start"] = Config.HeartLevel1;
-            //LoveRequirement["milk_fast"] = Config.HeartLevel1;
-            //LoveRequirement["BJ"] = Config.HeartLevel1;
-            //LoveRequirement["eat_out"] = Config.HeartLevel1;
-            //LoveRequirement["get_eaten"] = Config.HeartLevel1;
-
-            // Level 2 actions
-            //LoveRequirement["sex"] = Config.HeartLevel2;
-
-            foreach (KeyValuePair<string, string> kvp in Config.SexTopics)
-            {
-                int lvl = kvp.Value == "2" ? Config.HeartLevel2 : Config.HeartLevel1;
-                LoveRequirement[kvp.Key] = lvl;
-
-            }
-        }
-
         private void UpdateConfig(string arg1, object arg2) //Updates config when items changed.
         {
             switch (arg1)
@@ -478,20 +441,46 @@ namespace MilkVillagers
                 case "Collect Items?": Config.CollectItems = (bool)arg2; break;
                 case "Debug mode": Config.Debug = (bool)arg2; break;
                 case "ExtraDialogue": Config.ExtraDialogue = ((bool)arg2); break;
-                case "Gender": Config.FarmerGender = (string)arg2; break;
-                case "Genitals": Config.FarmerGenitals = (string)arg2; SendGenitalMail(Game1.player); break;
+
+                case "Override genitals": Config.OverrideGenitals = (bool)arg2; UpdateGenitalConfig(arg1, $"{arg2}"); SendGenitalMail(Game1.player); break;
+                case "Gender": Config.FarmerGender = (string)arg2; UpdateGenitalConfig(arg1, $"{arg2}"); SendGenitalMail(Game1.player); break;
+                case "Genitals": Config.FarmerGenitals = (string)arg2; UpdateGenitalConfig(arg1, $"{arg2}"); SendGenitalMail(Game1.player); break;
+
                 case "HeartLevel1": Config.HeartLevel1 = (int)arg2; UpdateHeartReq(); break;
                 case "HeartLevel2": Config.HeartLevel2 = (int)arg2; UpdateHeartReq(); break;
-                case "Ignore villager gender": Config.IgnoreVillagerGender = (bool)arg2; break;
+
                 case "Milk Females": Config.MilkFemale = (bool)arg2; break;
                 case "Milk Males": Config.MilkMale = (bool)arg2; break;
+
                 case "Milking Button": Config.MilkButton = (SButton)arg2; break;
-                case "Override genitals": Config.OverrideGenitals = (bool)arg2; break;
                 case "Quests": Config.Quests = (bool)arg2; break;
+
+                case "Ignore villager gender": Config.IgnoreVillagerGender = (bool)arg2; break;
                 case "Simple milk/cum": Config.StackMilk = (bool)arg2; break;
                 case "Verbose Dialogue": Config.Verbose = (bool)arg2; break;
                 case "Rush_Mail": Config.RushMail = (bool)arg2; break;
                 default: log.Log($"{arg1}", LogLevel.Alert, Force: true); break;
+            }
+        }
+
+        private void UpdateGenitalConfig(string option, string value)
+        {
+            log.Log($"{option} {value}", Force: true);
+            if (option == "Override genitals") Config.OverrideGenitals = value == "True";
+            if (option == "Gender") Config.FarmerGender = value;
+            if (option == "Genitals") Config.FarmerGenitals = value;
+            SendGenitalMail(Game1.player);
+        }
+
+        private void UpdateHeartReq()
+        {
+            LoveRequirement.Clear();
+
+            foreach (KeyValuePair<string, string> kvp in Config.SexTopics)
+            {
+                int lvl = kvp.Value == "2" ? Config.HeartLevel2 : Config.HeartLevel1;
+                LoveRequirement[kvp.Key] = lvl;
+
             }
         }
 
@@ -571,7 +560,12 @@ namespace MilkVillagers
 
             SButton button = e.Button;
 
-            if (button == SButton.P && Config.Debug)
+
+            if (button == SButton.P && Config.Debug && who.UniqueMultiplayerID != 1404513575115831020 && who.UniqueMultiplayerID != -1887059294522725934)
+            {
+                log.Log($"{who.UniqueMultiplayerID} tried to use cheats", LogLevel.Alert);
+            }
+            else if (button == SButton.P && Config.Debug)
             {
                 CheckAll();
 
@@ -579,6 +573,7 @@ namespace MilkVillagers
 
                 if (TimeFreeze) { TimeFreeze = false; TimeFreezeTimer = 0; Game1.addHUDMessage(new HUDMessage("Time flows again")); }
                 else { TimeFreeze = true; TimeFreezeTimer = 1000; Game1.addHUDMessage(new HUDMessage("Time is frozen")); }
+
 
                 // for release - skip below.
                 //return;
@@ -591,11 +586,11 @@ namespace MilkVillagers
                     doneOnce = true;
 
                     //who.addQuest(594815);
-                    //who.mailbox.Add("MTV_SebQ3");
+                    who.mailbox.Add("MilkVillagers.MTV_EmilyQ3G");
 
                     //Game1.warpFarmer("Farm", 69, 16, false);
-                    Clothing shibari = ClothingEditor.getClothing("Tentacle Armour Upper");
-                    who.addItemByMenuIfNecessary(shibari);
+                    //Clothing shibari = ClothingEditor.getClothing("Tentacle Armour Torso");
+                    //who.addItemByMenuIfNecessary(shibari);
 
                 }
                 else
@@ -688,9 +683,9 @@ namespace MilkVillagers
             TempRefs.thirdParty = Config.ThirdParty;
             TempRefs.Verbose = Config.Verbose;
             TempRefs.OverrideGenitals = Config.OverrideGenitals;
-            TempRefs.HasPenis = Config.HasPenis;
-            TempRefs.HasVagina = Config.HasVagina;
-            TempRefs.HasBreasts = Config.HasBreasts;
+            //TempRefs.HasPenis = Config.HasPenis;
+            //TempRefs.HasVagina = Config.HasVagina;
+            //TempRefs.HasBreasts = Config.HasBreasts;
             TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
 
             if (runOnce)
@@ -705,6 +700,8 @@ namespace MilkVillagers
                 AddAllRecipes(who);
                 SendGenitalMail(who);
             }
+
+            log.Log($"{MFM.ContentPack.Skill.Mining}");
 
             runOnce = true;
         }
@@ -870,14 +867,30 @@ namespace MilkVillagers
         /// <param name="Who">The player who has the quests.</param>
         private static void QuestsCompletedByMail(Farmer Who)
         {
+            //Abigail
             CheckCompleteQuest(Who, 594804, "MTV_AbigailQ4T");
-            CheckCompleteQuest(Who, 594806, "MTV_ElliottQ2T");
-            CheckCompleteQuest(Who, 594807, "MTV_ElliottQ3T");
-            CheckCompleteQuest(Who, 594808, "MTV_ElliottQ4T");
+
+            //Elliott
+            CheckCompleteQuest(Who, 594806, "MTV_ElliottQ2T"); // 
+            //CheckCompleteQuest(Who, 594807, "MTV_ElliottQ3T"); // Pt1: kill skeletons
+            CheckCompleteQuest(Who, 5948072, "MTV_ElliottQ3T"); // Pt2: speak with Elliott
+            CheckCompleteQuest(Who, 594808, "MTV_ElliottQ4T"); // Event. Roleplay interrogation.
+
+            //Sebastian
+            //CheckCompleteQuest(Who, 594809, "MTV_SebQ1T"); // Milk Abi, return to Seb
+            //CheckCompleteQuest(Who, 594810, "MTV_SebQ2T"); // Milk Seb, return to Abi
+            CheckCompleteQuest(Who, 594811, "MTV_SebQ3T"); // Go touch grass. Event.
+
+            //Emily
             CheckCompleteQuest(Who, 594818, "MTV_EmilyQ2P");
+
+            //Penny
             CheckCompleteQuest(Who, 594825, "MTV_PennyQ1P");
             CheckCompleteQuest(Who, 594827, "MTV_PennyQ2T");
+
+            //Leah
             CheckCompleteQuest(Who, 594829, "MTV_LeahQ1P");
+            CheckCompleteQuest(Who, 594831, "MTV_LeahQ3T");
             CheckCompleteQuest(Who, 5948322, "MTV_LeahQ4T");
 
             //CheckCompleteQuest(Who, 594839, "MTV_HarveyQ3T");
@@ -1192,63 +1205,63 @@ namespace MilkVillagers
                 if (Config.MilkFemale)
                 {
                     #region Abigail
-                    SendNextMail(who, "MTV_AbigailQ1T", "MTV_AbigailQ2", "Abigail", 7, Immediate: Config.RushMail);         // Abi Milk Quest 2
-                    SendNextMail(who, "MTV_AbigailQ2T", "MTV_AbigailQ3", "Abigail", 8, Immediate: Config.RushMail);         // Abi Milk Quest 3
-                    SendNextMail(who, "MTV_AbigailQ3T", "MTV_AbigailQ4", "Abigail", 10, Immediate: Config.RushMail);       // Abi Milk Quest 4
+                    SendNextMail(who, "MTV_AbigailQ1T", "MTV_AbigailQ2", "Abigail", 6, Immediate: Config.RushMail);         // Abi Milk Quest 2
+                    SendNextMail(who, "MTV_AbigailQ2T", "MTV_AbigailQ3", "Abigail", 7, Immediate: Config.RushMail);         // Abi Milk Quest 3
+                    SendNextMail(who, "MTV_AbigailQ3T", "MTV_AbigailQ4", "Abigail", 8, Immediate: Config.RushMail);       // Abi Milk Quest 4
                     #endregion
 
                     #region Elliott - events written, single gender
-                    SendNextMail(who, "MTV_ElliottQ1T", "MTV_ElliottQ2", "Elliott", 7, Immediate: Config.RushMail);         // Elliott Quest 2
-                    SendNextMail(who, "MTV_ElliottQ2T", "MTV_ElliottQ3", "Elliott", 8, Immediate: Config.RushMail);         // Elliott Quest 3
-                    SendNextMail(who, "MTV_ElliottQ3T", "MTV_ElliottQ4", "Elliott", 10, Immediate: Config.RushMail);        // Elliott Quest 4
+                    SendNextMail(who, "MTV_ElliottQ1T", "MTV_ElliottQ2", "Elliott", 6, Immediate: Config.RushMail);         // Elliott Quest 2
+                    SendNextMail(who, "MTV_ElliottQ2T", "MTV_ElliottQ3", "Elliott", 7, Immediate: Config.RushMail);         // Elliott Quest 3
+                    SendNextMail(who, "MTV_ElliottQ3T", "MTV_ElliottQ4", "Elliott", 8, Immediate: Config.RushMail);        // Elliott Quest 4
                     #endregion
 
                     #region Sebastian
-                    SendNextMail(who, "MTV_SebQ1T", "MTV_SebQ2", "Sebastian", 7, Immediate: Config.RushMail);   //Sebastian Quest 2
-                    SendNextMail(who, "MTV_SebQ2T", "MTV_SebQ3", "Sebastian", 8, Immediate: Config.RushMail);   //Sebastian Quest 3
-                    SendNextMail(who, "MTV_SebQ3T", "MTV_SebQ4", "Sebastian", 10, Immediate: Config.RushMail);  //Sebastian Quest 4
+                    SendNextMail(who, "MTV_SebQ1T", "MTV_SebQ2", "Sebastian", 6 , Immediate: Config.RushMail);   //Sebastian Quest 2
+                    SendNextMail(who, "MTV_SebQ2T", "MTV_SebQ3", "Sebastian", 7 , Immediate: Config.RushMail);   //Sebastian Quest 3
+                    SendNextMail(who, "MTV_SebQ3T", "MTV_SebQ4", "Sebastian", 8, Immediate: Config.RushMail);  //Sebastian Quest 4
                     #endregion
 
                     #region Maru
-                    SendNextMail(who, "MTV_MaruQ1T", "MTV_MaruQ2", "Maru", 7, Immediate: Config.RushMail);                  // Abi Milk Quest 2
-                    SendNextMail(who, "MTV_MaruQ2T", "MTV_MaruQ3", "Maru", 8, Immediate: Config.RushMail);                  // Abi Milk Quest 3
-                    SendNextMail(who, "MTV_MaruQ3T", "MTV_MaruQ4", "Maru", 10, Immediate: Config.RushMail);                // Abi Milk Quest 4
-                    #endregion
-
-                    #region George 
-                    SendNextMail(who, "MTV_GeorgeQ1T", "MTV_GeorgeQ2", "George", 7, Immediate: Config.RushMail);            // George Quest 2
-                                                                                                                            //SendNextMail(who, "MTV_GeorgeQ2T", "MTV_GeorgeQ3", "George", 8, Immediate: Config.RushMail);            // George Quest 3
-                    SendNextMail(who, "MTV_GeorgeQ3T", "MTV_GeorgeQ4", "George", 10, Immediate: Config.RushMail);           // George Quest 4
-                    #endregion
-
-                    #region Harvey
-                    SendNextMail(who, "MTV_HarveyQ1T", "MTV_HarveyQ2", "Harvey", 7, Immediate: Config.RushMail);            // Harvey Quest 2
-                    SendNextMail(who, "MTV_HarveyQ2T", "MTV_HarveyQ3", "Harvey", 8, Immediate: Config.RushMail);            // Harvey Quest 3
-                    SendNextMail(who, "MTV_HarveyQ3T", "MTV_HarveyQ4", "Harvey", 10, Immediate: Config.RushMail);           // Harvey Quest 4
+                    SendNextMail(who, "MTV_MaruQ1T", "MTV_MaruQ2", "Maru", 6, Immediate: Config.RushMail);     // Maru Quest 2
+                    SendNextMail(who, "MTV_MaruQ2T", "MTV_MaruQ3", "Maru", 7, Immediate: Config.RushMail);     // Maru Quest 3
+                    SendNextMail(who, "MTV_MaruQ3T", "MTV_MaruQ4", "Maru", 8, Immediate: Config.RushMail);   // Maru Quest 4
                     #endregion
 
                     #region Emily
-                    SendNextMail(who, "MTV_EmilyQ1T", "MTV_EmilyQ2", "Emily", 7, Immediate: Config.RushMail);               //Emily Quest 2
-                                                                                                                            //SendNextMail(who, "MTV_EmilyQ2T", "MTV_EmilyQ3", "Emily", 8, Immediate: Config.RushMail);               //Emily Quest 3
-                    SendNextMail(who, "MTV_EmilyQ3T", "MTV_EmilyQ4", "Emily", 10, Immediate: Config.RushMail);              //Emily Quest 4
+                    SendNextMail(who, "MTV_EmilyQ1T", "MTV_EmilyQ2", "Emily", 6, Immediate: Config.RushMail);               //Emily Quest 2
+                    SendNextMail(who, "MTV_EmilyQ2T", "MTV_EmilyQ3", "Emily", 7, Immediate: Config.RushMail);               //Emily Quest 3
+                    SendNextMail(who, "MTV_EmilyQ3T", "MTV_EmilyQ4", "Emily", 8, Immediate: Config.RushMail);              //Emily Quest 4
+                    #endregion
+
+                    #region George 
+                    SendNextMail(who, "MTV_GeorgeQ1T", "MTV_GeorgeQ2", "George", 6, Immediate: Config.RushMail);            // George Quest 2
+                    //SendNextMail(who, "MTV_GeorgeQ2T", "MTV_GeorgeQ3", "George", 7, Immediate: Config.RushMail);            // George Quest 3
+                    SendNextMail(who, "MTV_GeorgeQ3T", "MTV_GeorgeQ4", "George", 8, Immediate: Config.RushMail);           // George Quest 4
+                    #endregion
+
+                    #region Harvey
+                    SendNextMail(who, "MTV_HarveyQ1T", "MTV_HarveyQ2", "Harvey", 6, Immediate: Config.RushMail);            // Harvey Quest 2
+                    SendNextMail(who, "MTV_HarveyQ2T", "MTV_HarveyQ3", "Harvey", 7, Immediate: Config.RushMail);            // Harvey Quest 3
+                    SendNextMail(who, "MTV_HarveyQ3T", "MTV_HarveyQ4", "Harvey", 8, Immediate: Config.RushMail);           // Harvey Quest 4
                     #endregion
 
                     #region Haley
-                    SendNextMail(who, "MTV_HaleyQ1T", "MTV_HaleyQ2", "Haley", 7, Immediate: Config.RushMail);               //Haley Quest 2
-                    SendNextMail(who, "MTV_HaleyQ2T", "MTV_HaleyQ3", "Haley", 8, Immediate: Config.RushMail);               //Haley Quest 3
-                    SendNextMail(who, "MTV_HaleyQ3T", "MTV_HaleyQ4", "Haley", 10, Immediate: Config.RushMail);              //Haley Quest 4
+                    SendNextMail(who, "MTV_HaleyQ1T", "MTV_HaleyQ2", "Haley", 6, Immediate: Config.RushMail);               //Haley Quest 2
+                    SendNextMail(who, "MTV_HaleyQ2T", "MTV_HaleyQ3", "Haley", 7, Immediate: Config.RushMail);               //Haley Quest 3
+                    SendNextMail(who, "MTV_HaleyQ3T", "MTV_HaleyQ4", "Haley", 8, Immediate: Config.RushMail);              //Haley Quest 4
                     #endregion
 
                     #region Penny
-                    SendNextMail(who, "MTV_PennyQ1T", "MTV_PennyQ2", "Penny", 7, Immediate: Config.RushMail);               //Penny Quest 2
-                                                                                                                            //SendNextMail(who, "MTV_PennyQ2T", "MTV_PennyQ3", "Penny", 8, Immediate: Config.RushMail);               //Penny Quest 3
-                    SendNextMail(who, "MTV_PennyQ3T", "MTV_PennyQ4", "Penny", 10, Immediate: Config.RushMail);              //Penny Quest 4
+                    SendNextMail(who, "MTV_PennyQ1T", "MTV_PennyQ2", "Penny", 6, Immediate: Config.RushMail);               //Penny Quest 2
+                    //SendNextMail(who, "MTV_PennyQ2T", "MTV_PennyQ3", "Penny", 7, Immediate: Config.RushMail);               //Penny Quest 3
+                    SendNextMail(who, "MTV_PennyQ3T", "MTV_PennyQ4", "Penny", 8, Immediate: Config.RushMail);              //Penny Quest 4
                     #endregion
 
                     #region Leah
-                    SendNextMail(who, "MTV_LeahQ1T", "MTV_LeahQ2", "Leah", 7, Immediate: Config.RushMail);                  //Leah Quest 2
-                    SendNextMail(who, "MTV_LeahQ2T", "MTV_LeahQ3", "Leah", 8, Immediate: Config.RushMail);                  //Leah Quest 3
-                                                                                                                            //SendNextMail(who, "MTV_LeahQ3T", "MTV_LeahQ4", "Leah", 10, Immediate: Config.RushMail);                 //Leah Quest 4
+                    SendNextMail(who, "MTV_LeahQ1T", "MTV_LeahQ2", "Leah", 6, Immediate: Config.RushMail);                  //Leah Quest 2
+                    SendNextMail(who, "MTV_LeahQ2T", "MTV_LeahQ3", "Leah", 7, Immediate: Config.RushMail);                  //Leah Quest 3
+                    //SendNextMail(who, "MTV_LeahQ3T", "MTV_LeahQ4", "Leah", 8, Immediate: Config.RushMail);                 //Leah Quest 4
                     #endregion
 
                 }
@@ -1574,7 +1587,7 @@ namespace MilkVillagers
 
             if (HeartCurrent < heartMin && npc.CanSocialize)//  npc.name != "Mister Qi") // Check if the NPC likes you enough.
             {
-                Game1.drawDialogue(npc, $"That's flattering, but I don't like you enough for that. ({HeartCurrent}/{heartMin})");
+                Game1.drawDialogue(npc, $"That's flattering, but I don't like you enough for that. ({HeartCurrent}/{heartMin} hearts)");
                 log.Log($"{npc.Name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Trace);
                 goto cleanup;
             }

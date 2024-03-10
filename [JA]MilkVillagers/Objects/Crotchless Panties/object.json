@@ -1,0 +1,65 @@
+{
+  "Name": "Crotchless Panties", //The name you would like your object to have, this should be identical to the subfolder name.
+  "Description": "A small set of Crotchless Panties", //Description of the product.
+  "Category": "Junk", //This should match the crop.json Type or for fruit trees should be one of the following: Flower, Fruit, Vegetable, Gem, Fish, Egg, Milk, Cooking, Crafting, Mineral, Meat, Metal, Junk, Syrup, MonsterLoot, ArtisanGoods, and Seeds.
+  "CategoryTextOverride": "Clothing",
+  "Edibility": -300, //Edibility is for health, energy is calculated by the game. For inedibile items, set to -300.
+  "Price": 3200, //How much your item sells for.
+  "IsColored": false, //(optional) Set this value to true if your product is colored. Primarily applies to flowers.
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Fiber", //for rope
+        "Count": 2
+      },
+      {
+        "Object": "Cloth", //fabric
+        "Count": 1
+      }
+    ],
+    "IsDefault": false,
+    "CanPurchase": true
+  },
+  "GiftTastes": //If an NPC isn't listed their gift taste will be neutral. If every NPC is specified you may remove unused categories.
+  {
+    "Love": [ "Emily", "Haley", "Abigail" ], //Example of a single NPC
+    "Like": [ "Leah" ],
+    "Neutral": null, //Example of `null`. Can also remove if not being used.
+    "Dislike": [ "Penny" ], //Example of multiple NPC
+    "Hate": [ "Lewis" ]
+  },
+  "ContextTags": [
+    "quest_item",
+    "MTV_item"
+  ],
+
+  // Localization
+
+  "NameLocalization": {
+    "es": "Bragas sin entrepierna", //Chinese (Simplified)
+    "ko": "가랑이없는 팬티", //Turkish
+    "de": "Schickloses Höschen", //Russian
+    "fr": "Culotte sans entrejambe", //Portuguese
+    "hu": "Csatlakozás nélküli bugyi", //Japanese
+    "it": "Mutandine senza cavallo", //Italian
+    "ja": "股のないパンティー", //Hungarian
+    "pt": "Calcinha sem torcão", //French
+    "ru": "Трусики без промежности", //German
+    "tr": "Kasıksız külot", //Korean
+    "zh": "无rot的内裤" //Spanish
+  },
+  "DescriptionLocalization": {
+    "es": "Un pequeño juego de bragas sin entrepierna", //Spanish
+    "ko": "가랑이없는 팬티의 작은 세트", //Korean
+    "de": "Ein kleines Satz krottelloser Höschen", //German
+    "fr": "Un petit ensemble de culottes sans entrejambe", //French
+    "hu": "Egy kis darab láb nélküli bugyi", //Hungarian
+    "it": "Un piccolo set di mutandine senza cavallo", //Italian
+    "ja": "股のないパンティーの小さなセット", //Japanese
+    "pt": "Um pequeno conjunto de calcinhas sem torcão", //Portuguese
+    "ru": "Небольшой набор трусиков без промежности", //Russian
+    "tr": "Küçük bir kasıksız külot seti", //Turkish
+    "zh": "一小部分无rot的内裤" //Chinese (Simplified)
+  }
+}

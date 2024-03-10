@@ -31,7 +31,7 @@ Example:			Hi there @!
 %kid1 				The name of Farmer's first child.
 %kid2 				The name of Farmer's second child. 
 
-Eotes
+Emotes
 row	index	purpose
 1	0–3		animation used to start an emote (I think)
 2	4–7		concerned

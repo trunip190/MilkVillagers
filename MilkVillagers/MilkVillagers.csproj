@@ -33,5 +33,9 @@
 			<HintPath>$(GamePath)\Mods\SpaceCore\SpaceCore.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
+		<Reference Include="MailFrameworkMod">
+			<HintPath>$(GamePath)\Mods\MailFrameworkMod\MailFrameworkMod.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
 	</ItemGroup>
 </Project>
