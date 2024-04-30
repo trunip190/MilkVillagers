@@ -17,6 +17,8 @@ using HarmonyLib;
 using Microsoft.Xna.Framework;
 using System.Reflection;
 using MailFrameworkMod;
+using StardewValley.Quests;
+using SpaceShared.APIs;
 
 namespace MilkVillagers
 {
@@ -29,6 +31,8 @@ namespace MilkVillagers
         private bool runOnce;
         private bool MessageOnce;
         private NPC currentTarget;
+        IContentPatcherApi contentPatcherApi;
+
 
         public Dictionary<string, int> LoveRequirement = new()
         {
@@ -68,7 +72,7 @@ namespace MilkVillagers
         private bool TimeFreeze = false; // Debug time freeze.
 
         private bool TentacleArmour;
-        private bool TentacleCombination = false;
+        private bool TentacleCombination = false; // Force-equips the other part of the tentacle outfit.
         private float TentacleCount = 0;
         private float TentacleLimit = 240; // Four ingame hours.
 
@@ -159,6 +163,7 @@ namespace MilkVillagers
             // New style of editing assets.
             Helper.Events.Content.AssetRequested += Content_AssetRequested;
             Helper.Events.Content.AssetReady += Content_AssetReady;
+            contentPatcherApi = this.Helper.ModRegistry.GetApi<IContentPatcherApi>("Pathoschild.ContentPatcher");
 
             TempRefs.thirdParty = Config.ThirdParty;
             TempRefs.Verbose = Config.Verbose;
@@ -308,8 +313,17 @@ namespace MilkVillagers
             //////////////////   Override Genitals   ///////////////////
             ////////////////////////////////////////////////////////////
             #region Override Genitals
-            string[] genders = new string[] {"Save default", "Male", "Female", "A-sexual" }; //, "Intersex", "Genderfluid" }; need to work this in.
+            string[] genders = new string[] { "Save default", "Male", "Female", "A-sexual" }; //, "Intersex", "Genderfluid" }; need to work this in.
             string[] genitals = new string[] { "Penis", "Vagina and breasts", "Vagina", "Vagina and Penis", "Penis and breasts", "Penis, Vagina, Breasts", "Breasts", "None" };
+
+            configMenu.AddBoolOption(
+                fieldId: "SaveFileGender",
+                mod: this.ModManifest,
+                name: () => "Farmer is male?",
+                tooltip: () => "Does the game think you are male?",
+                getValue: () => Game1.player.IsMale,
+                setValue: value => Game1.player.IsMale = value
+                );
 
             configMenu.AddTextOption(
                 fieldId: "Gender",
@@ -428,7 +442,6 @@ namespace MilkVillagers
             #endregion
 
             configMenu.OnFieldChanged(this.ModManifest, UpdateConfig);
-
             #endregion
 
             UpdateHeartReq();
@@ -442,6 +455,7 @@ namespace MilkVillagers
                 case "Debug mode": Config.Debug = (bool)arg2; break;
                 case "ExtraDialogue": Config.ExtraDialogue = ((bool)arg2); break;
 
+                case "SaveFileGender": Game1.player.changeGender((bool)arg2); UpdateGenitalConfig(arg1, $"{arg2}"); SendGenitalMail(Game1.player); log.Log($"{Game1.player.displayName} is now male? {Game1.player.IsMale}", LogLevel.Info, Force: true); break;
                 case "Override genitals": Config.OverrideGenitals = (bool)arg2; UpdateGenitalConfig(arg1, $"{arg2}"); SendGenitalMail(Game1.player); break;
                 case "Gender": Config.FarmerGender = (string)arg2; UpdateGenitalConfig(arg1, $"{arg2}"); SendGenitalMail(Game1.player); break;
                 case "Genitals": Config.FarmerGenitals = (string)arg2; UpdateGenitalConfig(arg1, $"{arg2}"); SendGenitalMail(Game1.player); break;
@@ -459,6 +473,7 @@ namespace MilkVillagers
                 case "Simple milk/cum": Config.StackMilk = (bool)arg2; break;
                 case "Verbose Dialogue": Config.Verbose = (bool)arg2; break;
                 case "Rush_Mail": Config.RushMail = (bool)arg2; break;
+
                 default: log.Log($"{arg1}", LogLevel.Alert, Force: true); break;
             }
         }
@@ -466,9 +481,10 @@ namespace MilkVillagers
         private void UpdateGenitalConfig(string option, string value)
         {
             log.Log($"{option} {value}", Force: true);
-            if (option == "Override genitals") Config.OverrideGenitals = value == "True";
-            if (option == "Gender") Config.FarmerGender = value;
-            if (option == "Genitals") Config.FarmerGenitals = value;
+            if (option == "Override genitals") Config.OverrideGenitals = TempRefs.OverrideGenitals = value == "True";
+            if (option == "Gender") Config.FarmerGender = TempRefs.FarmerGender = value;
+            if (option == "Genitals") Config.FarmerGenitals = TempRefs.FarmerGenitals = value;
+            if (option == "SaveFileGender") Game1.player.IsMale = value == "True";
             SendGenitalMail(Game1.player);
         }
 
@@ -539,6 +555,21 @@ namespace MilkVillagers
                 }
             }
 
+            if (ItemGiven == "Discrete Package")
+            {
+                if (npcTarget.Name != "Penny")
+                {
+                    Game1.drawDialogue(npcTarget, "Thats not my package. Maybe ask around the village?");
+                    e.Cancel = true;
+                    goto cleanup;
+                }
+
+                foreach (LostItemQuest qid in who.questLog.Where(o => o.id == 594826))
+                {
+                    qid.npcName.Set("Penny");
+                }
+            }
+
         cleanup:
             return;
         }
@@ -560,7 +591,7 @@ namespace MilkVillagers
 
             SButton button = e.Button;
 
-
+            /// stop debug button working if player ID isn't one of mine.
             if (button == SButton.P && Config.Debug && who.UniqueMultiplayerID != 1404513575115831020 && who.UniqueMultiplayerID != -1887059294522725934)
             {
                 log.Log($"{who.UniqueMultiplayerID} tried to use cheats", LogLevel.Alert);
@@ -575,18 +606,24 @@ namespace MilkVillagers
                 else { TimeFreeze = true; TimeFreezeTimer = 1000; Game1.addHUDMessage(new HUDMessage("Time is frozen")); }
 
 
+
                 // for release - skip below.
                 //return;
 
-                ///
-                ///
                 /// Press P on load to trigger. for repeated testing only.
+                ///
+                ///
                 if (!doneOnce)
                 {
                     doneOnce = true;
 
-                    //who.addQuest(594815);
-                    who.mailbox.Add("MilkVillagers.MTV_EmilyQ3G");
+                    //who.addQuest(594827);
+                    who.mailbox.Add("MTV_PennyQ2T");
+                    who.changeFriendship(1750, Game1.getCharacterFromName("Penny"));
+                    who.changeFriendship(1250, Game1.getCharacterFromName("Alex"));
+                    who.changeFriendship(1250, Game1.getCharacterFromName("Leah"));
+                    Game1.timeOfDay = 1900;
+
 
                     //Game1.warpFarmer("Farm", 69, 16, false);
                     //Clothing shibari = ClothingEditor.getClothing("Tentacle Armour Torso");
@@ -602,6 +639,23 @@ namespace MilkVillagers
 
                     //Game1.warpFarmer("Town", 36, 56, false);
                     //Game1.player.activeDialogueEvents.Add("MTV_BoethiaBook", 1);
+
+                    List<Response> choices = new List<Response> {
+                            new Response("Abigail","Abigail"),
+                            new Response("Maru/Sebastian","Maru/Sebastian"),
+                            new Response("Haley/Emily","Haley/Emily"),
+                            new Response("Penny","Penny"),
+                            new Response("Leah","Leah"),
+                            new Response("Elliott","Elliott"),
+                            new Response("Library","Library"),
+                            new Response("Mines","Mines"),
+                            new Response("Railroad", "Railroad"),
+                            new Response("Farm","Farm"),
+            };
+
+                    Game1.currentLocation.createQuestionDialogue($"Where do you want to warp?",
+                        choices.ToArray(),
+                        new GameLocation.afterQuestionBehavior(WarpFarmer));
 
                     SendNewMail("mtv_sendmail", Array.Empty<string>());
                     //Game1.warpFarmer("Forest", 104, 34, false);
@@ -861,42 +915,6 @@ namespace MilkVillagers
             }
         }
 
-        /// <summary>
-        /// List of quests that are completed by the player seeing a scene.
-        /// </summary>
-        /// <param name="Who">The player who has the quests.</param>
-        private static void QuestsCompletedByMail(Farmer Who)
-        {
-            //Abigail
-            CheckCompleteQuest(Who, 594804, "MTV_AbigailQ4T");
-
-            //Elliott
-            CheckCompleteQuest(Who, 594806, "MTV_ElliottQ2T"); // 
-            //CheckCompleteQuest(Who, 594807, "MTV_ElliottQ3T"); // Pt1: kill skeletons
-            CheckCompleteQuest(Who, 5948072, "MTV_ElliottQ3T"); // Pt2: speak with Elliott
-            CheckCompleteQuest(Who, 594808, "MTV_ElliottQ4T"); // Event. Roleplay interrogation.
-
-            //Sebastian
-            //CheckCompleteQuest(Who, 594809, "MTV_SebQ1T"); // Milk Abi, return to Seb
-            //CheckCompleteQuest(Who, 594810, "MTV_SebQ2T"); // Milk Seb, return to Abi
-            CheckCompleteQuest(Who, 594811, "MTV_SebQ3T"); // Go touch grass. Event.
-
-            //Emily
-            CheckCompleteQuest(Who, 594818, "MTV_EmilyQ2P");
-
-            //Penny
-            CheckCompleteQuest(Who, 594825, "MTV_PennyQ1P");
-            CheckCompleteQuest(Who, 594827, "MTV_PennyQ2T");
-
-            //Leah
-            CheckCompleteQuest(Who, 594829, "MTV_LeahQ1P");
-            CheckCompleteQuest(Who, 594831, "MTV_LeahQ3T");
-            CheckCompleteQuest(Who, 5948322, "MTV_LeahQ4T");
-
-            //CheckCompleteQuest(Who, 594839, "MTV_HarveyQ3T");
-            CheckCompleteQuest(Who, 594840, "MTV_HarveyQ4T");
-        }
-
         private void GameLoop_DayEnding(object sender, DayEndingEventArgs e)
         {
             //TODO not sure about this
@@ -960,6 +978,43 @@ namespace MilkVillagers
         #endregion
 
         #region Quest methods
+        /// <summary>
+        /// List of quests that are completed by the player seeing a scene.
+        /// </summary>
+        /// <param name="Who">The player who has the quests.</param>
+        private static void QuestsCompletedByMail(Farmer Who)
+        {
+            //Abigail
+            CheckCompleteQuest(Who, 594804, "MTV_AbigailQ4T");
+
+            //Elliott
+            CheckCompleteQuest(Who, 594806, "MTV_ElliottQ2T"); // 
+            //CheckCompleteQuest(Who, 594807, "MTV_ElliottQ3T"); // Pt1: kill skeletons
+            CheckCompleteQuest(Who, 5948072, "MTV_ElliottQ3T"); // Pt2: speak with Elliott
+            CheckCompleteQuest(Who, 594808, "MTV_ElliottQ4T"); // Event. Roleplay interrogation.
+
+            //Sebastian
+            //CheckCompleteQuest(Who, 594809, "MTV_SebQ1T"); // Milk Abi, return to Seb
+            //CheckCompleteQuest(Who, 594810, "MTV_SebQ2T"); // Milk Seb, return to Abi
+            CheckCompleteQuest(Who, 594811, "MTV_SebQ3T"); // Go touch grass. Event.
+
+            //Emily
+            CheckCompleteQuest(Who, 594818, "MTV_EmilyQ2P");
+
+            //Penny
+            CheckCompleteQuest(Who, 594825, "MTV_PennyQ1P"); //auto leads into part two. standard completion in part 2
+            CheckCompleteQuest(Who, 594827, "MTV_PennyQ3P");
+            CheckCompleteQuest(Who, 5948272, "MTV_PennyQ3T");
+
+            //Leah
+            CheckCompleteQuest(Who, 594829, "MTV_LeahQ1P");
+            CheckCompleteQuest(Who, 594831, "MTV_LeahQ3T");
+            CheckCompleteQuest(Who, 5948322, "MTV_LeahQ4T");
+
+            //CheckCompleteQuest(Who, 594839, "MTV_HarveyQ3T");
+            CheckCompleteQuest(Who, 594840, "MTV_HarveyQ4T");
+        }
+
         private static void CheckCompleteQuest(Farmer Who, int questID, string MailName)
         {
             if (Who == null) { log.Log("ERROR: Who was null"); return; }
@@ -1004,6 +1059,18 @@ namespace MilkVillagers
                 {
                     log.Log("Setting ActiveConversationEvent to MTV_GeorgeQ4", LogLevel.Info);
                     Game1.player.activeDialogueEvents.Add("MTV_GeorgeQ4", 0);
+                }
+                if (questID == 594819)
+                {
+                    if (!who.knowsRecipe("Crotchless Panties"))
+                    {
+                        who.craftingRecipes["Crotchless Panties"] = 0; // Crafting name, then times crafted (0)
+                    }
+                }
+                if (questID == 594826)
+                {
+                    log.Log("Setting ActiveConversationEvent to MTV_Parcel", LogLevel.Info);
+                    who.activeDialogueEvents.Add("MTV_Parcel", 1);
                 }
 
                 CurrentQuests.Add(questID);
@@ -1217,8 +1284,8 @@ namespace MilkVillagers
                     #endregion
 
                     #region Sebastian
-                    SendNextMail(who, "MTV_SebQ1T", "MTV_SebQ2", "Sebastian", 6 , Immediate: Config.RushMail);   //Sebastian Quest 2
-                    SendNextMail(who, "MTV_SebQ2T", "MTV_SebQ3", "Sebastian", 7 , Immediate: Config.RushMail);   //Sebastian Quest 3
+                    SendNextMail(who, "MTV_SebQ1T", "MTV_SebQ2", "Sebastian", 6, Immediate: Config.RushMail);   //Sebastian Quest 2
+                    SendNextMail(who, "MTV_SebQ2T", "MTV_SebQ3", "Sebastian", 7, Immediate: Config.RushMail);   //Sebastian Quest 3
                     SendNextMail(who, "MTV_SebQ3T", "MTV_SebQ4", "Sebastian", 8, Immediate: Config.RushMail);  //Sebastian Quest 4
                     #endregion
 
@@ -1234,28 +1301,28 @@ namespace MilkVillagers
                     SendNextMail(who, "MTV_EmilyQ3T", "MTV_EmilyQ4", "Emily", 8, Immediate: Config.RushMail);              //Emily Quest 4
                     #endregion
 
-                    #region George 
-                    SendNextMail(who, "MTV_GeorgeQ1T", "MTV_GeorgeQ2", "George", 6, Immediate: Config.RushMail);            // George Quest 2
-                    //SendNextMail(who, "MTV_GeorgeQ2T", "MTV_GeorgeQ3", "George", 7, Immediate: Config.RushMail);            // George Quest 3
-                    SendNextMail(who, "MTV_GeorgeQ3T", "MTV_GeorgeQ4", "George", 8, Immediate: Config.RushMail);           // George Quest 4
-                    #endregion
-
                     #region Harvey
                     SendNextMail(who, "MTV_HarveyQ1T", "MTV_HarveyQ2", "Harvey", 6, Immediate: Config.RushMail);            // Harvey Quest 2
                     SendNextMail(who, "MTV_HarveyQ2T", "MTV_HarveyQ3", "Harvey", 7, Immediate: Config.RushMail);            // Harvey Quest 3
                     SendNextMail(who, "MTV_HarveyQ3T", "MTV_HarveyQ4", "Harvey", 8, Immediate: Config.RushMail);           // Harvey Quest 4
                     #endregion
 
+                    #region Penny
+                    SendNextMail(who, "MTV_PennyQ1T", "MTV_PennyQ2", "Penny", 6, Immediate: Config.RushMail);               //Penny Quest 2
+                    SendNextMail(who, "MTV_PennyQ2T", "MTV_PennyQ3", "Penny", 7, Immediate: Config.RushMail);               //Penny Quest 3
+                    /* Not written yet */SendNextMail(who, "MTV_PennyQ3T", "MTV_PennyQ4", "Penny", 8, Immediate: Config.RushMail);              //Penny Quest 4
+                    #endregion
+
+                    #region George 
+                    SendNextMail(who, "MTV_GeorgeQ1T", "MTV_GeorgeQ2", "George", 6, Immediate: Config.RushMail);            // George Quest 2
+                    //SendNextMail(who, "MTV_GeorgeQ2T", "MTV_GeorgeQ3", "George", 7, Immediate: Config.RushMail);            // George Quest 3
+                    SendNextMail(who, "MTV_GeorgeQ3T", "MTV_GeorgeQ4", "George", 8, Immediate: Config.RushMail);           // George Quest 4
+                    #endregion
+
                     #region Haley
                     SendNextMail(who, "MTV_HaleyQ1T", "MTV_HaleyQ2", "Haley", 6, Immediate: Config.RushMail);               //Haley Quest 2
                     SendNextMail(who, "MTV_HaleyQ2T", "MTV_HaleyQ3", "Haley", 7, Immediate: Config.RushMail);               //Haley Quest 3
                     SendNextMail(who, "MTV_HaleyQ3T", "MTV_HaleyQ4", "Haley", 8, Immediate: Config.RushMail);              //Haley Quest 4
-                    #endregion
-
-                    #region Penny
-                    SendNextMail(who, "MTV_PennyQ1T", "MTV_PennyQ2", "Penny", 6, Immediate: Config.RushMail);               //Penny Quest 2
-                    //SendNextMail(who, "MTV_PennyQ2T", "MTV_PennyQ3", "Penny", 7, Immediate: Config.RushMail);               //Penny Quest 3
-                    SendNextMail(who, "MTV_PennyQ3T", "MTV_PennyQ4", "Penny", 8, Immediate: Config.RushMail);              //Penny Quest 4
                     #endregion
 
                     #region Leah
@@ -1362,8 +1429,9 @@ namespace MilkVillagers
             if (!GetPenis(who) && GetVagina(who)) { newMail = "MTV_Vagina"; goto sendmail; }
 
         sendmail:
-            log.Log($"{newMail}: {MailEditor.Mail.Contains(newMail)}", LogLevel.Trace);
+            log.Log($"{newMail}: {MailEditor.Mail.Contains(newMail)}", LogLevel.Info);
             mailbox.Add(newMail);
+
         }
 
         public static bool GetVagina(Farmer who)
@@ -1490,6 +1558,23 @@ namespace MilkVillagers
             choices.Add(new Response("abort", "Do nothing"));
 
             return choices;
+        }
+
+        private void WarpFarmer(Farmer who, string ChosenLocation)
+        {
+            switch (ChosenLocation)
+            {
+                case "Farm": Game1.warpFarmer("Farm", 67, 17, 00); break;
+                case "Abigail": Game1.warpFarmer("SeedShop", 4, 7, 00); break;
+                case "Maru/Sebastian": Game1.warpFarmer("ScienceHouse", 7, 8, 00); break;
+                case "Haley/Emily": Game1.warpFarmer("HaleyHouse", 8, 20, 00); break;
+                case "Penny": Game1.warpFarmer("Trailer", 12, 8, 00); break;
+                case "Leah": Game1.warpFarmer("LeahHouse", 7, 8, 1); break;
+                case "Elliott": Game1.warpFarmer("ElliottHouse", 3, 8, 1); break;
+                case "Library": Game1.warpFarmer("Town", 101, 90, 1); break;
+                case "Mines": Game1.warpFarmer("Mountain", 54, 6, 1); break;
+                case "Railroad": Game1.warpFarmer("Railroad", 29, 58, 1); break;
+            }
         }
 
         public void DialoguesSet(Farmer who, string action)

@@ -74,7 +74,8 @@
         "sex": "{{i18n:Dialogue.Abigail.sex}}",
         "mtv_ctcamshow": "{{i18n:Dialogue.Abigail.mtv_ctcamshow}}",
         "QuestStartFail": "{{i18n:Dialogue.Abigail.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Abigail.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Abigail.QuestStartSuccess}}",
+        "MTV_Parcel": "An online delivery? I have a lot of those, but Maru lets me send them to her to hold for me, because she gets a lot of parts for her robot."
       }
     },
     //Caroline
@@ -89,7 +90,8 @@
         "get_eaten": "{{i18n:Dialogue.Caroline.get_eaten}}",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Caroline.MTV_BathhouseFun}}",
         "QuestStartFail": "{{i18n:Dialogue.Caroline.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Caroline.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Caroline.QuestStartSuccess}}",
+        "MTV_Parcel": "An online delivery? No, Pierre does all of the ordering."
       }
     },
     //Emily
@@ -104,7 +106,8 @@
         "get_eaten": "{{i18n:Dialogue.Emily.get_eaten}}",
         "HaleyPanties": "{{i18n:Dialogue.Emily.HaleyPanties}}",
         "QuestStartFail": "{{i18n:Dialogue.Emily.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Emily.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Emily.QuestStartSuccess}}",
+        "MTV_Parcel": "An online delivery? I'm not waiting on anything right now. My Himalayan sea salts are fresh, and I'm not waiting on any fabric."
       }
     },
     //Evelyn
@@ -141,7 +144,9 @@
         "MTV_GeorgeQ4": "{{i18n:Dialogue.Haley.MTV_GeorgeQ4}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Haley.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Haley.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Haley.QuestStartSuccess}}",
+
+        "MTV_Parcel": "An online delivery?#$b#Is it my new lens for my DSLR?"
       }
     },
     //Haley - Married.
@@ -164,7 +169,9 @@
         "HaleyPantiesSex": "{{i18n:DialogueMarried.Haley.HaleyPantiesSex}}",
 
         "QuestStartFail": "{{i18n:DialogueMarried.Haley.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:DialogueMarried.Haley.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:DialogueMarried.Haley.QuestStartSuccess}}",
+
+        "MTV_Parcel": "An online delivery?#$b#Is it my new lens for my DSLR?"
       }
     },
     //Jodi
@@ -179,7 +186,9 @@
         "get_eaten": "{{i18n:Dialogue.Jodi.get_eaten}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Jodi.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Jodi.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Jodi.QuestStartSuccess}}",
+
+        "MTV_Parcel": "An online delivery?#$b#I get all of my produce from Pierre."
       }
     },
     //Leah
@@ -195,7 +204,9 @@
         "MTV_BathhouseFun": "{{i18n:Dialogue.Leah.MTV_BathhouseFun}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Leah.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Leah.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Leah.QuestStartSuccess}}",
+
+        "MTV_Parcel": "An online delivery?#$b#I'm waiting on some more titanium white, but it doesn't look like that's what you have there."
       }
     },
     //Marnie
@@ -226,7 +237,9 @@
         "MTV_BathhouseFun": "{{i18n:Dialogue.Maru.MTV_BathhouseFun}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Maru.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Maru.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Maru.QuestStartSuccess}}",
+
+        "MTV_Parcel": "An online delivery?#$b#Err...I might have ordered one of those, but I don't think I put down your address."
       }
     },
     //Pam
@@ -264,7 +277,9 @@
         "MTV_BathhouseFun": "{{i18n:Dialogue.Penny.MTV_BathhouseFun}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Penny.QuestStartFail}}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Penny.QuestStartSuccess}}"
+        "QuestStartSuccess": "{{i18n:Dialogue.Penny.QuestStartSuccess}}",
+
+        "MTV_Parcel": "An online delivery?#$b#Don't say it out loud! I didn't think it was going to be delivered that quickly.#$b#I had to put down someone's address, and you're the only one I trusted. Please let me have it." //[{{spacechase0.JsonAssets/ObjectId: Discrete Massager}}]"
       }
     },
     //Robin

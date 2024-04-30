@@ -96,7 +96,7 @@ namespace MilkVillagers
         #region Genitals
         public static bool OverrideGenitals = false;
         public static string FarmerGender = "Female";
-        public static string FarmerGenitals = "Vagina and breasts";
+        public static string FarmerGenitals = "penis";
         public static bool HasPenis => FarmerGenitals.ToLower().Contains("penis");
         public static bool HasVagina => FarmerGenitals.ToLower().Contains("vagina");
         public static bool HasBreasts => FarmerGenitals.ToLower().Contains("breasts");
@@ -163,14 +163,13 @@ namespace MilkVillagers
         public static int EventCaroline = 594807;       //Caroline
         public static int EventEmily = 594809;          //Emily
         public static int EventLeahExhibitOld = 5948101;
-        public static int EventLeahExhibitA = 5948101;   //Leah Exhibitionism Ace, Need to switch to 5948101
-        public static int EventLeahExhibitV = 5948102;   //Leah Exhibitionism Vagina. Need to switch to 5948102
+        public static int EventLeahExhibitA = 5948101;  //Leah Exhibitionism Ace, Need to switch to 5948101
+        public static int EventLeahExhibitV = 5948102;  //Leah Exhibitionism Vagina. Need to switch to 5948102
 
         public static int UnusedEvent = 594811;
 
-        public static int EventBathHouseA = 594812;     //BathHouse Scene Ace
-        public static int EventBathHouseV = 594813;     //BathHouse Scene Vagina
-        public static int EventBathHouseP = 594814;     //BathHouse Scene Penis
+        public static int EventBathHouse = 594863;      //BathHouse Scene
+        public static int EventBathHouseRepeat = 594864;//BathHouse Scene
         public static int EventBlairKeahi1NA = 594815;  //Blair and farmer hide in bushes
         public static int EventElliottScene1 = 594816;  //Elliott Q4, Quest 2 roleplay event
         public static int EventSebTouchGrass = 594817;  //Seb Q3, Sebastian go touch grass event (quest 3)

@@ -25,7 +25,7 @@
         "594810": "Basic/{{i18n:Quests.594810.01}}/{{i18n:Quests.594810.02}}/{{i18n:Quests.594810.03}}/null/5948102/0/-1/FALSE/{{i18n:Quests.594810.09}}",
         "5948102": "ItemDelivery/{{i18n:Quests.5948102.01}}/{{i18n:Quests.5948102.02}}/{{i18n:Quests.5948102.03}}/Abigail {{spacechase0.JsonAssets/ObjectId: Sebastian's Cum}}/-1/355/-1/FALSE/{{i18n:Quests.5948102.09}}",
         "594811": "Basic/{{i18n:Quests.594811.01}}/{{i18n:Quests.594811.02}}/{{i18n:Quests.594811.03}}/null/-1/420/-1/False/{{i18n:Quests.594811.09}}",
-        "594812": "Location/{{i18n:Quests.594812.01}}/{{i18n:Quests.594812.02}}/{{i18n:Quests.594812.03}}/SebastianRoom/-1/500/-1/FALSE/{{i18n:Quests.594812.09}}",
+        "594812": "Basic/{{i18n:Quests.594812.01}}/{{i18n:Quests.594812.02}}/{{i18n:Quests.594812.03}}/SebastianRoom/-1/500/-1/FALSE/{{i18n:Quests.594812.09}}",
 
         // Maru
         "594813": "Basic/{{i18n:Quests.594813.01}}/{{i18n:Quests.594813.02}}/{{i18n:Quests.594813.03}}/Male BJ Milk_fast/5948132/0/-1/False/{{i18n:Quests.594813.09}}",
@@ -39,7 +39,7 @@
         "594817": "LostItem/{{i18n:Quests.594817.01}}/{{i18n:Quests.594817.02}}/{{i18n:Quests.594817.03}}/Emily {{spacechase0.JsonAssets/ObjectId: Haley's Camera}} HaleyHouse 1 9/-1/240/-1/False/{{i18n:Quests.594817.09}}",
         "594818": "Basic/{{i18n:Quests.594818.01}}/{{i18n:Quests.594818.02}}/{{i18n:Quests.594818.03}}/Solution/-1/355/-1/False/{{i18n:Quests.594818.09}}",
         "594819": "ItemDelivery/{{i18n:Quests.594819.01}}/{{i18n:Quests.594819.02}}/{{i18n:Quests.594819.03}}/Emily {{spacechase0.JsonAssets/ObjectId: Crotchless Panties}}/-1/420/-1/False/{{i18n:Quests.594819.09}}",
-        "594820": "Location/{{i18n:Quests.594820.01}}/{{i18n:Quests.594820.02}}/{{i18n:Quests.594820.03}}/HaleyHouse/-1/500/-1/FALSE/{{i18n:Quests.594820.09}}",
+        "594820": "Basic/{{i18n:Quests.594820.01}}/{{i18n:Quests.594820.02}}/{{i18n:Quests.594820.03}}/HaleyHouse/-1/500/-1/FALSE/{{i18n:Quests.594820.09}}",
 
         // Haley
         "594821": "Basic/{{i18n:Quests.594821.01}}/{{i18n:Quests.594821.02}}/{{i18n:Quests.594821.03}}/Solution/-1/240/-1/False/{{i18n:Quests.594821.09}}",
@@ -47,20 +47,22 @@
         "5948222": "Basic/{{i18n:Quests.5948222.01}}/{{i18n:Quests.5948222.02}}/{{i18n:Quests.5948222.03}}/Solution/-1/355/-1/False/{{i18n:Quests.5948222.09}}",
         "594823": "Basic/{{i18n:Quests.594823.01}}/{{i18n:Quests.594823.02}}/{{i18n:Quests.594823.03}}/Solution/-1/420/-1/False/{{i18n:Quests.594823.09}}",
         "594824": "ItemDelivery/{{i18n:Quests.594824.01}}/{{i18n:Quests.594824.02}}/{{i18n:Quests.594824.03}}/Haley 3081 5/-1/0/-1/False/{{i18n:Quests.594824.09}}",
-        "5948242": "Location/{{i18n:Quests.5948242.01}}/{{i18n:Quests.5948242.02}}/{{i18n:Quests.5948242.03}}/HaleyHouse/-1/500/-1/False/{{i18n:Quests.5948242.09}}",
+        "5948242": "Basic/{{i18n:Quests.5948242.01}}/{{i18n:Quests.5948242.02}}/{{i18n:Quests.5948242.03}}/HaleyHouse/-1/500/-1/False/{{i18n:Quests.5948242.09}}",
 
         // Penny
-        "594825": "Basic/{{i18n: Quests.594825.01}}/{{i18n: Quests.594825.02}}/{{i18n: Quests.594825.03}}/null/594826/240 /-1/FALSE/{{i18n: Quests.594825.09}}",
-        "594826": "LostItem/{{i18n:Quests.594826.01}}/{{i18n:Quests.594826.02}}/{{i18n:Quests.594826.03}}/Penny {{spacechase0.JsonAssets/ObjectId: Boethia's Pillow Book}} ArchaeologyHouse 21 5/-1/355/-1/FALSE/{{i18n:Quests.594826.09}}",
-        "594827": "Basic/{{i18n:Quests.594827.01}}/{{i18n:Quests.594827.02}}/{{i18n:Quests.594827.03}}/null/-1/420/-1/False/{{i18n:Quests.594827.09}}",
-        "594828": "Location/{{i18n:Quests.594828.01}}/{{i18n:Quests.594828.02}}/{{i18n:Quests.594828.03}}/ArchaeologyHouse/-1/500/-1/False/{{i18n:Quests.594828.09}}",
+        "594825": "Basic/{{i18n: Quests.594825.01}}/{{i18n: Quests.594825.02}}/{{i18n: Quests.594825.03}}/null/5948252/0/-1/FALSE/{{i18n: Quests.594825.09}}",
+        "5948252": "LostItem/{{i18n:Quests.5948252.01}}/{{i18n:Quests.5948252.02}}/{{i18n:Quests.5948252.03}}/Penny {{spacechase0.JsonAssets/ObjectId: Boethia's Pillow Book}} ArchaeologyHouse 19 4/-1/240/-1/FALSE/{{i18n:Quests.5948252.09}}",
+        "594826": "LostItem/{{i18n:Quests.594826.01}}/{{i18n:Quests.594826.02}}/{{i18n:Quests.594826.03}}/??? {{spacechase0.JsonAssets/ObjectId: Discrete Package}} BusStop 3 22/-1/355/-1/FALSE/{{i18n:Quests.594826.09}}",
+        "594827": "Basic/{{i18n:Quests.594827.01}}/{{i18n:Quests.594827.02}}/{{i18n:Quests.594827.03}}/null/5948272/0/-1/False/{{i18n:Quests.594827.09}}",
+        "5948272": "Basic/{{i18n:Quests.5948272.01}}/{{i18n:Quests.5948272.02}}/{{i18n:Quests.5948272.03}}/null/-1/420/-1/False/{{i18n:Quests.5948272.09}}",
+        "594828": "Basic/{{i18n:Quests.594828.01}}/{{i18n:Quests.594828.02}}/{{i18n:Quests.594828.03}}/ArchaeologyHouse/-1/500/-1/False/{{i18n:Quests.594828.09}}",
 
         // Leah
         "594829": "Basic/{{i18n: Quests.594829.01}}/{{i18n: Quests.594829.02}}/{{i18n: Quests.594829.03}}/null/-1/240/-1/false/{{i18n: Quests.594829.09}}",
         "594830": "LostItem/{{i18n: Quests.594830.01}}/{{i18n: Quests.594830.02}}/{{i18n: Quests.594829.03}}/Leah {{spacechase0.JsonAssets/ObjectId: Strapon}} ScienceHouse 4 19/-1/355/-1/False/{{i18n: Quests.594829.09}}",
         "594831": "Basic/{{i18n: Quests.594831.01}}/{{i18n: Quests.594831.02}}/{{i18n: Quests.594831.03}}/LeahHouse/-1/420/-1/False/{{i18n: Quests.594831.09}}",
         "594832": "ItemDelivery/{{i18n: Quests.594832.01}}/{{i18n: Quests.594832.02}}/{{i18n: Quests.594832.03}}/Leah {{spacechase0.JsonAssets/ObjectId: Shibari rope}}/-1/500/-1/false/{{i18n: Quests.594832.09}}",
-        "5948322": "Location/{{i18n: Quests.5948322.01}}/{{i18n: Quests.5948322.02}}/{{i18n: Quests.5948322.03}}/LeahHouse/-1/500/-1/FALSE/{{i18n: Quests.5948322.09}}",
+        "5948322": "Basic/{{i18n: Quests.5948322.01}}/{{i18n: Quests.5948322.02}}/{{i18n: Quests.5948322.03}}/LeahHouse/-1/500/-1/FALSE/{{i18n: Quests.5948322.09}}",
 
         // George
         "594833": "ItemDelivery/{{i18n:Quests.594833.01}}/{{i18n:Quests.594833.02}}/{{i18n:Quests.594833.03}}/George {{spacechase0.JsonAssets/ObjectId: Sweet Sibling}}/-1/240/-1/FALSE/{{i18n:Quests.594833.09}}",

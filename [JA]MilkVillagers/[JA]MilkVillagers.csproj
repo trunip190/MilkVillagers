@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>MilkVillagers</AssemblyName>
     <RootNamespace>MilkVillagers</RootNamespace>
-    <Version>1.1.0</Version>
+    <Version>1.2.3</Version>
     <TargetFramework>net5.0</TargetFramework>
 	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
   </PropertyGroup>
@@ -16,6 +16,10 @@
     <None Remove="Objects\Alex%27s Cum\object.json" />
     <None Remove="Objects\Alex's Cum\object.png" />
     <None Remove="Objects\Andy%27s Cum\object.json" />
+    <None Remove="Objects\Discrete Package\object.json" />
+    <None Remove="Objects\Discrete Package\object.png" />
+    <None Remove="Objects\Discrete Massager\object.json" />
+    <None Remove="Objects\Discrete Massager\object.png" />
     <None Remove="Objects\Haley%27s Camera\object.json" />
     <None Remove="Objects\Haley%27s Camera\object.png" />
     <None Remove="Objects\Caroline%27s Milk\object.json" />
@@ -156,6 +160,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Andy's Cum\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Discrete Package\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Discrete Package\object.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Discrete Massager\object.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Objects\Discrete Massager\object.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Objects\Haley%27s Camera\object.json">
@@ -564,6 +580,6 @@
     <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties objects_4invitation_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4sebastian_x0027_s_x0020_cum_4object_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties objects_4discrete_x0020_massager_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4discrete_x0020_package_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4invitation_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4sebastian_x0027_s_x0020_cum_4object_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

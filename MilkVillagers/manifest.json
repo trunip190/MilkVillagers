@@ -9,7 +9,10 @@
 	"UpdateKeys": [ "Nexus:5948" ],
 	"Dependencies": [
 		{
-			"UniqueID": "spacechase0.SpaceCore"
+			"UniqueID": "spacechase0.SpaceCore",
+		},
+		{
+			"UniqueID": "Pathoschild.ContentPatcher"
 		}
 	]
 }

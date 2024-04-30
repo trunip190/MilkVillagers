@@ -13,7 +13,8 @@
   "DynamicTokens": [
     {
       "Name": "GenderSwitch",
-      "Value": "P" //Male.
+      "Value": "P", //Male.
+      "Update": "OnLocationChange, OnTimeChange"
     },
     {
       "Name": "GenderSwitch",
@@ -21,7 +22,7 @@
       "When": {
         "HasFlag": "MTV_Vagina"
       },
-      "Update": "OnLocationChange"
+      "Update": "OnLocationChange, OnTimeChange"
     },
     {
       "Name": "GenderSwitch",
@@ -29,7 +30,7 @@
       "When": {
         "HasFlag": "MTV_Ace"
       },
-      "Update": "OnLocationChange"
+      "Update": "OnLocationChange, OnTimeChange"
     },
     {
       "Name": "GenderSwitch",
@@ -37,7 +38,7 @@
       "When": {
         "HasFlag": "MTV_Herm"
       },
-      "Update": "OnLocationChange"
+      "Update": "OnLocationChange, OnTimeChange"
     },
     {
       "Name": "GenderSwitch",
@@ -45,8 +46,9 @@
       "When": {
         "HasFlag": "MTV_Penis"
       },
-      "Update": "OnLocationChange"
+      "Update": "OnLocationChange, OnTimeChange"
     }
+
   ],
   "Changes": [
     // Dialogue
@@ -143,6 +145,6 @@
     }
   ],
   "RepeatEvents": [
-    "5948121"
+    "594864"
   ]
 }

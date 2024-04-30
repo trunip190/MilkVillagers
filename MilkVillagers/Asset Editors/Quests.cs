@@ -52,9 +52,9 @@ namespace MilkVillagers.Asset_Editors
             [594824] = "MTV_HaleyQ4-2",     //Haley quest 4
             //[5948242] = "",
 
-            [594825] = "MTV_PennyQ1T",      //Penny quest 1
+            [5948252] = "MTV_PennyQ1T",      //Penny quest 1
             [594826] = "MTV_PennyQ2T",      //Penny quest 2
-            [594827] = "MTV_PennyQ3T",      //Penny quest 3
+            [5948272] = "MTV_PennyQ3T",      //Penny quest 3
             [594828] = "MTV_PennyQ4T",      //Penny quest 4
 
             [594829] = "MTV_LeahQ1T",       //Leah quest 1
@@ -123,6 +123,7 @@ namespace MilkVillagers.Asset_Editors
             ["QuestHaley4-2"] = 5948242,
 
             ["QuestPenny1"] = 594825,
+            ["QuestPenny1-2"] = 5948252,
             ["QuestPenny2"] = 594826,
             ["QuestPenny3"] = 594827,
             ["QuestPenny4"] = 594828,

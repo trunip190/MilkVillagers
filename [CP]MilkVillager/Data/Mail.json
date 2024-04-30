@@ -126,7 +126,7 @@
         "MTV_EmilyQ2T": "{{i18n:Mail.MTV_EmilyQ2T}}",
 
         // Emily Quest 3 Show and Tell
-        // "MTV_EmilyQ3": "{{i18n:Mail.MTV_EmilyQ3}}",
+        "MTV_EmilyQ3": "{{i18n:Mail.MTV_EmilyQ3}}",
         "MTV_EmilyQ3T": "{{i18n:Mail.MTV_EmilyQ3T}}",
 
         // Emily Quest 4 Barely contained pleasure
@@ -159,11 +159,12 @@
         "MTV_PennyQ1T": "{{i18n:Mail.MTV_PennyQ1T}}",
 
         // Penny Quest 2
-        "MTV_PennyQ2": "{{i18n:Mail.MTV_PennyQ2}}",
+        "MTV_PennyQ2": "{{i18n:Mail.MTV_PennyQ2}}", //" %item object {{spacechase0.JsonAssets/ObjectId: Discrete Package}} 1 %%",
         "MTV_PennyQ2T": "{{i18n:Mail.MTV_PennyQ2T}}",
 
         // Penny Quest 3
         "MTV_PennyQ3": "{{i18n:Mail.MTV_PennyQ3}}",
+        "MTV_PennyQ3P": "{{i18n:Mail.MTV_PennyQ3P}}",
         "MTV_PennyQ3T": "{{i18n:Mail.MTV_PennyQ3T}}",
 
         // Penny Quest 4

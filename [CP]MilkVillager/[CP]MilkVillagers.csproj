@@ -5,7 +5,7 @@
 		<RootNamespace>MilkVillagers</RootNamespace>
 		<AssemblyName>MilkVillagers</AssemblyName>
 		<ApplicationIcon />
-		<Version>1.1.0</Version>
+		<Version>1.2.3</Version>
 		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
 		<BaseOutputPath></BaseOutputPath>
 	</PropertyGroup>
@@ -66,7 +66,7 @@
 	</ItemGroup>
 
 	<ProjectExtensions>
-		<VisualStudio><UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" i18n_4default_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio>
+		<VisualStudio><UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" i18n_4default_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio>
 	</ProjectExtensions>
 
 </Project>
