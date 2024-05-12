@@ -1,0 +1,1152 @@
+{
+  "$schema": "https://smapi.io/schemas/content-patcher.json",
+  "Changes": [
+    {
+      "Action": "Load",
+      "FromFile": "assets/Objects/Spritesheet.png",
+      "Target": "Mods/Trunip190.CP.MilkTheVillagers/Objects"
+    },
+    {
+      "Action": "Load",
+      "FromFile": "assets/Shirts/Shibari.png",
+      "Target": "Mods/Trunip190.CP.MilkTheVillagers/Shibari"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": {
+          "Name": "Woman's Milk",
+          "DisplayName": "{{i18n:Woman's_Milk.name}}",
+          "Description": "{{i18n:Woman's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 17,
+          "IsDrink": true,
+          "Price": 250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 0,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Abigail's_Milk": {
+          "Name": "Abigail's Milk",
+          "DisplayName": "{{i18n:Abigail's_Milk.name}}",
+          "Description": "{{i18n:Abigail's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 1,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Caroline's_Milk": {
+          "Name": "Caroline's Milk",
+          "DisplayName": "{{i18n:Caroline's_Milk.name}}",
+          "Description": "{{i18n:Caroline's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 2,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Claire's_Milk": {
+          "Name": "Claire's Milk",
+          "DisplayName": "{{i18n:Claire's_Milk.name}}",
+          "Description": "{{i18n:Claire's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 3,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Emily's_Milk": {
+          "Name": "Emily's Milk",
+          "DisplayName": "{{i18n:Emily's_Milk.name}}",
+          "Description": "{{i18n:Emily's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 4,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Evelyn's_Milk": {
+          "Name": "Evelyn's Milk",
+          "DisplayName": "{{i18n:Evelyn's_Milk.name}}",
+          "Description": "{{i18n:Evelyn's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 5,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Haley's_Milk": {
+          "Name": "Haley's Milk",
+          "DisplayName": "{{i18n:Haley's_Milk.name}}",
+          "Description": "{{i18n:Haley's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 6,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Jodi's_Milk": {
+          "Name": "Jodi's Milk",
+          "DisplayName": "{{i18n:Jodi's_Milk.name}}",
+          "Description": "{{i18n:Jodi's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 7,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Leah's_Milk": {
+          "Name": "Leah's Milk",
+          "DisplayName": "{{i18n:Leah's_Milk.name}}",
+          "Description": "{{i18n:Leah's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 8,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Marnie's_Milk": {
+          "Name": "Marnie's Milk",
+          "DisplayName": "{{i18n:Marnie's_Milk.name}}",
+          "Description": "{{i18n:Marnie's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 9,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Maru's_Milk": {
+          "Name": "Maru's Milk",
+          "DisplayName": "{{i18n:Maru's_Milk.name}}",
+          "Description": "{{i18n:Maru's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 10,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Olivia's_Milk": {
+          "Name": "Olivia's Milk",
+          "DisplayName": "{{i18n:Olivia's_Milk.name}}",
+          "Description": "{{i18n:Olivia's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 11,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Pam's_Milk": {
+          "Name": "Pam's Milk",
+          "DisplayName": "{{i18n:Pam's_Milk.name}}",
+          "Description": "{{i18n:Pam's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 12,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Penny's_Milk": {
+          "Name": "Penny's Milk",
+          "DisplayName": "{{i18n:Penny's_Milk.name}}",
+          "Description": "{{i18n:Penny's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 13,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Robin's_Milk": {
+          "Name": "Robin's Milk",
+          "DisplayName": "{{i18n:Robin's_Milk.name}}",
+          "Description": "{{i18n:Robin's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 14,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Sandy's_Milk": {
+          "Name": "Sandy's Milk",
+          "DisplayName": "{{i18n:Sandy's_Milk.name}}",
+          "Description": "{{i18n:Sandy's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 15,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Sophia's_Milk": {
+          "Name": "Sophia's Milk",
+          "DisplayName": "{{i18n:Sophia's_Milk.name}}",
+          "Description": "{{i18n:Sophia's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 16,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Susan's_Milk": {
+          "Name": "Susan's Milk",
+          "DisplayName": "{{i18n:Susan's_Milk.name}}",
+          "Description": "{{i18n:Susan's_Milk.description}}",
+          "Type": "Drink",
+          "Category": -34,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 17,
+          "ContextTags": [
+            "breast_milk_item",
+            "MTV_item"
+          ]
+        },
+
+        "Trunip190.CP.MilkTheVillagers.Special_Milk": {
+          "Name": "Special Milk",
+          "DisplayName": "{{i18n:Special_Milk.name}}",
+          "Description": "{{i18n:Special_Milk.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 17,
+          "IsDrink": true,
+          "Price": 250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 64,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Alex's_Cum": {
+          "Name": "Alex's Cum",
+          "DisplayName": "{{i18n:Alex's_Cum.name}}",
+          "Description": "{{i18n:Alex's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 65,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Andy's_Cum": {
+          "Name": "Andy's Cum",
+          "DisplayName": "{{i18n:Andy's_Cum.name}}",
+          "Description": "{{i18n:Andy's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 66,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Clint's_Cum": {
+          "Name": "Clint's Cum",
+          "DisplayName": "{{i18n:Clint's_Cum.name}}",
+          "Description": "{{i18n:Clint's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 67,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Demetrius's_Cum": {
+          "Name": "Demetrius's Cum",
+          "DisplayName": "{{i18n:Demetrius's_Cum.name}}",
+          "Description": "{{i18n:Demetrius's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 68,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Elliott's_Cum": {
+          "Name": "Elliott's Cum",
+          "DisplayName": "{{i18n:Elliott's_Cum.name}}",
+          "Description": "{{i18n:Elliott's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 69,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.George's_Cum": {
+          "Name": "George's Cum",
+          "DisplayName": "{{i18n:George's_Cum.name}}",
+          "Description": "{{i18n:George's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 70,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Gil's_Cum": {
+          "Name": "Gil's Cum",
+          "DisplayName": "{{i18n:Gil's_Cum.name}}",
+          "Description": "{{i18n:Gil's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 71,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Gunther's_Cum": {
+          "Name": "Gunther's Cum",
+          "DisplayName": "{{i18n:Gunther's_Cum.name}}",
+          "Description": "{{i18n:Gunther's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 72,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Gus's_Cum": {
+          "Name": "Gus's Cum",
+          "DisplayName": "{{i18n:Gus's_Cum.name}}",
+          "Description": "{{i18n:Gus's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 73,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Harvey's_Cum": {
+          "Name": "Harvey's Cum",
+          "DisplayName": "{{i18n:Harvey's_Cum.name}}",
+          "Description": "{{i18n:Harvey's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 74,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Kent's_Cum": {
+          "Name": "Kent's Cum",
+          "DisplayName": "{{i18n:Kent's_Cum.name}}",
+          "Description": "{{i18n:Kent's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 75,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Lance's_Cum": {
+          "Name": "Lance's Cum",
+          "DisplayName": "{{i18n:Lance's_Cum.name}}",
+          "Description": "{{i18n:Lance's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 76,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Lewis's_Cum": {
+          "Name": "Lewis's Cum",
+          "DisplayName": "{{i18n:Lewis's_Cum.name}}",
+          "Description": "{{i18n:Lewis's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 77,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Linus's_Cum": {
+          "Name": "Linus's Cum",
+          "DisplayName": "{{i18n:Linus's_Cum.name}}",
+          "Description": "{{i18n:Linus's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 60,
+          "IsDrink": true,
+          "Price": 295,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 78,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Marlon's_Cum": {
+          "Name": "Marlon's Cum",
+          "DisplayName": "{{i18n:Marlon's_Cum.name}}",
+          "Description": "{{i18n:Marlon's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 79,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Martin's_Cum": {
+          "Name": "Martin's Cum",
+          "DisplayName": "{{i18n:Martin's_Cum.name}}",
+          "Description": "{{i18n:Martin's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 80,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Morris's_Cum": {
+          "Name": "Morris's Cum",
+          "DisplayName": "{{i18n:Morris's_Cum.name}}",
+          "Description": "{{i18n:Morris's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 5,
+          "IsDrink": true,
+          "Price": 50,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 81,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Pierre's_Cum": {
+          "Name": "Pierre's Cum",
+          "DisplayName": "{{i18n:Pierre's_Cum.name}}",
+          "Description": "{{i18n:Pierre's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 82,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Sam's_Cum": {
+          "Name": "Sam's Cum",
+          "DisplayName": "{{i18n:Sam's_Cum.name}}",
+          "Description": "{{i18n:Sam's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 83,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Sebastian's_Cum": {
+          "Name": "Sebastian's Cum",
+          "DisplayName": "{{i18n:Sebastian's_Cum.name}}",
+          "Description": "{{i18n:Sebastian's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 84,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Shane's_Cum": {
+          "Name": "Shane's Cum",
+          "DisplayName": "{{i18n:Shane's_Cum.name}}",
+          "Description": "{{i18n:Shane's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 85,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Victor's_Cum": {
+          "Name": "Victor's Cum",
+          "DisplayName": "{{i18n:Victor's_Cum.name}}",
+          "Description": "{{i18n:Victor's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 86,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Willy's_Cum": {
+          "Name": "Willy's Cum",
+          "DisplayName": "{{i18n:Willy's_Cum.name}}",
+          "Description": "{{i18n:Willy's_Cum.description}}",
+          "Type": "Drink",
+          "Category": -35,
+          "Edibility": 20,
+          "IsDrink": true,
+          "Price": 150,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 87,
+          "ContextTags": [
+            "human_cum_item",
+            "MTV_item"
+          ]
+        },
+
+
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": {
+          "Name": "Magical Essence",
+          "DisplayName": "{{i18n:Magical_Essence.name}}",
+          "Description": "{{i18n:Magical_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 128,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence": {
+          "Name": "Dwarf's Essence",
+          "DisplayName": "{{i18n:Dwarf's_Essence.name}}",
+          "Description": "{{i18n:Dwarf's_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 22,
+          "IsDrink": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 129,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Krobus_Essence": {
+          "Name": "Krobus Essence",
+          "DisplayName": "{{i18n:Krobus_Essence.name}}",
+          "Description": "{{i18n:Krobus_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 130,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence": {
+          "Name": "Mr. Qi's Essence",
+          "DisplayName": "{{i18n:Mr._Qi's_Essence.name}}",
+          "Description": "{{i18n:Mr._Qi's_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 131,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Wizard's_Essence": {
+          "Name": "Wizard's Essence",
+          "DisplayName": "{{i18n:Wizard's_Essence.name}}",
+          "Description": "{{i18n:Wizard's_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 132,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+
+
+
+        "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": {
+          "Name": "Creamy Coffee",
+          "DisplayName": "{{i18n:Creamy_Coffee.name}}",
+          "Description": "{{i18n:Creamy_Coffee.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 16,
+          "IsDrink": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 160,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": {
+          "Name": "Eldritch Energy",
+          "DisplayName": "{{i18n:Eldritch_Energy.name}}",
+          "Description": "{{i18n:Eldritch_Energy.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 14,
+          "IsDrink": true,
+          "Price": 400,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 161,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": {
+          "Name": "Martini Kairos",
+          "DisplayName": "{{i18n:Martini_Kairos.name}}",
+          "Description": "{{i18n:Martini_Kairos.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 5,
+          "IsDrink": true,
+          "Price": 400,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 162,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Protein_Shake": {
+          "Name": "Protein Shake",
+          "DisplayName": "{{i18n:Protein_Shake.name}}",
+          "Description": "{{i18n:Protein_Shake.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 40,
+          "IsDrink": true,
+          "Price": 250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 163,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": {
+          "Name": "Secret Pleasures",
+          "DisplayName": "{{i18n:Secret_Pleasures.name}}",
+          "Description": "{{i18n:Secret_Pleasures.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 60,
+          "IsDrink": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 164,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Special_Milkshake": {
+          "Name": "Special Milkshake",
+          "DisplayName": "{{i18n:Special_Milkshake.name}}",
+          "Description": "{{i18n:Special_Milkshake.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 65,
+          "IsDrink": true,
+          "Price": 250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 165,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Super_Juice": {
+          "Name": "Super Juice",
+          "DisplayName": "{{i18n:Super_Juice.name}}",
+          "Description": "{{i18n:Super_Juice.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 75,
+          "IsDrink": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 166,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": {
+          "Name": "Sweet Sibling",
+          "DisplayName": "{{i18n:Sweet_Sibling.name}}",
+          "Description": "{{i18n:Sweet_Sibling.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 70,
+          "IsDrink": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 167,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+
+
+
+        "Trunip190.CP.MilkTheVillagers.Abigails_Panties": {
+          "Name": "Abigails Panties",
+          "DisplayName": "{{i18n:Abigails_Panties.name}}",
+          "Description": "{{i18n:Abigails_Panties.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 1,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 192,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Boethia's_Pillow_Book": {
+          "Name": "Boethia's Pillow Book",
+          "DisplayName": "{{i18n:Boethia's_Pillow_Book.name}}",
+          "Description": "{{i18n:Boethia's_Pillow_Book.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 1,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 193,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Crotchless_Panties": {
+          "Name": "Crotchless Panties",
+          "DisplayName": "{{i18n:Crotchless_Panties.name}}",
+          "Description": "{{i18n:Crotchless_Panties.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 3200,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 194,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Discrete_Massager": {
+          "Name": "Discrete Massager",
+          "DisplayName": "{{i18n:Discrete_Massager.name}}",
+          "Description": "{{i18n:Discrete_Massager.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 1,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 195,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Discrete_Package": {
+          "Name": "Discrete Package",
+          "DisplayName": "{{i18n:Discrete_Package.name}}",
+          "Description": "{{i18n:Discrete_Package.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 1,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 196,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Haley's_Camera": {
+          "Name": "Haley's Camera",
+          "DisplayName": "{{i18n:Haley's_Camera.name}}",
+          "Description": "{{i18n:Haley's_Camera.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 1,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 197,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Haley's_Panties": {
+          "Name": "Haley's Panties",
+          "DisplayName": "{{i18n:Haley's_Panties.name}}",
+          "Description": "{{i18n:Haley's_Panties.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": 22,
+          "specialItem": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 198,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Invitation": {
+          "Name": "Invitation",
+          "DisplayName": "{{i18n:Invitation.name}}",
+          "Description": "{{i18n:Invitation.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 0,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 199,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Readi_Milk": {
+          "Name": "Readi Milk",
+          "DisplayName": "{{i18n:Readi_Milk.name}}",
+          "Description": "{{i18n:Readi_Milk.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "SpecialItem": true,
+          "Price": 1,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 200,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Shibari_rope": {
+          "Name": "Shibari rope",
+          "DisplayName": "{{i18n:Shibari_rope.name}}",
+          "Description": "{{i18n:Shibari_rope.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 201,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Strapon": {
+          "Name": "Strapon",
+          "DisplayName": "{{i18n:Strapon.name}}",
+          "Description": "{{i18n:Strapon.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 202,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        }
+      }
+    },
+    {
+      "LogName": "Recipes Data",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": "395 2 Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Creamy_Coffee 2/null/Creamy Coffee",
+        "Trunip190.CP.MilkTheVillagers.Protein_Shake": "-35 1/10 10/Trunip190.CP.MilkTheVillagers.Protein_Shake 1/null/Protein Shake",
+        "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": "Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1 Trunip190.CP.MilkTheVillagers.Wizard's_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Secret_Pleasures/null/Secret Pleasures",
+        "Trunip190.CP.MilkTheVillagers.Special_Milkshake": "-34 1/10 10/Trunip190.CP.MilkTheVillagers.Special_Milkshake//Special Milkshake",
+        "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
+
+        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
+        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
+        "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
+
+        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/false/null/Woman's Milk",
+        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1/false/null/Special Milk",
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence"
+      }
+    },
+    {
+      "LogName": "Recipes Data",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": "395 2 Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Creamy_Coffee 2/null/Creamy Coffee",
+        "Trunip190.CP.MilkTheVillagers.Protein_Shake": "-35 1/10 10/Trunip190.CP.MilkTheVillagers.Protein_Shake 1/null/Protein Shake",
+        "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": "Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1 Trunip190.CP.MilkTheVillagers.Wizard's_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Secret_Pleasures/null/Secret Pleasures",
+        "Trunip190.CP.MilkTheVillagers.Special_Milkshake": "-34 1/10 10/Trunip190.CP.MilkTheVillagers.Special_Milkshake//Special Milkshake",
+        "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
+
+        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
+        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
+        "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
+
+        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/false/null/Woman's Milk",
+        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1/false/null/Special Milk",
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence",
+
+        "Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/what is this for?/Trunip190.CP.MilkTheVillagers.Shibari_rope 1/false/null/Shibari Rope"
+      }
+    },
+    {
+      "LogName": "Shirts Data",
+      "Action": "EditData",
+      "Target": "Data/Shirts",
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Clothing.Shibari_rope": {
+          "Name": "Shibari rope",
+          "DisplayName": "{{i18n:Shibari_rope.name}}",
+          "Description": "{{i18n:Shibari_rope.description}}",
+          "Price": 3000,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Shibari",
+          "SpriteIndex": 0,
+          "DefaultColor": null,
+          "CanBeDyed": false,
+          "IsPrismatic": false,
+          "HasSleeves": false,
+          "CanChooseDuringCharacterCustomization": false,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -20,10 +20,10 @@
         "594808": "Basic/{{i18n:Quests.594808.01}}/{{i18n:Quests.594808.02}}/{{i18n:Quests.594808.03}}/ElliottHouse/-1/500/-1/False/{{i18n:Quests.594808.09}}",
 
         //// Sebastian
-        "594809": "Basic/{{i18n:Quests.594809.01}}/{{i18n:Quests.594809.02}}/{{i18n:Quests.594809.03}}/Abigail milk/5948092/0/-1/FALSE/{{i18n:Quests.594809.09}}",
-        "5948092": "ItemDelivery/{{i18n:Quests.5948092.01}}/{{i18n:Quests.5948092.02}}/{{i18n:Quests.5948092.03}}/Sebastian {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}}/-1/240/-1/FALSE/{{i18n:Quests.5948092.09}}",
+        "594809": "Basic/{{i18n:Quests.594809.01}}/{{i18n:Quests.594809.02}}/{{i18n:Quests.594809.03}}/Trunip190.CP.MilkTheVillagers.Abigail's_Milk/5948092/0/-1/FALSE/{{i18n:Quests.594809.09}}",
+        "5948092": "ItemDelivery/{{i18n:Quests.5948092.01}}/{{i18n:Quests.5948092.02}}/{{i18n:Quests.5948092.03}}/Sebastian Trunip190.CP.MilkTheVillagers.Abigail's_Milk/-1/240/-1/FALSE/{{i18n:Quests.5948092.09}}",
         "594810": "Basic/{{i18n:Quests.594810.01}}/{{i18n:Quests.594810.02}}/{{i18n:Quests.594810.03}}/null/5948102/0/-1/FALSE/{{i18n:Quests.594810.09}}",
-        "5948102": "ItemDelivery/{{i18n:Quests.5948102.01}}/{{i18n:Quests.5948102.02}}/{{i18n:Quests.5948102.03}}/Abigail {{spacechase0.JsonAssets/ObjectId: Sebastian's Cum}}/-1/355/-1/FALSE/{{i18n:Quests.5948102.09}}",
+        "5948102": "ItemDelivery/{{i18n:Quests.5948102.01}}/{{i18n:Quests.5948102.02}}/{{i18n:Quests.5948102.03}}/Abigail Trunip190.CP.MilkTheVillagers.Sebastian's_Cum/-1/355/-1/FALSE/{{i18n:Quests.5948102.09}}",
         "594811": "Basic/{{i18n:Quests.594811.01}}/{{i18n:Quests.594811.02}}/{{i18n:Quests.594811.03}}/null/-1/420/-1/False/{{i18n:Quests.594811.09}}",
         "594812": "Basic/{{i18n:Quests.594812.01}}/{{i18n:Quests.594812.02}}/{{i18n:Quests.594812.03}}/SebastianRoom/-1/500/-1/FALSE/{{i18n:Quests.594812.09}}",
 
@@ -36,9 +36,9 @@
         "594816": "Basic/{{i18n:Quests.594816.01}}/{{i18n:Quests.594816.02}}/{{i18n:Quests.594816.03}}/null/-1/500/-1/FALSE/{{i18n:Quests.594816.09}}",
 
         // Emily
-        "594817": "LostItem/{{i18n:Quests.594817.01}}/{{i18n:Quests.594817.02}}/{{i18n:Quests.594817.03}}/Emily {{spacechase0.JsonAssets/ObjectId: Haley's Camera}} HaleyHouse 1 9/-1/240/-1/False/{{i18n:Quests.594817.09}}",
+        "594817": "LostItem/{{i18n:Quests.594817.01}}/{{i18n:Quests.594817.02}}/{{i18n:Quests.594817.03}}/Emily Trunip190.CP.MilkTheVillagers.Haley's_Camera HaleyHouse 1 9/-1/240/-1/False/{{i18n:Quests.594817.09}}",
         "594818": "Basic/{{i18n:Quests.594818.01}}/{{i18n:Quests.594818.02}}/{{i18n:Quests.594818.03}}/Solution/-1/355/-1/False/{{i18n:Quests.594818.09}}",
-        "594819": "ItemDelivery/{{i18n:Quests.594819.01}}/{{i18n:Quests.594819.02}}/{{i18n:Quests.594819.03}}/Emily {{spacechase0.JsonAssets/ObjectId: Crotchless Panties}}/-1/420/-1/False/{{i18n:Quests.594819.09}}",
+        "594819": "ItemDelivery/{{i18n:Quests.594819.01}}/{{i18n:Quests.594819.02}}/{{i18n:Quests.594819.03}}/Emily Trunip190.CP.MilkTheVillagers.Crotchless_Panties/-1/420/-1/False/{{i18n:Quests.594819.09}}",
         "594820": "Basic/{{i18n:Quests.594820.01}}/{{i18n:Quests.594820.02}}/{{i18n:Quests.594820.03}}/HaleyHouse/-1/500/-1/FALSE/{{i18n:Quests.594820.09}}",
 
         // Haley
@@ -51,30 +51,30 @@
 
         // Penny
         "594825": "Basic/{{i18n: Quests.594825.01}}/{{i18n: Quests.594825.02}}/{{i18n: Quests.594825.03}}/null/5948252/0/-1/FALSE/{{i18n: Quests.594825.09}}",
-        "5948252": "LostItem/{{i18n:Quests.5948252.01}}/{{i18n:Quests.5948252.02}}/{{i18n:Quests.5948252.03}}/Penny {{spacechase0.JsonAssets/ObjectId: Boethia's Pillow Book}} ArchaeologyHouse 19 4/-1/240/-1/FALSE/{{i18n:Quests.5948252.09}}",
-        "594826": "LostItem/{{i18n:Quests.594826.01}}/{{i18n:Quests.594826.02}}/{{i18n:Quests.594826.03}}/??? {{spacechase0.JsonAssets/ObjectId: Discrete Package}} BusStop 3 22/-1/355/-1/FALSE/{{i18n:Quests.594826.09}}",
+        "5948252": "LostItem/{{i18n:Quests.5948252.01}}/{{i18n:Quests.5948252.02}}/{{i18n:Quests.5948252.03}}/Penny Trunip190.CP.MilkTheVillagers.Boethia's_Pillow_Book ArchaeologyHouse 19 4/-1/240/-1/FALSE/{{i18n:Quests.5948252.09}}",
+        "594826": "LostItem/{{i18n:Quests.594826.01}}/{{i18n:Quests.594826.02}}/{{i18n:Quests.594826.03}}/??? Trunip190.CP.MilkTheVillagers.Discrete_Package BusStop 3 22/-1/355/-1/FALSE/{{i18n:Quests.594826.09}}",
         "594827": "Basic/{{i18n:Quests.594827.01}}/{{i18n:Quests.594827.02}}/{{i18n:Quests.594827.03}}/null/5948272/0/-1/False/{{i18n:Quests.594827.09}}",
         "5948272": "Basic/{{i18n:Quests.5948272.01}}/{{i18n:Quests.5948272.02}}/{{i18n:Quests.5948272.03}}/null/-1/420/-1/False/{{i18n:Quests.5948272.09}}",
         "594828": "Basic/{{i18n:Quests.594828.01}}/{{i18n:Quests.594828.02}}/{{i18n:Quests.594828.03}}/ArchaeologyHouse/-1/500/-1/False/{{i18n:Quests.594828.09}}",
 
         // Leah
         "594829": "Basic/{{i18n: Quests.594829.01}}/{{i18n: Quests.594829.02}}/{{i18n: Quests.594829.03}}/null/-1/240/-1/false/{{i18n: Quests.594829.09}}",
-        "594830": "LostItem/{{i18n: Quests.594830.01}}/{{i18n: Quests.594830.02}}/{{i18n: Quests.594829.03}}/Leah {{spacechase0.JsonAssets/ObjectId: Strapon}} ScienceHouse 4 19/-1/355/-1/False/{{i18n: Quests.594829.09}}",
+        "594830": "LostItem/{{i18n: Quests.594830.01}}/{{i18n: Quests.594830.02}}/{{i18n: Quests.594829.03}}/Leah Trunip190.CP.MilkTheVillagers.Strapon ScienceHouse 4 19/-1/355/-1/False/{{i18n: Quests.594829.09}}",
         "594831": "Basic/{{i18n: Quests.594831.01}}/{{i18n: Quests.594831.02}}/{{i18n: Quests.594831.03}}/LeahHouse/-1/420/-1/False/{{i18n: Quests.594831.09}}",
-        "594832": "ItemDelivery/{{i18n: Quests.594832.01}}/{{i18n: Quests.594832.02}}/{{i18n: Quests.594832.03}}/Leah {{spacechase0.JsonAssets/ObjectId: Shibari rope}}/-1/500/-1/false/{{i18n: Quests.594832.09}}",
+        "594832": "ItemDelivery/{{i18n: Quests.594832.01}}/{{i18n: Quests.594832.02}}/{{i18n: Quests.594832.03}}/Leah Trunip190.CP.MilkTheVillagers.Shibari_rope/-1/500/-1/false/{{i18n: Quests.594832.09}}",
         "5948322": "Basic/{{i18n: Quests.5948322.01}}/{{i18n: Quests.5948322.02}}/{{i18n: Quests.5948322.03}}/LeahHouse/-1/500/-1/FALSE/{{i18n: Quests.5948322.09}}",
 
         // George
-        "594833": "ItemDelivery/{{i18n:Quests.594833.01}}/{{i18n:Quests.594833.02}}/{{i18n:Quests.594833.03}}/George {{spacechase0.JsonAssets/ObjectId: Sweet Sibling}}/-1/240/-1/FALSE/{{i18n:Quests.594833.09}}",
-        "594834": "LostItem/{{i18n:Quests.594834.01}}/{{i18n:Quests.594834.02}}/{{i18n:Quests.594834.03}}/George {{spacechase0.JsonAssets/ObjectId: Haley's Panties}} HaleyHouse 6 5/-1/355/-1/FALSE/{{i18n:Quests.594834.09}}",
-        "594835": "ItemDelivery/{{i18n:Quests.594835.01}}/{{i18n:Quests.594835.02}}/{{i18n:Quests.594835.03}}/George {{spacechase0.JsonAssets/ObjectId: Super Juice}}/-1/420/-1/FALSE/{{i18n:Quests.594835.09}}",
+        "594833": "ItemDelivery/{{i18n:Quests.594833.01}}/{{i18n:Quests.594833.02}}/{{i18n:Quests.594833.03}}/George Trunip190.CP.MilkTheVillagers.Sweet_Sibling/-1/240/-1/FALSE/{{i18n:Quests.594833.09}}",
+        "594834": "LostItem/{{i18n:Quests.594834.01}}/{{i18n:Quests.594834.02}}/{{i18n:Quests.594834.03}}/George Trunip190.CP.MilkTheVillagers.Haley's_Panties HaleyHouse 6 5/-1/355/-1/FALSE/{{i18n:Quests.594834.09}}",
+        "594835": "ItemDelivery/{{i18n:Quests.594835.01}}/{{i18n:Quests.594835.02}}/{{i18n:Quests.594835.03}}/George Trunip190.CP.MilkTheVillagers.Super_Juice/-1/420/-1/FALSE/{{i18n:Quests.594835.09}}",
         "594836": "Basic/{{i18n:Quests.594836.01}}/{{i18n:Quests.594836.02}}/{{i18n:Quests.594836.03}}/JoshHouse/5948362/0/-1/FALSE/{{i18n:Quests.594836.09}}",
         "5948362": "Basic/{{i18n:Quests.5948362.01}}/{{i18n:Quests.5948362.02}}/{{i18n:Quests.5948362.03}}/JoshHouse/-1/500/-1/FALSE/{{i18n:Quests.5948362.09}}",
 
         // Harvey
         "594837": "Basic/{{i18n:Quests.594837.01}}/{{i18n:Quests.594837.02}}/{{i18n:Quests.594837.03}}/Solution/5948372/0/-1/False/{{i18n:Quests.594837.09}}",
-        "5948372": "ItemDelivery/{{i18n:Quests.5948372.01}}/{{i18n:Quests.5948372.02}}/{{i18n:Quests.5948372.03}}/Harvey {{spacechase0.JsonAssets/ObjectId: George's Cum}}/-1/240/Reward Description/False/{{i18n:Quests.5948372.09}}",
-        "594838": "LostItem/{{i18n:Quests.594838.01}}/{{i18n:Quests.594838.02}}/{{i18n:Quests.594838.03}}/Jodi {{spacechase0.JsonAssets/ObjectId: Super Juice}} Hospital 5 5/5948382/0/-1/FALSE/{{i18n:Quests.594838.09}}",
+        "5948372": "ItemDelivery/{{i18n:Quests.5948372.01}}/{{i18n:Quests.5948372.02}}/{{i18n:Quests.5948372.03}}/Harvey Trunip190.CP.MilkTheVillagers.George's_Cum/-1/240/Reward Description/False/{{i18n:Quests.5948372.09}}",
+        "594838": "LostItem/{{i18n:Quests.594838.01}}/{{i18n:Quests.594838.02}}/{{i18n:Quests.594838.03}}/Jodi Trunip190.CP.MilkTheVillagers.Super_Juice Hospital 5 5/5948382/0/-1/FALSE/{{i18n:Quests.594838.09}}",
         "5948382": "Basic/{{i18n:Quests.5948382.01}}/{{i18n:Quests.5948382.02}}/{{i18n:Quests.5948382.03}}/null/-1/355/Reward Description/False/{{i18n:Quests.5948382.09}}",
         "594839": "Basic/{{i18n:Quests.594839.01}}/{{i18n:Quests.594839.02}}/{{i18n:Quests.594839.03}}/null/-1/420/-1/False/{{i18n:Quests.594839.09}}",
         "594840": "Basic/{{i18n:Quests.594840.01}}/{{i18n:Quests.594840.02}}/{{i18n:Quests.594840.03}}/null/-1/500/-1/False/{{i18n:Quests.594840.09}}"

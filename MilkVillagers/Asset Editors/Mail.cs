@@ -172,7 +172,7 @@ namespace MilkVillagers.Asset_Editors
             data = assetdata;
             if (!data.ContainsKey("MTV_InvitationID")) return;
 
-            string s = int.TryParse(data["MTV_InvitationID"], out TempRefs.Invitation) ? $"Invitation ItemID is {TempRefs.Invitation}" : "Failed to get Invitation ItemID from mail";
+            string s = int.TryParse(data["MTV_InvitationID"], out TempRefs.InvitationsSent) ? $"Invitation ItemID is {TempRefs.InvitationsSent}" : "Failed to get Invitation ItemID from mail";
             ModFunctions.Log(s, LogLevel.Trace);
         }
 

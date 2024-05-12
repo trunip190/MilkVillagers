@@ -5,13 +5,14 @@ using StardewValley.Quests;
 using StardewValley;
 using static System.Net.Mime.MediaTypeNames;
 using xTile.Dimensions;
+using StardewValley.GameData.SpecialOrders;
 
 namespace MilkVillagers.Asset_Editors
 {
 
     public static class QuestEditor //: IAssetEditor
     {
-        private static IDictionary<int, string> QuestData;
+        private static IDictionary<string, string> QuestData;
         private static IDictionary<string, SpecialOrderData> SOData;
 
         /// <summary>
@@ -22,7 +23,7 @@ namespace MilkVillagers.Asset_Editors
             [594801] = "MTV_AbigailQ1T",    //Abigail quest 1
             [594802] = "MTV_AbigailQ2T",    //Abigail quest 2
             [594803] = "MTV_AbigailQ3T",    //Abigail quest 3
-            [594804] = "MTV_AbigailQ4T",    //Abigail quest 4
+            //[594804] = "MTV_AbigailQ4T",    //Abigail quest 4
 
             [594805] = "MTV_ElliottQ1T",    //Elliott quest 1
             [594806] = "MTV_ElliottQ2T",    //Elliott quest 2
@@ -181,8 +182,7 @@ namespace MilkVillagers.Asset_Editors
                 //{
                 //    ModFunctions.LogVerbose($"{kvp.Key}: {kvp.Value}", LogLevel.Trace, Force: true);
                 //}
-
-                QuestData = asset.AsDictionary<int, string>().Data;
+                QuestData = asset.AsDictionary<string, string>().Data;
                 //QuestData[QuestIDs["QuestName"]] = $"Type/Name/Description/Hint/Condition/Next Quest/Gold/Reward Description/Cancellable/Completion Text";
 
                 #region Auto Generated - moved to CP
@@ -245,9 +245,9 @@ namespace MilkVillagers.Asset_Editors
                 SpecialOrderData SOMilkMale = new SpecialOrderData()
                 {
                     Name = "Vitality Collection",
-                    Duration = "Week",
+                    Duration = QuestDuration.Week,
                     Requester = "Mister Qi",
-                    Repeatable = "True",
+                    Repeatable = true,
                     Text = "Please practise your cum collection technique. If you can collect 10 samples for me by the end of the week I'll have special reward for you.",
                     ItemToRemoveOnEnd = "",
                     MailToRemoveOnEnd = "",
@@ -307,9 +307,9 @@ namespace MilkVillagers.Asset_Editors
                 SpecialOrderData SOMilkFemale = new SpecialOrderData()
                 {
                     Name = "Soma Collection",
-                    Duration = "Week",
+                    Duration = QuestDuration.Week,
                     Requester = "Mister Qi",
-                    Repeatable = "True",
+                    Repeatable = true,
                     Text = "The women of Stardew Valley contain a vitality that is not found elsewhere. Please collect 10 bottles of their milk and deliver it to me.",
                     ItemToRemoveOnEnd = "",
                     MailToRemoveOnEnd = "",
@@ -376,7 +376,7 @@ namespace MilkVillagers.Asset_Editors
             }
         }
 
-        public static void UpdateData(Dictionary<int, string> assetdata)
+        public static void UpdateData(Dictionary<string, string> assetdata)
         {
             QuestData = assetdata;
             ModFunctions.Log("Updating QuestEditor: QuestData", LogLevel.Trace);
@@ -488,7 +488,7 @@ namespace MilkVillagers.Asset_Editors
             if (!special && QuestData != null)
             {
                 ModFunctions.Log($"Dumping quests");
-                foreach (KeyValuePair<int, string> d in QuestData)
+                foreach (KeyValuePair<string, string> d in QuestData)
                 {
                     if (d.Key.ToString().Contains("5948"))
                     {
@@ -535,7 +535,7 @@ namespace MilkVillagers.Asset_Editors
 
             foreach (KeyValuePair<string, int> kvp in QuestIDs)
             {
-                if (!QuestData.Keys.Contains(kvp.Value))
+                if (!QuestData.Keys.Contains(kvp.Value.ToString()))
                 {
                     ModFunctions.Log($"Missing quest {kvp.Key}", LogLevel.Alert);
                     result = false;

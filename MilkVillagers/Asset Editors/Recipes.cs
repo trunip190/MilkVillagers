@@ -60,24 +60,32 @@ namespace MilkVillagers
         public static bool SetCooking(bool Male = true, bool Female = true)
         {
             if (CookingData == null) return false;
-
-            if (CookingData.ContainsKey("Protein Shake"))
+            string ProteinShake = "";
+            List<string> dump = CookingData.Keys.Where(o => o.Contains("Protein_Shake")).ToList();
+            if (dump.Count > 0)
             {
-                if (Male) { CookingData["Protein Shake"] = $"{TempRefs.CumType} 1/10 10/{TempRefs.ProteinShake}//Protein Shake"; }
+                ProteinShake = CookingData.Keys.Where(o => o.Contains("Protein_Shake")).ToList()[0];
+            }
+
+            if (ProteinShake != null)
+            {
+                if (Male) CookingData["Trunip190.JA.MilkTheVillagers_Protein_Shake"] = "-35 1/10 10/Trunip190.JA.MilkTheVillagers_Protein_Shake 1/null/Protein Shake";
+                //if (Male) { CookingData[ProteinShake] = $"-35 1/10 10/Protein Shake//Protein Shake"; }
             }
             else ModFunctions.Log("Protein Shake not found", LogLevel.Alert);
 
-            if (CookingData.ContainsKey("Special Milkshake"))
+            if (CookingData.Keys.Count(o => o.Contains("Special Milkshake")) > 0)
             {
-                if (Female) { CookingData["Special Milkshake"] = $"{TempRefs.MilkType} 1/10 10/{TempRefs.MilkShake}//Special Milkshake"; }
+                if (Female) { CookingData["Special Milkshake"] = $"-34 1/10 10/Special Milkshake//Special Milkshake"; }
             }
             else ModFunctions.Log("Special Milkshake not found", LogLevel.Alert);
 
-            if (CookingData.ContainsKey("Super Juice"))
+            if (CookingData.Keys.Count(o => o.Contains("Super Juice")) > 0)
             {
-                if (Male && Female) CookingData["Super Juice"] = $"{TempRefs.MilkType} 2 {TempRefs.CumType} 2/10 10/{TempRefs.SuperJuice}//Super Juice";
+                if (Male && Female) CookingData["Super Juice"] = $"-34 2 -35 2/10 10/Super Juice//Super Juice";
             }
             else ModFunctions.Log("Super Juice not found", LogLevel.Alert);
+
 
             return true;
         }
@@ -86,26 +94,19 @@ namespace MilkVillagers
         {
             //if (CraftingData == null)
             //    return false;
+            //List<string> modCrafting = CraftingData.Keys.Where(o => o.Contains("Trunip190.JA.MilkTheVillagers")).ToList();
+            //List<string> modRecipes = CraftingData.Values.Where(o => o.Contains("Trunip190.JA.MilkTheVillagers")).ToList();
 
             if (Male)
             {
-                if (CraftingData.ContainsKey("Special Milk"))
-                {
-                    ModFunctions.Log($"{CraftingData["Special Milk"]}");
-                }
-                CraftingData["Special Milk"] = $"{TempRefs.CumType} 1/Field/{TempRefs.MilkSpecial}/false/Special Milk";
-                ModFunctions.Log($"{CraftingData["Special Milk"]}");
+
+                CraftingData["Trunip190.JA.MilkTheVillagers_Special_Milk"] = "-35 1/what is this for?/Trunip190.JA.MilkTheVillagers_Special_Milk 1/false/null/Special Milk";
+                CraftingData["Trunip190.JA.MilkTheVillagers_Magical_Essence"] = "-36 1/what is this for?/Trunip190.JA.MilkTheVillagers_Magical_Essence 1/false/null/Magical Essence";
+                //CraftingData["Trunip190.JA.MilkTheVillagers_Crotchless_Panties"] = "771 2 428 1/what is this for?/Trunip190.JA.MilkTheVillagers_Crotchless_Panties 1/false/null/Crotchless Panties";
+                //CraftingData["Trunip190.JA.MilkTheVillagers_Shibari_rope"] = "-35 1/what is this for?/Trunip190.JA.MilkTheVillagers_Special_Milk 1/false/null/Special Milk";
+                ModFunctions.Log($"{CraftingData["Trunip190.JA.MilkTheVillagers_Special_Milk"]}");
             }
 
-            if (Female)
-            {
-                if (CraftingData.ContainsKey("Woman's Milk"))
-                {
-                    ModFunctions.Log($"{CraftingData["Woman's Milk"]}");
-                }
-                CraftingData["Woman's Milk"] = $"{TempRefs.MilkType} 1/Field/{TempRefs.MilkGeneric}/false/Woman's Milk";
-                ModFunctions.Log($"{CraftingData["Woman's Milk"]}");
-            }
 
             return true;
         }

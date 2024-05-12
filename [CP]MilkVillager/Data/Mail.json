@@ -7,7 +7,7 @@
       "Entries": {
 
         // Item ID storage
-        "MTV_InvitationID": "{{spacechase0.JsonAssets/ObjectId: Invitation}}",
+        "MTV_InvitationID": "Trunip190.CP.MilkTheVillagers.Invitation",
 
         // Gender mail
         "MTV_Vagina": "{{i18n:Mail.MTV_Vagina}}",
@@ -16,14 +16,16 @@
         "MTV_Herm": "{{i18n:Mail.MTV_Herm}}",
 
         // Mod tutorial mail.
-        "MilkButton1": "{{i18n:Mail.MilkButton1}}  %item object {{spacechase0.JsonAssets/ObjectId: Readi Milk}} 1 %%",
+        //"MilkButton1": "{{i18n:Mail.MilkButton1}}  %item object Trunip190.CP.MilkTheVillagers.Readi_Milk 1 %%",
+        "MilkButton1": "{{i18n:Mail.MilkButton1}} %item object Trunip190.CP.MilkTheVillagers.Readi_Milk 1 %% [#]",
         "MilkButton2": "{{i18n:Mail.MilkButton2}}",
         "MilkingProfQuality": "{{i18n:Mail.MilkingProfQuality}}",
         "MilkingProfCount": "{{i18n:Mail.MilkingProfCount}}",
 
         // Quest giving mail.
         //"AbiMilking": "Hey @,^^I have something embarrassing to tell you, but I need to do it in person.^When you have time can you come see me?^^PS. Make sure you bring your milk pail.^^      -Abigail. %item object {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}} 1 %%",
-        "AbiMilking": "{{i18n:Mail.AbiMilking}}  %item object {{spacechase0.JsonAssets/ObjectId: Abigail's Milk}} 1 %%",
+        //"AbiMilking": "{{i18n:Mail.AbiMilking}}  %item object Trunip190.CP.MilkTheVillagers.Abigail's_Milk 1 %%",
+        "AbiMilking": "i18n:Mail.AbiMilking  %item object Trunip190.CP.MilkTheVillagers.Abigail's_Milk 1 %%",
 
 
         //*****************

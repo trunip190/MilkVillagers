@@ -1,93 +1,6 @@
 {
-  "$schema": "https://smapi.io/schemas/content-patcher.json",
-  "Format": "2.0.0",
-  "ConfigSchema": {
-    "ExtraDialogue": {
-      "AllowValues": "true, false",
-      "Default": "true"
-    },
-    "Quests": {
-      "AllowValues": "true, false",
-      "Default": "true"
-    }
-  },
-  "DynamicTokens": [
-    {
-      "Name": "GenderSwitch",
-      "Value": "P", //Male.
-      "Update": "OnLocationChange, OnTimeChange"
-    },
-    {
-      "Name": "GenderSwitch",
-      "Value": "V", //Female.
-      "When": {
-        "HasFlag": "MTV_Vagina"
-      },
-      "Update": "OnLocationChange, OnTimeChange"
-    },
-    {
-      "Name": "GenderSwitch",
-      "Value": "A", //Ace.
-      "When": {
-        "HasFlag": "MTV_Ace"
-      },
-      "Update": "OnLocationChange, OnTimeChange"
-    },
-    {
-      "Name": "GenderSwitch",
-      "Value": "H", //Herm.
-      "When": {
-        "HasFlag": "MTV_Herm"
-      },
-      "Update": "OnLocationChange, OnTimeChange"
-    },
-    {
-      "Name": "GenderSwitch",
-      "Value": "P", //Male.
-      "When": {
-        "HasFlag": "MTV_Penis"
-      },
-      "Update": "OnLocationChange, OnTimeChange"
-    }
-
-  ],
+  "Format": "1.21.0",
   "Changes": [
-     // Dialogue
-    {
-      "LogName": "Include Dialogue",
-      "Action": "Include",
-      "FromFile": "Data/Dialogue.json"
-    },
-
-    //Events
-    {
-      "LogName": "Include Events",
-      "Action": "Include",
-      "FromFile": "Data/Events.json"
-    },
-
-    //Items
-    {
-      "LogName": "Include Items",
-      "Action": "Include",
-      "FromFile": "Data/Items.json"
-    },
-
-    //Mail Items
-    {
-      "LogName": "Include Mail",
-      "Action": "Include",
-      "FromFile": "Data/Mail.json"
-    },
-
-    // Quest Items
-    {
-      "LogName": "Include Quests",
-      "Action": "Include",
-      "FromFile": "Data/Quests.json"
-    },
-
-    //Farmer gets added as an NPC (Trunip)	
     //{
     //  "LogName": "NPC Manifestation",
     //  "Action": "Include",
@@ -140,9 +53,5 @@
     //    "Trunip1": "Let's not sign a prenup, baby.$1"
     //  }
     //}
-
-  ],
-  "RepeatEvents": [
-    "594864"
   ]
 }

@@ -3,6 +3,7 @@ using System.Linq;
 using SpaceCore;
 using StardewModdingAPI;
 using StardewValley;
+using log = MilkVillagers.ModFunctions;
 
 namespace MilkVillagers
 {
@@ -80,11 +81,13 @@ namespace MilkVillagers
         public static IModHelper Helper;
         public static IMonitor Monitor;
         public static SButton ActionKey = SButton.O;
+        public static string ModItemPrefix = "Trunip190.CP.MilkTheVillagers.";
 
         public static List<NPC> milkedtoday = new();
         public static List<NPC> SexToday = new();
         public static bool SelfMilkedToday = false;
         public static bool SelfCummedToday = false;
+        public static int InvitationsSent = 0;
 
         // Config options
         public static bool loaded = false;
@@ -155,6 +158,13 @@ namespace MilkVillagers
         public static int EventPenny04 = 594864;
         #endregion
 
+        #region Leah 5948 7X
+        public static int EventLeah01 = 594865;
+        public static int EventLeah02 = 594866;
+        public static int EventLeah03 = 594867;
+        public static int EventLeah04 = 594868;
+        #endregion
+
         public static int EventHarvey = 594802;         //Harvey
         public static int Event3HarMar = 594803;        //Harvey/Maru
         public static int EventLeah = 594804;           //Leah
@@ -179,161 +189,162 @@ namespace MilkVillagers
 
         #region Items
         // Milk item code storage
-        public static int MilkAbig = 803;
-        public static int MilkEmil = 803;
-        public static int MilkHale = 803;
-        public static int MilkLeah = 803;
-        public static int MilkMaru = 803;
-        public static int MilkPenn = 803;
-        public static int MilkCaro = 803;
-        public static int MilkJodi = 803;
-        public static int MilkMarn = 803;
-        public static int MilkRobi = 803;
-        public static int MilkPam = 803;
-        public static int MilkSand = 803;
-        public static int MilkEvel = 803;
+        //public static int MilkAbig = 803;
+        //public static int MilkEmil = 803;
+        //public static int MilkHale = 803;
+        //public static int MilkLeah = 803;
+        //public static int MilkMaru = 803;
+        //public static int MilkPenn = 803;
+        //public static int MilkCaro = 803;
+        //public static int MilkJodi = 803;
+        //public static int MilkMarn = 803;
+        //public static int MilkRobi = 803;
+        //public static int MilkPam = 803;
+        //public static int MilkSand = 803;
+        //public static int MilkEvel = 803;
 
         /// <summary>
         /// Generic Breast milk
         /// </summary>
-        public static int MilkGeneric = 803;
+        //public static int MilkGeneric = 803;
 
         // Cum item code storage.
         /// <summary>
         /// Generic cum
         /// </summary>
-        public static int MilkSpecial = 803;
-        public static int MilkAlex = 803;
-        public static int MilkClint = 803;
-        public static int MilkDemetrius = 803;
-        public static int MilkElliott = 803;
-        public static int MilkGeorge = 803;
-        public static int MilkGil = 803;
-        public static int MilkGunther = 803;
-        public static int MilkGus = 803;
-        public static int MilkHarv = 803;
-        public static int MilkKent = 803;
-        public static int MilkLewis = 803;
-        public static int MilkLinus = 803;
-        public static int MilkMarlon = 803;
-        public static int MilkMorris = 803;
-        public static int MilkPierre = 803;
-        public static int MilkSam = 803;
-        public static int MilkSeb = 803;
-        public static int MilkShane = 803;
-        public static int MilkWilly = 803;
+        //public static int MilkSpecial = 803;
+        //public static int MilkAlex = 803;
+        //public static int MilkClint = 803;
+        //public static int MilkDemetrius = 803;
+        //public static int MilkElliott = 803;
+        //public static int MilkGeorge = 803;
+        //public static int MilkGil = 803;
+        //public static int MilkGunther = 803;
+        //public static int MilkGus = 803;
+        //public static int MilkHarv = 803;
+        //public static int MilkKent = 803;
+        //public static int MilkLewis = 803;
+        //public static int MilkLinus = 803;
+        //public static int MilkMarlon = 803;
+        //public static int MilkMorris = 803;
+        //public static int MilkPierre = 803;
+        //public static int MilkSam = 803;
+        //public static int MilkSeb = 803;
+        //public static int MilkShane = 803;
+        //public static int MilkWilly = 803;
 
         // Magical
-        public static int MilkDwarf = 803;
-        public static int MilkKrobus = 803;
-        public static int MilkQi = 803;
-        public static int MilkWiz = 803;
-        public static int MilkMagic = 803;
+        //public static int MilkDwarf = 803;
+        //public static int MilkKrobus = 803;
+        //public static int MilkQi = 803;
+        //public static int MilkWiz = 803;
+        //public static int MilkMagic = 803;
 
         // Recipe item code storage
-        public static int ProteinShake = 1240;
-        public static int MilkShake = 1241;
-        public static int SuperJuice = 1249;
-        public static int EldritchEnergy = 1250;
-        public static int MartiniKairos = 1251;
-        public static int SweetSibling = 1252;
+        //public static int ProteinShake = 1240;
+        //public static int MilkShake = 1241;
+        //public static int SuperJuice = 1249;
+        //public static int EldritchEnergy = 1250;
+        //public static int MartiniKairos = 1251;
+        //public static int SweetSibling = 1252;
 
         // Other mods
-        public static int MilkSophia = 803;
-        public static int MilkOlivia = 803;
-        public static int MilkSusan = 803;
-        public static int MilkClaire = 803;
-        public static int MilkScarlett = 803;
-        public static int MilkAndy = 803;
-        public static int MilkVictor = 803;
-        public static int MilkMartin = 803;
+        //public static int MilkSophia = 803;
+        //public static int MilkOlivia = 803;
+        //public static int MilkSusan = 803;
+        //public static int MilkClaire = 803;
+        //public static int MilkScarlett = 803;
+        //public static int MilkAndy = 803;
+        //public static int MilkVictor = 803;
+        //public static int MilkMartin = 803;
 
         // Item types 
-        public const int MilkType = -34;
-        public const int CumType = -35;
-        public const int SpecialType = -36;
+        //public const int MilkType = -34;
+        //public const int CumType = -35;
+        //public const int SpecialType = -36;
 
         // Quest items
-        public static int PennyBook = 804;
-        public static int HaleyCamera = 804;
-        public static int HaleyPanties = 804;
-        public static int ReadiMilk = 804;
-        public static int Invitation = 804;
+        //public static int PennyBook = 804;
+        //public static int HaleyCamera = 804;
+        //public static int HaleyPanties = 804;
+        //public static int ReadiMilk = 804;
+        //public static int Invitation = 804;
 
         // Clothing Items
-        public static int mtvTeddyl = 806;
-        public static int mtvTeddy = 806;
-        public static int TentacleTop = 806;
-        public static int TentacleLeg = 806;
+        //public static int mtvTeddyl = 806;
+        //public static int mtvTeddy = 806;
+        //public static int TentacleTop = 806;
+        //public static int TentacleLeg = 806;
         #endregion
 
         public static void ReportCodes()
         {
+            log.Log("ReportCodes() does nothing now", LogLevel.Trace);
             // Milk item code storage
-            ModFunctions.Log($"MilkAbig is {MilkAbig}", LogLevel.Trace);
-            ModFunctions.Log($"MilkEmil is {MilkEmil}", LogLevel.Trace);
-            ModFunctions.Log($"MilkHale is {MilkHale}", LogLevel.Trace);
-            ModFunctions.Log($"MilkLeah is {MilkLeah}", LogLevel.Trace);
-            ModFunctions.Log($"MilkMaru is {MilkMaru}", LogLevel.Trace);
-            ModFunctions.Log($"MilkPenn is {MilkPenn}", LogLevel.Trace);
-            ModFunctions.Log($"MilkCaro is {MilkCaro}", LogLevel.Trace);
-            ModFunctions.Log($"MilkJodi is {MilkJodi}", LogLevel.Trace);
-            ModFunctions.Log($"MilkMarn is {MilkMarn}", LogLevel.Trace);
-            ModFunctions.Log($"MilkRobi is {MilkRobi}", LogLevel.Trace);
-            ModFunctions.Log($"MilkPam is {MilkPam}", LogLevel.Trace);
-            ModFunctions.Log($"MilkSand is {MilkSand}", LogLevel.Trace);
-            ModFunctions.Log($"MilkEvel is {MilkEvel}", LogLevel.Trace);
-            ModFunctions.Log($"MilkDwarf is {MilkDwarf}", LogLevel.Trace);
-            ModFunctions.Log($"MilkGeneric is {MilkGeneric}", LogLevel.Trace);
+            //Log($"MilkAbig is {MilkAbig}", LogLevel.Trace);
+            //Log($"MilkEmil is {MilkEmil}", LogLevel.Trace);
+            //Log($"MilkHale is {MilkHale}", LogLevel.Trace);
+            //Log($"MilkLeah is {MilkLeah}", LogLevel.Trace);
+            //Log($"MilkMaru is {MilkMaru}", LogLevel.Trace);
+            //Log($"MilkPenn is {MilkPenn}", LogLevel.Trace);
+            //Log($"MilkCaro is {MilkCaro}", LogLevel.Trace);
+            //Log($"MilkJodi is {MilkJodi}", LogLevel.Trace);
+            //Log($"MilkMarn is {MilkMarn}", LogLevel.Trace);
+            //Log($"MilkRobi is {MilkRobi}", LogLevel.Trace);
+            //Log($"MilkPam is {MilkPam}", LogLevel.Trace);
+            //Log($"MilkSand is {MilkSand}", LogLevel.Trace);
+            //Log($"MilkEvel is {MilkEvel}", LogLevel.Trace);
+            //Log($"MilkDwarf is {MilkDwarf}", LogLevel.Trace);
+            //Log($"MilkGeneric is {MilkGeneric}", LogLevel.Trace);
 
             // Cum item code storage.
-            ModFunctions.Log($"MilkSpecial is {MilkSpecial}", LogLevel.Trace);
-            ModFunctions.Log($"MilkAlex is {MilkAlex}", LogLevel.Trace);
-            ModFunctions.Log($"MilkClint is {MilkClint}", LogLevel.Trace);
-            ModFunctions.Log($"MilkDemetrius is {MilkDemetrius}", LogLevel.Trace);
-            ModFunctions.Log($"MilkElliott is {MilkElliott}", LogLevel.Trace);
-            ModFunctions.Log($"MilkGeorge is {MilkGeorge}", LogLevel.Trace);
-            ModFunctions.Log($"MilkGil is {MilkGil}", LogLevel.Trace);
-            ModFunctions.Log($"MilkGunther is {MilkGunther}", LogLevel.Trace);
-            ModFunctions.Log($"MilkGus is {MilkGus}", LogLevel.Trace);
-            ModFunctions.Log($"MilkHarv is {MilkHarv}", LogLevel.Trace);
-            ModFunctions.Log($"MilkKent is {MilkKent}", LogLevel.Trace);
-            ModFunctions.Log($"MilkLewis is {MilkLewis}", LogLevel.Trace);
-            ModFunctions.Log($"MilkLinus is {MilkLinus}", LogLevel.Trace);
-            ModFunctions.Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
-            ModFunctions.Log($"MilkMorris is {MilkMorris}", LogLevel.Trace);
-            ModFunctions.Log($"MilkQi is {MilkQi}", LogLevel.Trace);
-            ModFunctions.Log($"MilkPierre is {MilkPierre}", LogLevel.Trace);
-            ModFunctions.Log($"MilkSam is {MilkSam}", LogLevel.Trace);
-            ModFunctions.Log($"MilkSeb is {MilkSeb}", LogLevel.Trace);
-            ModFunctions.Log($"MilkShane is {MilkShane}", LogLevel.Trace);
-            ModFunctions.Log($"MilkWilly is {MilkWilly}", LogLevel.Trace);
-            ModFunctions.Log($"MilkWiz is {MilkWiz}", LogLevel.Trace);
-            ModFunctions.Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
-            ModFunctions.Log($"MilkKrobus is {MilkKrobus}", LogLevel.Trace);
+            //Log($"MilkSpecial is {MilkSpecial}", LogLevel.Trace);
+            //Log($"MilkAlex is {MilkAlex}", LogLevel.Trace);
+            //Log($"MilkClint is {MilkClint}", LogLevel.Trace);
+            //Log($"MilkDemetrius is {MilkDemetrius}", LogLevel.Trace);
+            //Log($"MilkElliott is {MilkElliott}", LogLevel.Trace);
+            //Log($"MilkGeorge is {MilkGeorge}", LogLevel.Trace);
+            //Log($"MilkGil is {MilkGil}", LogLevel.Trace);
+            //Log($"MilkGunther is {MilkGunther}", LogLevel.Trace);
+            //Log($"MilkGus is {MilkGus}", LogLevel.Trace);
+            //Log($"MilkHarv is {MilkHarv}", LogLevel.Trace);
+            //Log($"MilkKent is {MilkKent}", LogLevel.Trace);
+            //Log($"MilkLewis is {MilkLewis}", LogLevel.Trace);
+            //Log($"MilkLinus is {MilkLinus}", LogLevel.Trace);
+            //Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
+            //Log($"MilkMorris is {MilkMorris}", LogLevel.Trace);
+            //Log($"MilkQi is {MilkQi}", LogLevel.Trace);
+            //Log($"MilkPierre is {MilkPierre}", LogLevel.Trace);
+            //Log($"MilkSam is {MilkSam}", LogLevel.Trace);
+            //Log($"MilkSeb is {MilkSeb}", LogLevel.Trace);
+            //Log($"MilkShane is {MilkShane}", LogLevel.Trace);
+            //Log($"MilkWilly is {MilkWilly}", LogLevel.Trace);
+            //Log($"MilkWiz is {MilkWiz}", LogLevel.Trace);
+            //Log($"MilkMarlon is {MilkMarlon}", LogLevel.Trace);
+            //Log($"MilkKrobus is {MilkKrobus}", LogLevel.Trace);
 
             // Other Mods
-            ModFunctions.Log($"MilkSophia is {MilkSophia}", LogLevel.Trace);
-            ModFunctions.Log($"MilkOlivia is {MilkOlivia}", LogLevel.Trace);
-            ModFunctions.Log($"MilkSusan is {MilkSusan}", LogLevel.Trace);
-            ModFunctions.Log($"MilkClaire is {MilkClaire}", LogLevel.Trace);
-            ModFunctions.Log($"MilkAndy is {MilkAndy}", LogLevel.Trace);
-            ModFunctions.Log($"MilkVictor is {MilkVictor}", LogLevel.Trace);
-            ModFunctions.Log($"MilkMartin is {MilkMartin}", LogLevel.Trace);
+            //Log($"MilkSophia is {MilkSophia}", LogLevel.Trace);
+            //Log($"MilkOlivia is {MilkOlivia}", LogLevel.Trace);
+            //Log($"MilkSusan is {MilkSusan}", LogLevel.Trace);
+            //Log($"MilkClaire is {MilkClaire}", LogLevel.Trace);
+            //Log($"MilkAndy is {MilkAndy}", LogLevel.Trace);
+            //Log($"MilkVictor is {MilkVictor}", LogLevel.Trace);
+            //Log($"MilkMartin is {MilkMartin}", LogLevel.Trace);
 
             // Recipe item code storage
-            ModFunctions.Log($"ProteinShake is {ProteinShake}", LogLevel.Trace);
-            ModFunctions.Log($"MilkShake is {MilkShake}", LogLevel.Trace);
+            //Log($"ProteinShake is {ProteinShake}", LogLevel.Trace);
+            //Log($"MilkShake is {MilkShake}", LogLevel.Trace);
 
             // Item types
-            ModFunctions.Log($"MilkType is {MilkType}", LogLevel.Trace);
-            ModFunctions.Log($"CumType is {CumType}", LogLevel.Trace);
+            //Log($"MilkType is {MilkType}", LogLevel.Trace);
+            //Log($"CumType is {CumType}", LogLevel.Trace);
 
             // Quest items
-            ModFunctions.Log($"PennyBook is {PennyBook}", LogLevel.Trace);
-            ModFunctions.Log($"HaleyCamera is {HaleyCamera}", LogLevel.Trace);
-            ModFunctions.Log($"HaleyPanties is {HaleyPanties}", LogLevel.Trace);
-            ModFunctions.Log($"ReadiMilk is {ReadiMilk}", LogLevel.Trace);
+            //Log($"PennyBook is {PennyBook}", LogLevel.Trace);
+            //Log($"HaleyCamera is {HaleyCamera}", LogLevel.Trace);
+            //Log($"HaleyPanties is {HaleyPanties}", LogLevel.Trace);
+            //Log($"ReadiMilk is {ReadiMilk}", LogLevel.Trace);
         }
 
 

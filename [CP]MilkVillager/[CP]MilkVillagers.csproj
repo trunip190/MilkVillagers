@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>MilkVillagers</RootNamespace>
 		<AssemblyName>MilkVillagers</AssemblyName>
 		<ApplicationIcon />
@@ -11,8 +11,140 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="assets\Objects\Abigail's Milk\object.json" />
+		<None Remove="assets\Objects\Abigail's Milk\object.png" />
+		<None Remove="assets\Objects\Quest\Abigails Panties\object.json" />
+		<None Remove="assets\Objects\Quest\Abigails Panties\object.png" />
+		<None Remove="assets\Objects\Alex's Cum\object.json" />
+		<None Remove="assets\Objects\Alex's Cum\object.png" />
+		<None Remove="assets\Objects\Andy's Cum\object.json" />
+		<None Remove="assets\Objects\Andy's Cum\object.png" />
+		<None Remove="assets\Objects\Boethia's Pillow Book\object.json" />
+		<None Remove="assets\Objects\Boethia's Pillow Book\object.png" />
+		<None Remove="assets\Objects\Caroline's Milk\object.json" />
+		<None Remove="assets\Objects\Caroline's Milk\object.png" />
+		<None Remove="assets\Objects\Claire's Milk\object.json" />
+		<None Remove="assets\Objects\Claire's Milk\object.png" />
+		<None Remove="assets\Objects\Clint's Cum\object.json" />
+		<None Remove="assets\Objects\Clint's Cum\object.png" />
+		<None Remove="assets\Objects\Crafted\Creamy Coffee\object.json" />
+		<None Remove="assets\Objects\Crafted\Creamy Coffee\object.png" />
+		<None Remove="assets\Objects\Quest\Crotchless Panties\object.json" />
+		<None Remove="assets\Objects\Quest\Crotchless Panties\object.png" />
+		<None Remove="assets\Objects\Demetrius's Cum\object.json" />
+		<None Remove="assets\Objects\Demetrius's Cum\object.png" />
+		<None Remove="assets\Objects\Quest\Discrete Massager\object.json" />
+		<None Remove="assets\Objects\Quest\Discrete Massager\object.png" />
+		<None Remove="assets\Objects\Quest\Discrete Package\object.json" />
+		<None Remove="assets\Objects\Quest\Discrete Package\object.png" />
+		<None Remove="assets\Objects\Dwarf's Essence\object.json" />
+		<None Remove="assets\Objects\Dwarf's Essence\object.png" />
+		<None Remove="assets\Objects\Crafted\Eldritch Energy\object.json" />
+		<None Remove="assets\Objects\Crafted\Eldritch Energy\object.png" />
+		<None Remove="assets\Objects\Elliott's Cum\object.json" />
+		<None Remove="assets\Objects\Elliott's Cum\object.png" />
+		<None Remove="assets\Objects\Emily's Milk\object.json" />
+		<None Remove="assets\Objects\Emily's Milk\object.png" />
+		<None Remove="assets\Objects\Evelyn's Milk\object.json" />
+		<None Remove="assets\Objects\Evelyn's Milk\object.png" />
+		<None Remove="assets\Objects\George's Cum\object.json" />
+		<None Remove="assets\Objects\George's Cum\object.png" />
+		<None Remove="assets\Objects\Gil's Cum\object.json" />
+		<None Remove="assets\Objects\Gil's Cum\object.png" />
+		<None Remove="assets\Objects\Gunther's Cum\object.json" />
+		<None Remove="assets\Objects\Gunther's Cum\object.png" />
+		<None Remove="assets\Objects\Gus's Cum\object.json" />
+		<None Remove="assets\Objects\Gus's Cum\object.png" />
+		<None Remove="assets\Objects\Haley's Camera\object.json" />
+		<None Remove="assets\Objects\Haley's Camera\object.png" />
+		<None Remove="assets\Objects\Haley's Milk\object.json" />
+		<None Remove="assets\Objects\Haley's Milk\object.png" />
+		<None Remove="assets\Objects\Haley's Panties\object.json" />
+		<None Remove="assets\Objects\Haley's Panties\object.png" />
+		<None Remove="assets\Objects\Harvey's Cum\object.json" />
+		<None Remove="assets\Objects\Harvey's Cum\object.png" />
+		<None Remove="assets\Objects\Quest\Invitation\object.json" />
+		<None Remove="assets\Objects\Quest\Invitation\object.png" />
+		<None Remove="assets\Objects\Jodi's Milk\object.json" />
+		<None Remove="assets\Objects\Jodi's Milk\object.png" />
+		<None Remove="assets\Objects\Kent's Cum\object.json" />
+		<None Remove="assets\Objects\Kent's Cum\object.png" />
+		<None Remove="assets\Objects\Magical\Krobus Essence\object.json" />
+		<None Remove="assets\Objects\Magical\Krobus Essence\object.png" />
+		<None Remove="assets\Objects\Lance's Cum\object.json" />
+		<None Remove="assets\Objects\Lance's Cum\object.png" />
+		<None Remove="assets\Objects\Leah's Milk\object.json" />
+		<None Remove="assets\Objects\Leah's Milk\object.png" />
+		<None Remove="assets\Objects\Lewis's Cum\object.json" />
+		<None Remove="assets\Objects\Lewis's Cum\object.png" />
+		<None Remove="assets\Objects\Linus's Cum\object.json" />
+		<None Remove="assets\Objects\Linus's Cum\object.png" />
+		<None Remove="assets\Objects\Magical\Magical Essence\object.json" />
+		<None Remove="assets\Objects\Magical\Magical Essence\object.png" />
+		<None Remove="assets\Objects\Marlon's Cum\object.json" />
+		<None Remove="assets\Objects\Marlon's Cum\object.png" />
+		<None Remove="assets\Objects\Marnie's Milk\object.json" />
+		<None Remove="assets\Objects\Marnie's Milk\object.png" />
+		<None Remove="assets\Objects\Martin's Cum\object.json" />
+		<None Remove="assets\Objects\Martin's Cum\object.png" />
+		<None Remove="assets\Objects\Crafted\Martini Kairos\object.json" />
+		<None Remove="assets\Objects\Crafted\Martini Kairos\object.png" />
+		<None Remove="assets\Objects\Maru's Milk\object.json" />
+		<None Remove="assets\Objects\Maru's Milk\object.png" />
+		<None Remove="assets\Objects\Morris's Cum\object.json" />
+		<None Remove="assets\Objects\Morris's Cum\object.png" />
+		<None Remove="assets\Objects\Mr. Qi's Essence\object.json" />
+		<None Remove="assets\Objects\Mr. Qi's Essence\object.png" />
+		<None Remove="assets\Objects\Olivia's Milk\object.json" />
+		<None Remove="assets\Objects\Olivia's Milk\object.png" />
+		<None Remove="assets\Objects\Pam's Milk\object.json" />
+		<None Remove="assets\Objects\Pam's Milk\object.png" />
+		<None Remove="assets\Objects\Penny's Milk\object.json" />
+		<None Remove="assets\Objects\Penny's Milk\object.png" />
+		<None Remove="assets\Objects\Pierre's Cum\object.json" />
+		<None Remove="assets\Objects\Pierre's Cum\object.png" />
+		<None Remove="assets\Objects\Crafted\Protein Shake\object.json" />
+		<None Remove="assets\Objects\Crafted\Protein Shake\object.png" />
+		<None Remove="assets\Objects\Quest\Readi Milk\object.json" />
+		<None Remove="assets\Objects\Quest\Readi Milk\object.png" />
+		<None Remove="assets\Objects\Robin's Milk\object.json" />
+		<None Remove="assets\Objects\Robin's Milk\object.png" />
+		<None Remove="assets\Objects\Sam's Cum\object.json" />
+		<None Remove="assets\Objects\Sam's Cum\object.png" />
+		<None Remove="assets\Objects\Sandy's Milk\object.json" />
+		<None Remove="assets\Objects\Sandy's Milk\object.png" />
+		<None Remove="assets\Objects\Sebastian's Cum\object.json" />
+		<None Remove="assets\Objects\Sebastian's Cum\object.png" />
+		<None Remove="assets\Objects\Shane's Cum\object.json" />
+		<None Remove="assets\Objects\Shane's Cum\object.png" />
+		<None Remove="assets\Objects\Quest\Shibari rope\object.json" />
+		<None Remove="assets\Objects\Quest\Shibari rope\object.png" />
+		<None Remove="assets\Objects\Sophia's Milk\object.json" />
+		<None Remove="assets\Objects\Sophia's Milk\object.png" />
+		<None Remove="assets\Objects\Crafted\Special Milkshake\object.json" />
+		<None Remove="assets\Objects\Crafted\Special Milkshake\object.png" />
+		<None Remove="assets\Objects\Cum\Special Milk\object.json" />
+		<None Remove="assets\Objects\Cum\Special Milk\object.png" />
+		<None Remove="assets\Objects\Quest\Strapon\object.json" />
+		<None Remove="assets\Objects\Quest\Strapon\object.png" />
+		<None Remove="assets\Objects\Crafted\Super Juice\object.json" />
+		<None Remove="assets\Objects\Crafted\Super Juice\object.png" />
+		<None Remove="assets\Objects\Susan's Milk\object.json" />
+		<None Remove="assets\Objects\Susan's Milk\object.png" />
+		<None Remove="assets\Objects\Crafted\Sweet Sibling\object.json" />
+		<None Remove="assets\Objects\Crafted\Sweet Sibling\object.png" />
+		<None Remove="assets\Objects\Victor's Cum\object.json" />
+		<None Remove="assets\Objects\Victor's Cum\object.png" />
+		<None Remove="assets\Objects\Willy's Cum\object.json" />
+		<None Remove="assets\Objects\Willy's Cum\object.png" />
+		<None Remove="assets\Objects\Wizard's Essence\object.json" />
+		<None Remove="assets\Objects\Wizard's Essence\object.png" />
+		<None Remove="assets\Objects\Woman's Milk\object.json" />
+		<None Remove="assets\Objects\Woman's Milk\object.png" />
+		<None Remove="assets\Shirts\Shibari.png" />
 		<None Remove="Data\Dialogue.json" />
 		<None Remove="Data\Events.json" />
+		<None Remove="Data\Items.json" />
 		<None Remove="Data\Mail.json" />
 		<None Remove="Data\Quests.json" />
 		<None Remove="Data\Translations.json" />
@@ -20,6 +152,399 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Include="assets\Objects\Milk\Abigail%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Abigail%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Abigails Panties\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Abigails Panties\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Alex%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Alex%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Andy%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Andy%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Boethia%27s Pillow Book\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Boethia%27s Pillow Book\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Caroline%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Caroline%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Claire%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Claire%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Clint%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Clint%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Creamy Coffee\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Creamy Coffee\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Crotchless Panties\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Crotchless Panties\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Demetrius%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Demetrius%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Discrete Massager\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Discrete Massager\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Discrete Package\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Discrete Package\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Dwarf%27s Essence\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Dwarf%27s Essence\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Eldritch Energy\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Eldritch Energy\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Elliott%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Elliott%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Emily%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Emily%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Evelyn%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Evelyn%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\George%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\George%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Gil%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Gil%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Gunther%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Gunther%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Gus%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Gus%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Haley%27s Camera\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Haley%27s Camera\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Haley%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Haley%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Haley%27s Panties\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Haley%27s Panties\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Harvey%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Harvey%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Invitation\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Invitation\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Jodi%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Jodi%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Kent%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Kent%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Krobus Essence\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Krobus Essence\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Lance%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Lance%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Leah%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Leah%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Lewis%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Lewis%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Linus%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Linus%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Magical Essence\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Magical Essence\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Marlon%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Marlon%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Marnie%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Marnie%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Martin%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Martin%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Martini Kairos\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Martini Kairos\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Maru%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Maru%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Morris%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Morris%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Mr. Qi%27s Essence\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Mr. Qi%27s Essence\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Olivia%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Olivia%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Pam%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Pam%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Penny%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Penny%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Pierre%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Pierre%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Protein Shake\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Protein Shake\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Readi Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Readi Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Robin%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Robin%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Sam%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Sam%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Sandy%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Sandy%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Sebastian%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Sebastian%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Shane%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Shane%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Shibari rope\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Shibari rope\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Sophia%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Sophia%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Special Milkshake\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Special Milkshake\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Special Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Special Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Strapon\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Quest\Strapon\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Super Juice\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Super Juice\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Susan%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Susan%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Sweet Sibling\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Crafted\Sweet Sibling\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Victor%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Victor%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Willy%27s Cum\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Cum\Willy%27s Cum\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Wizard%27s Essence\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Magical\Wizard%27s Essence\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Woman%27s Milk\object.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Objects\Milk\Woman%27s Milk\object.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Shirts\Shibari.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Include="content.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
@@ -28,6 +553,9 @@
 		</Content>
 		<Content Include="Data\Events.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\Items.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Data\Mail.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -44,29 +572,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="assets\dialogue.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<None Update="assets\marriageDialogue.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<None Update="assets\portraits.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<None Update="assets\schedule.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<None Update="assets\sprites.png">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
 	</ItemGroup>
 
 	<ProjectExtensions>
-		<VisualStudio><UserProperties content_1json__JsonSchema="https://json-schema.org/draft/2020-12/schema" data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" i18n_4default_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio>
+		<VisualStudio><UserProperties data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" i18n_4default_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio>
 	</ProjectExtensions>
 
 </Project>

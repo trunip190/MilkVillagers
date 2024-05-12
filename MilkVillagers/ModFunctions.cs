@@ -105,8 +105,8 @@ namespace MilkVillagers
                 {
 
                     Farmer current = enumerator.Current;
-                    NPC[0] = current.getTileX();
-                    NPC[1] = current.getTileY();
+                    NPC[0] = (int)current.GetGrabTile().X;
+                    NPC[1] = (int)current.GetGrabTile().Y;
 
                     if (LookingAtNPC(target, NPC) || LookingAtNPC(farmerPos, NPC))
                         return current;
@@ -125,8 +125,8 @@ namespace MilkVillagers
                 while (enumerator.MoveNext())
                 {
                     NPC current = enumerator.Current;
-                    NPC[0] = current.getTileX();
-                    NPC[1] = current.getTileY();
+                    NPC[0] = (int)current.GetGrabTile().X;
+                    NPC[1] = (int)current.GetGrabTile().Y;
                     if (LookingAtNPC(target, NPC) || LookingAtNPC(farmerPos, NPC))
                         return current;
                 }
@@ -140,57 +140,59 @@ namespace MilkVillagers
 
             switch (Villager)
             {
-                case "Abigail's Milk": { result = new sObject(TempRefs.MilkAbig, 1, quality: 2); goto cleanup; }
-                case "Caroline's Milk": { result = new sObject(TempRefs.MilkCaro, 1, quality: 2); goto cleanup; }
-                case "Emily's Milk": { result = new sObject(TempRefs.MilkEmil, 1, quality: 2); goto cleanup; }
-                case "Evelyn's Milk": { result = new sObject(TempRefs.MilkEvel, 1, quality: 0); goto cleanup; }
-                case "Haley's Milk": { result = new sObject(TempRefs.MilkHale, 1, quality: 2); goto cleanup; }
-                case "Jodi's Milk": { result = new sObject(TempRefs.MilkJodi, 1, quality: 2); goto cleanup; }
-                case "Leah's Milk": { result = new sObject(TempRefs.MilkLeah, 1, quality: 2); goto cleanup; }
-                case "Marnie's Milk": { result = new sObject(TempRefs.MilkMarn, 1, quality: 2); goto cleanup; }
-                case "Maru's Milk": { result = new sObject(TempRefs.MilkMaru, 1, quality: 2); goto cleanup; }
-                case "Pam's Milk": { result = new sObject(TempRefs.MilkPam, 1, quality: 0); goto cleanup; }
-                case "Penny's Milk": { result = new sObject(TempRefs.MilkPenn, 1, quality: 2); goto cleanup; }
-                case "Robin's Milk": { result = new sObject(TempRefs.MilkRobi, 1, quality: 2); goto cleanup; }
-                case "Sandy's Milk": { result = new sObject(TempRefs.MilkSand, 1, quality: 2); goto cleanup; }
+                case "Abigail's Milk":  { result = new sObject("Abigail's Milk", 1, quality: 2); goto cleanup; }
+                case "Caroline's Milk": { result = new sObject("Caroline's Milk", 1, quality: 2); goto cleanup; }
+                case "Emily's Milk":    { result = new sObject("Emily's Milk", 1, quality: 2); goto cleanup; }
+                case "Evelyn's Milk":   { result = new sObject("Evelyn's Milk", 1, quality: 0); goto cleanup; }
+                case "Haley's Milk":    { result = new sObject("Haley's Milk", 1, quality: 2); goto cleanup; }
+                case "Jodi's Milk":     { result = new sObject("Jodi's Milk", 1, quality: 2); goto cleanup; }
+                case "Leah's Milk":     { result = new sObject("Leah's Milk", 1, quality: 2); goto cleanup; }
+                case "Marnie's Milk":   { result = new sObject("Marnie's Milk", 1, quality: 2); goto cleanup; }
+                case "Maru's Milk":     { result = new sObject("Maru's Milk", 1, quality: 2); goto cleanup; }
+                case "Pam's Milk":      { result = new sObject("Pam's Milk", 1, quality: 0); goto cleanup; }
+                case "Penny's Milk":    { result = new sObject("Penny's Milk", 1, quality: 2); goto cleanup; }
+                case "Robin's Milk":    { result = new sObject("Robin's Milk", 1, quality: 2); goto cleanup; }
+                case "Sandy's Milk":    { result = new sObject("Sandy's Milk", 1, quality: 2); goto cleanup; }
 
-                case "Sophia's Milk ": { result = new sObject(TempRefs.MilkSophia, 1, quality: 2); goto cleanup; }
-                case "Olivia's Milk": { result = new sObject(TempRefs.MilkOlivia, 1, quality: 2); goto cleanup; }
-                case "Susan's Milk": { result = new sObject(TempRefs.MilkSusan, 1, quality: 2); goto cleanup; }
-                case "Claire's Milk": { result = new sObject(TempRefs.MilkClaire, 1, quality: 2); goto cleanup; }
-
-
-                case "Alex's Cum": { result = new sObject(TempRefs.MilkAlex, 1, quality: 2); goto cleanup; }
-                case "Clint's Cum": { result = new sObject(TempRefs.MilkClint, 1, quality: 1); goto cleanup; }
-                case "Demetrius's Cum": { result = new sObject(TempRefs.MilkDemetrius, 1, quality: 2); goto cleanup; }
-                case "Elliott's Cum": { result = new sObject(TempRefs.MilkElliott, 1, quality: 2); goto cleanup; }
-                case "George's Cum": { result = new sObject(TempRefs.MilkGeorge, 1, quality: 0); goto cleanup; }
-                case "Gunther's Cum": { result = new sObject(TempRefs.MilkGunther, 1, quality: 1); goto cleanup; }
-                case "Gus's Cum": { result = new sObject(TempRefs.MilkGus, 1, quality: 1); goto cleanup; }
-                case "Harvey's Cum": { result = new sObject(TempRefs.MilkHarv, 1, quality: 2); goto cleanup; }
-                case "Kent's Cum": { result = new sObject(TempRefs.MilkKent, 1, quality: 2); goto cleanup; }
-                case "Lewis's Cum": { result = new sObject(TempRefs.MilkLewis, 1, quality: 0); goto cleanup; }
-                case "Linus's Cum": { result = new sObject(TempRefs.MilkLinus, 1, quality: 2); goto cleanup; }
-                case "Marlon's Cum": { result = new sObject(TempRefs.MilkMarlon, 1, quality: 2); goto cleanup; }
-                case "Morris's Cum": { result = new sObject(TempRefs.MilkMorris, 1, quality: 0); goto cleanup; }
-                case "Pierre's Cum": { result = new sObject(TempRefs.MilkPierre, 1, quality: 1); goto cleanup; }
-                case "Sam's Cum": { result = new sObject(TempRefs.MilkSam, 1, quality: 2); goto cleanup; }
-                case "Sebastian's Cum": { result = new sObject(TempRefs.MilkSeb, 1, quality: 2); goto cleanup; }
-                case "Shane's Cum": { result = new sObject(TempRefs.MilkShane, 1, quality: 2); goto cleanup; }
-                case "Willy's Cum": { result = new sObject(TempRefs.MilkWilly, 1, quality: 1); goto cleanup; }
+                case "Sophia's Milk ":  { result = new sObject("Sophia's Milk", 1, quality: 2); goto cleanup; }
+                case "Olivia's Milk":   { result = new sObject("Olivia's Milk", 1, quality: 2); goto cleanup; }
+                case "Susan's Milk":    { result = new sObject("Susan's Milk", 1, quality: 2); goto cleanup; }
+                case "Claire's Milk":   { result = new sObject("Claire's Milk", 1, quality: 2); goto cleanup; }
 
 
-                case "Dwarf's Essence": { result = new sObject(TempRefs.MilkDwarf, 1, quality: 1); goto cleanup; }
-                case "Krobus Essence": { result = new sObject(TempRefs.MilkKrobus, 1, quality: 2); goto cleanup; }
-                case "Mr. Qi's Essence": { result = new sObject(TempRefs.MilkQi, 1, quality: 2); goto cleanup; }
-                case "Wizard's Essence": { result = new sObject(TempRefs.MilkWiz, 1, quality: 2); goto cleanup; }
+                case "Alex's Cum":      { result = new sObject("Alex's Cum", 1, quality: 2); goto cleanup; }
+                case "Clint's Cum":     { result = new sObject("Clint's Cum", 1, quality: 1); goto cleanup; }
+                case "Demetrius's Cum": { result = new sObject("Demetrius's Cum", 1, quality: 2); goto cleanup; }
+                case "Elliott's Cum":   { result = new sObject("Elliott's Cum", 1, quality: 2); goto cleanup; }
+                case "George's Cum":    { result = new sObject("George's Cum", 1, quality: 0); goto cleanup; }
+                case "Gil's Cum":       { result = new sObject("Gil's Cum", 0 ,quality:0);        goto cleanup; }
+                case "Gunther's Cum":   { result = new sObject("Gunther's Cum", 1, quality: 1); goto cleanup; }
+                case "Gus's Cum":       { result = new sObject("Gus's Cum", 1, quality: 1); goto cleanup; }
+                case "Harvey's Cum":    { result = new sObject("Harvey's Cum", 1, quality: 2); goto cleanup; }
+                case "Kent's Cum":      { result = new sObject("Kent's Cum", 1, quality: 2); goto cleanup; }
+                case "Lewis's Cum":     { result = new sObject("Lewis's Cum", 1, quality: 0); goto cleanup; }
+                case "Linus's Cum":     { result = new sObject("Linus's Cum", 1, quality: 2); goto cleanup; }
+                case "Marlon's Cum":    { result = new sObject("Marlon's Cum", 1, quality: 2); goto cleanup; }
+                case "Morris's Cum":    { result = new sObject("Morris's Cum", 1, quality: 0); goto cleanup; }
+                case "Pierre's Cum":    { result = new sObject("Pierre's Cum", 1, quality: 1); goto cleanup; }
+                case "Sam's Cum":       { result = new sObject("Sam's Cum", 1, quality: 2); goto cleanup; }
+                case "Sebastian's Cum": { result = new sObject("Sebastian's Cum", 1, quality: 2); goto cleanup; }
+                case "Shane's Cum":     { result = new sObject("Shane's Cum", 1, quality: 2); goto cleanup; }
+                case "Willy's Cum":     { result = new sObject("Willy's Cum", 1, quality: 1); goto cleanup; }
 
-                case "Andy's Cum": { result = new sObject(TempRefs.MilkAndy, 1, quality: 2); goto cleanup; }
-                case "Victor's Cum": { result = new sObject(TempRefs.MilkVictor, 1, quality: 2); goto cleanup; }
-                case "Martin's Cum": { result = new sObject(TempRefs.MilkMartin, 1, quality: 2); goto cleanup; }
+
+                case "Dwarf's Essence": { result = new sObject("Dwarf's Essence", 1, quality: 1); goto cleanup; }
+                case "Krobus Essence":  { result = new sObject("Krobus Essence", 1, quality: 2); goto cleanup; }
+                case "Mr. Qi's Essence":{ result = new sObject("Mr. Qi's Essence", 1, quality: 2); goto cleanup; }
+                case "Wizard's Essence":{ result = new sObject("Wizard's Essence", 1, quality: 2); goto cleanup; }
+
+                case "Andy's Cum":      { result = new sObject("Andy's Cum"     , 1, quality: 2); goto cleanup; }
+                case "Lance's Cum":     { result = new sObject("Lance's Cum"    , 1,quality: 2);goto cleanup; }
+                case "Victor's Cum":    { result = new sObject("Victor's Cum", 1, quality: 2); goto cleanup; }
+                case "Martin's Cum":    { result = new sObject("Martin's Cum", 1, quality: 2); goto cleanup; }
 
                 default:
-                    result = new sObject(184, 1, quality: 1);
+                    result = new sObject("Milk", 1, quality: 1);
                     break;
             }
 
@@ -254,7 +256,7 @@ namespace MilkVillagers
                 case "Martin's Cum": { result.Quality = 2; goto cleanup; }
 
                 default:
-                    result = new sObject(184, 1);
+                    result = new sObject("184", 1);
                     break;
             }
 
@@ -264,7 +266,35 @@ namespace MilkVillagers
             return result;
         }
 
+        public static Dialogue ProcessDialogue(Dialogue input)
+        {
+            Dialogue output = new Dialogue(input);
 
+            foreach (var v in output.dialogues)
+            {
+                while ((v.Text.Contains('[') && v.Text.Contains(']')) || (v.Text.Contains('{') && v.Text.Contains('}')))
+                {
+                    int first = 0;
+                    int last = 0;
+                    if (v.Text.Contains('[') && v.Text.Contains(']'))
+                    {
+                        first = v.Text.IndexOf('[');
+                        last = v.Text.IndexOf(']', first);
+                        v.Text = v.Text.Remove(first, last - first + 1);
+                    }
+
+                    if (v.Text.Contains('{') && v.Text.Contains('}'))
+                    {
+                        first = v.Text.IndexOf('{');
+                        last = v.Text.IndexOf('}', first);
+                        v.Text = v.Text.Remove(first, last - first + 1);
+                    }
+                }
+
+            }
+
+            return output;
+        }
 
         public static List<string> GetDirectories(string root)
         {
@@ -285,8 +315,8 @@ namespace MilkVillagers
             int[] tempPos = new int[2];
             foreach (Farmer who in Game1.getOnlineFarmers())
             {
-                tempPos[0] = who.getTileX();
-                tempPos[1] = who.getTileY();
+                tempPos[0] = (int)who.GetGrabTile().X;
+                tempPos[1] = (int)who.GetGrabTile().Y;
                 if (location == who.currentLocation && (LookingAtNPC(target, tempPos) || LookingAtNPC(farmerpos, tempPos)))
                     return who;
             }

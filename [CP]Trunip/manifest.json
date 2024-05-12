@@ -1,0 +1,13 @@
+{
+  "Name": "Trunip NPC",
+  "Author": "Trunip190",
+  "Description": "Created with the help of Miss Coriel's NPC creator :) -=Created By MissCoriel's NPC Creator=-",
+  "Version": "1.2.3",
+  "UniqueID": "Trunip190.CP.Trunip190",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+  "UpdateKeys": [
+    "Nexus: 5948"
+  ]
+}

@@ -5,7 +5,7 @@
 		<RootNamespace>MilkVillagers</RootNamespace>
 		<EnableHarmony>true</EnableHarmony>
 		<Version>1.2.3</Version>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -26,7 +26,7 @@
 		<Content Include="Useful replacers.txt" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.1" />
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
 	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="SpaceCore">
