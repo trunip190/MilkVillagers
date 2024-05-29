@@ -61,7 +61,7 @@ namespace MilkVillagers
         {
             if (CookingData == null) return false;
             string ProteinShake = "";
-            List<string> dump = CookingData.Keys.Where(o => o.Contains("Protein_Shake")).ToList();
+            List<string> dump = CookingData.Keys.Where(o => o.Contains("Trunip190.CP.MilkTheVillagers.Protein_Shake")).ToList();
             if (dump.Count > 0)
             {
                 ProteinShake = CookingData.Keys.Where(o => o.Contains("Protein_Shake")).ToList()[0];
@@ -69,20 +69,20 @@ namespace MilkVillagers
 
             if (ProteinShake != null)
             {
-                if (Male) CookingData["Trunip190.JA.MilkTheVillagers_Protein_Shake"] = "-35 1/10 10/Trunip190.JA.MilkTheVillagers_Protein_Shake 1/null/Protein Shake";
+                //if (Male) CookingData["Trunip190.JA.MilkTheVillagers_Protein_Shake"] = "-35 1/10 10/Trunip190.JA.MilkTheVillagers_Protein_Shake 1/null/Protein Shake";
                 //if (Male) { CookingData[ProteinShake] = $"-35 1/10 10/Protein Shake//Protein Shake"; }
             }
             else ModFunctions.Log("Protein Shake not found", LogLevel.Alert);
 
             if (CookingData.Keys.Count(o => o.Contains("Special Milkshake")) > 0)
             {
-                if (Female) { CookingData["Special Milkshake"] = $"-34 1/10 10/Special Milkshake//Special Milkshake"; }
+                //if (Female) { CookingData["Special Milkshake"] = $"-34 1/10 10/Special Milkshake//Special Milkshake"; }
             }
             else ModFunctions.Log("Special Milkshake not found", LogLevel.Alert);
 
             if (CookingData.Keys.Count(o => o.Contains("Super Juice")) > 0)
             {
-                if (Male && Female) CookingData["Super Juice"] = $"-34 2 -35 2/10 10/Super Juice//Super Juice";
+                //if (Male && Female) CookingData["Super Juice"] = $"-34 2 -35 2/10 10/Super Juice//Super Juice";
             }
             else ModFunctions.Log("Super Juice not found", LogLevel.Alert);
 

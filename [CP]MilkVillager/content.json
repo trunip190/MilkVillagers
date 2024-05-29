@@ -9,6 +9,10 @@
     "Quests": {
       "AllowValues": "true, false",
       "Default": "true"
+    },
+    "MTVPlayerGender": {
+      "AllowValues": "Male, Female, Herm, Ace",
+      "Default": "Female"
     }
   },
   "DynamicTokens": [

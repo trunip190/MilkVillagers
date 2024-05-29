@@ -110,6 +110,7 @@
 
         // Elliott Quest 2 Enter stage right
         "MTV_ElliottQ3": "{{i18n:Mail.MTV_ElliottQ3}}",
+        "MTV_ElliottQ3P": "{{i18n:Mail.MTV_ElliottQ3P}}",
         "MTV_ElliottQ3T": "{{i18n:Mail.MTV_ElliottQ3T}}",
 
         // Elliott Quest 2 Tell me everything you know

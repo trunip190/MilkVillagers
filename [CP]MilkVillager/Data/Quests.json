@@ -6,13 +6,13 @@
       "Target": "Data/Quests",
       "Entries": {
 
-        // Abigail
+        // Abigail - Checked completely
         "594801": "ItemDelivery/{{i18n: Quests.594801.01}}/{{i18n:Quests.594801.02}}/{{i18n:Quests.594801.03}}/Abigail 78/-1/240/-1/FALSE/{{i18n:Quests.594801.09}}",
         "594802": "ItemDelivery/{{i18n: Quests.594802.01}}/{{i18n:Quests.594802.02}}/{{i18n:Quests.594802.03}}/Abigail 264 5/-1/355/-1/FALSE/{{i18n:Quests.594802.09}}",
         "594803": "ItemDelivery/{{i18n: Quests.594803.01}}/{{i18n:Quests.594803.02}}/{{i18n:Quests.594803.03}}/Abigail 272/-1/420/-1/FALSE/{{i18n:Quests.594803.09}}",
         "594804": "Basic/{{i18n: Quests.594804.01}}/{{i18n:Quests.594804.02}}/{{i18n:Quests.594804.03}}/null/-1/500/-1/FALSE/{{i18n:Quests.594804.09}}",
 
-        // Elliott        
+        // Elliott - Checked to mid quest 3
         "594805": "Basic/{{i18n:Quests.594805.01}}/{{i18n:Quests.594805.02}}/{{i18n:Quests.594805.03}}/null/-1/240/-1/False/{{i18n:Quests.594805.09}}",
         "594806": "Basic/{{i18n:Quests.594806.01}}/{{i18n:Quests.594806.02}}/{{i18n:Quests.594806.03}}/ElliottHouse/-1/355/-1/False/{{i18n:Quests.594806.09}}",
         "594807": "Monster/{{i18n:Quests.594807.01}}/{{i18n:Quests.594807.02}}/{{i18n:Quests.594807.03}}/Skeleton 25/5948072/-1/-1/False/{{i18n:Quests.594807.09}}",

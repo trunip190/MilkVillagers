@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using MilkVillagers.Asset_Editors;
+﻿using MilkVillagers.Asset_Editors;
 using SpaceCore.Events;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
@@ -10,22 +9,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
-using MFM = MailFrameworkMod;
+using ContentPatcher;
 using sObject = StardewValley.Object;
 using log = MilkVillagers.ModFunctions;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using System.Reflection;
-using MailFrameworkMod;
 using StardewValley.Quests;
 using SpaceShared.APIs;
 using StardewValley.GameData.Objects;
 using Netcode;
 using StardewValley.Network;
 using StardewValley.GameData.Characters;
-using static System.Collections.Specialized.BitVector32;
-using static StardewValley.Menus.CharacterCustomization;
-using System.Reflection.Metadata.Ecma335;
+using SpaceCore;
 
 namespace MilkVillagers
 {
@@ -37,9 +33,9 @@ namespace MilkVillagers
         private bool running;
         private bool runOnce;
         private bool MessageOnce;
+        bool GenderChanged = false;
         private NPC currentTarget;
-        IContentPatcherApi contentPatcherApi;
-
+        ContentPatcher.IContentPatcherAPI contentPatcherApi;
 
         public Dictionary<string, int> LoveRequirement = new()
         {
@@ -112,7 +108,6 @@ namespace MilkVillagers
             }
             #endregion
 
-
             if (helper == null)
             {
                 log.Log("helper is null.", LogLevel.Error);
@@ -167,10 +162,21 @@ namespace MilkVillagers
 
             LinkPhone();
 
+            contentPatcherApi = this.Helper.ModRegistry.GetApi<ContentPatcher.IContentPatcherAPI>("Pathoschild.ContentPatcher");
+
+            contentPatcherApi.RegisterToken(this.ModManifest, "GenderSwitch", () =>
+            {
+                if (Game1.player.hasOrWillReceiveMail("MTV_Vagina")) return new[] { "V" };
+                if (Game1.player.hasOrWillReceiveMail("MTV_Herm")) return new[] { "H" };
+                if (Game1.player.hasOrWillReceiveMail("MTV_Ace")) return new[] { "A" };
+                if (Game1.player.hasOrWillReceiveMail("MTV_Penis")) return new[] { "P" };
+
+                return new[] { "P" };
+            });
+
             // New style of editing assets.
             Helper.Events.Content.AssetRequested += Content_AssetRequested;
             Helper.Events.Content.AssetReady += Content_AssetReady;
-            contentPatcherApi = this.Helper.ModRegistry.GetApi<IContentPatcherApi>("Pathoschild.ContentPatcher");
 
             TempRefs.thirdParty = Config.ThirdParty;
             TempRefs.Verbose = Config.Verbose;
@@ -452,6 +458,9 @@ namespace MilkVillagers
             #endregion
 
             UpdateHeartReq();
+
+            return;
+
         }
 
         private void UpdateConfig(string arg1, object arg2) //Updates config when items changed.
@@ -483,6 +492,28 @@ namespace MilkVillagers
 
                 default: log.Log($"{arg1}", LogLevel.Alert, Force: true); break;
             }
+
+            GenderChanged = true;
+
+            #region Update token
+            string GenderSwitch = "GenderSwitch {{Trunip190.MilkTheVillagers/GenderSwitch}} {{trunip190.CP.MilkTheVillagers/GenderSwitch}} The current time is {{Time}} on {{Season}} {{Day}}, year {{Year}}";
+            //if (Game1.player.hasOrWillReceiveMail("MTV_Vagina")) GenderSwitch = "V";
+            //if (Game1.player.hasOrWillReceiveMail("MTV_Herm")) GenderSwitch = "H";
+            //if (Game1.player.hasOrWillReceiveMail("MTV_Ace")) GenderSwitch = "A";
+            //if (Game1.player.hasOrWillReceiveMail("MTV_Penis")) GenderSwitch = "P";
+
+            IManagedTokenString tokenString = contentPatcherApi.ParseTokenString(
+               manifest: this.ModManifest,
+               rawValue: GenderSwitch,
+               formatVersion: new SemanticVersion("2.1.0"),
+               assumeModIds: new[] { $"trunip190.CP.MilkTheVillagers" }
+            );
+            
+            
+
+            tokenString.UpdateContext();
+            string value = tokenString.Value; // The current time is 1430 on Spring 5, year 2.
+            #endregion
         }
 
         private void UpdateGenitalConfig(string option, string value)
@@ -514,9 +545,9 @@ namespace MilkVillagers
             string EatenItem = who.itemToEat.Name;
             if (EatenItem == "Martini Kairos")
             {
-                Game1.addHUDMessage(new HUDMessage("Time slows"));
+                Game1.addHUDMessage(new HUDMessage(log.GetFarmerString("TimeSlows")));
 
-                TimeFreezeTimer = 200000; // 1 minute timestop.
+                TimeFreezeTimer += 200000; // 1 minute timestop.
             }
             else if (EatenItem == "Eldritch Energy")
             {
@@ -612,7 +643,8 @@ namespace MilkVillagers
                 if (TimeFreeze) { TimeFreeze = false; TimeFreezeTimer = 0; Game1.addHUDMessage(new HUDMessage("Time flows again")); }
                 else { TimeFreeze = true; TimeFreezeTimer = 1000; Game1.addHUDMessage(new HUDMessage("Time is frozen")); }
 
-
+                Game1.addHUDMessage(new HUDMessage("Invalidating mountain events"));
+                Helper.GameContent.InvalidateCache("Data/Events/Mountain");
 
                 // for release - skip below.
                 //return;
@@ -628,8 +660,13 @@ namespace MilkVillagers
                     //who.mailbox.Add("MTV_PennyQ2T");
                     //who.changeFriendship(1750, Game1.getCharacterFromName("Penny"));
                     //who.changeFriendship(1250, Game1.getCharacterFromName("Alex"));
+                    string npcToAdd = "Elliott";
                     NetStringDictionary<Friendship, NetRef<Friendship>> data = who.friendshipData;
-                    data.FieldDict.Add("Abigail", new Netcode.NetRef<Friendship>(new Friendship(2000)));
+                    if (data.FieldDict.ContainsKey(npcToAdd)) data.FieldDict[npcToAdd].Value = new Friendship(2000);
+                    else
+                    {
+                        data.FieldDict.Add(npcToAdd, new Netcode.NetRef<Friendship>(new Friendship(2000)));
+                    }
                     //who.changeFriendship(2000, Game1.getCharacterFromName("Abigail"));
                     Game1.timeOfDay = 1900;
 
@@ -748,6 +785,7 @@ namespace MilkVillagers
             TempRefs.thirdParty = Config.ThirdParty;
             TempRefs.Verbose = Config.Verbose;
             TempRefs.OverrideGenitals = Config.OverrideGenitals;
+            TempRefs.FarmerGenitals = Config.FarmerGenitals;
             //TempRefs.HasPenis = Config.HasPenis;
             //TempRefs.HasVagina = Config.HasVagina;
             //TempRefs.HasBreasts = Config.HasBreasts;
@@ -766,7 +804,8 @@ namespace MilkVillagers
                 SendGenitalMail(who);
             }
 
-            log.Log($"{MFM.ContentPack.Skill.Mining}");
+            //log.Log($"{MFM.ContentPack.Skill.Mining}");
+            //Game1.player.setSkillLevel("Milking Skill", 2);
 
             runOnce = true;
         }
@@ -919,6 +958,14 @@ namespace MilkVillagers
                     who.health = who.health + 25 > who.maxHealth ? who.maxHealth : who.health + 25;
                 }
             }
+
+            if (GenderChanged)
+            {
+                GenderChanged = false;
+
+                Game1.addHUDMessage(new HUDMessage("Invalidating mountain events"));
+                Helper.GameContent.InvalidateCache("Data/Events/Mountain");
+            }
         }
 
         private void GameLoop_DayEnding(object sender, DayEndingEventArgs e)
@@ -976,6 +1023,7 @@ namespace MilkVillagers
             if (e.Name.IsEquivalentTo("Data/CraftingRecipes")) { RecipeEditor.UpdateCraftingData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
             if (NPCGiftTastesEditor.CanEdit(e.Name)) { NPCGiftTastesEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
             if (e.Name.IsEquivalentTo("Data/Objects")) { ObjectEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, ObjectData>>(e.Name)); };
+
         }
 
         protected virtual void DoActionNPC(object sender, ActionNPCEventArgs e)
@@ -1868,13 +1916,12 @@ namespace MilkVillagers
                 // Get Item code from ChosenString
                 if (chosenString.Contains("["))
                 {
-                    //"{{spacechase0.JsonAssets/ObjectId: }}";
                     int start = chosenString.IndexOf("[") + 1;
-                    int end = chosenString.LastIndexOf("]");
+                    int end = chosenString.IndexOf("]", start);
                     string val = chosenString[start..end];
                     log.Log($"{npc.Name} value was {val}", LogLevel.Trace);
-                    // To be replaced by assigning val to ItemCode. int.TryParse(val, out ItemCode);
-                    chosenString = chosenString.Replace($"[{val}]", "");
+
+                    chosenString = chosenString.Replace($"{val}", "").Replace("[]", "").Trim();
                     ItemCode = val;
                 }
 
@@ -1882,33 +1929,32 @@ namespace MilkVillagers
                 //string SItemCode = $"[{ItemCode}]";
 
                 // Get Quality from ChosenString
-                if (chosenString.Contains("{Quality:"))
+                if (chosenString.Contains("[Quality:"))
                 {
-                    //"{{spacechase0.JsonAssets/ObjectId: }}";
-                    int start = chosenString.IndexOf("{Quality:");
-                    int end = chosenString.IndexOf("}", start);
+                    int start = chosenString.IndexOf("[Quality:");
+                    int end = chosenString.IndexOf("]", start);
 
                     string val = chosenString.Substring(end - 1, 1);
                     log.Log($"{npc.Name} Quality was {val}", LogLevel.Trace);
                     int.TryParse(val, out Quality);
 
                     AddItem.Quality = Quality;
-                    chosenString = chosenString.Replace($"Quality:{val}", "").Replace("{}", "");
+                    chosenString = chosenString.Replace($"Quality:{val}", "").Replace("[]", "").Trim();
                 }
 
                 // Get Quantity from ChosenString
-                if (chosenString.Contains("{Quantity:"))
+                if (chosenString.Contains("[Quantity:"))
                 {
                     //"{{spacechase0.JsonAssets/ObjectId: }}";
-                    int start = chosenString.IndexOf("{Quantity:");
-                    int end = chosenString.IndexOf("}", start);
+                    int start = chosenString.IndexOf("[Quantity:");
+                    int end = chosenString.IndexOf("]", start);
 
                     string val = chosenString.Substring(end - 1, 1);
                     log.Log($"{npc.Name} Quantity was {val}", LogLevel.Trace);
                     int.TryParse(val, out Quantity);
 
                     AddItem.Stack = Quantity;
-                    chosenString = chosenString.Replace($"Quantity:{val}", "").Replace("{}", "");
+                    chosenString = chosenString.Replace($"Quantity:{val}", "").Replace("[]", "");
                 }
                 #endregion
                 ObjectEditor.UpdateData();
@@ -2083,7 +2129,10 @@ namespace MilkVillagers
         {
             Dialogue v = log.ProcessDialogue(new Dialogue(npc, $"Characters/Dialogue/{npc.Name}:{action}"));
 
-            if (v.dialogues[0].Text == "") v.dialogues[0].Text = message;
+            var NewMessage = v.dialogues[0];
+
+            if (NewMessage.Text.Trim() == "") NewMessage.Text = message;
+            if (NewMessage.Text.Trim() == "") return;
             Game1.DrawDialogue(v);
         }
 
@@ -2151,6 +2200,7 @@ namespace MilkVillagers
             List<string> chars;
             List<string> sArgs = new();
             List<string> results = new();
+            
 
             foreach (string s in args)
             {

@@ -1,7 +1,7 @@
 {
 	"Name": "MilkVillagers",
 	"Author": "Trunip190",
-	"Version": "1.2.3",
+	"Version": "1.2.4",
 	"Description": "Lets you milk the villagers",
 	"UniqueID": "Trunip190.MilkTheVillagers",
 	"EntryDll": "MilkVillagers.dll",
@@ -10,9 +10,12 @@
 	"Dependencies": [
 		{
 			"UniqueID": "spacechase0.SpaceCore",
+			"IsRequired": true
 		},
 		{
-			"UniqueID": "Pathoschild.ContentPatcher"
+			"UniqueID": "Pathoschild.ContentPatcher",
+			"IsRequired": true,
+			"MinimumVersion": "2.1.0"
 		}
 	]
 }

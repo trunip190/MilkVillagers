@@ -2,7 +2,7 @@
   /*Farmer*/
   "Dialogue.FarmerCollectCum": "You free your penis and start using one hand to gently stroke it, and the other to massage your balls. You close your eyes as you start to imagine someone leaning down and engulfing your cock between their lips.#$b#You pick up your pace as their imaginary mouth starts sucking harder, occasionally flicking your tip with their tongue. Your clench your eyes tighter as your cum starts to spurt out, painting the inside of your jar. You seal the lid with a contented sigh.",
   "Dialogue.FarmerCollectionMilk": "You glance around for a mo to see if anyone is watching you, then slip your top over your head. You start massaging you breast, and your nipples are soon standing proud, calling for attention.#$b#As you start kneading in earnest, a trickle quickly emerges from the sides of your nipple, and quickly becomes a stream. The flow increases as you find your rhythm, and the drip-drip of it collecting in your bottle is hypnotising.#$b#After several minutes of switching between breasts you are much emptier, and you pull your top back on. The fabric rubs against your slightly sore nipples.",
-
+  "Dialogue.TimeSlows": "Time slows...and stops",
 
   /*Women*/
   //Abigail
@@ -558,7 +558,7 @@
 
   "Quests.5948072.01": "Second hand bravery",
   "Quests.5948072.02": "Elliott needs more accurate information about fighting the undead.",
-  "Quests.5948072.03": "Go see Elliott and give them your info on fighting skeletons. (Event: 6pm-11pm at the cemetery)",
+  "Quests.5948072.03": "Go see Elliott and give them your info on fighting skeletons. (Wait for next update)",
   "Quests.5948072.09": "I didn't realise they were such dangerous foes! You have my thanks for this information, and I'm sure my writing will have that much more of a ring of truth to it.",
 
   "Quests.594808.01": "Tell me everything you know",
@@ -859,9 +859,10 @@
   "Mail.MTV_ElliottQ1T": "Greetings, friend.^^While my creativity hasn't skyrocketed, you have definitely given me a fresh perspective on several of my scenes. For this, I thank you.^^A renewed writer, Elliott",
 
   "Mail.MTV_ElliottQ2": "My dear close friend,^^I mentioned in my last missive that you had given me pause on several of my scenes, and I am hoping that you would willing to help me clarify them further. I need a living muse, and I am hoping you would consider this .^^Afloat in a sea of scenes, Elliott. %item quest 594806 %%",
-  "Mail.MTV_ElliottQ2T": "Elliott quest 2 completed.",
+  "Mail.MTV_ElliottQ2T": "After our last encounter I find myself thinking of you often, and in particular when I am writing that section it is you I imagine.^^Elliott",
 
-  "Mail.MTV_ElliottQ3": "Adding Elliott quest 3 %item quest 594807 %%",
+  "Mail.MTV_ElliottQ3": "My wonderful friend,^^I am in need of some experience, this time of a more monstrous kind. I want to give life to the unliving bones you find in the mines and desert, but am unsure how they move about. Could you battle some for me, then give me your insights on how they dance and weave, or slowly stumble?^^Grateful for your bravery,^Elliott. %item quest 594807 %%",
+  "Mail.MTV_ElliottQ3P": "I realise how rash it was of me to ask your to risk your life, merely for the sake of my tale.^My deepest apologies, dear friend.^Please, come see me and perhaps I can recompense you.^^Elliott^^PS. Wait for next update.",
   "Mail.MTV_ElliottQ3T": "Elliott quest 3 completed.",
 
   "Mail.MTV_ElliottQ4": "Adding Elliott quest 4 %item quest 594808 %%",
@@ -1056,7 +1057,8 @@
   "Super_Juice.description": "The perfect fusion of male and female juices",
   "Sweet_Sibling.name": "Sweet Sibling",
   "Sweet_Sibling.description": "A special milkshake that embodies a sisterly bond. Just add a strawberry.",
-
+  "CookiesnCream.name": "Cookies & Cream",
+  "CookiesnCream.description": "Nothing quite like dunking some cookies in some freshly squeezed breast milk.",
 
   "Abigails_Panties.name": "Abigails Panties",
   "Abigails_Panties.description": "A pair of Abigail's panties",

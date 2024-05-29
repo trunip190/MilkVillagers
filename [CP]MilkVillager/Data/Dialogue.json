@@ -6,7 +6,8 @@
       "Target": "Strings/StringsFromCSFiles",
       "Entries": {
         "FarmerCollectCum": "{{i18n:Dialogue.FarmerCollectCum}}",
-        "FarmerCollectionMilk": "{{i18n:Dialogue.FarmerCollectionMilk}}"
+        "FarmerCollectionMilk": "{{i18n:Dialogue.FarmerCollectionMilk}}",
+        "TimeSlows": "{{i18n:Dialogue.TimeSlows}}"
       }
     },
 
@@ -76,8 +77,8 @@
         "panties_keep": "{{i18n:Dialogue.Abigail.panties_keep}}",
         "sex_no": "{{i18n:Dialogue.Abigail.sex_no}}",
 
-        "milk_fast": "{{i18n:Dialogue.Abigail.milk_fast}} [Trunip190.CP.MilkTheVillagers.Abigail's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Abigail.milk_start}} [Trunip190.CP.MilkTheVillagers.Abigail's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Abigail.milk_fast}} [Trunip190.CP.MilkTheVillagers.Abigail's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Abigail.milk_start}} [Trunip190.CP.MilkTheVillagers.Abigail's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Abigail.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Abigail.get_eaten}}",
         "sex": "{{i18n:Dialogue.Abigail.sex}}",
@@ -94,8 +95,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Caroline",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Caroline.milk_fast}} [Trunip190.CP.MilkTheVillagers.Caroline's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Caroline.milk_start}} [Trunip190.CP.MilkTheVillagers.Caroline's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Caroline.milk_fast}} [Trunip190.CP.MilkTheVillagers.Caroline's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Caroline.milk_start}} [Trunip190.CP.MilkTheVillagers.Caroline's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Caroline.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Caroline.get_eaten}}",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Caroline.MTV_BathhouseFun}}",
@@ -110,8 +111,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Emily",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Emily.milk_fast}} [Trunip190.CP.MilkTheVillagers.Emily's_Milk]{Quality:2}",
-        "milk_start": "{{i18n:Dialogue.Emily.milk_start}} [Trunip190.CP.MilkTheVillagers.Emily's_Milk]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Emily.milk_fast}} [Trunip190.CP.MilkTheVillagers.Emily's_Milk] [Quality:2]",
+        "milk_start": "{{i18n:Dialogue.Emily.milk_start}} [Trunip190.CP.MilkTheVillagers.Emily's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Emily.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Emily.get_eaten}}",
         "HaleyPanties": "{{i18n:Dialogue.Emily.HaleyPanties}}",
@@ -126,8 +127,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Evelyn",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Evelyn.milk_fast}} [Trunip190.CP.MilkTheVillagers.Evelyn's_Milk]{Quality:0}",
-        "milk_start": "{{i18n:Dialogue.Evelyn.milk_start}} [Trunip190.CP.MilkTheVillagers.Evelyn's_Milk]{Quality:0}",
+        "milk_fast": "{{i18n:Dialogue.Evelyn.milk_fast}} [Trunip190.CP.MilkTheVillagers.Evelyn's_Milk] [Quality:0]",
+        "milk_start": "{{i18n:Dialogue.Evelyn.milk_start}} [Trunip190.CP.MilkTheVillagers.Evelyn's_Milk] [Quality:0]",
         "eat_out": "{{i18n:Dialogue.Evelyn.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Evelyn.get_eaten}}",
         "QuestStartFail": "{{i18n:Dialogue.Evelyn.QuestStartFail}}",
@@ -140,8 +141,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Haley",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Haley.milk_fast}} [Trunip190.CP.MilkTheVillagers.Haley's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Haley.milk_start}} [Trunip190.CP.MilkTheVillagers.Haley's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Haley.milk_fast}} [Trunip190.CP.MilkTheVillagers.Haley's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Haley.milk_start}} [Trunip190.CP.MilkTheVillagers.Haley's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Haley.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Haley.get_eaten}}",
 
@@ -190,8 +191,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Jodi",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Jodi.milk_fast}} [Trunip190.CP.MilkTheVillagers.Jodi's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Jodi.milk_start}} [Trunip190.CP.MilkTheVillagers.Jodi's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Jodi.milk_fast}} [Trunip190.CP.MilkTheVillagers.Jodi's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Jodi.milk_start}} [Trunip190.CP.MilkTheVillagers.Jodi's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Jodi.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Jodi.get_eaten}}",
 
@@ -207,8 +208,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Leah",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Leah.milk_fast}} [Trunip190.CP.MilkTheVillagers.Leah's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Leah.milk_start}} [Trunip190.CP.MilkTheVillagers.Leah's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Leah.milk_fast}} [Trunip190.CP.MilkTheVillagers.Leah's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Leah.milk_start}} [Trunip190.CP.MilkTheVillagers.Leah's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Leah.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Leah.get_eaten}}",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Leah.MTV_BathhouseFun}}",
@@ -225,8 +226,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Marnie",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Marnie.milk_fast}} [Trunip190.CP.MilkTheVillagers.Marnie's_Milk]{Quality:2}{Quantity:3}",
-        "milk_start": "{{i18n:Dialogue.Marnie.milk_start}} [Trunip190.CP.MilkTheVillagers.Marnie's_Milk]{Quality:2}{Quantity:3}",
+        "milk_fast": "{{i18n:Dialogue.Marnie.milk_fast}} [Trunip190.CP.MilkTheVillagers.Marnie's_Milk] [Quality:2][Quantity:3]",
+        "milk_start": "{{i18n:Dialogue.Marnie.milk_start}} [Trunip190.CP.MilkTheVillagers.Marnie's_Milk] [Quality:2][Quantity:3]",
         "eat_out": "{{i18n:Dialogue.Marnie.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Marnie.get_eaten}}",
 
@@ -240,8 +241,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Maru",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Maru.milk_fast}} [Trunip190.CP.MilkTheVillagers.Maru's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Maru.milk_start}} [Trunip190.CP.MilkTheVillagers.Maru's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Maru.milk_fast}} [Trunip190.CP.MilkTheVillagers.Maru's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Maru.milk_start}} [Trunip190.CP.MilkTheVillagers.Maru's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Maru.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Maru.get_eaten}}",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Maru.MTV_BathhouseFun}}",
@@ -258,8 +259,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Pam",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Pam.milk_fast}} [Trunip190.CP.MilkTheVillagers.Pam's_Milk]{Quality:0}",
-        "milk_start": "{{i18n:Dialogue.Pam.milk_start}} [Trunip190.CP.MilkTheVillagers.Pam's_Milk]{Quality:0}",
+        "milk_fast": "{{i18n:Dialogue.Pam.milk_fast}} [Trunip190.CP.MilkTheVillagers.Pam's_Milk] [Quality:0]",
+        "milk_start": "{{i18n:Dialogue.Pam.milk_start}} [Trunip190.CP.MilkTheVillagers.Pam's_Milk] [Quality:0]",
         "eat_out": "{{i18n:Dialogue.Pam.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Pam.get_eaten}}",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Pam.MTV_BathhouseFun}}",
@@ -274,8 +275,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Penny",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Penny.milk_fast}} [Trunip190.CP.MilkTheVillagers.Penny's_Milk]{Quality:2}",
-        "milk_start": "{{i18n:Dialogue.Penny.milk_start}} [Trunip190.CP.MilkTheVillagers.Penny's_Milk]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Penny.milk_fast}} [Trunip190.CP.MilkTheVillagers.Penny's_Milk] [Quality:2]",
+        "milk_start": "{{i18n:Dialogue.Penny.milk_start}} [Trunip190.CP.MilkTheVillagers.Penny's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Penny.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Penny.get_eaten}}",
 
@@ -298,8 +299,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Robin",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Robin.milk_fast}} [Trunip190.CP.MilkTheVillagers.Robin's_Milk]{Quality:2}",
-        "milk_start": "{{i18n:Dialogue.Robin.milk_start}} [Trunip190.CP.MilkTheVillagers.Robin's_Milk]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Robin.milk_fast}} [Trunip190.CP.MilkTheVillagers.Robin's_Milk] [Quality:2]",
+        "milk_start": "{{i18n:Dialogue.Robin.milk_start}} [Trunip190.CP.MilkTheVillagers.Robin's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Robin.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Robin.get_eaten}}",
 
@@ -313,8 +314,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Sandy",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Sandy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sandy's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Sandy.milk_start}} [Trunip190.CP.MilkTheVillagers.Sandy's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Sandy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sandy's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Sandy.milk_start}} [Trunip190.CP.MilkTheVillagers.Sandy's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Sandy.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Sandy.get_eaten}}",
 
@@ -330,8 +331,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Alex",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Alex.milk_fast}} [Trunip190.CP.MilkTheVillagers.Alex's Cum]{Quality:2}{Quantity:2}",
-        "BJ": "{{i18n:Dialogue.Alex.BJ}} [Trunip190.CP.MilkTheVillagers.Alex's Cum]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Alex.milk_fast}} [Trunip190.CP.MilkTheVillagers.Alex's_Cum] [Quality:2][Quantity:2]",
+        "BJ": "{{i18n:Dialogue.Alex.BJ}} [Trunip190.CP.MilkTheVillagers.Alex's_Cum] [Quality:2][Quantity:2]",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Alex.MTV_BathhouseFun}}",
         "MTV_Bukkake": "{{i18n:Dialogue.Alex.MTV_Bukkake}}",
 
@@ -346,8 +347,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Clint",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Clint.milk_fast}} [Trunip190.CP.MilkTheVillagers.Clint's Cum]{Quality:1}",
-        "BJ": "{{i18n:Dialogue.Clint.BJ}} [Trunip190.CP.MilkTheVillagers.Clint's Cum]{Quality:1}",
+        "milk_fast": "{{i18n:Dialogue.Clint.milk_fast}} [Trunip190.CP.MilkTheVillagers.Clint's_Cum] [Quality:1]",
+        "BJ": "{{i18n:Dialogue.Clint.BJ}} [Trunip190.CP.MilkTheVillagers.Clint's_Cum] [Quality:1]",
         "MTV_Bukkake": "{{i18n:Dialogue.Clint.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Clint.QuestStartFail}}",
@@ -361,8 +362,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Demetrius",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Demetrius.milk_fast}} [Trunip190.CP.MilkTheVillagers.Demetrius's Cum]{Quality:2}{Quantity:2}",
-        "BJ": "{{i18n:Dialogue.Demetrius.BJ}} [Trunip190.CP.MilkTheVillagers.Demetrius's Cum]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Demetrius.milk_fast}} [Trunip190.CP.MilkTheVillagers.Demetrius's_Cum] [Quality:2][Quantity:2]",
+        "BJ": "{{i18n:Dialogue.Demetrius.BJ}} [Trunip190.CP.MilkTheVillagers.Demetrius's_Cum] [Quality:2][Quantity:2]",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Demetrius.MTV_BathhouseFun}}",
         "MTV_Bukkake": "{{i18n:Dialogue.Demetrius.MTV_Bukkake}}",
 
@@ -377,8 +378,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Elliott",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Elliott.milk_fast}} [Trunip190.CP.MilkTheVillagers.Elliott's Cum]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Elliott.BJ}} [Trunip190.CP.MilkTheVillagers.Elliott's Cum]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Elliott.milk_fast}} [Trunip190.CP.MilkTheVillagers.Elliott's_Cum] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Elliott.BJ}} [Trunip190.CP.MilkTheVillagers.Elliott's_Cum] [Quality:2]",
         "MTV_Bukkake": "{{i18n:Dialogue.Elliott.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Elliott.QuestStartFail}}",
@@ -392,8 +393,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/George",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.George.milk_fast}} [Trunip190.CP.MilkTheVillagers.George's Cum]{Quality:0}",
-        "BJ": "{{i18n:Dialogue.George.BJ}} [Trunip190.CP.MilkTheVillagers.George's Cum]{Quality:0}",
+        "milk_fast": "{{i18n:Dialogue.George.milk_fast}} [Trunip190.CP.MilkTheVillagers.George's_Cum] [Quality:0]",
+        "BJ": "{{i18n:Dialogue.George.BJ}} [Trunip190.CP.MilkTheVillagers.George's_Cum] [Quality:0]",
 
         "5984GeorgeMed": "{{i18n:Dialogue.George.5984GeorgeMed}}",
         "5984GeorgeMedHJ": "{{i18n:Dialogue.George.5984GeorgeMedHJ}}",
@@ -412,8 +413,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Gunther",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Gunther.milk_fast}} [Trunip190.CP.MilkTheVillagers.Gunther's Cum]{Quality:1}",
-        "BJ": "{{i18n:Dialogue.Gunther.BJ}} [Trunip190.CP.MilkTheVillagers.Gunther's Cum]{Quality:1}",
+        "milk_fast": "{{i18n:Dialogue.Gunther.milk_fast}} [Trunip190.CP.MilkTheVillagers.Gunther's_Cum] [Quality:1]",
+        "BJ": "{{i18n:Dialogue.Gunther.BJ}} [Trunip190.CP.MilkTheVillagers.Gunther's_Cum] [Quality:1]",
         "MTV_Bukkake": "{{i18n:Dialogue.Gunther.MTV_Bukkake}}",
 
         "MTV_BoethiaBook": "{{i18n:Dialogue.Gunther.MTV_BoethiaBook}}",
@@ -432,8 +433,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Gus",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Gus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Gus's Cum]{Quality:1}{Quantity:2}",
-        "BJ": "{{i18n:Dialogue.Gus.BJ}} [Trunip190.CP.MilkTheVillagers.Gus's Cum]{Quality:1}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Gus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Gus's_Cum] [Quality:1][Quantity:2]",
+        "BJ": "{{i18n:Dialogue.Gus.BJ}} [Trunip190.CP.MilkTheVillagers.Gus's_Cum] [Quality:1][Quantity:2]",
         "MTV_BathhouseFun": "{{i18n:Dialogue.Gus.MTV_BathhouseFun}}",
         "MTV_Bukkake": "{{i18n:Dialogue.Gus.MTV_Bukkake}}",
 
@@ -461,8 +462,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Harvey",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Harvey.milk_fast}} [Trunip190.CP.MilkTheVillagers.Harvey's Cum]{Quality:2}{Quantity:2}",
-        "BJ": "{{i18n:Dialogue.Harvey.BJ}} [Trunip190.CP.MilkTheVillagers.Harvey's Cum]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Harvey.milk_fast}} [Trunip190.CP.MilkTheVillagers.Harvey's_Cum] [Quality:2][Quantity:2]",
+        "BJ": "{{i18n:Dialogue.Harvey.BJ}} [Trunip190.CP.MilkTheVillagers.Harvey's_Cum] [Quality:2][Quantity:2]",
         "MTV_Bukkake": "{{i18n:Dialogue.Harvey.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Harvey.QuestStartFail}}",
@@ -476,8 +477,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Kent",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Kent.milk_fast}} [Trunip190.CP.MilkTheVillagers.Kent's Cum]{Quality:2}{Quantity:2}",
-        "BJ": "{{i18n:Dialogue.Kent.BJ}} [Trunip190.CP.MilkTheVillagers.Kent's Cum]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Kent.milk_fast}} [Trunip190.CP.MilkTheVillagers.Kent's_Cum] [Quality:2][Quantity:2]",
+        "BJ": "{{i18n:Dialogue.Kent.BJ}} [Trunip190.CP.MilkTheVillagers.Kent's_Cum] [Quality:2][Quantity:2]",
         "MTV_Bukkake": "{{i18n:Dialogue.Kent.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Kent.QuestStartFail}}",
@@ -491,8 +492,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Lewis",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Lewis.milk_fast}} [Trunip190.CP.MilkTheVillagers.Lewis's Cum]{Quality:0}",
-        "BJ": "{{i18n:Dialogue.Lewis.BJ}} [Trunip190.CP.MilkTheVillagers.Lewis's Cum]{Quality:0}",
+        "milk_fast": "{{i18n:Dialogue.Lewis.milk_fast}} [Trunip190.CP.MilkTheVillagers.Lewis's_Cum] [Quality:0]",
+        "BJ": "{{i18n:Dialogue.Lewis.BJ}} [Trunip190.CP.MilkTheVillagers.Lewis's_Cum] [Quality:0]",
         "MTV_Bukkake": "{{i18n:Dialogue.Lewis.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Lewis.QuestStartFail}}",
@@ -506,8 +507,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Linus",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Linus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Linus's Cum]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Linus.BJ}} [Trunip190.CP.MilkTheVillagers.Linus's Cum]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Linus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Linus's_Cum] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Linus.BJ}} [Trunip190.CP.MilkTheVillagers.Linus's_Cum] [Quality:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Linus.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Linus.QuestStartSuccess}}"
@@ -520,8 +521,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Marlon",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Marlon.milk_fast}} [Trunip190.CP.MilkTheVillagers.Marlon's Cum]{Quality:2}{Quantity:2}",
-        "BJ": "{{i18n:Dialogue.Marlon.BJ}} [Trunip190.CP.MilkTheVillagers.Marlon's Cum]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Marlon.milk_fast}} [Trunip190.CP.MilkTheVillagers.Marlon's_Cum] [Quality:2][Quantity:2]",
+        "BJ": "{{i18n:Dialogue.Marlon.BJ}} [Trunip190.CP.MilkTheVillagers.Marlon's_Cum] [Quality:2][Quantity:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Marlon.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Marlon.QuestStartSuccess}}"
@@ -549,8 +550,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Pierre",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Pierre.milk_fast}} [Trunip190.CP.MilkTheVillagers.Pierre's Cum]{Quality:1}",
-        "BJ": "{{i18n:Dialogue.Pierre.BJ}} [Trunip190.CP.MilkTheVillagers.Pierre's Cum]{Quality:1}",
+        "milk_fast": "{{i18n:Dialogue.Pierre.milk_fast}} [Trunip190.CP.MilkTheVillagers.Pierre's_Cum] [Quality:1]",
+        "BJ": "{{i18n:Dialogue.Pierre.BJ}} [Trunip190.CP.MilkTheVillagers.Pierre's_Cum] [Quality:1]",
         "MTV_Bukkake": "{{i18n:Dialogue.Pierre.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Pierre.QuestStartFail}}",
@@ -564,8 +565,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Sam",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Sam.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sam's Cum]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Sam.BJ}} [Trunip190.CP.MilkTheVillagers.Sam's Cum]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Sam.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sam's_Cum] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Sam.BJ}} [Trunip190.CP.MilkTheVillagers.Sam's_Cum] [Quality:2]",
         "MTV_Bukkake": "{{i18n:Dialogue.Sam.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Sam.QuestStartFail}}",
@@ -579,8 +580,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Sebastian",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Sebastian.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sebastian's Cum]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Sebastian.BJ}} [Trunip190.CP.MilkTheVillagers.Sebastian's Cum]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Sebastian.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sebastian's_Cum] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Sebastian.BJ}} [Trunip190.CP.MilkTheVillagers.Sebastian's_Cum] [Quality:2]",
         "MTV_Bukkake": "{{i18n:Dialogue.Sebastian.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Sebastian.QuestStartFail}}",
@@ -594,8 +595,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Shane",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Shane.milk_fast}} [Trunip190.CP.MilkTheVillagers.Shane's Cum]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Shane.BJ}} [Trunip190.CP.MilkTheVillagers.Shane's Cum]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Shane.milk_fast}} [Trunip190.CP.MilkTheVillagers.Shane's_Cum] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Shane.BJ}} [Trunip190.CP.MilkTheVillagers.Shane's_Cum] [Quality:2]",
         "MTV_Bukkake": "{{i18n:Dialogue.Shane.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Shane.QuestStartFail}}",
@@ -609,8 +610,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Willy",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Willy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Willy's Cum]{Quality:1}",
-        "BJ": "{{i18n:Dialogue.Willy.BJ}} [Trunip190.CP.MilkTheVillagers.Willy's Cum]{Quality:1}",
+        "milk_fast": "{{i18n:Dialogue.Willy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Willy's_Cum] [Quality:1]",
+        "BJ": "{{i18n:Dialogue.Willy.BJ}} [Trunip190.CP.MilkTheVillagers.Willy's_Cum] [Quality:1]",
         "MTV_Bukkake": "{{i18n:Dialogue.Willy.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Willy.QuestStartFail}}",
@@ -626,8 +627,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Dwarf",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Dwarf.milk_fast}} [Trunip190.CP.MilkTheVillagers.Dwarf's Essence]{Quality:1}",
-        "BJ": "{{i18n:Dialogue.Dwarf.BJ}} [Trunip190.CP.MilkTheVillagers.Dwarf's Essence]{Quality:1}",
+        "milk_fast": "{{i18n:Dialogue.Dwarf.milk_fast}} [Trunip190.CP.MilkTheVillagers.Dwarf's_Essence] [Quality:1]",
+        "BJ": "{{i18n:Dialogue.Dwarf.BJ}} [Trunip190.CP.MilkTheVillagers.Dwarf's_Essence] [Quality:1]",
 
         "QuestStartFail": "{{i18n:Dialogue.Dwarf.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Dwarf.QuestStartSuccess}}"
@@ -640,8 +641,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Krobus",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Krobus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Krobus Essence]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Krobus.BJ}} [Trunip190.CP.MilkTheVillagers.Krobus Essence]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Krobus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Krobus Essence] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Krobus.BJ}} [Trunip190.CP.MilkTheVillagers.Krobus Essence] [Quality:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Krobus.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Krobus.QuestStartSuccess}}"
@@ -654,8 +655,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Mister Qi",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.MisterQi.milk_fast}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's Essence]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.MisterQi.BJ}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's Essence]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.MisterQi.milk_fast}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's_Essence] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.MisterQi.BJ}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's_Essence] [Quality:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.MisterQi.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.MisterQi.QuestStartSuccess}}"
@@ -668,8 +669,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Wizard",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Wizard.milk_fast}} [Trunip190.CP.MilkTheVillagers.Wizard's Essence]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Wizard.BJ}} [Trunip190.CP.MilkTheVillagers.Wizard's Essence]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Wizard.milk_fast}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Wizard.BJ}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Wizard.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Wizard.QuestStartSuccess}}"
@@ -682,8 +683,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Magnus",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Wizard.milk_fast}} [Trunip190.CP.MilkTheVillagers.Wizard's Essence]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Wizard.BJ}} [Trunip190.CP.MilkTheVillagers.Wizard's Essence]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Wizard.milk_fast}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Wizard.BJ}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Wizard.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Wizard.QuestStartSuccess}}"
@@ -697,8 +698,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Andy",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Andy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Andy's Cum]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Andy.BJ}} [Trunip190.CP.MilkTheVillagers.Andy's Cum]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Andy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Andy's_Cum] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Andy.BJ}} [Trunip190.CP.MilkTheVillagers.Andy's_Cum] [Quality:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Andy.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Andy.QuestStartSuccess}}"
@@ -711,8 +712,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Claire",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Claire.milk_fast}} [Trunip190.CP.MilkTheVillagers.Claire's_Milk]{Quality:2}",
-        "milk_start": "{{i18n:Dialogue.Claire.milk_start}} [Trunip190.CP.MilkTheVillagers.Claire's_Milk]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Claire.milk_fast}} [Trunip190.CP.MilkTheVillagers.Claire's_Milk] [Quality:2]",
+        "milk_start": "{{i18n:Dialogue.Claire.milk_start}} [Trunip190.CP.MilkTheVillagers.Claire's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Claire.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Claire.get_eaten}}",
 
@@ -727,8 +728,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Martin",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Martin.milk_fast}} [Trunip190.CP.MilkTheVillagers.Martin's Cum]{Quality:2}{Quantity:2}",
-        "BJ": "{{i18n:Dialogue.Martin.BJ}} [Trunip190.CP.MilkTheVillagers.Martin's Cum]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Martin.milk_fast}} [Trunip190.CP.MilkTheVillagers.Martin's_Cum] [Quality:2][Quantity:2]",
+        "BJ": "{{i18n:Dialogue.Martin.BJ}} [Trunip190.CP.MilkTheVillagers.Martin's_Cum] [Quality:2][Quantity:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Martin.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Martin.QuestStartSuccess}}"
@@ -741,8 +742,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Olivia",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Olivia.milk_fast}} [Trunip190.CP.MilkTheVillagers.Olivia's_Milk]{Quality:2}",
-        "milk_start": "{{i18n:Dialogue.Olivia.milk_start}} [Trunip190.CP.MilkTheVillagers.Olivia's_Milk]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Olivia.milk_fast}} [Trunip190.CP.MilkTheVillagers.Olivia's_Milk] [Quality:2]",
+        "milk_start": "{{i18n:Dialogue.Olivia.milk_start}} [Trunip190.CP.MilkTheVillagers.Olivia's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Olivia.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Olivia.get_eaten}}",
 
@@ -757,8 +758,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Sophia",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Sophia.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sophia's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Sophia.milk_start}} [Trunip190.CP.MilkTheVillagers.Sophia's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Sophia.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sophia's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Sophia.milk_start}} [Trunip190.CP.MilkTheVillagers.Sophia's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Sophia.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Sophia.get_eaten}}",
 
@@ -773,8 +774,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Susan",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Susan.milk_fast}} [Trunip190.CP.MilkTheVillagers.Susan's_Milk]{Quality:2}{Quantity:2}",
-        "milk_start": "{{i18n:Dialogue.Susan.milk_start}} [Trunip190.CP.MilkTheVillagers.Susan's_Milk]{Quality:2}{Quantity:2}",
+        "milk_fast": "{{i18n:Dialogue.Susan.milk_fast}} [Trunip190.CP.MilkTheVillagers.Susan's_Milk] [Quality:2][Quantity:2]",
+        "milk_start": "{{i18n:Dialogue.Susan.milk_start}} [Trunip190.CP.MilkTheVillagers.Susan's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Susan.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Susan.get_eaten}}",
 
@@ -789,8 +790,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Victor",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Victor.milk_fast}} [Trunip190.CP.MilkTheVillagers.Victor's Cum]{Quality:2}",
-        "BJ": "{{i18n:Dialogue.Victor.BJ}} [Trunip190.CP.MilkTheVillagers.Victor's Cum]{Quality:2}",
+        "milk_fast": "{{i18n:Dialogue.Victor.milk_fast}} [Trunip190.CP.MilkTheVillagers.Victor's_Cum] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Victor.BJ}} [Trunip190.CP.MilkTheVillagers.Victor's_Cum] [Quality:2]",
 
         "QuestStartFail": "{{i18n:Dialogue.Victor.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Victor.QuestStartSuccess}}"
@@ -806,8 +807,8 @@
         "milk_fast": "{{i18n:Dialogue.Lance.milk_fast}}",
         "BJ": "{{i18n:Dialogue.Lance.BJ}}",
 
-        "QuestStartFail": "{{i18n:Dialogue.Lance.QuestStartFail}} [Trunip190.CP.MilkTheVillagers.Lance's Cum]{Quality:2}",
-        "QuestStartSuccess": "{{i18n:Dialogue.Lance.QuestStartSuccess}} [Trunip190.CP.MilkTheVillagers.Lance's Cum]{Quality:2}"
+        "QuestStartFail": "{{i18n:Dialogue.Lance.QuestStartFail}} [Trunip190.CP.MilkTheVillagers.Lance's_Cum] [Quality:2]",
+        "QuestStartSuccess": "{{i18n:Dialogue.Lance.QuestStartSuccess}} [Trunip190.CP.MilkTheVillagers.Lance's_Cum] [Quality:2]"
       }
     }
 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>MilkVillagers</AssemblyName>
     <RootNamespace>MilkVillagers</RootNamespace>
-    <Version>1.2.3</Version>
+    <Version>1.2.4</Version>
     <TargetFramework>net6.0</TargetFramework>
 	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
   </PropertyGroup>
@@ -60,10 +60,6 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
-  </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties objects_4discrete_x0020_massager_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4discrete_x0020_package_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4invitation_4object_1json__JsonSchema="https://json.schemastore.org/base.json" objects_4sebastian_x0027_s_x0020_cum_4object_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

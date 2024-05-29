@@ -98,6 +98,9 @@ namespace MilkVillagers
 
         #region Genitals
         public static bool OverrideGenitals = false;
+        /// <summary>
+        /// Female, Male, Herm, Ace
+        /// </summary>
         public static string FarmerGender = "Female";
         public static string FarmerGenitals = "penis";
         public static bool HasPenis => FarmerGenitals.ToLower().Contains("penis");

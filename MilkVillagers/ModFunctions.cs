@@ -1,13 +1,14 @@
 ﻿using StardewModdingAPI;
 using StardewValley;
+using StardewValley.Characters;
 using StardewValley.Network;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml;
 using sObject = StardewValley.Object;
 
 namespace MilkVillagers
-{
-
+{ 
     public static class ModFunctions
     {
         public static List<string> topics = new List<string>
@@ -276,24 +277,34 @@ namespace MilkVillagers
                 {
                     int first = 0;
                     int last = 0;
+                    string dumpText = "";
                     if (v.Text.Contains('[') && v.Text.Contains(']'))
                     {
                         first = v.Text.IndexOf('[');
-                        last = v.Text.IndexOf(']', first);
-                        v.Text = v.Text.Remove(first, last - first + 1);
+                        last = v.Text.IndexOf(']', first)+1;
+                        dumpText = v.Text.Substring(first, last - first);
+                        v.Text = v.Text.Replace(dumpText, "");
                     }
 
                     if (v.Text.Contains('{') && v.Text.Contains('}'))
                     {
                         first = v.Text.IndexOf('{');
-                        last = v.Text.IndexOf('}', first);
-                        v.Text = v.Text.Remove(first, last - first + 1);
+                        last = v.Text.IndexOf('}', first) + 1;
+                        dumpText = v.Text.Substring(first, last - first);
+                        v.Text = v.Text.Replace(dumpText, "");
                     }
+                    v.Text = v.Text.Trim();
                 }
 
             }
 
             return output;
+        }
+
+        public static string GetFarmerString(string stringName)
+        {
+            Dialogue v = ProcessDialogue(new Dialogue(null, $"Strings/StringsFromCSFiles:{stringName}"));
+            return v.dialogues[0].Text;
         }
 
         public static List<string> GetDirectories(string root)

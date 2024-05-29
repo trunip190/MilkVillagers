@@ -5,7 +5,7 @@
 		<RootNamespace>MilkVillagers</RootNamespace>
 		<AssemblyName>MilkVillagers</AssemblyName>
 		<ApplicationIcon />
-		<Version>1.2.3</Version>
+		<Version>1.2.4</Version>
 		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
 		<BaseOutputPath></BaseOutputPath>
 	</PropertyGroup>

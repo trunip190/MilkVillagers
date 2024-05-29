@@ -4,12 +4,12 @@
 		<AssemblyName>MilkVillagers</AssemblyName>
 		<RootNamespace>MilkVillagers</RootNamespace>
 		<EnableHarmony>true</EnableHarmony>
-		<Version>1.2.3</Version>
+		<Version>1.2.4</Version>
 		<TargetFramework>net6.0</TargetFramework>
 		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <Optimize>False</Optimize>
+		<Optimize>False</Optimize>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="app_icon.png" />
@@ -17,7 +17,7 @@
 		<None Include="manifest.json" />
 		<None Include="Todo.txt" />
 		<Content Include="assets\app_icon.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Changelog.txt">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -37,5 +37,8 @@
 			<HintPath>$(GamePath)\Mods\MailFrameworkMod\MailFrameworkMod.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="ContentPatcher" HintPath="$(GamePath)\Mods\ContentPatcher\ContentPatcher.dll" Private="False" />
 	</ItemGroup>
 </Project>

@@ -258,83 +258,95 @@ namespace MilkVillagers.Asset_Editors
 
         public static void RemoveInvalid(bool Male, bool Female)
         {
-            if (!Female)
-            {
-                //milk items
-                ItemData.Remove("Abigail's Milk");
-                ItemData.Remove("Caroline's Milk");
-                ItemData.Remove("Emily's Milk");
-                ItemData.Remove("Evelyn's Milk");
-                ItemData.Remove("Haley's Milk");
-                ItemData.Remove("Jodi's Milk");
-                ItemData.Remove("Leah's Milk");
-                ItemData.Remove("Marnie's Milk");
-                ItemData.Remove("Maru's Milk");
-                ItemData.Remove("Pam's Milk");
-                ItemData.Remove("Penny's Milk");
-                ItemData.Remove("Robin's Milk");
-                ItemData.Remove("Sandy's Milk");
+            //log.Log("Logging Items");
+            //foreach ( string s in ItemData.Keys.Where(o=>o.Contains("Trunip190.CP.MilkTheVillagers")).ToList())
+            //{
+            //    log.Log($"{s}");
+            //}
 
-                // Other mods
-                ItemData.Remove("Claire's Milk");
-                ItemData.Remove("Olivia's Milk");
-                ItemData.Remove("Sophia's Milk");
-                ItemData.Remove("Susan's Milk");
+            //if (!Female)
+            //{
+            //    //milk items
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Woman's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Abigail's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Caroline's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Claire's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Emily's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Evelyn's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Haley's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Jodi's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Leah's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Marnie's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Maru's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Olivia's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Pam's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Penny's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Robin's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Sandy's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Sophia's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Susan's_Milk");
 
-                // Recipes
-                ItemData.Remove("Woman's Milk");
-                ItemData.Remove("Special Milkshake");
-                ItemData.Remove("Creamy Coffee");
-                ItemData.Remove("Sweet Sibling");
+            //    // Magical
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Dwarf's_Essence");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Krobus_Essence");
 
-            }
+            //    // Recipes
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Woman's_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Special_Milkshake");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Creamy_Coffee");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Sweet_Sibling");
 
-            if (!Male)
-            {
-                //cum items
-                ItemData.Remove("Alex's Cum");
-                ItemData.Remove("Clint's Cum");
-                ItemData.Remove("Demetrius's Cum");
-                ItemData.Remove("Elliott's Cum");
-                ItemData.Remove("George's Cum");
-                ItemData.Remove("Gil's Cum");
-                ItemData.Remove("Gunther's Cum");
-                ItemData.Remove("Gus's Cum");
-                ItemData.Remove("Harvey's Cum");
-                ItemData.Remove("Kent's Cum");
-                ItemData.Remove("Lance's Cum");
-                ItemData.Remove("Lewis's Cum");
-                ItemData.Remove("Linus's Cum");
-                ItemData.Remove("Marlon's Cum");
-                ItemData.Remove("Morris's Cum");
-                ItemData.Remove("Pierre's Cum");
-                ItemData.Remove("Sam's Cum");
-                ItemData.Remove("Sebastian's Cum");
-                ItemData.Remove("Shane's Cum");
-                ItemData.Remove("Willy's Cum");
+            //}
 
-                // Other mods
-                ItemData.Remove("Andy's Cum");
-                ItemData.Remove("Victor's Cum");
-                ItemData.Remove("Martin's Cum");
+            //if (!Male)
+            //{
+            //    //cum items
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Special_Milk");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Alex's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Andy's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Clint's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Demetrius's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Elliott's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.George's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Gil's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Gunther's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Gus's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Harvey's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Kent's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Lance's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Lewis's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Linus's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Marlon's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Martin's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Morris's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Pierre's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Sam's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Sebastian's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Shane's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Victor's_Cum");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Willy's_Cum");
 
-                // Recipes.
-                ItemData.Remove("Protein Shake");
-                ItemData.Remove("Special Milk");
+            //    // Magical
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Wizard's_Essence");
 
-            }
+            //    // Recipes
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Protein_Shake");
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Special_Milk");
 
-            // Special materials
-            ItemData.Remove("Dwarf's Essence");
-            ItemData.Remove("Krobus Essence");
-            ItemData.Remove("Wizard's Essence");
-            ItemData.Remove("Mr. Qi's Essence");
+            //}
 
-            ItemData.Remove("Eldritch Energy");
-            ItemData.Remove("Martini Kairos");
+            //// Special materials
+            //ItemData.Remove("Trunip190.CP.MilkTheVillagers.Dwarf's_Essence");
+            //ItemData.Remove("Trunip190.CP.MilkTheVillagers.Krobus_Essence");
+            //ItemData.Remove("Trunip190.CP.MilkTheVillagers.Wizard's_Essence");
+            //ItemData.Remove("Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence");
 
-            if (!(Male || Female))
-                ItemData.Remove("Super Juice");
+            //ItemData.Remove("Trunip190.CP.MilkTheVillagers.Eldritch_Energy");
+            //ItemData.Remove("Trunip190.CP.MilkTheVillagers.Martini_Kairos");
+
+            //if (!(Male || Female))
+            //    ItemData.Remove("Trunip190.CP.MilkTheVillagers.Super_Juice");
 
             SetItems(Male, Female);
         }
