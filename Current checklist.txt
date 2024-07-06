@@ -1,0 +1,81 @@
+notes about quests:	
+
+leah event gift sculpture = use as basis for dropping off new item - nope. won't work
+
+// Abigail
+"594801":	Done - needs way to complete event if skipped.
+"594802":	Done
+"594803":	Done
+"594804":	Done
+
+// Elliott        
+"594805":	Done
+"594806":	need to sort out Q2T and Q3 order.
+"594807":	10 skellies now
+"5948072":	need to set up completion text
+"594808":	
+
+//// Sebastian
+"594809":	Done
+"5948092":	Done - way to avoid having to hand off item?
+"594810":	Done
+"5948102":	Done - way to avoid having to hand off item?
+"594811":	Had to add mail hook.
+"594812":	Done
+
+// Maru
+"594813":	Done
+"5948132":	Done - had to switch to crafted item
+"594814":	Done
+"5948142":	Done - had to switch to crafted item
+"594815":	Done
+"594816":	watch Done
+	
+// Emily
+"594817":	Done
+"594818":	Done - checked
+"594819":	Created - rough
+"594820":	Needs quest writing
+	
+// Haley
+"594821":	Unwritten
+"594822":	Unwritten
+"5948222":	Unwritten
+"594823":	Unwritten
+"594824":	Unwritten
+"5948242":	Unwritten
+
+// Penny
+"594825":	add book to spot behind stool (temporary actor?)
+"5948252":	change next mail getting sent - Q2 mail needs to become Q3. new Q2 needs writing.
+"594826":	quest didn't end. event stolen by "making friends" quest when gifting.
+"594827":	Seems complete.
+"594828":	not written yet
+
+// Leah
+"594829":	done
+"594830":	done?
+"594831":	done
+"594832":	not written yet
+"5948322":
+	
+// George
+"594833":	done
+"594834":	haven't hooked up the Haley dialogue options yet
+"594835":	
+"594836":	
+"5948362":
+	
+// Harvey
+"594837":	done
+"5948372":	done
+"594838":	done
+"5948382":	done
+"594839":	done
+"594840":	done 
+
+
+redo introduction mail
+
+
+Test all events again.

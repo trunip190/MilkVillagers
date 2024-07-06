@@ -7,7 +7,8 @@
       "Entries": {
         "FarmerCollectCum": "{{i18n:Dialogue.FarmerCollectCum}}",
         "FarmerCollectionMilk": "{{i18n:Dialogue.FarmerCollectionMilk}}",
-        "TimeSlows": "{{i18n:Dialogue.TimeSlows}}"
+        "TimeSlows": "{{i18n:Dialogue.TimeSlows}}",
+        "QuestsOff": "{{i18n:Dialogue.QuestsOff}}"
       }
     },
 
@@ -83,6 +84,7 @@
         "get_eaten": "{{i18n:Dialogue.Abigail.get_eaten}}",
         "sex": "{{i18n:Dialogue.Abigail.sex}}",
         "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "mtv_ctcamshow": "{{i18n:Dialogue.Abigail.mtv_ctcamshow}}",
         "QuestStartFail": "{{i18n:Dialogue.Abigail.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Abigail.QuestStartSuccess}}",
@@ -99,6 +101,8 @@
         "milk_start": "{{i18n:Dialogue.Caroline.milk_start}} [Trunip190.CP.MilkTheVillagers.Caroline's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Caroline.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Caroline.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_BathhouseFun": "{{i18n:Dialogue.Caroline.MTV_BathhouseFun}}",
         "QuestStartFail": "{{i18n:Dialogue.Caroline.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Caroline.QuestStartSuccess}}",
@@ -115,6 +119,8 @@
         "milk_start": "{{i18n:Dialogue.Emily.milk_start}} [Trunip190.CP.MilkTheVillagers.Emily's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Emily.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Emily.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "HaleyPanties": "{{i18n:Dialogue.Emily.HaleyPanties}}",
         "QuestStartFail": "{{i18n:Dialogue.Emily.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Emily.QuestStartSuccess}}",
@@ -131,6 +137,8 @@
         "milk_start": "{{i18n:Dialogue.Evelyn.milk_start}} [Trunip190.CP.MilkTheVillagers.Evelyn's_Milk] [Quality:0]",
         "eat_out": "{{i18n:Dialogue.Evelyn.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Evelyn.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "QuestStartFail": "{{i18n:Dialogue.Evelyn.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Evelyn.QuestStartSuccess}}"
       }
@@ -145,6 +153,7 @@
         "milk_start": "{{i18n:Dialogue.Haley.milk_start}} [Trunip190.CP.MilkTheVillagers.Haley's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Haley.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Haley.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "HaleyPanties": "{{i18n:Dialogue.Haley.HaleyPanties}}",
         "HaleyPantiesReject": "{{i18n:Dialogue.Haley.HaleyPantiesReject}}",
@@ -173,6 +182,8 @@
         "milk_start": "{{i18n:DialogueMarried.Haley.milk_start}} [Trunip190.CP.MilkTheVillagers.Haley's_Milk]",
         "eat_out": "{{i18n:DialogueMarried.Haley.eat_out}}",
         "get_eaten": "{{i18n:DialogueMarried.Haley.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "HaleyPanties": "{{i18n:DialogueMarried.Haley.HaleyPanties}}",
         "HaleyPantiesReject": "{{i18n:DialogueMarried.Haley.HaleyPantiesReject}}",
         "HaleyPantiesFinger": "{{i18n:DialogueMarried.Haley.HaleyPantiesFinger}}",
@@ -195,6 +206,7 @@
         "milk_start": "{{i18n:Dialogue.Jodi.milk_start}} [Trunip190.CP.MilkTheVillagers.Jodi's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Jodi.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Jodi.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Jodi.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Jodi.QuestStartSuccess}}",
@@ -212,6 +224,8 @@
         "milk_start": "{{i18n:Dialogue.Leah.milk_start}} [Trunip190.CP.MilkTheVillagers.Leah's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Leah.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Leah.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_BathhouseFun": "{{i18n:Dialogue.Leah.MTV_BathhouseFun}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Leah.QuestStartFail}}",
@@ -230,6 +244,7 @@
         "milk_start": "{{i18n:Dialogue.Marnie.milk_start}} [Trunip190.CP.MilkTheVillagers.Marnie's_Milk] [Quality:2][Quantity:3]",
         "eat_out": "{{i18n:Dialogue.Marnie.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Marnie.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Marnie.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Marnie.QuestStartSuccess}}"
@@ -245,6 +260,8 @@
         "milk_start": "{{i18n:Dialogue.Maru.milk_start}} [Trunip190.CP.MilkTheVillagers.Maru's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Maru.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Maru.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_BathhouseFun": "{{i18n:Dialogue.Maru.MTV_BathhouseFun}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Maru.QuestStartFail}}",
@@ -263,6 +280,8 @@
         "milk_start": "{{i18n:Dialogue.Pam.milk_start}} [Trunip190.CP.MilkTheVillagers.Pam's_Milk] [Quality:0]",
         "eat_out": "{{i18n:Dialogue.Pam.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Pam.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_BathhouseFun": "{{i18n:Dialogue.Pam.MTV_BathhouseFun}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Pam.QuestStartFail}}",
@@ -279,6 +298,7 @@
         "milk_start": "{{i18n:Dialogue.Penny.milk_start}} [Trunip190.CP.MilkTheVillagers.Penny's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Penny.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Penny.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "MTV_BoethiaBook": "{{i18n:Dialogue.Penny.MTV_BoethiaBook}}",
         "MTV_BoethiaBookP1": "{{i18n:Dialogue.Penny.MTV_BoethiaBookP1}}",
@@ -303,6 +323,7 @@
         "milk_start": "{{i18n:Dialogue.Robin.milk_start}} [Trunip190.CP.MilkTheVillagers.Robin's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Robin.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Robin.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Robin.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Robin.QuestStartSuccess}}"
@@ -318,6 +339,7 @@
         "milk_start": "{{i18n:Dialogue.Sandy.milk_start}} [Trunip190.CP.MilkTheVillagers.Sandy's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Sandy.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Sandy.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Sandy.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Sandy.QuestStartSuccess}}"
@@ -333,6 +355,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Alex.milk_fast}} [Trunip190.CP.MilkTheVillagers.Alex's_Cum] [Quality:2][Quantity:2]",
         "BJ": "{{i18n:Dialogue.Alex.BJ}} [Trunip190.CP.MilkTheVillagers.Alex's_Cum] [Quality:2][Quantity:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_BathhouseFun": "{{i18n:Dialogue.Alex.MTV_BathhouseFun}}",
         "MTV_Bukkake": "{{i18n:Dialogue.Alex.MTV_Bukkake}}",
 
@@ -349,6 +373,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Clint.milk_fast}} [Trunip190.CP.MilkTheVillagers.Clint's_Cum] [Quality:1]",
         "BJ": "{{i18n:Dialogue.Clint.BJ}} [Trunip190.CP.MilkTheVillagers.Clint's_Cum] [Quality:1]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Clint.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Clint.QuestStartFail}}",
@@ -364,6 +390,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Demetrius.milk_fast}} [Trunip190.CP.MilkTheVillagers.Demetrius's_Cum] [Quality:2][Quantity:2]",
         "BJ": "{{i18n:Dialogue.Demetrius.BJ}} [Trunip190.CP.MilkTheVillagers.Demetrius's_Cum] [Quality:2][Quantity:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_BathhouseFun": "{{i18n:Dialogue.Demetrius.MTV_BathhouseFun}}",
         "MTV_Bukkake": "{{i18n:Dialogue.Demetrius.MTV_Bukkake}}",
 
@@ -380,6 +408,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Elliott.milk_fast}} [Trunip190.CP.MilkTheVillagers.Elliott's_Cum] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Elliott.BJ}} [Trunip190.CP.MilkTheVillagers.Elliott's_Cum] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Elliott.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Elliott.QuestStartFail}}",
@@ -395,6 +425,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.George.milk_fast}} [Trunip190.CP.MilkTheVillagers.George's_Cum] [Quality:0]",
         "BJ": "{{i18n:Dialogue.George.BJ}} [Trunip190.CP.MilkTheVillagers.George's_Cum] [Quality:0]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "5984GeorgeMed": "{{i18n:Dialogue.George.5984GeorgeMed}}",
         "5984GeorgeMedHJ": "{{i18n:Dialogue.George.5984GeorgeMedHJ}}",
@@ -415,6 +446,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Gunther.milk_fast}} [Trunip190.CP.MilkTheVillagers.Gunther's_Cum] [Quality:1]",
         "BJ": "{{i18n:Dialogue.Gunther.BJ}} [Trunip190.CP.MilkTheVillagers.Gunther's_Cum] [Quality:1]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Gunther.MTV_Bukkake}}",
 
         "MTV_BoethiaBook": "{{i18n:Dialogue.Gunther.MTV_BoethiaBook}}",
@@ -435,6 +468,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Gus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Gus's_Cum] [Quality:1][Quantity:2]",
         "BJ": "{{i18n:Dialogue.Gus.BJ}} [Trunip190.CP.MilkTheVillagers.Gus's_Cum] [Quality:1][Quantity:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_BathhouseFun": "{{i18n:Dialogue.Gus.MTV_BathhouseFun}}",
         "MTV_Bukkake": "{{i18n:Dialogue.Gus.MTV_Bukkake}}",
 
@@ -450,6 +485,8 @@
       "Target": "Characters/Dialogue/Gil",
       "Entries": {
         "BJ": "{{i18n:Dialogue.Gil.BJ}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
 
         "QuestStartFail": "{{i18n:Dialogue.Gil.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Gil.QuestStartSuccess}}"
@@ -464,6 +501,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Harvey.milk_fast}} [Trunip190.CP.MilkTheVillagers.Harvey's_Cum] [Quality:2][Quantity:2]",
         "BJ": "{{i18n:Dialogue.Harvey.BJ}} [Trunip190.CP.MilkTheVillagers.Harvey's_Cum] [Quality:2][Quantity:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Harvey.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Harvey.QuestStartFail}}",
@@ -479,6 +518,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Kent.milk_fast}} [Trunip190.CP.MilkTheVillagers.Kent's_Cum] [Quality:2][Quantity:2]",
         "BJ": "{{i18n:Dialogue.Kent.BJ}} [Trunip190.CP.MilkTheVillagers.Kent's_Cum] [Quality:2][Quantity:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Kent.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Kent.QuestStartFail}}",
@@ -494,6 +535,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Lewis.milk_fast}} [Trunip190.CP.MilkTheVillagers.Lewis's_Cum] [Quality:0]",
         "BJ": "{{i18n:Dialogue.Lewis.BJ}} [Trunip190.CP.MilkTheVillagers.Lewis's_Cum] [Quality:0]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Lewis.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Lewis.QuestStartFail}}",
@@ -509,6 +552,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Linus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Linus's_Cum] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Linus.BJ}} [Trunip190.CP.MilkTheVillagers.Linus's_Cum] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
 
         "QuestStartFail": "{{i18n:Dialogue.Linus.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Linus.QuestStartSuccess}}"
@@ -523,6 +568,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Marlon.milk_fast}} [Trunip190.CP.MilkTheVillagers.Marlon's_Cum] [Quality:2][Quantity:2]",
         "BJ": "{{i18n:Dialogue.Marlon.BJ}} [Trunip190.CP.MilkTheVillagers.Marlon's_Cum] [Quality:2][Quantity:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
 
         "QuestStartFail": "{{i18n:Dialogue.Marlon.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Marlon.QuestStartSuccess}}"
@@ -537,6 +584,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Morris.milk_fast}}",
         "BJ": "{{i18n:Dialogue.Morris.BJ}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Morris.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Morris.QuestStartFail}}",
@@ -552,6 +601,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Pierre.milk_fast}} [Trunip190.CP.MilkTheVillagers.Pierre's_Cum] [Quality:1]",
         "BJ": "{{i18n:Dialogue.Pierre.BJ}} [Trunip190.CP.MilkTheVillagers.Pierre's_Cum] [Quality:1]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Pierre.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Pierre.QuestStartFail}}",
@@ -567,6 +618,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Sam.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sam's_Cum] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Sam.BJ}} [Trunip190.CP.MilkTheVillagers.Sam's_Cum] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Sam.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Sam.QuestStartFail}}",
@@ -582,6 +635,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Sebastian.milk_fast}} [Trunip190.CP.MilkTheVillagers.Sebastian's_Cum] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Sebastian.BJ}} [Trunip190.CP.MilkTheVillagers.Sebastian's_Cum] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Sebastian.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Sebastian.QuestStartFail}}",
@@ -597,6 +652,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Shane.milk_fast}} [Trunip190.CP.MilkTheVillagers.Shane's_Cum] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Shane.BJ}} [Trunip190.CP.MilkTheVillagers.Shane's_Cum] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Shane.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Shane.QuestStartFail}}",
@@ -612,6 +669,8 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Willy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Willy's_Cum] [Quality:1]",
         "BJ": "{{i18n:Dialogue.Willy.BJ}} [Trunip190.CP.MilkTheVillagers.Willy's_Cum] [Quality:1]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
+
         "MTV_Bukkake": "{{i18n:Dialogue.Willy.MTV_Bukkake}}",
 
         "QuestStartFail": "{{i18n:Dialogue.Willy.QuestStartFail}}",
@@ -628,7 +687,8 @@
       "Target": "Characters/Dialogue/Dwarf",
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Dwarf.milk_fast}} [Trunip190.CP.MilkTheVillagers.Dwarf's_Essence] [Quality:1]",
-        "BJ": "{{i18n:Dialogue.Dwarf.BJ}} [Trunip190.CP.MilkTheVillagers.Dwarf's_Essence] [Quality:1]",
+        "milk_start": "{{i18n:Dialogue.Dwarf.milk_start}} [Trunip190.CP.MilkTheVillagers.Dwarf's_Essence] [Quality:1]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Dwarf.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Dwarf.QuestStartSuccess}}"
@@ -643,6 +703,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Krobus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Krobus Essence] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Krobus.BJ}} [Trunip190.CP.MilkTheVillagers.Krobus Essence] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Krobus.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Krobus.QuestStartSuccess}}"
@@ -657,6 +718,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.MisterQi.milk_fast}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's_Essence] [Quality:2]",
         "BJ": "{{i18n:Dialogue.MisterQi.BJ}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's_Essence] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.MisterQi.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.MisterQi.QuestStartSuccess}}"
@@ -671,6 +733,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Wizard.milk_fast}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Wizard.BJ}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Wizard.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Wizard.QuestStartSuccess}}"
@@ -685,6 +748,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Wizard.milk_fast}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Wizard.BJ}} [Trunip190.CP.MilkTheVillagers.Wizard's_Essence] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Wizard.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Wizard.QuestStartSuccess}}"
@@ -700,6 +764,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Andy.milk_fast}} [Trunip190.CP.MilkTheVillagers.Andy's_Cum] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Andy.BJ}} [Trunip190.CP.MilkTheVillagers.Andy's_Cum] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Andy.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Andy.QuestStartSuccess}}"
@@ -716,6 +781,7 @@
         "milk_start": "{{i18n:Dialogue.Claire.milk_start}} [Trunip190.CP.MilkTheVillagers.Claire's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Claire.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Claire.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Claire.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Claire.QuestStartSuccess}}"
@@ -730,6 +796,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Martin.milk_fast}} [Trunip190.CP.MilkTheVillagers.Martin's_Cum] [Quality:2][Quantity:2]",
         "BJ": "{{i18n:Dialogue.Martin.BJ}} [Trunip190.CP.MilkTheVillagers.Martin's_Cum] [Quality:2][Quantity:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Martin.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Martin.QuestStartSuccess}}"
@@ -746,6 +813,7 @@
         "milk_start": "{{i18n:Dialogue.Olivia.milk_start}} [Trunip190.CP.MilkTheVillagers.Olivia's_Milk] [Quality:2]",
         "eat_out": "{{i18n:Dialogue.Olivia.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Olivia.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Olivia.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Olivia.QuestStartSuccess}}"
@@ -762,6 +830,7 @@
         "milk_start": "{{i18n:Dialogue.Sophia.milk_start}} [Trunip190.CP.MilkTheVillagers.Sophia's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Sophia.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Sophia.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Sophia.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Sophia.QuestStartSuccess}}"
@@ -778,6 +847,7 @@
         "milk_start": "{{i18n:Dialogue.Susan.milk_start}} [Trunip190.CP.MilkTheVillagers.Susan's_Milk] [Quality:2][Quantity:2]",
         "eat_out": "{{i18n:Dialogue.Susan.eat_out}}",
         "get_eaten": "{{i18n:Dialogue.Susan.get_eaten}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Susan.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Susan.QuestStartSuccess}}"
@@ -792,6 +862,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Victor.milk_fast}} [Trunip190.CP.MilkTheVillagers.Victor's_Cum] [Quality:2]",
         "BJ": "{{i18n:Dialogue.Victor.BJ}} [Trunip190.CP.MilkTheVillagers.Victor's_Cum] [Quality:2]",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Victor.QuestStartFail}}",
         "QuestStartSuccess": "{{i18n:Dialogue.Victor.QuestStartSuccess}}"
@@ -806,6 +877,7 @@
       "Entries": {
         "milk_fast": "{{i18n:Dialogue.Lance.milk_fast}}",
         "BJ": "{{i18n:Dialogue.Lance.BJ}}",
+        "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Lance.QuestStartFail}} [Trunip190.CP.MilkTheVillagers.Lance's_Cum] [Quality:2]",
         "QuestStartSuccess": "{{i18n:Dialogue.Lance.QuestStartSuccess}} [Trunip190.CP.MilkTheVillagers.Lance's_Cum] [Quality:2]"

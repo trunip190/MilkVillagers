@@ -1,16 +1,19 @@
 {
   "$schema": "https://smapi.io/schemas/content-patcher.json",
   "Changes": [
+    //Load Objects sheet
     {
       "Action": "Load",
       "FromFile": "assets/Objects/Spritesheet.png",
       "Target": "Mods/Trunip190.CP.MilkTheVillagers/Objects"
     },
+    //Load Shirt sheet
     {
       "Action": "Load",
       "FromFile": "assets/Shirts/Shibari.png",
       "Target": "Mods/Trunip190.CP.MilkTheVillagers/Shibari"
     },
+    // Load in objects
     {
       "Action": "EditData",
       "Target": "Data/Objects",
@@ -1064,7 +1067,33 @@
             "MTV_item"
           ]
         },
+        "Trunip190.CP.MilkTheVillagers.PureCapitalism": {
+          "Name": "Pure Capitalism",
+          "DisplayName": "{{i18n:PureCapitalism.name}}",
+          "Description": "{{i18n:PureCapitalism.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 16,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 600,
+              "CustomAttributes": {
+                "Luck": 1.0,
+                "Speed": 2.0
+              }
 
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 169,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
 
         "Trunip190.CP.MilkTheVillagers.Abigails_Panties": {
           "Name": "Abigails Panties",
@@ -1226,6 +1255,22 @@
             "MTV_item"
           ]
         },
+        "Trunip190.CP.MilkTheVillagers.Shibari_rope_package": {
+          "Name": "Shibari rope package",
+          "DisplayName": "{{i18n:Shibari_rope_package.name}}",
+          "Description": "{{i18n:Shibari_rope_package.description}}",
+          "Type": "Basic",
+          "Category": -20,
+          "Edibility": -300,
+          "specialItem": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 196,
+          "ContextTags": [
+            "quest_item",
+            "MTV_item"
+          ]
+        },
         "Trunip190.CP.MilkTheVillagers.Strapon": {
           "Name": "Strapon",
           "DisplayName": "{{i18n:Strapon.name}}",
@@ -1244,6 +1289,7 @@
         }
       }
     },
+    // Load in Cooking recipes
     {
       "LogName": "Recipes Data",
       "Action": "EditData",
@@ -1258,12 +1304,14 @@
         "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
         "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
         "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
+        "Trunip190.CP.MilkTheVillagers.PureCapitalism": "Trunip190.CP.MilkTheVillagers.Lewis's_Cum 1 Trunip190.CP.MilkTheVillagers.Pierre's_Cum 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.PureCapitalism 1/null/Pure Capitalism",
 
         "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/false/null/Woman's Milk",
         "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1/false/null/Special Milk",
         "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence"
       }
     },
+    // Load in Crafting recipes
     {
       "LogName": "Recipes Data",
       "Action": "EditData",
@@ -1287,6 +1335,7 @@
         "Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/what is this for?/Trunip190.CP.MilkTheVillagers.Shibari_rope 1/false/null/Shibari Rope"
       }
     },
+    //Shirts
     {
       "LogName": "Shirts Data",
       "Action": "EditData",

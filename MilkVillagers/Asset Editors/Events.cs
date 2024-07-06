@@ -39,8 +39,6 @@ namespace MilkVillagers.Asset_Editors
 
             bool result = asset.Name.Contains("Data/Events/");
 
-            if (asset.IsEquivalentTo("Data/Events/Mountain")) ModFunctions.Log($"Editing mountain event", LogLevel.Alert, Force: true);
-
             return result;
         }
 

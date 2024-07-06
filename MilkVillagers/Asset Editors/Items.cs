@@ -764,7 +764,7 @@ namespace MilkVillagers.Asset_Editors
                     //case "Mr. Qi's Essence": kvp.Value.Category = -36; break;
 
                     default:
-                        if (kvp.Key.Contains("Trunip190") || kvp.Value.Name.Contains("Milk")) log.Log(kvp.Value.Name, LogLevel.Trace, Force: true); break;
+                        if (kvp.Key.Contains("Trunip190") || kvp.Value.Name.Contains("Milk")) log.Log(kvp.Value.Name, LogLevel.Trace); break;
                 }
             }
             //SetItems();

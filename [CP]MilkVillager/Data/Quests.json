@@ -15,7 +15,7 @@
         // Elliott - Checked to mid quest 3
         "594805": "Basic/{{i18n:Quests.594805.01}}/{{i18n:Quests.594805.02}}/{{i18n:Quests.594805.03}}/null/-1/240/-1/False/{{i18n:Quests.594805.09}}",
         "594806": "Basic/{{i18n:Quests.594806.01}}/{{i18n:Quests.594806.02}}/{{i18n:Quests.594806.03}}/ElliottHouse/-1/355/-1/False/{{i18n:Quests.594806.09}}",
-        "594807": "Monster/{{i18n:Quests.594807.01}}/{{i18n:Quests.594807.02}}/{{i18n:Quests.594807.03}}/Skeleton 25/5948072/-1/-1/False/{{i18n:Quests.594807.09}}",
+        "594807": "Monster/{{i18n:Quests.594807.01}}/{{i18n:Quests.594807.02}}/{{i18n:Quests.594807.03}}/Skeleton 10/5948072/-1/-1/False/{{i18n:Quests.594807.09}}",
         "5948072": "Basic/{{i18n:Quests.5948072.01}}/{{i18n:Quests.5948072.02}}/{{i18n:Quests.5948072.03}}/null/-1/420/-1/False/{{i18n:Quests.5948072.09}}",
         "594808": "Basic/{{i18n:Quests.594808.01}}/{{i18n:Quests.594808.02}}/{{i18n:Quests.594808.03}}/ElliottHouse/-1/500/-1/False/{{i18n:Quests.594808.09}}",
 
@@ -29,9 +29,9 @@
 
         // Maru
         "594813": "Basic/{{i18n:Quests.594813.01}}/{{i18n:Quests.594813.02}}/{{i18n:Quests.594813.03}}/Male BJ Milk_fast/5948132/0/-1/False/{{i18n:Quests.594813.09}}",
-        "5948132": "ItemDelivery/{{i18n:Quests.5948132.01}}/{{i18n:Quests.5948132.02}}/{{i18n:Quests.5948132.03}}/Maru -35/-1/240/-1/False/{{i18n:Quests.5948132.09}}",
+        "5948132": "ItemDelivery/{{i18n:Quests.5948132.01}}/{{i18n:Quests.5948132.02}}/{{i18n:Quests.5948132.03}}/Maru Trunip190.CP.MilkTheVillagers.Special_Milk/-1/240/-1/False/{{i18n:Quests.5948132.09}}",
         "594814": "Basic/{{i18n:Quests.594814.01}}/{{i18n:Quests.594814.02}}/{{i18n:Quests.594814.03}}/Maru -36/5948142/0/-1/False/{{i18n:Quests.594814.09}}",
-        "5948142": "ItemDelivery/{{i18n:Quests.5948142.01}}/{{i18n:Quests.5948142.02}}/{{i18n:Quests.5948142.03}}/Maru -36/-1/355/-1/False/{{i18n:Quests.5948142.09}}",
+        "5948142": "ItemDelivery/{{i18n:Quests.5948142.01}}/{{i18n:Quests.5948142.02}}/{{i18n:Quests.5948142.03}}/Maru Trunip190.CP.MilkTheVillagers.Magical_Essence/-1/355/-1/False/{{i18n:Quests.5948142.09}}",
         "594815": "Basic/{{i18n:Quests.594815.01}}/{{i18n:Quests.594815.02}}/{{i18n:Quests.594815.03}}/null/-1/420/-1/FALSE/{{i18n:Quests.594815.09}}",
         "594816": "Basic/{{i18n:Quests.594816.01}}/{{i18n:Quests.594816.02}}/{{i18n:Quests.594816.03}}/null/-1/500/-1/FALSE/{{i18n:Quests.594816.09}}",
 
@@ -59,7 +59,7 @@
 
         // Leah
         "594829": "Basic/{{i18n: Quests.594829.01}}/{{i18n: Quests.594829.02}}/{{i18n: Quests.594829.03}}/null/-1/240/-1/false/{{i18n: Quests.594829.09}}",
-        "594830": "LostItem/{{i18n: Quests.594830.01}}/{{i18n: Quests.594830.02}}/{{i18n: Quests.594829.03}}/Leah Trunip190.CP.MilkTheVillagers.Strapon ScienceHouse 4 19/-1/355/-1/False/{{i18n: Quests.594829.09}}",
+        "594830": "LostItem/{{i18n: Quests.594830.01}}/{{i18n: Quests.594830.02}}/{{i18n: Quests.594830.03}}/Leah Trunip190.CP.MilkTheVillagers.Shibari_rope_package ScienceHouse 4 19/-1/355/-1/False/{{i18n: Quests.594830.09}}",
         "594831": "Basic/{{i18n: Quests.594831.01}}/{{i18n: Quests.594831.02}}/{{i18n: Quests.594831.03}}/LeahHouse/-1/420/-1/False/{{i18n: Quests.594831.09}}",
         "594832": "ItemDelivery/{{i18n: Quests.594832.01}}/{{i18n: Quests.594832.02}}/{{i18n: Quests.594832.03}}/Leah Trunip190.CP.MilkTheVillagers.Shibari_rope/-1/500/-1/false/{{i18n: Quests.594832.09}}",
         "5948322": "Basic/{{i18n: Quests.5948322.01}}/{{i18n: Quests.5948322.02}}/{{i18n: Quests.5948322.03}}/LeahHouse/-1/500/-1/FALSE/{{i18n: Quests.5948322.09}}",

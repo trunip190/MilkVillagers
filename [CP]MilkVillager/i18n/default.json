@@ -3,6 +3,7 @@
   "Dialogue.FarmerCollectCum": "You free your penis and start using one hand to gently stroke it, and the other to massage your balls. You close your eyes as you start to imagine someone leaning down and engulfing your cock between their lips.#$b#You pick up your pace as their imaginary mouth starts sucking harder, occasionally flicking your tip with their tongue. Your clench your eyes tighter as your cum starts to spurt out, painting the inside of your jar. You seal the lid with a contented sigh.",
   "Dialogue.FarmerCollectionMilk": "You glance around for a mo to see if anyone is watching you, then slip your top over your head. You start massaging you breast, and your nipples are soon standing proud, calling for attention.#$b#As you start kneading in earnest, a trickle quickly emerges from the sides of your nipple, and quickly becomes a stream. The flow increases as you find your rhythm, and the drip-drip of it collecting in your bottle is hypnotising.#$b#After several minutes of switching between breasts you are much emptier, and you pull your top back on. The fabric rubs against your slightly sore nipples.",
   "Dialogue.TimeSlows": "Time slows...and stops",
+  "Dialogue.QuestsOff": "You currently have quests turned off in config. Please re-enable them if you want to start quests with this character.",
 
   /*Women*/
   //Abigail
@@ -409,7 +410,7 @@
   /*Magical*/
   //Dwarf
   "Dialogue.Dwarf.milk_fast": " ",
-  "Dialogue.Dwarf.BJ": "Most Dwarves never get this intimate with each other...#$b#However, it has been a very long time since I've felt as close to someone as I do to you. I guess it's only natural to want to share our essence.#$b#%*You help the dwarf remove their garments, and a warm, earthy smell fills your nostrils as you lean in to their crotch*#$b#*They are already standing fully erect, and your warm, wet mouth surrounds them, using gentle sucking to start eliciting moans of pleasure*#$b#You are so very good at this, @. I'm sorry, but I won't be able to last long.#$b#%*After a few minutes of gentle teasing and sucking, Dwarf tenses up start cumming, filling your mouth completely with their essence.#bIt has a slightly spiced taste*#$b#Thank you, @. That was wonderful.$l",
+  "Dialogue.Dwarf.milk_start": "Most Dwarves never get this intimate with each other...#$b#However, it has been a very long time since I've felt as close to someone as I do to you. I guess it's only natural to want to share our essence.#$b#%*You help the dwarf remove their garments, and a warm, earthy smell fills your nostrils*#$b#*Their breasts seem different from human ones, but the Dwarf starts massaging it, and a silvery liquid starts to stream from a nipple#$b#Please bear with me, as this might take a while. We never really stop being able to produce milk, but it also takes us longer. I have not had a child for many seasons.#$b#%*After a few minutes of gentle teasing and squeezing the Dwarf tenses up, and starts filling your jar with their essence.#$b#It has a slightly spiced tasted, like cloves",
 
   "Dialogue.Dwarf.QuestStartFail": "Sorry, I don't have any quests written for me yet.",
   "Dialogue.Dwarf.QuestStartSuccess": "A drink? Sure, anything that comes from %farm is always tasty. (Quests starting - wait for mail)",
@@ -598,24 +599,24 @@
   "Quests.594812.09": "That was a memory I'll never forget, and Abigail definitely won't let me forget it either. She told me to keep an eye on my email in a few days time.", // Add a way to replay the scene.
 
   // Maru
-  "Quests.594813.01": "Scientific samples",
+  "Quests.594813.01": "Scientific samples Pt 1",
   "Quests.594813.02": "Maru wants to run some tests on how the Valley affects villagers' cum.",
   "Quests.594813.03": "Harvest some cum from a villager",
   "Quests.594813.09": "Reaction Text",
 
-  "Quests.5948132.01": "Scientific sample",
+  "Quests.5948132.01": "Scientific sample Pt 2",
   "Quests.5948132.02": "Maru wants to run some tests on how the Valley affects villagers' cum.",
-  "Quests.5948132.03": "Bring Maru a sample of cum from a villager",
+  "Quests.5948132.03": "Craft the item into Special Milk and bring it to Maru.",
   "Quests.5948132.09": "Wow, I didn't expect you to bring it so quickly! It definitely looks right, and...it has that typical earthy smell. I might post some requests in the future, if you're interested.",
 
-  "Quests.594814.01": "Making potions the adult way",
+  "Quests.594814.01": "Making potions the adult way Pt 1",
   "Quests.594814.02": "Maru wants you collect some essence from a magical creature so she can study how it is different.",
   "Quests.594814.03": "Collect some essence from a magical creature like Krobus or the Dwarf.",
   "Quests.594814.09": "Reaction Text",
 
-  "Quests.5948142.01": "Making potions the adult way",
+  "Quests.5948142.01": "Making potions the adult way Pt 2",
   "Quests.5948142.02": "Maru wants you collect some essence from a magical creature so she can study how it is different.",
-  "Quests.5948142.03": "Bring Maru the item you collected.",
+  "Quests.5948142.03": "Craft the item into Magical Essence and bring it to Maru.",
   "Quests.5948142.09": "It doesn't look anything like I expected. Did it take a lot of hard work to get this sample, @?",
 
   "Quests.594815.01": "Excuse me, Dr?",
@@ -624,7 +625,7 @@
   "Quests.594815.09": "Completion Text",
 
   "Quests.594816.01": "Lacking the human touch",
-  "Quests.594816.02": "Maru wants you to test out one of her inventions with her (H lvl 8, evening)",
+  "Quests.594816.02": "Maru wants you to test out one of her inventions with her. (H lvl 8, after 6pm, only female right now)",
   "Quests.594816.03": "Go visit Maru in the evening when she is at home.",
   "Quests.594816.09": "Completion Text",
 
@@ -786,26 +787,26 @@
 
   "Quests.594839.01": "Purely for medical science",
   "Quests.594839.02": "Harvey has asked you come by for a physical. See how physical you can get",
-  "Quests.594839.03": "Go to the medical clinic when Maru isn't working",
+  "Quests.594839.03": "Go to the medical clinic on a day when Maru isn't working. (not Tue/Thur)",
   "Quests.594839.09": "Completion Text",
 
   "Quests.594840.01": "Doctors & Nurses",
   "Quests.594840.02": "Dr Harvey and Nurse Maru need your assistance in a clinical trial. They promise you'll enjoy the testing process.",
-  "Quests.594840.03": "Go to the clinic when Harvey and Maru are there.",
+  "Quests.594840.03": "Go to the clinic when Harvey and Maru are there. (H7 for both)",
   "Quests.594840.09": "Completion Text",
 
   // Mail
-  "Mail.MTV_Vagina": "Your config has specified that you have a vagina, no penis, and are not Ace. This will be used for events. If you wish to change this, please edit your preferences in the config (this overrides your Stardew option)",
-  "Mail.MTV_Penis": "Your config has specified that you have a penis, no vagina, and are not Ace. This will be used for events. If you wish to change this, please edit your preferences in the config (this overrides your Stardew option)",
-  "Mail.MTV_Ace": "Your config has specified that you are Ace, and would prefer not to take part personally in sex. This will be used for events. If you wish to change this, please edit your preferences in the config (this overrides your Stardew option)",
-  "Mail.MTV_Herm": "Your config has specified that you have both a vagina and a penis, and are not Ace. This will be used for events. If you wish to change this, please edit your preferences in the config (this overrides your Stardew option)",
+  "Mail.MTV_Vagina": "Your config has specified that you have female genitalia. This will be used for events. If you wish to change this, please edit your preferences in the config and restart the game (this overrides your Stardew option)",
+  "Mail.MTV_Penis": "Your config has specified that you have male genitalia. This will be used for events. If you wish to change this, please edit your preferences in the config and restart the game (this overrides your Stardew option)",
+  "Mail.MTV_Ace": "Your config has specified that you are Ace, and would prefer not to take part personally in sex. This will be used for events. If you wish to change this, please edit your preferences in the config and restart the game (this overrides your Stardew option)",
+  "Mail.MTV_Herm": "Your config has specified that you have both a vagina and a penis. This will be used for events. If you wish to change this, please edit your preferences in the config and restart the game (this overrides your Stardew option)",
 
-  "Mail.MilkButton1": "@,^^ You can now milk villagers using the 'O' button.^To milk a villager they must be an adult and have more than 6 hearts.^You can only milk them once a day, but be warned that once you start they may get addicted.   ^           -Anonymous.",
-  "Mail.MilkButton2": "@,^^ I forgot to tell you that if your inventory is cluttered, there is a recipe that converts the different types of milk and cum into a base type to save space.^They can no longer be used in some special recipes, though most of the recipes require them to be converted this way first.^           -Anonymous.",
+  "Mail.MilkButton1": "@,^^ You can now milk villagers using the 'O' button.^To milk a villager they must be an adult and have more than 6 hearts. You can only milk them once a day.^^To start quests with a character, give them this 'Readi Milk' and if they have quests written, they'll send you some mail. ^^Finally, if you want to play as a character with different genitals to your gender, edit the config options 'Override Genitals' and 'Farmer Genitals' fields.        -Anonymous.",
+  "Mail.MilkButton2": "@,^^ I forgot to tell you that if your inventory is cluttered, there is a recipe that converts the different types of milk and cum into their base type to save space.^They can no longer be used in some special recipes, though some recipes or quests require them to be converted this way first.^           -Anonymous.",
   "Mail.MilkingProfQuality": "Thank you for collecting the milk for me. I'm sure that you've learnt a few tricks from this task. You can get better quality items when milking people[#]Milk Quality",
   "Mail.MilkingProfCount": "Congratulations on completing another task for me. Squeezing out a little more should be a breeze for you now. You can get more items when milking people[#]Milk Quantity",
 
-  "Mail.AbiMilking": "Hey @,^^I have something embarrassing to tell you, but I need to do it in person.^When you have time can you come see me?^^PS. Make sure you bring your milk pail.^^      -Abigail.",
+  "Mail.AbiMilking": "Hey @,^^Something has been happening in the village.^Keep your eyes peeled for strange occurrences^^PS. I've started a show online. See if you can find it. ;)^^      -Abigail.",
 
   "Mail.MTV_AbigailQ1": "Hey @,^^I need a cave carrot for my show, and Marlon won't let me in the mines yet. Preferably one that has been cleaned.   ^-Abigail %item quest 594801 %%",
   "Mail.MTV_AbigailQ1T": "I don't know where you found that cave carrot, but the next time you find another one make sure you bring it to me! My viewers loved seeing it tickle me inside and out, and I have to admit I loved it too. Not my first choice, but here's hoping the next request is a little more normal.   ^-Your local camgirl",
@@ -907,12 +908,12 @@
   "Mail.MTV_PennyQ4": "Adding Penny quest 4 %item quest 594828 %%",
   "Mail.MTV_PennyQ4T": "Penny Quest 4 completed",
 
-  "Mail.MTV_LeahQ1": "Hey @.^^I need a model for an art contest I'm entering. The theme is 'the beautiful body', and I immediately thought of you. Please come by my cottage when you have the time.^   Leah^^^PS. Clothing is optional. Whatever you're comfortable with.%item quest 594829 %%",
+  "Mail.MTV_LeahQ1": "Hey @.^^I need a model for an art contest I'm entering. The theme is 'the beautiful body', and I immediately thought of you. Please come by my cottage when you have the time.^Leah^PS. Clothing is optional. Whatever you're comfortable with.%item quest 594829 %%",
   "Mail.MTV_LeahQ1P": "Leah quest 1 partially completed.",
   "Mail.MTV_LeahQ1T": "Thank you so much for coming by my cottage yesterday. The paint is drying, and I can't wait to send it off to the competition. I'll let you know as soon as I hear back^   Leah",
 
   "Mail.MTV_LeahQ2": "Hey there, farmer.^^I recently commissioned an item from Robin, and she said that it is finally ready. I don't have the time to head over there, but I was hoping you could pick it up for me? Don't worry about the cost - I paid up front because it's pretty...unique.^Leah %item quest 594830 %%",
-  "Mail.MTV_LeahQ2T": "Hey there...^^I wish I could have seen the look on your face when you picked it up. Sorry for not warning you, but I also wanted to see how you responded to it when you brought it to me. Don't worry - you passed.^Leah.'",
+  "Mail.MTV_LeahQ2T": "Hey there...^^I'm glad you managed to restrain yourself from peeking in my box, but I wish I could have seen the look on your face if you opened it. Anyway, I'll let you see what it was some time soon. Oh, and don't worry - you passed.^Leah.",
 
   "Mail.MTV_LeahQ3": "Can you come by the cottage when you have some time? There's an event coming up that I want to take you to see. %item quest 594831 %%",
   "Mail.MTV_LeahQ3T": "I was so excited last night I could barely sleep, so I might have a few things I need your help with soon. Don't worry - I'll let you know as soon as I have some ideas.^Leah",
@@ -1052,13 +1053,15 @@
   "Secret_Pleasures.name": "Secret Pleasures",
   "Secret_Pleasures.description": "A special cocktail immortalising secret love.",
   "Special_Milkshake.name": "Special Milkshake",
-  "Special_Milkshake.description": "My milkshake brings all the...",
+  "Special_Milkshake.description": "My milkshake brings all the boys to the yard.",
   "Super_Juice.name": "Super Juice",
   "Super_Juice.description": "The perfect fusion of male and female juices",
   "Sweet_Sibling.name": "Sweet Sibling",
   "Sweet_Sibling.description": "A special milkshake that embodies a sisterly bond. Just add a strawberry.",
   "CookiesnCream.name": "Cookies & Cream",
   "CookiesnCream.description": "Nothing quite like dunking some cookies in some freshly squeezed breast milk.",
+  "PureCapitalism.name": "Pure Capitalism",
+  "PureCapitalism.description": "A cocktail with a golden glow. The taste is secondary.",
 
   "Abigails_Panties.name": "Abigails Panties",
   "Abigails_Panties.description": "A pair of Abigail's panties",
@@ -1080,6 +1083,8 @@
   "Readi_Milk.description": "A bottle of enchanted milk that encourages healthy growth. Give to someone to start quests with them.",
   "Shibari_rope.name": "Shibari rope",
   "Shibari_rope.description": "All you need now is someone to turn into a rope bunny.",
+  "Shibari_rope_package.name": "Package for Leah",
+  "Shibari_rope_package.description": "Doesn't seem to weigh that much.",
   "Strapon.name": "Strapon",
   "Strapon.description": "A meat substitute. Not as tasty"
 

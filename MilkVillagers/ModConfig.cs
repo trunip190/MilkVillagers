@@ -106,7 +106,7 @@ namespace MilkVillagers
         public static bool HasPenis => FarmerGenitals.ToLower().Contains("penis");
         public static bool HasVagina => FarmerGenitals.ToLower().Contains("vagina");
         public static bool HasBreasts => FarmerGenitals.ToLower().Contains("breasts");
-        public static bool AceCharacter => (FarmerGender == "A-sexual");
+        public static bool AceCharacter => (FarmerGender == "A-sexual" || FarmerGender == "Ace");
         #endregion
 
         public static bool IgnoreVillagerGender = false;

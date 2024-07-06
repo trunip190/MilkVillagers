@@ -116,7 +116,7 @@ namespace MilkVillagers.Asset_Editors
             ["Harvey"] = "MTV_HarveyQ1",        //Harvey quest 1
             ["Elliott"] = "MTV_ElliottQ1",      //Elliott quest 1
             ["Emily"] = "MTV_EmilyQ1",          //Emily quest 1
-            ["Haley"] = "MTV_HaleyQ1",          //Haley quest 1
+            //["Haley"] = "MTV_HaleyQ1",          //Haley quest 1
             ["Penny"] = "MTV_PennyQ1",          //Penny quest 1
             ["Leah"] = "MTV_LeahQ1",            //Leah quest 1
             ["Sebastian"] = "MTV_SebQ1",    //Sebastian quest 1
