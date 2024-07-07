@@ -1673,26 +1673,26 @@ namespace MilkVillagers
             {
                 if ((TempRefs.IgnoreVillagerGender || target.Gender == Gender.Male) && Config.MilkMale) // Male and genderless
                 {
-                    choices.Add(new Response("milk_fast", "Fast BJ [20E]"));
-                    choices.Add(new Response("BJ", "Give them a blowjob [20E]"));
+                    choices.Add(log.ProcessOption("milk_fast_male"));
+                    choices.Add(log.ProcessOption("BJ"));
                 }
                 else if ((TempRefs.IgnoreVillagerGender || target.Gender == Gender.Female) && Config.MilkFemale) // Female and genderless
                 {
-                    choices.Add(new Response("milk_fast", "Fast Milk [20E]"));
-                    choices.Add(new Response("milk_start", "Milk them [20E]"));
-                    choices.Add(new Response("eat_out", "Give Cunnilingus [30E] (partially implemented)")); //TODO Not written yet.
+                    choices.Add(log.ProcessOption("milk_fast_fem"));
+                    choices.Add(log.ProcessOption("milk_start"));
+                    choices.Add(log.ProcessOption("eat_out")); //TODO Not written yet.
                 }
                 else if (target.Gender == Gender.Undefined)
                 {
                     if (target.Name == "Dwarf")
                     {
-                        choices.Add(new Response("milk_fast", "Fast Milk [20E]"));
-                        choices.Add(new Response("milk_start", "Milk them [20E]"));
+                        choices.Add(log.ProcessOption("milk_fast"));
+                        choices.Add(log.ProcessOption("milk_start"));
                     }
                     if (target.Name == "Krobus")
                     {
-                        choices.Add(new Response("milk_fast", "Fast BJ [20E]"));
-                        choices.Add(new Response("BJ", "Give them a blowjob [20E]"));
+                        choices.Add(log.ProcessOption("milk_fast"));
+                        choices.Add(log.ProcessOption("BJ"));
                     }
                 }
 
@@ -1700,7 +1700,7 @@ namespace MilkVillagers
                 //choices.Add(new Response("sex", "Ask them for sex [50E](not implemented)")); //TODO not written yet.
             }
 
-            choices.Add(new Response("abort", "Do nothing"));
+            choices.Add(log.ProcessOption("abort"));
 
             return choices;
         }
@@ -1818,6 +1818,8 @@ namespace MilkVillagers
         {
             #region Set up vars for method
             bool success = false;
+
+            if (action.Contains("milk_fast")) action = "milk_fast";
 
             // Reset Additem
             AddItem = null;
