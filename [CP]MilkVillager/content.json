@@ -56,7 +56,7 @@
 
   ],
   "Changes": [
-     // Dialogue
+    // Dialogue
     {
       "LogName": "Include Dialogue",
       "Action": "Include",
@@ -75,6 +75,13 @@
       "LogName": "Include Items",
       "Action": "Include",
       "FromFile": "Data/Items.json"
+    },
+
+    //NPC Gift Tastes
+    {
+      "LogName": "Include Gift Tastes",
+      "Action": "Include",
+      "FromFile": "Data/NPCGiftTastes.json"
     },
 
     //Mail Items

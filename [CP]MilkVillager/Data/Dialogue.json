@@ -7,15 +7,29 @@
       "Entries": {
         "FarmerCollectCum": "{{i18n:Dialogue.FarmerCollectCum}}",
         "FarmerCollectionMilk": "{{i18n:Dialogue.FarmerCollectionMilk}}",
+
+        "HeartRejection": "{{i18n:Dialogue.HeartRejection}}",
+        "EnergyLow": "{{i18n:Dialogue.EnergyLow}}",
+        "AlreadyMilked": "{{i18n:Dialogue.AlreadyMilked}}",
+
         "TimeSlows": "{{i18n:Dialogue.TimeSlows}}",
         "QuestsOff": "{{i18n:Dialogue.QuestsOff}}",
 
+        "option.menu_dialogue_villager": "{{i18n:Dialogue.option.menu_dialogue_villager}}",
         "option.milk_fast_fem": "{{i18n:Dialogue.option.milk_fast_fem}}",
         "option.milk_fast_male": "{{i18n:Dialogue.option.milk_fast_male}}",
         "option.BJ": "{{i18n:Dialogue.option.BJ}}",
         "option.milk_start": "{{i18n:Dialogue.option.milk_start}}",
         "option.eat_out": "{{i18n:Dialogue.option.eat_out}}",
-        "option.abort": "{{i18n:Dialogue.option.abort}}"
+        "option.abort": "{{i18n:Dialogue.option.abort}}",
+
+        "option.menu_dialogue_solo": "{{i18n:Dialogue.option.menu_dialogue_solo}}",
+        "option.self_cum": "{{i18n:Dialogue.option.menu_dialogue_self_cum}}",
+        "option.self_milk": "{{i18n:Dialogue.option.menu_dialogue_self_milk}}",
+        "option.time_freeze": "{{i18n:Dialogue.option.menu_dialogue_time_freeze}}",
+        "option.stamina_regen": "{{i18n:Dialogue.option.menu_dialogue_stamina_regen}}",
+
+        "MTV_Parcel_Fail": "{{i18n:Dialogue.MTV_Parcel_Fail}}"
       }
     },
 
@@ -708,8 +722,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Krobus",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.Krobus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Krobus Essence] [Quality:2]",
-        "BJ": "{{i18n:Dialogue.Krobus.BJ}} [Trunip190.CP.MilkTheVillagers.Krobus Essence] [Quality:2]",
+        "milk_fast": "{{i18n:Dialogue.Krobus.milk_fast}} [Trunip190.CP.MilkTheVillagers.Krobus_Essence] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.Krobus.BJ}} [Trunip190.CP.MilkTheVillagers.Krobus_Essence] [Quality:2]",
         "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.Krobus.QuestStartFail}}",
@@ -723,8 +737,8 @@
       "Action": "EditData",
       "Target": "Characters/Dialogue/Mister Qi",
       "Entries": {
-        "milk_fast": "{{i18n:Dialogue.MisterQi.milk_fast}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's_Essence] [Quality:2]",
-        "BJ": "{{i18n:Dialogue.MisterQi.BJ}} [Trunip190.CP.MilkTheVillagers.Mr. Qi's_Essence] [Quality:2]",
+        "milk_fast": "{{i18n:Dialogue.MisterQi.milk_fast}} [Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence] [Quality:2]",
+        "BJ": "{{i18n:Dialogue.MisterQi.BJ}} [Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence] [Quality:2]",
         "action_rejected": "Sorry, @. I don't like you well enough for that yet.",
 
         "QuestStartFail": "{{i18n:Dialogue.MisterQi.QuestStartFail}}",

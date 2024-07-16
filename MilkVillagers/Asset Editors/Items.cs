@@ -1,4 +1,6 @@
-﻿using SpaceCore.Spawnables;
+﻿// Ignore Spelling: Initialised
+
+using SpaceCore.Spawnables;
 using StardewModdingAPI;
 using StardewValley.GameData.Objects;
 using StardewValley.Objects;
@@ -170,8 +172,17 @@ namespace MilkVillagers.Asset_Editors
 
                 foreach (KeyValuePair<string, ObjectData> kvp in ItemData)
                 {
-                    if (kvp.Value.Name.ToLower().Contains("teddy"))
-                        results.Add(kvp.Key, kvp.Value);
+                    try
+                    {
+                        if (kvp.Value == null || kvp.Value.Name == null) continue;
+
+                        if (kvp.Value.Name.ToLower().Contains("teddy"))
+                            results.Add(kvp.Key, kvp.Value);
+                    }
+                    catch
+                    {
+                        log.Log("Failed in Items:EditAsset", LogLevel.Alert, Force: true);
+                    }
                 }
 
                 if (!TempRefs.loaded)
@@ -361,7 +372,7 @@ namespace MilkVillagers.Asset_Editors
             if (Female)
             {
                 // milk items
-                if (ItemData.ContainsKey($"{TempRefs.ModItemPrefix}Abigail's_Milk")) ItemData[$"{TempRefs.ModItemPrefix}Abigail's_Milk"].Category = -34;  // $"Abigail's Milk/300/30/Drink {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
+                //if (ItemData.ContainsKey($"{TempRefs.ModItemPrefix}Abigail's_Milk")) ItemData[$"{TempRefs.ModItemPrefix}Abigail's_Milk"].Category = -34;  // $"Abigail's Milk/300/30/Drink {TempRefs.MilkType}/Abigail's Milk/A jug of Abigail's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
                 //if (ItemData.ContainsKey(TempRefs.MilkEmil)) ItemData[TempRefs.MilkEmil] = ItemData[TempRefs.MilkEmil].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Emily's Milk/300/30/Drink {TempRefs.MilkType}/Emily's Milk/A jug of Emily's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
                 //if (ItemData.ContainsKey(TempRefs.MilkHale)) ItemData[TempRefs.MilkHale] = ItemData[TempRefs.MilkHale].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Haley's Milk/300/30/Drink {TempRefs.MilkType}/Haley's Milk/A jug of Haley's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
                 //if (ItemData.ContainsKey(TempRefs.MilkLeah)) ItemData[TempRefs.MilkLeah] = ItemData[TempRefs.MilkLeah].Replace("Milk -6", $"Drink {TempRefs.MilkType}"); // $"Leah's Milk/300/30/Drink {TempRefs.MilkType}/Leah's Milk/A jug of Leah's milk./Drink/0 0 0 0 0 0 0 0 0 0 0/0";
@@ -453,11 +464,20 @@ namespace MilkVillagers.Asset_Editors
 
             foreach (KeyValuePair<string, ObjectData> kvp in ItemData)
             {
-                stringSplit = kvp.Value.Name.Split('/');
+                if (kvp.Value == null) continue;
 
-                if (ModItems.ContainsKey(stringSplit[0]) && ItemData.ContainsKey(kvp.Key))
+                try
                 {
-                    ModItems[stringSplit[0]] = new ObjectData() { Name = kvp.Key };
+                    stringSplit = kvp.Value.Name.Split('/');
+
+                    if (ModItems.ContainsKey(stringSplit[0]) && ItemData.ContainsKey(kvp.Key))
+                    {
+                        ModItems[stringSplit[0]] = new ObjectData() { Name = kvp.Key };
+                    }
+                }
+                catch
+                {
+                    log.Log("Failed in GetAllItemIDs", LogLevel.Alert, Force: true);
                 }
             }
 
@@ -769,5 +789,46 @@ namespace MilkVillagers.Asset_Editors
             }
             //SetItems();
         }
+    }
+
+    public static class NPCGiftTastesEditor
+    {
+        private static IDictionary<string, string> data;
+        public static List<string> Villagers = new List<string>();
+
+
+        public static bool CanEdit(IAssetName AssetName)
+        {
+            return AssetName.IsEquivalentTo("Data/NPCGiftTastes");
+        }
+
+        public static void Edit(IAssetData asset)
+        {
+            EditAsset(asset);
+        }
+
+        private static void EditAsset(IAssetData asset) { }
+
+        public static void UpdateData(Dictionary<string, string> assetdata)
+        {
+            data = assetdata;
+
+            string[] banned = new string[] {
+                "Universal_Love",
+                "Universal_Like",
+                "Universal_Neutral",
+                "Universal_Dislike",
+                "Universal_Hate"
+            };
+
+            foreach (KeyValuePair<string, string> kvp in data)
+                if (!Villagers.Contains(kvp.Key))
+                {
+                    if (!banned.Contains(kvp.Key))
+                        Villagers.Add(kvp.Key);
+                }
+
+        }
+
     }
 }

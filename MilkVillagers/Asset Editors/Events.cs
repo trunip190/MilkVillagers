@@ -51,10 +51,10 @@ namespace MilkVillagers.Asset_Editors
         {
             data = asset.AsDictionary<string, string>().Data;
 
-            foreach (KeyValuePair<string, string> kvp in data)
-            {
-                ModFunctions.Log($"MTV event:\t{kvp.Key}: {kvp.Value}", LogLevel.Trace);
-            }
+            //foreach (KeyValuePair<string, string> kvp in data)
+            //{
+            //    ModFunctions.Log($"MTV event:\t{kvp.Key}: {kvp.Value}", LogLevel.Trace);
+            //}
         }
     }
 

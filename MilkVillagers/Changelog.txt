@@ -1,36 +1,15 @@
-﻿changelog 1.1.0
-	Updated to Stardew 1.5.6 & SMAPI 3.15.1
+﻿changelog 
 
-	milk/harvest yourself
-	pause time or stamina regen with secret drink
-		
-	Quests!
-		start quests by giving an npc the special readi-milk cocktail. If they have quests, they'll respond and you will have mail the next day.
-		4 planned for each character, but only Abigail is complete, and others just have partial quests.
-	
-	Current Events
-		Abigail
-		Harvey
-		Maru/Harvey
-		Leah one bondage show
-		Penny
-		Haley/Alex with player
-		Emily 
+1.2.4
+	Updated to Stardew 1.6 & SMAPI 4.0.8
+	removed JSON Assets dependency
+	items now managed through Content Patcher
+	Dialogue, items, quests, mail moved to i18n translation compatibility
+	New events added
+		Existing events have multiple gender versions where appropriate. May be expanded.
 
-	Credits
-		whyamIlikethiswhy 
-			New icons for cum (https://www.nexusmods.com/stardewvalley/mods/12810)
-			Second Leah event
-		inspiration by Seattle Erotic Arts Festival
+1.2.5
+	more menu dialogue moved to i18n
+	fixed some dialogue failing to give items
+	adding in like/dislikes. (base items only)
 
-Plans for future:
-Maru event
-
-recipes of items
-	coffee with breast milk
-	breast milk cheese
-
-mod compatability
-config for minimum heart level
-
-Add in birthday surprises for spouse - events by farmer for spouse.

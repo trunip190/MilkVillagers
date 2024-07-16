@@ -23,6 +23,7 @@ using StardewValley.Network;
 using StardewValley.GameData.Characters;
 using SpaceCore;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace MilkVillagers
 {
@@ -91,6 +92,7 @@ namespace MilkVillagers
 
         public override void Entry(IModHelper helper)
         {
+            log.Log("MTV: Entry", LogLevel.Debug);
             Config = helper.ReadConfig<ModConfig>();
             DialogueEditor.ExtraContent = Config.ExtraDialogue;
             TempRefs.Monitor = Monitor;
@@ -153,11 +155,13 @@ namespace MilkVillagers
             helper.ConsoleCommands.Add("mtv_sendmail", "Send the next mail item if conditions are met\n\nUsage: mtv_sendmail <value>\n- value: the farmer to send mail to.", this.SendNewMail);
             helper.ConsoleCommands.Add("mtv_upgrade", "Force the mod to reset quest and mail flags when you have upgraded the mod\n\nUsage: mtv_upgrade", this.Upgrade);
             #endregion
+            log.Log("MTV: Entry Done", LogLevel.Debug);
         }
 
         #region Game OnEvent Triggers
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
+            log.Log("MTV: OnGameLaunched", LogLevel.Debug);
             UpdateConfig();
 
             LinkPhone();
@@ -185,6 +189,7 @@ namespace MilkVillagers
             //TempRefs.HasVagina = Config.HasVagina;
             //TempRefs.HasBreasts = Config.HasBreasts;
             TempRefs.IgnoreVillagerGender = Config.IgnoreVillagerGender;
+            log.Log("MTV: OnGameLaunched Done", LogLevel.Debug);
         }
 
         private void UpdateConfig()
@@ -557,8 +562,8 @@ namespace MilkVillagers
                 Game1.addHUDMessage(new HUDMessage("ruh roh"));
                 who.isEating = false;
             }
-       
-        
+
+
         }
 
         private void SpaceEvents_BeforeGiftGiven(object sender, EventArgsBeforeReceiveObject e)
@@ -566,7 +571,6 @@ namespace MilkVillagers
             Farmer who = Game1.player;
             string ItemGiven = e.Gift.ItemId;
             NPC npcTarget = e.Npc;
-
 
             if (ItemGiven == "Trunip190.CP.MilkTheVillagers.Readi_Milk")
             {
@@ -610,7 +614,8 @@ namespace MilkVillagers
             {
                 if (npcTarget.Name != "Penny")
                 {
-                    DrawDialogue(npcTarget, "Thats not my package. Maybe ask around the village?", action: "MTV_Parcel");
+                    var defaultFailed = Game1.content.LoadStringReturnNullIfNotFound("Strings/StringsFromCSFiles:MTV_Parcel_Fail");
+                    DrawDialogue(npcTarget, defaultFailed, action: "MTV_Parcel");
                     e.Cancel = true;
                     goto cleanup;
                 }
@@ -653,7 +658,7 @@ namespace MilkVillagers
 
                 log.Log($"{who.currentLocation.Name}, {who.GetGrabTile().X}, {who.GetGrabTile().Y}");
 
-                
+
                 if (TimeFreeze) { TimeFreeze = false; TimeFreezeTimer = 0; Game1.addHUDMessage(new HUDMessage("Time flows again")); }
                 else { TimeFreeze = true; TimeFreezeTimer = 1000; Game1.addHUDMessage(new HUDMessage("Time is frozen")); }
 
@@ -741,7 +746,10 @@ namespace MilkVillagers
                     currentTarget = NPCtarget;
                     running = false;
 
-                    Game1.currentLocation.createQuestionDialogue($"What do you want to do with {NPCtarget.Name}?", choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+
+                    //string question = new Dialogue(null, translationKey: "Strings/StringsFromCSFiles:option.menu_dialogue_villager").dialogues[0].Text.Replace("[name]", NPCtarget.displayName);
+                    string question = Game1.content.LoadStringReturnNullIfNotFound("Strings/StringsFromCSFiles:option.menu_dialogue_villager").Replace("[name]", NPCtarget.displayName);
+                    Game1.currentLocation.createQuestionDialogue(question, choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                 }
                 else if (companion != null && companion != who)
                 {
@@ -754,31 +762,32 @@ namespace MilkVillagers
                     // TODO change to energy based or time based
                     if (GetPenis(who) && who.Stamina > 150)
                     {
-                        options.Add(new Response("self_cum", "Collect your own cum")); //collect own cum
+                        options.Add(log.ProcessOption("self_cum"));//collect own cum
                     }
 
                     if (GetBreasts(who) && who.stamina > 150)// && !TempRefs.SelfMilkedToday)
                     {
-                        options.Add(new Response("self_milk", "Milk yourself")); //collect own breastmilk
+                        options.Add(log.ProcessOption("self_milk")); //collect own breastmilk
                     }
 
                     // TODO not showing up?
                     if (false && who.Items.CountId("Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence") > 0)
                     {
-                        options.Add(new Response("time_freeze", "Freeze time"));
+                        options.Add(log.ProcessOption("time_freeze"));
                     }
 
                     // TODO not showing up?
                     if (false && who.Items.CountId("Trunip190.CP.MilkTheVillagers.Eldritch_Energy") > 0)
                     {
-                        options.Add(new Response("stamina_regen", "Drink Eldritch Energy"));
+                        options.Add(log.ProcessOption("stamina_regen"));
                     }
 
                     if (options.Count > 0)
                     {
                         options.Add(new Response("abort", "Nothing"));
 
-                        Game1.currentLocation.createQuestionDialogue($"What would you like to do?", options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                        string question = Game1.content.LoadStringReturnNullIfNotFound( "Strings/StringsFromCSFiles:option.menu_dialogue_solo");
+                        Game1.currentLocation.createQuestionDialogue(question, options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                     }
                     else
                     {
@@ -790,6 +799,7 @@ namespace MilkVillagers
 
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
+            log.Log("MTV: GameLoop_SaveLoaded", LogLevel.Debug);
             loaded = true;
             doneOnce = false;
 
@@ -819,10 +829,12 @@ namespace MilkVillagers
             //Game1.player.setSkillLevel("Milking Skill", 2);
 
             runOnce = true;
+            log.Log("MTV: GameLoop_SaveLoaded Done", LogLevel.Debug);
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
         {
+            log.Log("MTV: GameLoop_DayStarted", LogLevel.Debug);
             if (TempRefs.milkedtoday == null) log.Log("TempRefs not set");
             else
             {
@@ -844,6 +856,7 @@ namespace MilkVillagers
             //SendNewMail(who);
             TimeFreezeTimer = 0;
             RegenAmount = 0;
+            log.Log("MTV: GameLoop_DayStarted Done", LogLevel.Debug);
         }
 
         private void GameLoop_OneSecondUpdateTicked(object sender, OneSecondUpdateTickedEventArgs e)
@@ -1026,7 +1039,7 @@ namespace MilkVillagers
             if (e.Name.IsEquivalentTo("Data/CraftingRecipes")) { RecipeEditor.UpdateCraftingData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
             if (NPCGiftTastesEditor.CanEdit(e.Name)) { NPCGiftTastesEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
             if (e.Name.IsEquivalentTo("Data/Objects")) { ObjectEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, ObjectData>>(e.Name)); };
-
+            
         }
 
         protected virtual void DoActionNPC(object sender, ActionNPCEventArgs e)
@@ -1843,15 +1856,17 @@ namespace MilkVillagers
 
             if (HeartCurrent < heartMin && npc.CanSocialize)//  npc.name != "Mister Qi") // Check if the NPC likes you enough.
             {
-                DrawDialogue(npc, $"That's flattering, but I don't like you enough for that. ({HeartCurrent}/{heartMin} hearts)", action: "action_rejected");
+                var rejectionDialogue = new Dialogue(npc, "Strings/StringsFromCSFiles:HeartRejection").dialogues[0].Text.Replace("[HeartCurrent]", $"{HeartCurrent}").Replace("[heartMin]", $"{heartMin}");
+                DrawDialogue(npc, rejectionDialogue, action: "action_rejected");
                 log.Log($"{npc.Name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Trace);
                 goto cleanup;
             }
 
             // Energy level
-            if (who.stamina < energyCost)
+            if (who.stamina <= energyCost)
             {
-                Game1.addHUDMessage(new HUDMessage($"You don't have enough energy for that. {who.stamina}/{energyCost}"));
+                var lowEnergy = new Dialogue(npc, "Strings/StringsFromCSFiles:EnergyLow").dialogues[0].Text.Replace("[who.stamina]", $"{who.stamina}").Replace("[energyCost]", $"{energyCost}");
+                Game1.addHUDMessage(new HUDMessage(lowEnergy));
                 goto cleanup;
             }
 
@@ -1860,7 +1875,11 @@ namespace MilkVillagers
             if ((action == "milk_start" || action == "milk_fast") && TempRefs.milkedtoday.Contains(npc))
             {
                 if (Config.Verbose)
-                    Game1.addHUDMessage(new HUDMessage($"{npc.Name} has already been milked today."));
+                {
+                    var AlreadyMilked = new Dialogue(npc, "Strings/StringsFromCSFiles:AlreadyMilked").dialogues[0].Text.Replace("[name]", npc.displayName);
+
+                    Game1.addHUDMessage(new HUDMessage(AlreadyMilked));
+                }
                 goto cleanup;
             }
             if ((action == "sex" || action == "BJ") && TempRefs.SexToday.Contains(npc))
@@ -1937,7 +1956,7 @@ namespace MilkVillagers
                     log.Log($"{npc.Name} value was {val}", LogLevel.Trace);
 
                     chosenString = chosenString.Replace($"{val}", "").Replace("[]", "").Trim();
-                    if ( !Config.StackMilk) ItemCode = val;
+                    if (!Config.StackMilk) ItemCode = val;
                 }
 
                 AddItem = new sObject($"{ItemCode}", 1);
@@ -2145,6 +2164,8 @@ namespace MilkVillagers
             Dialogue v = log.ProcessDialogue(new Dialogue(npc, $"Characters/Dialogue/{npc.Name}:{action}"));
 
             var NewMessage = v.dialogues[0];
+
+            if (NewMessage.Text.Contains("Characters/Dialogue/")) NewMessage.Text = message;
 
             if (NewMessage.Text.Trim() == "") NewMessage.Text = message;
             if (NewMessage.Text.Trim() == "") return;
@@ -2446,8 +2467,6 @@ namespace MilkVillagers
             log.Log($"i18n: {args.Contains("i18n")}; raw: {args.Contains("raw")}; special: {args.Contains("special")}", LogLevel.Debug, Force: true);
         }
         #endregion
-
-
 
     }
 

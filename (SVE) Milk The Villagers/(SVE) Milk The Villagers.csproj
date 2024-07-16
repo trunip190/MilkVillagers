@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>MilkVillagers</RootNamespace>
+		<AssemblyName>MilkVillagers</AssemblyName>
+		<ApplicationIcon />
+		<Version>1.2.4</Version>
+		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
+		<BaseOutputPath></BaseOutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="content.json" />
+	  <None Remove="Data\NPCGiftTastes.json" />
+	  <None Remove="manifest.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="content.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Data\NPCGiftTastes.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="manifest.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
+	</ItemGroup>
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" i18n_4default_1json__JsonSchema="https://json.schemastore.org/base.json" />
+		</VisualStudio>
+	</ProjectExtensions>
+</Project>

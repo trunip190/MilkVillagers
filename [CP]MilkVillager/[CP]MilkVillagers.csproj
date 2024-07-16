@@ -146,6 +146,7 @@
 		<None Remove="Data\Events.json" />
 		<None Remove="Data\Items.json" />
 		<None Remove="Data\Mail.json" />
+		<None Remove="Data\NPCGiftTastes.json" />
 		<None Remove="Data\Quests.json" />
 		<None Remove="Data\Translations.json" />
 		<None Remove="i18n\default.json" />
@@ -559,6 +560,9 @@
 		</Content>
 		<Content Include="Data\Mail.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Data\NPCGiftTastes.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Data\Quests.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>

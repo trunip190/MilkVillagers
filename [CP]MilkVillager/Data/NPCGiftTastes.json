@@ -1,0 +1,1962 @@
+{
+  "Changes": [
+    //------------------------
+    // G I F T S
+    //------------------------
+
+    //Abigail
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Abigail",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Abigail",
+            1
+          ],
+          "Value": "Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Abigail",
+            3
+          ],
+          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Abigail",
+            5
+          ],
+          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Linus's_Cum Marnie's_Milk Morris's_Cum Pam's_Milk Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Abigail",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Abigail",
+            9
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Marlon's_Cum Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Alex
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Alex",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Alex",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Alex",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Alex",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Alex",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Alex",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Caroline
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Caroline",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Caroline",
+            1
+          ],
+          "Value": "Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Caroline",
+            3
+          ],
+          "Value": "Alex's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Caroline",
+            5
+          ],
+          "Value": "Andy's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Lewis's_Cum Marlon's_Cum Marnie's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Shane's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Caroline",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Caroline",
+            9
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Clint's_Cum Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Linus's_Cum Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Clint
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Clint",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Clint",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Clint",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Marnie's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Clint",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Clint",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Clint",
+            9
+          ],
+          "Value": "Mr._Qi's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Demetrius
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Demetrius",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Demetrius",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Demetrius",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Demetrius",
+            5
+          ],
+          "Value": "Andy's_Cum Clint's_Cum Gus's_Cum Linus's_Cum Marlon's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Demetrius",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Demetrius",
+            9
+          ],
+          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Dwarf
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Dwarf",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Dwarf",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Dwarf",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Clint's_Cum Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Marnie's_Milk Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Dwarf",
+            5
+          ],
+          "Value": "Andy's_Cum Dwarf's_Essence Krobus_Essence Lewis's_Cum Morris's_Cum Pam's_Milk",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Dwarf",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Dwarf",
+            9
+          ],
+          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Mr._Qi's_Essence Olivia's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Elliott
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Elliott",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Elliott",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Elliott",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Elliott",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Elliott",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Elliott",
+            9
+          ],
+          "Value": "Mr._Qi's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Emily
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Emily",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Emily",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Emily",
+            3
+          ],
+          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Emily",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Emily",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Emily",
+            9
+          ],
+          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Mr._Qi's_Essence Shane's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Evelyn
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Evelyn",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Evelyn",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Evelyn",
+            3
+          ],
+          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum George's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Evelyn",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Dwarf's_Essence Emily's_Milk Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Evelyn",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Evelyn",
+            9
+          ],
+          "Value": "Evelyn's_Milk Marnie's_Milk Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //George
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: George",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "George",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "George",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "George",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "George",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "George",
+            9
+          ],
+          "Value": "Marnie's_Milk",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Gus
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Gus",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gus",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gus",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Linus's_Cum Marnie's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gus",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gus",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gus",
+            9
+          ],
+          "Value": "Mr._Qi's_Essence Shane's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Haley
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Haley",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Haley",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Haley",
+            3
+          ],
+          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Haley",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Haley",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Haley",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Harvey
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Harvey",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Harvey",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Harvey",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Harvey",
+            5
+          ],
+          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Linus's_Cum Morris's_Cum Pam's_Milk Shane's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Harvey",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Harvey",
+            9
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Jodi
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Jodi",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Jodi",
+            1
+          ],
+          "Value": "Kent's_Cum",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Jodi",
+            3
+          ],
+          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Jodi",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Jodi",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Jodi",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Kent
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Kent",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Kent",
+            1
+          ],
+          "Value": "Jodi's_Milk",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Kent",
+            3
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Kent",
+            5
+          ],
+          "Value": "Abigail's_Milk Alex's_Cum Andy's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Demetrius's_Cum Elliott's_Cum Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Haley's_Milk Harvey's_Cum Kent's_Cum Lance's_Cum Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Pierre's_Cum Robin's_Milk Sam's_Cum Sandy's_Milk Sebastian's_Cum Shane's_Cum Sophia's_Milk Susan's_Milk Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Kent",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Kent",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Krobus
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Krobus",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Krobus",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Krobus",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Clint's_Cum Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Krobus",
+            5
+          ],
+          "Value": "Andy's_Cum Dwarf's_Essence Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Linus's_Cum Morris's_Cum Pam's_Milk Shane's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Krobus",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Krobus",
+            9
+          ],
+          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Mr._Qi's_Essence Olivia's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Leah
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Leah",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Leah",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Leah",
+            3
+          ],
+          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Leah",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Leah",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Leah",
+            9
+          ],
+          "Value": "Clint's_Cum Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Olivia's_Milk Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Lewis
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Lewis",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Lewis",
+            1
+          ],
+          "Value": "Marnie's_Milk",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Lewis",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Lewis",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Lewis",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Lewis",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Linus
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Linus",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Linus",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Linus",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Marnie's_Milk Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Linus",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Olivia's_Milk Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Linus",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Linus",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Linus's_Cum Mr._Qi's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Marnie
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Marnie",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Marnie",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Marnie",
+            3
+          ],
+          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Linus's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Marnie",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Marlon's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Marnie",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Marnie",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Maru
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Maru",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Maru",
+            1
+          ],
+          "Value": "Krobus_Essence Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Maru",
+            3
+          ],
+          "Value": "Abigail's_Milk Alex's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Emily's_Milk Gunther's_Cum Haley's_Milk Harvey's_Cum Jodi's_Milk Kent's_Cum Lance's_Cum Leah's_Milk Linus's_Cum Marnie's_Milk Martin's_Cum Maru's_Milk Olivia's_Milk Penny's_Milk Pierre's_Cum Robin's_Milk Sam's_Cum Sandy's_Milk Sebastian's_Cum Shane's_Cum Sophia's_Milk Susan's_Milk Victor's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Maru",
+            5
+          ],
+          "Value": "Andy's_Cum Lewis's_Cum Morris's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Maru",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Maru",
+            9
+          ],
+          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Marlon's_Cum Pam's_Milk",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Pam
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Pam",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pam",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pam",
+            3
+          ],
+          "Value": "Clint's_Cum Shane's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pam",
+            5
+          ],
+          "Value": "Abigail's_Milk Alex's_Cum Andy's_Cum Caroline's_Milk Claire's_Milk Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Haley's_Milk Harvey's_Cum Jodi's_Milk Kent's_Cum Krobus_Essence Lance's_Cum Leah's_Milk Lewis's_Cum Linus's_Cum Marnie's_Milk Martin's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Pierre's_Cum Robin's_Milk Sam's_Cum Sandy's_Milk Sebastian's_Cum Sophia's_Milk Susan's_Milk Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pam",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pam",
+            9
+          ],
+          "Value": "Gus's_Cum Marlon's_Cum Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Penny
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Penny",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Penny",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Penny",
+            3
+          ],
+          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Penny",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Dwarf's_Essence Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Penny",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Penny",
+            9
+          ],
+          "Value": "Mr._Qi's_Essence Olivia's_Milk Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Pierre
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Pierre",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pierre",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pierre",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pierre",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pierre",
+            7
+          ],
+          "Value": "Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Pierre",
+            9
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Robin
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Robin",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Robin",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Robin",
+            3
+          ],
+          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Robin",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Robin",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Robin",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Sam
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Sam",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sam",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sam",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sam",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sam",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sam",
+            9
+          ],
+          "Value": "Mr._Qi's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Sandy
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Sandy",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sandy",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sandy",
+            3
+          ],
+          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sandy",
+            5
+          ],
+          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sandy",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sandy",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Shane's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Sebastian
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Sebastian",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sebastian",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sebastian",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sebastian",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sebastian",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Sebastian",
+            9
+          ],
+          "Value": "Mr._Qi's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Shane
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Shane",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Shane",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Shane",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Shane",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Shane",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Shane",
+            9
+          ],
+          "Value": "Mr._Qi's_Essence Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Willy
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Willy",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Willy",
+            1
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Willy",
+            3
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Willy",
+            5
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Willy",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Willy",
+            9
+          ],
+          "Value": "Dwarf's_Essence Krobus_Essence Linus's_Cum Mr._Qi's_Essence Shane's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Wizard
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Wizard",
+      "TextOperations": [
+        /*Love*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Wizard",
+            1
+          ],
+          "Value": "Abigail's_Milk Caroline's_Milk",
+          "Delimiter": " "
+        }
+        /*Like*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Wizard",
+            3
+          ],
+          "Value": "Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Linus's_Cum Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Wizard",
+            5
+          ],
+          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Marnie's_Milk Morris's_Cum Pam's_Milk Shane's_Cum Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Hate*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Wizard",
+            7
+          ],
+          "Value": "",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Wizard",
+            9
+          ],
+          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    }
+
+  ]
+}

@@ -74,13 +74,13 @@ namespace MilkVillagers
             }
             else ModFunctions.Log("Protein Shake not found", LogLevel.Alert);
 
-            if (CookingData.Keys.Count(o => o.Contains("Special Milkshake")) > 0)
+            if (CookingData.Keys.Count(o => o.Contains("Trunip190.CP.MilkTheVillagers.Special_Milkshake")) > 0)
             {
                 //if (Female) { CookingData["Special Milkshake"] = $"-34 1/10 10/Special Milkshake//Special Milkshake"; }
             }
             else ModFunctions.Log("Special Milkshake not found", LogLevel.Alert);
 
-            if (CookingData.Keys.Count(o => o.Contains("Super Juice")) > 0)
+            if (CookingData.Keys.Count(o => o.Contains("Trunip190.CP.MilkTheVillagers.Super_Juice")) > 0)
             {
                 //if (Male && Female) CookingData["Super Juice"] = $"-34 2 -35 2/10 10/Super Juice//Super Juice";
             }

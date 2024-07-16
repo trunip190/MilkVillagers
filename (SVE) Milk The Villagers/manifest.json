@@ -1,0 +1,17 @@
+{
+  "Name": "[SVE]MilkTheVillagers",
+  "Author": "Trunip190",
+  "Description": "Adds in compatibility with SVE characters",
+  "Version": "1.2.5",
+  "UniqueID": "trunip190.SVE.MilkTheVillagers",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+  "Dependencies": [
+    {
+      "UniqueID": "FlashShifter.SVECode",
+      "IsRequired": true
+    }
+  ],
+  "UpdateKeys": [ "Nexus:5948" ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://smapi.io/schemas/content-patcher.json",
+  "Format": "2.0.0",
+  "Changes": [
+    //NPC Gift Tastes
+    {
+      "LogName": "Include Gift Tastes",
+      "Action": "Include",
+      "FromFile": "Data/NPCGiftTastes.json"
+    }
+  ]
+}

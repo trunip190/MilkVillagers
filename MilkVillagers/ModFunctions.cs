@@ -270,7 +270,7 @@ namespace MilkVillagers
         public static Dialogue ProcessDialogue(Dialogue input)
         {
             Dialogue output = new Dialogue(input);
-
+            
             foreach (var v in output.dialogues)
             {
                 while ((v.Text.Contains('[') && v.Text.Contains(']')) || (v.Text.Contains('{') && v.Text.Contains('}')))
