@@ -24,6 +24,7 @@ using StardewValley.GameData.Characters;
 using SpaceCore;
 using System.Diagnostics;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 
 namespace MilkVillagers
 {
@@ -579,7 +580,7 @@ namespace MilkVillagers
                 {
                     Dialogue v = log.ProcessDialogue(new Dialogue(null, "Strings/StringsFromCSFiles:QuestsOff"));
                     Game1.addHUDMessage(new HUDMessage(v.getCurrentDialogue()));
-                    DrawDialogue(npcTarget, action: "QuestStartFail");
+                    DrawDialogue(npcTarget, action: "QuestStartFail", FarmerKey: "QuestStartFail");
 
                     goto cleanup;
                 }
@@ -588,7 +589,7 @@ namespace MilkVillagers
                 {
 
                     if (npcTarget.Dialogue.TryGetValue("QuestStartFail", out string FailDialogue))
-                        DrawDialogue(npcTarget, action: "QuestStartFail");
+                        DrawDialogue(npcTarget, action: "QuestStartFail", FarmerKey: "QuestStartFail");
 
                     goto cleanup;
                 }
@@ -598,11 +599,11 @@ namespace MilkVillagers
                 {
                     if (npcTarget.Dialogue.TryGetValue("QuestStartSuccess", out string SuccessDialogue))
                     {
-                        DrawDialogue(npcTarget, message: SuccessDialogue, action: "QuestStartSuccess");
+                        DrawDialogue(npcTarget, BackupMessage: SuccessDialogue, action: "QuestStartSuccess", FarmerKey: "QuestStartSuccess");
                     }
                     else
                     {
-                        DrawDialogue(npcTarget, message: "quests not found?", action: "QuestStartFail");
+                        DrawDialogue(npcTarget, BackupMessage: "quests not found?", action: "QuestStartFail", FarmerKey: "QuestStartSuccess");
                     }
                     SendNextMail(who, FirstQuestMail, true);
 
@@ -615,7 +616,7 @@ namespace MilkVillagers
                 if (npcTarget.Name != "Penny")
                 {
                     var defaultFailed = Game1.content.LoadStringReturnNullIfNotFound("Strings/StringsFromCSFiles:MTV_Parcel_Fail");
-                    DrawDialogue(npcTarget, defaultFailed, action: "MTV_Parcel");
+                    DrawDialogue(npcTarget, defaultFailed, action: "MTV_Parcel", FarmerKey: "MTV_Parcel_Fail");
                     e.Cancel = true;
                     goto cleanup;
                 }
@@ -623,6 +624,8 @@ namespace MilkVillagers
                 foreach (LostItemQuest qid in who.questLog.Where(o => o.id.Value == $"{594826}"))
                 {
                     qid.npcName.Set("Penny");
+                    //e.Cancel = true;
+                    goto cleanup;
                 }
             }
 
@@ -753,7 +756,8 @@ namespace MilkVillagers
                 }
                 else if (companion != null && companion != who)
                 {
-                    Game1.addHUDMessage(new HUDMessage($"What do you want to do with {companion.displayName}?"));
+                    string question = Game1.content.LoadStringReturnNullIfNotFound("Strings/StringsFromCSFiles:option.menu_dialogue_villager").Replace("[name]", NPCtarget.displayName);
+                    Game1.addHUDMessage(new HUDMessage(question));
                 }
                 else  //Config.Debug)
                 {
@@ -786,7 +790,7 @@ namespace MilkVillagers
                     {
                         options.Add(new Response("abort", "Nothing"));
 
-                        string question = Game1.content.LoadStringReturnNullIfNotFound( "Strings/StringsFromCSFiles:option.menu_dialogue_solo");
+                        string question = Game1.content.LoadStringReturnNullIfNotFound("Strings/StringsFromCSFiles:option.menu_dialogue_solo");
                         Game1.currentLocation.createQuestionDialogue(question, options.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
                     }
                     else
@@ -888,6 +892,8 @@ namespace MilkVillagers
             //TODO change for multiplayer
             foreach (Farmer who in Game1.getOnlineFarmers())
             {
+                SwitchItems(who, "Trunip190.CP.MilkTheVillagers.Shibari_rope", "Trunip190.CP.MilkTheVillagers.Clothing.Shibari_rope");
+
                 //Don't check anything if they haven't received the gender mail
                 if (!who.mailReceived.Contains("MTV_Vagina") &&
                     !who.mailReceived.Contains("MTV_Penis") &&
@@ -1039,7 +1045,7 @@ namespace MilkVillagers
             if (e.Name.IsEquivalentTo("Data/CraftingRecipes")) { RecipeEditor.UpdateCraftingData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
             if (NPCGiftTastesEditor.CanEdit(e.Name)) { NPCGiftTastesEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, string>>(e.Name)); }
             if (e.Name.IsEquivalentTo("Data/Objects")) { ObjectEditor.UpdateData(Helper.GameContent.Load<Dictionary<string, ObjectData>>(e.Name)); };
-            
+
         }
 
         protected virtual void DoActionNPC(object sender, ActionNPCEventArgs e)
@@ -1068,6 +1074,7 @@ namespace MilkVillagers
             //CheckCompleteQuest(Who, "594809", "MTV_SebQ1T"); // Milk Abi, return to Seb
             //CheckCompleteQuest(Who, "594810", "MTV_SebQ2T"); // Milk Seb, return to Abi
             CheckCompleteQuest(Who, "594811", "MTV_SebQ3T"); // Go touch grass. Event.
+            CheckCompleteQuest(Who, "594812", "MTV_SebQ4T"); // Purple and Black desires. Event.
 
             //Emily
             CheckCompleteQuest(Who, "594818", "MTV_EmilyQ2P");
@@ -1115,12 +1122,14 @@ namespace MilkVillagers
                 if (questID == 594824)
                 {
                     log.Log("Setting ActiveConversationEvent to MTV_Bukkake", LogLevel.Info);
-                    Game1.player.activeDialogueEvents.Add("MTV_Bukkake", 1);
+                    if (!who.activeDialogueEvents.ContainsKey("MTV_Bukkake"))
+                        Game1.player.activeDialogueEvents.Add("MTV_Bukkake", 1);
                 }
                 if (questID == 594834)
                 {
                     log.Log("Adding ConversationTopic", LogLevel.Info);
-                    Game1.player.activeDialogueEvents.Add("HaleyPanties", 0);
+                    if (!who.activeDialogueEvents.ContainsKey("HaleyPanties"))
+                        Game1.player.activeDialogueEvents.Add("HaleyPanties", 0);
 
                     // force the game to pick the right dialogue when married to Haley.
                     NPC haley = Game1.getCharacterFromName("Haley");
@@ -1134,7 +1143,8 @@ namespace MilkVillagers
                 if (questID == 594836)
                 {
                     log.Log("Setting ActiveConversationEvent to MTV_GeorgeQ4", LogLevel.Info);
-                    Game1.player.activeDialogueEvents.Add("MTV_GeorgeQ4", 0);
+                    if (!who.activeDialogueEvents.ContainsKey("MTV_GeorgeQ4"))
+                        Game1.player.activeDialogueEvents.Add("MTV_GeorgeQ4", 0);
                 }
                 if (questID == 594819)
                 {
@@ -1146,7 +1156,8 @@ namespace MilkVillagers
                 if (questID == 594826)
                 {
                     log.Log("Setting ActiveConversationEvent to MTV_Parcel", LogLevel.Info);
-                    who.activeDialogueEvents.Add("MTV_Parcel", 1);
+                    if (!who.activeDialogueEvents.ContainsKey("MTV_Parcel"))
+                        who.activeDialogueEvents.Add("MTV_Parcel", 1);
                 }
 
                 CurrentQuests.Add(questID);
@@ -1562,6 +1573,28 @@ namespace MilkVillagers
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="who">The farmer who's inventory you want to search</param>
+        /// <param name="BaitItem">The item to remove</param>
+        /// <param name="SwitchItem">The item to replace it with</param>
+        private static void SwitchItems(Farmer who, string BaitItem, string SwitchItem)
+        {
+            var items = who.Items.GetById(BaitItem);
+            if (items.Count() > 0)
+            {
+                int count = 0;
+                while (items.Count() > 0)
+                {
+                    count += items.First().Stack;
+                    who.Items.Remove(items.First());
+                }
+                who.Items.Add(new Clothing(SwitchItem) { Stack = count });
+            }
+        }
+
+
         public void UpdateItemConfig()
         {
             ItemEditor.RemoveInvalid(Config.MilkMale, Config.MilkFemale);
@@ -1697,15 +1730,25 @@ namespace MilkVillagers
                 }
                 else if (target.Gender == Gender.Undefined)
                 {
-                    if (target.Name == "Dwarf")
+                    switch (target.Name)
                     {
-                        choices.Add(log.ProcessOption("milk_fast"));
-                        choices.Add(log.ProcessOption("milk_start"));
-                    }
-                    if (target.Name == "Krobus")
-                    {
-                        choices.Add(log.ProcessOption("milk_fast"));
-                        choices.Add(log.ProcessOption("BJ"));
+                        case "Dwarf":
+                            choices.Add(log.ProcessOption("milk_fast_fem"));
+                            choices.Add(log.ProcessOption("milk_start"));
+                            break;
+
+                        case "Krobus":
+                            choices.Add(log.ProcessOption("milk_fast_male"));
+                            choices.Add(log.ProcessOption("BJ"));
+                            break;
+
+                        case "Mister Qi":
+                            choices.Add(log.ProcessOption("milk_fast_male"));
+                            choices.Add(log.ProcessOption("BJ"));
+                            break;
+
+                        default:
+                            break;
                     }
                 }
 
@@ -1775,19 +1818,8 @@ namespace MilkVillagers
             }
             else if (action == "self_milk") // farmer collects their own breast milk.
             {
-                //NPC Farmer = Game1.getCharacterFromName("Farmer");
-                //Farmer.Dialogue.TryGetValue("FarmerCollectionMilk", out string cumDialogue);
-                //Game1.drawObjectDialogue(cumDialogue);
-
-                string dialogues = "Adding milk";
-                //if (npc != null) npc.Dialogue.TryGetValue("FarmerCollectionMilk", out dialogues);
-
                 Dialogue v = log.ProcessDialogue(new Dialogue(null, "Strings/StringsFromCSFiles:FarmerCollectionMilk"));
                 Game1.DrawDialogue(v);
-
-                //DrawDialogue(npc, message: dialogues, action: "FarmerCollectionMilk");
-                //Game1.drawObjectDialogue(dialogues);
-                //Game1.drawObjectDialogue(Config.FarmerCollectionMilk);
 
                 who.addItemToInventory(new sObject("Trunip190.CP.MilkTheVillagers.Woman's_Milk", 1, quality: 2));
 
@@ -1838,6 +1870,7 @@ namespace MilkVillagers
             AddItem = null;
             int HeartCurrent = who.getFriendshipHeartLevelForNPC(npc.Name);
             string chosenString;
+            string chosenKey;
             int Quality;
             int Quantity = 1;
 
@@ -1857,7 +1890,7 @@ namespace MilkVillagers
             if (HeartCurrent < heartMin && npc.CanSocialize)//  npc.name != "Mister Qi") // Check if the NPC likes you enough.
             {
                 var rejectionDialogue = new Dialogue(npc, "Strings/StringsFromCSFiles:HeartRejection").dialogues[0].Text.Replace("[HeartCurrent]", $"{HeartCurrent}").Replace("[heartMin]", $"{heartMin}");
-                DrawDialogue(npc, rejectionDialogue, action: "action_rejected");
+                DrawDialogue(npc, rejectionDialogue, action: "action_rejected", FarmerKey: "HeartRejection");
                 log.Log($"{npc.Name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Trace);
                 goto cleanup;
             }
@@ -1889,135 +1922,201 @@ namespace MilkVillagers
                 goto cleanup;
             }
             //int ItemCode;
-            string ItemCode;
+            string ItemCode = "";
             #endregion
-
-            #region set item to give
-
-            //ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
-            ItemCode = npc.Gender == 0 ? $"{TempRefs.ModItemPrefix}Special_Milk" : $"{TempRefs.ModItemPrefix}Woman's_Milk";
-            Quality = 1;
-
-            // Don't remove this - It's a good way of speeding up for people.
-            if (Config.StackMilk)
-            {
-                ItemCode = npc.Gender == 0 ? $"{TempRefs.ModItemPrefix}Special_Milk" : $"{TempRefs.ModItemPrefix}Woman's_Milk";
-                if (npc.Name == "Mister Qi"
-                    || npc.Name == "Wizard"
-                    || npc.Name == "Krobus"
-                    || npc.Name == "Dwarf")
-                {
-                    ItemCode = $"{TempRefs.ModItemPrefix}Magical_Essence";
-                }
-            }
-
-            //AddItem = new sObject($"{ItemCode}", Quantity, quality: Quality);
-
-            AddItem = new sObject(ItemCode, Quantity, quality: Quality) { Category = -34 };
-            CurrentFarmer = who;
-
-            // Trying to fix item category
-            AddItem.Category = (AddItem.Name.Contains("Milk") && AddItem.Name != "Special Milk") ? -34 : -35;
-            if (AddItem.Name == "Dwarf's Essence"
-                || AddItem.Name == "Krobus's Essence"
-                || AddItem.Name == "Wizard's Essence"
-                || AddItem.Name == "Mr. Qi's Essence"
-                || AddItem.Name == "Magical Essence")
-            {
-                AddItem.Category = -36;
-            }
-
-            log.Log($"Trying to milk {npc.Name}. Will give item {ItemCode}: {ItemCode}, Category: {AddItem.Category} / {AddItem.getCategoryName()}", LogLevel.Trace);
-
-            // If no male milking, don't give item.
-            if ((npc.Gender == 0 & !Config.MilkMale) || !Config.CollectItems)
-            {
-                //SItemCode = "";
-                AddItem = null;
-            }
-            #endregion
-
-            log.Log($"{AddItem}");
 
             // Draw Dialogue
             npc.facePlayer(who);
+
             if (npc.Dialogue.TryGetValue(action, out string dialogues)) //Does npc have milking dialogue?
             {
-                chosenString = GetRandomString(dialogues.Split(new string[] { "#split#" }, System.StringSplitOptions.None));
+                //chosenString = GetRandomString(dialogues.Split(new string[] { "#split#" }, System.StringSplitOptions.None));
+                chosenString = GetRandomString(log.SplitStrings(dialogues));
 
-                #region move the whole item selection to a separate method.
-
-                // Get Item code from ChosenString
-                if (chosenString.Contains("["))
+                switch (action)
                 {
-                    int start = chosenString.IndexOf("[") + 1;
-                    int end = chosenString.IndexOf("]", start);
-                    string val = chosenString[start..end];
-                    log.Log($"{npc.Name} value was {val}", LogLevel.Trace);
+                    case "milk_fast":
+                        if (npc.Gender == Gender.Female)
+                        {
+                            chosenKey = "DefaultFastMilkFem";
+                        }
+                        else if (npc.Gender == Gender.Male)
+                        {
+                            chosenKey = "DefaultFastMilkMale";
+                        }
+                        else
+                        {
+                            chosenKey = "DefaultFastMilkNull";
+                        }
+                        break;
 
-                    chosenString = chosenString.Replace($"{val}", "").Replace("[]", "").Trim();
-                    if (!Config.StackMilk) ItemCode = val;
+                    case "milk_start":
+                        if (npc.Gender == Gender.Female)
+                        {
+                            chosenKey = "DefaultFemaleMilk";
+                        }
+                        else if (npc.Gender == 0)
+                        {
+                            chosenKey = "DefaultMaleMilk";
+                        }
+                        else
+                        {
+                            chosenKey = "DefaultFailMilk";
+                        }
+
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
+                        success = true;
+                        break;
+
+                    case "eat_out":
+                        chosenKey = "DefaultEatOut";
+                        break;
+
+                    case "get_eaten":
+                        chosenKey = "DefaultGetEaten";
+                        break;
+
+                    case "BJ":
+                        chosenKey = "DefaultMaleMilk";
+                        break;
+
+                    case "sex":
+                        if (npc.Gender == 0 && who.IsMale)
+                            chosenKey = "DefaultSexMM";
+                        else if (npc.Gender == Gender.Female && who.IsMale)
+                            chosenKey = "DefaultSexMF";
+                        else if (npc.Gender == 0 && !who.IsMale)
+                            chosenKey = "DefaultSexFM";
+                        else
+                        {
+                            if (HasStrapon(who)) chosenKey = "DefaultSexFF";
+                            else chosenKey = "DefaultSexFF";
+                        }
+                        break;
+
+                    default:
+                        chosenKey = "DefaultCancel";
+                        break;
                 }
 
-                AddItem = new sObject($"{ItemCode}", 1);
-                //string SItemCode = $"[{ItemCode}]";
-
-                // Get Quality from ChosenString
-                if (chosenString.Contains("[Quality:"))
+                if (action != "eat_out" && action != "sex" && action != "get_eaten")
                 {
-                    int start = chosenString.IndexOf("[Quality:");
-                    int end = chosenString.IndexOf("]", start);
+                    #region set item to give
+                    //ItemCode = npc.Gender == 0 ? TempRefs.MilkSpecial : TempRefs.MilkGeneric;
+                    ItemCode = npc.Gender == 0 ? $"{TempRefs.ModItemPrefix}Special_Milk" : $"{TempRefs.ModItemPrefix}Woman's_Milk";
+                    Quality = 1;
 
-                    string val = chosenString.Substring(end - 1, 1);
-                    log.Log($"{npc.Name} Quality was {val}", LogLevel.Trace);
-                    int.TryParse(val, out Quality);
+                    // Don't remove this - It's a good way of speeding up for people.
+                    if (Config.StackMilk)
+                    {
+                        ItemCode = npc.Gender == 0 ? $"{TempRefs.ModItemPrefix}Special_Milk" : $"{TempRefs.ModItemPrefix}Woman's_Milk";
+                        if (npc.Name == "Mister Qi"
+                            || npc.Name == "Wizard"
+                            || npc.Name == "Krobus"
+                            || npc.Name == "Dwarf")
+                        {
+                            ItemCode = $"{TempRefs.ModItemPrefix}Magical_Essence";
+                        }
+                    }
 
-                    AddItem.Quality = Quality;
-                    chosenString = chosenString.Replace($"Quality:{val}", "").Replace("[]", "").Trim();
+                    //AddItem = new sObject($"{ItemCode}", Quantity, quality: Quality);
+
+                    AddItem = new sObject(ItemCode, Quantity, quality: Quality) { Category = -34 };
+                    CurrentFarmer = who;
+
+                    // Trying to fix item category
+                    AddItem.Category = (AddItem.Name.Contains("Milk") && AddItem.Name != "Special Milk") ? -34 : -35;
+                    if (AddItem.Name == "Dwarf's Essence"
+                        || AddItem.Name == "Krobus's Essence"
+                        || AddItem.Name == "Wizard's Essence"
+                        || AddItem.Name == "Mr. Qi's Essence"
+                        || AddItem.Name == "Magical Essence")
+                    {
+                        AddItem.Category = -36;
+                    }
+
+                    log.Log($"Trying to milk {npc.Name}. Will give item {ItemCode}: {ItemCode}, Category: {AddItem.Category} / {AddItem.getCategoryName()}", LogLevel.Trace);
+
+                    // If no male milking, don't give item.
+                    if ((npc.Gender == 0 & !Config.MilkMale) || !Config.CollectItems || action == "eat_out" || action == "sex" || action == "get_eaten")
+                    {
+                        //SItemCode = "";
+                        AddItem = null;
+                    }
+
+                    log.Log($"{AddItem}");
+                    // Get Item code from ChosenString
+                    if (chosenString.Contains("["))
+                    {
+                        int start = chosenString.IndexOf("[") + 1;
+                        int end = chosenString.IndexOf("]", start);
+                        string val = chosenString[start..end];
+                        log.Log($"{npc.Name} value was {val}", LogLevel.Trace);
+
+                        chosenString = chosenString.Replace($"{val}", "").Replace("[]", "").Trim();
+                        if (!Config.StackMilk) ItemCode = val;
+                    }
+
+                    AddItem = new sObject($"{ItemCode}", 1);
+                    //string SItemCode = $"[{ItemCode}]";
+
+                    // Get Quality from ChosenString
+                    if (chosenString.Contains("[Quality:"))
+                    {
+                        int start = chosenString.IndexOf("[Quality:");
+                        int end = chosenString.IndexOf("]", start);
+
+                        string val = chosenString.Substring(end - 1, 1);
+                        log.Log($"{npc.Name} Quality was {val}", LogLevel.Trace);
+                        int.TryParse(val, out Quality);
+
+                        AddItem.Quality = Quality;
+                        chosenString = chosenString.Replace($"Quality:{val}", "").Replace("[]", "").Trim();
+                    }
+
+                    // Get Quantity from ChosenString
+                    if (chosenString.Contains("[Quantity:"))
+                    {
+                        //"{{spacechase0.JsonAssets/ObjectId: }}";
+                        int start = chosenString.IndexOf("[Quantity:");
+                        int end = chosenString.IndexOf("]", start);
+
+                        string val = chosenString.Substring(end - 1, 1);
+                        log.Log($"{npc.Name} Quantity was {val}", LogLevel.Trace);
+                        int.TryParse(val, out Quantity);
+
+                        AddItem.Stack = Quantity;
+                        chosenString = chosenString.Replace($"Quantity:{val}", "").Replace("[]", "");
+                    }
+
+
+                    // HUD messages
+                    if (who.mailReceived.Contains("MilkingProfQuality") && who.mailReceived.Contains("MilkingProfCount"))
+                    {
+                        if (Config.Verbose && !MessageOnce) Game1.addHUDMessage(new HUDMessage("You manage to improve the quantity and quality of the item through your dextrous hand and tender touch."));
+                        AddItem.Stack += 1;
+                        AddItem.Quality += 1;
+                        MessageOnce = true;
+                    }
+                    else if (who.mailReceived.Contains("MilkingProfQuality") && !MessageOnce)
+                    {
+                        if (Config.Verbose) Game1.addHUDMessage(new HUDMessage("You manage to improve the quality of the item through your tender touch."));
+                        AddItem.Quality += 1;
+                        MessageOnce = true;
+                    }
+                    else if (who.mailReceived.Contains("MilkingProfCount") && !MessageOnce)
+                    {
+                        if (Config.Verbose) Game1.addHUDMessage(new HUDMessage("You manage to coax out another batch through your dextrous hands."));
+                        AddItem.Stack += 1;
+                        MessageOnce = true;
+                    }
+                    #endregion
                 }
-
-                // Get Quantity from ChosenString
-                if (chosenString.Contains("[Quantity:"))
-                {
-                    //"{{spacechase0.JsonAssets/ObjectId: }}";
-                    int start = chosenString.IndexOf("[Quantity:");
-                    int end = chosenString.IndexOf("]", start);
-
-                    string val = chosenString.Substring(end - 1, 1);
-                    log.Log($"{npc.Name} Quantity was {val}", LogLevel.Trace);
-                    int.TryParse(val, out Quantity);
-
-                    AddItem.Stack = Quantity;
-                    chosenString = chosenString.Replace($"Quantity:{val}", "").Replace("[]", "");
-                }
-                #endregion
-                //ObjectEditor.UpdateData();
-
-                // HUD messages
-                if (who.mailReceived.Contains("MilkingProfQuality") && who.mailReceived.Contains("MilkingProfCount"))
-                {
-                    if (Config.Verbose && !MessageOnce) Game1.addHUDMessage(new HUDMessage("You manage to improve the quantity and quality of the item through your dextrous hand and tender touch."));
-                    AddItem.Stack += 1;
-                    AddItem.Quality += 1;
-                    MessageOnce = true;
-                }
-                else if (who.mailReceived.Contains("MilkingProfQuality") && !MessageOnce)
-                {
-                    if (Config.Verbose) Game1.addHUDMessage(new HUDMessage("You manage to improve the quality of the item through your tender touch."));
-                    AddItem.Quality += 1;
-                    MessageOnce = true;
-                }
-                else if (who.mailReceived.Contains("MilkingProfCount") && !MessageOnce)
-                {
-                    if (Config.Verbose) Game1.addHUDMessage(new HUDMessage("You manage to coax out another batch through your dextrous hands."));
-                    AddItem.Stack += 1;
-                    MessageOnce = true;
-                }
-
 
                 // TODO split dialogue into list
                 //DrawDialogue(npc, chosenString.Split("#$b#", StringSplitOptions.RemoveEmptyEntries));                
-                DrawDialogue(npc, chosenString, action);
+                DrawDialogue(npc, chosenString, action, FarmerKey: chosenKey);
+                log.Log(chosenString);
                 success = true;
             }
             else //if (action != "milk_fast")
@@ -2026,28 +2125,43 @@ namespace MilkVillagers
                 switch (action)
                 {
                     case "milk_fast":
-                        //Game1.drawDialogue(npc, SItemCode);
-                        CurrentFarmer.addItemToInventory(AddItem);
-                        AddItem = null;
-                        CurrentFarmer = null;
+                        if (npc.Gender == Gender.Female)
+                        {
+                            chosenString = $" ";// [{ItemCode}]";
+                            chosenKey = "DefaultFastMilkFem";
+                        }
+                        else if (npc.Gender == Gender.Male)
+                        {
+                            chosenString = $" ";
+                            chosenKey = "DefaultFastMilkMale";
+                        }
+                        else
+                        {
+                            chosenString = $" ";
+                            chosenKey = "DefaultFastMilkNull";
+                        }
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
                         success = true;
                         break;
 
                     case "milk_start":
                         if (npc.Gender == Gender.Female)
                         {
-                            chosenString = $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you. [{ItemCode}]";
+                            chosenString = $"I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneeding their breasts, collecting the milk in a jar you brought with you.";// [{ItemCode}]";
+                            chosenKey = "DefaultFemaleMilk";
                         }
                         else if (npc.Gender == 0)
                         {
-                            chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes! [{ItemCode}]";
+                            chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on them*#$b#I think I'm getting close! Here it comes!";
+                            chosenKey = "DefaultMaleMilk";
                         }
                         else
                         {
                             chosenString = $"I'm sorry, but I don't produce anything you would want to collect. Perhaps we can do something else instead?";
+                            chosenKey = "DefaultFailMilk";
                         }
 
-                        DrawDialogue(npc, message: chosenString, action: action);
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
                         success = true;
                         break;
 
@@ -2058,22 +2172,23 @@ namespace MilkVillagers
                             $"#$b#%*As her moans get louder you use your tongue to flick her clit, and she clenches her legs tightly around your head*" +
                             $"#$b#%*You gently suck on the nub, and then plunge your tongue as deeply into her as you can, shaking your tongue from side to side to stimulate {npc.Name} even more*" +
                             $"#$b#@, I'm cumming!";
+                        chosenKey = "DefaultEatOut";
 
-                        DrawDialogue(npc, message: chosenString, action: action);
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
                         success = true;
                         break;
 
                     case "get_eaten":
                         chosenString = $"I'm sorry, dialogue hasn't been written for that yet.";
-                        DrawDialogue(npc, message: chosenString, action: action);
+                        chosenKey = "DefaultGetEaten";
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
                         success = true;
                         break;
 
                     case "BJ":
-                        chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. " +
-                            $"After a couple of quick licks to get them hard, you start sucking on their penis*#$b#I think I'm getting close! Here it comes! [{ItemCode}]";
-
-                        DrawDialogue(npc, message: chosenString, action: action);
+                        chosenString = $"You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on their penis*#$b#I think I'm getting close! Here it comes!";
+                        chosenKey = "DefaultMaleMilk";
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
                         success = true;
                         break;
 
@@ -2081,24 +2196,25 @@ namespace MilkVillagers
                         //TODO write four version of this for each gender configuration.
 
                         if (npc.Gender == 0 && who.IsMale) // Male player, male NPC.
-                            chosenString = $"two dudes going at it";
+                        { chosenString = $"two dudes going at it"; chosenKey = "DefaultSexMM"; }
                         else if (npc.Gender == Gender.Female && who.IsMale) // Male player, female NPC.
-                            chosenString = $"{who.Name} buries their cock deep inside {npc.Name}'s pussy";
+                        { chosenString = $"{who.Name} buries their cock deep inside {npc.Name}'s pussy"; chosenKey = "DefaultSexMF"; }
                         else if (npc.Gender == 0 && !who.IsMale) // Female player, male NPC.
-                            chosenString = $"{who.Name} climbs on top of {npc.Name}'s erect cock and plunges it deep inside them until they cum";
+                        { chosenString = $"{who.Name} climbs on top of {npc.Name}'s erect cock and plunges it deep inside them until they cum"; chosenKey = "DefaultSexFM"; }
                         else // neither is male
                             if (HasStrapon(who))
-                            chosenString = $"You put on your strapon and fuck {npc.Name} silly.";
+                        { chosenString = $"You put on your strapon and fuck {npc.Name} silly."; chosenKey = "DefaultSexFF"; }
                         else
-                            chosenString = $"You and {npc.Name} lick, suck and finger each other into oblivion";
+                        { chosenString = $"You and {npc.Name} lick, suck and finger each other into oblivion"; chosenKey = "DefaultSexFF"; }
 
-                        DrawDialogue(npc, message: chosenString, action: action);
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
                         success = true;
                         break;
 
                     default:
                         chosenString = $"I don't have any dialogue written for that. Sorry.";
-                        DrawDialogue(npc, message: chosenString, action: action);
+                        chosenKey = "DefaultCancel";
+                        DrawDialogue(npc, BackupMessage: chosenString, action: action, FarmerKey: chosenKey);
                         Monitor.Log($"{action} for {npc.Name} wasn't found");
                         break;
                 }
@@ -2159,16 +2275,20 @@ namespace MilkVillagers
             return dialogues[r.Next(i)];
         }
 
-        private void DrawDialogue(NPC npc, string message = "Placeholder text", string action = "milk_start")
+        private void DrawDialogue(NPC npc, string BackupMessage = "Placeholder text", string action = "milk_start", string FarmerKey = "option.milk_start")
         {
-            Dialogue v = log.ProcessDialogue(new Dialogue(npc, $"Characters/Dialogue/{npc.Name}:{action}"));
+            Dialogue v = log.ProcessDialogue(new Dialogue(npc, $"Characters/Dialogue/{npc.Name}:{action}", false));
 
             var NewMessage = v.dialogues[0];
 
-            if (NewMessage.Text.Contains("Characters/Dialogue/")) NewMessage.Text = message;
+            if (NewMessage.Text.Contains("Characters/Dialogue/") || NewMessage.Text.Trim() == "")
+            {
+                v = new Dialogue(npc, $"Strings/StringsFromCSFiles:{FarmerKey}");//, message);
 
-            if (NewMessage.Text.Trim() == "") NewMessage.Text = message;
-            if (NewMessage.Text.Trim() == "") return;
+                //v.dialogues[0].Text = message;
+            }
+
+            if (v.dialogues[0].Text.Trim() == "") return;
             Game1.DrawDialogue(v);
         }
 

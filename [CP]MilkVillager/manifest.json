@@ -2,10 +2,17 @@
   "Name": "[CP]MilkTheVillagers",
   "Author": "Trunip190",
   "Description": "Adds dialogue for the mod Milk the Villagers",
-  "Version": "1.2.5",
+  "Version": "1.2.11",
   "UniqueID": "trunip190.CP.MilkTheVillagers",
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"
   },
-  "UpdateKeys": [ "Nexus:5948" ]
+  "UpdateKeys": [ "Nexus:5948" ],
+  "Dependencies": [
+    {
+      "UniqueID": "misscoriel.eventrepeater",
+      "IsRequired": true,
+      "MinimumVersion": "6.5.8"
+    }
+  ]
 }

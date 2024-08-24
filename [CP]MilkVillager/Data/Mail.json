@@ -162,7 +162,7 @@
         "MTV_PennyQ1T": "{{i18n:Mail.MTV_PennyQ1T}}",
 
         // Penny Quest 2
-        "MTV_PennyQ2": "{{i18n:Mail.MTV_PennyQ2}}", //" %item object {{spacechase0.JsonAssets/ObjectId: Discrete Package}} 1 %%",
+        "MTV_PennyQ2": "{{i18n:Mail.MTV_PennyQ2}} %item object Trunip190.CP.MilkTheVillagers.Discrete_Package 1 %%",
         "MTV_PennyQ2T": "{{i18n:Mail.MTV_PennyQ2T}}",
 
         // Penny Quest 3

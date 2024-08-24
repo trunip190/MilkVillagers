@@ -52,7 +52,7 @@
         // Penny
         "594825": "Basic/{{i18n: Quests.594825.01}}/{{i18n: Quests.594825.02}}/{{i18n: Quests.594825.03}}/null/5948252/0/-1/FALSE/{{i18n: Quests.594825.09}}",
         "5948252": "LostItem/{{i18n:Quests.5948252.01}}/{{i18n:Quests.5948252.02}}/{{i18n:Quests.5948252.03}}/Penny Trunip190.CP.MilkTheVillagers.Boethia's_Pillow_Book ArchaeologyHouse 19 4/-1/240/-1/FALSE/{{i18n:Quests.5948252.09}}",
-        "594826": "LostItem/{{i18n:Quests.594826.01}}/{{i18n:Quests.594826.02}}/{{i18n:Quests.594826.03}}/??? Trunip190.CP.MilkTheVillagers.Discrete_Package BusStop 3 22/-1/355/-1/FALSE/{{i18n:Quests.594826.09}}",
+        "594826": "LostItem/{{i18n:Quests.594826.01}}/{{i18n:Quests.594826.02}}/{{i18n:Quests.594826.03}}/Penny Trunip190.CP.MilkTheVillagers.Discrete_Package BusStop 3 22/-1/355/-1/FALSE/{{i18n:Quests.594826.09}}",
         "594827": "Basic/{{i18n:Quests.594827.01}}/{{i18n:Quests.594827.02}}/{{i18n:Quests.594827.03}}/null/5948272/0/-1/False/{{i18n:Quests.594827.09}}",
         "5948272": "Basic/{{i18n:Quests.5948272.01}}/{{i18n:Quests.5948272.02}}/{{i18n:Quests.5948272.03}}/null/-1/420/-1/False/{{i18n:Quests.5948272.09}}",
         "594828": "Basic/{{i18n:Quests.594828.01}}/{{i18n:Quests.594828.02}}/{{i18n:Quests.594828.03}}/ArchaeologyHouse/-1/500/-1/False/{{i18n:Quests.594828.09}}",

@@ -15,6 +15,20 @@
         "TimeSlows": "{{i18n:Dialogue.TimeSlows}}",
         "QuestsOff": "{{i18n:Dialogue.QuestsOff}}",
 
+        "DefaultFastMilkFem": "{{i18n:Dialogue.DefaultFastMilkFem}} [Trunip190.CP.MilkTheVillagers.Woman's_Milk]",
+        "DefaultFastMilkMale": "{{i18n:Dialogue.DefaultFastMilkMale}} [Trunip190.CP.MilkTheVillagers.Special_Milk]",
+        "DefaultFastMilk": "{{i18n:Dialogue.DefaultFastMilk}}",
+        "DefaultFemaleMilk": "{{i18n:Dialogue.DefaultFemaleMilk}} [Trunip190.CP.MilkTheVillagers.Woman's_Milk]",
+        "DefaultMaleMilk": "{{i18n:Dialogue.DefaultMaleMilk}} [Trunip190.CP.MilkTheVillagers.Special_Milk]",
+        "DefaultFailMilk": "{{i18n:Dialogue.DefaultFailMilk}}",
+        "DefaultEatOut": "{{i18n:Dialogue.DefaultEatOut}}",
+        "DefaultGetEaten": "{{i18n:Dialogue.DefaultGetEaten}}",
+        "DefaultSexMM": "{{i18n:Dialogue.DefaultSexMM}}",
+        "DefaultSexFM": "{{i18n:Dialogue.DefaultSexFM}}",
+        "DefaultSexFF": "{{i18n:Dialogue.DefaultSexFF}}",
+        "DefaultSexMF": "{{i18n:Dialogue.DefaultSexMF}}",
+        "DefaultCancel": "{{i18n:Dialogue.DefaultCancel}}",
+
         "option.menu_dialogue_villager": "{{i18n:Dialogue.option.menu_dialogue_villager}}",
         "option.milk_fast_fem": "{{i18n:Dialogue.option.milk_fast_fem}}",
         "option.milk_fast_male": "{{i18n:Dialogue.option.milk_fast_male}}",
@@ -29,6 +43,8 @@
         "option.time_freeze": "{{i18n:Dialogue.option.menu_dialogue_time_freeze}}",
         "option.stamina_regen": "{{i18n:Dialogue.option.menu_dialogue_stamina_regen}}",
 
+        "QuestStartFail": "{{i18n:Dialogue.QuestStartFail}}",
+        "QuestStartSuccess": "{{i18n:Dialogue.QuestStartSuccess}}",
         "MTV_Parcel_Fail": "{{i18n:Dialogue.MTV_Parcel_Fail}}"
       }
     },

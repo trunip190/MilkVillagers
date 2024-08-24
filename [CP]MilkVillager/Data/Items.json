@@ -1306,9 +1306,9 @@
         "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
         "Trunip190.CP.MilkTheVillagers.PureCapitalism": "Trunip190.CP.MilkTheVillagers.Lewis's_Cum 1 Trunip190.CP.MilkTheVillagers.Pierre's_Cum 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.PureCapitalism 1/null/Pure Capitalism",
 
-        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/false/null/Woman's Milk",
-        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1/false/null/Special Milk",
-        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence"
+        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1//null/Woman's Milk",
+        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1//null/Special Milk",
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1//null/Magical Essence"
       }
     },
     // Load in Crafting recipes
@@ -1333,6 +1333,7 @@
         "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence",
 
         "Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/what is this for?/Trunip190.CP.MilkTheVillagers.Shibari_rope 1/false/null/Shibari Rope"
+        //"Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/what is this for?/Trunip190.CP.MilkTheVillagers.Clothing.Shibari_rope 1/false/null/Shibari Rope"
       }
     },
     //Shirts

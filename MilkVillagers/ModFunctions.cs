@@ -270,7 +270,7 @@ namespace MilkVillagers
         public static Dialogue ProcessDialogue(Dialogue input)
         {
             Dialogue output = new Dialogue(input);
-            
+
             foreach (var v in output.dialogues)
             {
                 while ((v.Text.Contains('[') && v.Text.Contains(']')) || (v.Text.Contains('{') && v.Text.Contains('}')))
@@ -319,6 +319,29 @@ namespace MilkVillagers
         {
             Dialogue v = ProcessDialogue(new Dialogue(null, $"Strings/StringsFromCSFiles:{stringName}"));
             return v.dialogues[0].Text;
+        }
+
+        public static string[] SplitStrings(string str)
+        {
+            string[] result = new string[] { };
+
+            int ItemIndex = str.IndexOf('[');
+            string DialogueAdjusted = str;
+            string ItemCodes = "";
+            if (ItemIndex != -1)
+            {
+                ItemCodes = str.Substring(ItemIndex, str.Length - ItemIndex);
+                DialogueAdjusted = str.Substring(0, ItemIndex);
+            }
+
+            result = DialogueAdjusted.Split(new string[] { "#split#" }, System.StringSplitOptions.None);
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] += ItemCodes;
+            }
+
+            return result;
         }
 
         public static List<string> GetDirectories(string root)

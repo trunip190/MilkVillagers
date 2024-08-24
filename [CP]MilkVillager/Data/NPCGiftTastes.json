@@ -1,9 +1,25 @@
 {
   "Changes": [
-    //------------------------
-    // G I F T S
-    //------------------------
 
+    //Universal_Hate
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Universal_Hate",
+      "TextOperations": [
+        /*Hate*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Universal_Hate",
+            7
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
     //Abigail
     {
       "Action": "EditData",
@@ -18,7 +34,7 @@
             "Abigail",
             1
           ],
-          "Value": "Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Like*/,
@@ -29,7 +45,7 @@
             "Abigail",
             3
           ],
-          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -40,18 +56,7 @@
             "Abigail",
             5
           ],
-          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Linus's_Cum Marnie's_Milk Morris's_Cum Pam's_Milk Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Abigail",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -62,7 +67,7 @@
             "Abigail",
             9
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Marlon's_Cum Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
       ]
@@ -73,18 +78,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Alex",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Alex",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -92,7 +86,7 @@
             "Alex",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -103,18 +97,7 @@
             "Alex",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Alex",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -125,7 +108,7 @@
             "Alex",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -144,7 +127,7 @@
             "Caroline",
             1
           ],
-          "Value": "Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Like*/,
@@ -155,7 +138,7 @@
             "Caroline",
             3
           ],
-          "Value": "Alex's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -166,18 +149,7 @@
             "Caroline",
             5
           ],
-          "Value": "Andy's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Lewis's_Cum Marlon's_Cum Marnie's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Shane's_Cum Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Caroline",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -188,7 +160,7 @@
             "Caroline",
             9
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Clint's_Cum Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Linus's_Cum Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
       ]
@@ -199,18 +171,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Clint",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Clint",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -218,7 +179,7 @@
             "Clint",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Marnie's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -229,18 +190,7 @@
             "Clint",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Clint",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -251,7 +201,7 @@
             "Clint",
             9
           ],
-          "Value": "Mr._Qi's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
           "Delimiter": " "
         }
       ]
@@ -262,18 +212,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Demetrius",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Demetrius",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -281,7 +220,7 @@
             "Demetrius",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -292,18 +231,7 @@
             "Demetrius",
             5
           ],
-          "Value": "Andy's_Cum Clint's_Cum Gus's_Cum Linus's_Cum Marlon's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Demetrius",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -314,7 +242,7 @@
             "Demetrius",
             9
           ],
-          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
       ]
@@ -325,18 +253,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Dwarf",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Dwarf",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -344,7 +261,7 @@
             "Dwarf",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Clint's_Cum Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Marnie's_Milk Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -355,18 +272,7 @@
             "Dwarf",
             5
           ],
-          "Value": "Andy's_Cum Dwarf's_Essence Krobus_Essence Lewis's_Cum Morris's_Cum Pam's_Milk",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Dwarf",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -377,7 +283,7 @@
             "Dwarf",
             9
           ],
-          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Mr._Qi's_Essence Olivia's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
       ]
@@ -388,18 +294,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Elliott",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Elliott",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -407,7 +302,7 @@
             "Elliott",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -418,18 +313,7 @@
             "Elliott",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Elliott",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -440,7 +324,7 @@
             "Elliott",
             9
           ],
-          "Value": "Mr._Qi's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
           "Delimiter": " "
         }
       ]
@@ -451,18 +335,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Emily",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Emily",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -470,7 +343,7 @@
             "Emily",
             3
           ],
-          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -481,18 +354,7 @@
             "Emily",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Emily",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -503,7 +365,7 @@
             "Emily",
             9
           ],
-          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Mr._Qi's_Essence Shane's_Cum Willy's_Cum Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -514,18 +376,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Evelyn",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Evelyn",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -533,7 +384,7 @@
             "Evelyn",
             3
           ],
-          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum George's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -544,18 +395,7 @@
             "Evelyn",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Dwarf's_Essence Emily's_Milk Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Evelyn",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -566,7 +406,7 @@
             "Evelyn",
             9
           ],
-          "Value": "Evelyn's_Milk Marnie's_Milk Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -577,18 +417,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: George",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "George",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -596,7 +425,7 @@
             "George",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -607,18 +436,7 @@
             "George",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "George",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -629,7 +447,7 @@
             "George",
             9
           ],
-          "Value": "Marnie's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Marnie's_Milk",
           "Delimiter": " "
         }
       ]
@@ -640,18 +458,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Gus",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Gus",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -659,7 +466,7 @@
             "Gus",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Linus's_Cum Marnie's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -670,18 +477,7 @@
             "Gus",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Gus",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -692,7 +488,7 @@
             "Gus",
             9
           ],
-          "Value": "Mr._Qi's_Essence Shane's_Cum Willy's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
       ]
@@ -703,18 +499,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Haley",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Haley",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -722,7 +507,7 @@
             "Haley",
             3
           ],
-          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -733,18 +518,7 @@
             "Haley",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Haley",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -755,7 +529,7 @@
             "Haley",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -766,18 +540,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Harvey",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Harvey",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -785,7 +548,7 @@
             "Harvey",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -796,18 +559,7 @@
             "Harvey",
             5
           ],
-          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Linus's_Cum Morris's_Cum Pam's_Milk Shane's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Harvey",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -818,7 +570,7 @@
             "Harvey",
             9
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
       ]
@@ -837,7 +589,7 @@
             "Jodi",
             1
           ],
-          "Value": "Kent's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Kent's_Cum",
           "Delimiter": " "
         }
         /*Like*/,
@@ -848,7 +600,7 @@
             "Jodi",
             3
           ],
-          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -859,18 +611,7 @@
             "Jodi",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Jodi",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -881,7 +622,7 @@
             "Jodi",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -900,18 +641,7 @@
             "Kent",
             1
           ],
-          "Value": "Jodi's_Milk",
-          "Delimiter": " "
-        }
-        /*Like*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Kent",
-            3
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Jodi's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -922,18 +652,7 @@
             "Kent",
             5
           ],
-          "Value": "Abigail's_Milk Alex's_Cum Andy's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Demetrius's_Cum Elliott's_Cum Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Haley's_Milk Harvey's_Cum Kent's_Cum Lance's_Cum Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Martin's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Pierre's_Cum Robin's_Milk Sam's_Cum Sandy's_Milk Sebastian's_Cum Shane's_Cum Sophia's_Milk Susan's_Milk Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Kent",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -944,7 +663,7 @@
             "Kent",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
           "Delimiter": " "
         }
       ]
@@ -955,18 +674,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Krobus",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Krobus",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -974,7 +682,7 @@
             "Krobus",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Clint's_Cum Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -985,18 +693,7 @@
             "Krobus",
             5
           ],
-          "Value": "Andy's_Cum Dwarf's_Essence Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Linus's_Cum Morris's_Cum Pam's_Milk Shane's_Cum Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Krobus",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1007,7 +704,7 @@
             "Krobus",
             9
           ],
-          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Mr._Qi's_Essence Olivia's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
       ]
@@ -1018,18 +715,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Leah",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Leah",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1037,7 +723,7 @@
             "Leah",
             3
           ],
-          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1048,18 +734,7 @@
             "Leah",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Leah",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1070,7 +745,7 @@
             "Leah",
             9
           ],
-          "Value": "Clint's_Cum Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Olivia's_Milk Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1089,7 +764,7 @@
             "Lewis",
             1
           ],
-          "Value": "Marnie's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Marnie's_Milk",
           "Delimiter": " "
         }
         /*Like*/,
@@ -1100,7 +775,7 @@
             "Lewis",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1111,18 +786,7 @@
             "Lewis",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Lewis",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1133,7 +797,7 @@
             "Lewis",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence",
           "Delimiter": " "
         }
       ]
@@ -1144,18 +808,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Linus",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Linus",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1163,7 +816,7 @@
             "Linus",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Marnie's_Milk Maru's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1174,18 +827,7 @@
             "Linus",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Marlon's_Cum Martin's_Cum Morris's_Cum Olivia's_Milk Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Linus",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1196,7 +838,7 @@
             "Linus",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Linus's_Cum Mr._Qi's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1207,18 +849,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Marnie",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Marnie",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1226,7 +857,7 @@
             "Marnie",
             3
           ],
-          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Linus's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1237,18 +868,7 @@
             "Marnie",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Marlon's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Marnie",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1259,7 +879,7 @@
             "Marnie",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Marnie's_Milk Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1278,7 +898,7 @@
             "Maru",
             1
           ],
-          "Value": "Krobus_Essence Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Like*/,
@@ -1289,7 +909,7 @@
             "Maru",
             3
           ],
-          "Value": "Abigail's_Milk Alex's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Emily's_Milk Gunther's_Cum Haley's_Milk Harvey's_Cum Jodi's_Milk Kent's_Cum Lance's_Cum Leah's_Milk Linus's_Cum Marnie's_Milk Martin's_Cum Maru's_Milk Olivia's_Milk Penny's_Milk Pierre's_Cum Robin's_Milk Sam's_Cum Sandy's_Milk Sebastian's_Cum Shane's_Cum Sophia's_Milk Susan's_Milk Victor's_Cum Willy's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1300,18 +920,7 @@
             "Maru",
             5
           ],
-          "Value": "Andy's_Cum Lewis's_Cum Morris's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Maru",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1322,7 +931,7 @@
             "Maru",
             9
           ],
-          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Marlon's_Cum Pam's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk",
           "Delimiter": " "
         }
       ]
@@ -1333,18 +942,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Pam",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Pam",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1352,7 +950,7 @@
             "Pam",
             3
           ],
-          "Value": "Clint's_Cum Shane's_Cum Willy's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1363,18 +961,7 @@
             "Pam",
             5
           ],
-          "Value": "Abigail's_Milk Alex's_Cum Andy's_Cum Caroline's_Milk Claire's_Milk Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Haley's_Milk Harvey's_Cum Jodi's_Milk Kent's_Cum Krobus_Essence Lance's_Cum Leah's_Milk Lewis's_Cum Linus's_Cum Marnie's_Milk Martin's_Cum Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Pierre's_Cum Robin's_Milk Sam's_Cum Sandy's_Milk Sebastian's_Cum Sophia's_Milk Susan's_Milk Victor's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Pam",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1385,7 +972,7 @@
             "Pam",
             9
           ],
-          "Value": "Gus's_Cum Marlon's_Cum Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1396,18 +983,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Penny",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Penny",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1415,7 +991,7 @@
             "Penny",
             3
           ],
-          "Value": "Alex's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1426,18 +1002,7 @@
             "Penny",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Clint's_Cum Dwarf's_Essence Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Penny",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1448,7 +1013,7 @@
             "Penny",
             9
           ],
-          "Value": "Mr._Qi's_Essence Olivia's_Milk Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1459,18 +1024,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Pierre",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Pierre",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1478,7 +1032,7 @@
             "Pierre",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Mr._Qi's_Essence Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1489,7 +1043,7 @@
             "Pierre",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Hate*/,
@@ -1500,18 +1054,7 @@
             "Pierre",
             7
           ],
-          "Value": "Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Neutral*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Pierre",
-            9
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1522,18 +1065,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Robin",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Robin",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1541,7 +1073,7 @@
             "Robin",
             3
           ],
-          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1552,18 +1084,7 @@
             "Robin",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Shane's_Cum Sophia's_Milk Susan's_Milk Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Robin",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1574,7 +1095,7 @@
             "Robin",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1585,18 +1106,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Sam",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Sam",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1604,7 +1114,7 @@
             "Sam",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1615,18 +1125,7 @@
             "Sam",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Sam",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1637,7 +1136,7 @@
             "Sam",
             9
           ],
-          "Value": "Mr._Qi's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1648,18 +1147,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Sandy",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Sandy",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1667,7 +1155,7 @@
             "Sandy",
             3
           ],
-          "Value": "Alex's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Martin's_Cum Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1678,18 +1166,7 @@
             "Sandy",
             5
           ],
-          "Value": "Abigail's_Milk Andy's_Cum Caroline's_Milk Claire's_Milk Emily's_Milk Evelyn's_Milk George's_Cum Gil's_Cum Gus's_Cum Haley's_Milk Jodi's_Milk Leah's_Milk Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Maru's_Milk Morris's_Cum Olivia's_Milk Pam's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Sandy",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1700,7 +1177,7 @@
             "Sandy",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Mr._Qi's_Essence Shane's_Cum Willy's_Cum Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1711,18 +1188,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Sebastian",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Sebastian",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1730,7 +1196,7 @@
             "Sebastian",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1741,18 +1207,7 @@
             "Sebastian",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Sebastian",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1763,7 +1218,7 @@
             "Sebastian",
             9
           ],
-          "Value": "Mr._Qi's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1774,18 +1229,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Shane",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Shane",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1793,7 +1237,7 @@
             "Shane",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1804,18 +1248,7 @@
             "Shane",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Dwarf's_Essence Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Krobus_Essence Lance's_Cum Lewis's_Cum Linus's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Shane's_Cum Victor's_Cum Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Shane",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1826,7 +1259,7 @@
             "Shane",
             9
           ],
-          "Value": "Mr._Qi's_Essence Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1837,18 +1270,7 @@
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Willy",
       "TextOperations": [
-        /*Love*/
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Willy",
-            1
-          ],
-          "Value": "",
-          "Delimiter": " "
-        }
-        /*Like*/,
+        /*Like*/
         {
           "Operation": "Append",
           "Target": [
@@ -1856,7 +1278,7 @@
             "Willy",
             3
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk Claire's_Milk Emily's_Milk Haley's_Milk Jodi's_Milk Leah's_Milk Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1867,18 +1289,7 @@
             "Willy",
             5
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Evelyn's_Milk George's_Cum Gil's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Lewis's_Cum Marlon's_Cum Marnie's_Milk Martin's_Cum Morris's_Cum Pam's_Milk Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum Willy's_Cum Wizard's_Essence",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Willy",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1889,7 +1300,241 @@
             "Willy",
             9
           ],
-          "Value": "Dwarf's_Essence Krobus_Essence Linus's_Cum Mr._Qi's_Essence Shane's_Cum",
+          "Value": "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Shane's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Leo
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Leo",
+      "TextOperations": [
+        /*Hate*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Leo",
+            7
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Jas
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Jas",
+      "TextOperations": [
+        /*Hate*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Jas",
+            7
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Vincent
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Vincent",
+      "TextOperations": [
+        /*Hate*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Vincent",
+            7
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+
+    //Gil
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Gil",
+      "When": {
+        "HasSeenEvent": "-1"
+      },
+      "TextOperations": [
+        /*Like*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gil",
+            3
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gil",
+            5
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gil",
+            9
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Gunther
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Gunther",
+      "When": {
+        "HasSeenEvent": "-1"
+      },
+      "TextOperations": [
+        /*Like*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gunther",
+            3
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gunther",
+            5
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Gunther",
+            9
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Marnie's_Milk",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Morris
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Morris",
+      "When": {
+        "HasSeenEvent": "-1"
+      },
+      "TextOperations": [
+        /*Like*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Morris",
+            3
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Morris",
+            5
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Morris",
+            9
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
+          "Delimiter": " "
+        }
+      ]
+    },
+    //Mr._Qi
+    {
+      "Action": "EditData",
+      "Target": "Data/NPCGiftTastes",
+      "LogName": "Gift tastes: Mr._Qi",
+      "When": {
+        "HasSeenEvent": "-1"
+      },
+      "TextOperations": [
+        /*Like*/
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Mr._Qi",
+            3
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
+          "Delimiter": " "
+        }
+        /*Dislike*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Mr._Qi",
+            5
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
+          "Delimiter": " "
+        }
+        /*Neutral*/,
+        {
+          "Operation": "Append",
+          "Target": [
+            "Fields",
+            "Mr._Qi",
+            9
+          ],
+          "Value": "Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence",
           "Delimiter": " "
         }
       ]
@@ -1899,6 +1544,9 @@
       "Action": "EditData",
       "Target": "Data/NPCGiftTastes",
       "LogName": "Gift tastes: Wizard",
+      "When": {
+        "HasSeenEvent": "-1"
+      },
       "TextOperations": [
         /*Love*/
         {
@@ -1908,7 +1556,7 @@
             "Wizard",
             1
           ],
-          "Value": "Abigail's_Milk Caroline's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Abigail's_Milk Trunip190.CP.MilkTheVillagers.Caroline's_Milk",
           "Delimiter": " "
         }
         /*Like*/,
@@ -1919,7 +1567,7 @@
             "Wizard",
             3
           ],
-          "Value": "Claire's_Milk Dwarf's_Essence Emily's_Milk Haley's_Milk Jodi's_Milk Krobus_Essence Leah's_Milk Linus's_Cum Maru's_Milk Olivia's_Milk Penny's_Milk Robin's_Milk Sandy's_Milk Sophia's_Milk Susan's_Milk",
+          "Value": "Trunip190.CP.MilkTheVillagers.Claire's_Milk Trunip190.CP.MilkTheVillagers.Dwarf's_Essence Trunip190.CP.MilkTheVillagers.Emily's_Milk Trunip190.CP.MilkTheVillagers.Haley's_Milk Trunip190.CP.MilkTheVillagers.Jodi's_Milk Trunip190.CP.MilkTheVillagers.Krobus_Essence Trunip190.CP.MilkTheVillagers.Leah's_Milk Trunip190.CP.MilkTheVillagers.Linus's_Cum Trunip190.CP.MilkTheVillagers.Maru's_Milk Trunip190.CP.MilkTheVillagers.Olivia's_Milk Trunip190.CP.MilkTheVillagers.Penny's_Milk Trunip190.CP.MilkTheVillagers.Robin's_Milk Trunip190.CP.MilkTheVillagers.Sandy's_Milk Trunip190.CP.MilkTheVillagers.Sophia's_Milk Trunip190.CP.MilkTheVillagers.Susan's_Milk",
           "Delimiter": " "
         }
         /*Dislike*/,
@@ -1930,18 +1578,7 @@
             "Wizard",
             5
           ],
-          "Value": "Evelyn's_Milk George's_Cum Gil's_Cum Lewis's_Cum Marnie's_Milk Morris's_Cum Pam's_Milk Shane's_Cum Willy's_Cum",
-          "Delimiter": " "
-        }
-        /*Hate*/,
-        {
-          "Operation": "Append",
-          "Target": [
-            "Fields",
-            "Wizard",
-            7
-          ],
-          "Value": "",
+          "Value": "Trunip190.CP.MilkTheVillagers.Evelyn's_Milk Trunip190.CP.MilkTheVillagers.George's_Cum Trunip190.CP.MilkTheVillagers.Gil's_Cum Trunip190.CP.MilkTheVillagers.Lewis's_Cum Trunip190.CP.MilkTheVillagers.Marnie's_Milk Trunip190.CP.MilkTheVillagers.Morris's_Cum Trunip190.CP.MilkTheVillagers.Pam's_Milk Trunip190.CP.MilkTheVillagers.Shane's_Cum Trunip190.CP.MilkTheVillagers.Willy's_Cum",
           "Delimiter": " "
         }
         /*Neutral*/,
@@ -1952,7 +1589,7 @@
             "Wizard",
             9
           ],
-          "Value": "Alex's_Cum Andy's_Cum Clint's_Cum Demetrius's_Cum Elliott's_Cum Gunther's_Cum Gus's_Cum Harvey's_Cum Kent's_Cum Lance's_Cum Marlon's_Cum Martin's_Cum Mr._Qi's_Essence Pierre's_Cum Sam's_Cum Sebastian's_Cum Victor's_Cum Wizard's_Essence",
+          "Value": "Trunip190.CP.MilkTheVillagers.Alex's_Cum Trunip190.CP.MilkTheVillagers.Andy's_Cum Trunip190.CP.MilkTheVillagers.Clint's_Cum Trunip190.CP.MilkTheVillagers.Demetrius's_Cum Trunip190.CP.MilkTheVillagers.Elliott's_Cum Trunip190.CP.MilkTheVillagers.Gunther's_Cum Trunip190.CP.MilkTheVillagers.Gus's_Cum Trunip190.CP.MilkTheVillagers.Harvey's_Cum Trunip190.CP.MilkTheVillagers.Kent's_Cum Trunip190.CP.MilkTheVillagers.Lance's_Cum Trunip190.CP.MilkTheVillagers.Marlon's_Cum Trunip190.CP.MilkTheVillagers.Martin's_Cum Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence Trunip190.CP.MilkTheVillagers.Pierre's_Cum Trunip190.CP.MilkTheVillagers.Sam's_Cum Trunip190.CP.MilkTheVillagers.Sebastian's_Cum Trunip190.CP.MilkTheVillagers.Victor's_Cum Trunip190.CP.MilkTheVillagers.Wizard's_Essence",
           "Delimiter": " "
         }
       ]

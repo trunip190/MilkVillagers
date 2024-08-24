@@ -1,15 +1,15 @@
 {
   "Name": "[SVE]MilkTheVillagers",
   "Author": "Trunip190",
-  "Description": "Adds in compatibility with SVE characters",
+  "Description": "Adds in compatibility with Ridgeside characters",
   "Version": "1.2.11",
-  "UniqueID": "trunip190.SVE.MilkTheVillagers",
+  "UniqueID": "trunip190.Ridge.MilkTheVillagers",
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"
   },
   "Dependencies": [
     {
-      "UniqueID": "FlashShifter.StardewValleyExpandedCP",
+      "UniqueID": "Rafseazz.RSVCP",
       "IsRequired": true
     }
   ],

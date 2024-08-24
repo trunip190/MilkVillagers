@@ -6,6 +6,21 @@
   "Dialogue.EnergyLow": "You don't have enough energy for that. [who.stamina]/[energyCost]",
   "Dialogue.AlreadyMilked": "[name] has already been milked today",
 
+  //Generic sex dialogue
+  "Dialogue.DefaultFastMilkFem": " ",
+  "Dialogue.DefaultFastMilkMale": " ",
+  "Dialogue.DefaultFastMilkNull": " ",
+  "Dialogue.DefaultFemaleMilk": "I've never been asked that by anyone else. Although, that DOES sound kinda hot.#$b#You spend the next few minutes slowly kneading their breasts, collecting the milk in a jar you brought with you.",
+  "Dialogue.DefaultMaleMilk": "You want my 'milk'? Erm, You ARE very attractive...#$b#*You quickly unzip their pants and pull out their cock. After a couple of quick licks to get them hard, you start sucking on their penis*#$b#I think I'm getting close! Here it comes!",
+  "Dialogue.DefaultFailMilk": "I'm sorry, but I don't produce anything you would want to collect. Perhaps we can do something else instead?",
+  "Dialogue.DefaultEatOut": "You want to go down on me? I don't think I've ever had a guy offer to do that without an ulterior motive before.$h#$b#%*[name] quickly strips out of her lower garments, and opens her legs wide for you. You're greeted with a heady smell, and notice that her lips are starting to swell*#$b#%*You lean in and start licking between [name]'s lips, tasting her sweet nectar as she buries her hands in your hair*#$b#%*As her moans get louder you use your tongue to flick her clit, and she clenches her legs tightly around your head*#$b#%*You gently suck on the nub, and then plunge your tongue as deeply into her as you can, shaking your tongue from side to side to stimulate [name] even more*#$b#@, I'm cumming!",
+  "Dialogue.DefaultGetEaten": "I'm sorry, dialogue hasn't been written for that yet.",
+  "Dialogue.DefaultSexMM": "Nothing written for this yet",
+  "Dialogue.DefaultSexFM": "Nothing written for this yet",
+  "Dialogue.DefaultSexFF": "Nothing written for this yet",
+  "Dialogue.DefaultSexMF": "Nothing written for this yet",
+  "Dialogue.DefaultCancel": "I don't have any dialogue written for that. Sorry.",
+
 
   "Dialogue.TimeSlows": "Time slows...and stops",
   "Dialogue.QuestsOff": "You currently have quests turned off in config. Please re-enable them if you want to start quests with this character.",
@@ -24,6 +39,9 @@
   "Dialogue.option.menu_dialogue_time_freeze": "Freeze time",
   "Dialogue.option.menu_dialogue_stamina_regen": "Drink Eldritch Energy",
 
+
+  "Dialogue.QuestStartFail": "Sorry, I don't have any quests written for me yet.",
+  "Dialogue.QuestStartSuccess": "The villager has quests enabled, but no acceptance speach? Oops.",
   "Dialogue.MTV_Parcel_Fail": "Thats not my package. Maybe ask around the village?",
 
   /*Women*/
@@ -447,7 +465,7 @@
 
   //Mister Qi
   "Dialogue.MisterQi.milk_fast": " ",
-  "Dialogue.MisterQi.BJ": "$1 5948Q1#I knew you'd come to me for that one day. Your curiosity is very predictable. Be warned, @, this will not be like your experience you've had with others in town.#$b#%*Mr. Qi lifts up his shirt and begins to lower his waistband. But where any genitalia would be is instead a blinding light.#$b#%*Once your eyes adjust you see what may as well be a portal to some otherworldly beyond. You reach your hand towards it, checking his face to see if this is safe, and he nods.#$b#%*When your hand touches the vortex, visions and sensations you've never imagined and could never fully describe crash into your mind. You can see time, you can smell space.#$b#%*It's as if you've been brought into the fourth, fifth, sixth and seventh dimension all at once. You feel a great understanding of life itself*#$b#That will do.#$b#%*As soon as it had started it was gone. You are left with spots in your vision and after images of some immense epiphany that is slowly fading from your mind.#$b#%*In your hand is a bottle containing what is possibly a rip in space-time itself. You do not recall ever taking out the container*#$b#See you around, my dear @.#$e#second time with Qi.",
+  "Dialogue.MisterQi.BJ": "$l I knew you'd come to me for that one day. Your curiosity is very predictable. Be warned, @, this will not be like your experience you've had with others in town.#$b#*Mr. Qi lifts up his shirt and begins to lower his waistband. But where any genitalia would be is instead a blinding light.#$b#*Once your eyes adjust you see what may as well be a portal to some otherworldly beyond. You reach your hand towards it, checking his face to see if this is safe, and he nods.#$b#%*When your hand touches the vortex, visions and sensations you've never imagined and could never fully describe crash into your mind. You can see time, you can smell space.#$b#%*It's as if you've been brought into the fourth, fifth, sixth and seventh dimension all at once. You feel a great understanding of life itself*#$b#That will do.#$b#%*As soon as it had started it was gone. You are left with spots in your vision and after images of some immense epiphany that is slowly fading from your mind.#$b#%*In your hand is a bottle containing what is possibly a rip in space-time itself. You do not recall ever taking out the container*#$b#See you around, my dear @.",
 
   "Dialogue.MisterQi.QuestStartFail": "Sorry, I don't have any quests written for me yet.",
   "Dialogue.MisterQi.QuestStartSuccess": "A drink? Sure, anything that comes from %farm is always tasty. (Quests starting - wait for mail)",
@@ -471,7 +489,7 @@
   /*SVE NPC's*/
   //Andy
   "Dialogue.Andy.milk_fast": " ",
-  "Dialogue.Andy.milk_start": "Damn right I'd love a blowjob! I know everyone looks down on me, but I have needs the same as everyone else.$s#$b#He undoes his overalls and flops them down. He fumbles with the buttons, but you reach over and take his hands in yours momentarily before undoing the clasps*#$b#Thank you @, I'm a little flustered. It's not every day someone like yourself does this for someone like me. I really appreciate this.$h#$b#%*As his penis comes free, you reach forward and lightly trace you fingers up and down it, breathing life into Andy's sad little erection*%*In no time you have coaxed it to life, and it stands proudly in front of you. You bend down and inhale Andy's slightly unwashed scent, then lick all around his head, coating it in your saliva*#$b#Oh @, this is heavenly. I don't think I'll be able to last long, but please keep going.$h#$b#%*You obey his wishes, and start seeking out his weak spots, licking, sucking and stroking him until you feel him about to blow. As he comes, you angle his penis so it sprays straight into the jar, and keep stroking him through his orgasm*#$b#That...was...amazing, @. I definitely misjudged you when you first came here. You have made me a true friend.",
+  "Dialogue.Andy.BJ": "Damn right I'd love a blowjob! I know everyone looks down on me, but I have needs the same as everyone else.$s#$b#He undoes his overalls and flops them down. He fumbles with the buttons, but you reach over and take his hands in yours momentarily before undoing the clasps*#$b#Thank you @, I'm a little flustered. It's not every day someone like yourself does this for someone like me. I really appreciate this.$h#$b#%*As his penis comes free, you reach forward and lightly trace you fingers up and down it, breathing life into Andy's sad little erection*%*In no time you have coaxed it to life, and it stands proudly in front of you. You bend down and inhale Andy's slightly unwashed scent, then lick all around his head, coating it in your saliva*#$b#Oh @, this is heavenly. I don't think I'll be able to last long, but please keep going.$h#$b#%*You obey his wishes, and start seeking out his weak spots, licking, sucking and stroking him until you feel him about to blow. As he comes, you angle his penis so it sprays straight into the jar, and keep stroking him through his orgasm*#$b#That...was...amazing, @. I definitely misjudged you when you first came here. You have made me a true friend.",
 
   "Dialogue.Andy.QuestStartFail": "Sorry, I don't have any quests written for me yet.",
   "Dialogue.Andy.QuestStartSuccess": "A drink? Sure, anything that comes from %farm is always tasty. (Quests starting - wait for mail)",
@@ -490,6 +508,7 @@
   //Martin
   "Dialogue.Martin.milk_fast": " ",
   "Dialogue.Martin.milk_start": "*No text yet*",
+  "Dialogue.Martin.BJ": "*No text yet*",
 
   "Dialogue.Martin.QuestStartFail": "Sorry, I don't have any quests written for me yet.",
   "Dialogue.Martin.QuestStartSuccess": "A drink? Sure, anything that comes from %farm is always tasty. (Quests starting - wait for mail)",
@@ -527,7 +546,7 @@
 
   //Victor
   "Dialogue.Victor.milk_fast": " ",
-  "Dialogue.Victor.milk_start": "That sounds wonderful, @. I think you are very attractive, and I often find myself fantasising about you...Here, let me help you.#$b#%*He unzips his pants, and frees his rather large cock, surprising you. A moment passes, and you come back to your senses, reaching out with a hand and starting to stroke his length*#$b#*You give the tip a tender kiss, and then lean underneath and lick the length of it, ending by engulfing the entire head with your mouth. Victor groans from this teasing stimulation, and you take that as a sign to continue*#$b#@, This is better than anything I had imagined. That you are in front of me, performing fellatio, is a dream come true.$l#$b#%*You slowly slide further down his cock, inch by inch, ending with your nose in his crotch hairs. Victor grunts, and you slowly slide back until just the tip is inside your mouth*#$b#*You repeat this, speeding up slightly every time, settling into a rhythm that causes Victor to become more vocal every time. Before too long he is on the edge, and you back off, looking up at him and not moving. He jerks his hips and you tut at him*#$b#Please, @, I'm so close. I NEED to cum.$s#$b#%*You give him a little lick, and this almost causes him to lose control. Deciding that he's had enough, you lean forward and start strongly sucking. This pushes him far over the edge, and he explodes into your mouth, filling you up with his hot cum*#$b#*As his eyes roll back into his head, you spit his cum into a jar and seal it up. He looks down at you with a dazed smile, a pulls up his pants*#$b#Thank you @. That was incredible.",
+  "Dialogue.Victor.BJ": "That sounds wonderful, @. I think you are very attractive, and I often find myself fantasising about you...Here, let me help you.#$b#%*He unzips his pants, and frees his rather large cock, surprising you. A moment passes, and you come back to your senses, reaching out with a hand and starting to stroke his length*#$b#*You give the tip a tender kiss, and then lean underneath and lick the length of it, ending by engulfing the entire head with your mouth. Victor groans from this teasing stimulation, and you take that as a sign to continue*#$b#@, This is better than anything I had imagined. That you are in front of me, performing fellatio, is a dream come true.$l#$b#%*You slowly slide further down his cock, inch by inch, ending with your nose in his crotch hairs. Victor grunts, and you slowly slide back until just the tip is inside your mouth*#$b#*You repeat this, speeding up slightly every time, settling into a rhythm that causes Victor to become more vocal every time. Before too long he is on the edge, and you back off, looking up at him and not moving. He jerks his hips and you tut at him*#$b#Please, @, I'm so close. I NEED to cum.$s#$b#%*You give him a little lick, and this almost causes him to lose control. Deciding that he's had enough, you lean forward and start strongly sucking. This pushes him far over the edge, and he explodes into your mouth, filling you up with his hot cum*#$b#*As his eyes roll back into his head, you spit his cum into a jar and seal it up. He looks down at you with a dazed smile, a pulls up his pants*#$b#Thank you @. That was incredible.",
 
   "Dialogue.Victor.QuestStartFail": "Sorry, I don't have any quests written for me yet.",
   "Dialogue.Victor.QuestStartSuccess": "A drink? Sure, anything that comes from %farm is always tasty. (Quests starting - wait for mail)",
@@ -535,7 +554,7 @@
 
   //Lance
   "Dialogue.Lance.milk_fast": " ",
-  "Dialogue.Lance.milk_start": "Spending so much time alone has it's drawbacks, so thank you for this offer.#$b#*You spend a few moments fumbling with Lance's various belts and buckles, leaving you wondering how long it takes him to undress at night*#$b#I see you're having a bit of trouble there, let me help you#$b#*With a couple of well practiced movements Lance has freed his prick, and you're glad to see that his swordsmanship isn't a kind of compensation*#$b#*You quickly devour his 'weapon', sheathing it in your throat. Lance moans his approval as you start milking his cock*#$b#That feels so good, @. Keep going, I'm going to cum soon!#$b#*Lance wasn't exaggerating, and soon you feel him tense up as his orgasm washes over him*",
+  "Dialogue.Lance.BJ": "Spending so much time alone has it's drawbacks, so thank you for this offer.#$b#*You spend a few moments fumbling with Lance's various belts and buckles, leaving you wondering how long it takes him to undress at night*#$b#I see you're having a bit of trouble there, let me help you#$b#*With a couple of well practiced movements Lance has freed his prick, and you're glad to see that his swordsmanship isn't a kind of compensation*#$b#*You quickly devour his 'weapon', sheathing it in your throat. Lance moans his approval as you start milking his cock*#$b#That feels so good, @. Keep going, I'm going to cum soon!#$b#*Lance wasn't exaggerating, and soon you feel him tense up as his orgasm washes over him*",
 
   "Dialogue.Lance.QuestStartFail": "Sorry, I don't have any quests written for me yet.",
   "Dialogue.Lance.QuestStartSuccess": "A drink? Sure, anything that comes from %farm is always tasty. (Quests starting - wait for mail)",
@@ -616,7 +635,7 @@
 
   "Quests.594812.01": "Purple and black desires", // Quest 4 - todo
   "Quests.594812.02": "Abigail wants Sebastian and the farmer's help on stream. Convince Sebastian to help out. (Sebastian & Abigail H lvl 8)",
-  "Quests.594812.03": "Go visit Sebastian in his basement suite. Abigail will be waiting too.", // Abigail, Farmer and Sebastian have a threesome on screen. Decide who is receiving it all.
+  "Quests.594812.03": "Go visit Sebastian outside his house. Abigail will be waiting too.", // Abigail, Farmer and Sebastian have a threesome on screen. Decide who is receiving it all.
   "Quests.594812.09": "That was a memory I'll never forget, and Abigail definitely won't let me forget it either. She told me to keep an eye on my email in a few days time.", // Add a way to replay the scene.
 
   // Maru
@@ -711,12 +730,12 @@
   "Quests.5948252.01": "What's the matter with Penny?",
   "Quests.5948252.02": "Penny has asked you to bring her the smutty book.",
   "Quests.5948252.03": "Deliver the smutty book to Penny",
-  "Quests.5948252.09": "Thank you for this, @. You're a life saver. I'll think up some way of rewarding you later.",
+  "Quests.5948252.09": "Thank you for doing that for me. I was so embarrassed.#$b#Maybe we can explore some of the ideas in the book sometime?",
 
   "Quests.594826.01": "Unexpected deliveries",
   "Quests.594826.02": "You've received a package in the mail that you didn't order. Try and find out who it's for.",
   "Quests.594826.03": "Ask around the village to see who is missing a package.",
-  "Quests.594826.09": "Thank you for doing that for me. I was so embarrassed.#$b#Maybe we can explore some of the ideas in the book sometime?",
+  "Quests.594826.09": "Thank you for this, @. You're a life saver. I'll think up some way of rewarding you later.",
 
   "Quests.594827.01": "Fifty shades of Penny pt1",
   "Quests.594827.02": "Penny left you a note saying she's at the bathhouse. It seems like she wants an audience for something.",
@@ -998,8 +1017,8 @@
   "Sophia's_Milk.description": "A jug of Sophia's milk",
   "Susan's_Milk.name": "Susan's Milk",
   "Susan's_Milk.description": "A jug of Susan's milk",
-  "Woman's_Milk.name": "Woman's Milk",
-  "Woman's_Milk.description": "A jug of woman's milk",
+  "Woman's_Milk.name": "Breast Milk",
+  "Woman's_Milk.description": "A jug of breast milk",
 
 
   "Alex's_Cum.name": "Alex's Cum",
