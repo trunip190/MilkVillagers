@@ -5,7 +5,7 @@
     <RootNamespace>MilkVillagers</RootNamespace>
     <Version>1.2.4</Version>
     <TargetFramework>net6.0</TargetFramework>
-	  <GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
+	  <GameModsPath>e:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,6 +52,10 @@
     <Content Include="Shirts\mtvTeddyu\shirt.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
   </ItemGroup>
 
   <ItemGroup>

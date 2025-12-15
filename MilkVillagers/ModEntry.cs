@@ -506,7 +506,7 @@ namespace MilkVillagers
             //if (Game1.player.hasOrWillReceiveMail("MTV_Ace")) GenderSwitch = "A";
             //if (Game1.player.hasOrWillReceiveMail("MTV_Penis")) GenderSwitch = "P";
 
-            IManagedTokenString tokenString = contentPatcherApi.ParseTokenString(
+            ContentPatcher.IManagedTokenString tokenString = contentPatcherApi.ParseTokenString(
                manifest: this.ModManifest,
                rawValue: GenderSwitch,
                formatVersion: new SemanticVersion("2.1.0"),
@@ -718,7 +718,7 @@ namespace MilkVillagers
                             new Response("Mines","Mines"),
                             new Response("Railroad", "Railroad"),
                             new Response("Farm","Farm"),
-            };
+                    };
 
                     Game1.currentLocation.createQuestionDialogue($"Where do you want to warp?",
                         choices.ToArray(),
@@ -751,8 +751,12 @@ namespace MilkVillagers
 
 
                     //string question = new Dialogue(null, translationKey: "Strings/StringsFromCSFiles:option.menu_dialogue_villager").dialogues[0].Text.Replace("[name]", NPCtarget.displayName);
-                    string question = Game1.content.LoadStringReturnNullIfNotFound("Strings/StringsFromCSFiles:option.menu_dialogue_villager").Replace("[name]", NPCtarget.displayName);
-                    Game1.currentLocation.createQuestionDialogue(question, choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                    string question = Game1.content.LoadStringReturnNullIfNotFound("Strings/StringsFromCSFiles:option.menu_dialogue_villager");
+                    if (question != null)
+                    {
+                        question = question.Replace("[name]", NPCtarget.displayName);
+                        Game1.currentLocation.createQuestionDialogue(question, choices.ToArray(), new GameLocation.afterQuestionBehavior(DialoguesSet));
+                    } else { log.Log($"Didn't find any dialogue for [Strings/StringsFromCSFiles:option.menu_dialogue_villager]", LogLevel.Alert); }
                 }
                 else if (companion != null && companion != who)
                 {
@@ -856,8 +860,6 @@ namespace MilkVillagers
             {
                 SendNewMail(who);
             }
-            //Farmer who = Game1.player;
-            //SendNewMail(who);
             TimeFreezeTimer = 0;
             RegenAmount = 0;
             log.Log("MTV: GameLoop_DayStarted Done", LogLevel.Debug);
@@ -894,7 +896,7 @@ namespace MilkVillagers
             {
                 SwitchItems(who, "Trunip190.CP.MilkTheVillagers.Shibari_rope", "Trunip190.CP.MilkTheVillagers.Clothing.Shibari_rope");
 
-                //Don't check anything if they haven't received the gender mail
+                // Don't check anything if they haven't received the gender mail
                 if (!who.mailReceived.Contains("MTV_Vagina") &&
                     !who.mailReceived.Contains("MTV_Penis") &&
                     !who.mailReceived.Contains("MTV_Ace") &&
@@ -1890,7 +1892,8 @@ namespace MilkVillagers
             if (HeartCurrent < heartMin && npc.CanSocialize)//  npc.name != "Mister Qi") // Check if the NPC likes you enough.
             {
                 var rejectionDialogue = new Dialogue(npc, "Strings/StringsFromCSFiles:HeartRejection").dialogues[0].Text.Replace("[HeartCurrent]", $"{HeartCurrent}").Replace("[heartMin]", $"{heartMin}");
-                DrawDialogue(npc, rejectionDialogue, action: "action_rejected", FarmerKey: "HeartRejection");
+                DrawDialogue(npc, rejectionDialogue, action: "action_rejected", FarmerKey: "HeartRejection", currentHearts:HeartCurrent, minHearts:heartMin);
+                Game1.addHUDMessage(new HUDMessage($"{HeartCurrent}/{heartMin}"));
                 log.Log($"{npc.Name} is heart level {HeartCurrent} and needs to be {heartMin}", LogLevel.Trace);
                 goto cleanup;
             }
@@ -2275,7 +2278,7 @@ namespace MilkVillagers
             return dialogues[r.Next(i)];
         }
 
-        private void DrawDialogue(NPC npc, string BackupMessage = "Placeholder text", string action = "milk_start", string FarmerKey = "option.milk_start")
+        private void DrawDialogue(NPC npc, string BackupMessage = "Placeholder text", string action = "milk_start", string FarmerKey = "option.milk_start", int currentHearts = 0, int minHearts = 0)
         {
             Dialogue v = log.ProcessDialogue(new Dialogue(npc, $"Characters/Dialogue/{npc.Name}:{action}", false));
 
@@ -2285,7 +2288,7 @@ namespace MilkVillagers
             {
                 v = new Dialogue(npc, $"Strings/StringsFromCSFiles:{FarmerKey}");//, message);
 
-                //v.dialogues[0].Text = message;
+                v.dialogues[0].Text = v.dialogues[0].Text.Replace("[HeartCurrent]", $"{currentHearts}").Replace("[heartMin]", $"{minHearts}");
             }
 
             if (v.dialogues[0].Text.Trim() == "") return;

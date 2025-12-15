@@ -6,7 +6,7 @@
 		<AssemblyName>MilkVillagers</AssemblyName>
 		<ApplicationIcon />
 		<Version>1.2.11</Version>
-		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
+		<GameModsPath>e:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
 		<BaseOutputPath></BaseOutputPath>
 	</PropertyGroup>
 
@@ -29,7 +29,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
 	</ItemGroup>
 
 	<ProjectExtensions>

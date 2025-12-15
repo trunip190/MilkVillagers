@@ -124,6 +124,8 @@ namespace MilkVillagers.Asset_Editors
             data = asset.AsDictionary<string, string>().Data;
             bool Deploy = true;
 
+            DumpData(asset);
+
             if (false) // Let CP do it's job
             {
                 //TODO add way to update this on the fly.
@@ -1134,18 +1136,18 @@ namespace MilkVillagers.Asset_Editors
 
         private static void DumpData(IAssetData asset)
         {
-            //string FilePath = $"C:\\Users\\truni\\datadump\\{asset.NameWithoutLocale}.txt";
-            //string DirectoryPath = Path.GetDirectoryName(FilePath);
-            //if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
+            string FilePath = $"E:\\datadump\\{asset.NameWithoutLocale}.txt";
+            string DirectoryPath = Path.GetDirectoryName(FilePath);
+            if (!Directory.Exists(DirectoryPath)) Directory.CreateDirectory(DirectoryPath);
 
-            //List<string> lines = new List<string>();
+            List<string> lines = new List<string>();
 
-            //foreach ( KeyValuePair<string, string> kvp in asset.AsDictionary<string, string>().Data)
-            //{
-            //    lines.Add($"\"{kvp.Key}\":\"{kvp.Value}\",");
-            //}
+            foreach (KeyValuePair<string, string> kvp in asset.AsDictionary<string, string>().Data)
+            {
+                lines.Add($"\"{kvp.Key}\":\"{kvp.Value}\",");
+            }
 
-            //File.WriteAllLinesAsync(FilePath, lines);
+            File.WriteAllLinesAsync(FilePath, lines);
         }
     }
 }

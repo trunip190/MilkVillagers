@@ -1301,14 +1301,15 @@
         "Trunip190.CP.MilkTheVillagers.Special_Milkshake": "-34 1/10 10/Trunip190.CP.MilkTheVillagers.Special_Milkshake//Special Milkshake",
         "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
 
+        "Trunip190.CP.MilkTheVillagers.CookiesnCream": "-34 1 223 3/10 10/Trunip190.CP.MilkTheVillagers.CookiesnCream 3//Cookies & Cream",
+
         "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
         "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
         "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
-        "Trunip190.CP.MilkTheVillagers.PureCapitalism": "Trunip190.CP.MilkTheVillagers.Lewis's_Cum 1 Trunip190.CP.MilkTheVillagers.Pierre's_Cum 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.PureCapitalism 1/null/Pure Capitalism",
 
-        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1//null/Woman's Milk",
-        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1//null/Special Milk",
-        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1//null/Magical Essence"
+        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/false/null/Woman's Milk",
+        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1/false/null/Special Milk",
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence"
       }
     },
     // Load in Crafting recipes
@@ -1322,6 +1323,7 @@
         "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": "Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1 Trunip190.CP.MilkTheVillagers.Wizard's_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Secret_Pleasures/null/Secret Pleasures",
         "Trunip190.CP.MilkTheVillagers.Special_Milkshake": "-34 1/10 10/Trunip190.CP.MilkTheVillagers.Special_Milkshake//Special Milkshake",
         "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
+
         "Trunip190.CP.MilkTheVillagers.CookiesnCream": "-34 1 223 3/10 10/Trunip190.CP.MilkTheVillagers.CookiesnCream 3//Cookies & Cream",
 
         "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",

@@ -6,7 +6,7 @@
 		<AssemblyName>MilkVillagers</AssemblyName>
 		<ApplicationIcon />
 		<Version>1.2.11</Version>
-		<GameModsPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
+		<GameModsPath>e:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\Milk the Villagers</GameModsPath>
 		<BaseOutputPath></BaseOutputPath>
 	</PropertyGroup>
 
@@ -576,11 +576,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
 	</ItemGroup>
 
 	<ProjectExtensions>
-		<VisualStudio><UserProperties data_4dialogue_1json__JsonSchema="https://json.schemastore.org/base.json" data_4events_1json__JsonSchema="https://json.schemastore.org/base.json" data_4mail_1json__JsonSchema="https://beaujs.com/schema.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" i18n_4default_1json__JsonSchema="https://json.schemastore.org/base.json" /></VisualStudio>
+		<VisualStudio><UserProperties data_4dialogue_1json__JsonSchema="https://smapi.io/schemas/content-patcher.json" data_4events_1json__JsonSchema="https://smapi.io/schemas/content-patcher.json" data_4mail_1json__JsonSchema="https://smapi.io/schemas/content-patcher.json" data_4npcgifttastes_1json__JsonSchema="https://smapi.io/schemas/content-patcher.json" data_4quests_1json__JsonSchema="https://json.schemastore.org/base.json" i18n_4default_1json__JsonSchema="https://smapi.io/schemas/i18n.json" /></VisualStudio>
 	</ProjectExtensions>
 
 </Project>

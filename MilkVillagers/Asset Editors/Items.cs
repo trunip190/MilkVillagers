@@ -181,7 +181,7 @@ namespace MilkVillagers.Asset_Editors
                     }
                     catch
                     {
-                        log.Log("Failed in Items:EditAsset", LogLevel.Alert, Force: true);
+                        log.Log("Failed in Items:EditAsset", LogLevel.Info, Force: true);
                     }
                 }
 
@@ -464,7 +464,7 @@ namespace MilkVillagers.Asset_Editors
 
             foreach (KeyValuePair<string, ObjectData> kvp in ItemData)
             {
-                if (kvp.Value == null) continue;
+                if (kvp.Value == null || kvp.Value.Name == null) continue;
 
                 try
                 {
@@ -477,7 +477,7 @@ namespace MilkVillagers.Asset_Editors
                 }
                 catch
                 {
-                    log.Log("Failed in GetAllItemIDs", LogLevel.Alert, Force: true);
+                    log.Log($"Failed in GetAllItemIDs {kvp.Key}: {kvp.Value}", LogLevel.Info, Force: true);
                 }
             }
 

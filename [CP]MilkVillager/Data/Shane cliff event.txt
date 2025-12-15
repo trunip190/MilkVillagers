@@ -1,0 +1,50 @@
+"594809f Shane 2300
+/n MTV_ShaneQ1
+/p Shane" : "playful
+/14 6
+/farmer 16 10 0 Shane 14 5 0
+/skippable
+/addMailReceived MTV_ShaneQ1P
+/speak Shane \"Oh. Hey there @#$b#I know I sent you that message but I wasn't sure whether you'd come. or if I wanted you to.#$b#Don't get me wrong - I love it when you're around me, but sometimes it feels like I have to....i dunno...put on more of a face when people I love are near.\"
+/pause 1500
+/emote farmer 28
+/quickquestion null \"Have you ever struggled with deep sadness? Or depression?#Sometimes, but not often.#I have, in the past. It's why I left Joja Corp#It's still part of my life(break)It makes me happier to know that you don't. my biggest fear is that everyone feels this way but it's just me that can't cope(break)I guess Joja really broke both of us.(break)I don't know if what I have is depression, or just from giving up drinking. Hell, it might even be from dreaming about the past again.(break)*lean on shoulder.*\"
+/speak Shane \"I'm sorry. I don't want to burden you with this. Marnie carries on like clockwork every day.#$b#She gives me this smile when she sees me, but it's the same no matter how i'm doing or what i've done that day.#$b#I feel like I could screw up in the worst way, let out all the cows and chickens, and she'd still give me that smile, as if just by smiling at me she can chase away my feelings.\"
+/pause 1500
+/speak Shane \"Look, if you want to go that's fine. there's nothing you can do to make me feel better today, and I think I just want to sit here for a while.\"
+/Message \"*cuddle*\"
+/pause 1500
+/Message \"you sit there for a while, just leaning against Shane. You can tell that he's tense, probably anxious, and so you sit there, listen, and make sure he can feel you being present.#You can tell that his breathing is starting to settle and slow, and you take that as a good sign.#After a while he leans back on the grass and stares at the sky. You can see that the day is starting to come to a close.\"
+/speak Shane \"it's getting late, @. we should probably head back before you get too cold. Thank you for being here with me - I asked you to come because I needed help but couldn't admit that to myself.#$b#if I admitted to myself I wasn't strong enough then I felt I would crumble#$b#Honestly? part of me wanted you to not come so that I would have an excuse to crumble, because I guess I still don't believe in myself fully.\"
+/Message \"you lean back and cuddle Shane, resting your head on his chest. You can definitely feel the chill coming on.\"
+/quickquestion null \"What do you want to say to Shane?#Do you want to do something to warm up?#We should head inside. I had a good time with you tonight.(break)I don't know if I can be very giving tonight. Talking took a lot out of me, and I don't want to leave unsatisfied.(break)Thank you, @. You make the good days better, and you make bad days like this feel manageable.\"
+/end
+
+
+
+/quickquestion null \"What do you want to say to Shane?
+	#Do you want to do something to warm up?
+	#We should head inside. I had a good time with you tonight.
+	(break)goto break1 (I don't know if I can be very giving tonight. Talking took a lot out of me, and I don't want to leave you unsatisfied.)
+	(break)goto break2 (Thank you, @. You make the good days better, and you make bad days like this feel manageable.\")
+
+break1
+	/pause 500
+	/message \"You roll over, ending up on top of Shane. He chuckles a little at the awkwardness of the move.\"
+	/speak Shane \"I'm glad I'm not the only one feeling a bit uncoordinated tonight. Congratulation, you have me pinned.\"
+	/Question null \"#Receiving gifts is as much a part of life as losing something. There's no obligation when I do something for you.#If I have you pinned then I get to claim my prize. I'm not asking for you to do anything back.\"
+	/message \"You can see in Shane's eyes that he wants this as well so you shimmy down his legs and pull his pants and underwear down a bit.
+	#His dick is hard and you can tell that he's enjoying this position, maybe even enjoying having you in control. You wrap your fingers around him and start slowly jacking him off until he's fully erect.
+	#You lean down and take him into your mouth, your warmth contrasting with the coolness of the night.\"
+	/pause 600
+	/speak Shane \"That feels so good, @. Please don't stop.\"
+	/message \"You treat his cock like a popsible, rubbing the tip of your tongue on the underside as you pull back.
+	#Shane's legs are starting to twitch under you in time with your blowjob, making you smile. You revel in the control you have on top of him.\"
+	/pause 150
+	/playsound fishslap
+	/pause 150
+	/playsound fishslap
+
+break2
+	/pause 1500
+	/message \"You can hear Shane settle and relax, and can only imagine what is going through his mind right now.#After a while he turns to face you\"
