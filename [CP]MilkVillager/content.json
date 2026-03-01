@@ -13,9 +13,22 @@
     "MTVPlayerGender": {
       "AllowValues": "Male, Female, Herm, Ace",
       "Default": "Female"
+    },
+    "MTVMaleItems": {
+      "AllowValues": "true, false",
+      "Default": "true"
+    },
+    "MTVFemaleItems": {
+      "AllowValues": "true, false",
+      "Default": "true"
+    },
+    "MTVMagicalItems": {
+      "AllowValues": "true, false",
+      "Default": "true"
     }
   },
   "DynamicTokens": [
+    // Gender
     {
       "Name": "GenderSwitch",
       "Value": "P", //Male.
@@ -52,8 +65,82 @@
         "HasFlag": "MTV_Penis"
       },
       "Update": "OnLocationChange, OnTimeChange"
+    },
+    //Available orifices
+    {
+      "Name": "MTV_Holes",
+      "Value": "ass", //Male.
+      "When": {
+        "HasFlag": "MTV_Penis"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    {
+      "Name": "MTV_Holes",
+      "Value": "ass", //Herm.
+      "When": {
+        "HasFlag": "MTV_Herm"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    {
+      "Name": "MTV_Holes",
+      "Value": "pussy and ass", //Female.
+      "When": {
+        "HasFlag": "MTV_Vagina"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    // Primary orifice
+    {
+      "Name": "MTV_Hole",
+      "Value": "ass", //Male.
+      "When": {
+        "HasFlag": "MTV_Penis"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    {
+      "Name": "MTV_Hole",
+      "Value": "ass", //Herm.
+      "When": {
+        "HasFlag": "MTV_Herm"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    {
+      "Name": "MTV_Hole",
+      "Value": "pussy", //Female.
+      "When": {
+        "HasFlag": "MTV_Vagina"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    // Primary genital
+    {
+      "Name": "MTV_Genital",
+      "Value": "dick", //Male.
+      "When": {
+        "HasFlag": "MTV_Penis"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    {
+      "Name": "MTV_Genital",
+      "Value": "dick", //Herm.
+      "When": {
+        "HasFlag": "MTV_Herm"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
+    },
+    {
+      "Name": "MTV_Genital",
+      "Value": "pussy", //Female.
+      "When": {
+        "HasFlag": "MTV_Vagina"
+      },
+      "Update": "OnLocationChange, OnTimeChange"
     }
-
   ],
   "Changes": [
     // Dialogue
@@ -96,7 +183,7 @@
       "LogName": "Include Quests",
       "Action": "Include",
       "FromFile": "Data/Quests.json"
-    },
+    }
 
     //Farmer gets added as an NPC (Trunip)	
     //{

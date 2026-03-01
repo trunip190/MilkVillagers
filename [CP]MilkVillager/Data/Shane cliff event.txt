@@ -1,24 +1,29 @@
-"594809f Shane 2300
+"594809 Shane 2300
 /n MTV_ShaneQ1
 /p Shane" : "playful
-/14 6
-/farmer 16 10 0 Shane 14 5 0
+/75 100
+/farmer 97 92 0 Shane 79 98 0
 /skippable
-/addMailReceived MTV_ShaneQ1P
-/speak Shane \"Oh. Hey there @#$b#I know I sent you that message but I wasn't sure whether you'd come. or if I wanted you to.#$b#Don't get me wrong - I love it when you're around me, but sometimes it feels like I have to....i dunno...put on more of a face when people I love are near.\"
-/pause 1500
-/emote farmer 28
-/quickquestion null \"Have you ever struggled with deep sadness? Or depression?#Sometimes, but not often.#I have, in the past. It's why I left Joja Corp#It's still part of my life(break)It makes me happier to know that you don't. my biggest fear is that everyone feels this way but it's just me that can't cope(break)I guess Joja really broke both of us.(break)I don't know if what I have is depression, or just from giving up drinking. Hell, it might even be from dreaming about the past again.(break)*lean on shoulder.*\"
-/speak Shane \"I'm sorry. I don't want to burden you with this. Marnie carries on like clockwork every day.#$b#She gives me this smile when she sees me, but it's the same no matter how i'm doing or what i've done that day.#$b#I feel like I could screw up in the worst way, let out all the cows and chickens, and she'd still give me that smile, as if just by smiling at me she can chase away my feelings.\"
-/pause 1500
-/speak Shane \"Look, if you want to go that's fine. there's nothing you can do to make me feel better today, and I think I just want to sit here for a while.\"
+/addMailReceived MTV_ShaneQ3T
+
+/Speak Shane \"Oh. Hey there @#$b#I know I sent you that message but I wasn't sure whether you'd come. or if I wanted you to.#$b#Don't get me wrong - I love it when you're around me, but sometimes it feels like I have to....i dunno...put on more of a face when people I love are near.\"
+/Pause 1500
+/Emote farmer 28
+/Quickquestion null \"Have you ever struggled with deep sadness? Or depression?#Sometimes, but not often.#I have, in the past. It's why I left Joja Corp#It's still part of my life(break)It makes me happier to know that you don't. my biggest fear is that everyone feels this way but it's just me that can't cope(break)I guess Joja really broke both of us.(break)I don't know if what I have is depression, or just from giving up drinking. Hell, it might even be from dreaming about the past again.(break)*lean on shoulder.*\"
+/Speak Shane \"I'm sorry. I don't want to burden you with this. Marnie carries on like clockwork every day.#$b#She gives me this smile when she sees me, but it's the same no matter how i'm doing or what i've done that day.#$b#I feel like I could screw up in the worst way, let out all the cows and chickens, and she'd still give me that smile, as if just by smiling at me she can chase away my feelings.\"
+/Pause 1500
+/Speak Shane \"Look, if you want to go that's fine. there's nothing you can do to make me feel better today, and I think I just want to sit here for a while.\"
 /Message \"*cuddle*\"
-/pause 1500
-/Message \"you sit there for a while, just leaning against Shane. You can tell that he's tense, probably anxious, and so you sit there, listen, and make sure he can feel you being present.#You can tell that his breathing is starting to settle and slow, and you take that as a good sign.#After a while he leans back on the grass and stares at the sky. You can see that the day is starting to come to a close.\"
-/speak Shane \"it's getting late, @. we should probably head back before you get too cold. Thank you for being here with me - I asked you to come because I needed help but couldn't admit that to myself.#$b#if I admitted to myself I wasn't strong enough then I felt I would crumble#$b#Honestly? part of me wanted you to not come so that I would have an excuse to crumble, because I guess I still don't believe in myself fully.\"
+/Pause 1500
+/Message \"You sit there for a while, just leaning against Shane. You can tell that he's tense, probably anxious, and so you sit there, listen, and make sure he can feel you being present.#You can tell that his breathing is starting to settle and slow, and you take that as a good sign.#After a while he leans back on the grass and stares at the sky. You can see that the day is starting to come to a close.\"
+/Speak Shane \"it's getting late, @. we should probably head back before you get too cold. Thank you for being here with me - I asked you to come because I needed help but couldn't admit that to myself.#$b#if I admitted to myself I wasn't strong enough then I felt I would crumble#$b#Honestly? part of me wanted you to not come so that I would have an excuse to crumble, because I guess I still don't believe in myself fully.\"
 /Message \"you lean back and cuddle Shane, resting your head on his chest. You can definitely feel the chill coming on.\"
-/quickquestion null \"What do you want to say to Shane?#Do you want to do something to warm up?#We should head inside. I had a good time with you tonight.(break)I don't know if I can be very giving tonight. Talking took a lot out of me, and I don't want to leave unsatisfied.(break)Thank you, @. You make the good days better, and you make bad days like this feel manageable.\"
-/end
+/Quickquestion null \"What do you want to say to Shane?
+	#Do you want to do something to warm up?
+	#We should head inside. I had a good time with you tonight.
+	(break)I don't know if I can be very giving tonight. Talking took a lot out of me, and I don't want to leave unsatisfied.
+	(break)Thank you, @. You make the good days better, and you make bad days like this feel manageable.\"
+/End"
 
 
 
@@ -34,7 +39,7 @@ break1
 	/speak Shane \"I'm glad I'm not the only one feeling a bit uncoordinated tonight. Congratulation, you have me pinned.\"
 	/Question null \"#Receiving gifts is as much a part of life as losing something. There's no obligation when I do something for you.#If I have you pinned then I get to claim my prize. I'm not asking for you to do anything back.\"
 	/message \"You can see in Shane's eyes that he wants this as well so you shimmy down his legs and pull his pants and underwear down a bit.
-	#His dick is hard and you can tell that he's enjoying this position, maybe even enjoying having you in control. You wrap your fingers around him and start slowly jacking him off until he's fully erect.
+	#Shane's dick is hard and you can tell that he's enjoying this position, maybe even enjoying having you in control. You wrap your fingers around him and start slowly jacking him off until he's fully erect.
 	#You lean down and take him into your mouth, your warmth contrasting with the coolness of the night.\"
 	/pause 600
 	/speak Shane \"That feels so good, @. Please don't stop.\"
@@ -44,7 +49,34 @@ break1
 	/playsound fishslap
 	/pause 150
 	/playsound fishslap
+	/Message \"You can feel him tensing more now and you try to take more of him in your mouth. Your eyes water as you start regretting trying to deep throat him for the first time.\"
+	/speak Shane \"Woah, you don't need to do that, it already feels amazing. I'm getting really close.\"
+	/pause 250
+	/playsound fishslap
+	/pause 700
+	/message \"You feel Shane start to fill your mouth with cum and you swallow quickly to avoid having it dribble down your chin.
+	#You suck his dick a couple of times once he's done to make sure it's all out and then you wipe him dry with your sleeve before rolling to his side again.
+	#He pulls his pants back up before pulling you in for a hug and kissing you, a smile on his face that lets you know he appreciates you.\"
+	/speak Shane \"Thanks @. You make me really happy when I'm around you.
+	#$b#And even after you're gone.\"
+	/message \"Shane heads home with a slightly lighter heart.\"
+
 
 break2
 	/pause 1500
-	/message \"You can hear Shane settle and relax, and can only imagine what is going through his mind right now.#After a while he turns to face you\"
+	/message \"You can hear Shane settle and relax, and can only imagine what is going through his mind right now.#After a while he turns to face you.\"
+	/speak Shane \"My fear is that the more fragile I get the more i need to hold it together when all i really want is to crumble so i can be 'me.\"
+	/pause 450
+	/speak Shane \"I'm tell you this but i don't want an answer.
+	#$b#I don't believe there is a 'fix' to this but if it turns out there was a way to fix this, or everyone else is dealing with the same challenges and succeeding, it would break me.\"
+	/pause 450
+	/question null \"What do you want to say to Shane?#Is there anything other than your fears that drives you on?#Do you have anything you hope to do yet?\"
+	/speak Shane \"I think there are a few things I want to do, like show Jas how to raise the chickens, maybe show my blue chickens to more people.
+	#$b#I think in terms of what i want to get done before...the end. like I need to wrap things up before i can move on.\"
+	/question null \"#The things in life that i love don't have an ending you can 'complete'. Like caring for my animals, or spending time with you. They just keep giving to me.\"
+	/pause 900
+	/message \"Shane lies there for a while, thinking about what you've said. There are times you can see him about to speak but then he hesitates or changes his mind.\"
+	/pause 750
+	/speak Shane \"If i'm being honest with you, my internal voice keeps saying that you're wrong. I know that the voice hasn't been giving me options that bring me happiness so i'm going to trust you.\"
+	/question null \"#It's ok to not know what to do.#I don't know what to do either.\"
+	/speak Shane \"Thanks @. I guess we stumble along in life until we find something we like. Maybe we can stumble along together.\"

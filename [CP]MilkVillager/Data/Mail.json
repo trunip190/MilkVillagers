@@ -219,7 +219,25 @@
 
         // Special order mail
         "SOQiReward1": "{{i18n:Mail.SOQiReward1}}",
-        "SOQiReward2": "{{i18n:Mail.SOQiReward2}}%"
+        "SOQiReward2": "{{i18n:Mail.SOQiReward2}}%",
+
+
+        //*****************
+        // Shane Quest 1
+        "MTV_ShaneQ1": "{{i18n:Mail.MTV_ShaneQ1}}",
+        "MTV_ShaneQ1T": "{{i18n:Mail.MTV_ShaneQ1T}}",
+
+        // Shane Quest 2 2
+        "MTV_ShaneQ2": "{{i18n:Mail.MTV_ShaneQ2}}",
+        "MTV_ShaneQ2T": "{{i18n:Mail.MTV_ShaneQ2T}}",
+
+        // Shane Quest 3 Faded blue dreams
+        "MTV_ShaneQ3": "{{i18n:Mail.MTV_ShaneQ3}}",
+        "MTV_ShaneQ3T": "{{i18n:Mail.MTV_ShaneQ3T}}",
+
+        // Shane Quest 4
+        "MTV_ShaneQ4": "{{i18n:Mail.MTV_ShaneQ4}}",
+        "MTV_ShaneQ4T": "{{i18n:Mail.MTV_ShaneQ4T}}"
       }
     }
   ]

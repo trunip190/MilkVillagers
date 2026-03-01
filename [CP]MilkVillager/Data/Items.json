@@ -14,9 +14,13 @@
       "Target": "Mods/Trunip190.CP.MilkTheVillagers/Shibari"
     },
     // Load in objects
-    {
+    { // Women
+      "LogName": "Loading women items",
       "Action": "EditData",
       "Target": "Data/Objects",
+      "When": {
+        "MTVFemaleItems": true
+      },
       "Entries": {
         "Trunip190.CP.MilkTheVillagers.Woman's_Milk": {
           "Name": "Woman's Milk",
@@ -324,7 +328,127 @@
             "MTV_item"
           ]
         },
+        "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": {
+          "Name": "Creamy Coffee",
+          "DisplayName": "{{i18n:Creamy_Coffee.name}}",
+          "Description": "{{i18n:Creamy_Coffee.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 16,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 600,
+              "CustomAttributes": {
+                "Luck": 1.0,
+                "Speed": 2.0
+              }
 
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 160,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Special_Milkshake": {
+          "Name": "Special Milkshake",
+          "DisplayName": "{{i18n:Special_Milkshake.name}}",
+          "Description": "{{i18n:Special_Milkshake.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 65,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 343,
+              "CustomAttributes": {
+                "MaxStamina": 25.0,
+                "Speed": 1
+              }
+
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 165,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": {
+          "Name": "Sweet Sibling",
+          "DisplayName": "{{i18n:Sweet_Sibling.name}}",
+          "Description": "{{i18n:Sweet_Sibling.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 70,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 700,
+              "CustomAttributes": {
+                "MaxStamina": 100.0,
+                "Luck": 2.0,
+                "Defense": 2.0,
+                "Speed": 3.0
+              }
+
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 167,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.CookiesnCream": {
+          "Name": "Creamy Coffee",
+          "DisplayName": "{{i18n:CookiesnCream.name}}",
+          "Description": "{{i18n:CookiesnCream.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 16,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 600,
+              "CustomAttributes": {
+                "Luck": 1.0,
+                "Speed": 2.0
+              }
+
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 1250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 168,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        }
+
+      }
+    },
+    { // Men
+      "LogName": "Loading men items",
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "When": {
+        "MTVMaleItems": true
+      },
+      "Entries": {
         "Trunip190.CP.MilkTheVillagers.Special_Milk": {
           "Name": "Special Milk",
           "DisplayName": "{{i18n:Special_Milk.name}}",
@@ -733,8 +857,129 @@
             "MTV_item"
           ]
         },
+        "Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence": {
+          "Name": "Mr. Qi's Essence",
+          "DisplayName": "{{i18n:Mr._Qi's_Essence.name}}",
+          "Description": "{{i18n:Mr._Qi's_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "ExcludeFromShippingCollection": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 131,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Wizard's_Essence": {
+          "Name": "Wizard's Essence",
+          "DisplayName": "{{i18n:Wizard's_Essence.name}}",
+          "Description": "{{i18n:Wizard's_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "ExcludeFromShippingCollection": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 132,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Protein_Shake": {
+          "Name": "Protein Shake",
+          "DisplayName": "{{i18n:Protein_Shake.name}}",
+          "Description": "{{i18n:Protein_Shake.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 40,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 343,
+              "CustomAttributes": {
+                "MaxStamina": 25.0,
+                "Defense": 2.0
+              }
 
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 250,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 163,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": {
+          "Name": "Eldritch Energy",
+          "DisplayName": "{{i18n:Eldritch_Energy.name}}",
+          "Description": "{{i18n:Eldritch_Energy.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 14,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 150,
+              "CustomAttributes": {
+                "MaxStamina": 100.0
+              }
 
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 400,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 161,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": {
+          "Name": "Martini Kairos",
+          "DisplayName": "{{i18n:Martini_Kairos.name}}",
+          "Description": "{{i18n:Martini_Kairos.description}}",
+          "Type": "Drink",
+          "Category": -7,
+          "Edibility": 5,
+          "IsDrink": true,
+          "Buffs": [
+            {
+              "Duration": 150,
+              "CustomAttributes": {
+                "MaxStamina": 100.0
+              }
+
+            }
+          ],
+          "ExcludeFromShippingCollection": true,
+          "Price": 400,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 162,
+          "ContextTags": [
+            "cooking_item",
+            "MTV_item"
+          ]
+        }
+      }
+    },
+    { // Magical
+      "LogName": "Loading Magical items",
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      //"When": {
+      //  "MTVMagicalItems": true
+      //},
+      "Entries": {
         "Trunip190.CP.MilkTheVillagers.Magical_Essence": {
           "Name": "Magical Essence",
           "DisplayName": "{{i18n:Magical_Essence.name}}",
@@ -819,116 +1064,19 @@
             "magic_essence_item",
             "MTV_item"
           ]
-        },
-
-
-
-        "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": {
-          "Name": "Creamy Coffee",
-          "DisplayName": "{{i18n:Creamy_Coffee.name}}",
-          "Description": "{{i18n:Creamy_Coffee.description}}",
-          "Type": "Drink",
-          "Category": -7,
-          "Edibility": 16,
-          "IsDrink": true,
-          "Buffs": [
-            {
-              "Duration": 600,
-              "CustomAttributes": {
-                "Luck": 1.0,
-                "Speed": 2.0
-              }
-
-            }
-          ],
-          "ExcludeFromShippingCollection": true,
-          "Price": 1250,
-          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
-          "SpriteIndex": 160,
-          "ContextTags": [
-            "cooking_item",
-            "MTV_item"
-          ]
-        },
-        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": {
-          "Name": "Eldritch Energy",
-          "DisplayName": "{{i18n:Eldritch_Energy.name}}",
-          "Description": "{{i18n:Eldritch_Energy.description}}",
-          "Type": "Drink",
-          "Category": -7,
-          "Edibility": 14,
-          "IsDrink": true,
-          "Buffs": [
-            {
-              "Duration": 150,
-              "CustomAttributes": {
-                "MaxStamina": 100.0
-              }
-
-            }
-          ],
-          "ExcludeFromShippingCollection": true,
-          "Price": 400,
-          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
-          "SpriteIndex": 161,
-          "ContextTags": [
-            "cooking_item",
-            "MTV_item"
-          ]
-        },
-        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": {
-          "Name": "Martini Kairos",
-          "DisplayName": "{{i18n:Martini_Kairos.name}}",
-          "Description": "{{i18n:Martini_Kairos.description}}",
-          "Type": "Drink",
-          "Category": -7,
-          "Edibility": 5,
-          "IsDrink": true,
-          "Buffs": [
-            {
-              "Duration": 150,
-              "CustomAttributes": {
-                "MaxStamina": 100.0
-              }
-
-            }
-          ],
-          "ExcludeFromShippingCollection": true,
-          "Price": 400,
-          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
-          "SpriteIndex": 162,
-          "ContextTags": [
-            "cooking_item",
-            "MTV_item"
-          ]
-        },
-        "Trunip190.CP.MilkTheVillagers.Protein_Shake": {
-          "Name": "Protein Shake",
-          "DisplayName": "{{i18n:Protein_Shake.name}}",
-          "Description": "{{i18n:Protein_Shake.description}}",
-          "Type": "Drink",
-          "Category": -7,
-          "Edibility": 40,
-          "IsDrink": true,
-          "Buffs": [
-            {
-              "Duration": 343,
-              "CustomAttributes": {
-                "MaxStamina": 25.0,
-                "Defense": 2.0
-              }
-
-            }
-          ],
-          "ExcludeFromShippingCollection": true,
-          "Price": 250,
-          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
-          "SpriteIndex": 163,
-          "ContextTags": [
-            "cooking_item",
-            "MTV_item"
-          ]
-        },
+        }
+      }
+    },
+    { // Both
+      "LogName": "Loading 'both' items",
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "When": {
+        "MTVMaleItems": true,
+        "MTVFemaleItems": true
+      },
+      "Entries": {
+        
         "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": {
           "Name": "Secret Pleasures",
           "DisplayName": "{{i18n:Secret_Pleasures.name}}",
@@ -950,33 +1098,6 @@
           "Price": 1250,
           "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
           "SpriteIndex": 164,
-          "ContextTags": [
-            "cooking_item",
-            "MTV_item"
-          ]
-        },
-        "Trunip190.CP.MilkTheVillagers.Special_Milkshake": {
-          "Name": "Special Milkshake",
-          "DisplayName": "{{i18n:Special_Milkshake.name}}",
-          "Description": "{{i18n:Special_Milkshake.description}}",
-          "Type": "Drink",
-          "Category": -7,
-          "Edibility": 65,
-          "IsDrink": true,
-          "Buffs": [
-            {
-              "Duration": 343,
-              "CustomAttributes": {
-                "MaxStamina": 25.0,
-                "Speed": 1
-              }
-
-            }
-          ],
-          "ExcludeFromShippingCollection": true,
-          "Price": 250,
-          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
-          "SpriteIndex": 165,
           "ContextTags": [
             "cooking_item",
             "MTV_item"
@@ -1011,62 +1132,6 @@
             "MTV_item"
           ]
         },
-        "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": {
-          "Name": "Sweet Sibling",
-          "DisplayName": "{{i18n:Sweet_Sibling.name}}",
-          "Description": "{{i18n:Sweet_Sibling.description}}",
-          "Type": "Drink",
-          "Category": -7,
-          "Edibility": 70,
-          "IsDrink": true,
-          "Buffs": [
-            {
-              "Duration": 700,
-              "CustomAttributes": {
-                "MaxStamina": 100.0,
-                "Luck": 2.0,
-                "Defense": 2.0,
-                "Speed": 3.0
-              }
-
-            }
-          ],
-          "ExcludeFromShippingCollection": true,
-          "Price": 1250,
-          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
-          "SpriteIndex": 167,
-          "ContextTags": [
-            "cooking_item",
-            "MTV_item"
-          ]
-        },
-        "Trunip190.CP.MilkTheVillagers.CookiesnCream": {
-          "Name": "Creamy Coffee",
-          "DisplayName": "{{i18n:CookiesnCream.name}}",
-          "Description": "{{i18n:CookiesnCream.description}}",
-          "Type": "Drink",
-          "Category": -7,
-          "Edibility": 16,
-          "IsDrink": true,
-          "Buffs": [
-            {
-              "Duration": 600,
-              "CustomAttributes": {
-                "Luck": 1.0,
-                "Speed": 2.0
-              }
-
-            }
-          ],
-          "ExcludeFromShippingCollection": true,
-          "Price": 1250,
-          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
-          "SpriteIndex": 168,
-          "ContextTags": [
-            "cooking_item",
-            "MTV_item"
-          ]
-        },
         "Trunip190.CP.MilkTheVillagers.PureCapitalism": {
           "Name": "Pure Capitalism",
           "DisplayName": "{{i18n:PureCapitalism.name}}",
@@ -1093,8 +1158,76 @@
             "cooking_item",
             "MTV_item"
           ]
-        },
+        }
 
+      }
+    },
+    { // Magical
+      "LogName": "Loading Magical items",
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "When": {
+        "MTVMagicalItems": true
+      },
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": {
+          "Name": "Magical Essence",
+          "DisplayName": "{{i18n:Magical_Essence.name}}",
+          "Description": "{{i18n:Magical_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "ExcludeFromShippingCollection": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 128,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Dwarf's_Essence": {
+          "Name": "Dwarf's Essence",
+          "DisplayName": "{{i18n:Dwarf's_Essence.name}}",
+          "Description": "{{i18n:Dwarf's_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 22,
+          "IsDrink": true,
+          "ExcludeFromShippingCollection": true,
+          "Price": 300,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 129,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        },
+        "Trunip190.CP.MilkTheVillagers.Krobus_Essence": {
+          "Name": "Krobus Essence",
+          "DisplayName": "{{i18n:Krobus_Essence.name}}",
+          "Description": "{{i18n:Krobus_Essence.description}}",
+          "Type": "Drink",
+          "Category": -36,
+          "Edibility": 150,
+          "IsDrink": true,
+          "ExcludeFromShippingCollection": true,
+          "Price": 290,
+          "Texture": "Mods/Trunip190.CP.MilkTheVillagers/Objects",
+          "SpriteIndex": 130,
+          "ContextTags": [
+            "magic_essence_item",
+            "MTV_item"
+          ]
+        }
+      }
+    },
+    { // Quest
+      "LogName": "Loading Quest items",
+      "Action": "EditData",
+      "Target": "Data/Objects",
+      "Entries": {
         "Trunip190.CP.MilkTheVillagers.Abigails_Panties": {
           "Name": "Abigails Panties",
           "DisplayName": "{{i18n:Abigails_Panties.name}}",
@@ -1208,7 +1341,7 @@
           ]
         },
         "Trunip190.CP.MilkTheVillagers.Invitation": {
-          "Name": "Invitation",
+          "Name": "Trunip190.CP.MilkTheVillagers.Invitation",
           "DisplayName": "{{i18n:Invitation.name}}",
           "Description": "{{i18n:Invitation.description}}",
           "Type": "Basic",
@@ -1289,53 +1422,121 @@
         }
       }
     },
+
     // Load in Cooking recipes
-    {
-      "LogName": "Recipes Data",
+    { //Female
+      "LogName": "Recipes Data - Female",
       "Action": "EditData",
       "Target": "Data/CookingRecipes",
+      "When": {
+        "MTVFemaleItems": true
+      },
       "Entries": {
         "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": "395 2 Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Creamy_Coffee 2/null/Creamy Coffee",
-        "Trunip190.CP.MilkTheVillagers.Protein_Shake": "-35 1/10 10/Trunip190.CP.MilkTheVillagers.Protein_Shake 1/null/Protein Shake",
-        "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": "Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1 Trunip190.CP.MilkTheVillagers.Wizard's_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Secret_Pleasures/null/Secret Pleasures",
         "Trunip190.CP.MilkTheVillagers.Special_Milkshake": "-34 1/10 10/Trunip190.CP.MilkTheVillagers.Special_Milkshake//Special Milkshake",
-        "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
-
-        "Trunip190.CP.MilkTheVillagers.CookiesnCream": "-34 1 223 3/10 10/Trunip190.CP.MilkTheVillagers.CookiesnCream 3//Cookies & Cream",
-
-        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
-        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
         "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
-
-        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/false/null/Woman's Milk",
-        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1/false/null/Special Milk",
-        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence"
+        "Trunip190.CP.MilkTheVillagers.CookiesnCream": "-34 1 223 3/10 10/Trunip190.CP.MilkTheVillagers.CookiesnCream 3//Cookies & Cream",
+        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/9999 9999/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/null/Woman's Milk"
+      }
+    },
+    { // Male
+      "LogName": "Recipes Data - Male",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "When": {
+        "MTVMaleItems": true
+      },
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Protein_Shake": "-35 1/10 10/Trunip190.CP.MilkTheVillagers.Protein_Shake 1/null/Protein Shake",
+        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Magical_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
+        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
+        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/9999 9999/Trunip190.CP.MilkTheVillagers.Special_Milk 1/null/Special Milk"
+      }
+    },
+    { // Both
+      "LogName": "Recipes Data - Both",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "When": {
+        "MTVMaleItems": true,
+        "MTVFemaleItems": true
+      },
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
+        "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": "Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1 Trunip190.CP.MilkTheVillagers.Wizard's_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Secret_Pleasures/null/Secret Pleasures"
+      }
+    },
+    { // Magical
+      "LogName": "Recipes Data - Magical",
+      "Action": "EditData",
+      "Target": "Data/CookingRecipes",
+      "When": {
+        "MTVMagicalItems": true
+      },
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/9999 9999/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/null/Magical Essence"
       }
     },
     // Load in Crafting recipes
-    {
+    { //Quest
       "LogName": "Recipes Data",
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
       "Entries": {
-        "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": "395 2 Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Creamy_Coffee 2/null/Creamy Coffee",
-        "Trunip190.CP.MilkTheVillagers.Protein_Shake": "-35 1/10 10/Trunip190.CP.MilkTheVillagers.Protein_Shake 1/null/Protein Shake",
-        "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": "Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1 Trunip190.CP.MilkTheVillagers.Wizard's_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Secret_Pleasures/null/Secret Pleasures",
-        "Trunip190.CP.MilkTheVillagers.Special_Milkshake": "-34 1/10 10/Trunip190.CP.MilkTheVillagers.Special_Milkshake//Special Milkshake",
-        "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
-
-        "Trunip190.CP.MilkTheVillagers.CookiesnCream": "-34 1 223 3/10 10/Trunip190.CP.MilkTheVillagers.CookiesnCream 3//Cookies & Cream",
-
-        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
-        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
-        "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
-
-        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/what is this for?/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/false/null/Woman's Milk",
-        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/what is this for?/Trunip190.CP.MilkTheVillagers.Special_Milk 1/false/null/Special Milk",
-        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/what is this for?/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/false/null/Magical Essence",
-
         "Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/what is this for?/Trunip190.CP.MilkTheVillagers.Shibari_rope 1/false/null/Shibari Rope"
-        //"Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/what is this for?/Trunip190.CP.MilkTheVillagers.Clothing.Shibari_rope 1/false/null/Shibari Rope"
+      }
+    },
+    { //Female
+      "LogName": "Recipes Data - Female",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "When": {
+        "MTVFemaleItems": true
+      },
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Special_Milkshake": "-34 1/10 10/Trunip190.CP.MilkTheVillagers.Special_Milkshake//Special Milkshake",
+        "Trunip190.CP.MilkTheVillagers.Creamy_Coffee": "395 2 Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/9999 9999/Trunip190.CP.MilkTheVillagers.Creamy_Coffee 2/null/Creamy Coffee",
+        "Trunip190.CP.MilkTheVillagers.CookiesnCream": "-34 1 223 3/10 10/Trunip190.CP.MilkTheVillagers.CookiesnCream 3//Cookies & Cream",
+        "Trunip190.CP.MilkTheVillagers.Sweet_Sibling": "Trunip190.CP.MilkTheVillagers.Haley's_Milk 1 Trunip190.CP.MilkTheVillagers.Emily's_Milk 1 400 1/9999 9999/Trunip190.CP.MilkTheVillagers.Sweet_Sibling 1/null/Sweet Sibling",
+        "Trunip190.CP.MilkTheVillagers.Woman's_Milk": "-34 1/9999 9999/Trunip190.CP.MilkTheVillagers.Woman's_Milk 1/null/Woman's Milk"
+      }
+    },
+    { // Male
+      "LogName": "Recipes Data - Male",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "When": {
+        "MTVMaleItems": true
+      },
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Protein_Shake": "-35 1/10 10/Trunip190.CP.MilkTheVillagers.Protein_Shake 1/null/Protein Shake",
+        "Trunip190.CP.MilkTheVillagers.Eldritch_Energy": "Trunip190.CP.MilkTheVillagers.Wizard's_Essence 2 Trunip190.CP.MilkTheVillagers.Magical_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Eldritch_Energy 1/null/Eldritch Energy",
+        "Trunip190.CP.MilkTheVillagers.Martini_Kairos": "Trunip190.CP.MilkTheVillagers.Magical_Essence 2 Trunip190.CP.MilkTheVillagers.Mr._Qi's_Essence 4/9999 9999/Trunip190.CP.MilkTheVillagers.Martini_Kairos 1/null/Martini Kairos",
+        "Trunip190.CP.MilkTheVillagers.Special_Milk": "-35 1/9999 9999/Trunip190.CP.MilkTheVillagers.Special_Milk 1/null/Special Milk"
+      }
+    },
+    { // Both
+      "LogName": "Recipes Data - Both",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "When": {
+        "MTVMaleItems": true,
+        "MTVFemaleItems": true
+      },
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Super_Juice": "-34 2 -35 2/10 10/Trunip190.CP.MilkTheVillagers.Super_Juice//Super Juice",
+        "Trunip190.CP.MilkTheVillagers.Secret_Pleasures": "Trunip190.CP.MilkTheVillagers.Caroline's_Milk 1 Trunip190.CP.MilkTheVillagers.Wizard's_Essence 1/9999 9999/Trunip190.CP.MilkTheVillagers.Secret_Pleasures/null/Secret Pleasures"
+      }
+    },
+    { // Magical
+      "LogName": "Recipes Data - Magical",
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      //"When": {
+      //  "MTVMagicalItems": true
+      //},
+      "Entries": {
+        "Trunip190.CP.MilkTheVillagers.Magical_Essence": "-36 1/9999 9999/Trunip190.CP.MilkTheVillagers.Magical_Essence 1/null/Magical Essence"
       }
     },
     //Shirts

@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MilkVillagers
-{    public interface IMobilePhoneApi
+{
+    public interface IMobilePhoneApi
     {
         bool AddApp(string id, string name, Action action, Texture2D icon);
         Vector2 GetScreenPosition();
