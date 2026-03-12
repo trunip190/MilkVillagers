@@ -13,6 +13,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="assets\Maru_Nude.png" />
+		<None Remove="assets\Maru_Portrait_Nude.png" />
 		<None Remove="assets\Objects\Abigail's Milk\object.json" />
 		<None Remove="assets\Objects\Abigail's Milk\object.png" />
 		<None Remove="assets\Objects\Alex's Cum\object.json" />
@@ -119,6 +121,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Content Include="assets\Maru_Nude.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\Maru_Portrait_Nude.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
 		<Content Include="assets\Shirts\Shibari.png">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
@@ -153,6 +161,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.3.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Data\Events - Copy.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 	<ProjectExtensions>

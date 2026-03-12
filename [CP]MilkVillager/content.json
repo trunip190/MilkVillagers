@@ -164,6 +164,22 @@
       "FromFile": "Data/Items.json"
     },
 
+    //Character Sprites
+    {
+      "Action": "Load",
+      "Priority": "Low",
+      "Target": "Characters/Maru_Nude",
+      "FromFile": "assets/Maru_Nude.png"
+    },
+
+    //Character Portraits
+    {
+      "Action": "Load",
+      "Priority": "Low",
+      "Target": "Portraits/Maru_Nude",
+      "FromFile": "assets/Maru_Portrait_Nude.png"
+    },
+
     //NPC Gift Tastes
     {
       "LogName": "Include Gift Tastes",

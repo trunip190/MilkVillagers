@@ -7,6 +7,7 @@ using SpaceCore.Events;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Events;
 using StardewValley.Extensions;
 using StardewValley.GameData.Characters;
 using StardewValley.GameData.Objects;
@@ -15,9 +16,11 @@ using StardewValley.Objects;
 using StardewValley.Quests;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using xTile.Dimensions;
 using Framework = Microsoft.Xna.Framework;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
 using Log = MilkVillagers.ModFunctions;
@@ -36,7 +39,7 @@ namespace MilkVillagers
         private NPC currentTarget;
         //private List<NPC> NPCsInRange;
         ContentPatcher.IContentPatcherAPI contentPatcherApi;
-        IMobilePhoneApi MobilePhoneApi;
+        internal static IMobilePhoneApi MobilePhoneApi;
         internal ITranslationHelper i18n;
         internal static ModEntry Instance;
         internal MilkingSkill MSskill;
@@ -98,7 +101,6 @@ namespace MilkVillagers
         private float TimeFreezeTimer = 0;
         private bool TimeFreeze = false; // Debug time freeze.
 
-
         // Adding item stuff
         sObject AddItem;
         Farmer Whom => Game1.player;
@@ -142,6 +144,8 @@ namespace MilkVillagers
             {
                 TempRefs.Helper = helper;
             }
+
+            Dictionary<string, string> data = Game1.content.Load<Dictionary<string, string>>("Data\\Events\\" + "Forest");
 
             #region register in-game events
 
@@ -711,6 +715,7 @@ namespace MilkVillagers
                 }
                 else
                 {
+
                     List<Response> choices = new()
                     {
                             new Response("Abigail","Abigail"),
@@ -728,6 +733,8 @@ namespace MilkVillagers
                     Game1.currentLocation.createQuestionDialogue($"Where do you want to warp?",
                         choices.ToArray(),
                         new GameLocation.afterQuestionBehavior(WarpFarmer));
+
+
 
                     SendNewMail("mtv_sendmail", new string[0]);
                     foreach (string v in who.mailForTomorrow)
@@ -2018,7 +2025,10 @@ namespace MilkVillagers
 
         private static void MobileOpenApp()
         {
-
+            
+            var ev = Game1.currentLocation.findEventById("5948M01");
+            Game1.currentLocation.startEvent(ev);
+            MobilePhoneApi.SetPhoneOpened(false);
         }
         #endregion
 
