@@ -1,5 +1,6 @@
 ﻿using Force.DeepCloner;
 using HarmonyLib;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Netcode;
 using SpaceCore;
@@ -19,7 +20,10 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 using xTile.Dimensions;
 using Framework = Microsoft.Xna.Framework;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
@@ -193,7 +197,9 @@ namespace MilkVillagers
             if (MobilePhoneApi != null)
             {
                 Texture2D appIcon = Helper.ModContent.Load<Texture2D>(Path.Combine("assets", "app_icon.png"));
-                bool success = MobilePhoneApi.AddApp(Helper.ModRegistry.ModID, "Milk the village", MobileOpenApp, appIcon);
+                bool success = MobilePhoneApi.AddApp(Helper.ModRegistry.ModID, "Milk the village", MTV_App.MobileOpenApp, appIcon);
+                MTV_App.Api = MobilePhoneApi;
+                MTV_App.Helper = this.Helper;
                 Monitor.Log($"loaded phone app successfully: {success}", LogLevel.Debug);
             }
             #endregion
@@ -2020,17 +2026,7 @@ namespace MilkVillagers
 
         #endregion
 
-        #region Mobile Phone
 
-
-        private static void MobileOpenApp()
-        {
-            
-            var ev = Game1.currentLocation.findEventById("5948M01");
-            Game1.currentLocation.startEvent(ev);
-            MobilePhoneApi.SetPhoneOpened(false);
-        }
-        #endregion
 
         #region Testing/Console Commands
 
@@ -2395,6 +2391,208 @@ namespace MilkVillagers
         }
     }
 
+    public static class MTV_App
+    {
+        public static IModHelper Helper;
+        public static IMonitor Monitor;
+        public static Texture2D appIcon;
+        public static bool dragging;
+        public static int yOffset;
+        public static int lastMousePositionY;
+        public static float listHeight;
+        public static bool clicked;
+        public static bool Drawn = false;
+        public static bool Icons = true;
+
+        public static IMobilePhoneApi Api;
+        public static string AppID = "trunip19.MTV.Stream";
+        public static List<StreamEvent> Events = new()
+        {
+            new StreamEvent("5948M01",WatchState.Seen),
+            new StreamEvent("5948M02",WatchState.Unlocked),
+            new StreamEvent("5948M03",WatchState.Unlocked),
+            new StreamEvent("5948M04", WatchState.Locked)
+        };
+        static List<StreamEvent> CurrentEvents = new();
+        internal static Dictionary<Framework.Rectangle, string> ListItemBounds = new();
+
+        public static void MobileOpenApp()
+        {
+            Log.Log($"opening phone book");
+            Api.SetAppRunning(true);
+            //Api.phoneAppRunning = true;
+            Api.SetRunningApp(AppID);
+            Helper.Events.Display.RenderedWorld -= Display_RenderedWorld;
+            Helper.Events.Display.RenderedWorld += Display_RenderedWorld;
+            //Helper.Events.Display.RenderedWorld -= CreateEventList;
+            //Helper.Events.Display.RenderedWorld += CreateEventList;
+            Helper.Events.Input.ButtonPressed -= Input_ButtonPressed;
+            Helper.Events.Input.ButtonPressed += Input_ButtonPressed;
+
+            //Helper.Events.Input.MouseWheelScrolled += Input_MouseWheelScrolled;
+
+            CreateEventList();
+        }
+
+        public static void OpenStreamList()
+        {
+        }
+        private static void Input_ButtonPressed(object sender, StardewModdingAPI.Events.ButtonPressedEventArgs e)
+        {
+
+            if (Game1.eventUp || !Api.GetAppRunning() || Api.GetRunningApp() != AppID || !Api.GetScreenRectangle().Contains(Game1.getMousePosition()))
+                return;
+
+            if (e.Button == SButton.MouseLeft)
+            {
+                Helper.Input.Suppress(SButton.MouseLeft);
+
+                clicked = true;
+
+                lastMousePositionY = Game1.getMouseY();
+            }
+        }
+
+        public static void CreateEventList()
+        {
+            bool appRunning = Api.GetAppRunning();
+            bool phoneOpened = Api.GetPhoneOpened();
+            string runningApp = Api.GetRunningApp();
+            if (!appRunning || !phoneOpened || runningApp != AppID)
+            {
+                Api.SetAppRunning(false);
+                Api.SetRunningApp(null);
+                Helper.Events.Display.RenderedWorld -= Display_RenderedWorld;
+                Helper.Events.Input.ButtonPressed -= Input_ButtonPressed;
+                //Helper.Events.Input.MouseWheelScrolled -= Input_MouseWheelScrolled;
+                return;
+            }
+
+            Framework.Vector2 screenPos = Api.GetScreenPosition();
+            Framework.Vector2 screenSize = Api.GetScreenSize();
+            Framework.Rectangle headerRect = new Framework.Rectangle((int)screenPos.X, (int)screenPos.Y, (int)screenSize.X, (int)screenSize.Y);
+            Point mousePos = Game1.getMousePosition();
+
+            CurrentEvents.Clear();
+            //int offset = 0; // vertical offset
+            foreach (var Eve in Events.Where(o => o.State == WatchState.Unlocked || o.State == WatchState.Seen).OrderBy(o => o.EventID))
+            {
+                //Game1.spriteBatch.DrawString(Game1.dialogueFont, "sfdsdfsdfsdf", new Framework.Vector2(screenPos.X, screenPos.Y - offset), Color.White);
+                //Eve.Location = new Framework.Vector2(screenPos.X, screenPos.Y - offset);
+                CurrentEvents.Add(Eve);
+                //offset += 30;
+            }
+
+            Drawn = false;
+        }
+
+        private static void Display_RenderedWorld(object sender, StardewModdingAPI.Events.RenderedWorldEventArgs e)
+        {
+
+            if (Game1.eventUp || !Api.GetAppRunning() || Api.GetRunningApp() != AppID)
+                return;
+
+            //if (Drawn) return;
+            //Drawn = true;
+
+            Framework.Vector2 screenPos = Api.GetScreenPosition();
+            Framework.Vector2 screenSize = Api.GetScreenSize();
+            int xOffset = Api.GetPhoneRotated() ? 10 : 5;
+            int height = Icons ? 64 : 40;
+            Framework.Rectangle headerRect = new Framework.Rectangle((int)screenPos.X, (int)screenPos.Y, (int)screenSize.X, (int)screenSize.Y);
+
+
+            for (int i = 0; i < CurrentEvents.Count; i++)
+            {
+                var v = CurrentEvents[i];
+                v.Area.X = (int)screenPos.X + xOffset;
+                v.Area.Y = (int)screenPos.Y + (i * height);
+                v.Area.Width = v.Area.Height = height;
+
+                if (Icons)
+                {
+                    int PerRow = Api.GetPhoneRectangle().Width / height;
+                    if (i % PerRow < PerRow)
+                    {
+                        v.Area.X = (int)screenPos.X + (height * (i % PerRow));
+                        v.Area.Y = (int)screenPos.Y + (height * (i / PerRow));
+
+                    }
+                    else
+                    { // Needs fixing
+                        v.Area.X = (int)screenPos.X;
+                        v.Area.Y = (int)screenPos.Y;
+                    }
+
+                    // Make npc portrait bottom right of icon.
+                    Framework.Rectangle StreamIconArea = v.Area;
+                    v.Area.X += height / 2;
+                    v.Area.Width /= 2;
+                    v.Area.Y += height / 2;
+                    v.Area.Height /= 2;
+
+                    // Set colour of icon to use
+                    string fileLoc = v.State == WatchState.Locked ? "StreamIconB.png" : v.State == WatchState.Unlocked ? "StreamIconG.png" : "StreamIconY.png";
+                    Texture2D appIcon = Helper.ModContent.Load<Texture2D>(Path.Combine("assets", fileLoc));
+
+                    Texture2D portraits = Helper.GameContent.Load<Texture2D>("Portraits/Abigail");
+                    portraits.SetContentSize(64, 64); // Set area to draw.
+                    e.SpriteBatch.Draw(appIcon, StreamIconArea, Color.White);
+                    e.SpriteBatch.Draw(portraits, v.Area, Color.White);
+                }
+                else
+                {
+                    Color ColourAlt = v.State != WatchState.Seen ? Color.White : Color.Gray;
+                    e.SpriteBatch.DrawString(Game1.dialogueFont, v.EventID, v.Location, ColourAlt);
+                    v.Area.X = (int)v.Location.X;
+                    v.Area.Y = (int)v.Location.Y;
+                    v.Area.Width = Api.GetScreenRectangle().Width;
+                    v.Area.Height = height;
+                }
+            }
+
+            if (clicked)
+            {
+                clicked = false;
+                Point mousePos = Game1.getMousePosition();
+                if (headerRect.Contains(mousePos))
+                {
+                    var option = CurrentEvents.Where(o => o.Area.Contains(mousePos));
+                    if (option.Count() > 0)
+                    {
+                        var loc = Game1.locations.Where(o => o.Name == "FarmHouse").First();
+                        var eve = loc.findEventById(option.First().EventID);
+                        if (eve != null)
+                        {
+                            loc.startEvent(eve);
+                            Api.SetAppRunning(false);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    public class StreamEvent
+    {
+        public string EventID;
+        public string EventName = "Name of event";
+        public WatchState State = WatchState.Unlocked;
+        public Framework.Vector2 Location => new Framework.Vector2(Area.X, Area.Y);
+        public Framework.Rectangle Area;
+
+        public StreamEvent(string ID)
+        {
+            EventID = ID;
+        }
+        public StreamEvent(string ID, WatchState state)
+        {
+            EventID = ID;
+            State = state;
+        }
+    }
+
     public class MailCheck
     {
         public readonly string FinishedMail;
@@ -2411,5 +2609,12 @@ namespace MilkVillagers
         }
 
         public override string ToString() => NewMail;
+    }
+
+    public enum WatchState
+    {
+        Locked,
+        Unlocked,
+        Seen
     }
 }

@@ -13,11 +13,24 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="app_icon.png" />
+		<None Remove="assets\StreamIcon.png" />
+		<None Remove="assets\StreamIconB.png" />
+		<None Remove="assets\StreamIconG.png" />
+		<None Remove="assets\StreamIconY.png" />
 		<None Remove="csproj backup.7z" />
 		<None Include="manifest.json" />
 		<None Include="Todo.txt" />
 		<Content Include="assets\app_icon.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\StreamIconB.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\StreamIconG.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="assets\StreamIconY.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Changelog.txt">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
