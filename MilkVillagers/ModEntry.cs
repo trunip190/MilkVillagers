@@ -1,5 +1,4 @@
-﻿using Force.DeepCloner;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Netcode;
@@ -8,7 +7,6 @@ using SpaceCore.Events;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
-using StardewValley.Events;
 using StardewValley.Extensions;
 using StardewValley.GameData.Characters;
 using StardewValley.GameData.Objects;
@@ -17,14 +15,9 @@ using StardewValley.Objects;
 using StardewValley.Quests;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using System.IO;
 using System.Linq;
-using System.Numerics;
 using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading;
-using xTile.Dimensions;
 using Framework = Microsoft.Xna.Framework;
 using IGenericModConfigMenuApi = GenericModConfigMenu.IGenericModConfigMenuApi;
 using Log = MilkVillagers.ModFunctions;
@@ -35,7 +28,7 @@ namespace MilkVillagers
     public class ModEntry : Mod
     {
         #region class variables
-        private Framework.Vector2 target;
+        private Vector2 target;
         private bool loaded;
         private bool running;
         private bool runOnce;
@@ -124,7 +117,7 @@ namespace MilkVillagers
             Instance = this;
             Config = helper.ReadConfig<ModConfig>();
             TempRefs.Monitor = Monitor;
-            i18n = this.Helper.Translation;
+            i18n = Helper.Translation;
             MSskill = new(SkillID);
 
             #region Harmony setup
@@ -140,14 +133,14 @@ namespace MilkVillagers
             }
             #endregion
 
-            if (helper == null)
-            {
-                Log.Log("helper is null.", LogLevel.Error);
-            }
-            else
-            {
-                TempRefs.Helper = helper;
-            }
+                if (helper == null)
+                {
+                    Log.Log("helper is null.", LogLevel.Error);
+                }
+                else
+                {
+                    TempRefs.Helper = helper;
+                }
 
             Dictionary<string, string> data = Game1.content.Load<Dictionary<string, string>>("Data\\Events\\" + "Forest");
 
@@ -193,15 +186,15 @@ namespace MilkVillagers
             UpdateConfig();
 
             #region Mobile Phone
-            MobilePhoneApi = Helper.ModRegistry.GetApi<IMobilePhoneApi>("aedenthorn.MobilePhone");
-            if (MobilePhoneApi != null)
-            {
-                Texture2D appIcon = Helper.ModContent.Load<Texture2D>(Path.Combine("assets", "app_icon.png"));
-                bool success = MobilePhoneApi.AddApp(Helper.ModRegistry.ModID, "Milk the village", MTV_App.MobileOpenApp, appIcon);
-                MTV_App.Api = MobilePhoneApi;
-                MTV_App.Helper = this.Helper;
-                Monitor.Log($"loaded phone app successfully: {success}", LogLevel.Debug);
-            }
+            //MobilePhoneApi = Helper.ModRegistry.GetApi<IMobilePhoneApi>("aedenthorn.MobilePhone");
+            //if (MobilePhoneApi != null)
+            //{
+            //    Texture2D appIcon = Helper.ModContent.Load<Texture2D>(Path.Combine("assets", "app_icon.png"));
+            //    bool success = MobilePhoneApi.AddApp(Helper.ModRegistry.ModID, "Milk the village", MTV_App.MobileOpenApp, appIcon);
+            //    MTV_App.Api = MobilePhoneApi;
+            //    MTV_App.Helper = this.Helper;
+            //    Monitor.Log($"loaded phone app successfully: {success}", LogLevel.Debug);
+            //}
             #endregion
 
             contentPatcherApi = this.Helper.ModRegistry.GetApi<ContentPatcher.IContentPatcherAPI>("Pathoschild.ContentPatcher");
@@ -933,8 +926,6 @@ namespace MilkVillagers
                     return;
                 }
 
-                //QuestChecks(who); //Moved to netfield quest updating.
-                //SendMailCompleted(who);
             }
 
         }
@@ -1065,13 +1056,16 @@ namespace MilkVillagers
             if (!NewValue.id.Contains("5948")) return false;
             if (CurrentQuests.Contains(QuestId(NewValue))) return false;
 
-            if (who.questLog.Any(o => o.id == NewValue.id)) // HasQuest(who, QuestId(NewValue)))
-            {
+            //if (who.questLog.Any(o => o.id == NewValue.id)) // HasQuest(who, QuestId(NewValue)))
+            //{
                 if (QuestId(NewValue) == 594824)
                 {
                     Log.Log("Setting ActiveConversationEvent to MTV_Bukkake", LogLevel.Info);
                     if (!who.activeDialogueEvents.ContainsKey("MTV_Bukkake"))
+                    {
                         Game1.player.activeDialogueEvents.Add("MTV_Bukkake", 1);
+                    }
+                        who.addItemToInventory(new sObject("Trunip190.CP.MilkTheVillagers.Invitation", 5));
                 }
                 if (QuestId(NewValue) == 594841) //Shane quest 1
                 {
@@ -1102,9 +1096,9 @@ namespace MilkVillagers
                 }
                 if (QuestId(NewValue) == 594819)
                 {
-                    if (!who.knowsRecipe("Crotchless Panties"))
+                    if (!who.knowsRecipe("Trunip190.CP.MilkTheVillagers.Crotchless_Panties"))
                     {
-                        who.craftingRecipes["Crotchless Panties"] = 0; // Crafting name, then times crafted (0)
+                        who.craftingRecipes["Trunip190.CP.MilkTheVillagers.Crotchless_Panties"] = 0; // Crafting name, then times crafted (0)
                     }
                 }
                 if (QuestId(NewValue) == 594826)
@@ -1117,9 +1111,7 @@ namespace MilkVillagers
                 CurrentQuests.Add(QuestId(NewValue));
                 Log.Log($"Watching quest ID {QuestId(NewValue)}", LogLevel.Trace);
                 return true;
-            }
-
-            return false;
+            //}
         }
 
         private static bool CheckActionQuest(Farmer who, string QuestID, string Recipient, string[] ActionRequired, ActionNPCEventArgs e, Gender NPCGender = Gender.Undefined)
@@ -1204,7 +1196,7 @@ namespace MilkVillagers
             Log.Log($"{e.Who.Name} did {e.Action} with {e.Recipient.Name} in {e.Map.Name}", LogLevel.Trace);
         }
 
-        private static void QuestCompleted(Farmer who, Quest compQuest)
+        private void QuestCompleted(Farmer who, Quest compQuest)
         {
             if (!compQuest.id.Contains("5948")) return; // Check for quests in this pack.
             switch (compQuest.id.Value)
@@ -2114,6 +2106,10 @@ namespace MilkVillagers
         private void FileCheck(string command, string[] args)
         {
             Log.Log($"Checking files", LogLevel.Trace, Force: true);
+
+            var recipes = DataLoader.CraftingRecipes(Game1.content).Where(o => o.Key.Contains("Trunip190.CP.MilkTheVillagers."));
+            var unlocked = Whom.craftingRecipes;
+
             List<string> folders;
 
             if (args.Contains("all"))

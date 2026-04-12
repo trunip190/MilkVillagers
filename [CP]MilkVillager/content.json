@@ -171,6 +171,12 @@
       "Target": "Characters/Maru_Nude",
       "FromFile": "assets/Maru_Nude.png"
     },
+    {
+      "Action": "Load",
+      "Priority": "Low",
+      "Target": "Characters/Abigail_Nude",
+      "FromFile": "assets/Abigail_Nude.png"
+    },
 
     //Character Portraits
     {

@@ -1261,7 +1261,7 @@
           ]
         },
         "Trunip190.CP.MilkTheVillagers.Crotchless_Panties": {
-          "Name": "Crotchless Panties",
+          "Name": "Trunip190.CP.MilkTheVillagers.Crotchless_Panties",
           "DisplayName": "{{i18n:Crotchless_Panties.name}}",
           "Description": "{{i18n:Crotchless_Panties.description}}",
           "Type": "Basic",
@@ -1483,7 +1483,8 @@
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
       "Entries": {
-        "Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/what is this for?/Trunip190.CP.MilkTheVillagers.Shibari_rope 1/false/null/Shibari Rope"
+        "Trunip190.CP.MilkTheVillagers.Shibari_rope": "771 3/Field/Trunip190.CP.MilkTheVillagers.Shibari_rope 1/false/null/Shibari Rope",
+        "Trunip190.CP.MilkTheVillagers.Crotchless_Panties": "428 1/Field/Trunip190.CP.MilkTheVillagers.Crotchless_Panties 1/false/null/Crotchless Panties"
       }
     },
     { //Female
